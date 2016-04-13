@@ -1,0 +1,56 @@
+.md-main-content {
+  background-color: #FAFAFA; }
+
+md-list-item p {
+  font-weight: normal; }
+
+md-list-item.active, md-list-item.active md-icon {
+  color: #2196F3; }
+
+.sidenav-sub-item {
+  padding-left: 36px; }
+
+.sidenav-sub-item md-icon {
+  padding-right: 16px; }
+
+md-toolbar.md-table-toolbar.ng-hide {
+  display: none; }
+
+md-toolbar.md-table-toolbar.alternate .md-toolbar-tools {
+  color: #1e88e5;
+  font-size: 16px;
+  background-color: #e3f2fd; }
+
+md-toolbar.md-table-toolbar form {
+  margin-left: 16px; }
+
+md-toolbar.md-table-toolbar form > input {
+  width: 100%;
+  margin: 0;
+  border: none;
+  color: rgba(0, 0, 0, 0.87); }
+
+md-toolbar.md-table-toolbar form > input:focus {
+  outline: none; }
+
+md-input-container .hint {
+  position: absolute;
+  left: 2px;
+  right: auto;
+  bottom: 7px;
+  /* Copy styles from ng-messages */
+  font-size: 12px;
+  line-height: 14px;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  /* Set our own color */
+  color: grey; }
+
+md-input-container .hint.ng-hide, md-input-container .hint.ng-enter, md-input-container .hint.ng-leave.ng-leave-active {
+  bottom: 26px;
+  opacity: 0; }
+
+md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-active {
+  bottom: 7px;
+  opacity: 1; }
+
+/*# sourceMappingURL=style.css.map */
