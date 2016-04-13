@@ -1,0 +1,60 @@
+<md-dialog style="min-width: 500px;" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 translate>Add a new server</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block" flex>
+                    <label translate>Label</label>
+                    <md-icon>label</md-icon>
+                    <input ng-model="server.label">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Address</label>
+                    <md-icon>language</md-icon>
+                    <input ng-model="server.address">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>FQDN</label>
+                    <md-icon>dns</md-icon>
+                    <input ng-model="server.fqdn">
+                    <div class="hint">Fully Qualified Domain Name</div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Login</label>
+                    <md-icon>vpn_key</md-icon>
+                    <input ng-model="server.login">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Port</label>
+                    <md-icon>settings_input_component</md-icon>
+                    <input ng-model="server.port">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <md-switch class="md-primary" ng-model="server.ssh">{{ 'SSH' | translate }}</md-switch>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button ng-click="create()" class="md-accent md-hue-3">
+                {{ 'Create' | translate }}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

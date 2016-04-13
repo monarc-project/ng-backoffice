@@ -1,0 +1,85 @@
+<div flex ng-controller="BackofficeKbInfoCtrl">
+    <md-tabs md-dynamic-height>
+        <md-tab label="{{ 'Assets' | translate }}" flex>
+            <md-toolbar class="md-table-toolbar md-default" ng-hide="assets.selected.length || assets.filter.show">
+                <div class="md-toolbar-tools">
+                    <h2 class="md-title" translate>Assets</h2>
+                    <div flex></div>
+                    <md-button class="md-icon-button" ng-click="assets.filter.show = true">
+                        <md-icon>search</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-toolbar class="md-table-toolbar md-default" ng-show="assets.filter.show && !assets.selected.length">
+                <div class="md-toolbar-tools">
+                    <md-icon>search</md-icon>
+                    <form flex name="assets.filter.form">
+                        <input type="text" ng-model="assets.query.filter" ng-model-options="assets.filter.options" placeholder="{{ 'Search...' | translate }}">
+                    </form>
+                    <md-button class="md-icon-button" ng-click="removeAssetsFilter()">
+                        <md-icon>close</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-toolbar class="md-table-toolbar alternate" ng-show="assets.selected.length">
+                <div class="md-toolbar-tools" layout-align="space-between">
+                    <div>{{assets.selected.length}} {{assets.selected.length > 1 ? 'items' : 'item'}} selected</div>
+                    <md-button class="md-icon-button" ng-click="delete($event)">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-table-container flex>
+                <table md-table md-row-select multiple ng-model="assets.selected" md-progress="assets.promise">
+                    <thead md-head md-order="assets.query.order" md-on-reorder="updateAssets">
+                    <tr md-row>
+                        <th md-column md-order-by="active"><span translate>Actif</span></th>
+                        <th md-column md-order-by="label"><span translate>Label</span></th>
+                        <th md-column md-order-by="code"><span translate>Code</span></th>
+                        <th md-column md-order-by="type"><span translate>Type</span></th>
+                        <th md-column md-order-by="mode"><span translate>Mode</span></th>
+                        <th md-column md-order-by="description"><span translate>Description</span></th>
+                        <th md-column><span translate>Actions</span></th>
+                    </tr>
+                    </thead>
+
+                    <tbody md-body>
+                    <tr md-row md-select="asset" md-select-id="label" ng-repeat="asset in assets.items.assets">
+                        <td md-cell>{{ asset.active }}</td>
+                        <td md-cell>{{ asset.label }}</td>
+                        <td md-cell>{{ asset.code }}</td>
+                        <td md-cell>{{ asset.type }}</td>
+                        <td md-cell>{{ asset.mode }}</td>
+                        <td md-cell>{{ asset.description }}</td>
+                        <td md-cell><md-button class="md-icon-button"><md-icon>delete</md-icon></md-button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination md-limit="assets.query.limit" md-limit-options="[5, 10, 15]" md-page="assets.query.page"
+                                 md-total="{{assets.items.count}}" md-on-paginate="updateAssets" md-page-select></md-table-pagination>
+        </md-tab>
+
+        <md-tab label="{{ 'Threats' | translate }}">
+        </md-tab>
+
+        <md-tab label="{{ 'Vulns' | translate }}">
+        </md-tab>
+
+        <md-tab label="{{ '27002 measures' | translate }}">
+        </md-tab>
+
+        <md-tab label="{{ 'AMVs' | translate }}">
+        </md-tab>
+
+        <md-tab label="{{ 'Objects library' | translate }}">
+        </md-tab>
+
+        <md-tab label="{{ 'Questions' | translate }}">
+        </md-tab>
+    </md-tabs>
+</div>

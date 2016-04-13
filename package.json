@@ -1,0 +1,12 @@
+{
+  "name": "ng_backoffice",
+  "version": "1.0.0",
+  "description": "MONARC Backoffice AngularJS Module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "ssh://gogs@rhea.netlor.fr:2222/monarc/ng_backoffice.git"
+  },
+  "author": "Netlor SAS",
+  "license": "Copyright"
+}

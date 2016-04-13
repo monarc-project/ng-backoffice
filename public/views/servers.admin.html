@@ -1,0 +1,45 @@
+<div flex ng-controller="BackofficeAdminServerCtrl">
+    <md-table-container flex>
+        <table md-table>
+            <thead md-head>
+            <tr md-row>
+                <th md-column><span translate>Label</span></th>
+                <th md-column><span translate>FQDN</span></th>
+                <th md-column><span translate>Address</span></th>
+                <th md-column><span translate>Login</span></th>
+                <th md-column><span translate>Port</span></th>
+                <th md-column><span translate>State</span></th>
+                <th md-column><span translate>SSH</span></th>
+                <th md-column><span translate>Actions</span></th>
+            </tr>
+            </thead>
+
+            <tbody md-body>
+            <tr md-row ng-repeat="server in servers.servers">
+                <td md-cell>{{ server.label }}</td>
+                <td md-cell>{{ server.fqdn }}</td>
+                <td md-cell>{{ server.address }}</td>
+                <td md-cell>{{ server.login }}</td>
+                <td md-cell>{{ server.port }}</td>
+                <td md-cell>{{ server.state }}</td>
+                <td md-cell>{{ server.ssh }}</td>
+                <td md-cell>
+                    <md-button class="md-icon-button" ng-click="deleteServer($event, server)">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+
+    <div layout="row" class="md-padding">
+        <span flex></span>
+        <md-button class="md-fab md-accent" aria-label="{{ 'New server' | translate }}" ng-click="createNewServer($event)">
+            <md-tooltip md-direction="left">
+                {{ 'New server' | translate }}
+            </md-tooltip>
+            <md-icon>add</md-icon>
+        </md-button>
+    </div>
+</div>
