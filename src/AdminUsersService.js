@@ -2,19 +2,21 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AdminUsersService', [ '$http', '$q', '$httpParamSerializer',
+        .factory('AdminUsersService', [ '$resource', '$http', '$q', '$httpParamSerializer',
             AdminUsersService
         ]);
 
     // TODO: $resource
-    function AdminUsersService($http, $q, $httpParamSerializer) {
+    function AdminUsersService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
+
+        self.UserResource = $resource('/api/admin/users/:userId', { userId: '@id' });
 
         var getUsers = function (params) {
             var promise = $q.defer();
             var q = $httpParamSerializer(params);
 
-            $http.get('/data/admin_users.json?' + q).then(
+            $http.get('/api/admin/users?' + q).then(
                 function (data) { promise.resolve(data.data);  },
                 function (data) { promise.reject(data.status); }
             );
