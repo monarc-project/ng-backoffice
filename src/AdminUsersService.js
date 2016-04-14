@@ -38,10 +38,9 @@
         var deleteUser = function (id) {
             var promise = $q.defer();
 
-            $http.delete('/data/admin_users.json?id=' + encodeURI(id)).then(
-                function () { promise.resolve(); },
-                function (data) { promise.reject(data.status); }
-            );
+            self.UserResource.delete({userId: id}, function () {
+                promise.resolve();
+            });
 
             return promise.promise;
         };
