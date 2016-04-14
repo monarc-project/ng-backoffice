@@ -27,10 +27,10 @@
         var createUser = function (params) {
             var promise = $q.defer();
 
-            $http.post('/data/admin_users.json', params).then(
-                function () { promise.resolve(); },
-                function (data) { promise.reject(data.status); }
-            );
+            var user = new self.UserResource(params);
+            user.$save(function (user) {
+                promise.resolve(user);
+            });
 
             return promise.promise;
         };
