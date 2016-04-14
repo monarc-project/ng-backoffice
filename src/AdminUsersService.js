@@ -30,6 +30,8 @@
             var user = new self.UserResource(params);
             user.$save(function (user) {
                 promise.resolve(user);
+            }, function (error) {
+                promise.reject(error.status);
             });
 
             return promise.promise;
@@ -40,6 +42,8 @@
 
             self.UserResource.delete({userId: id}, function () {
                 promise.resolve();
+            }, function (error) {
+                promise.reject(error.status);
             });
 
             return promise.promise;
