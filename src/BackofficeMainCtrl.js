@@ -23,7 +23,7 @@
         $scope.isLoggingOut = false;
         $scope.BreadcrumbService = BreadcrumbService;
 
-        BreadcrumbService.setItems(['KB management']);
+        BreadcrumbService.setItems([{'label': 'Home', 'sref': 'main'}]);
 
         // Translations helper
         $scope.setLang = function (lang) {

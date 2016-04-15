@@ -4,13 +4,21 @@
         .module('BackofficeApp')
         .controller('BackofficeAdminServerCtrl', [
             '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'AdminServerService',
+            'BreadcrumbService',
             BackofficeAdminServerCtrl
         ]);
 
     /**
      * Admin Server Controller for the Backoffice module
      */
-    function BackofficeAdminServerCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, AdminServerService) {
+    function BackofficeAdminServerCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, AdminServerService,
+    BreadcrumbService) {
+        BreadcrumbService.setItems([
+            {'label': 'Home', 'sref': 'main'},
+            {'label': 'Administration', 'sref': 'main.admin'},
+            {'label': 'Servers management', 'sref': 'main.admin.servers'},
+        ]);
+
         $scope.servers = {};
 
         var showErrorToast = function (thing, status) {

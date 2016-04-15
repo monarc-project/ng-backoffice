@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeAdminUsersCtrl', [
             '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'AdminUsersService',
-            'TableHelperService',
+            'TableHelperService', 'BreadcrumbService',
             BackofficeAdminUsersCtrl
         ]);
 
@@ -12,7 +12,13 @@
      * Admin Users Controller for the Backoffice module
      */
     function BackofficeAdminUsersCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, AdminUsersService,
-                                      TableHelperService) {
+                                      TableHelperService, BreadcrumbService) {
+        BreadcrumbService.setItems([
+            {'label': 'Home', 'sref': 'main'},
+            {'label': 'Administration', 'sref': 'main.admin'},
+            {'label': 'Users management', 'sref': 'main.admin.users'},
+        ]);
+
         var showErrorToast = function (thing, status) {
             $mdToast.show(
                 $mdToast.simple()
