@@ -3,7 +3,8 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAdminUsersCtrl', [
-            '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'AdminUsersService', 'TableHelperService',
+            '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'AdminUsersService',
+            'TableHelperService',
             BackofficeAdminUsersCtrl
         ]);
 
@@ -73,6 +74,40 @@
                 });
         };
 
+        $scope.editUser = function (ev, user) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'user', CreateUserDialogCtrl],
+                templateUrl: '/views/dialogs/create.users.admin.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                locals: {
+                    'user': user
+                }
+            })
+                .then(function (user) {
+                    AdminUsersService.updateUser(user).then(
+                        function () {
+                            $scope.updateUsers();
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent('The user information has been updated successfully.')
+                                    .position('top right')
+                                    .hideDelay(3000)
+                            );
+                        },
+
+                        function (status) {
+                            showErrorToast('created user', status);
+                        }
+                    );
+                }, function () {
+
+                });
+        };
+
         $scope.deleteUser = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title('Are you sure you want to delete "' + item.firstname + " " + item.lastname + '"?')
@@ -104,13 +139,17 @@
     }
 
 
-    function CreateUserDialogCtrl($scope, $mdDialog) {
-        $scope.user = {
-            firstname: '',
-            lastname: '',
-            email: '',
-            phone: ''
-        };
+    function CreateUserDialogCtrl($scope, $mdDialog, user) {
+        if (user != undefined && user != null) {
+            $scope.user = user;
+        } else {
+            $scope.user = {
+                firstname: '',
+                lastname: '',
+                email: '',
+                phone: ''
+            };
+        }
 
         $scope.cancel = function() {
             $mdDialog.cancel();

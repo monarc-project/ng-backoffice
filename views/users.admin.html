@@ -37,13 +37,13 @@
 
             <tbody md-body>
             <tr md-row ng-repeat="user in users.items.users">
-                <td md-cell><md-icon>{{ user.active == true ? 'check_circle' : 'remove_circle' }}</md-icon></td>
+                <td md-cell><md-icon>{{ user.status == 1 ? 'check_circle' : 'remove_circle' }}</md-icon></td>
                 <td md-cell>{{ user.firstname }}</td>
                 <td md-cell>{{ user.lastname }}</td>
                 <td md-cell>{{ user.email }}</td>
                 <td md-cell>{{ user.phone }}</td>
                 <td md-cell>
-                    <md-button class="md-icon-button"><md-icon>edit</md-icon></md-button>
+                    <md-button class="md-icon-button" ng-click="editUser($event, user)"><md-icon>edit</md-icon></md-button>
                     <md-button class="md-icon-button" ng-click="deleteUser($event, user)"><md-icon>delete</md-icon></md-button>
                 </td>
             </tr>

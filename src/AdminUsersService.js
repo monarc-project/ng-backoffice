@@ -37,6 +37,19 @@
             return promise.promise;
         };
 
+        var updateUser = function (params) {
+            var promise = $q.defer();
+
+            var user = new self.UserResource(params);
+            user.$save(function (user) {
+                promise.resolve(user);
+            }, function (error) {
+                promise.reject(error.status);
+            });
+
+            return promise.promise;
+        };
+
         var deleteUser = function (id) {
             var promise = $q.defer();
 
@@ -52,7 +65,8 @@
         return {
             getUsers: getUsers,
             createUser: createUser,
-            deleteUser: deleteUser
+            deleteUser: deleteUser,
+            updateUser: updateUser
         };
     }
 
