@@ -22,7 +22,7 @@
             );
         };
 
-        $scope.users = TableHelperService.build('firstname', 25, 1, '');
+        $scope.users = TableHelperService.build('-firstname', 25, 1, '');
 
         $scope.removeFilter = function () {
             TableHelperService.removeFilter($scope.users);
