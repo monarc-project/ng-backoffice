@@ -6,7 +6,6 @@
             AdminUsersService
         ]);
 
-    // TODO: $resource
     function AdminUsersService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 

@@ -18,10 +18,10 @@
             <tr md-row ng-repeat="server in servers.servers">
                 <td md-cell>{{ server.label }}</td>
                 <td md-cell>{{ server.fqdn }}</td>
-                <td md-cell>{{ server.address }}</td>
+                <td md-cell>{{ server.ip_address }}</td>
                 <td md-cell>{{ server.login }}</td>
                 <td md-cell>{{ server.port }}</td>
-                <td md-cell>{{ server.state }}</td>
+                <td md-cell>{{ server.status }}</td>
                 <td md-cell>{{ server.ssh }}</td>
                 <td md-cell>
                     <md-button class="md-icon-button" ng-click="deleteServer($event, server)">
