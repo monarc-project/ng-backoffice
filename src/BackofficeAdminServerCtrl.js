@@ -4,6 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeAdminServerCtrl', [
             '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminServerService',
+            'ErrorService',
             BackofficeAdminServerCtrl
         ]);
 
@@ -11,18 +12,8 @@
      * Admin Server Controller for the Backoffice module
      */
     function BackofficeAdminServerCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
-                                       AdminServerService) {
+                                       AdminServerService, ErrorService) {
         $scope.servers = {};
-
-        var showErrorToast = function (thing, status) {
-            $mdToast.show(
-                $mdToast.simple()
-                    .textContent(gettextCatalog.getString('An error occurred while fetching {{ thing }}: {{status}}',
-                        { thing: thing, status: status }))
-                    .position('top right')
-                    .hideDelay(3000)
-            );
-        };
 
         $scope.updateServers = function () {
             AdminServerService.getServers().then(
@@ -31,7 +22,7 @@
                 },
 
                 function (status) {
-                    showErrorToast('servers', status);
+                    ErrorService.notifyFetchError(gettext('servers'), status);
                 }
             );
         };
@@ -59,7 +50,7 @@
                         },
 
                         function (status) {
-                            showErrorToast(gettext('created server'), status);
+                            ErrorService.notifyFetchError(gettext('created server'), status);
                         }
                     );
                 }, function () {
@@ -88,7 +79,7 @@
                     },
 
                     function (status) {
-                        showErrorToast(gettext('deleted server'), status);
+                        ErrorService.notifyFetchError(gettext('deleted server'), status);
                     }
                 );
             }, function() {

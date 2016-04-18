@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeAdminUsersCtrl', [
             '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminUsersService',
-            'TableHelperService',
+            'TableHelperService', 'ErrorService',
             BackofficeAdminUsersCtrl
         ]);
 
@@ -12,16 +12,7 @@
      * Admin Users Controller for the Backoffice module
      */
     function BackofficeAdminUsersCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
-                                      AdminUsersService, TableHelperService) {
-        var showErrorToast = function (thing, status) {
-            $mdToast.show(
-                $mdToast.simple()
-                    .textContent('An error occurred while fetching ' + thing + ': ' + status)
-                    .position('top right')
-                    .hideDelay(3000)
-            );
-        };
-
+                                      AdminUsersService, TableHelperService, ErrorService) {
         $scope.users = TableHelperService.build('-firstname', 25, 1, '');
 
         $scope.removeFilter = function () {
@@ -36,7 +27,7 @@
                 },
 
                 function (status) {
-                    showErrorToast('users', status);
+                    ErrorService.notifyFetchError(gettext('users'), status);
                 }
             );
         };
@@ -66,7 +57,7 @@
                         },
 
                         function (status) {
-                            showErrorToast(gettext('created user'), status);
+                            ErrorService.notifyFetchError(gettext('created user'), status);
                         }
                     );
                 }, function () {
@@ -93,14 +84,14 @@
                             $scope.updateUsers();
                             $mdToast.show(
                                 $mdToast.simple()
-                                    .textContent('The user information has been updated successfully.')
+                                    .textContent(gettext('The user information has been updated successfully.'))
                                     .position('top right')
                                     .hideDelay(3000)
                             );
                         },
 
                         function (status) {
-                            showErrorToast(gettext('created user'), status);
+                            ErrorService.notifyFetchError(gettext('created user'), status);
                         }
                     );
                 }, function () {
@@ -130,7 +121,7 @@
                     },
 
                     function (status) {
-                        showErrorToast(gettext('deleted user'), status);
+                        ErrorService.notifyFetchError(gettext('deleted user'), status);
                     }
                 );
             }, function() {

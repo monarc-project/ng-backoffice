@@ -3,24 +3,15 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
-            '$scope', '$mdToast', 'gettextCatalog', 'KBService', 'TableHelperService',
+            '$scope', '$mdToast', 'gettextCatalog', 'KBService', 'TableHelperService', 'ErrorService',
             BackofficeKbInfoCtrl
         ]);
 
     /**
      * BO > KB > INFO
      */
-    function BackofficeKbInfoCtrl($scope, $mdToast, gettextCatalog, KBService, TableHelperService) {
+    function BackofficeKbInfoCtrl($scope, $mdToast, gettextCatalog, KBService, TableHelperService, ErrorService) {
         TableHelperService.resetBookmarks();
-
-        var showErrorToast = function (thing, status) {
-            $mdToast.show(
-                $mdToast.simple()
-                    .textContent('An error occurred while fetching ' + thing + ': ' + status)
-                    .position('top right')
-                    .hideDelay(3000)
-            );
-        };
 
         /*
          * ASSETS TAB
@@ -35,7 +26,7 @@
                 },
 
                 function (status) {
-                    showErrorToast('assets', status);
+                    ErrorService.notifyFetchError('assets', status);
                 }
             )
         };
