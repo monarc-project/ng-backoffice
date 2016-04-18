@@ -3,22 +3,16 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAdminUsersCtrl', [
-            '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'AdminUsersService',
-            'TableHelperService', 'BreadcrumbService',
+            '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminUsersService',
+            'TableHelperService',
             BackofficeAdminUsersCtrl
         ]);
 
     /**
      * Admin Users Controller for the Backoffice module
      */
-    function BackofficeAdminUsersCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, AdminUsersService,
-                                      TableHelperService, BreadcrumbService) {
-        BreadcrumbService.setItems([
-            {'label': 'Home', 'sref': 'main'},
-            {'label': 'Administration', 'sref': 'main.admin'},
-            {'label': 'Users management', 'sref': 'main.admin.users'},
-        ]);
-
+    function BackofficeAdminUsersCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
+                                      AdminUsersService, TableHelperService) {
         var showErrorToast = function (thing, status) {
             $mdToast.show(
                 $mdToast.simple()
@@ -65,14 +59,14 @@
                             $scope.updateUsers();
                             $mdToast.show(
                                 $mdToast.simple()
-                                    .textContent('The user has been created successfully.')
+                                    .textContent(gettext('The user has been created successfully.'))
                                     .position('top right')
                                     .hideDelay(3000)
                             );
                         },
 
                         function (status) {
-                            showErrorToast('created user', status);
+                            showErrorToast(gettext('created user'), status);
                         }
                     );
                 }, function () {
@@ -106,7 +100,7 @@
                         },
 
                         function (status) {
-                            showErrorToast('created user', status);
+                            showErrorToast(gettext('created user'), status);
                         }
                     );
                 }, function () {
@@ -116,25 +110,27 @@
 
         $scope.deleteUser = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title('Are you sure you want to delete "' + item.firstname + " " + item.lastname + '"?')
-                .textContent('This operation is irreversible.')
+                .title(gettextCatalog.getString('Are you sure you want to delete "{{ firstname }} {{ lastname }}"?',
+                    {firstname: item.firstname, lastname: item.lastname}))
+                .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok('Delete')
-                .cancel('Cancel');
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 AdminUsersService.deleteUser(item.id).then(
                     function () {
                         $scope.updateUsers();
                         $mdToast.show(
                             $mdToast.simple()
-                                .textContent('The user "' + item.firstname + " " + item.lastname + '" has been deleted.')
+                                .textContent(gettextCatalog.getString('The user "{{firstname}} {{lastname}}" has been deleted.',
+                                    {firstname: item.firstname, lastname: item.lastname}))
                                 .position('top right')
                                 .hideDelay(3000)
                         );
                     },
 
                     function (status) {
-                        showErrorToast('deleted user', status);
+                        showErrorToast(gettext('deleted user'), status);
                     }
                 );
             }, function() {

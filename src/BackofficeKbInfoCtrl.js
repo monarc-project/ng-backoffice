@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
-            '$scope', '$mdToast', 'gettextCatalog', 'KBService', 'TableHelperService', 'BreadcrumbService',
+            '$scope', '$mdToast', 'gettextCatalog', 'KBService', 'TableHelperService',
             BackofficeKbInfoCtrl
         ]);
 
     /**
      * BO > KB > INFO
      */
-    function BackofficeKbInfoCtrl($scope, $mdToast, gettextCatalog, KBService, TableHelperService, BreadcrumbService) {
+    function BackofficeKbInfoCtrl($scope, $mdToast, gettextCatalog, KBService, TableHelperService) {
         TableHelperService.resetBookmarks();
 
         var showErrorToast = function (thing, status) {
@@ -21,12 +21,6 @@
                     .hideDelay(3000)
             );
         };
-
-        BreadcrumbService.setItems([
-            {'label': 'Home', 'sref': 'main'},
-            {'label': 'KB management', 'sref': 'main.kb_mgmt'},
-            {'label': 'Information risks', 'sref': 'main.kb_mgmt.info_risk'},
-        ]);
 
         /*
          * ASSETS TAB

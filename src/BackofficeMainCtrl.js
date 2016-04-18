@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeMainCtrl', [
-            '$scope', '$state', '$mdSidenav', 'gettextCatalog', 'UserService', 'BreadcrumbService',
+            '$scope', '$state', '$mdSidenav', 'gettextCatalog', 'UserService',
             BackofficeMainCtrl
         ]);
 
     /**
      * Main Controller for the Backoffice module
      */
-    function BackofficeMainCtrl($scope, $state, $mdSidenav, gettextCatalog, UserService, BreadcrumbService) {
+    function BackofficeMainCtrl($scope, $state, $mdSidenav, gettextCatalog, UserService) {
         if (!UserService.isAuthenticated() && !UserService.reauthenticate()) {
             setTimeout(function() {
                 $state.transitionTo('login');
@@ -19,11 +19,11 @@
             return;
         }
 
+        gettextCatalog.setCurrentLanguage('en');
+        gettextCatalog.debug = true;
+
         $scope.sidenavIsOpen = true;
         $scope.isLoggingOut = false;
-        $scope.BreadcrumbService = BreadcrumbService;
-
-        BreadcrumbService.setItems([{'label': 'Home', 'sref': 'main'}]);
 
         // Translations helper
         $scope.setLang = function (lang) {

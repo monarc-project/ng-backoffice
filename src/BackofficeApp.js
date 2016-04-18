@@ -2,9 +2,9 @@ angular
     .module('BackofficeApp', ['ngMaterial', 'ui.router', 'gettext', 'ngResource', 'LocalStorageModule', 'md.data.table',
                                 'ncy-angular-breadcrumb'])
     .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', '$resourceProvider',
-        'localStorageServiceProvider', '$httpProvider', '$breadcrumbProvider',
+        'localStorageServiceProvider', '$httpProvider', '$breadcrumbProvider', 'gettext',
         function ($mdThemingProvider, $stateProvider, $urlRouterProvider, $resourceProvider, localStorageServiceProvider,
-                  $httpProvider, $breadcrumbProvider) {
+                  $httpProvider, $breadcrumbProvider, gettext) {
             // Store the state provider to be allow controllers to inject their routes
             window.$stateProvider = $stateProvider;
 
@@ -27,7 +27,7 @@ angular
                     "main": {templateUrl: "/views/login.html"}
                 },
                 ncyBreadcrumb: {
-                    label: 'Login'
+                    label: gettext('Login')
                 }
             }).state('main', {
                 url: "/backoffice",
@@ -35,14 +35,14 @@ angular
                     "main": {templateUrl: "/views/index.backoffice.html"}
                 },
                 ncyBreadcrumb: {
-                    label: 'Home'
+                    label: gettext('Home')
                 }
             }).state('main.admin', {
                 url: "/admin",
                 views: {
                 },
                 ncyBreadcrumb: {
-                    label: 'Administration'
+                    label: gettext('Administration')
                 }
             }).state('main.admin.users', {
                 url: "/users",
@@ -50,7 +50,7 @@ angular
                     "main@main": {templateUrl: "/views/users.admin.html"}
                 },
                 ncyBreadcrumb: {
-                    label: 'Users management'
+                    label: gettext('Users management')
                 }
             }).state('main.admin.servers', {
                 url: "/servers",
@@ -58,7 +58,7 @@ angular
                     "main@main": {templateUrl: "/views/servers.admin.html"}
                 },
                 ncyBreadcrumb: {
-                    label: 'Servers management'
+                    label: gettext('Servers management')
                 }
             }).state('main.kb_mgmt', {
                 url: "/kb",
@@ -66,7 +66,7 @@ angular
                     "main": {templateUrl: "/views/index.kb_mgmt.html"}
                 },
                 ncyBreadcrumb: {
-                    label: 'KB management'
+                    label: gettext('KB management')
                 }
             }).state('main.kb_mgmt.info_risk', {
                 url: '/info',
@@ -76,7 +76,7 @@ angular
                 controller: function ($scope) {
                 },
                 ncyBreadcrumb: {
-                    label: 'Information risks'
+                    label: gettext('Information risks')
                 }
             }).state('main.kb_mgmt.op_risk', {
                 url: '/op',
@@ -86,7 +86,7 @@ angular
                 controller: function ($scope) {
                 },
                 ncyBreadcrumb: {
-                    label: 'Operational risks'
+                    label: gettext('Operational risks')
                 }
             }).state('main.kb_mgmt.doc_models', {
                 url: '/docs',
@@ -96,7 +96,7 @@ angular
                 controller: function ($scope) {
                 },
                 ncyBreadcrumb: {
-                    label: 'Document models'
+                    label: gettext('Document models')
                 }
             }).state('main.kb_mgmt.analysis_guides', {
                 url: '/guides',
@@ -106,7 +106,7 @@ angular
                 controller: function ($scope) {
                 },
                 ncyBreadcrumb: {
-                    label: 'Analysis guide'
+                    label: gettext('Analysis guide')
                 }
             });
 

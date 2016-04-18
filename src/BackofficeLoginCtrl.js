@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeLoginCtrl', [
-            '$scope', '$state', '$mdToast', 'gettextCatalog', 'UserService',
+            '$scope', '$state', '$mdToast', 'gettextCatalog', 'gettext', 'UserService',
             BackofficeLoginCtrl
         ]);
 
     /**
      * Login Controller for the Backoffice module
      */
-    function BackofficeLoginCtrl($scope, $state, $mdToast, gettextCatalog, UserService) {
+    function BackofficeLoginCtrl($scope, $state, $mdToast, gettextCatalog, gettext, UserService) {
         $scope.isLoggingIn = false;
         $scope.user = {
             'email': null,
@@ -29,7 +29,7 @@
                     $scope.isLoggingIn = false;
                     $mdToast.show(
                         $mdToast.simple()
-                            .textContent('Your e-mail address or password is invalid, please try again.')
+                            .textContent(gettext('Your e-mail address or password is invalid, please try again.'))
                             .position('top right')
                             .hideDelay(4000)
                     );

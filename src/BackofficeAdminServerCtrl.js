@@ -3,28 +3,22 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAdminServerCtrl', [
-            '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'AdminServerService',
-            'BreadcrumbService',
+            '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminServerService',
             BackofficeAdminServerCtrl
         ]);
 
     /**
      * Admin Server Controller for the Backoffice module
      */
-    function BackofficeAdminServerCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, AdminServerService,
-    BreadcrumbService) {
-        BreadcrumbService.setItems([
-            {'label': 'Home', 'sref': 'main'},
-            {'label': 'Administration', 'sref': 'main.admin'},
-            {'label': 'Servers management', 'sref': 'main.admin.servers'},
-        ]);
-
+    function BackofficeAdminServerCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
+                                       AdminServerService) {
         $scope.servers = {};
 
         var showErrorToast = function (thing, status) {
             $mdToast.show(
                 $mdToast.simple()
-                    .textContent('An error occurred while fetching ' + thing + ': ' + status)
+                    .textContent(gettextCatalog.getString('An error occurred while fetching {{ thing }}: {{status}}',
+                        { thing: thing, status: status }))
                     .position('top right')
                     .hideDelay(3000)
             );
@@ -58,14 +52,14 @@
                             $scope.updateServers();
                             $mdToast.show(
                                 $mdToast.simple()
-                                    .textContent('The server has been created successfully.')
+                                    .textContent(gettext('The server has been created successfully.'))
                                     .position('top right')
                                     .hideDelay(3000)
                             );
                         },
 
                         function (status) {
-                            showErrorToast('created server', status);
+                            showErrorToast(gettext('created server'), status);
                         }
                     );
                 }, function () {
@@ -75,25 +69,26 @@
 
         $scope.deleteServer = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title('Are you sure you want to delete "' + item.label + '"?')
-                .textContent('This operation is irreversible.')
+                .title(gettextCatalog.getString('Are you sure you want to delete "{{label}}"?', { label: item.label }))
+                .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok('Delete')
-                .cancel('Cancel');
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 AdminServerService.deleteServer(item.id).then(
                     function () {
                         $scope.updateServers();
                         $mdToast.show(
                             $mdToast.simple()
-                                .textContent('The server "' + item.label + '" has been deleted.')
+                                .textContent(gettextCatalog.getString('The server "{{label}}" has been deleted.',
+                                    {label: item.label}))
                                 .position('top right')
                                 .hideDelay(3000)
                         );
                     },
 
                     function (status) {
-                        showErrorToast('deleted server', status);
+                        showErrorToast(gettext('deleted server'), status);
                     }
                 );
             }, function() {
