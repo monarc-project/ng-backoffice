@@ -33,7 +33,8 @@ module.exports = function (grunt) {
                     'node_modules/angular-ui-router/release/angular-ui-router.min.js',
                     'node_modules/angular-resource/angular-resource.min.js',
                     'node_modules/angular-local-storage/dist/angular-local-storage.min.js',
-                    'node_modules/angular-material-data-table/dist/md-data-table.min.js'
+                    'node_modules/angular-material-data-table/dist/md-data-table.min.js',
+                    'node_modules/angular-breadcrumb/release/angular-breadcrumb.min.js'
                 ],
                 dest: '../../public/js/angular-common-libs.js',
                 nonull: true

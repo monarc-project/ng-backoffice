@@ -59,7 +59,7 @@
             <md-button class="md-icon-button" ng-click="openLeftSidenav();" ng-hide="sidenavIsOpen">
                 <md-icon>menu</md-icon>
             </md-button>
-            <md-button ng-repeat="item in BreadcrumbService.getItems()" ui-sref="{{ item.sref }}">{{ item.label | translate }} {{ !$last ? '&gt;' : '' }}</md-button>
+            <div ncy-breadcrumb></div>
         </h1>
         <span flex></span>
 
