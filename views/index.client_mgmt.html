@@ -23,7 +23,7 @@
         </md-toolbar>
 
         <md-toolbar class="md-table-toolbar alternate" ng-show="clients.selected.length">
-            <div class="md-toolbar-tools" layout-align="space-between">
+            <div class="md-toolbar-tools" layout-align="space-between center" layout="row">
                 <div>{{clients.selected.length}} {{clients.selected.length > 1 ? 'items' : 'item'}} selected</div>
                 <md-button class="md-icon-button" ng-click="delete($event)">
                     <md-icon>delete</md-icon>

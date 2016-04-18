@@ -24,7 +24,7 @@
             </md-toolbar>
 
             <md-toolbar class="md-table-toolbar alternate" ng-show="assets.selected.length">
-                <div class="md-toolbar-tools" layout-align="space-between">
+                <div class="md-toolbar-tools" layout-align="space-between center">
                     <div>{{assets.selected.length}} {{assets.selected.length > 1 ? 'items' : 'item'}} selected</div>
                     <md-button class="md-icon-button" ng-click="delete($event)">
                         <md-icon>delete</md-icon>
@@ -36,7 +36,7 @@
                 <table md-table md-row-select multiple ng-model="assets.selected" md-progress="assets.promise">
                     <thead md-head md-order="assets.query.order" md-on-reorder="updateAssets">
                     <tr md-row>
-                        <th md-column md-order-by="active"><span translate>Actif</span></th>
+                        <th md-column md-order-by="active"><span translate>Active</span></th>
                         <th md-column md-order-by="label"><span translate>Label</span></th>
                         <th md-column md-order-by="code"><span translate>Code</span></th>
                         <th md-column md-order-by="type"><span translate>Type</span></th>
