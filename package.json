@@ -15,7 +15,7 @@
     "angular-breadcrumb": "^0.4.1",
     "angular-gettext": "^2.2.1",
     "angular-local-storage": "^0.2.7",
-    "angular-material": "git://github.com/angular/material#master",
+    "angular-material": "^1.0.0",
     "angular-material-data-table": "^0.10.5",
     "angular-resource": "^1.5.3",
     "angular-ui-router": "^1.0.0-alpha.4",
