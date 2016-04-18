@@ -1,0 +1,78 @@
+<section layout="row" flex layout-fill ng-controller="BackofficeClientMgmtCtrl">
+    <md-content flex ui-view="client_main">
+        <md-toolbar class="md-table-toolbar md-default" ng-hide="clients.selected.length || clients.filter.show">
+            <div class="md-toolbar-tools">
+                <h2 class="md-title" translate>Clients</h2>
+                <div flex></div>
+                <md-button class="md-icon-button" ng-click="clients.filter.show = true">
+                    <md-icon>search</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-toolbar class="md-table-toolbar md-default" ng-show="clients.filter.show && !clients.selected.length">
+            <div class="md-toolbar-tools">
+                <md-icon>search</md-icon>
+                <form flex name="clients.filter.form">
+                    <input type="text" ng-model="clients.query.filter" ng-model-options="clients.filter.options" placeholder="{{ 'Search...' | translate }}">
+                </form>
+                <md-button class="md-icon-button" ng-click="removeClientsFilter()">
+                    <md-icon>close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-toolbar class="md-table-toolbar alternate" ng-show="clients.selected.length">
+            <div class="md-toolbar-tools" layout-align="space-between">
+                <div>{{clients.selected.length}} {{clients.selected.length > 1 ? 'items' : 'item'}} selected</div>
+                <md-button class="md-icon-button" ng-click="delete($event)">
+                    <md-icon>delete</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-table-container flex>
+            <table md-table md-row-select multiple ng-model="clients.selected" md-progress="clients.promise">
+                <thead md-head md-order="clients.query.order" md-on-reorder="updateClients">
+                <tr md-row>
+                    <th md-column md-order-by="name"><span translate>Name</span></th>
+                    <th md-column md-order-by="address"><span translate>Address</span></th>
+                    <th md-column md-order-by="postalcode"><span translate>Postal code</span></th>
+                    <th md-column md-order-by="phone"><span translate>Phone</span></th>
+                    <th md-column md-order-by="email"><span translate>Email</span></th>
+                    <th md-column md-order-by="contact_fullname"><span translate>Contact full name</span></th>
+                    <th md-column><span translate>Actions</span></th>
+                </tr>
+                </thead>
+
+                <tbody md-body>
+                <tr md-row md-select="client" md-select-id="label" ng-repeat="client in clients.items.clients">
+                    <td md-cell>{{ client.name }}</td>
+                    <td md-cell>{{ client.address }}</td>
+                    <td md-cell>{{ client.postalcode }}</td>
+                    <td md-cell>{{ client.phone }}</td>
+                    <td md-cell>{{ client.email }}</td>
+                    <td md-cell>{{ client.contact_fullname }}</td>
+                    <td md-cell>
+                        <md-button class="md-icon-button" ng-click="deleteClient($event)"><md-icon>delete</md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="editClient($event, client)"><md-icon>edit</md-icon></md-button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="clients.query.limit" md-limit-options="[5, 10, 15]" md-page="clients.query.page"
+                             md-total="{{clients.items.count}}" md-on-paginate="updateClients" md-page-select></md-table-pagination>
+
+        <div layout="row" class="md-padding">
+            <span flex></span>
+            <md-button class="md-fab md-accent" aria-label="{{ 'New client' | translate }}" ng-click="createNewClient($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New client' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
+        </div>
+    </md-content>
+</section>

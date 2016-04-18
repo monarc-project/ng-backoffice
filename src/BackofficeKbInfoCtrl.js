@@ -36,23 +36,6 @@
 
         TableHelperService.watchSearch($scope, 'assets.query.filter', $scope.assets.query, $scope.updateAssets);
         $scope.updateAssets();
-
-        /*
-        $scope.$watch('assets.query.filter', function (newValue, oldValue) {
-            if (!oldValue) {
-                assetsBookmark = $scope.assets.query.page;
-            }
-
-            if (newValue !== oldValue) {
-                $scope.assets.query.page = 1;
-            }
-
-            if (!newValue) {
-                $scope.assets.query.page = assetsBookmark;
-            }
-
-            $scope.updateAssets($scope.assets.query);
-        });*/
     }
 
 })();

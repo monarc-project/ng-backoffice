@@ -1,0 +1,92 @@
+<md-dialog style="min-width: 500px;" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 ng-if="!client.id" translate>Add a new client</h2>
+                <h2 ng-if="client.id" translate>Update client information</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content" layout="column">
+                <md-input-container class="md-block" flex>
+                    <label translate>Name</label>
+                    <md-icon>business</md-icon>
+                    <input ng-model="client.name">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Proxy alias</label>
+                    <md-icon>redo</md-icon>
+                    <input ng-model="client.proxy_alias">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Address</label>
+                    <md-icon>map</md-icon>
+                    <input ng-model="client.address">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Postal code</label>
+                    <md-icon>pin_drop</md-icon>
+                    <input ng-model="client.postalcode">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Phone</label>
+                    <md-icon>phone</md-icon>
+                    <input ng-model="client.phone">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Fax</label>
+                    <md-icon>print</md-icon>
+                    <input ng-model="client.fax">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Email</label>
+                    <md-icon>email</md-icon>
+                    <input ng-model="client.email" type="email">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Employees number</label>
+                    <md-icon>people</md-icon>
+                    <input ng-model="client.employees_number">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Contact full name</label>
+                    <md-icon>account_box</md-icon>
+                    <input ng-model="client.contact_fullname">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Contact e-mail</label>
+                    <md-icon>contact_mail</md-icon>
+                    <input ng-model="client.contact_email" type="email">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Contact phone number</label>
+                    <md-icon>contact_phone</md-icon>
+                    <input ng-model="client.contact_phone">
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button ng-click="create()" class="md-accent md-hue-3">
+                {{ (client.id ? 'Update' : 'Create') | translate }}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

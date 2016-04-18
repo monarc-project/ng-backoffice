@@ -62,6 +62,16 @@
 
             <md-table-pagination md-limit="assets.query.limit" md-limit-options="[5, 10, 15]" md-page="assets.query.page"
                                  md-total="{{assets.items.count}}" md-on-paginate="updateAssets" md-page-select></md-table-pagination>
+
+            <div layout="row" class="md-padding">
+                <span flex></span>
+                <md-button class="md-fab md-accent" aria-label="{{ 'New asset' | translate }}" ng-click="createNewAsset($event)">
+                    <md-tooltip md-direction="left">
+                        {{ 'New asset' | translate }}
+                    </md-tooltip>
+                    <md-icon>add</md-icon>
+                </md-button>
+            </div>
         </md-tab>
 
         <md-tab label="{{ 'Threats' | translate }}">

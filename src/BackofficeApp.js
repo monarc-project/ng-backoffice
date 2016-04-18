@@ -60,6 +60,14 @@ angular
                 ncyBreadcrumb: {
                     label: gettext('Servers management')
                 }
+            }).state('main.client_mgmt', {
+                url: "/client",
+                views: {
+                    "main": {templateUrl: "/views/index.client_mgmt.html"}
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Client management')
+                }
             }).state('main.kb_mgmt', {
                 url: "/kb",
                 views: {
