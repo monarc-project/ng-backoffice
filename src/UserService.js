@@ -3,11 +3,11 @@
         angular
             .module('BackofficeApp')
             .factory('UserService', [
-                '$resource', '$q', 'localStorageService',
+                '$resource', '$http', '$q', 'localStorageService',
                 UserService
             ]);
 
-        function UserService($resource, $q, localStorageService) {
+        function UserService($resource, $http, $q, localStorageService) {
             var self = this;
 
             self.token = null;
@@ -34,24 +34,25 @@
             var authenticate = function (login, password) {
                 var promise = $q.defer();
 
-                // TODO: Real API call
-                setTimeout(function () {
-                    if (login == password) {
+                $http.post('/auth', {login: login, password: password}).then(
+                    function (data) {
                         self.authenticated = true;
-                        self.token = login + password;
+                        self.token = data.data.token;
                         self.permissionGroups = ['superadmin', 'dbadmin', 'sysadmin', 'accadmin'];
 
                         localStorageService.set('auth_token', self.token);
                         localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
 
                         promise.resolve(true);
-                    } else {
+                    },
+
+                    function (data) {
                         self.authenticated = false;
                         self.token = null;
 
                         promise.reject();
                     }
-                }, 500);
+                );
 
                 return promise.promise;
             };
