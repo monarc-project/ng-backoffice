@@ -64,13 +64,18 @@
             var logout = function () {
                 self.token = null;
                 self.authenticated = false;
-
-                // TODO: Ask API to revoke active token
+                
                 var promise = $q.defer();
 
-                setTimeout(function () {
-                    promise.resolve(true);
-                }, 500);
+                $http.delete('/auth', {token: self.token},
+                    function (data) {
+                        promise.resolve(true);
+                    },
+
+                    function (data) {
+                        promise.resolve(false);
+                    }
+                )
 
                 return promise.promise;
             };
