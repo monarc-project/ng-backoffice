@@ -2,9 +2,9 @@ angular
     .module('BackofficeApp', ['ngMaterial', 'ui.router', 'gettext', 'ngResource', 'LocalStorageModule', 'md.data.table',
                                 'ncy-angular-breadcrumb'])
     .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', '$resourceProvider',
-        'localStorageServiceProvider', '$httpProvider', '$breadcrumbProvider', 'gettext',
+        'localStorageServiceProvider', '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext',
         function ($mdThemingProvider, $stateProvider, $urlRouterProvider, $resourceProvider, localStorageServiceProvider,
-                  $httpProvider, $breadcrumbProvider, gettext) {
+                  $httpProvider, $breadcrumbProvider, $provide, gettext) {
             // Store the state provider to be allow controllers to inject their routes
             window.$stateProvider = $stateProvider;
 
@@ -118,20 +118,33 @@ angular
                 }
             });
 
-            // TODO: This is not minimifiable
-            /*$httpProvider.interceptors.push(function ($state, UserService) {
+            $provide.factory('monarcHttpInter', ['$injector', function ($injector) {
                 return {
                     'request': function (config) {
-                        if (UserService.isAuthenticated()) {
-                            config.headers.common.Authorization = 'Bearer ' + UserService.getToken();
+                        var UserService = $injector.get('UserService');
+                        var $http = $injector.get('$http');
+
+                        if (!UserService.isAuthenticated()) {
+                            UserService.reauthenticate();
                         }
+
+
+                        if (UserService.isAuthenticated()) {
+                            $http.defaults.headers.common.token = UserService.getToken();;
+                        }
+
+                        return config;
                     },
 
                     'response': function (response) {
                         if (response.status == 401) {
+                            var $state = $injector.get('$state');
                             $state.transitionTo('login');
                         }
+
+                        return response;
                     }
                 }
-            });*/
+            }]);
+            $httpProvider.interceptors.push('monarcHttpInter');
         }]);

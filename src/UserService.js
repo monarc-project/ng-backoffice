@@ -64,7 +64,7 @@
             var logout = function () {
                 self.token = null;
                 self.authenticated = false;
-                
+
                 var promise = $q.defer();
 
                 $http.delete('/auth', {token: self.token},
