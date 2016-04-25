@@ -44,7 +44,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', CreateAssetDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ModelService', CreateAssetDialogCtrl],
                 templateUrl: '/views/dialogs/create.assets.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -75,8 +75,8 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'user', CreateAssetDialogCtrl],
-                templateUrl: '/views/dialogs/create.users.admin.html',
+                controller: ['$scope', '$mdDialog', 'ModelService', 'asset', CreateAssetDialogCtrl],
+                templateUrl: '/views/dialogs/create.assets.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
@@ -135,7 +135,11 @@
         };
     }
 
-    function CreateAssetDialogCtrl($scope, $mdDialog, asset) {
+    function CreateAssetDialogCtrl($scope, $mdDialog, ModelService, asset) {
+        ModelService.getModels().then(function (data) {
+            $scope.models = data;
+        });
+
         if (asset != undefined && asset != null) {
             $scope.asset = asset;
         } else {
