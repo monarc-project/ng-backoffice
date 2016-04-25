@@ -12,15 +12,23 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <md-input-container class="md-block" flex>
+                    <label translate>Language</label>
+                    <md-icon>language</md-icon>
+                    <md-select ng-model="language" ng-change="switchLanguage()">
+                        <md-option ng-repeat="lang in [1, 2, 3, 4]" value="{{ lang }}">{{ 'Language' | translate }} {{ lang }}</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
                     <label translate>Label</label>
                     <md-icon>label</md-icon>
-                    <input ng-model="model.label">
+                    <input ng-model="model['label' + language ]">
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Description</label>
                     <md-icon>subject</md-icon>
-                    <textarea ng-model="model.description" rows="4"></textarea>
+                    <textarea ng-model="model['description' + language]" rows="4"></textarea>
                 </md-input-container>
 
                 <div layout="column">

@@ -133,12 +133,20 @@
     }
 
     function CreateModelDialogCtrl($scope, $mdDialog, model) {
+        $scope.language = 1;
+
         if (model != undefined && model != null) {
             $scope.model = model;
         } else {
             $scope.model = {
-                label: '',
-                description: ''
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: '',
+                description1: '',
+                description2: '',
+                description3: '',
+                description4: '',
             };
         }
 
