@@ -86,6 +86,16 @@ angular
                 ncyBreadcrumb: {
                     label: gettext('Information risks')
                 }
+            }).state('main.kb_mgmt.models', {
+                url: '/models',
+                views: {
+                    'kb_main@main.kb_mgmt': {templateUrl: '/views/models.kb_mgmt.html'}
+                },
+                controller: function ($scope) {
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Models')
+                }
             }).state('main.kb_mgmt.op_risk', {
                 url: '/op',
                 views: {
@@ -130,7 +140,7 @@ angular
 
 
                         if (UserService.isAuthenticated()) {
-                            $http.defaults.headers.common.token = UserService.getToken();;
+                            $http.defaults.headers.common.token = UserService.getToken();
                         }
 
                         return config;

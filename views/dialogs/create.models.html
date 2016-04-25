@@ -1,0 +1,45 @@
+<md-dialog style="min-width: 500px;" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 translate>Add a new model</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block" flex>
+                    <label translate>Label</label>
+                    <md-icon>label</md-icon>
+                    <input ng-model="model.label">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Description</label>
+                    <md-icon>subject</md-icon>
+                    <textarea ng-model="model.description" rows="4"></textarea>
+                </md-input-container>
+
+                <div layout="column">
+                    <md-checkbox ng-model="model.is_default" class="md-primary md-align-top-left">{{ 'Default model' | translate }}</md-checkbox>
+                    <md-checkbox ng-model="model.is_scales_updatable" class="md-primary md-align-top-left">{{ 'Editable impact scale' | translate }}</md-checkbox>
+                    <md-checkbox ng-model="model.is_generic" class="md-primary md-align-top-left">{{ 'Specific' | translate }}</md-checkbox>
+                    <md-checkbox ng-model="model.is_regulator" class="md-primary md-align-top-left">{{ 'Regulator' | translate }}</md-checkbox>
+                    <md-checkbox ng-model="model.show_rolf_brut" class="md-primary md-align-top-left">{{ 'Enable raw ROLF values' | translate }}</md-checkbox>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button ng-click="create()" class="md-accent md-hue-3">
+                {{ 'Create' | translate }}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

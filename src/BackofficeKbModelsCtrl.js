@@ -2,68 +2,65 @@
 
     angular
         .module('BackofficeApp')
-        .controller('BackofficeKbInfoCtrl', [
+        .controller('BackofficeKbModelsCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ErrorService', 'AssetService',
-            BackofficeKbInfoCtrl
+            'ErrorService', 'ModelService',
+            BackofficeKbModelsCtrl
         ]);
 
     /**
-     * BO > KB > INFO
+     * BO > KB > MODELS
      */
-    function BackofficeKbInfoCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                  ErrorService, AssetService) {
+    function BackofficeKbModelsCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+                                    ErrorService, ModelService) {
         TableHelperService.resetBookmarks();
 
-        /*
-         * ASSETS TAB
-         */
-        $scope.assets = TableHelperService.build('label', 10, 1, '');
+        $scope.models = TableHelperService.build('label', 10, 1, '');
 
-        $scope.updateAssets = function () {
-            $scope.assets.promise = AssetService.getAssets($scope.assets.query);
-            $scope.assets.promise.then(
+        $scope.updateModels = function () {
+            $scope.models.promise = ModelService.getModels($scope.models.query);
+            $scope.models.promise.then(
                 function (data) {
-                    $scope.assets.items = data;
+                    $scope.models.items = data;
                 },
 
                 function (status) {
-                    ErrorService.notifyFetchError('assets', status);
+                    ErrorService.notifyFetchError('models', status);
                 }
             )
         };
-        $scope.removeAssetsFilter = function () {
-            TableHelperService.removeFilter($scope.assets);
+        $scope.removeModelsFilter = function () {
+            TableHelperService.removeFilter($scope.models);
         };
 
-        TableHelperService.watchSearch($scope, 'assets.query.filter', $scope.assets.query, $scope.updateAssets);
-        $scope.updateAssets();
+        TableHelperService.watchSearch($scope, 'models.query.filter', $scope.models.query, $scope.updateModels);
+        $scope.updateModels();
 
 
-        $scope.createNewAsset = function (ev) {
+        $scope.createNewModel = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', CreateAssetDialogCtrl],
-                templateUrl: '/views/dialogs/create.assets.html',
+                controller: ['$scope', '$mdDialog', CreateModelDialogCtrl],
+                templateUrl: '/views/dialogs/create.models.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen
             })
-                .then(function (asset) {
-                    AssetService.createAsset(asset).then(
+                .then(function (model) {
+                    ModelService.createModel(model).then(
                         function () {
-                            $scope.updateAssets();
+                            $scope.updateModels();
                             $mdToast.show(
                                 $mdToast.simple()
-                                    .textContent(gettext('The asset has been created successfully.'))
+                                    .textContent(gettext('The model has been created successfully.'))
                                     .position('top right')
                                     .hideDelay(3000)
                             );
                         },
 
                         function (status) {
-                            ErrorService.notifyFetchError(gettext('created asset'), status);
+                            ErrorService.notifyFetchError(gettext('created model'), status);
                         }
                     );
                 }, function () {
@@ -71,33 +68,33 @@
                 });
         };
 
-        $scope.editAsset = function (ev, asset) {
+        $scope.editModel = function (ev, model) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'user', CreateAssetDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'user', CreateModelDialogCtrl],
                 templateUrl: '/views/dialogs/create.users.admin.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
-                    'asset': asset
+                    'model': model
                 }
             })
-                .then(function (asset) {
-                    AssetService.updateAsset(asset).then(
+                .then(function (model) {
+                    ModelService.updateModel(model).then(
                         function () {
-                            $scope.updateAssets();
+                            $scope.updateModels();
                             $mdToast.show(
                                 $mdToast.simple()
-                                    .textContent(gettext('The asset has been updated successfully.'))
+                                    .textContent(gettext('The model has been updated successfully.'))
                                     .position('top right')
                                     .hideDelay(3000)
                             );
                         },
 
                         function (status) {
-                            ErrorService.notifyFetchError(gettext('updated asset'), status);
+                            ErrorService.notifyFetchError(gettext('updated model'), status);
                         }
                     );
                 }, function () {
@@ -105,21 +102,21 @@
                 });
         };
 
-        $scope.deleteAsset = function (ev, item) {
+        $scope.deleteModel = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete asset "{{ label }}"?',
+                .title(gettextCatalog.getString('Are you sure you want to delete model "{{ label }}"?',
                     {label: item.label}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AssetService.deleteAsset(item.id).then(
+                ModelService.deleteModel(item.id).then(
                     function () {
-                        $scope.updateAssets();
+                        $scope.updateModels();
                         $mdToast.show(
                             $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The asset "{{label}}" has been deleted.',
+                                .textContent(gettextCatalog.getString('The model "{{label}}" has been deleted.',
                                     {label: item.label}))
                                 .position('top right')
                                 .hideDelay(3000)
@@ -127,7 +124,7 @@
                     },
 
                     function (status) {
-                        ErrorService.notifyFetchError(gettext('deleted asset'), status);
+                        ErrorService.notifyFetchError(gettext('deleted model'), status);
                     }
                 );
             }, function() {
@@ -135,14 +132,11 @@
         };
     }
 
-    function CreateAssetDialogCtrl($scope, $mdDialog, asset) {
-        if (asset != undefined && asset != null) {
-            $scope.asset = asset;
+    function CreateModelDialogCtrl($scope, $mdDialog, model) {
+        if (model != undefined && model != null) {
+            $scope.model = model;
         } else {
-            $scope.asset = {
-                mode: 1,
-                code: '',
-                type: 1,
+            $scope.model = {
                 label: '',
                 description: ''
             };
@@ -153,7 +147,7 @@
         };
 
         $scope.create = function() {
-            $mdDialog.hide($scope.asset);
+            $mdDialog.hide($scope.model);
         };
     }
 })();
