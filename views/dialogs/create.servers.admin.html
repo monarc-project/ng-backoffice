@@ -29,22 +29,6 @@
                     <input ng-model="server.fqdn">
                     <div class="hint">Fully Qualified Domain Name</div>
                 </md-input-container>
-
-                <md-input-container class="md-block" flex>
-                    <label translate>Login</label>
-                    <md-icon>vpn_key</md-icon>
-                    <input ng-model="server.login">
-                </md-input-container>
-
-                <md-input-container class="md-block" flex>
-                    <label translate>Port</label>
-                    <md-icon>settings_input_component</md-icon>
-                    <input ng-model="server.port">
-                </md-input-container>
-
-                <md-input-container class="md-block" flex>
-                    <md-switch class="md-primary" ng-model="server.ssh">{{ 'SSH' | translate }}</md-switch>
-                </md-input-container>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
