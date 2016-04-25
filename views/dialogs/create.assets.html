@@ -11,6 +11,28 @@
         </md-toolbar>
         <md-dialog-content>
             <div class="md-dialog-content">
+                <md-subheader>{{ 'Labels' | translate }}</md-subheader>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Language</label>
+                    <md-icon>language</md-icon>
+                    <md-select ng-model="language" ng-change="switchLanguage()">
+                        <md-option ng-repeat="lang in [1, 2, 3, 4]" value="{{ lang }}">{{ 'Language' | translate }} {{ lang }}</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Label</label>
+                    <md-icon>label</md-icon>
+                    <input ng-model="asset['label' + language ]">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Description</label>
+                    <md-icon>subject</md-icon>
+                    <textarea ng-model="asset['description' + language]" rows="4"></textarea>
+                </md-input-container>
+
                 <md-subheader>{{ 'General information' | translate }}</md-subheader>
 
                 <md-input-container class="md-block" layout="row" flex>
@@ -23,21 +45,9 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
-                    <label translate>Label</label>
-                    <md-icon>label</md-icon>
-                    <input ng-model="asset.label">
-                </md-input-container>
-
-                <md-input-container class="md-block" flex>
                     <label translate>Code</label>
                     <md-icon>language</md-icon>
                     <input ng-model="asset.code">
-                </md-input-container>
-
-                <md-input-container class="md-block" flex>
-                    <label translate>Description</label>
-                    <md-icon>subject</md-icon>
-                    <textarea ng-model="asset.description" rows="4"></textarea>
                 </md-input-container>
 
                 <md-input-container class="md-block" layout="row" flex>

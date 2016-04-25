@@ -140,6 +140,8 @@
             $scope.models = data;
         });
 
+        $scope.language = 1;
+
         if (asset != undefined && asset != null) {
             $scope.asset = asset;
         } else {
@@ -147,8 +149,14 @@
                 mode: 1,
                 code: '',
                 type: 1,
-                label: '',
-                description: ''
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: '',
+                description1: '',
+                description2: '',
+                description3: '',
+                description4: ''
             };
         }
 
