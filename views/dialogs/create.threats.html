@@ -1,0 +1,137 @@
+<md-dialog style="min-width: 700px;" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 translate>Add a new model</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-subheader>{{ 'Labels and descriptions' | translate }}</md-subheader>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Language</label>
+                    <md-icon>language</md-icon>
+                    <md-select ng-model="language" ng-change="switchLanguage()">
+                        <md-option ng-repeat="lang in [1, 2, 3, 4]" value="{{ lang }}">{{ 'Language' | translate }} {{ lang }}</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Label</label>
+                    <md-icon>label</md-icon>
+                    <input ng-model="threat['label' + language ]">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Description</label>
+                    <md-icon>subject</md-icon>
+                    <textarea ng-model="threat['description' + language]" rows="4"></textarea>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Accidental cause description</label>
+                    <md-icon>subject</md-icon>
+                    <textarea ng-model="threat['desc_accidental' + language]" rows="4"></textarea>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Example (accidental cause)</label>
+                    <md-icon>subject</md-icon>
+                    <textarea ng-model="threat['ex_accidental' + language]" rows="4"></textarea>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Deliberate cause description</label>
+                    <md-icon>subject</md-icon>
+                    <textarea ng-model="threat['desc_deliberate' + language]" rows="4"></textarea>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Example (deliberate cause)</label>
+                    <md-icon>subject</md-icon>
+                    <textarea ng-model="threat['ex_deliberate' + language]" rows="4"></textarea>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Types of consequences</label>
+                    <md-icon>subject</md-icon>
+                    <textarea ng-model="threat['type_consequences' + language]" rows="4"></textarea>
+                </md-input-container>
+
+                <md-subheader>{{ 'General information' | translate }}</md-subheader>
+
+                <div class="md-block" layout="column" flex>
+                    <div layout="row">
+                        <md-icon style="margin-right: 8px;">class</md-icon>
+                        <md-autocomplete
+                                flex
+                                md-selected-item="threat.threat_theme_id"
+                                md-search-text="themeSearchText"
+                                md-selected-item-change="selectedThemeItemChange(item)"
+                                md-items="item in queryThemeSearch(themeSearchText)"
+                                md-item-text="item.label"
+                                md-min-length="2"
+                                placeholder="{{ 'Please select a theme' | translate }}">
+                            <md-item-template>
+                                <span md-highlight-text="themeSearchText" md-highlight-flags="^i">{{ item.label }}</span>
+                            </md-item-template>
+
+                            <md-not-found>
+                                {{ 'No theme matching your search was found' | translate }}
+                                <md-button ng-click="createTheme(themeSearchText)">{{ 'Create this theme' | translate }}</md-button>
+                            </md-not-found>
+
+                        </md-autocomplete>
+                    </div>
+                </div>
+
+
+                <md-input-container class="md-block" layout="row" flex>
+                    <label translate>Mode</label>
+                    <md-icon>view_list</md-icon>
+                    <md-select ng-model="threat.mode">
+                        <md-option value="1">{{ 'Generic' | translate }}</md-option>
+                        <md-option value="2">{{ 'Specific' | translate }}</md-option>
+                    </md-select>
+                </md-input-container>
+
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Code</label>
+                    <md-icon>language</md-icon>
+                    <input ng-model="threat.code">
+                </md-input-container>
+                
+                <md-input-container layout="row">
+                    <md-checkbox ng-model="threat.c" class="md-primary">C</md-checkbox>
+                    <md-checkbox ng-model="threat.i" class="md-primary">I</md-checkbox>
+                    <md-checkbox ng-model="threat.d" class="md-primary">D</md-checkbox>
+                </md-input-container>
+
+                <md-subheader>{{ 'Specific models links' | translate }}</md-subheader>
+
+                <md-input-container class="md-block" layout="row" flex>
+                    <label translate>Models</label>
+                    <md-icon>class</md-icon>
+                    <md-select multiple ng-model="threat.models">
+                        <md-option ng-repeat="model in models" value="{{ model.id }}">{{ model.label }}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button ng-click="create()" class="md-accent md-hue-3">
+                {{ 'Create' | translate }}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
