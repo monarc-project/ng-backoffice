@@ -9,7 +9,7 @@
     function ModelService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.ModelResource = $resource('/api/models/:modelId', { modelId: '@id' });
+        self.ModelResource = $resource('/api/models/:modelId', { modelId: '@id' }, {'update': {method: 'PUT'}});
 
         var getModels = function (params) {
             var promise = $q.defer();
@@ -39,8 +39,7 @@
         var updateModel = function (params) {
             var promise = $q.defer();
 
-            var model = new self.ModelResource(params);
-            model.$save(function (model) {
+            self.ModelResource.update(params, function (model) {
                 promise.resolve(model);
             }, function (error) {
                 promise.reject(error.status);

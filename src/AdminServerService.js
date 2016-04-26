@@ -39,8 +39,7 @@
         var updateServer = function (params) {
             var promise = $q.defer();
 
-            var server = new self.ServerResource(params);
-            server.$save(function (server) {
+            self.ServerResource.update(params, function (server) {
                 promise.resolve(server);
             }, function (error) {
                 promise.reject(error.status);

@@ -9,7 +9,7 @@
     function ClientService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.ClientResource = $resource('/api/clients/:clientId', { clientId: '@id' });
+        self.ClientResource = $resource('/api/clients/:clientId', { clientId: '@id' }, {'update': {method: 'PUT'}});
 
         var getClients = function (params) {
             var promise = $q.defer();
@@ -39,8 +39,7 @@
         var updateClient = function (params) {
             var promise = $q.defer();
 
-            var client = new self.ClientResource(params);
-            client.$save(function (client) {
+            self.ClientResource.update(params, function (client) {
                 promise.resolve(client);
             }, function (error) {
                 promise.reject(error.status);

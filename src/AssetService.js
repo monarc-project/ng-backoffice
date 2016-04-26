@@ -39,8 +39,7 @@
         var updateAsset = function (params) {
             var promise = $q.defer();
 
-            var asset = new self.AssetResource(params);
-            asset.$save(function (asset) {
+            self.AssetResource.update(params, function (asset) {
                 promise.resolve(asset);
             }, function (error) {
                 promise.reject(error.status);

@@ -9,8 +9,8 @@
     function ThreatService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.ThreatResource = $resource('/api/threats/:threatId', { threatId: '@id' });
-        self.ThreatThemeResource = $resource('/api/threats/themes/:themeId', { themeId: '@id' });
+        self.ThreatResource = $resource('/api/threats/:threatId', { threatId: '@id' }, {'update': {method: 'PUT'}});
+        self.ThreatThemeResource = $resource('/api/threats/themes/:themeId', { themeId: '@id' }, {'update': {method: 'PUT'}});
 
         // Threats
         var getThreats = function (params) {
@@ -41,8 +41,7 @@
         var updateThreat = function (params) {
             var promise = $q.defer();
 
-            var threat = new self.ThreatResource(params);
-            threat.$save(function (threat) {
+            self.ThreatResource.update(params, function (threat) {
                 promise.resolve(threat);
             }, function (error) {
                 promise.reject(error.status);
@@ -93,8 +92,7 @@
         var updateTheme = function (params) {
             var promise = $q.defer();
 
-            var theme = new self.ThreatThemeResource(params);
-            theme.$save(function (theme) {
+            self.ThreatThemeResource.update(params, function (theme) {
                 promise.resolve(theme);
             }, function (error) {
                 promise.reject(error.status);

@@ -9,7 +9,7 @@
     function VulnService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.VulnResource = $resource('/api/vulns/:vulnId', { vulnId: '@id' });
+        self.VulnResource = $resource('/api/vulns/:vulnId', { vulnId: '@id' }, {'update': {method: 'PUT'}});
 
         var getVulns = function (params) {
             var promise = $q.defer();
@@ -39,8 +39,7 @@
         var updateVuln = function (params) {
             var promise = $q.defer();
 
-            var vuln = new self.VulnResource(params);
-            vuln.$save(function (vuln) {
+            self.VulnResource.update(params, function (vuln) {
                 promise.resolve(vuln);
             }, function (error) {
                 promise.reject(error.status);

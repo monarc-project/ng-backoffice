@@ -9,7 +9,7 @@
     function AdminUsersService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.UserResource = $resource('/api/admin/users/:userId', { userId: '@id' });
+        self.UserResource = $resource('/api/admin/users/:userId', { userId: '@id' }, {'update': {method: 'PUT'}});
 
         var getUsers = function (params) {
             var promise = $q.defer();
@@ -39,8 +39,7 @@
         var updateUser = function (params) {
             var promise = $q.defer();
 
-            var user = new self.UserResource(params);
-            user.$save(function (user) {
+            self.UserResource.update(params, function (user) {
                 promise.resolve(user);
             }, function (error) {
                 promise.reject(error.status);
