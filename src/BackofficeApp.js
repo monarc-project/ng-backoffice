@@ -165,7 +165,7 @@ angular
                             }
 
                             if (url.indexOf('?') > 0) {
-                                url = url.substring(url.indexOf('?'));
+                                url = url.substring(0, url.indexOf('?'));
                             }
 
                             ErrorService.notifyFetchError(url, message + " (" + response.status + ")");
