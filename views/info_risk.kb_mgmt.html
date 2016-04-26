@@ -155,6 +155,78 @@
         </md-tab>
 
         <md-tab label="{{ 'Vulns' | translate }}">
+            <md-toolbar class="md-table-toolbar md-default" ng-hide="vulns.selected.length || vulns.filter.show">
+                <div class="md-toolbar-tools">
+                    <h2 class="md-title" translate>Vulnerabilities</h2>
+                    <div flex></div>
+                    <md-button class="md-icon-button" ng-click="vulns.filter.show = true">
+                        <md-icon>search</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-toolbar class="md-table-toolbar md-default" ng-show="vulns.filter.show && !vulns.selected.length">
+                <div class="md-toolbar-tools">
+                    <md-icon>search</md-icon>
+                    <form flex name="vulns.filter.form">
+                        <input type="text" ng-model="vulns.query.filter" ng-model-options="vulns.filter.options" placeholder="{{ 'Search...' | translate }}">
+                    </form>
+                    <md-button class="md-icon-button" ng-click="removeVulnsFilter()">
+                        <md-icon>close</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-toolbar class="md-table-toolbar alternate" ng-show="vulns.selected.length">
+                <div class="md-toolbar-tools" layout-align="space-between center">
+                    <div>{{vulns.selected.length}} {{vulns.selected.length > 1 ? 'items' : 'item'}} selected</div>
+                    <md-button class="md-icon-button" ng-click="delete($event)">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-table-container flex>
+                <table md-table md-row-select multiple ng-model="vulns.selected" md-progress="vulns.promise">
+                    <thead md-head md-order="vulns.query.order" md-on-reorder="updateVulns">
+                    <tr md-row>
+                        <th md-column md-order-by="active"><span translate>Active</span></th>
+                        <th md-column md-order-by="label"><span translate>Label</span></th>
+                        <th md-column md-order-by="code"><span translate>Code</span></th>
+                        <th md-column md-order-by="mode"><span translate>Mode</span></th>
+                        <th md-column md-order-by="description"><span translate>Description</span></th>
+                        <th md-column><span translate>Actions</span></th>
+                    </tr>
+                    </thead>
+
+                    <tbody md-body>
+                    <tr md-row md-select="vuln" md-select-id="label" ng-repeat="vuln in vulns.items.vulns">
+                        <td md-cell>{{ vuln.status }}</td>
+                        <td md-cell>{{ vuln.label }}</td>
+                        <td md-cell>{{ vuln.code }}</td>
+                        <td md-cell>{{ vuln.mode }}</td>
+                        <td md-cell>{{ vuln.description }}</td>
+                        <td md-cell>
+                            <md-button class="md-icon-button" ng-click="editVuln($event, vuln)"><md-icon>edit</md-icon></md-button>
+                            <md-button class="md-icon-button" ng-click="deleteVuln($event, vuln)"><md-icon>delete</md-icon></md-button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination md-limit="vulns.query.limit" md-limit-options="[5, 10, 15]" md-page="vulns.query.page"
+                                 md-total="{{vulns.items.count}}" md-on-paginate="updateVulns" md-page-select></md-table-pagination>
+
+            <div layout="row" class="md-padding">
+                <span flex></span>
+                <md-button class="md-fab md-accent" aria-label="{{ 'New vuln' | translate }}" ng-click="createNewVuln($event)">
+                    <md-tooltip md-direction="left">
+                        {{ 'New vuln' | translate }}
+                    </md-tooltip>
+                    <md-icon>add</md-icon>
+                </md-button>
+            </div>
         </md-tab>
 
         <md-tab label="{{ '27002 measures' | translate }}">

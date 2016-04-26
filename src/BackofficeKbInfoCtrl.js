@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ErrorService', 'AssetService', 'ThreatService',
+            'ErrorService', 'AssetService', 'ThreatService', 'VulnService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO
      */
     function BackofficeKbInfoCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                  ErrorService, AssetService, ThreatService) {
+                                  ErrorService, AssetService, ThreatService, VulnService) {
         TableHelperService.resetBookmarks();
 
         /*
@@ -253,7 +253,131 @@
             }, function() {
             });
         };
+
+        /*
+         * VULNS TAB
+         */
+        $scope.vulns = TableHelperService.build('label', 10, 1, '');
+
+        $scope.updateVulns = function () {
+            $scope.vulns.promise = VulnService.getVulns($scope.vulns.query);
+            $scope.vulns.promise.then(
+                function (data) {
+                    $scope.vulns.items = data;
+                },
+
+                function (status) {
+                    ErrorService.notifyFetchError('vulns', status);
+                }
+            )
+        };
+        $scope.removeVulnsFilter = function () {
+            TableHelperService.removeFilter($scope.vulns);
+        };
+
+        TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns);
+        $scope.updateVulns();
+
+
+        $scope.createNewVuln = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'ModelService', CreateVulnDialogCtrl],
+                templateUrl: '/views/dialogs/create.vulns.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen
+            })
+                .then(function (vuln) {
+                    VulnService.createVuln(vuln).then(
+                        function () {
+                            $scope.updateVulns();
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent(gettext('The vuln has been created successfully.'))
+                                    .position('top right')
+                                    .hideDelay(3000)
+                            );
+                        },
+
+                        function (status) {
+                            ErrorService.notifyFetchError(gettext('created vuln'), status);
+                        }
+                    );
+                }, function () {
+
+                });
+        };
+
+        $scope.editVuln = function (ev, vuln) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'ModelService', 'vuln', CreateVulnDialogCtrl],
+                templateUrl: '/views/dialogs/create.vulns.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                locals: {
+                    'vuln': vuln
+                }
+            })
+                .then(function (vuln) {
+                    VulnService.updateVuln(vuln).then(
+                        function () {
+                            $scope.updateVulns();
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent(gettext('The vuln has been updated successfully.'))
+                                    .position('top right')
+                                    .hideDelay(3000)
+                            );
+                        },
+
+                        function (status) {
+                            ErrorService.notifyFetchError(gettext('updated vuln'), status);
+                        }
+                    );
+                }, function () {
+
+                });
+        };
+
+        $scope.deleteVuln = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete vulnerability "{{ label }}"?',
+                    {label: item.label}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                VulnService.deleteVuln(item.id).then(
+                    function () {
+                        $scope.updateVulns();
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent(gettextCatalog.getString('The vulnerability "{{label}}" has been deleted.',
+                                    {label: item.label}))
+                                .position('top right')
+                                .hideDelay(3000)
+                        );
+                    },
+
+                    function (status) {
+                        ErrorService.notifyFetchError(gettext('deleted vuln'), status);
+                    }
+                );
+            }, function() {
+            });
+        };
     }
+
+
+    //////////////////////
+    // DIALOGS
+    //////////////////////
 
     function CreateAssetDialogCtrl($scope, $mdDialog, ModelService, asset) {
         ModelService.getModels().then(function (data) {
@@ -355,6 +479,39 @@
 
         $scope.create = function() {
             $mdDialog.hide($scope.threat);
+        };
+    }
+
+    function CreateVulnDialogCtrl($scope, $mdDialog, ModelService, vuln) {
+        ModelService.getModels().then(function (data) {
+            $scope.models = data;
+        });
+
+        $scope.language = 1;
+
+        if (vuln != undefined && vuln != null) {
+            $scope.vuln = vuln;
+        } else {
+            $scope.vuln = {
+                mode: 1,
+                code: '',
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: '',
+                description1: '',
+                description2: '',
+                description3: '',
+                description4: ''
+            };
+        }
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.vuln);
         };
     }
 })();
