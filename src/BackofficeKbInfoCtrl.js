@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ErrorService', 'AssetService', 'ThreatService', 'VulnService',
+            'AssetService', 'ThreatService', 'VulnService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO
      */
     function BackofficeKbInfoCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                  ErrorService, AssetService, ThreatService, VulnService) {
+                                  AssetService, ThreatService, VulnService) {
         TableHelperService.resetBookmarks();
 
         /*
@@ -25,10 +25,6 @@
             $scope.assets.promise.then(
                 function (data) {
                     $scope.assets.items = data;
-                },
-
-                function (status) {
-                    ErrorService.notifyFetchError('assets', status);
                 }
             )
         };
@@ -60,10 +56,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('created asset'), status);
                         }
                     );
                 }, function () {
@@ -94,10 +86,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('updated asset'), status);
                         }
                     );
                 }, function () {
@@ -124,10 +112,6 @@
                                 .position('top right')
                                 .hideDelay(3000)
                         );
-                    },
-
-                    function (status) {
-                        ErrorService.notifyFetchError(gettext('deleted asset'), status);
                     }
                 );
             }, function() {
@@ -147,10 +131,6 @@
                     AssetService.deleteAsset(value.id).then(
                         function () {
                             $scope.updateAssets();
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('deleted assets'), status);
                         }
                     );
                 });
@@ -173,10 +153,6 @@
             $scope.threats.promise.then(
                 function (data) {
                     $scope.threats.items = data;
-                },
-
-                function (status) {
-                    ErrorService.notifyFetchError('threats', status);
                 }
             )
         };
@@ -208,10 +184,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('created threat'), status);
                         }
                     );
                 }, function () {
@@ -242,10 +214,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('updated threat'), status);
                         }
                     );
                 }, function () {
@@ -272,10 +240,6 @@
                                 .position('top right')
                                 .hideDelay(3000)
                         );
-                    },
-
-                    function (status) {
-                        ErrorService.notifyFetchError(gettext('deleted threat'), status);
                     }
                 );
             }, function() {
@@ -295,10 +259,6 @@
                     ThreatService.deleteThreat(value.id).then(
                         function () {
                             $scope.updateThreats();
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('deleted threats'), status);
                         }
                     );
                 });
@@ -319,10 +279,6 @@
             $scope.vulns.promise.then(
                 function (data) {
                     $scope.vulns.items = data;
-                },
-
-                function (status) {
-                    ErrorService.notifyFetchError('vulns', status);
                 }
             )
         };
@@ -354,10 +310,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('created vuln'), status);
                         }
                     );
                 }, function () {
@@ -388,10 +340,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('updated vuln'), status);
                         }
                     );
                 }, function () {
@@ -418,10 +366,6 @@
                                 .position('top right')
                                 .hideDelay(3000)
                         );
-                    },
-
-                    function (status) {
-                        ErrorService.notifyFetchError(gettext('deleted vuln'), status);
                     }
                 );
             }, function() {
@@ -441,10 +385,6 @@
                     VulnService.deleteVuln(value.id).then(
                         function () {
                             $scope.updateVulns();
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('deleted vulns'), status);
                         }
                     );
                 });

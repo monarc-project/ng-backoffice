@@ -4,7 +4,6 @@
         .module('BackofficeApp')
         .controller('BackofficeAdminServerCtrl', [
             '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminServerService',
-            'ErrorService',
             BackofficeAdminServerCtrl
         ]);
 
@@ -12,17 +11,13 @@
      * Admin Server Controller for the Backoffice module
      */
     function BackofficeAdminServerCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
-                                       AdminServerService, ErrorService) {
+                                       AdminServerService) {
         $scope.servers = {};
 
         $scope.updateServers = function () {
             AdminServerService.getServers().then(
                 function (data) {
                     $scope.servers = data;
-                },
-
-                function (status) {
-                    ErrorService.notifyFetchError(gettext('servers'), status);
                 }
             );
         };
@@ -47,10 +42,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('created server'), status);
                         }
                     );
                 }, function () {
@@ -76,10 +67,6 @@
                                 .position('top right')
                                 .hideDelay(3000)
                         );
-                    },
-
-                    function (status) {
-                        ErrorService.notifyFetchError(gettext('deleted server'), status);
                     }
                 );
             }, function() {

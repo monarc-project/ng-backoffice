@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeClientMgmtCtrl', [
             '$scope', '$mdToast', '$mdDialog', '$mdMedia', 'gettextCatalog', 'gettext', 'ClientService',
-            'TableHelperService', 'ErrorService',
+            'TableHelperService',
             BackofficeClientMgmtCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > CM
      */
     function BackofficeClientMgmtCtrl($scope, $mdToast, $mdDialog, $mdMedia, gettextCatalog, gettext, ClientService,
-                                      TableHelperService, ErrorService) {
+                                      TableHelperService) {
         TableHelperService.resetBookmarks();
 
         $scope.clients = TableHelperService.build('name', 10, 1, '');
@@ -22,10 +22,6 @@
             $scope.clients.promise.then(
                 function (data) {
                     $scope.clients.items = data;
-                },
-
-                function (status) {
-                    ErrorService.notifyFetchError('clients', status);
                 }
             )
         };
@@ -54,10 +50,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('created client'), status);
                         }
                     );
                 }, function () {
@@ -88,10 +80,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('created client'), status);
                         }
                     );
                 }, function () {
@@ -117,10 +105,6 @@
                                 .position('top right')
                                 .hideDelay(3000)
                         );
-                    },
-
-                    function (status) {
-                        ErrorService.notifyFetchError(gettext('deleted client'), status);
                     }
                 );
             }, function() {
@@ -140,10 +124,6 @@
                     ClientService.deleteClient(value.id).then(
                         function () {
                             $scope.updateClients();
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('deleted clients'), status);
                         }
                     );
                 });

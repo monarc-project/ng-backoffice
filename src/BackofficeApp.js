@@ -131,6 +131,7 @@ angular
             $provide.factory('monarcHttpInter', ['$injector', function ($injector) {
                 return {
                     'request': function (config) {
+                        // UserService depends on $http, which causes a circular dependency inside a $http interceptor
                         var UserService = $injector.get('UserService');
                         var $http = $injector.get('$http');
 
@@ -146,10 +147,28 @@ angular
                         return config;
                     },
 
-                    'response': function (response) {
+                    'responseError': function (response) {
                         if (response.status == 401) {
                             var $state = $injector.get('$state');
                             $state.transitionTo('login');
+                        } else if (response.status >= 400) {
+                            var ErrorService = $injector.get('ErrorService');
+
+                            var message = response.status;
+                            var url = response.config.url;
+
+                            // Either get our own custom error message, or Zend default error message
+                            if (response.data && response.data.message) {
+                                message = response.data.message;
+                            } else if (response.data && response.data.errors && response.data.errors.length > 0) {
+                                message = response.data.errors[0].message;
+                            }
+
+                            if (url.indexOf('?') > 0) {
+                                url = url.substring(url.indexOf('?'));
+                            }
+
+                            ErrorService.notifyFetchError(url, message + " (" + response.status + ")");
                         }
 
                         return response;

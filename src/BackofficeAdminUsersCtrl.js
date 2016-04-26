@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeAdminUsersCtrl', [
             '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminUsersService',
-            'TableHelperService', 'ErrorService',
+            'TableHelperService',
             BackofficeAdminUsersCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * Admin Users Controller for the Backoffice module
      */
     function BackofficeAdminUsersCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
-                                      AdminUsersService, TableHelperService, ErrorService) {
+                                      AdminUsersService, TableHelperService) {
         $scope.users = TableHelperService.build('-firstname', 25, 1, '');
 
         $scope.removeFilter = function () {
@@ -24,10 +24,6 @@
             $scope.users.promise.then(
                 function (data) {
                     $scope.users.items = data;
-                },
-
-                function (status) {
-                    ErrorService.notifyFetchError(gettext('users'), status);
                 }
             );
         };
@@ -54,10 +50,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('created user'), status);
                         }
                     );
                 }, function () {
@@ -88,10 +80,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('created user'), status);
                         }
                     );
                 }, function () {
@@ -118,10 +106,6 @@
                                 .position('top right')
                                 .hideDelay(3000)
                         );
-                    },
-
-                    function (status) {
-                        ErrorService.notifyFetchError(gettext('deleted user'), status);
                     }
                 );
             }, function() {

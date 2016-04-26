@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbModelsCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ErrorService', 'ModelService',
+            'ModelService',
             BackofficeKbModelsCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > MODELS
      */
     function BackofficeKbModelsCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                    ErrorService, ModelService) {
+                                    ModelService) {
         TableHelperService.resetBookmarks();
 
         $scope.models = TableHelperService.build('label', 10, 1, '');
@@ -22,10 +22,6 @@
             $scope.models.promise.then(
                 function (data) {
                     $scope.models.items = data;
-                },
-
-                function (status) {
-                    ErrorService.notifyFetchError('models', status);
                 }
             )
         };
@@ -57,10 +53,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('created model'), status);
                         }
                     );
                 }, function () {
@@ -91,10 +83,6 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        },
-
-                        function (status) {
-                            ErrorService.notifyFetchError(gettext('updated model'), status);
                         }
                     );
                 }, function () {
@@ -121,10 +109,6 @@
                                 .position('top right')
                                 .hideDelay(3000)
                         );
-                    },
-
-                    function (status) {
-                        ErrorService.notifyFetchError(gettext('deleted model'), status);
                     }
                 );
             }, function() {
