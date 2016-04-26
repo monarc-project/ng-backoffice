@@ -47,7 +47,7 @@
                     </thead>
 
                     <tbody md-body>
-                    <tr md-row md-select="asset" md-select-id="label" ng-repeat="asset in assets.items.assets">
+                    <tr md-row md-select="asset" md-select-id="id" ng-repeat="asset in assets.items.assets">
                         <td md-cell>{{ asset.active }}</td>
                         <td md-cell>{{ asset.label }}</td>
                         <td md-cell>{{ asset.code }}</td>
@@ -124,7 +124,7 @@
                     </thead>
 
                     <tbody md-body>
-                    <tr md-row md-select="threat" md-select-id="label" ng-repeat="threat in threats.items.threats">
+                    <tr md-row md-select="threat" md-select-id="id" ng-repeat="threat in threats.items.threats">
                         <td md-cell>{{ threat.status }}</td>
                         <td md-cell>{{ threat.label }}</td>
                         <td md-cell>{{ threat.code }}</td>
@@ -200,7 +200,7 @@
                     </thead>
 
                     <tbody md-body>
-                    <tr md-row md-select="vuln" md-select-id="label" ng-repeat="vuln in vulns.items.vulns">
+                    <tr md-row md-select="vuln" md-select-id="id" ng-repeat="vuln in vulns.items.vulns">
                         <td md-cell>{{ vuln.status }}</td>
                         <td md-cell>{{ vuln.label }}</td>
                         <td md-cell>{{ vuln.code }}</td>

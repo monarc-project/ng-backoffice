@@ -1,5 +1,5 @@
 <section layout="row" flex layout-fill ng-controller="BackofficeClientMgmtCtrl">
-    <md-content flex ui-view="client_main">
+    <md-content flex>
         <md-toolbar class="md-table-toolbar md-default" ng-hide="clients.selected.length || clients.filter.show">
             <div class="md-toolbar-tools">
                 <h2 class="md-title" translate>Clients</h2>
@@ -24,7 +24,7 @@
 
         <md-toolbar class="md-table-toolbar alternate" ng-show="clients.selected.length">
             <div class="md-toolbar-tools" layout-align="space-between center" layout="row">
-                <div>{{clients.selected.length}} {{clients.selected.length > 1 ? 'items' : 'item'}} selected</div>
+                <div>{{clients.selected.length}} {{clients.selected.length > 1 ? ('clients' | translate) : ('client' | translate)}} selected</div>
                 <md-button class="md-icon-button" ng-click="delete($event)">
                     <md-icon>delete</md-icon>
                 </md-button>
@@ -46,7 +46,7 @@
                 </thead>
 
                 <tbody md-body>
-                <tr md-row md-select="client" md-select-id="label" ng-repeat="client in clients.items.clients">
+                <tr md-row md-select="client" md-select-id="id" ng-repeat="client in clients.items.clients">
                     <td md-cell>{{ client.name }}</td>
                     <td md-cell>{{ client.address }}</td>
                     <td md-cell>{{ client.postalcode }}</td>
