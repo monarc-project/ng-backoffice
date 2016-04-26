@@ -134,6 +134,34 @@
             });
         };
 
+        $scope.deleteAssetMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected asset(s)?',
+                    {count: $scope.clients.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.clients.selected, function (value, key) {
+                    AssetService.deleteAsset(value.id).then(
+                        function () {
+                            $scope.updateAssets();
+                        },
+
+                        function (status) {
+                            ErrorService.notifyFetchError(gettext('deleted assets'), status);
+                        }
+                    );
+                });
+
+                $scope.clients.selected = [];
+
+            }, function() {
+            });
+        };
+
+
 
         /*
          * THREATS TAB
@@ -254,6 +282,33 @@
             });
         };
 
+        $scope.deleteThreatMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected threat(s)?',
+                    {count: $scope.clients.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.clients.selected, function (value, key) {
+                    ThreatService.deleteThreat(value.id).then(
+                        function () {
+                            $scope.updateThreats();
+                        },
+
+                        function (status) {
+                            ErrorService.notifyFetchError(gettext('deleted threats'), status);
+                        }
+                    );
+                });
+
+                $scope.clients.selected = [];
+
+            }, function() {
+            });
+        };
+
         /*
          * VULNS TAB
          */
@@ -369,6 +424,33 @@
                         ErrorService.notifyFetchError(gettext('deleted vuln'), status);
                     }
                 );
+            }, function() {
+            });
+        };
+
+        $scope.deleteVulnMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected vulnerabilites?',
+                    {count: $scope.clients.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.clients.selected, function (value, key) {
+                    VulnService.deleteVuln(value.id).then(
+                        function () {
+                            $scope.updateVulns();
+                        },
+
+                        function (status) {
+                            ErrorService.notifyFetchError(gettext('deleted vulns'), status);
+                        }
+                    );
+                });
+
+                $scope.clients.selected = [];
+
             }, function() {
             });
         };

@@ -26,7 +26,7 @@
             <md-toolbar class="md-table-toolbar alternate" ng-show="assets.selected.length">
                 <div class="md-toolbar-tools" layout-align="space-between center">
                     <div>{{assets.selected.length}} {{assets.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                    <md-button class="md-icon-button" ng-click="delete($event)">
+                    <md-button class="md-icon-button" ng-click="deleteAssetMass($event)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </div>
@@ -103,7 +103,7 @@
             <md-toolbar class="md-table-toolbar alternate" ng-show="threats.selected.length">
                 <div class="md-toolbar-tools" layout-align="space-between center">
                     <div>{{threats.selected.length}} {{threats.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                    <md-button class="md-icon-button" ng-click="delete($event)">
+                    <md-button class="md-icon-button" ng-click="deleteThreatMass($event)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </div>
@@ -180,7 +180,7 @@
             <md-toolbar class="md-table-toolbar alternate" ng-show="vulns.selected.length">
                 <div class="md-toolbar-tools" layout-align="space-between center">
                     <div>{{vulns.selected.length}} {{vulns.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                    <md-button class="md-icon-button" ng-click="delete($event)">
+                    <md-button class="md-icon-button" ng-click="deleteVulnMass($event)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </div>
