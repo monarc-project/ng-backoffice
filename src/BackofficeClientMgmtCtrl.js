@@ -127,6 +127,32 @@
             });
         };
 
+        $scope.deleteClientMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected client(s)?',
+                    {count: $scope.clients.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.clients.selected, function (value, key) {
+                    ClientService.deleteClient(value.id).then(
+                        function () {
+                            $scope.updateClients();
+                        },
+
+                        function (status) {
+                            ErrorService.notifyFetchError(gettext('deleted clients'), status);
+                        }
+                    );
+                });
+
+                $scope.clients.selected = [];
+
+            }, function() {
+            });
+        };
 
         TableHelperService.watchSearch($scope, 'clients.query.filter', $scope.clients.query, $scope.updateClients);
         $scope.updateClients();
