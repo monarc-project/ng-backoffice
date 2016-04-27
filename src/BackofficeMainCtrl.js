@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeMainCtrl', [
-            '$scope', '$state', '$mdSidenav', 'gettextCatalog', 'UserService',
+            '$scope', '$state', '$mdSidenav', '$mdMedia', 'gettextCatalog', 'UserService',
             BackofficeMainCtrl
         ]);
 
     /**
      * Main Controller for the Backoffice module
      */
-    function BackofficeMainCtrl($scope, $state, $mdSidenav, gettextCatalog, UserService) {
+    function BackofficeMainCtrl($scope, $state, $mdSidenav, $mdMedia, gettextCatalog, UserService) {
         if (!UserService.isAuthenticated() && !UserService.reauthenticate()) {
             setTimeout(function() {
                 $state.transitionTo('login');
@@ -22,7 +22,7 @@
         gettextCatalog.setCurrentLanguage('en');
         gettextCatalog.debug = true;
 
-        $scope.sidenavIsOpen = true;
+        $scope.sidenavIsOpen = $mdMedia('gt-md');
         $scope.isLoggingOut = false;
 
         // Translations helper
@@ -58,7 +58,9 @@
             $mdSidenav('left').close();
         };
         $scope.openLeftSidenav = function () {
-            $scope.sidenavIsOpen = true;
+            if ($mdMedia('gt-md')) {
+                $scope.sidenavIsOpen = true;
+            }
             $mdSidenav('left').open();
         };
     }
