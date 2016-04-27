@@ -30,8 +30,6 @@
         };
 
         TableHelperService.watchSearch($scope, 'models.query.filter', $scope.models.query, $scope.updateModels);
-        $scope.updateModels();
-
 
         $scope.createNewModel = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));

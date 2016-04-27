@@ -33,8 +33,6 @@
         };
 
         TableHelperService.watchSearch($scope, 'assets.query.filter', $scope.assets.query, $scope.updateAssets);
-        $scope.updateAssets();
-
 
         $scope.createNewAsset = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -161,8 +159,6 @@
         };
 
         TableHelperService.watchSearch($scope, 'threats.query.filter', $scope.threats.query, $scope.updateThreats);
-        $scope.updateThreats();
-
 
         $scope.createNewThreat = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -287,8 +283,6 @@
         };
 
         TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns);
-        $scope.updateVulns();
-
 
         $scope.createNewVuln = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
