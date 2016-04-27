@@ -18,7 +18,6 @@
         $scope.clients = TableHelperService.build('name', 10, 1, '');
 
         $scope.updateClients = function () {
-            console.log('update clients');
             $scope.clients.promise = ClientService.getClients($scope.clients.query);
             $scope.clients.promise.then(
                 function (data) {
