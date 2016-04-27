@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'AssetService', 'ThreatService', 'VulnService',
+            'AssetService', 'ThreatService', 'VulnService', 'AmvService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO
      */
     function BackofficeKbInfoCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                  AssetService, ThreatService, VulnService) {
+                                  AssetService, ThreatService, VulnService, AmvService) {
         TableHelperService.resetBookmarks();
 
         /*
@@ -388,6 +388,130 @@
             }, function() {
             });
         };
+
+        /*
+         * AMVS TAB
+         */
+        $scope.amvs = TableHelperService.build('label', 10, 1, '');
+
+        $scope.updateAmvs = function () {
+            $scope.amvs.promise = AmvService.getAmvs($scope.amvs.query);
+            $scope.amvs.promise.then(
+                function (data) {
+                    $scope.amvs.items = data;
+                }
+            )
+        };
+        $scope.removeAmvsFilter = function () {
+            TableHelperService.removeFilter($scope.amvs);
+        };
+
+        TableHelperService.watchSearch($scope, 'amvs.query.filter', $scope.amvs.query, $scope.updateAmvs);
+
+        $scope.createNewAmv = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', CreateAmvDialogCtrl],
+                templateUrl: '/views/dialogs/create.amvs.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen
+            })
+                .then(function (amv) {
+                    AmvService.createAmv(amv).then(
+                        function () {
+                            $scope.updateAmvs();
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent(gettext('The amv has been created successfully.'))
+                                    .position('top right')
+                                    .hideDelay(3000)
+                            );
+                        }
+                    );
+                }, function () {
+
+                });
+        };
+
+        $scope.editAmv = function (ev, amv) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'amv', CreateAmvDialogCtrl],
+                templateUrl: '/views/dialogs/create.amvs.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                locals: {
+                    'amv': amv
+                }
+            })
+                .then(function (amv) {
+                    AmvService.updateAmv(amv).then(
+                        function () {
+                            $scope.updateAmvs();
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent(gettext('The amv has been updated successfully.'))
+                                    .position('top right')
+                                    .hideDelay(3000)
+                            );
+                        }
+                    );
+                }, function () {
+
+                });
+        };
+
+        $scope.deleteAmv = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete amverability "{{ label }}"?',
+                    {label: item.label}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                AmvService.deleteAmv(item.id).then(
+                    function () {
+                        $scope.updateAmvs();
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent(gettextCatalog.getString('The amverability "{{label}}" has been deleted.',
+                                    {label: item.label}))
+                                .position('top right')
+                                .hideDelay(3000)
+                        );
+                    }
+                );
+            }, function() {
+            });
+        };
+
+        $scope.deleteAmvMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected AMV link(s)?',
+                    {count: $scope.clients.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.clients.selected, function (value, key) {
+                    AmvService.deleteAmv(value.id).then(
+                        function () {
+                            $scope.updateAmvs();
+                        }
+                    );
+                });
+
+                $scope.clients.selected = [];
+
+            }, function() {
+            });
+        };
     }
 
 
@@ -528,6 +652,55 @@
 
         $scope.create = function() {
             $mdDialog.hide($scope.vuln);
+        };
+    }
+
+    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, amv) {
+        $scope.language = 1;
+
+        if (amv != undefined && amv != null) {
+            $scope.amv = amv;
+        } else {
+            $scope.amv = {
+                asset_id: null,
+                threat_id: null,
+                vulnerability_id: null,
+                measure1_id: null,
+                measure2_id: null,
+                measure3_id: null
+            };
+        }
+
+        $scope.queryAssetSearch = function (query) {
+            return AssetService.getAssets({filter: query});
+        };
+
+        $scope.selectedAssetItemChange = function (item) {
+            $scope.amv.asset_id = item.id;
+        }
+
+        $scope.queryThreatSearch = function (query) {
+            return ThreatService.getThreats({filter: query});
+        };
+
+        $scope.selectedThreatItemChange = function (item) {
+            $scope.amv.threat_id = item.id;
+        }
+
+        $scope.queryVulnSearch = function (query) {
+            return VulnService.getVulns({filter: query});
+        };
+
+        $scope.selectedThreatItemChange = function (item) {
+            $scope.amv.vulnerability_id = item.id;
+        }
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.amv);
         };
     }
 })();

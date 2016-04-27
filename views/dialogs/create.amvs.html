@@ -1,0 +1,144 @@
+<md-dialog style="min-width: 500px;" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 ng-if="!asset.id" translate>Add a new AMV link</h2>
+                <h2 ng-if="asset.id" translate>Update AMV link</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content" layout="column" layout-margin>
+                <md-autocomplete
+                        flex
+                        md-selected-item="amv.asset_id"
+                        md-search-text="assetSearchText"
+                        md-selected-item-change="selectedAssetItemChange(item)"
+                        md-items="item in queryAssetSearch(assetSearchText)"
+                        md-item-text="item.label"
+                        md-min-length="0"
+                        placeholder="{{ 'Please select an asset' | translate }}">
+                    <md-item-template>
+                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.label }}</span>
+                    </md-item-template>
+
+                    <md-not-found>
+                        {{ 'No asset matching your search was found' | translate }}
+                    </md-not-found>
+                </md-autocomplete>
+
+                <md-autocomplete
+                        flex
+                        md-selected-item="amv.threat_id"
+                        md-search-text="threatSearchText"
+                        md-selected-item-change="selectedThreatItemChange(item)"
+                        md-items="item in queryThreatSearch(threatSearchText)"
+                        md-item-text="item.label"
+                        md-min-length="0"
+                        placeholder="{{ 'Please select a threat' | translate }}">
+                    <md-item-template>
+                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.label }}</span>
+                    </md-item-template>
+
+                    <md-not-found>
+                        {{ 'No threat matching your search was found' | translate }}
+                    </md-not-found>
+                </md-autocomplete>
+
+                <md-autocomplete
+                        flex
+                        md-selected-item="amv.vulnerability_id"
+                        md-search-text="vulnSearchText"
+                        md-selected-item-change="selectedVulnItemChange(item)"
+                        md-items="item in queryVulnSearch(vulnSearchText)"
+                        md-item-text="item.label"
+                        md-min-length="0"
+                        placeholder="{{ 'Please select a vulnerability' | translate }}">
+                    <md-item-template>
+                        <span md-highlight-text="vulnSearchText" md-highlight-flags="^i">{{ item.label }}</span>
+                    </md-item-template>
+
+                    <md-not-found>
+                        {{ 'No vulnerability matching your search was found' | translate }}
+                    </md-not-found>
+                </md-autocomplete>
+
+                <md-autocomplete
+                        flex
+                        md-selected-item="amv.measure1_id"
+                        md-search-text="m1SearchText"
+                        md-selected-item-change="selectedMeasureItemChange(1, item)"
+                        md-items="item in queryMeasureSearch(m1SearchText)"
+                        md-item-text="item.label"
+                        md-min-length="0"
+                        placeholder="{{ 'Please select the first measure' | translate }}">
+                    <md-item-template>
+                        <span md-highlight-text="m1SearchText" md-highlight-flags="^i">{{ item.label }}</span>
+                    </md-item-template>
+
+                    <md-not-found>
+                        {{ 'No measure matching your search was found' | translate }}
+                    </md-not-found>
+                </md-autocomplete>
+
+                <md-autocomplete
+                        flex
+                        md-selected-item="amv.measure2_id"
+                        md-search-text="m2SearchText"
+                        md-selected-item-change="selectedMeasureItemChange(2, item)"
+                        md-items="item in queryMeasureSearch(m2SearchText)"
+                        md-item-text="item.label"
+                        md-min-length="0"
+                        placeholder="{{ 'Please select the second measure' | translate }}">
+                    <md-item-template>
+                        <span md-highlight-text="m2SearchText" md-highlight-flags="^i">{{ item.label }}</span>
+                    </md-item-template>
+
+                    <md-not-found>
+                        {{ 'No measure matching your search was found' | translate }}
+                    </md-not-found>
+                </md-autocomplete>
+
+                <md-autocomplete
+                        flex
+                        md-selected-item="amv.measure3_id"
+                        md-search-text="m3SearchText"
+                        md-selected-item-change="selectedMeasureItemChange(3, item)"
+                        md-items="item in queryMeasureSearch(m3SearchText)"
+                        md-item-text="item.label"
+                        md-min-length="0"
+                        placeholder="{{ 'Please select the third measure' | translate }}">
+                    <md-item-template>
+                        <span md-highlight-text="m3SearchText" md-highlight-flags="^i">{{ item.label }}</span>
+                    </md-item-template>
+
+                    <md-not-found>
+                        {{ 'No measure matching your search was found' | translate }}
+                    </md-not-found>
+                </md-autocomplete>
+
+                <md-input-container class="md-block" layout="row" flex>
+                    <label translate>Audit order</label>
+                    <md-select ng-model="asset.models">
+                        <md-option value="1">{{ 'in the end' | translate }}</md-option>
+                        <md-option value="2">{{ 'at the beginning' | translate }}</md-option>
+                        <md-option value="3">{{ 'after' | translate }}</md-option>
+                    </md-select>
+                </md-input-container>
+
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button ng-click="create()" class="md-accent md-hue-3">
+                {{ (asset.id > 0 ? 'Update' : 'Create') | translate }}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
