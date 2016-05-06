@@ -9,7 +9,7 @@
     function AmvService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.AmvResource = $resource('/api/amvs/:amvId', { amvId: '@id' });
+        self.AmvResource = $resource('/api/amvs/:amvId', { amvId: '@id' }, {'update': {method: 'PUT'}});
 
         var getAmvs = function (params) {
             var promise = $q.defer();

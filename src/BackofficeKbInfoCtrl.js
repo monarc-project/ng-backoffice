@@ -18,7 +18,7 @@
         /*
          * ASSETS TAB
          */
-        $scope.assets = TableHelperService.build('label', 10, 1, '');
+        $scope.assets = TableHelperService.build('label1', 10, 1, '');
 
         $scope.updateAssets = function () {
             $scope.assets.promise = AssetService.getAssets($scope.assets.query);
@@ -94,7 +94,7 @@
         $scope.deleteAsset = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete asset "{{ label }}"?',
-                    {label: item.label}))
+                    {label: item.label1}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -119,13 +119,13 @@
         $scope.deleteAssetMass = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected asset(s)?',
-                    {count: $scope.clients.selected.length}))
+                    {count: $scope.assets.selected.length}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                angular.forEach($scope.clients.selected, function (value, key) {
+                angular.forEach($scope.assets.selected, function (value, key) {
                     AssetService.deleteAsset(value.id).then(
                         function () {
                             $scope.updateAssets();
@@ -133,10 +133,25 @@
                     );
                 });
 
-                $scope.clients.selected = [];
+                $scope.assets.selected = [];
 
             }, function() {
             });
+        };
+
+        $scope.assetTypeStr = function (type) {
+            switch (type) {
+                case 1: return gettext('Primary');
+                case 2: return gettext('Secondary');
+                case 3: return gettext('Virtual');
+            }
+        };
+
+        $scope.assetModeStr = function (type) {
+            switch (type) {
+                case 1: return gettext('Generic');
+                case 2: return gettext('Specific');
+            }
         };
 
 
@@ -245,13 +260,13 @@
         $scope.deleteThreatMass = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected threat(s)?',
-                    {count: $scope.clients.selected.length}))
+                    {count: $scope.threats.selected.length}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                angular.forEach($scope.clients.selected, function (value, key) {
+                angular.forEach($scope.threats.selected, function (value, key) {
                     ThreatService.deleteThreat(value.id).then(
                         function () {
                             $scope.updateThreats();
@@ -259,7 +274,7 @@
                     );
                 });
 
-                $scope.clients.selected = [];
+                $scope.threats.selected = [];
 
             }, function() {
             });
@@ -369,13 +384,13 @@
         $scope.deleteVulnMass = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected vulnerabilites?',
-                    {count: $scope.clients.selected.length}))
+                    {count: $scope.vulns.selected.length}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                angular.forEach($scope.clients.selected, function (value, key) {
+                angular.forEach($scope.vulns.selected, function (value, key) {
                     VulnService.deleteVuln(value.id).then(
                         function () {
                             $scope.updateVulns();
@@ -383,7 +398,7 @@
                     );
                 });
 
-                $scope.clients.selected = [];
+                $scope.vulns.selected = [];
 
             }, function() {
             });
@@ -493,13 +508,13 @@
         $scope.deleteAmvMass = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected AMV link(s)?',
-                    {count: $scope.clients.selected.length}))
+                    {count: $scope.amvs.selected.length}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                angular.forEach($scope.clients.selected, function (value, key) {
+                angular.forEach($scope.amvs.selected, function (value, key) {
                     AmvService.deleteAmv(value.id).then(
                         function () {
                             $scope.updateAmvs();
@@ -507,7 +522,7 @@
                     );
                 });
 
-                $scope.clients.selected = [];
+                $scope.amvs.selected = [];
 
             }, function() {
             });
@@ -521,7 +536,8 @@
 
     function CreateAssetDialogCtrl($scope, $mdDialog, ModelService, asset) {
         ModelService.getModels().then(function (data) {
-            $scope.models = data;
+            $scope.models = data.models;
+            console.log($scope.models);
         });
 
         $scope.language = 1;

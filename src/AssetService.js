@@ -9,7 +9,7 @@
     function AssetService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.AssetResource = $resource('/api/assets/:assetId', { assetId: '@id' });
+        self.AssetResource = $resource('/api/assets/:assetId', { assetId: '@id' }, {'update': {method: 'PUT'}});
 
         var getAssets = function (params) {
             var promise = $q.defer();

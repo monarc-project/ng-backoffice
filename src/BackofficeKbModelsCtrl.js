@@ -15,7 +15,7 @@
                                     ModelService) {
         TableHelperService.resetBookmarks();
 
-        $scope.models = TableHelperService.build('label', 10, 1, '');
+        $scope.models = TableHelperService.build('label1', 10, 1, '');
 
         $scope.updateModels = function () {
             $scope.models.promise = ModelService.getModels($scope.models.query);

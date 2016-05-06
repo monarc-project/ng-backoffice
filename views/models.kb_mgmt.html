@@ -34,8 +34,8 @@
         <table md-table md-row-select multiple ng-model="models.selected" md-progress="models.promise">
             <thead md-head md-order="models.query.order" md-on-reorder="updateModels">
             <tr md-row>
-                <th md-column md-order-by="label"><span translate>Label</span></th>
-                <th md-column md-order-by="description"><span translate>Description</span></th>
+                <th md-column md-order-by="label1"><span translate>Label</span></th>
+                <th md-column md-order-by="description1"><span translate>Description</span></th>
                 <th md-column md-order-by="is_generic"><span translate>Specific</span></th>
                 <th md-column md-order-by="is_regulator"><span translate>Regulator</span></th>
                 <th md-column md-order-by="show_rolf_brut"><span translate>Raw ROLF</span></th>
@@ -45,11 +45,11 @@
 
             <tbody md-body>
             <tr md-row md-select="model" md-select-id="label" ng-repeat="model in models.items.models">
-                <td md-cell>{{ model.label }}</td>
-                <td md-cell>{{ model.description }}</td>
-                <td md-cell><md-checkbox ng-disabled="true" ng-model="!model.is_generic"></md-checkbox></td>
-                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.is_regulator"></md-checkbox></td>
-                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.show_rolf_brut"></md-checkbox></td>
+                <td md-cell>{{ model.label1 }}</td>
+                <td md-cell>{{ model.description1 }}</td>
+                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.is_generic" aria-label="Generic"></md-checkbox></td>
+                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.is_regulator" aria-label="Regulator"></md-checkbox></td>
+                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.show_rolf_brut" aria-label="Raw ROLF"></md-checkbox></td>
                 <td md-cell>
                     <md-button class="md-icon-button" ng-click="editModel($event, model)"><md-icon>edit</md-icon></md-button>
                     <md-button class="md-icon-button" ng-click="deleteModel($event, model)"><md-icon>delete</md-icon></md-button>
