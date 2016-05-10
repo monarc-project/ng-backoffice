@@ -33,7 +33,7 @@
                 fullscreen: useFullScreen
             })
                 .then(function (server) {
-                    AdminServerService.createServer(server).then(
+                    AdminServerService.createServer(server,
                         function () {
                             $scope.updateServers();
                             $mdToast.show(
@@ -44,8 +44,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -57,7 +55,7 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AdminServerService.deleteServer(item.id).then(
+                AdminServerService.deleteServer(item.id,
                     function () {
                         $scope.updateServers();
                         $mdToast.show(
@@ -69,7 +67,6 @@
                         );
                     }
                 );
-            }, function() {
             });
         };
 

@@ -41,7 +41,7 @@
                 fullscreen: useFullScreen
             })
                 .then(function (user) {
-                    AdminUsersService.createUser(user).then(
+                    AdminUsersService.createUser(user,
                         function () {
                             $scope.updateUsers();
                             $mdToast.show(
@@ -50,10 +50,7 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
-                        }
-                    );
-                }, function () {
-
+                        });
                 });
         };
 
@@ -71,7 +68,7 @@
                 }
             })
                 .then(function (user) {
-                    AdminUsersService.updateUser(user).then(
+                    AdminUsersService.updateUser(user,
                         function () {
                             $scope.updateUsers();
                             $mdToast.show(
@@ -82,8 +79,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -96,7 +91,7 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AdminUsersService.deleteUser(item.id).then(
+                AdminUsersService.deleteUser(item.id,
                     function () {
                         $scope.updateUsers();
                         $mdToast.show(
@@ -108,7 +103,6 @@
                         );
                     }
                 );
-            }, function() {
             });
         };
 

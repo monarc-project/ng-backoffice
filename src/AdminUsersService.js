@@ -2,66 +2,46 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AdminUsersService', [ '$resource', '$http', '$q', '$httpParamSerializer',
+        .factory('AdminUsersService', ['$resource', '$http', '$q', '$httpParamSerializer',
             AdminUsersService
         ]);
 
     function AdminUsersService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.UserResource = $resource('/api/admin/users/:userId', { userId: '@id' }, {'update': {method: 'PUT'}});
+        self.UserResource = $resource('/api/admin/users/:userId', {userId: '@id'},
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
 
         var getUsers = function (params) {
-            var promise = $q.defer();
-            var q = $httpParamSerializer(params);
-
-            $http.get('/api/admin/users?' + q).then(
-                function (data) { promise.resolve(data.data);  },
-                function (data) { promise.reject(data.status); }
-            );
-
-            return promise.promise;
+            return self.UserResource.query(params).$promise;
         };
 
-        var createUser = function (params) {
-            var promise = $q.defer();
-
-            var user = new self.UserResource(params);
-            user.$save(function (user) {
-                promise.resolve(user);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var getUser = function (id) {
+            return self.UserResource.query({id: id}).$promise;
         };
 
-        var updateUser = function (params) {
-            var promise = $q.defer();
-
-            self.UserResource.update(params, function (user) {
-                promise.resolve(user);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var createUser = function (params, success, error) {
+            new self.UserResource(params).$save(success, error);
         };
 
-        var deleteUser = function (id) {
-            var promise = $q.defer();
+        var updateUser = function (params, success, error) {
+            self.UserResource.update(params, success, error);
+        };
 
-            self.UserResource.delete({userId: id}, function () {
-                promise.resolve();
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var deleteUser = function (id, success, error) {
+            self.UserResource.delete({userId: id}, success, error);
         };
 
         return {
             getUsers: getUsers,
+            getUser: getUser,
             createUser: createUser,
             deleteUser: deleteUser,
             updateUser: updateUser
