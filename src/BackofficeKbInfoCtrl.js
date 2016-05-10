@@ -537,7 +537,6 @@
     function CreateAssetDialogCtrl($scope, $mdDialog, ModelService, asset) {
         ModelService.getModels().then(function (data) {
             $scope.models = data.models;
-            console.log($scope.models);
         });
 
         $scope.language = 1;
