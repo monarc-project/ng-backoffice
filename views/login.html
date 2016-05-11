@@ -4,23 +4,24 @@
             <h2>CASES Portal - Login</h2>
         </md-toolbar>
 
-        <form layout="column" class="md-padding">
+        <form layout="column" class="md-padding" ng-submit="login()">
             <md-input-container flex>
                 <label translate>Email</label>
                 <md-icon>email</md-icon>
-                <input ng-model="user.email" type="email">
+                <input ng-model="user.email" type="email" ng-disabled="isLoggingIn">
             </md-input-container>
 
             <md-input-container flex>
                 <label translate>Password</label>
                 <md-icon>vpn_key</md-icon>
-                <input ng-model="user.password" type="password">
+                <input ng-model="user.password" type="password" ng-disabled="isLoggingIn">
             </md-input-container>
 
             <div layout="row">
                 <span flex></span>
                 <md-button class="md-primary" ng-click="login()" ng-hide="isLoggingIn">{{ 'Log in' | translate }}</md-button>
                 <md-progress-circular ng-show="isLoggingIn" md-mode="indeterminate"></md-progress-circular>
+                <button style="display:none"></button>
             </div>
         </form>
     </div>
