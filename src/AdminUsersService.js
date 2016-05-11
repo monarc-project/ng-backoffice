@@ -2,11 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AdminUsersService', ['$resource', '$http', '$q', '$httpParamSerializer',
-            AdminUsersService
-        ]);
+        .factory('AdminUsersService', ['$resource', AdminUsersService]);
 
-    function AdminUsersService($resource, $http, $q, $httpParamSerializer) {
+    function AdminUsersService($resource) {
         var self = this;
 
         self.UserResource = $resource('/api/admin/users/:userId', {userId: '@id'},

@@ -2,11 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('ClientService', [ '$resource', '$http', '$q', '$httpParamSerializer',
-            ClientService
-        ]);
+        .factory('ClientService', [ '$resource', ClientService ]);
 
-    function ClientService($resource, $http, $q, $httpParamSerializer) {
+    function ClientService($resource) {
         var self = this;
 
         self.ClientResource = $resource('/api/clients/:clientId', { clientId: '@id' }, {

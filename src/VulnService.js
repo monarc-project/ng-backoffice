@@ -2,9 +2,7 @@
 
     angular
         .module('BackofficeApp')
-        .factory('VulnService', [ '$resource', '$http', '$q', '$httpParamSerializer',
-            VulnService
-        ]);
+        .factory('VulnService', [ '$resource', VulnService ]);
 
     function VulnService($resource, $http, $q, $httpParamSerializer) {
         var self = this;

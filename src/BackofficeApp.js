@@ -1,6 +1,6 @@
 angular
     .module('BackofficeApp', ['ngMaterial', 'ui.router', 'gettext', 'ngResource', 'LocalStorageModule', 'md.data.table',
-                                'ncy-angular-breadcrumb'])
+        'ncy-angular-breadcrumb'])
     .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', '$resourceProvider',
         'localStorageServiceProvider', '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext',
         function ($mdThemingProvider, $stateProvider, $urlRouterProvider, $resourceProvider, localStorageServiceProvider,
@@ -39,8 +39,7 @@ angular
                 }
             }).state('main.admin', {
                 url: "/admin",
-                views: {
-                },
+                views: {},
                 ncyBreadcrumb: {
                     label: gettext('Administration')
                 }
@@ -166,4 +165,8 @@ angular
                 }
             }]);
             $httpProvider.interceptors.push('monarcHttpInter');
-        }]);
+        }]).
+    run(['ConfigService', function (ConfigService) {
+        ConfigService.loadConfig();
+    }
+    ]);

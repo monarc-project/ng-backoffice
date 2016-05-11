@@ -2,11 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AssetService', [ '$resource', '$http', '$q', '$httpParamSerializer',
-            AssetService
-        ]);
+        .factory('AssetService', [ '$resource', AssetService ]);
 
-    function AssetService($resource, $http, $q, $httpParamSerializer) {
+    function AssetService($resource) {
         var self = this;
 
         self.AssetResource = $resource('/api/assets/:assetId', { assetId: '@id' },

@@ -2,11 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AdminServerService', [ '$resource', '$http', '$q', '$httpParamSerializer',
-            AdminServerService
-        ]);
+        .factory('AdminServerService', [ '$resource', AdminServerService ]);
 
-    function AdminServerService($resource, $http, $q, $httpParamSerializer) {
+    function AdminServerService($resource) {
         var self = this;
 
         self.ServerResource = $resource('/api/admin/servers/:serverId', { serverId: '@id' },

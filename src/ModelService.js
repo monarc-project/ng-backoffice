@@ -2,11 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('ModelService', [ '$resource', '$http', '$q', '$httpParamSerializer',
-            ModelService
-        ]);
+        .factory('ModelService', [ '$resource', ModelService ]);
 
-    function ModelService($resource, $http, $q, $httpParamSerializer) {
+    function ModelService($resource) {
         var self = this;
 
         self.ModelResource = $resource('/api/models/:modelId', { modelId: '@id' },

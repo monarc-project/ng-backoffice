@@ -2,11 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('ThreatService', [ '$resource', '$http', '$q', '$httpParamSerializer',
-            ThreatService
-        ]);
+        .factory('ThreatService', [ '$resource', ThreatService ]);
 
-    function ThreatService($resource, $http, $q, $httpParamSerializer) {
+    function ThreatService($resource) {
         var self = this;
 
         self.ThreatResource = $resource('/api/threats/:threatId', { threatId: '@id' },

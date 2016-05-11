@@ -2,11 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AmvService', [ '$resource', '$http', '$q', '$httpParamSerializer',
-            AmvService
-        ]);
+        .factory('AmvService', [ '$resource', AmvService ]);
 
-    function AmvService($resource, $http, $q, $httpParamSerializer) {
+    function AmvService($resource) {
         var self = this;
 
         self.AmvResource = $resource('/api/amvs/:amvId', { amvId: '@id' },
