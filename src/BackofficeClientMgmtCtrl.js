@@ -58,29 +58,31 @@
         $scope.editClient = function (ev, client) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'client', CreateClientDialogCtrl],
-                templateUrl: '/views/dialogs/create.clients.html',
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                fullscreen: useFullScreen,
-                locals: {
-                    'client': client
-                }
-            })
-                .then(function (client) {
-                    ClientService.updateClient(client,
-                        function () {
-                            $scope.updateClients();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The client information has been updated successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
-                        }
-                    );
-                });
+            ClientService.getClient(client.id).then(function (clientData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'client', CreateClientDialogCtrl],
+                    templateUrl: '/views/dialogs/create.clients.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'client': clientData
+                    }
+                })
+                    .then(function (client) {
+                        ClientService.updateClient(client,
+                            function () {
+                                $scope.updateClients();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The client information has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
         };
 
         $scope.deleteClient = function (ev, item) {

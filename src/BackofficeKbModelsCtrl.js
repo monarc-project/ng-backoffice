@@ -59,29 +59,31 @@
         $scope.editModel = function (ev, model) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'model', CreateModelDialogCtrl],
-                templateUrl: '/views/dialogs/create.models.html',
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                fullscreen: useFullScreen,
-                locals: {
-                    'model': model
-                }
-            })
-                .then(function (model) {
-                    ModelService.updateModel(model,
-                        function () {
-                            $scope.updateModels();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The model has been updated successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
-                        }
-                    );
-                });
+            ModelService.getModel(model.id).then(function (modelData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'model', CreateModelDialogCtrl],
+                    templateUrl: '/views/dialogs/create.models.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'model': modelData
+                    }
+                })
+                    .then(function (model) {
+                        ModelService.updateModel(model,
+                            function () {
+                                $scope.updateModels();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The model has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
         };
 
         $scope.deleteModel = function (ev, item) {

@@ -23,6 +23,10 @@
             return self.ModelResource.query(params).$promise;
         };
 
+        var getModel = function (id) {
+            return self.ModelResource.query({modelId: id}).$promise;
+        };
+
         var createModel = function (params, success, error) {
             new self.ModelResource(params).$save(success, error);
         };
@@ -37,6 +41,7 @@
 
         return {
             getModels: getModels,
+            getModel: getModel,
             createModel: createModel,
             deleteModel: deleteModel,
             updateModel: updateModel

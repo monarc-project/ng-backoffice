@@ -33,6 +33,10 @@
             return self.ThreatResource.query(params).$promise;
         };
 
+        var getThreat = function (id) {
+            return self.ThreatResource.query({threatId: id}).$promise;
+        };
+
         var createThreat = function (params, success, error) {
             new self.ThreatResource(params).$save(success, error);
         };
@@ -51,6 +55,10 @@
             return self.ThreatThemeResource.query(params).$promise;
         };
 
+        var getTheme = function (id) {
+            return self.ThreatThemeResource.query({themeId: id}).$promise;
+        };
+
         var createTheme = function (params, success, error) {
             new self.ThreatThemeResource(params).$save(success, error);
         };
@@ -66,11 +74,13 @@
 
         return {
             getThreats: getThreats,
+            getThreat: getThreat,
             createThreat: createThreat,
             deleteThreat: deleteThreat,
             updateThreat: updateThreat,
 
             getThemes: getThemes,
+            getTheme: getTheme,
             createTheme: createTheme,
             deleteTheme: deleteTheme,
             updateTheme: updateTheme

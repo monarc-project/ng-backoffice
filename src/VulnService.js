@@ -23,6 +23,10 @@
             return self.VulnResource.query(params).$promise;
         };
 
+        var getVuln = function (id) {
+            return self.VulnResource.query({vulnId: id}).$promise;
+        };
+
         var createVuln = function (params, success, error) {
             new self.VulnResource(params).$save(success, error);
         };
@@ -37,6 +41,7 @@
 
         return {
             getVulns: getVulns,
+            getVuln: getVuln,
             createVuln: createVuln,
             deleteVuln: deleteVuln,
             updateVuln: updateVuln

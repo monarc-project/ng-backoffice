@@ -62,29 +62,31 @@
         $scope.editAsset = function (ev, asset) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', 'asset', CreateAssetDialogCtrl],
-                templateUrl: '/views/dialogs/create.assets.html',
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                fullscreen: useFullScreen,
-                locals: {
-                    'asset': asset
-                }
-            })
-                .then(function (asset) {
-                    AssetService.updateAsset(asset,
-                        function () {
-                            $scope.updateAssets();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The asset has been updated successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
-                        }
-                    );
-                });
+            AssetService.getAsset(asset.id).then(function (assetData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'ModelService', 'asset', CreateAssetDialogCtrl],
+                    templateUrl: '/views/dialogs/create.assets.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'asset': assetData
+                    }
+                })
+                    .then(function (asset) {
+                        AssetService.updateAsset(asset,
+                            function () {
+                                $scope.updateAssets();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The asset has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
         };
 
         $scope.deleteAsset = function (ev, item) {
@@ -108,7 +110,6 @@
                         );
                     }
                 );
-            }, function() {
             });
         };
 
@@ -131,7 +132,6 @@
 
                 $scope.assets.selected = [];
 
-            }, function() {
             });
         };
 
@@ -199,29 +199,31 @@
         $scope.editThreat = function (ev, threat) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', 'ThreatService', 'threat', CreateThreatDialogCtrl],
-                templateUrl: '/views/dialogs/create.threats.html',
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                fullscreen: useFullScreen,
-                locals: {
-                    'threat': threat
-                }
-            })
-                .then(function (threat) {
-                    ThreatService.updateThreat(threat,
-                        function () {
-                            $scope.updateThreats();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The threat has been updated successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
-                        }
-                    );
-                });
+            ThreatService.getThreat(threat.id).then(function (threatData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'ModelService', 'ThreatService', 'threat', CreateThreatDialogCtrl],
+                    templateUrl: '/views/dialogs/create.threats.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'threat': threatData
+                    }
+                })
+                    .then(function (threat) {
+                        ThreatService.updateThreat(threat,
+                            function () {
+                                $scope.updateThreats();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The threat has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
         };
 
         $scope.deleteThreat = function (ev, item) {
@@ -317,29 +319,31 @@
         $scope.editVuln = function (ev, vuln) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', 'vuln', CreateVulnDialogCtrl],
-                templateUrl: '/views/dialogs/create.vulns.html',
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                fullscreen: useFullScreen,
-                locals: {
-                    'vuln': vuln
-                }
-            })
-                .then(function (vuln) {
-                    VulnService.updateVuln(vuln,
-                        function () {
-                            $scope.updateVulns();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The vuln has been updated successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
-                        }
-                    );
-                });
+            VulnService.getVuln(vuln.id).then(function (vulnData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'ModelService', 'vuln', CreateVulnDialogCtrl],
+                    templateUrl: '/views/dialogs/create.vulns.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'vuln': vulnData
+                    }
+                })
+                    .then(function (vuln) {
+                        VulnService.updateVuln(vuln,
+                            function () {
+                                $scope.updateVulns();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The vuln has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
         };
 
         $scope.deleteVuln = function (ev, item) {
@@ -435,29 +439,31 @@
         $scope.editAmv = function (ev, amv) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'amv', CreateAmvDialogCtrl],
-                templateUrl: '/views/dialogs/create.amvs.html',
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                fullscreen: useFullScreen,
-                locals: {
-                    'amv': amv
-                }
-            })
-                .then(function (amv) {
-                    AmvService.updateAmv(amv,
-                        function () {
-                            $scope.updateAmvs();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The AMV has been updated successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
-                        }
-                    );
-                });
+            AmvService.getAmv(amv.id).then(function (amvData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'amv', CreateAmvDialogCtrl],
+                    templateUrl: '/views/dialogs/create.amvs.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'amv': amvData
+                    }
+                })
+                    .then(function (amv) {
+                        AmvService.updateAmv(amv,
+                            function () {
+                                $scope.updateAmvs();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The AMV has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
         };
 
         $scope.deleteAmv = function (ev, item) {

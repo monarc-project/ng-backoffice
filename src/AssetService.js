@@ -23,6 +23,10 @@
             return self.AssetResource.query(params).$promise;
         };
 
+        var getAsset = function (id) {
+            return self.AssetResource.query({assetId: id}).$promise;
+        };
+
         var createAsset = function (params, success, error) {
             new self.AssetResource(params).$save(success, error);
         };
@@ -37,6 +41,7 @@
 
         return {
             getAssets: getAssets,
+            getAsset: getAsset,
             createAsset: createAsset,
             deleteAsset: deleteAsset,
             updateAsset: updateAsset

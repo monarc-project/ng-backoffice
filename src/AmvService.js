@@ -23,6 +23,11 @@
             return self.AmvResource.query(params).$promise;
         };
 
+        var getAmv = function (id) {
+            return self.AmvResource.query({amvId: id}).$promise;
+        };
+
+
         var createAmv = function (params, success, error) {
             new self.AmvResource(params).$save(success, error);
         };
@@ -37,6 +42,7 @@
 
         return {
             getAmvs: getAmvs,
+            getAmv: getAmv,
             createAmv: createAmv,
             deleteAmv: deleteAmv,
             updateAmv: updateAmv

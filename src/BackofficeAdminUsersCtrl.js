@@ -57,29 +57,31 @@
         $scope.editUser = function (ev, user) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'user', CreateUserDialogCtrl],
-                templateUrl: '/views/dialogs/create.users.admin.html',
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                fullscreen: useFullScreen,
-                locals: {
-                    'user': user
-                }
-            })
-                .then(function (user) {
-                    AdminUsersService.updateUser(user,
-                        function () {
-                            $scope.updateUsers();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The user information has been updated successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
-                        }
-                    );
-                });
+            AdminUsersService.getUser(user.id).then(function (userData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'user', CreateUserDialogCtrl],
+                    templateUrl: '/views/dialogs/create.users.admin.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'user': userData
+                    }
+                })
+                    .then(function (user) {
+                        AdminUsersService.updateUser(user,
+                            function () {
+                                $scope.updateUsers();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The user information has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
         };
 
         $scope.deleteUser = function (ev, item) {

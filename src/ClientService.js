@@ -22,6 +22,10 @@
             return self.ClientResource.query(params).$promise;
         };
 
+        var getClient = function (id) {
+            return self.ClientResource.query({clientId: id}).$promise;
+        };
+
         var createClient = function (params, success, error) {
             new self.ClientResource(params).$save(success, error);
         };
@@ -36,6 +40,7 @@
 
         return {
             getClients: getClients,
+            getClient: getClient,
             createClient: createClient,
             deleteClient: deleteClient,
             updateClient: updateClient

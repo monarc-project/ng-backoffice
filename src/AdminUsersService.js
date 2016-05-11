@@ -24,7 +24,7 @@
         };
 
         var getUser = function (id) {
-            return self.UserResource.query({id: id}).$promise;
+            return self.UserResource.query({userId: id}).$promise;
         };
 
         var createUser = function (params, success, error) {
