@@ -1,6 +1,6 @@
 <div flex ng-controller="BackofficeKbInfoCtrl">
-    <md-tabs md-dynamic-height>
-        <md-tab label="{{ 'Assets' | translate }}" flex>
+    <md-tabs md-dynamic-height="true" md-border-bottom="true">
+        <md-tab label="{{ 'Assets' | translate }}" md-on-select="selectAssetsTab()" md-on-deselect="deselectAssetsTab()">
             <md-toolbar class="md-table-toolbar md-default" ng-hide="assets.selected.length || assets.filter.show">
                 <div class="md-toolbar-tools">
                     <h2 class="md-title" translate>Assets</h2>
@@ -77,7 +77,7 @@
             </div>
         </md-tab>
 
-        <md-tab label="{{ 'Threats' | translate }}">
+        <md-tab label="{{ 'Threats' | translate }}" md-on-select="selectThreatsTab()" md-on-deselect="deselectThreatsTab()">
             <md-toolbar class="md-table-toolbar md-default" ng-hide="threats.selected.length || threats.filter.show">
                 <div class="md-toolbar-tools">
                     <h2 class="md-title" translate>Threats</h2>
@@ -154,7 +154,7 @@
             </div>
         </md-tab>
 
-        <md-tab label="{{ 'Vulns' | translate }}">
+        <md-tab label="{{ 'Vulns' | translate }}" md-on-select="selectVulnsTab()" md-on-deselect="deselectVulnsTab()">
             <md-toolbar class="md-table-toolbar md-default" ng-hide="vulns.selected.length || vulns.filter.show">
                 <div class="md-toolbar-tools">
                     <h2 class="md-title" translate>Vulnerabilities</h2>
@@ -233,7 +233,7 @@
 
         </md-tab>
 
-        <md-tab label="{{ 'AMVs' | translate }}">
+        <md-tab label="{{ 'AMVs' | translate }}" md-on-select="selectAmvsTab()" md-on-deselect="deselectAmvsTab()">
             <md-toolbar class="md-table-toolbar md-default" ng-hide="amvs.selected.length || amvs.filter.show">
                 <div class="md-toolbar-tools">
                     <h2 class="md-title" translate>AMVs links</h2>

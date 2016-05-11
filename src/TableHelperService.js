@@ -39,8 +39,8 @@
             }
         };
 
-        var watchSearch = function ($clientScope, variable, queryVariable, updateFct) {
-            $clientScope.$watch(variable, function (newValue, oldValue) {
+        var watchSearch = function ($clientScope, variable, queryVariable, updateFct, struct) {
+            var unregister = $clientScope.$watch(variable, function (newValue, oldValue) {
                 if (!oldValue) {
                     self.bookmarks[variable] = queryVariable.page;
                 }
@@ -55,7 +55,17 @@
 
                 updateFct();
             });
+
+            if (struct) {
+                struct.watchUnregister = unregister;
+            }
         };
+
+        var unwatchSearch = function (struct) {
+            if (struct.watchUnregister) {
+                struct.watchUnregister();
+            }
+        }
 
         var resetBookmarks = function () {
             self.bookmarks = {};
@@ -65,6 +75,7 @@
             build: build,
             removeFilter: removeFilter,
             watchSearch: watchSearch,
+            unwatchSearch: unwatchSearch,
             resetBookmarks: resetBookmarks
         };
     }

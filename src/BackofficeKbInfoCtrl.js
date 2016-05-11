@@ -20,6 +20,14 @@
          */
         $scope.assets = TableHelperService.build('label1', 10, 1, '');
 
+        $scope.selectAssetsTab = function () {
+            TableHelperService.watchSearch($scope, 'assets.query.filter', $scope.assets.query, $scope.updateAssets, $scope.assets);
+        };
+
+        $scope.deselectAssetsTab = function () {
+            TableHelperService.unwatchSearch($scope.assets);
+        };
+
         $scope.updateAssets = function () {
             $scope.assets.promise = AssetService.getAssets($scope.assets.query);
             $scope.assets.promise.then(
@@ -31,8 +39,6 @@
         $scope.removeAssetsFilter = function () {
             TableHelperService.removeFilter($scope.assets);
         };
-
-        TableHelperService.watchSearch($scope, 'assets.query.filter', $scope.assets.query, $scope.updateAssets);
 
         $scope.createNewAsset = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -157,6 +163,14 @@
          */
         $scope.threats = TableHelperService.build('label', 10, 1, '');
 
+        $scope.selectThreatsTab = function () {
+            TableHelperService.watchSearch($scope, 'threats.query.filter', $scope.threats.query, $scope.updateThreats, $scope.threats);
+        };
+
+        $scope.deselectThreatsTab = function () {
+            TableHelperService.unwatchSearch($scope.threats);
+        };
+
         $scope.updateThreats = function () {
             $scope.threats.promise = ThreatService.getThreats($scope.threats.query);
             $scope.threats.promise.then(
@@ -168,8 +182,6 @@
         $scope.removeThreatsFilter = function () {
             TableHelperService.removeFilter($scope.threats);
         };
-
-        TableHelperService.watchSearch($scope, 'threats.query.filter', $scope.threats.query, $scope.updateThreats);
 
         $scope.createNewThreat = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -277,6 +289,14 @@
          */
         $scope.vulns = TableHelperService.build('label', 10, 1, '');
 
+        $scope.selectVulnsTab = function () {
+            TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns, $scope.vulns);
+        };
+
+        $scope.deselectVulnsTab = function () {
+            TableHelperService.unwatchSearch($scope.vulns);
+        };
+
         $scope.updateVulns = function () {
             $scope.vulns.promise = VulnService.getVulns($scope.vulns.query);
             $scope.vulns.promise.then(
@@ -289,7 +309,6 @@
             TableHelperService.removeFilter($scope.vulns);
         };
 
-        TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns);
 
         $scope.createNewVuln = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -397,6 +416,14 @@
          */
         $scope.amvs = TableHelperService.build('label', 10, 1, '');
 
+        $scope.selectAmvsTab = function () {
+            TableHelperService.watchSearch($scope, 'amvs.query.filter', $scope.amvs.query, $scope.updateAmvs, $scope.amvs);
+        };
+
+        $scope.deselectAmvsTab = function () {
+            TableHelperService.unwatchSearch($scope.amvs);
+        };
+
         $scope.updateAmvs = function () {
             $scope.amvs.promise = AmvService.getAmvs($scope.amvs.query);
             $scope.amvs.promise.then(
@@ -405,11 +432,10 @@
                 }
             )
         };
+
         $scope.removeAmvsFilter = function () {
             TableHelperService.removeFilter($scope.amvs);
         };
-
-        TableHelperService.watchSearch($scope, 'amvs.query.filter', $scope.amvs.query, $scope.updateAmvs);
 
         $scope.createNewAmv = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
