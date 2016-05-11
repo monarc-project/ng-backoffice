@@ -44,7 +44,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', CreateAssetDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', CreateAssetDialogCtrl],
                 templateUrl: '/views/dialogs/create.assets.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -70,7 +70,7 @@
 
             AssetService.getAsset(asset.id).then(function (assetData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ModelService', 'asset', CreateAssetDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
                     templateUrl: '/views/dialogs/create.assets.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -187,7 +187,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', 'ThreatService', CreateThreatDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ModelService', 'ThreatService', 'ConfigService', CreateThreatDialogCtrl],
                 templateUrl: '/views/dialogs/create.threats.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -213,7 +213,7 @@
 
             ThreatService.getThreat(threat.id).then(function (threatData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ModelService', 'ThreatService', 'threat', CreateThreatDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                     templateUrl: '/views/dialogs/create.threats.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -314,7 +314,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', CreateVulnDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', CreateVulnDialogCtrl],
                 templateUrl: '/views/dialogs/create.vulns.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -340,7 +340,7 @@
 
             VulnService.getVuln(vuln.id).then(function (vulnData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ModelService', 'vuln', CreateVulnDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
                     templateUrl: '/views/dialogs/create.vulns.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -441,7 +441,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', CreateAmvDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'ConfigService', CreateAmvDialogCtrl],
                 templateUrl: '/views/dialogs/create.amvs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -467,7 +467,7 @@
 
             AmvService.getAmv(amv.id).then(function (amvData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'amv', CreateAmvDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'ConfigService', 'amv', CreateAmvDialogCtrl],
                     templateUrl: '/views/dialogs/create.amvs.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -545,12 +545,14 @@
     // DIALOGS
     //////////////////////
 
-    function CreateAssetDialogCtrl($scope, $mdDialog, ModelService, asset) {
+    function CreateAssetDialogCtrl($scope, $mdDialog, ModelService, ConfigService, asset) {
         ModelService.getModels().then(function (data) {
             $scope.models = data.models;
         });
 
-        $scope.language = 1;
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
+
 
         if (asset != undefined && asset != null) {
             $scope.asset = asset;
@@ -579,12 +581,13 @@
         };
     }
 
-    function CreateThreatDialogCtrl($scope, $mdDialog, ModelService, ThreatService, threat) {
+    function CreateThreatDialogCtrl($scope, $mdDialog, ModelService, ThreatService, ConfigService, threat) {
         ModelService.getModels().then(function (data) {
             $scope.models = data.models;
         });
 
-        $scope.language = 1;
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.themeSearchText = '';
 
         if (threat != undefined && threat != null) {
@@ -648,12 +651,13 @@
         };
     }
 
-    function CreateVulnDialogCtrl($scope, $mdDialog, ModelService, vuln) {
+    function CreateVulnDialogCtrl($scope, $mdDialog, ModelService, ConfigService, vuln) {
         ModelService.getModels().then(function (data) {
             $scope.models = data.models;
         });
 
-        $scope.language = 1;
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (vuln != undefined && vuln != null) {
             $scope.vuln = vuln;
@@ -681,8 +685,9 @@
         };
     }
 
-    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, amv) {
-        $scope.language = 1;
+    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, ConfigService, amv) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (amv != undefined && amv != null) {
             $scope.amv = amv;
