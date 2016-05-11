@@ -35,7 +35,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', CreateModelDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ConfigService', CreateModelDialogCtrl],
                 templateUrl: '/views/dialogs/create.models.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -61,7 +61,7 @@
 
             ModelService.getModel(model.id).then(function (modelData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'model', CreateModelDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'ConfigService', 'model', CreateModelDialogCtrl],
                     templateUrl: '/views/dialogs/create.models.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -111,8 +111,9 @@
         };
     }
 
-    function CreateModelDialogCtrl($scope, $mdDialog, model) {
-        $scope.language = 1;
+    function CreateModelDialogCtrl($scope, $mdDialog, ConfigService, model) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (model != undefined && model != null) {
             $scope.model = model;
