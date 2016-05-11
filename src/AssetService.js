@@ -9,55 +9,30 @@
     function AssetService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.AssetResource = $resource('/api/assets/:assetId', { assetId: '@id' }, {'update': {method: 'PUT'}});
+        self.AssetResource = $resource('/api/assets/:assetId', { assetId: '@id' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
 
         var getAssets = function (params) {
-            var promise = $q.defer();
-            var q = $httpParamSerializer(params);
-
-            $http.get('/api/assets?' + q).then(
-                function (data) { promise.resolve(data.data);  },
-                function (data) { promise.reject(data.status); }
-            );
-
-            return promise.promise;
+            return self.AssetResource.query(params).$promise;
         };
 
-        var createAsset = function (params) {
-            var promise = $q.defer();
-
-            var asset = new self.AssetResource(params);
-            asset.$save(function (asset) {
-                promise.resolve(asset);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var createAsset = function (params, success, error) {
+            new self.AssetResource(params).$save(success, error);
         };
 
-        var updateAsset = function (params) {
-            var promise = $q.defer();
-
-            self.AssetResource.update(params, function (asset) {
-                promise.resolve(asset);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var updateAsset = function (params, success, error) {
+            self.AssetResource.update(params, success, error);
         };
 
-        var deleteAsset = function (id) {
-            var promise = $q.defer();
-
-            self.AssetResource.delete({assetId: id}, function () {
-                promise.resolve();
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var deleteAsset = function (id, success, error) {
+            self.AssetResource.delete({assetId: id}, success, error);
         };
 
         return {

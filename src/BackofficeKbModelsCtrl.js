@@ -53,8 +53,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -62,8 +60,8 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'user', CreateModelDialogCtrl],
-                templateUrl: '/views/dialogs/create.users.admin.html',
+                controller: ['$scope', '$mdDialog', 'model', CreateModelDialogCtrl],
+                templateUrl: '/views/dialogs/create.models.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
@@ -72,7 +70,7 @@
                 }
             })
                 .then(function (model) {
-                    ModelService.updateModel(model).then(
+                    ModelService.updateModel(model,
                         function () {
                             $scope.updateModels();
                             $mdToast.show(
@@ -83,8 +81,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -97,7 +93,7 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                ModelService.deleteModel(item.id).then(
+                ModelService.deleteModel(item.id,
                     function () {
                         $scope.updateModels();
                         $mdToast.show(
@@ -109,7 +105,6 @@
                         );
                     }
                 );
-            }, function() {
             });
         };
     }

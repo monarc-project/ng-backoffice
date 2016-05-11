@@ -9,55 +9,29 @@
     function ClientService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.ClientResource = $resource('/api/clients/:clientId', { clientId: '@id' }, {'update': {method: 'PUT'}});
+        self.ClientResource = $resource('/api/clients/:clientId', { clientId: '@id' }, {
+            'update': {
+                method: 'PUT'
+            },
+            'query': {
+                isArray: false
+            }
+        });
 
         var getClients = function (params) {
-            var promise = $q.defer();
-            var q = $httpParamSerializer(params);
-
-            $http.get('/api/clients?' + q).then(
-                function (data) { promise.resolve(data.data);  },
-                function (data) { promise.reject(data.status); }
-            );
-
-            return promise.promise;
+            return self.ClientResource.query(params).$promise;
         };
 
-        var createClient = function (params) {
-            var promise = $q.defer();
-
-            var client = new self.ClientResource(params);
-            client.$save(function (client) {
-                promise.resolve(client);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var createClient = function (params, success, error) {
+            new self.ClientResource(params).$save(success, error);
         };
 
-        var updateClient = function (params) {
-            var promise = $q.defer();
-
-            self.ClientResource.update(params, function (client) {
-                promise.resolve(client);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var updateClient = function (params, success, error) {
+            self.ClientResource.update(params, success, error);
         };
 
-        var deleteClient = function (id) {
-            var promise = $q.defer();
-
-            self.ClientResource.delete({clientId: id}, function () {
-                promise.resolve();
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var deleteClient = function (id, success, error) {
+            self.ClientResource.delete({clientId: id}, success, error);
         };
 
         return {

@@ -9,55 +9,30 @@
     function AmvService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.AmvResource = $resource('/api/amvs/:amvId', { amvId: '@id' }, {'update': {method: 'PUT'}});
+        self.AmvResource = $resource('/api/amvs/:amvId', { amvId: '@id' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
 
         var getAmvs = function (params) {
-            var promise = $q.defer();
-            var q = $httpParamSerializer(params);
-
-            $http.get('/api/amvs?' + q).then(
-                function (data) { promise.resolve(data.data);  },
-                function (data) { promise.reject(data.status); }
-            );
-
-            return promise.promise;
+            return self.AmvResource.query(params).$promise;
         };
 
-        var createAmv = function (params) {
-            var promise = $q.defer();
-
-            var amv = new self.AmvResource(params);
-            amv.$save(function (amv) {
-                promise.resolve(amv);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var createAmv = function (params, success, error) {
+            new self.AmvResource(params).$save(success, error);
         };
 
-        var updateAmv = function (params) {
-            var promise = $q.defer();
-
-            self.AmvResource.update(params, function (amv) {
-                promise.resolve(amv);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var updateAmv = function (params, success, error) {
+            self.AmvResource.update(params, success, error);
         };
 
         var deleteAmv = function (id) {
-            var promise = $q.defer();
-
-            self.AmvResource.delete({amvId: id}, function () {
-                promise.resolve();
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+            self.AmvResource.delete({amvId: id}, success, error);
         };
 
         return {

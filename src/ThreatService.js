@@ -9,108 +9,58 @@
     function ThreatService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.ThreatResource = $resource('/api/threats/:threatId', { threatId: '@id' }, {'update': {method: 'PUT'}});
-        self.ThreatThemeResource = $resource('/api/threats/themes/:themeId', { themeId: '@id' }, {'update': {method: 'PUT'}});
+        self.ThreatResource = $resource('/api/threats/:threatId', { threatId: '@id' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
+        self.ThreatThemeResource = $resource('/api/threats/themes/:themeId', { themeId: '@id' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
 
         // Threats
         var getThreats = function (params) {
-            var promise = $q.defer();
-            var q = $httpParamSerializer(params);
-
-            $http.get('/api/threats?' + q).then(
-                function (data) { promise.resolve(data.data);  },
-                function (data) { promise.reject(data.status); }
-            );
-
-            return promise.promise;
+            return self.ThreatResource.query(params).$promise;
         };
 
-        var createThreat = function (params) {
-            var promise = $q.defer();
-
-            var threat = new self.ThreatResource(params);
-            threat.$save(function (threat) {
-                promise.resolve(threat);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var createThreat = function (params, success, error) {
+            new self.ThreatResource(params).$save(success, error);
         };
 
-        var updateThreat = function (params) {
-            var promise = $q.defer();
-
-            self.ThreatResource.update(params, function (threat) {
-                promise.resolve(threat);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var updateThreat = function (params, success, error) {
+            self.ThreatResource.update(params, success, error);
         };
 
-        var deleteThreat = function (id) {
-            var promise = $q.defer();
-
-            self.ThreatResource.delete({threatId: id}, function () {
-                promise.resolve();
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var deleteThreat = function (id, success, error) {
+            self.ThreatResource.delete({threatId: id}, success, error);
         };
 
 
         // Themes
         var getThemes = function (params) {
-            var promise = $q.defer();
-            var q = $httpParamSerializer(params);
-
-            $http.get('/api/threats/themes?' + q).then(
-                function (data) { promise.resolve(data.data);  },
-                function (data) { promise.reject(data.status); }
-            );
-
-            return promise.promise;
+            return self.ThreatThemeResource.query(params).$promise;
         };
 
-        var createTheme = function (params) {
-            var promise = $q.defer();
-
-            var theme = new self.ThreatThemeResource(params);
-            theme.$save(function (theme) {
-                promise.resolve(theme);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var createTheme = function (params, success, error) {
+            new self.ThreatThemeResource(params).$save(success, error);
         };
 
-        var updateTheme = function (params) {
-            var promise = $q.defer();
-
-            self.ThreatThemeResource.update(params, function (theme) {
-                promise.resolve(theme);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var updateTheme = function (params, success, error) {
+            self.ThreatThemeResource.update(params, success, error);
         };
 
-        var deleteTheme = function (id) {
-            var promise = $q.defer();
-
-            self.ThreatThemeResource.delete({themeId: id}, function () {
-                promise.resolve();
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var deleteTheme = function (id, success, error) {
+            self.ThreatThemeResource.delete({themeId: id}, success, error);
         };
 
 

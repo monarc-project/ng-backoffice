@@ -81,8 +81,6 @@ angular
                 views: {
                     'kb_main@main.kb_mgmt': {templateUrl: '/views/info_risk.kb_mgmt.html'}
                 },
-                controller: function ($scope) {
-                },
                 ncyBreadcrumb: {
                     label: gettext('Information risks')
                 }
@@ -90,8 +88,6 @@ angular
                 url: '/models',
                 views: {
                     'kb_main@main.kb_mgmt': {templateUrl: '/views/models.kb_mgmt.html'}
-                },
-                controller: function ($scope) {
                 },
                 ncyBreadcrumb: {
                     label: gettext('Models')
@@ -101,8 +97,6 @@ angular
                 views: {
                     'kb_main@main.kb_mgmt': {templateUrl: '/views/op_risk.kb_mgmt.html'}
                 },
-                controller: function ($scope) {
-                },
                 ncyBreadcrumb: {
                     label: gettext('Operational risks')
                 }
@@ -111,8 +105,6 @@ angular
                 views: {
                     'kb_main@main.kb_mgmt': {templateUrl: '/views/doc_models.kb_mgmt.html'}
                 },
-                controller: function ($scope) {
-                },
                 ncyBreadcrumb: {
                     label: gettext('Document models')
                 }
@@ -120,8 +112,6 @@ angular
                 url: '/guides',
                 views: {
                     'kb_main@main.kb_mgmt': {templateUrl: '/views/analysis_guides.kb_mgmt.html'}
-                },
-                controller: function ($scope) {
                 },
                 ncyBreadcrumb: {
                     label: gettext('Analysis guide')

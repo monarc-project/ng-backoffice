@@ -9,55 +9,30 @@
     function ModelService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.ModelResource = $resource('/api/models/:modelId', { modelId: '@id' }, {'update': {method: 'PUT'}});
+        self.ModelResource = $resource('/api/models/:modelId', { modelId: '@id' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
 
         var getModels = function (params) {
-            var promise = $q.defer();
-            var q = $httpParamSerializer(params);
-
-            $http.get('/api/models?' + q).then(
-                function (data) { promise.resolve(data.data);  },
-                function (data) { promise.reject(data.status); }
-            );
-
-            return promise.promise;
+            return self.ModelResource.query(params).$promise;
         };
 
-        var createModel = function (params) {
-            var promise = $q.defer();
-
-            var model = new self.ModelResource(params);
-            model.$save(function (model) {
-                promise.resolve(model);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var createModel = function (params, success, error) {
+            new self.ModelResource(params).$save(success, error);
         };
 
-        var updateModel = function (params) {
-            var promise = $q.defer();
-
-            self.ModelResource.update(params, function (model) {
-                promise.resolve(model);
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var updateModel = function (params, success, error) {
+            self.ModelResource.update(params, success, error);
         };
 
-        var deleteModel = function (id) {
-            var promise = $q.defer();
-
-            self.ModelResource.delete({modelId: id}, function () {
-                promise.resolve();
-            }, function (error) {
-                promise.reject(error.status);
-            });
-
-            return promise.promise;
+        var deleteModel = function (id, success, error) {
+            self.ModelResource.delete({modelId: id}, success, error);
         };
 
         return {

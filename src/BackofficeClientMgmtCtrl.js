@@ -52,8 +52,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -71,7 +69,7 @@
                 }
             })
                 .then(function (client) {
-                    ClientService.updateClient(client).then(
+                    ClientService.updateClient(client,
                         function () {
                             $scope.updateClients();
                             $mdToast.show(
@@ -82,8 +80,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -95,7 +91,7 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                ClientService.deleteClient(item.id).then(
+                ClientService.deleteClient(item.id,
                     function () {
                         $scope.updateClients();
                         $mdToast.show(
@@ -121,7 +117,7 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.clients.selected, function (value, key) {
-                    ClientService.deleteClient(value.id).then(
+                    ClientService.deleteClient(value.id,
                         function () {
                             $scope.updateClients();
                         }

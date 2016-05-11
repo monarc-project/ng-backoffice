@@ -45,7 +45,7 @@
                 fullscreen: useFullScreen
             })
                 .then(function (asset) {
-                    AssetService.createAsset(asset).then(
+                    AssetService.createAsset(asset,
                         function () {
                             $scope.updateAssets();
                             $mdToast.show(
@@ -56,8 +56,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -75,7 +73,7 @@
                 }
             })
                 .then(function (asset) {
-                    AssetService.updateAsset(asset).then(
+                    AssetService.updateAsset(asset,
                         function () {
                             $scope.updateAssets();
                             $mdToast.show(
@@ -86,8 +84,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -100,13 +96,13 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AssetService.deleteAsset(item.id).then(
+                AssetService.deleteAsset(item.id,
                     function () {
                         $scope.updateAssets();
                         $mdToast.show(
                             $mdToast.simple()
                                 .textContent(gettextCatalog.getString('The asset "{{label}}" has been deleted.',
-                                    {label: item.label}))
+                                    {label: item.label1}))
                                 .position('top right')
                                 .hideDelay(3000)
                         );
@@ -126,7 +122,7 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.assets.selected, function (value, key) {
-                    AssetService.deleteAsset(value.id).then(
+                    AssetService.deleteAsset(value.id,
                         function () {
                             $scope.updateAssets();
                         }
@@ -186,7 +182,7 @@
                 fullscreen: useFullScreen
             })
                 .then(function (threat) {
-                    ThreatService.createThreat(threat).then(
+                    ThreatService.createThreat(threat,
                         function () {
                             $scope.updateThreats();
                             $mdToast.show(
@@ -197,8 +193,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -216,7 +210,7 @@
                 }
             })
                 .then(function (threat) {
-                    ThreatService.updateThreat(threat).then(
+                    ThreatService.updateThreat(threat,
                         function () {
                             $scope.updateThreats();
                             $mdToast.show(
@@ -227,8 +221,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -241,7 +233,7 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                ThreatService.deleteThreat(item.id).then(
+                ThreatService.deleteThreat(item.id,
                     function () {
                         $scope.updateThreats();
                         $mdToast.show(
@@ -253,7 +245,6 @@
                         );
                     }
                 );
-            }, function() {
             });
         };
 
@@ -267,7 +258,7 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.threats.selected, function (value, key) {
-                    ThreatService.deleteThreat(value.id).then(
+                    ThreatService.deleteThreat(value.id,
                         function () {
                             $scope.updateThreats();
                         }
@@ -276,7 +267,6 @@
 
                 $scope.threats.selected = [];
 
-            }, function() {
             });
         };
 
@@ -321,8 +311,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -340,7 +328,7 @@
                 }
             })
                 .then(function (vuln) {
-                    VulnService.updateVuln(vuln).then(
+                    VulnService.updateVuln(vuln,
                         function () {
                             $scope.updateVulns();
                             $mdToast.show(
@@ -351,8 +339,6 @@
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -365,7 +351,7 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                VulnService.deleteVuln(item.id).then(
+                VulnService.deleteVuln(item.id,
                     function () {
                         $scope.updateVulns();
                         $mdToast.show(
@@ -377,7 +363,6 @@
                         );
                     }
                 );
-            }, function() {
             });
         };
 
@@ -391,7 +376,7 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.vulns.selected, function (value, key) {
-                    VulnService.deleteVuln(value.id).then(
+                    VulnService.deleteVuln(value.id,
                         function () {
                             $scope.updateVulns();
                         }
@@ -400,7 +385,6 @@
 
                 $scope.vulns.selected = [];
 
-            }, function() {
             });
         };
 
@@ -434,19 +418,17 @@
                 fullscreen: useFullScreen
             })
                 .then(function (amv) {
-                    AmvService.createAmv(amv).then(
+                    AmvService.createAmv(amv,
                         function () {
                             $scope.updateAmvs();
                             $mdToast.show(
                                 $mdToast.simple()
-                                    .textContent(gettext('The amv has been created successfully.'))
+                                    .textContent(gettext('The AMV has been created successfully.'))
                                     .position('top right')
                                     .hideDelay(3000)
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -464,19 +446,17 @@
                 }
             })
                 .then(function (amv) {
-                    AmvService.updateAmv(amv).then(
+                    AmvService.updateAmv(amv,
                         function () {
                             $scope.updateAmvs();
                             $mdToast.show(
                                 $mdToast.simple()
-                                    .textContent(gettext('The amv has been updated successfully.'))
+                                    .textContent(gettext('The AMV has been updated successfully.'))
                                     .position('top right')
                                     .hideDelay(3000)
                             );
                         }
                     );
-                }, function () {
-
                 });
         };
 
@@ -489,19 +469,18 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AmvService.deleteAmv(item.id).then(
+                AmvService.deleteAmv(item.id,
                     function () {
                         $scope.updateAmvs();
                         $mdToast.show(
                             $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The amverability "{{label}}" has been deleted.',
+                                .textContent(gettextCatalog.getString('The AMV "{{label}}" has been deleted.',
                                     {label: item.label}))
                                 .position('top right')
                                 .hideDelay(3000)
                         );
                     }
                 );
-            }, function() {
             });
         };
 
@@ -515,7 +494,7 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.amvs.selected, function (value, key) {
-                    AmvService.deleteAmv(value.id).then(
+                    AmvService.deleteAmv(value.id,
                         function () {
                             $scope.updateAmvs();
                         }
