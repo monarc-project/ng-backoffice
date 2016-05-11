@@ -161,7 +161,7 @@
         /*
          * THREATS TAB
          */
-        $scope.threats = TableHelperService.build('label', 10, 1, '');
+        $scope.threats = TableHelperService.build('label1', 10, 1, '');
 
         $scope.selectThreatsTab = function () {
             TableHelperService.watchSearch($scope, 'threats.query.filter', $scope.threats.query, $scope.updateThreats, $scope.threats);
@@ -581,7 +581,7 @@
 
     function CreateThreatDialogCtrl($scope, $mdDialog, ModelService, ThreatService, threat) {
         ModelService.getModels().then(function (data) {
-            $scope.models = data;
+            $scope.models = data.models;
         });
 
         $scope.language = 1;
@@ -650,7 +650,7 @@
 
     function CreateVulnDialogCtrl($scope, $mdDialog, ModelService, vuln) {
         ModelService.getModels().then(function (data) {
-            $scope.models = data;
+            $scope.models = data.models;
         });
 
         $scope.language = 1;
