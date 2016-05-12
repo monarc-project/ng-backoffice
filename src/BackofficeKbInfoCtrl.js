@@ -414,7 +414,7 @@
         /*
          * 27002 MEASURES TAB
          */
-        $scope.measures = TableHelperService.build('label1', 10, 1, '');
+        $scope.measures = TableHelperService.build('description1', 10, 1, '');
 
         $scope.selectMeasuresTab = function () {
             TableHelperService.watchSearch($scope, 'measures.query.filter', $scope.measures.query, $scope.updateMeasures, $scope.measures);
@@ -821,10 +821,10 @@
         } else {
             $scope.measure = {
                 code: '',
-                label1: '',
-                label2: '',
-                label3: '',
-                label4: '',
+                description1: '',
+                description2: '',
+                description3: '',
+                description4: '',
             };
         }
 
@@ -839,24 +839,31 @@
 
     function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, ConfigService, $q, amv) {
         $scope.languages = ConfigService.getLanguages();
-        $scope.language = ConfigService.getDefaultLanguageIndex();
+        $scope.defaultLang = ConfigService.getDefaultLanguageIndex();
+
+        $scope.amv_labels = {};
 
         if (amv != undefined && amv != null) {
             $scope.amv = amv;
         } else {
             $scope.amv = {
-                asset_id: null,
-                threat_id: null,
-                vulnerability_id: null,
-                measure1_id: null,
-                measure2_id: null,
-                measure3_id: null
+                asset: null,
+                threat: null,
+                vulnerability: null,
+                measure1: null,
+                measure2: null,
+                measure3: null
             };
         }
 
         $scope.queryAssetSearch = function (query) {
             var promise = $q.defer();
             AssetService.getAssets({filter: query}).then(function (e) {
+                for (var i in e.assets) {
+                    var asset = e.assets[i];
+                    $scope.amv_labels[asset.id] = asset.label1;
+                }
+
                 promise.resolve(e.assets);
             }, function (e) {
                 promise.reject(e);
@@ -866,7 +873,9 @@
         };
 
         $scope.selectedAssetItemChange = function (item) {
-            $scope.amv.asset_id = item.id;
+            if (item) {
+                $scope.amv.asset = item;
+            }
         }
 
         $scope.queryThreatSearch = function (query) {
