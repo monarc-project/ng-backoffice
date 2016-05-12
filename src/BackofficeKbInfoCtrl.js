@@ -833,7 +833,7 @@
         };
 
         $scope.create = function() {
-            $mdDialog.hide($scope.vuln);
+            $mdDialog.hide($scope.measure);
         };
     }
 
