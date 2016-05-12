@@ -7,7 +7,7 @@
     function VulnService($resource, $http, $q, $httpParamSerializer) {
         var self = this;
 
-        self.VulnResource = $resource('/api/vulns/:vulnId', { vulnId: '@id' },
+        self.VulnResource = $resource('/api/vulnerabilities/:vulnId', { vulnId: '@id' },
             {
                 'update': {
                     method: 'PUT'

@@ -191,7 +191,7 @@
                     <thead md-head md-order="vulns.query.order" md-on-reorder="updateVulns">
                     <tr md-row>
                         <th md-column md-order-by="status"><span translate>Active</span></th>
-                        <th md-column md-order-by="label"><span translate>Label</span></th>
+                        <th md-column md-order-by="label1"><span translate>Label</span></th>
                         <th md-column md-order-by="code"><span translate>Code</span></th>
                         <th md-column md-order-by="mode"><span translate>Mode</span></th>
                         <th md-column md-order-by="description"><span translate>Description</span></th>
@@ -200,9 +200,9 @@
                     </thead>
 
                     <tbody md-body>
-                    <tr md-row md-select="vuln" md-select-id="id" ng-repeat="vuln in vulns.items.vulns">
+                    <tr md-row md-select="vuln" md-select-id="id" ng-repeat="vuln in vulns.items.vulnerabilities">
                         <td md-cell>{{ vuln.status }}</td>
-                        <td md-cell>{{ vuln.label }}</td>
+                        <td md-cell>{{ vuln.label1 }}</td>
                         <td md-cell>{{ vuln.code }}</td>
                         <td md-cell>{{ vuln.mode }}</td>
                         <td md-cell>{{ vuln.description }}</td>
