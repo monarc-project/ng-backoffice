@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'AssetService', 'ThreatService', 'VulnService', 'AmvService',
+            'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO
      */
     function BackofficeKbInfoCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                  AssetService, ThreatService, VulnService, AmvService) {
+                                  AssetService, ThreatService, VulnService, AmvService, MeasureService) {
         TableHelperService.resetBookmarks();
 
         /*
@@ -287,7 +287,7 @@
         /*
          * VULNS TAB
          */
-        $scope.vulns = TableHelperService.build('label', 10, 1, '');
+        $scope.vulns = TableHelperService.build('label1', 10, 1, '');
 
         $scope.selectVulnsTab = function () {
             TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns, $scope.vulns);
@@ -321,12 +321,12 @@
                 fullscreen: useFullScreen
             })
                 .then(function (vuln) {
-                    VulnService.createVuln(vuln).then(
+                    VulnService.createVuln(vuln,
                         function () {
                             $scope.updateVulns();
                             $mdToast.show(
                                 $mdToast.simple()
-                                    .textContent(gettext('The vuln has been created successfully.'))
+                                    .textContent(gettext('The vulnerability has been created successfully.'))
                                     .position('top right')
                                     .hideDelay(3000)
                             );
@@ -355,7 +355,7 @@
                                 $scope.updateVulns();
                                 $mdToast.show(
                                     $mdToast.simple()
-                                        .textContent(gettext('The vuln has been updated successfully.'))
+                                        .textContent(gettext('The vulnerability has been updated successfully.'))
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
@@ -412,6 +412,133 @@
         };
 
         /*
+         * 27002 MEASURES TAB
+         */
+        $scope.measures = TableHelperService.build('label1', 10, 1, '');
+
+        $scope.selectMeasuresTab = function () {
+            TableHelperService.watchSearch($scope, 'measures.query.filter', $scope.measures.query, $scope.updateMeasures, $scope.measures);
+        };
+
+        $scope.deselectMeasuresTab = function () {
+            TableHelperService.unwatchSearch($scope.measures);
+        };
+
+        $scope.updateMeasures = function () {
+            $scope.measures.promise = MeasureService.getMeasures($scope.measures.query);
+            $scope.measures.promise.then(
+                function (data) {
+                    $scope.measures.items = data;
+                }
+            )
+        };
+        $scope.removeMeasuresFilter = function () {
+            TableHelperService.removeFilter($scope.vulns);
+        };
+
+
+        $scope.createNewMeasure = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'ConfigService', CreateMeasureDialogCtrl],
+                templateUrl: '/views/dialogs/create.measures.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen
+            })
+                .then(function (measure) {
+                    MeasureService.createMeasure(measure,
+                        function () {
+                            $scope.updateMeasures();
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent(gettext('The measure has been created successfully.'))
+                                    .position('top right')
+                                    .hideDelay(3000)
+                            );
+                        }
+                    );
+                });
+        };
+
+        $scope.editMeasure = function (ev, measure) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            MeasureService.getMeasure(measure.id).then(function (measureData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
+                    templateUrl: '/views/dialogs/create.measures.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'measure': measureData
+                    }
+                })
+                    .then(function (measure) {
+                        MeasureService.updateMeasure(measure,
+                            function () {
+                                $scope.updateMeasures();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The measure has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
+        };
+
+        $scope.deleteMeasure = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete measure "{{ label }}"?',
+                    {label: item.label}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                MeasureService.deleteMeasure(item.id,
+                    function () {
+                        $scope.updateMeasures();
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent(gettextCatalog.getString('The measure "{{label}}" has been deleted.',
+                                    {label: item.label}))
+                                .position('top right')
+                                .hideDelay(3000)
+                        );
+                    }
+                );
+            });
+        };
+
+        $scope.deleteMeasureMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected measures?',
+                    {count: $scope.measures.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.measures.selected, function (value, key) {
+                    MeasureService.deleteMeasure(value.id,
+                        function () {
+                            $scope.updateMeasures();
+                        }
+                    );
+                });
+
+                $scope.measures.selected = [];
+
+            });
+        };
+
+        /*
          * AMVS TAB
          */
         $scope.amvs = TableHelperService.build('label', 10, 1, '');
@@ -441,7 +568,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'ConfigService', CreateAmvDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'ConfigService', '$q', CreateAmvDialogCtrl],
                 templateUrl: '/views/dialogs/create.amvs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -467,7 +594,7 @@
 
             AmvService.getAmv(amv.id).then(function (amvData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'ConfigService', 'amv', CreateAmvDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
                     templateUrl: '/views/dialogs/create.amvs.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -685,7 +812,32 @@
         };
     }
 
-    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, ConfigService, amv) {
+    function CreateMeasureDialogCtrl($scope, $mdDialog, ConfigService, measure) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
+
+        if (measure != undefined && measure != null) {
+            $scope.measure = measure;
+        } else {
+            $scope.measure = {
+                code: '',
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: '',
+            };
+        }
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.vuln);
+        };
+    }
+
+    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, ConfigService, $q, amv) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
@@ -703,7 +855,14 @@
         }
 
         $scope.queryAssetSearch = function (query) {
-            return AssetService.getAssets({filter: query});
+            var promise = $q.defer();
+            AssetService.getAssets({filter: query}).then(function (e) {
+                promise.resolve(e.assets);
+            }, function (e) {
+                promise.reject(e);
+            });
+
+            return promise.promise;
         };
 
         $scope.selectedAssetItemChange = function (item) {

@@ -229,8 +229,75 @@
             </div>
         </md-tab>
 
-        <md-tab label="{{ '27002 measures' | translate }}">
+        <md-tab label="{{ '27002 measures' | translate }}" md-on-select="selectMeasuresTab()" md-on-deselect="deselectMeasuresTab()">
+            <md-toolbar class="md-table-toolbar md-default" ng-hide="measures.selected.length || measures.filter.show">
+                <div class="md-toolbar-tools">
+                    <h2 class="md-title" translate>27002 Measures</h2>
+                    <div flex></div>
+                    <md-button class="md-icon-button" ng-click="measures.filter.show = true">
+                        <md-icon>search</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
 
+            <md-toolbar class="md-table-toolbar md-default" ng-show="measures.filter.show && !measures.selected.length">
+                <div class="md-toolbar-tools">
+                    <md-icon>search</md-icon>
+                    <form flex name="measures.filter.form">
+                        <input type="text" ng-model="measures.query.filter" ng-model-options="measures.filter.options" placeholder="{{ 'Search...' | translate }}">
+                    </form>
+                    <md-button class="md-icon-button" ng-click="removeMeasuresFilter()">
+                        <md-icon>close</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-toolbar class="md-table-toolbar alternate" ng-show="measures.selected.length">
+                <div class="md-toolbar-tools" layout-align="space-between center">
+                    <div>{{measures.selected.length}} {{measures.selected.length > 1 ? 'items' : 'item'}} selected</div>
+                    <md-button class="md-icon-button" ng-click="deleteMeasureMass($event)">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-table-container flex>
+                <table md-table md-row-select multiple ng-model="measures.selected" md-progress="measures.promise">
+                    <thead md-head md-order="measures.query.order" md-on-reorder="updateMeasures">
+                    <tr md-row>
+                        <th md-column md-order-by="status"><span translate>Active</span></th>
+                        <th md-column md-order-by="code"><span translate>Asset</span></th>
+                        <th md-column md-order-by="label1"><span translate>Threat</span></th>
+                        <th md-column><span translate>Actions</span></th>
+                    </tr>
+                    </thead>
+
+                    <tbody md-body>
+                    <tr md-row md-select="measure" md-select-id="id" ng-repeat="measure in measures.items.measures">
+                        <td md-cell>{{ measure.status }}</td>
+                        <td md-cell>{{ measure.code }}</td>
+                        <td md-cell>{{ measure.label1 }}</td>
+                        <td md-cell>
+                            <md-button class="md-icon-button" ng-click="editMeasure($event, measure)"><md-icon>edit</md-icon></md-button>
+                            <md-button class="md-icon-button" ng-click="deleteMeasure($event, measure)"><md-icon>delete</md-icon></md-button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination md-limit="measures.query.limit" md-limit-options="[5, 10, 15]" md-page="measures.query.page"
+                                 md-total="{{measures.items.count}}" md-on-paginate="updateMeasures" md-page-select></md-table-pagination>
+
+            <div layout="row" class="md-padding">
+                <span flex></span>
+                <md-button class="md-fab md-accent" aria-label="{{ 'New measure' | translate }}" ng-click="createNewMeasure($event)">
+                    <md-tooltip md-direction="left">
+                        {{ 'New measure' | translate }}
+                    </md-tooltip>
+                    <md-icon>add</md-icon>
+                </md-button>
+            </div>
         </md-tab>
 
         <md-tab label="{{ 'AMVs' | translate }}" md-on-select="selectAmvsTab()" md-on-deselect="deselectAmvsTab()">
@@ -303,7 +370,7 @@
 
             <div layout="row" class="md-padding">
                 <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New amverability' | translate }}" ng-click="createNewAmv($event)">
+                <md-button class="md-fab md-accent" aria-label="{{ 'New AMV link' | translate }}" ng-click="createNewAmv($event)">
                     <md-tooltip md-direction="left">
                         {{ 'New AMV link' | translate }}
                     </md-tooltip>
