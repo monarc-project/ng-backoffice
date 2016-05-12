@@ -568,7 +568,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'ConfigService', '$q', CreateAmvDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', CreateAmvDialogCtrl],
                 templateUrl: '/views/dialogs/create.amvs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -594,7 +594,7 @@
 
             AmvService.getAmv(amv.id).then(function (amvData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
                     templateUrl: '/views/dialogs/create.amvs.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -837,11 +837,9 @@
         };
     }
 
-    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, ConfigService, $q, amv) {
+    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ConfigService, $q, amv) {
         $scope.languages = ConfigService.getLanguages();
         $scope.defaultLang = ConfigService.getDefaultLanguageIndex();
-
-        $scope.amv_labels = {};
 
         if (amv != undefined && amv != null) {
             $scope.amv = amv;
@@ -856,14 +854,10 @@
             };
         }
 
+        // Asset
         $scope.queryAssetSearch = function (query) {
             var promise = $q.defer();
             AssetService.getAssets({filter: query}).then(function (e) {
-                for (var i in e.assets) {
-                    var asset = e.assets[i];
-                    $scope.amv_labels[asset.id] = asset.label1;
-                }
-
                 promise.resolve(e.assets);
             }, function (e) {
                 promise.reject(e);
@@ -878,21 +872,61 @@
             }
         }
 
+        // Threat
         $scope.queryThreatSearch = function (query) {
-            return ThreatService.getThreats({filter: query});
+            var promise = $q.defer();
+            ThreatService.getThreats({filter: query}).then(function (e) {
+                promise.resolve(e.threats);
+            }, function (e) {
+                promise.reject(e);
+            });
+
+            return promise.promise;
         };
 
         $scope.selectedThreatItemChange = function (item) {
-            $scope.amv.threat_id = item.id;
+            if (item) {
+                $scope.amv.threat = item;
+            }
         }
 
+        // Vulnerability
         $scope.queryVulnSearch = function (query) {
-            return VulnService.getVulns({filter: query});
+            var promise = $q.defer();
+            VulnService.getVulns({filter: query}).then(function (e) {
+                promise.resolve(e.vulnerabilities);
+            }, function (e) {
+                promise.reject(e);
+            });
+
+            return promise.promise;
         };
 
-        $scope.selectedThreatItemChange = function (item) {
-            $scope.amv.vulnerability_id = item.id;
+        $scope.selectedVulnItemChange = function (item) {
+            if (item) {
+                $scope.amv.vulnerability = item;
+            }
         }
+
+        // Measures
+        $scope.queryMeasureSearch = function (idx, query) {
+            var promise = $q.defer();
+            MeasureService.getMeasures({filter: query}).then(function (e) {
+                promise.resolve(e.measures);
+            }, function (e) {
+                promise.reject(e);
+            });
+
+            return promise.promise;
+        };
+
+        $scope.selectedMeasureItemChange = function (idx, item) {
+            if (item) {
+                $scope.amv['measure' + idx] = item;
+            }
+        }
+
+        ////
 
         $scope.cancel = function() {
             $mdDialog.cancel();
