@@ -15,7 +15,7 @@
         };
 
         var getLanguages = function () {
-            if (self.config.languages && self.config.languages.length > 0) {
+            if (self.config.languages) {
                 return self.config.languages;
             } else {
                 // Fallback in case of error
