@@ -47,9 +47,9 @@
             <tr md-row md-select="model" md-select-id="label" ng-repeat="model in models.items.models">
                 <td md-cell>{{ model.label1 }}</td>
                 <td md-cell>{{ model.description1 }}</td>
-                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.is_generic" aria-label="Generic"></md-checkbox></td>
-                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.is_regulator" aria-label="Regulator"></md-checkbox></td>
-                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.show_rolf_brut" aria-label="Raw ROLF"></md-checkbox></td>
+                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></td>
+                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.isRegulator" aria-label="Regulator"></md-checkbox></td>
+                <td md-cell><md-checkbox ng-disabled="true" ng-model="model.showRolfBrut" aria-label="Raw ROLF"></md-checkbox></td>
                 <td md-cell>
                     <md-button class="md-icon-button" ng-click="editModel($event, model)"><md-icon>edit</md-icon></md-button>
                     <md-button class="md-icon-button" ng-click="deleteModel($event, model)"><md-icon>delete</md-icon></md-button>

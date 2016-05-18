@@ -51,6 +51,8 @@
                 fullscreen: useFullScreen
             })
                 .then(function (asset) {
+
+
                     AssetService.createAsset(asset,
                         function () {
                             $scope.updateAssets();
@@ -467,7 +469,7 @@
 
             MeasureService.getMeasure(measure.id).then(function (measureData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
                     templateUrl: '/views/dialogs/create.measures.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -541,7 +543,7 @@
         /*
          * AMVS TAB
          */
-        $scope.amvs = TableHelperService.build('label', 10, 1, '');
+        $scope.amvs = TableHelperService.build('status', 10, 1, '');
 
         $scope.selectAmvsTab = function () {
             TableHelperService.watchSearch($scope, 'amvs.query.filter', $scope.amvs.query, $scope.updateAmvs, $scope.amvs);
@@ -575,6 +577,14 @@
                 fullscreen: useFullScreen
             })
                 .then(function (amv) {
+                    amv.measure1 = amv.measure1.id;
+                    amv.measure2 = amv.measure2.id;
+                    amv.measure3 = amv.measure3.id;
+                    amv.threat = amv.threat.id;
+                    amv.asset = amv.asset.id;
+                    amv.vulnerability = amv.vulnerability.id;
+
+
                     AmvService.createAmv(amv,
                         function () {
                             $scope.updateAmvs();
@@ -604,6 +614,13 @@
                     }
                 })
                     .then(function (amv) {
+                        amv.measure1 = amv.measure1.id;
+                        amv.measure2 = amv.measure2.id;
+                        amv.measure3 = amv.measure3.id;
+                        amv.threat = amv.threat.id;
+                        amv.asset = amv.asset.id;
+                        amv.vulnerability = amv.vulnerability.id;
+
                         AmvService.updateAmv(amv,
                             function () {
                                 $scope.updateAmvs();
@@ -683,6 +700,13 @@
 
         if (asset != undefined && asset != null) {
             $scope.asset = asset;
+            var modelsIds = [];
+
+            for (var i = 0; i < $scope.asset.models.length; ++i) {
+                modelsIds.push($scope.asset.models[i].id);
+            }
+
+            $scope.asset.models = modelsIds;
         } else {
             $scope.asset = {
                 mode: 1,
@@ -695,7 +719,8 @@
                 description1: '',
                 description2: '',
                 description3: '',
-                description4: ''
+                description4: '',
+                models: []
             };
         }
 
@@ -719,6 +744,14 @@
 
         if (threat != undefined && threat != null) {
             $scope.threat = threat;
+
+            var modelsIds = [];
+
+            for (var i = 0; i < $scope.threat.models.length; ++i) {
+                modelsIds.push($scope.threat.models[i].id);
+            }
+
+            $scope.threat.models = modelsIds;
         } else {
             $scope.threat = {
                 mode: 1,
@@ -788,6 +821,14 @@
 
         if (vuln != undefined && vuln != null) {
             $scope.vuln = vuln;
+
+            var modelsIds = [];
+
+            for (var i = 0; i < $scope.vuln.models.length; ++i) {
+                modelsIds.push($scope.vuln.models[i].id);
+            }
+
+            $scope.vuln.models = modelsIds;
         } else {
             $scope.vuln = {
                 mode: 1,
@@ -850,7 +891,9 @@
                 vulnerability: null,
                 measure1: null,
                 measure2: null,
-                measure3: null
+                measure3: null,
+                position: 1,
+                status: 1
             };
         }
 

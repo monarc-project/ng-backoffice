@@ -75,12 +75,12 @@
                         md-search-text="m1SearchText"
                         md-selected-item-change="selectedMeasureItemChange(1, item)"
                         md-items="item in queryMeasureSearch(m1SearchText)"
-                        md-item-text="item.label1"
+                        md-item-text="item.code"
                         md-delay="300"
                         md-min-length="0"
                         placeholder="{{ 'Please select the first measure' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="m1SearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                        <span md-highlight-text="m1SearchText" md-highlight-flags="^i">{{ item.code }} ({{ item.description1 }})</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -94,12 +94,12 @@
                         md-search-text="m2SearchText"
                         md-selected-item-change="selectedMeasureItemChange(2, item)"
                         md-items="item in queryMeasureSearch(m2SearchText)"
-                        md-item-text="item.label1"
+                        md-item-text="item.code"
                         md-delay="300"
                         md-min-length="0"
                         placeholder="{{ 'Please select the second measure' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="m2SearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                        <span md-highlight-text="m2SearchText" md-highlight-flags="^i">{{ item.code }} ({{ item.description1 }})</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -113,12 +113,12 @@
                         md-search-text="m3SearchText"
                         md-selected-item-change="selectedMeasureItemChange(3, item)"
                         md-items="item in queryMeasureSearch(m3SearchText)"
-                        md-item-text="item.label1"
+                        md-item-text="item.code"
                         md-delay="300"
                         md-min-length="0"
                         placeholder="{{ 'Please select the third measure' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="m3SearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                        <span md-highlight-text="m3SearchText" md-highlight-flags="^i">{{ item.code }} ({{ item.description1 }})</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -128,7 +128,7 @@
 
                 <md-input-container class="md-block" layout="row" flex>
                     <label translate>Audit order</label>
-                    <md-select ng-model="asset.models">
+                    <md-select ng-model="amv.position">
                         <md-option value="1">{{ 'in the end' | translate }}</md-option>
                         <md-option value="2">{{ 'at the beginning' | translate }}</md-option>
                         <md-option value="3">{{ 'after' | translate }}</md-option>
