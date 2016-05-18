@@ -173,6 +173,16 @@
             TableHelperService.unwatchSearch($scope.threats);
         };
 
+        $scope.getThreatModeString = function (mode) {
+            switch (mode) {
+                case 1:
+                    return gettext("Generic");
+
+                case 2:
+                    return gettext("Specific");
+            }
+        }
+
         $scope.updateThreats = function () {
             $scope.threats.promise = ThreatService.getThreats($scope.threats.query);
             $scope.threats.promise.then(
@@ -310,6 +320,16 @@
         $scope.removeVulnsFilter = function () {
             TableHelperService.removeFilter($scope.vulns);
         };
+
+        $scope.getVulnModeString = function (mode) {
+            switch (mode) {
+                case 1:
+                    return gettext("Generic");
+
+                case 2:
+                    return gettext("Specific");
+            }
+        }
 
 
         $scope.createNewVuln = function (ev) {
@@ -752,6 +772,11 @@
             }
 
             $scope.threat.models = modelsIds;
+
+            $scope.threat.c = ($scope.threat.c == 1);
+            $scope.threat.i = ($scope.threat.i == 1);
+            $scope.threat.d = ($scope.threat.d == 1);
+
         } else {
             $scope.threat = {
                 mode: 1,

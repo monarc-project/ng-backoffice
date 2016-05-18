@@ -48,7 +48,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="asset" md-select-id="id" ng-repeat="asset in assets.items.assets">
-                        <td md-cell>{{ asset.active }}</td>
+                        <td md-cell><md-icon>{{ (asset.status ? 'done' : 'clear') | translate }}</md-icon></td>
                         <td md-cell>{{ asset.label1 }}</td>
                         <td md-cell>{{ asset.code }}</td>
                         <td md-cell>{{ assetTypeStr(asset.type) }}</td>
@@ -125,12 +125,12 @@
 
                     <tbody md-body>
                     <tr md-row md-select="threat" md-select-id="id" ng-repeat="threat in threats.items.threats">
-                        <td md-cell>{{ threat.status }}</td>
+                        <td md-cell><md-icon>{{ (threat.status ? 'done' : 'clear') | translate }}</md-icon></td>
                         <td md-cell>{{ threat.label1 }}</td>
                         <td md-cell>{{ threat.code }}</td>
                         <td md-cell>{{ threat.c ? 'C' : '' }}{{ threat.i ? 'I' : '' }}{{ threat.d ? 'D' : '' }}</td>
-                        <td md-cell>{{ threat.mode }}</td>
-                        <td md-cell>{{ threat.description }}</td>
+                        <td md-cell>{{ getThreatModeString(threat.mode) }}</td>
+                        <td md-cell>{{ threat.description1 }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button" ng-click="editThreat($event, threat)"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button" ng-click="deleteThreat($event, threat)"><md-icon>delete</md-icon></md-button>
@@ -201,10 +201,10 @@
 
                     <tbody md-body>
                     <tr md-row md-select="vuln" md-select-id="id" ng-repeat="vuln in vulns.items.vulnerabilities">
-                        <td md-cell>{{ vuln.status }}</td>
+                        <td md-cell><md-icon>{{ (vuln.status ? 'done' : 'clear') | translate }}</md-icon></td>
                         <td md-cell>{{ vuln.label1 }}</td>
                         <td md-cell>{{ vuln.code }}</td>
-                        <td md-cell>{{ vuln.mode }}</td>
+                        <td md-cell>{{ getVulnModeString(vuln.mode) }}</td>
                         <td md-cell>{{ vuln.description }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button" ng-click="editVuln($event, vuln)"><md-icon>edit</md-icon></md-button>
@@ -274,7 +274,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="measure" md-select-id="id" ng-repeat="measure in measures.items.measures">
-                        <td md-cell>{{ measure.status }}</td>
+                        <td md-cell><md-icon>{{ (measure.status ? 'done' : 'clear') | translate }}</md-icon></td>
                         <td md-cell>{{ measure.code }}</td>
                         <td md-cell>{{ measure.description1 }}</td>
                         <td md-cell>
@@ -349,7 +349,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="amv" md-select-id="id" ng-repeat="amv in amvs.items.amvs">
-                        <td md-cell>{{ amv.status }}</td>
+                        <td md-cell><md-icon>{{ (amv.status ? 'done' : 'clear') | translate }}</md-icon></td>
                         <td md-cell>{{ amv.asset }}</td>
                         <td md-cell>{{ amv.threat }}</td>
                         <td md-cell>{{ amv.vulnerability }}</td>
