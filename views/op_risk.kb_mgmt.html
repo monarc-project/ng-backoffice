@@ -1,10 +1,91 @@
-<md-tabs>
-    <md-tab label="{{ 'Categories' | translate }}">
-    </md-tab>
+<div flex ng-controller="BackofficeKbOpRiskCtrl">
+    <md-tabs md-dynamic-height="true" md-border-bottom="true">
+        <md-tab label="{{ 'Categories' | translate }}">
+            <md-toolbar class="md-table-toolbar md-default"
+                        ng-hide="categories.selected.length || categories.filter.show">
+                <div class="md-toolbar-tools">
+                    <h2 class="md-title" translate>Categories</h2>
 
-    <md-tab label="{{ 'Tags' | translate }}">
-    </md-tab>
+                    <div flex></div>
+                    <md-button class="md-icon-button" ng-click="categories.filter.show = true">
+                        <md-icon>search</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
 
-    <md-tab label="{{ 'Risks' | translate }}">
-    </md-tab>
-</md-tabs>
+            <md-toolbar class="md-table-toolbar md-default"
+                        ng-show="categories.filter.show && !categories.selected.length">
+                <div class="md-toolbar-tools">
+                    <md-icon>search</md-icon>
+                    <form flex name="categories.filter.form">
+                        <input type="text" ng-model="categories.query.filter"
+                               ng-model-options="categories.filter.options" placeholder="{{ 'Search...' | translate }}">
+                    </form>
+                    <md-button class="md-icon-button" ng-click="removeCategoriesFilter()">
+                        <md-icon>close</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-toolbar class="md-table-toolbar alternate" ng-show="categories.selected.length">
+                <div class="md-toolbar-tools" layout-align="space-between center">
+                    <div>{{categories.selected.length}} {{categories.selected.length > 1 ? 'items' : 'item'}} selected
+                    </div>
+                    <md-button class="md-icon-button" ng-click="deleteCategoryMass($event)">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-table-container flex>
+                <table md-table md-row-select multiple ng-model="categories.selected" md-progress="categories.promise">
+                    <thead md-head md-order="categories.query.order" md-on-reorder="updateCategories">
+                    <tr md-row>
+                        <th md-column md-order-by="code"><span translate>Code</span></th>
+                        <th md-column md-order-by="label1"><span translate>Label</span></th>
+                        <th md-column><span translate>Actions</span></th>
+                    </tr>
+                    </thead>
+
+                    <tbody md-body>
+                    <tr md-row md-select="category" md-select-id="id"
+                        ng-repeat="category in categories.items.categories">
+                        <td md-cell>{{ category.code }}</td>
+                        <td md-cell>{{ category.label1 }}</td>
+                        <td md-cell>
+                            <md-button class="md-icon-button" ng-click="editCategory($event, category)">
+                                <md-icon>edit</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" ng-click="deleteCategory($event, category)">
+                                <md-icon>delete</md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination md-limit="categories.query.limit" md-limit-options="[5, 10, 15]"
+                                 md-page="categories.query.page"
+                                 md-total="{{categories.items.count}}" md-on-paginate="updateCategories"
+                                 md-page-select></md-table-pagination>
+
+            <div layout="row" class="md-padding">
+                <span flex></span>
+                <md-button class="md-fab md-accent" aria-label="{{ 'New category' | translate }}"
+                           ng-click="createNewCategory($event)">
+                    <md-tooltip md-direction="left">
+                        {{ 'New category' | translate }}
+                    </md-tooltip>
+                    <md-icon>add</md-icon>
+                </md-button>
+            </div>
+        </md-tab>
+
+        <md-tab label="{{ 'Tags' | translate }}">
+        </md-tab>
+
+        <md-tab label="{{ 'Risks' | translate }}">
+        </md-tab>
+    </md-tabs>
+</div>

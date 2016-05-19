@@ -2,52 +2,52 @@
 
     angular
         .module('BackofficeApp')
-        .controller('BackofficeKbModelsCtrl', [
+        .controller('BackofficeKbOpRiskCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ModelService',
-            BackofficeKbModelsCtrl
+            'CategoryService',
+            BackofficeKbOpRiskCtrl
         ]);
 
     /**
-     * BO > KB > MODELS
+     * BO > KB > OPERATIONAL RISKS (ROLF)
      */
-    function BackofficeKbModelsCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                    ModelService) {
+    function BackofficeKbOpRiskCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+                                    CategoryService) {
         TableHelperService.resetBookmarks();
 
-        $scope.models = TableHelperService.build('label1', 10, 1, '');
+        $scope.categories = TableHelperService.build('label1', 10, 1, '');
 
-        $scope.updateModels = function () {
-            $scope.models.promise = ModelService.getModels($scope.models.query);
-            $scope.models.promise.then(
+        $scope.updateCategories = function () {
+            $scope.categories.promise = CategoryService.getCategories($scope.categories.query);
+            $scope.categories.promise.then(
                 function (data) {
-                    $scope.models.items = data;
+                    $scope.categories.items = data;
                 }
             )
         };
-        $scope.removeModelsFilter = function () {
-            TableHelperService.removeFilter($scope.models);
+        $scope.removeCategoriesFilter = function () {
+            TableHelperService.removeFilter($scope.categories);
         };
 
-        TableHelperService.watchSearch($scope, 'models.query.filter', $scope.models.query, $scope.updateModels);
+        TableHelperService.watchSearch($scope, 'categories.query.filter', $scope.categories.query, $scope.updateCategories);
 
-        $scope.createNewModel = function (ev) {
+        $scope.createNewCategory = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ConfigService', CreateModelDialogCtrl],
-                templateUrl: '/views/dialogs/create.models.html',
+                controller: ['$scope', '$mdDialog', 'ConfigService', CreateCategoryDialogCtrl],
+                templateUrl: '/views/dialogs/create.categories.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen
             })
-                .then(function (model) {
-                    ModelService.createModel(model,
+                .then(function (category) {
+                    CategoryService.createCategory(category,
                         function () {
-                            $scope.updateModels();
+                            $scope.updateCategories();
                             $mdToast.show(
                                 $mdToast.simple()
-                                    .textContent(gettext('The model has been created successfully.'))
+                                    .textContent(gettext('The category has been created successfully.'))
                                     .position('top right')
                                     .hideDelay(3000)
                             );
@@ -56,27 +56,27 @@
                 });
         };
 
-        $scope.editModel = function (ev, model) {
+        $scope.editCategory = function (ev, category) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            ModelService.getModel(model.id).then(function (modelData) {
+            CategoryService.getCategory(category.id).then(function (categoryData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ConfigService', 'model', CreateModelDialogCtrl],
-                    templateUrl: '/views/dialogs/create.models.html',
+                    controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
+                    templateUrl: '/views/dialogs/create.categories.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
                     locals: {
-                        'model': modelData
+                        'category': categoryData
                     }
                 })
-                    .then(function (model) {
-                        ModelService.updateModel(model,
+                    .then(function (category) {
+                        CategoryService.updateCategory(category,
                             function () {
-                                $scope.updateModels();
+                                $scope.updateCategories();
                                 $mdToast.show(
                                     $mdToast.simple()
-                                        .textContent(gettext('The model has been updated successfully.'))
+                                        .textContent(gettext('The category has been updated successfully.'))
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
@@ -86,21 +86,21 @@
             });
         };
 
-        $scope.deleteModel = function (ev, item) {
+        $scope.deleteCategory = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete model "{{ label }}"?',
+                .title(gettextCatalog.getString('Are you sure you want to delete category "{{ label }}"?',
                     {label: item.label}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                ModelService.deleteModel(item.id,
+                CategoryService.deleteCategory(item.id,
                     function () {
-                        $scope.updateModels();
+                        $scope.updateCategories();
                         $mdToast.show(
                             $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The model "{{label}}" has been deleted.',
+                                .textContent(gettextCatalog.getString('The category "{{label}}" has been deleted.',
                                     {label: item.label}))
                                 .position('top right')
                                 .hideDelay(3000)
@@ -111,22 +111,19 @@
         };
     }
 
-    function CreateModelDialogCtrl($scope, $mdDialog, ConfigService, model) {
+    function CreateCategoryDialogCtrl($scope, $mdDialog, ConfigService, category) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
-        if (model != undefined && model != null) {
-            $scope.model = model;
+        if (category != undefined && category != null) {
+            $scope.category = category;
         } else {
-            $scope.model = {
+            $scope.category = {
+                code: '',
                 label1: '',
                 label2: '',
                 label3: '',
-                label4: '',
-                description1: '',
-                description2: '',
-                description3: '',
-                description4: '',
+                label4: ''
             };
         }
 
@@ -135,7 +132,7 @@
         };
 
         $scope.create = function() {
-            $mdDialog.hide($scope.model);
+            $mdDialog.hide($scope.category);
         };
     }
 })();
