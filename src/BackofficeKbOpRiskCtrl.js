@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbOpRiskCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'CategoryService',
+            'CategoryService', 'TagService',
             BackofficeKbOpRiskCtrl
         ]);
 
@@ -12,9 +12,12 @@
      * BO > KB > OPERATIONAL RISKS (ROLF)
      */
     function BackofficeKbOpRiskCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                    CategoryService) {
+                                    CategoryService, TagService) {
         TableHelperService.resetBookmarks();
 
+        /**
+         * CATEGORIES
+         */
         $scope.categories = TableHelperService.build('label1', 10, 1, '');
 
         $scope.updateCategories = function () {
@@ -109,6 +112,105 @@
                 );
             });
         };
+
+
+        /**
+         * TAGS
+         */
+        $scope.tags = TableHelperService.build('label1', 10, 1, '');
+
+        $scope.updateTags = function () {
+            $scope.tags.promise = TagService.getTags($scope.tags.query);
+            $scope.tags.promise.then(
+                function (data) {
+                    $scope.tags.items = data;
+                }
+            )
+        };
+        $scope.removeTagsFilter = function () {
+            TableHelperService.removeFilter($scope.tags);
+        };
+
+        TableHelperService.watchSearch($scope, 'tags.query.filter', $scope.tags.query, $scope.updateTags);
+
+        $scope.createNewTag = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'ConfigService', CreateTagDialogCtrl],
+                templateUrl: '/views/dialogs/create.tags.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen
+            })
+                .then(function (tag) {
+                    TagService.createTag(tag,
+                        function () {
+                            $scope.updateTags();
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent(gettext('The tag has been created successfully.'))
+                                    .position('top right')
+                                    .hideDelay(3000)
+                            );
+                        }
+                    );
+                });
+        };
+
+        $scope.editTag = function (ev, tag) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            TagService.getTag(tag.id).then(function (tagData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'ConfigService', 'tag', CreateTagDialogCtrl],
+                    templateUrl: '/views/dialogs/create.tags.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'tag': tagData
+                    }
+                })
+                    .then(function (tag) {
+                        TagService.updateTag(tag,
+                            function () {
+                                $scope.updateTags();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The tag has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
+        };
+
+        $scope.deleteTag = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete tag "{{ label }}"?',
+                    {label: item.label}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                TagService.deleteTag(item.id,
+                    function () {
+                        $scope.updateTags();
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent(gettextCatalog.getString('The tag "{{label}}" has been deleted.',
+                                    {label: item.label}))
+                                .position('top right')
+                                .hideDelay(3000)
+                        );
+                    }
+                );
+            });
+        };
     }
 
     function CreateCategoryDialogCtrl($scope, $mdDialog, ConfigService, category) {
@@ -133,6 +235,31 @@
 
         $scope.create = function() {
             $mdDialog.hide($scope.category);
+        };
+    }
+
+    function CreateTagDialogCtrl($scope, $mdDialog, ConfigService, tag) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
+
+        if (tag != undefined && tag != null) {
+            $scope.tag = tag;
+        } else {
+            $scope.tag = {
+                code: '',
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: ''
+            };
+        }
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.tag);
         };
     }
 })();
