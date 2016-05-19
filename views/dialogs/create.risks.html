@@ -1,0 +1,92 @@
+<md-dialog style="min-width: 900px;" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 ng-if="!risk.id" translate>Add a new risk</h2>
+                <h2 ng-if="risk.id" translate>Update risk information</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block" flex>
+                    <label translate>Language</label>
+                    <md-icon>language</md-icon>
+                    <md-select ng-model="language">
+                        <md-option ng-repeat="(lang_idx, lang) in languages" value="{{ lang_idx }}">{{ lang }}</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Label</label>
+                    <md-icon>label</md-icon>
+                    <input ng-model="risk['label' + language ]">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Description</label>
+                    <md-icon>subject</md-icon>
+                    <textarea ng-model="risk['description' + language]" rows="4"></textarea>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Code</label>
+                    <md-icon>reorder</md-icon>
+                    <input ng-model="risk.code">
+                </md-input-container>
+
+                <md-chips ng-model="risk.categories"
+                          md-autocomplete-snap
+                          md-require-match="true">
+                    <md-autocomplete flex
+                            md-selected-item="selectedCategoryItem"
+                            md-search-text="categorySearchText"
+                            md-items="item in queryCategorySearch(categorySearchText)"
+                            md-item-text="item.code"
+                            placeholder="{{ 'Add categories...' | translate }}">
+                        <span md-highlight-text="categorySearchText">{{ item.label1 }} ({{ item.code }}}</span>
+                    </md-autocomplete>
+
+                    <md-chip-template>
+                        <span>
+                            <strong>{{$chip.label1}}</strong>
+                            <em>{{$chip.code}}</em>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
+
+                <md-chips ng-model="risk.tags"
+                          md-autocomplete-snap
+                          md-require-match="true">
+                    <md-autocomplete flex
+                                     md-selected-item="selectedTagItem"
+                                     md-search-text="tagSearchText"
+                                     md-items="item in queryTagSearch(tagSearchText)"
+                                     md-item-text="item.code"
+                                     placeholder="{{ 'Add tags...' | translate }}">
+                        <span md-highlight-text="tagSearchText">{{ item.label1 }} ({{ item.code }}}</span>
+                    </md-autocomplete>
+
+                    <md-chip-template>
+                        <span>
+                            <strong>{{$chip.label1}}</strong>
+                            <em>{{$chip.code}}</em>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button ng-click="create()" class="md-accent md-hue-3">
+                {{ (risk.id > 0 ? 'Update' : 'Create') | translate }}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

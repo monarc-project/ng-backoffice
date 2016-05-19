@@ -165,6 +165,87 @@
         </md-tab>
 
         <md-tab label="{{ 'Risks' | translate }}">
+            <md-toolbar class="md-table-toolbar md-default"
+                        ng-hide="risks.selected.length || risks.filter.show">
+                <div class="md-toolbar-tools">
+                    <h2 class="md-title" translate>Risks</h2>
+
+                    <div flex></div>
+                    <md-button class="md-icon-button" ng-click="risks.filter.show = true">
+                        <md-icon>search</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-toolbar class="md-table-toolbar md-default"
+                        ng-show="risks.filter.show && !risks.selected.length">
+                <div class="md-toolbar-tools">
+                    <md-icon>search</md-icon>
+                    <form flex name="risks.filter.form">
+                        <input type="text" ng-model="risks.query.filter"
+                               ng-model-options="risks.filter.options" placeholder="{{ 'Search...' | translate }}">
+                    </form>
+                    <md-button class="md-icon-button" ng-click="removeRisksFilter()">
+                        <md-icon>close</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-toolbar class="md-table-toolbar alternate" ng-show="risks.selected.length">
+                <div class="md-toolbar-tools" layout-align="space-between center">
+                    <div>{{risks.selected.length}} {{risks.selected.length > 1 ? 'items' : 'item'}} selected
+                    </div>
+                    <md-button class="md-icon-button" ng-click="deleteRiskMass($event)">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-table-container flex>
+                <table md-table md-row-select multiple ng-model="risks.selected" md-progress="risks.promise">
+                    <thead md-head md-order="risks.query.order" md-on-reorder="updateRisks">
+                    <tr md-row>
+                        <th md-column><span translate>Categories</span></th>
+                        <th md-column><span translate>Tags</span></th>
+                        <th md-column md-order-by="code"><span translate>Code</span></th>
+                        <th md-column md-order-by="label1"><span translate>Label</span></th>
+                        <th md-column><span translate>Actions</span></th>
+                    </tr>
+                    </thead>
+
+                    <tbody md-body>
+                    <tr md-row md-select="risk" md-select-id="id"
+                        ng-repeat="risk in risks.items.risks">
+                        <td md-cell>{{ risk.code }}</td>
+                        <td md-cell>{{ risk.label1 }}</td>
+                        <td md-cell>
+                            <md-button class="md-icon-button" ng-click="editRisk($event, risk)">
+                                <md-icon>edit</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button" ng-click="deleteRisk($event, risk)">
+                                <md-icon>delete</md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination md-limit="risks.query.limit" md-limit-options="[5, 10, 15]"
+                                 md-page="risks.query.page"
+                                 md-total="{{risks.items.count}}" md-on-paginate="updateRisks"
+                                 md-page-select></md-table-pagination>
+
+            <div layout="row" class="md-padding">
+                <span flex></span>
+                <md-button class="md-fab md-accent" aria-label="{{ 'New risk' | translate }}"
+                           ng-click="createNewRisk($event)">
+                    <md-tooltip md-direction="left">
+                        {{ 'New risk' | translate }}
+                    </md-tooltip>
+                    <md-icon>add</md-icon>
+                </md-button>
+            </div>
         </md-tab>
     </md-tabs>
 </div>
