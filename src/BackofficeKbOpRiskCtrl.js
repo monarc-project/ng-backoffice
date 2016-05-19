@@ -246,16 +246,16 @@
                     var riskCatIds = [];
                     var riskTagIds = [];
 
-                    for (var i = 0; i < risk.categories.length; ++i) {
-                        riskCatIds.push(risk.categories[i].id);
+                    for (var i = 0; i < risk.rolfCategories.length; ++i) {
+                        riskCatIds.push(risk.rolfCategories[i].id);
                     }
 
-                    for (var i = 0; i < risk.tags.length; ++i) {
-                        riskTagIds.push(risk.tags[i].id);
+                    for (var i = 0; i < risk.rolfTags.length; ++i) {
+                        riskTagIds.push(risk.rolfTags[i].id);
                     }
 
-                    risk.categories = riskCatIds;
-                    risk.tags = riskTagIds;
+                    risk.rolfCategories = riskCatIds;
+                    risk.rolfTags = riskTagIds;
 
                     RiskService.createRisk(risk,
                         function () {
@@ -286,6 +286,17 @@
                     }
                 })
                     .then(function (risk) {
+                        var riskCatIds = [];
+                        var riskTagIds = [];
+
+                        for (var i = 0; i < risk.rolfCategories.length; ++i) {
+                            riskCatIds.push(risk.rolfCategories[i].id);
+                        }
+
+                        for (var i = 0; i < risk.rolfTags.length; ++i) {
+                            riskTagIds.push(risk.rolfTags[i].id);
+                        }
+
                         RiskService.updateRisk(risk,
                             function () {
                                 $scope.updateRisks();
@@ -420,8 +431,8 @@
                 description2: '',
                 description3: '',
                 description4: '',
-                categories: [],
-                tags: [],
+                rolfCategories: [],
+                rolfTags: [],
             };
         }
 

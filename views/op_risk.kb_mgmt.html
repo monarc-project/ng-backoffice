@@ -216,6 +216,8 @@
                     <tbody md-body>
                     <tr md-row md-select="risk" md-select-id="id"
                         ng-repeat="risk in risks.items.risks">
+                        <td md-cell><md-chips readonly="true" ng-model="risk.rolfCategories"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
+                        <<td md-cell><md-chips readonly="true" ng-model="risk.rolfTags"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
                         <td md-cell>{{ risk.code }}</td>
                         <td md-cell>{{ risk.label1 }}</td>
                         <td md-cell>
