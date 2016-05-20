@@ -65,19 +65,7 @@
                 self.token = null;
                 self.authenticated = false;
 
-                var promise = $q.defer();
-
-                $http.delete('/auth', {token: self.token},
-                    function (data) {
-                        promise.resolve(true);
-                    },
-
-                    function (data) {
-                        promise.resolve(false);
-                    }
-                )
-
-                return promise.promise;
+                return $http.delete('/auth');
             };
 
             /**
