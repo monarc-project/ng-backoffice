@@ -89,7 +89,7 @@
         $scope.deleteModel = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete model "{{ label }}"?',
-                    {label: item.label}))
+                    {label: item.label1}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -101,7 +101,7 @@
                         $mdToast.show(
                             $mdToast.simple()
                                 .textContent(gettextCatalog.getString('The model "{{label}}" has been deleted.',
-                                    {label: item.label}))
+                                    {label: item.label1}))
                                 .position('top right')
                                 .hideDelay(3000)
                         );

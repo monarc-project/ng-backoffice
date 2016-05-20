@@ -1,6 +1,6 @@
 <div flex ng-controller="BackofficeKbOpRiskCtrl">
     <md-tabs md-dynamic-height="true" md-border-bottom="true">
-        <md-tab label="{{ 'Categories' | translate }}">
+        <md-tab label="{{ 'Categories' | translate }}" md-on-select="selectCategoriesTab()" md-on-deselect="deselectCategoriesTab()">
             <md-toolbar class="md-table-toolbar md-default"
                         ng-hide="categories.selected.length || categories.filter.show">
                 <div class="md-toolbar-tools">
@@ -82,7 +82,7 @@
             </div>
         </md-tab>
 
-        <md-tab label="{{ 'Tags' | translate }}">
+        <md-tab label="{{ 'Tags' | translate }}" md-on-select="selectTagsTab()" md-on-deselect="deselectTagsTab()">
             <md-toolbar class="md-table-toolbar md-default"
                         ng-hide="tags.selected.length || tags.filter.show">
                 <div class="md-toolbar-tools">
@@ -164,7 +164,7 @@
             </div>
         </md-tab>
 
-        <md-tab label="{{ 'Risks' | translate }}">
+        <md-tab label="{{ 'Risks' | translate }}" md-on-select="selectRisksTab()" md-on-deselect="deselectRisksTab()">
             <md-toolbar class="md-table-toolbar md-default"
                         ng-hide="risks.selected.length || risks.filter.show">
                 <div class="md-toolbar-tools">
@@ -216,8 +216,8 @@
                     <tbody md-body>
                     <tr md-row md-select="risk" md-select-id="id"
                         ng-repeat="risk in risks.items.risks">
-                        <td md-cell><md-chips readonly="true" ng-model="risk.rolfCategories"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
-                        <td md-cell><md-chips readonly="true" ng-model="risk.rolfTags"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
+                        <td md-cell><md-chips readonly="true" ng-model="risk.categories"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
+                        <td md-cell><md-chips readonly="true" ng-model="risk.tags"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
                         <td md-cell>{{ risk.code }}</td>
                         <td md-cell>{{ risk.label1 }}</td>
                         <td md-cell>

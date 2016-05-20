@@ -32,7 +32,14 @@
             TableHelperService.removeFilter($scope.categories);
         };
 
-        TableHelperService.watchSearch($scope, 'categories.query.filter', $scope.categories.query, $scope.updateCategories);
+        $scope.selectCategoriesTab = function () {
+            TableHelperService.watchSearch($scope, 'categories.query.filter', $scope.categories.query, $scope.updateCategories, $scope.categories);
+        };
+
+        $scope.deselectCategoriesTab = function () {
+            TableHelperService.unwatchSearch($scope.categories);
+        };
+
 
         $scope.createNewCategory = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -92,7 +99,7 @@
         $scope.deleteCategory = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete category "{{ label }}"?',
-                    {label: item.label}))
+                    {label: item.label1}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -104,7 +111,7 @@
                         $mdToast.show(
                             $mdToast.simple()
                                 .textContent(gettextCatalog.getString('The category "{{label}}" has been deleted.',
-                                    {label: item.label}))
+                                    {label: item.label1}))
                                 .position('top right')
                                 .hideDelay(3000)
                         );
@@ -131,7 +138,13 @@
             TableHelperService.removeFilter($scope.tags);
         };
 
-        TableHelperService.watchSearch($scope, 'tags.query.filter', $scope.tags.query, $scope.updateTags);
+        $scope.selectTagsTab = function () {
+            TableHelperService.watchSearch($scope, 'tags.query.filter', $scope.tags.query, $scope.updateTags, $scope.tags);
+        };
+
+        $scope.deselectTagsTab = function () {
+            TableHelperService.unwatchSearch($scope.tags);
+        };
 
         $scope.createNewTag = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -191,7 +204,7 @@
         $scope.deleteTag = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete tag "{{ label }}"?',
-                    {label: item.label}))
+                    {label: item.label1}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -203,7 +216,7 @@
                         $mdToast.show(
                             $mdToast.simple()
                                 .textContent(gettextCatalog.getString('The tag "{{label}}" has been deleted.',
-                                    {label: item.label}))
+                                    {label: item.label1}))
                                 .position('top right')
                                 .hideDelay(3000)
                         );
@@ -230,7 +243,13 @@
             TableHelperService.removeFilter($scope.risks);
         };
 
-        TableHelperService.watchSearch($scope, 'risks.query.filter', $scope.risks.query, $scope.updateRisks);
+        $scope.selectRisksTab = function () {
+            TableHelperService.watchSearch($scope, 'risks.query.filter', $scope.risks.query, $scope.updateRisks, $scope.risks);
+        };
+
+        $scope.deselectRisksTab = function () {
+            TableHelperService.unwatchSearch($scope.risks);
+        };
 
         $scope.createNewRisk = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -246,16 +265,16 @@
                     var riskCatIds = [];
                     var riskTagIds = [];
 
-                    for (var i = 0; i < risk.rolfCategories.length; ++i) {
-                        riskCatIds.push(risk.rolfCategories[i].id);
+                    for (var i = 0; i < risk.categories.length; ++i) {
+                        riskCatIds.push(risk.categories[i].id);
                     }
 
-                    for (var i = 0; i < risk.rolfTags.length; ++i) {
-                        riskTagIds.push(risk.rolfTags[i].id);
+                    for (var i = 0; i < risk.tags.length; ++i) {
+                        riskTagIds.push(risk.tags[i].id);
                     }
 
-                    risk.rolfCategories = riskCatIds;
-                    risk.rolfTags = riskTagIds;
+                    risk.categories = riskCatIds;
+                    risk.tags = riskTagIds;
 
                     RiskService.createRisk(risk,
                         function () {
@@ -289,13 +308,16 @@
                         var riskCatIds = [];
                         var riskTagIds = [];
 
-                        for (var i = 0; i < risk.rolfCategories.length; ++i) {
-                            riskCatIds.push(risk.rolfCategories[i].id);
+                        for (var i = 0; i < risk.categories.length; ++i) {
+                            riskCatIds.push(risk.categories[i].id);
                         }
 
-                        for (var i = 0; i < risk.rolfTags.length; ++i) {
-                            riskTagIds.push(risk.rolfTags[i].id);
+                        for (var i = 0; i < risk.tags.length; ++i) {
+                            riskTagIds.push(risk.tags[i].id);
                         }
+
+                        risk.categories = riskCatIds;
+                        risk.tags = riskTagIds;
 
                         RiskService.updateRisk(risk,
                             function () {
@@ -315,7 +337,7 @@
         $scope.deleteRisk = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete risk "{{ label }}"?',
-                    {label: item.label}))
+                    {label: item.label1}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -327,7 +349,7 @@
                         $mdToast.show(
                             $mdToast.simple()
                                 .textContent(gettextCatalog.getString('The risk "{{label}}" has been deleted.',
-                                    {label: item.label}))
+                                    {label: item.label1}))
                                 .position('top right')
                                 .hideDelay(3000)
                         );
@@ -431,8 +453,8 @@
                 description2: '',
                 description3: '',
                 description4: '',
-                rolfCategories: [],
-                rolfTags: [],
+                categories: [],
+                tags: [],
             };
         }
 
