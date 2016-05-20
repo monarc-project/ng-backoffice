@@ -109,6 +109,29 @@
                 );
             });
         };
+
+        $scope.deleteModelMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected model(s)?',
+                    {count: $scope.models.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.models.selected, function (value, key) {
+                    ModelService.deleteModel(value.id,
+                        function () {
+                            $scope.updateModels();
+                        }
+                    );
+                });
+
+                $scope.models.selected = [];
+
+            }, function() {
+            });
+        };
     }
 
     function CreateModelDialogCtrl($scope, $mdDialog, ConfigService, model) {

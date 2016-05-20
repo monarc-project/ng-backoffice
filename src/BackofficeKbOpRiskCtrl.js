@@ -120,6 +120,29 @@
             });
         };
 
+        $scope.deleteCategoryMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected category(s)?',
+                    {count: $scope.categories.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.categories.selected, function (value, key) {
+                    CategoryService.deleteCategory(value.id,
+                        function () {
+                            $scope.updateCategories();
+                        }
+                    );
+                });
+
+                $scope.categories.selected = [];
+
+            }, function() {
+            });
+        };
+
 
         /**
          * TAGS
@@ -222,6 +245,29 @@
                         );
                     }
                 );
+            });
+        };
+
+        $scope.deleteTagMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected tag(s)?',
+                    {count: $scope.tags.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.tags.selected, function (value, key) {
+                    TagService.deleteTag(value.id,
+                        function () {
+                            $scope.updateTags();
+                        }
+                    );
+                });
+
+                $scope.tags.selected = [];
+
+            }, function() {
             });
         };
 
@@ -355,6 +401,29 @@
                         );
                     }
                 );
+            });
+        };
+
+        $scope.deleteRiskMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected risk(s)?',
+                    {count: $scope.risks.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.risks.selected, function (value, key) {
+                    RiskService.deleteRisk(value.id,
+                        function () {
+                            $scope.updateRisks();
+                        }
+                    );
+                });
+
+                $scope.risks.selected = [];
+
+            }, function() {
             });
         };
     }

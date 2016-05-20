@@ -24,7 +24,7 @@
     <md-toolbar class="md-table-toolbar alternate" ng-show="models.selected.length">
         <div class="md-toolbar-tools" layout-align="space-between center">
             <div>{{models.selected.length}} {{models.selected.length > 1 ? 'items' : 'item'}} selected</div>
-            <md-button class="md-icon-button" ng-click="delete($event)">
+            <md-button class="md-icon-button" ng-click="deleteModelMass($event)">
                 <md-icon>delete</md-icon>
             </md-button>
         </div>
