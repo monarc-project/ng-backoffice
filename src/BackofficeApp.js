@@ -59,6 +59,14 @@ angular
                 ncyBreadcrumb: {
                     label: gettext('Servers management')
                 }
+            }).state('main.admin.logs', {
+                url: "/logs",
+                views: {
+                    "main@main": {templateUrl: "/views/logs.admin.html"}
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Actions history')
+                }
             }).state('main.client_mgmt', {
                 url: "/client",
                 views: {

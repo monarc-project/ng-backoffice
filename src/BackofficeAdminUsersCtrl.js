@@ -107,8 +107,6 @@
                 );
             });
         };
-
-        $scope.updateUsers();
     }
 
 
