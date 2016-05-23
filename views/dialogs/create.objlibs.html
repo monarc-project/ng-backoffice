@@ -104,7 +104,7 @@
 
                             <md-not-found>
                                 {{ 'No category matching your search was found' | translate }}
-                                <md-button ng-click="createCategory(categorySearchText)">{{ 'Create this category' | translate }}</md-button>
+                                <md-button ng-click="createCategory($event, categorySearchText)">{{ 'Create this category' | translate }}</md-button>
                             </md-not-found>
 
                         </md-autocomplete>

@@ -7,7 +7,7 @@
     function ObjlibService($resource) {
         var self = this;
 
-        self.ObjlibResource = $resource('/api/rolf-objlibs/:objlibId', { objlibId: '@id' },
+        self.ObjlibResource = $resource('/api/objlibs/:objlibId', { objlibId: '@id' },
             {
                 'update': {
                     method: 'PUT'
@@ -37,12 +37,49 @@
             self.ObjlibResource.delete({objlibId: id}, success, error);
         };
 
+        self.ObjlibCatResource = $resource('/api/objlibs-cats/:objlibId', { objlibId: '@id' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
+
+        var getObjlibsCats = function (params) {
+            return self.ObjlibCatResource.query(params).$promise;
+        };
+
+        var getObjlibCat = function (id) {
+            return self.ObjlibCatResource.query({objlibId: id}).$promise;
+        };
+
+        var createObjlibCat = function (params, success, error) {
+            new self.ObjlibCatResource(params).$save(success, error);
+        };
+
+        var updateObjlibCat = function (params, success, error) {
+            self.ObjlibCatResource.update(params, success, error);
+        };
+
+        var deleteObjlibCat = function (id, success, error) {
+            self.ObjlibCatResource.delete({objlibId: id}, success, error);
+        };
+
+
         return {
             getObjlibs: getObjlibs,
             getObjlib: getObjlib,
             createObjlib: createObjlib,
             deleteObjlib: deleteObjlib,
-            updateObjlib: updateObjlib
+            updateObjlib: updateObjlib,
+
+            getObjlibsCats: getObjlibsCats,
+            getObjlibCat: getObjlibCat,
+            createObjlibCat: createObjlibCat,
+            updateObjlibCat: updateObjlibCat,
+            deleteObjlibCat: deleteObjlibCat
         };
     }
 
