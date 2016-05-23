@@ -16,7 +16,7 @@
                     isArray: false
                 }
             });
-        self.ThreatThemeResource = $resource('/api/threats/themes/:themeId', { themeId: '@id' },
+        self.ThreatThemeResource = $resource('/api/themes/:themeId', { themeId: '@id' },
             {
                 'update': {
                     method: 'PUT'

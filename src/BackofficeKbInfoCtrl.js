@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService',
+            'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO
      */
     function BackofficeKbInfoCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                  AssetService, ThreatService, VulnService, AmvService, MeasureService) {
+                                  AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService) {
         TableHelperService.resetBookmarks();
 
         /*
@@ -702,6 +702,149 @@
             }, function() {
             });
         };
+
+        /*
+         * OBJECTS LIBRARY TAB
+         */
+        $scope.objlibs = TableHelperService.build('status', 10, 1, '');
+
+        $scope.selectObjlibsTab = function () {
+            TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);
+        };
+
+        $scope.deselectObjlibsTab = function () {
+            TableHelperService.unwatchSearch($scope.objlibs);
+        };
+
+        $scope.updateObjlibs = function () {
+            $scope.objlibs.promise = ObjlibService.getObjlibs($scope.objlibs.query);
+            $scope.objlibs.promise.then(
+                function (data) {
+                    $scope.objlibs.items = data;
+                }
+            )
+        };
+
+        $scope.removeObjlibsFilter = function () {
+            TableHelperService.removeFilter($scope.objlibs);
+        };
+
+        $scope.createNewObjlib = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', CreateObjlibDialogCtrl],
+                templateUrl: '/views/dialogs/create.objlibs.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen
+            })
+                .then(function (objlib) {
+                    objlib.measure1 = objlib.measure1.id;
+                    objlib.measure2 = objlib.measure2.id;
+                    objlib.measure3 = objlib.measure3.id;
+                    objlib.threat = objlib.threat.id;
+                    objlib.asset = objlib.asset.id;
+                    objlib.vulnerability = objlib.vulnerability.id;
+
+
+                    ObjlibService.createObjlib(objlib,
+                        function () {
+                            $scope.updateObjlibs();
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent(gettext('The OBJLIB has been created successfully.'))
+                                    .position('top right')
+                                    .hideDelay(3000)
+                            );
+                        }
+                    );
+                });
+        };
+
+        $scope.editObjlib = function (ev, objlib) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            ObjlibService.getObjlib(objlib.id).then(function (objlibData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objlib', CreateObjlibDialogCtrl],
+                    templateUrl: '/views/dialogs/create.objlibs.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'objlib': objlibData
+                    }
+                })
+                    .then(function (objlib) {
+                        objlib.measure1 = objlib.measure1.id;
+                        objlib.measure2 = objlib.measure2.id;
+                        objlib.measure3 = objlib.measure3.id;
+                        objlib.threat = objlib.threat.id;
+                        objlib.asset = objlib.asset.id;
+                        objlib.vulnerability = objlib.vulnerability.id;
+
+                        ObjlibService.updateObjlib(objlib,
+                            function () {
+                                $scope.updateObjlibs();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The OBJLIB has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
+        };
+
+        $scope.deleteObjlib = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete objliberability "{{ label }}"?',
+                    {label: item.label}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                ObjlibService.deleteObjlib(item.id,
+                    function () {
+                        $scope.updateObjlibs();
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent(gettextCatalog.getString('The OBJLIB "{{label}}" has been deleted.',
+                                    {label: item.label}))
+                                .position('top right')
+                                .hideDelay(3000)
+                        );
+                    }
+                );
+            });
+        };
+
+        $scope.deleteObjlibMass = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected OBJLIB link(s)?',
+                    {count: $scope.objlibs.selected.length}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                angular.forEach($scope.objlibs.selected, function (value, key) {
+                    ObjlibService.deleteObjlib(value.id,
+                        function () {
+                            $scope.updateObjlibs();
+                        }
+                    );
+                });
+
+                $scope.objlibs.selected = [];
+
+            }, function() {
+            });
+        };
     }
 
 
@@ -820,11 +963,11 @@
         };
 
         $scope.selectedThemeItemChange = function (item) {
-            $scope.threat.threat_theme_id = item.id;
+            $scope.threat.threatTheme = item;
         }
 
         $scope.createTheme = function (label) {
-            return ThreatService.createTheme(label);
+            return ThreatService.createTheme({label1: label});
         };
 
         $scope.cancel = function() {
@@ -1002,6 +1145,86 @@
 
         $scope.create = function() {
             $mdDialog.hide($scope.amv);
+        };
+    }
+
+    function CreateObjlibDialogCtrl($scope, $mdDialog, AssetService, ObjlibService, ConfigService, TagService, $q, objlib) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
+        $scope.assetSearchText = '';
+
+        if (objlib != undefined && objlib != null) {
+            $scope.objlib = objlib;
+
+            var modelsIds = [];
+
+            for (var i = 0; i < $scope.objlib.models.length; ++i) {
+                modelsIds.push($scope.objlib.models[i].id);
+            }
+
+            $scope.objlib.models = modelsIds;
+        } else {
+            $scope.objlib = {
+                mode: 1,
+                scope: 1,
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: '',
+                name1: '',
+                name2: '',
+                name3: '',
+                name4: ''
+            };
+        }
+
+        $scope.queryAssetSearch = function (query) {
+            var q = $q.defer();
+
+            AssetService.getAssets({filter: query}).then(function (x) {
+                q.resolve(x.assets);
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
+        };
+
+        $scope.selectedAssetItemChange = function (item) {
+            $scope.objlib.asset = item;
+        };
+
+        $scope.queryCategorySearch = function (query) {
+            return null;
+        };
+
+        $scope.selectedCategoryItemChange = function (item) {
+            $scope.objlib.objectCategory = item;
+        };
+
+        $scope.queryTagSearch = function (query) {
+            var q = $q.defer();
+
+            TagService.getTags({filter: query}).then(function (x) {
+                q.resolve(x.tags);
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
+        };
+
+        $scope.selectedTagItemChange = function (item) {
+            $scope.objlib.rolfTag = item;
+        };
+
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.objlib);
         };
     }
 })();
