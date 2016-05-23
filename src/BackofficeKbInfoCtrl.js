@@ -1189,7 +1189,6 @@
                 .then(function (category) {
                     ObjlibService.createObjlibCat(category,
                         function () {
-                            $scope.updateMeasures();
                             $mdToast.show(
                                 $mdToast.simple()
                                     .textContent(gettext('The category has been created successfully.'))
