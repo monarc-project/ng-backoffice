@@ -3,16 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAdminLogsCtrl', [
-            '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminLogsService',
-            'TableHelperService',
+            '$scope', 'AdminLogsService', 'TableHelperService',
             BackofficeAdminLogsCtrl
         ]);
 
     /**
      * Admin Logs Controller for the Backoffice module
      */
-    function BackofficeAdminLogsCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
-                                      AdminLogsService, TableHelperService) {
+    function BackofficeAdminLogsCtrl($scope, AdminLogsService, TableHelperService) {
         $scope.logs = TableHelperService.build('-createdAt', 25, 1, '');
 
         $scope.removeFilter = function () {
