@@ -746,33 +746,35 @@
                 }
             })
                 .then(function (objlib) {
-                    objlib.asset = objlib.asset.id;
-                    objlib.rolfTag = objlib.rolfTag.id;
+                    if (objlib) {
+                        objlib.asset = objlib.asset.id;
+                        objlib.rolfTag = objlib.rolfTag.id;
 
-                    if (isUpdate) {
-                        ObjlibService.updateObjlib(objlib,
-                            function () {
-                                $scope.updateObjlibs();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The object has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
-                            }
-                        );
-                    } else {
-                        ObjlibService.createObjlib(objlib,
-                            function () {
-                                $scope.updateObjlibs();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The object has been created successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
-                            }
-                        );
+                        if (isUpdate) {
+                            ObjlibService.updateObjlib(objlib,
+                                function () {
+                                    $scope.updateObjlibs();
+                                    $mdToast.show(
+                                        $mdToast.simple()
+                                            .textContent(gettext('The object has been updated successfully.'))
+                                            .position('top right')
+                                            .hideDelay(3000)
+                                    );
+                                }
+                            );
+                        } else {
+                            ObjlibService.createObjlib(objlib,
+                                function () {
+                                    $scope.updateObjlibs();
+                                    $mdToast.show(
+                                        $mdToast.simple()
+                                            .textContent(gettext('The object has been created successfully.'))
+                                            .position('top right')
+                                            .hideDelay(3000)
+                                    );
+                                }
+                            );
+                        }
                     }
                 });
         };
@@ -1178,7 +1180,7 @@
 
         $scope.createCategory = function (ev, catName) {
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ConfigService', 'catName', CreateObjlibCategoryDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'ObjlibService', 'catName', CreateObjlibCategoryDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.categories.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -1249,7 +1251,7 @@
         };
     }
 
-    function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, ConfigService, catName, category) {
+    function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, ConfigService, ObjlibService, catName, category) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
@@ -1272,6 +1274,26 @@
 
         $scope.create = function() {
             $mdDialog.hide($scope.category);
+        };
+
+        $scope.queryCategorySearch = function (query) {
+            var q = $q.defer();
+
+            ObjlibService.getObjlibsCats({filter: query}).then(function (x) {
+                if (x && x.categories) {
+                    q.resolve(x.categories);
+                } else {
+                    q.reject();
+                }
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
+        };
+
+        $scope.selectedCategoryItemChange = function (item) {
+            $scope.objlib.objectCategory = item;
         };
     }
 })();
