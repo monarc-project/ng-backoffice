@@ -58,6 +58,7 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
 
 .clickable-rows {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .bold {
@@ -82,4 +83,108 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
 .md-html-table td, .md-html-table th {
     border: 1px solid #DDDDDD;
     padding: 8px;
+}
+
+/** TREE VIEW **/
+
+.md-treeview li>a, .md-treeview.md-treeview-default li>a, .md-treeview.md-treeview-default>a, .md-treeview>a {
+  color: #555;
+  background-color: transparent;
+  text-decoration: none;
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+.md-treeview li>a:active, .md-treeview li>a:focus, .md-treeview li>a:hover, .md-treeview.md-treeview-default li>a:active, .md-treeview.md-treeview-default li>a:focus, .md-treeview.md-treeview-default li>a:hover, .md-treeview.md-treeview-default>a:active, .md-treeview.md-treeview-default>a:focus, .md-treeview.md-treeview-default>a:hover, .md-treeview>a:active, .md-treeview>a:focus, .md-treeview>a:hover {
+  outline: 0;
+  color: #555;
+  background-color: rgba(85, 85, 85, .07);
+}
+.md-treeview li:before, .md-treeview li>a:before, .md-treeview.md-treeview-default li:before, .md-treeview.md-treeview-default li>a:before {
+  border-color: #AAA;
+}
+.md-treeview li.active>a, .md-treeview.md-treeview-default li.active>a {
+  outline: 0;
+  color: #555;
+  background-color: rgba(85, 85, 85, .07);
+}
+.md-treeview li.disabled>a, .md-treeview li.disabled>a:focus, .md-treeview li.disabled>a:hover, .md-treeview.md-treeview-default li.disabled>a, .md-treeview.md-treeview-default li.disabled>a:focus, .md-treeview.md-treeview-default li.disabled>a:hover {
+  cursor: not-allowed;
+  color: #b7b7b7!important;
+  background-color: transparent!important;
+}
+.md-treeview {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.md-treeview .md-treeview-root>ul {
+  padding-left: 10px;
+}
+.md-treeview .md-treeview-branch>ul {
+  padding-left: 33px;
+}
+.md-treeview li {
+  position: relative;
+  padding-bottom: 10px;
+}
+.md-treeview li a {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: top;
+  padding: 5px;
+}
+.md-treeview ul {
+  list-style: none;
+}
+.md-treeview ul li:first-child {
+  padding-top: 10px;
+}
+.md-treeview ul li:last-child {
+  padding-bottom: 0;
+}
+.md-treeview ul li:last-child:before {
+  display: none;
+}
+.md-treeview ul li:last-child>a:before {
+  top: 0;
+  height: 50%}
+.md-treeview ul li:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%}
+.md-treeview ul li:only-child:before {
+  display: inline;
+  height: 50%}
+.md-treeview ul li>a {
+  text-indent: 23px;
+  padding-right: 28px;
+}
+.md-treeview ul li>a:before {
+  content: "";
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.md-treeview ul li:before, .md-treeview ul li:last-child>a:before {
+  border-left-width: 1px;
+}
+.md-treeview ul li:before, .md-treeview ul li:last-child>a:before, .md-treeview-solid-line.md-treeview ul li:before, .md-treeview-solid-line.md-treeview ul li:last-child>a:before {
+  border-left-style: solid;
+}
+.md-treeview ul li>a:before {
+  border-bottom-width: 1px;
+}
+.md-treeview ul li>a:before, .md-treeview-solid-line.md-treeview ul li>a:before {
+  border-bottom-style: solid;
+}
+.md-treeview li>a:first-child>md-icon {
+  display: inline;
+  font-size: 13px;
 }

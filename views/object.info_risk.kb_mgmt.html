@@ -84,7 +84,29 @@
                 <div class="md-padding">
                     <p class="md-title" translate>Composition</p>
 
-                    [ Arborescence ]
+                    <ul class="md-treeview">
+                        <li class="md-treeview-root" data-expanded-icon="flaticon-round56" data-collapsed-icon="flaticon-add182" data-item-icon="flaticon-google134">
+                            <a href="#" data-target="#tree1" data-toggle="collapse"><md-icon>delete</md-icon> Root</a>
+                            <ul id="tree1">
+                                <li><a href="#"><md-icon>note</md-icon> Item 1</a></li>
+                                <li class="md-treeview-branch">
+                                    <a href="#"><md-icon>add</md-icon> Item 2</a>
+                                    <ul class="collapse">
+                                        <li><a href="#"><md-icon>note</md-icon> Item 2-1</a></li>
+                                        <li><a href="#"><md-icon>note</md-icon> Item 2-2</a></li>
+                                        <li class="md-treeview-branch">
+                                            <a href="#"><md-icon>add</md-icon> Item 2-3</a>
+                                            <ul>
+                                                <li><a href="#"><md-icon>note</md-icon> Item 2-3-1</a></li>
+                                                <li><a href="#"><md-icon>note</md-icon> Item 2-3-2</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="md-ripple"><span class="md-treeview-icon flaticon-google134"></span> Item 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 
                     <p class="md-title" translate>Object replica(s) in models</p>
 
