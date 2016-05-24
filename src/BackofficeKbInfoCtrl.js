@@ -708,7 +708,14 @@
         $scope.objlibs = TableHelperService.build('status', 10, 1, '');
 
         $scope.selectObjlibsTab = function () {
-            TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);
+            //TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);
+
+            $scope.objlibs.items = {
+                objlibs: [{
+                    id: 25,
+                    label1: 'hardcoded test'
+                }]
+            }
         };
 
         $scope.deselectObjlibsTab = function () {

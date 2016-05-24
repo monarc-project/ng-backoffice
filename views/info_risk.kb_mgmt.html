@@ -429,12 +429,12 @@
                     <tr md-row md-select="objlib" md-select-id="id" ng-repeat="objlib in objlibs.items.objlibs">
                         <td md-cell>{{ objlib.category.label1 }}</td>
                         <td md-cell>{{ objlib.name1 }}</td>
-                        <td md-cell>{{ objlib.label1 }}</td>
+                        <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.id})">{{ objlib.label1 }}</td>
                         <td md-cell>{{ objlib.type }}</td>
                         <td md-cell>{{ objlib.scope }}</td>
                         <td md-cell>{{ objlib.mode }}</td>
                         <td md-cell>
-                            <md-button class="md-icon-button" ng-click="editObjlib($event, objlib)"><md-icon>edit</md-icon></md-button>
+                            <md-button class="md-icon-button" ng-click="editObjlib($event, objlib);$event.preventDefault();"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button" ng-click="deleteObjlib($event, objlib)"><md-icon>delete</md-icon></md-button>
                         </td>
                     </tr>

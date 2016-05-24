@@ -91,6 +91,14 @@ angular
                 ncyBreadcrumb: {
                     label: gettext('Information risks')
                 }
+            }).state('main.kb_mgmt.info_risk.object', {
+                url: '/object/:objectId',
+                views: {
+                    'kb_main@main.kb_mgmt': {templateUrl: '/views/object.info_risk.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Object details')
+                }
             }).state('main.kb_mgmt.models', {
                 url: '/models',
                 views: {

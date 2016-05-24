@@ -1,0 +1,161 @@
+<div class="md-padding" ng-cloak>
+    <div class="md-padding" layout="row">
+        <div flex="50">
+            <h2 translate>OBJECT NAME HERE</h2>
+
+            <p>Object description here.</p>
+        </div>
+        <div flex layout="row" layout-align="end center">
+            <md-fab-speed-dial md-open="false" md-direction="left" class="md-fling">
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab">
+                        <md-icon>menu</md-icon>
+                        <md-tooltip>{{ 'Object actions' | translate }}</md-tooltip>
+                    </md-button>
+                </md-fab-trigger>
+
+                <md-fab-actions>
+                    <md-button aria-label="{{ 'Add component' | translate }}" class="md-fab md-raised md-mini">
+                        <md-icon>add_to_photos</md-icon>
+                        <md-tooltip>{{ 'Add component' | translate }}</md-tooltip>
+                    </md-button>
+
+                    <md-button aria-label="{{ 'Edit object' | translate }}" class="md-fab md-raised md-mini">
+                        <md-icon>edit</md-icon>
+                        <md-tooltip>{{ 'Edit object' | translate }}</md-tooltip>
+                    </md-button>
+
+                    <md-button aria-label="{{ 'Duplicate object' | translate }}" class="md-fab md-raised md-mini">
+                        <md-icon>control_point_duplicate</md-icon>
+                        <md-tooltip>{{ 'Duplicate object' | translate }}</md-tooltip>
+                    </md-button>
+
+                    <md-button aria-label="{{ 'Export object' | translate }}" class="md-fab md-raised md-mini">
+                        <md-icon>save</md-icon>
+                        <md-tooltip>{{ 'Export object' | translate }}</md-tooltip>
+                    </md-button>
+
+                    <md-button aria-label="{{ 'Delete object' | translate }}" class="md-fab md-raised md-mini md-warn">
+                        <md-icon>delete</md-icon>
+                        <md-tooltip>{{ 'Delete object' | translate }}</md-tooltip>
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+        </div>
+    </div>
+
+    <md-card>
+        <md-card-content layout="row" flex layout-wrap>
+            <div flex="50" layout="row" layout-padding>
+                <div flex="33" class="bold txtright" translate>Asset type:</div>
+                <div flex>OV_INFOPHY - Objet virtuel d'information physique</div>
+            </div>
+
+            <div flex="50" layout="row" layout-padding>
+                <div flex="33" class="bold txtright" translate>Confidentiality:</div>
+                <div flex>Inherited</div>
+            </div>
+
+            <div flex="50" layout="row" layout-padding>
+                <div flex="33" class="bold txtright" translate>Object specificities:</div>
+                <div flex></div>
+            </div>
+
+            <div flex="50" layout="row" layout-padding>
+                <div flex="33" class="bold txtright" translate>Integrity:</div>
+                <div flex>Inherited</div>
+            </div>
+
+            <div flex="50" layout="row" layout-padding>
+                <div flex="33" class="bold txtright" translate>Maximum unavailability:</div>
+                <div flex></div>
+            </div>
+
+            <div flex="50" layout="row" layout-padding>
+                <div flex="33" class="bold txtright" translate>Availability:</div>
+                <div flex>Inherited</div>
+            </div>
+        </md-card-content>
+    </md-card>
+
+    <md-card>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="{{ 'General information' | translate }}">
+                <div class="md-padding">
+                    <p class="md-title" translate>Composition</p>
+
+                    [ Arborescence ]
+
+                    <p class="md-title" translate>Object replica(s) in models</p>
+
+                    [ Replicas ]
+
+                    <p class="md-title" translate>Scope</p>
+
+                    <div>
+                        <p translate>This object is <strong>LOCAL</strong>. Any change made on the following
+                            fields will be reported on its instance in the risk analysis:</p>
+                        <ul>
+                            <li translate>Confidentiality impact</li>
+                            <li translate>Integrity impact</li>
+                            <li translate>Availability impact</li>
+                        </ul>
+
+                        <p translate>In the library, you may not qualify threats and vulnerabilities of the object.
+                            It must be done in context during the risk analysis.</p>
+                    </div>
+                </div>
+            </md-tab>
+
+            <md-tab label="{{ 'Risks table' | translate }}">
+                <md-card class="md-card-info"><md-card-content>
+                    <p translate>You are in the knowledge base. No evaluation may be set in this space.</p>
+                </md-card-content></md-card>
+
+                <p class="md-title md-padding" translate>{{ 3 }} AMV links</p>
+
+                <table class="md-html-table">
+                    <thead>
+                    <tr>
+                        <th colspan="3"><p translate>Impact</p></th>
+                        <th rowspan="2"><p translate>Threat</p></th>
+                        <th rowspan="2"><p translate>Prob.</p></th>
+                        <th rowspan="2"><p translate>Vulnerability</p></th>
+                        <th rowspan="2"><p translate>Qualif.</p></th>
+                        <th colspan="3"><p translate>Risk</p></th>
+                        <th rowspan="2"><p translate>Observation</p></th>
+                        <th rowspan="2"><p translate>T</p></th>
+                        <th rowspan="2"><p translate>Target risk</p></th>
+                    </tr>
+                    <tr>
+                        <th>C</th>
+                        <th>I</th>
+                        <th>D</th>
+                        <th>C</th>
+                        <th>I</th>
+                        <th>D</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>-1</td>
+                        <td>-1</td>
+                        <td>-1</td>
+                        <td>Récupération de supports recyclés ou mis au rebut</td>
+                        <td>-</td>
+                        <td>La mise au rebut n'est pas correctement assurée</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </md-tab>
+        </md-tabs>
+    </md-card>
+</div>
