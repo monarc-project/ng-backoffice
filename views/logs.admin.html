@@ -31,12 +31,12 @@
                 <th md-column md-order-by="action"><span translate>Action</span></th>
                 <th md-column md-order-by="detail"><span translate>Details</span></th>
                 <th md-column md-order-by="user"><span translate>User</span></th>
-                <th md-column md-order-by="date"><span translate>Date</span></th>
+                <th md-column md-order-by="createdAt"><span translate>Date</span></th>
             </tr>
             </thead>
 
             <tbody md-body>
-            <tr md-row ng-repeat="log in logs.items.logs">
+            <tr md-row ng-repeat="log in logs.items.historical">
                 <td md-cell>{{ log.id }}</td>
                 <td md-cell>{{ log.type }}</td>
                 <td md-cell>{{ log.action }}</td>

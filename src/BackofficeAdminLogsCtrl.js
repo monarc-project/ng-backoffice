@@ -13,7 +13,7 @@
      */
     function BackofficeAdminLogsCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
                                       AdminLogsService, TableHelperService) {
-        $scope.logs = TableHelperService.build('-date', 25, 1, '');
+        $scope.logs = TableHelperService.build('-createdAt', 25, 1, '');
 
         $scope.removeFilter = function () {
             TableHelperService.removeFilter($scope.logs);
@@ -30,27 +30,4 @@
 
         TableHelperService.watchSearch($scope, 'logs.query.filter', $scope.logs.query, $scope.updateLogs);
     }
-
-
-    function CreateLogDialogCtrl($scope, $mdDialog, log) {
-        if (log != undefined && log != null) {
-            $scope.log = log;
-        } else {
-            $scope.log = {
-                firstname: '',
-                lastname: '',
-                email: '',
-                phone: ''
-            };
-        }
-
-        $scope.cancel = function() {
-            $mdDialog.cancel();
-        };
-
-        $scope.create = function() {
-            $mdDialog.hide($scope.log);
-        };
-    }
-
 })();
