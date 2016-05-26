@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeMainCtrl', [
-            '$scope', '$state', '$mdSidenav', '$mdMedia', 'gettextCatalog', 'UserService',
+            '$scope', '$rootScope', '$state', '$mdSidenav', '$mdMedia', 'gettextCatalog', 'UserService',
             BackofficeMainCtrl
         ]);
 
     /**
      * Main Controller for the Backoffice module
      */
-    function BackofficeMainCtrl($scope, $state, $mdSidenav, $mdMedia, gettextCatalog, UserService) {
+    function BackofficeMainCtrl($scope, $rootScope, $state, $mdSidenav, $mdMedia, gettextCatalog, UserService) {
         if (!UserService.isAuthenticated() && !UserService.reauthenticate()) {
             setTimeout(function() {
                 $state.transitionTo('login');
@@ -18,6 +18,8 @@
 
             return;
         }
+
+        $rootScope.isAllowed = UserService.isAllowed;
 
         gettextCatalog.setCurrentLanguage('en');
         gettextCatalog.debug = true;

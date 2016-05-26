@@ -38,12 +38,28 @@
                     function (data) {
                         self.authenticated = true;
                         self.token = data.data.token;
-                        self.permissionGroups = ['superadmin', 'dbadmin', 'sysadmin', 'accadmin'];
 
-                        localStorageService.set('auth_token', self.token);
-                        localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
+                        $http.get('/api/users-roles').then(
+                            function (data) {
+                                self.permissionGroups = [];
 
-                        promise.resolve(true);
+                                for (var i = 0; i < data.data.roles.length; ++i) {
+                                    self.permissionGroups.push(data.data.roles[i].name);
+                                }
+
+                                localStorageService.set('auth_token', self.token);
+                                localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
+
+                                promise.resolve(true);
+                            },
+                            function (data) {
+                                self.authenticated = false;
+                                self.token = null;
+
+                                promise.reject();
+                            }
+                        )
+
                     },
 
                     function (data) {
