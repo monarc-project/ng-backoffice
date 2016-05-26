@@ -37,7 +37,7 @@
             self.ObjlibResource.delete({objlibId: id}, success, error);
         };
 
-        self.ObjlibCatResource = $resource('/api/objlibs-cats/:objlibId', { objlibId: '@id' },
+        self.ObjlibCatResource = $resource('/api/objects-categories/:objlibId', { objlibId: '@id' },
             {
                 'update': {
                     method: 'PUT'

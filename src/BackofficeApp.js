@@ -146,7 +146,7 @@ angular
 
 
                         if (UserService.isAuthenticated()) {
-                            $http.defaults.headers.common.token = UserService.getToken();
+                            config.headers.token = UserService.getToken();
                         }
 
                         return config;

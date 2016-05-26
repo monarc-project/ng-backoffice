@@ -39,15 +39,17 @@
                         self.authenticated = true;
                         self.token = data.data.token;
 
+                        localStorageService.set('auth_token', self.token);
+                        localStorageService.set('permission_groups', JSON.stringify([]));
+
                         $http.get('/api/users-roles').then(
                             function (data) {
                                 self.permissionGroups = [];
 
                                 for (var i = 0; i < data.data.roles.length; ++i) {
-                                    self.permissionGroups.push(data.data.roles[i].name);
+                                    self.permissionGroups.push(data.data.roles[i].role);
                                 }
 
-                                localStorageService.set('auth_token', self.token);
                                 localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
 
                                 promise.resolve(true);

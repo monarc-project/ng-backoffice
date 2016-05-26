@@ -70,7 +70,7 @@
         </h1>
         <span flex></span>
 
-        <md-menu>
+        <md-menu ng-show="isAllowed('accadmin') || isAllowed('sysadmin') || isAllowed('superadmin')">
             <md-button class="md-icon-button" ng-click="openToolbarMenu($mdOpenMenu, $event)">
                 <md-tooltip>{{ "Administration" | translate }}</md-tooltip>
                 <md-icon md-menu-origin>settings</md-icon>

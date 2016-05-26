@@ -33,14 +33,14 @@
                                 flex
                                 md-no-cache="true"
                                 md-selected-item="objlib.parent"
-                                md-search-text="categorySearchText"
-                                md-selected-item-change="selectedCategoryItemChange(item)"
-                                md-items="item in queryCategorySearch(categorySearchText)"
+                                md-search-text="categoryParentSearchText"
+                                md-selected-item-change="selectedParentCatItemChange(item)"
+                                md-items="item in queryCategorySearch(categoryParentSearchText)"
                                 md-item-text="item.label1"
                                 md-min-length="0"
                                 placeholder="{{ 'Parent category' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="categorySearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                                <span md-highlight-text="categoryParentSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
                             </md-item-template>
 
                             <md-not-found>
@@ -68,14 +68,14 @@
                                 flex
                                 md-no-cache="true"
                                 md-selected-item="objlib.previous"
-                                md-search-text="categorySearchText"
-                                md-selected-item-change="selectedParentCatItemChange(item)"
-                                md-items="item in queryCategorySearch(categorySearchText)"
+                                md-search-text="categoryPreviousSearchText"
+                                md-selected-item-change="selectedPreviousCatItemChange(item)"
+                                md-items="item in queryCategorySearch(categoryPreviousSearchText)"
                                 md-item-text="item.label1"
                                 md-min-length="0"
                                 placeholder="{{ 'Previous category...' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="categorySearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                                <span md-highlight-text="categoryPreviousSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
                             </md-item-template>
 
                             <md-not-found>

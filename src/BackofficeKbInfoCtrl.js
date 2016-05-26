@@ -1216,11 +1216,9 @@
             var q = $q.defer();
 
             ObjlibService.getObjlibsCats({filter: query}).then(function (x) {
-                if (x && x.categories) {
-                    q.resolve(x.categories);
-                } else {
-                    q.reject();
-                }
+                console.log(x.categories);
+                q.resolve(x.categories);
+
             }, function (x) {
                 q.reject(x);
             });
