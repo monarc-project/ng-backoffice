@@ -754,8 +754,13 @@
             })
                 .then(function (objlib) {
                     if (objlib) {
-                        objlib.asset = objlib.asset.id;
-                        objlib.rolfTag = objlib.rolfTag.id;
+                        if (objlib.asset) {
+                            objlib.asset = objlib.asset.id;
+                        }
+
+                        if (objlib.rolfTag) {
+                            objlib.rolfTag = objlib.rolfTag.id;
+                        }
 
                         if (isUpdate) {
                             ObjlibService.updateObjlib(objlib,
