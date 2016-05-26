@@ -54,14 +54,14 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Location</label>
                     <md-icon>reorder</md-icon>
-                    <md-select ng-model="objlib.position">
-                        <md-option value="-1">{{ 'in the end' | translate }}</md-option>
-                        <md-option value="0">{{ 'at the beginning' | translate }}</md-option>
-                        <md-option value="-2">{{ 'after...' | translate }}</md-option>
+                    <md-select ng-model="implicitPosition">
+                        <md-option value="1">{{ 'at the beginning' | translate }}</md-option>
+                        <md-option value="2">{{ 'in the end' | translate }}</md-option>
+                        <md-option value="3">{{ 'after...' | translate }}</md-option>
                     </md-select>
                 </md-input-container>
 
-                <div class="md-block" layout="column" flex style="margin-bottom: 8px">
+                <div class="md-block" layout="column" flex style="margin-bottom: 8px" ng-show="implicitPosition == 3">
                     <div layout="row">
                         <md-icon style="margin-right: 8px;">class</md-icon>
                         <md-autocomplete

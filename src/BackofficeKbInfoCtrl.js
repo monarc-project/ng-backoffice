@@ -1216,8 +1216,29 @@
             var q = $q.defer();
 
             ObjlibService.getObjlibsCats({filter: query}).then(function (x) {
-                console.log(x.categories);
-                q.resolve(x.categories);
+                // Recursively build items
+                var buildItemRecurse = function (children, depth) {
+                    var output = [];
+
+                    for (var i = 0; i < children.length; ++i) {
+                        var child = children[i];
+
+                        for (var j = 0; j < depth; ++j) {
+                            child.label1 = " >> " + child.label1;
+                        }
+
+                        output.push(child);
+
+                        if (child.child.length > 0) {
+                            var child_output = buildItemRecurse(child.child, depth + 1);
+                            output = output.concat(child_output);
+                        }
+                    }
+
+                    return output;
+                };
+
+                q.resolve(buildItemRecurse(x.categories, 0));
 
             }, function (x) {
                 q.reject(x);
@@ -1259,6 +1280,7 @@
     function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, ConfigService, ObjlibService, catName, category) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
+        $scope.implicitPosition = null;
 
         if (category != undefined && category != null) {
             $scope.category = category;
@@ -1266,7 +1288,7 @@
             $scope.category = {
                 parent: null,
                 position: null,
-                label1: '',
+                label1: catName,
                 label2: '',
                 label3: '',
                 label4: '',
@@ -1278,6 +1300,20 @@
         };
 
         $scope.create = function() {
+            if ($scope.implicitPosition == 1 || $scope.implicitPosition == 2) {
+                // -1 ==> At the beginning
+                // -2 ==> In the end
+                $scope.category.position = -$scope.implicitPosition;
+            }
+
+            if ($scope.category.parent) {
+                $scope.category.parent = $scope.category.parent.id;
+            }
+
+            if ($scope.category.previous) {
+                $scope.category.previous = $scope.category.previous.id;
+            }
+
             $mdDialog.hide($scope.category);
         };
 
@@ -1297,8 +1333,12 @@
             return q.promise;
         };
 
-        $scope.selectedCategoryItemChange = function (item) {
-            $scope.objlib.objectCategory = item;
+        $scope.selectedParentCatItemChange = function (item) {
+            $scope.category.parent = item;
+        };
+
+        $scope.selectedPreviousCatItemChange = function (item) {
+            $scope.category.previous = item;
         };
     }
 })();
