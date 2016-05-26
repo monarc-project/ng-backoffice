@@ -1,4 +1,4 @@
-<div class="md-padding" ng-cloak layout="column">
+<div class="md-padding" ng-cloak layout="column" ng-controller="BackofficeKbInfoObjectCtrl">
     <div layout="row" layout-align="space-around center">
         <div flex="20">
             <h2 translate>OBJECT NAME HERE</h2>
@@ -83,28 +83,69 @@
         <md-tabs md-dynamic-height md-border-bottom>
             <md-tab label="{{ 'General information' | translate }}">
                 <div class="md-padding">
-                    <p class="md-title" translate>Composition</p>
+                    <div layout="row" layout-align="left center">
+                        <p class="md-title" translate>Composition</p>
+                        <md-button class="md-primary">{{ 'Add a component' | translate }}</md-button>
+                    </div>
 
                     <ul class="md-treeview">
-                        <li class="md-treeview-root" data-expanded-icon="flaticon-round56" data-collapsed-icon="flaticon-add182" data-item-icon="flaticon-google134">
-                            <a href="#" data-target="#tree1" data-toggle="collapse"><md-icon>delete</md-icon> Root</a>
+                        <li class="md-treeview-root">
+                            <a href="#" data-target="#tree1" data-toggle="collapse"><md-icon>place</md-icon> Root</a>
                             <ul id="tree1">
-                                <li><a href="#"><md-icon>note</md-icon> Item 1</a></li>
+                                <li>
+                                    <a href="#"><md-icon>note</md-icon> Item 1</a>
+                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+                                    <md-button class="md-icon-button" ng-click="deleteCompositionItem($event, null)"><md-icon>delete</md-icon></md-button>
+                                </li>
                                 <li class="md-treeview-branch">
                                     <a href="#"><md-icon>add</md-icon> Item 2</a>
+                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+                                    <md-button class="md-icon-button" ng-click="deleteCompositionItem($event, null)"><md-icon>delete</md-icon></md-button>
+
                                     <ul class="collapse">
-                                        <li><a href="#"><md-icon>note</md-icon> Item 2-1</a></li>
-                                        <li><a href="#"><md-icon>note</md-icon> Item 2-2</a></li>
+                                        <li>
+                                            <a href="#"><md-icon>note</md-icon> Item 2-1</a>
+                                            <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+                                            <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+                                            <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
+                                        </li>
+                                        <li>
+                                            <a href="#"><md-icon>note</md-icon> Item 2-2</a>
+                                            <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+                                            <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+                                            <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
+                                        </li>
                                         <li class="md-treeview-branch">
                                             <a href="#"><md-icon>add</md-icon> Item 2-3</a>
+                                            <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+                                            <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+                                            <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
+
                                             <ul>
-                                                <li class="disabled"><a href="#"><md-icon>note</md-icon> Item 2-3-1</a></li>
-                                                <li><a href="#"><md-icon>note</md-icon> Item 2-3-2</a></li>
+                                                <li class="disabled">
+                                                    <a href="#"><md-icon>note</md-icon> Item 2-3-1</a>
+                                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+                                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+                                                    <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><md-icon>note</md-icon> Item 2-3-2</a>
+                                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+                                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+                                                    <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
+                                                </li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="#" class="md-ripple"><span class="md-treeview-icon flaticon-google134"></span> Item 3</a></li>
+                                <li>
+                                    <a href="#"><md-icon>note</md-icon> Item 3</a>
+                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+                                    <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
+                                </li>
                             </ul>
                         </li>
                     </ul>

@@ -163,7 +163,7 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
   height: 50%}
 .md-treeview ul li>a {
   text-indent: 23px;
-  padding-right: 28px;
+  padding-right: 8px;
 }
 .md-treeview ul li>a:before {
   content: "";
@@ -187,4 +187,17 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
 .md-treeview li>a:first-child>md-icon {
   display: inline;
   font-size: 13px;
+}
+
+.md-treeview li>button.md-icon-button {
+  vertical-align: top;
+  height: 20px;
+  width: 26px;
+  padding: 0;
+  margin: 0 4px;
+  line-height: 16px;
+}
+
+.md-treeview li > button > md-icon {
+  font-size: 18px;
 }
