@@ -792,8 +792,6 @@
         };
 
         $scope.editObjlib = function (ev, objlib) {
-            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
             if (objlib && objlib.id) {
                 ObjlibService.getObjlib(objlib.id).then(function (objlibData) {
                     $scope.createNewObjlib(ev, objlibData);

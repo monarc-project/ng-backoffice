@@ -67,6 +67,36 @@
             self.ObjlibCatResource.delete({objlibId: id}, success, error);
         };
 
+        self.ObjlibNodeResource = $resource('/api/objects-nodeegories/:objlibId', { objlibId: '@id' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
+
+        var getObjlibsNodes = function (params) {
+            return self.ObjlibNodeResource.query(params).$promise;
+        };
+
+        var getObjlibNode = function (id) {
+            return self.ObjlibNodeResource.query({objlibId: id}).$promise;
+        };
+
+        var createObjlibNode = function (params, success, error) {
+            new self.ObjlibNodeResource(params).$save(success, error);
+        };
+
+        var updateObjlibNode = function (params, success, error) {
+            self.ObjlibNodeResource.update(params, success, error);
+        };
+
+        var deleteObjlibNode = function (id, success, error) {
+            self.ObjlibNodeResource.delete({objlibId: id}, success, error);
+        };
+
 
         return {
             getObjlibs: getObjlibs,
@@ -79,7 +109,13 @@
             getObjlibCat: getObjlibCat,
             createObjlibCat: createObjlibCat,
             updateObjlibCat: updateObjlibCat,
-            deleteObjlibCat: deleteObjlibCat
+            deleteObjlibCat: deleteObjlibCat,
+
+            getObjlibsNodes: getObjlibsNodes,
+            getObjlibNode: getObjlibNode,
+            createObjlibNode: createObjlibNode,
+            updateObjlibNode: updateObjlibNode,
+            deleteObjlibNode: deleteObjlibNode
         };
     }
 

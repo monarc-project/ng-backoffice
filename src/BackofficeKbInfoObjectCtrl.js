@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
-            '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog',
+            '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'ObjlibService',
             BackofficeKbInfoObjectCtrl
         ]);
 
     /**
      * BO > KB > INFO > Objects Library > Object details
      */
-    function BackofficeKbInfoObjectCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog) {
+    function BackofficeKbInfoObjectCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, ObjlibService) {
         $scope.object = {
             id: 25,
             object_category: {
@@ -88,5 +88,88 @@
                 // Cancel
             })
         }
+
+        $scope.createComponent = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', CreateComponentDialogCtrl],
+                templateUrl: '/views/dialogs/create.objlibs.node.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+            })
+                .then(function (objlib) {
+                    if (objlib) {
+                        if (objlib.object) {
+                            objlib.object = objlib.object.id;
+                        }
+
+                        ObjlibService.createObjlib(objlib,
+                            function () {
+                                $scope.updateObjlibs();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The object has been created successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    }
+                });
+        };
+    }
+
+
+    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService) {
+        $scope.implicitPosition = null;
+
+        $scope.component = {
+            position: null,
+            object: null
+        };
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            if ($scope.implicitPosition == 1 || $scope.implicitPosition == 2) {
+                // -1 ==> At the beginning
+                // -2 ==> In the end
+                $scope.category.position = -$scope.implicitPosition;
+            }
+
+            if ($scope.category.parent) {
+                $scope.category.parent = $scope.category.parent.id;
+            }
+
+            if ($scope.category.previous) {
+                $scope.category.previous = $scope.category.previous.id;
+            }
+
+            $mdDialog.hide($scope.category);
+        };
+
+        $scope.queryObjectSearch = function (query) {
+            var q = $q.defer();
+
+            ObjlibService.getObjlibs({filter: query}).then(function (x) {
+                if (x && x.objects) {
+                    q.resolve(x.objects);
+                } else {
+                    q.reject();
+                }
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
+        };
+
+        $scope.selectedObjectChange = function (item) {
+            $scope.component.object = item;
+        };
     }
 })();

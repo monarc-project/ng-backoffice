@@ -49,7 +49,7 @@
             </md-fab-trigger>
 
             <md-fab-actions>
-                <md-button aria-label="{{ 'Add component' | translate }}" class="md-fab md-raised md-mini">
+                <md-button aria-label="{{ 'Add component' | translate }}" class="md-fab md-raised md-mini" ng-click="createComponent($event)">
                     <md-icon>add_to_photos</md-icon>
                     <md-tooltip md-direction="left">{{ 'Add component' | translate }}</md-tooltip>
                 </md-button>
@@ -85,7 +85,7 @@
                 <div class="md-padding">
                     <div layout="row" layout-align="left center">
                         <p class="md-title" translate>Composition</p>
-                        <md-button class="md-primary">{{ 'Add a component' | translate }}</md-button>
+                        <md-button class="md-primary" ng-click="createComponent($event)">{{ 'Add a component' | translate }}</md-button>
                     </div>
 
                     <ul class="md-treeview">
