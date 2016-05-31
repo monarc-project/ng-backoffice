@@ -705,7 +705,7 @@
         /*
          * OBJECTS LIBRARY TAB
          */
-        $scope.objlibs = TableHelperService.build('status', 10, 1, '');
+        $scope.objlibs = TableHelperService.build('name1', 10, 1, '');
 
         $scope.selectObjlibsTab = function () {
             //TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);

@@ -7,7 +7,7 @@
     function ObjlibService($resource) {
         var self = this;
 
-        self.ObjlibResource = $resource('/api/objlibs/:objlibId', { objlibId: '@id' },
+        self.ObjlibResource = $resource('/api/objects/:objlibId', { objlibId: '@id' },
             {
                 'update': {
                     method: 'PUT'
