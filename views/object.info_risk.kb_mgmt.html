@@ -1,31 +1,31 @@
 <div class="md-padding" ng-cloak layout="column" ng-controller="BackofficeKbInfoObjectCtrl">
     <div layout="row" layout-align="space-around center">
         <div flex="20">
-            <h2 translate>OBJECT NAME HERE</h2>
+            <h2>{{ object.name1 }}</h2>
 
-            <p>Object description here.</p>
+            <p>{{ object.label1 }}</p>
         </div>
 
         <md-card flex="70">
             <md-card-content layout="column" layout-gt-md="row" flex layout-wrap>
                 <div flex="50" layout="column" layout-gt-md="row" layout-align="space-between">
                     <div flex="33" class="bold txtright" translate>Asset type:</div>
-                    <div flex="65">OV_INFOPHY - Objet virtuel d'information physique</div>
+                    <div flex="65">{{ object.asset.code }} - {{ object.asset.label1 }}</div>
                 </div>
 
                 <div flex="50" layout="column" layout-gt-md="row" layout-align="space-between">
                     <div flex="33" class="bold txtright" translate>Confidentiality:</div>
-                    <div flex="65">Inherited</div>
+                    <div flex="65" translate>Inherited</div>
                 </div>
 
                 <div flex="50" layout="column" layout-gt-md="row" layout-align="space-between">
-                    <div flex="33" class="bold txtright" translate>Object specificities:</div>
+                    <div flex="33" class="bold txtright" translate>Object specifics:</div>
                     <div flex="65"></div>
                 </div>
 
                 <div flex="50" layout="column" layout-gt-md="row" layout-align="space-between">
                     <div flex="33" class="bold txtright" translate>Integrity:</div>
-                    <div flex="65">Inherited</div>
+                    <div flex="65" translate>Inherited</div>
                 </div>
 
                 <div flex="50" layout="column" layout-gt-md="row" layout-align="space-between">
@@ -35,7 +35,7 @@
 
                 <div flex="50" layout="column" layout-gt-md="row" layout-align="space-between">
                     <div flex="33" class="bold txtright" translate>Availability:</div>
-                    <div flex="65">Inherited</div>
+                    <div flex="65" translate>Inherited</div>
                 </div>
             </md-card-content>
         </md-card>
@@ -90,73 +90,22 @@
 
                     <ul class="md-treeview">
                         <li class="md-treeview-root">
-                            <a href="#" data-target="#tree1" data-toggle="collapse"><md-icon>place</md-icon> Root</a>
-                            <ul id="tree1">
-                                <li>
-                                    <a href="#"><md-icon>note</md-icon> Item 1</a>
-                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
-                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
-                                    <md-button class="md-icon-button" ng-click="deleteCompositionItem($event, null)"><md-icon>delete</md-icon></md-button>
-                                </li>
-                                <li class="md-treeview-branch">
-                                    <a href="#"><md-icon>add</md-icon> Item 2</a>
-                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
-                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
-                                    <md-button class="md-icon-button" ng-click="deleteCompositionItem($event, null)"><md-icon>delete</md-icon></md-button>
-
-                                    <ul class="collapse">
-                                        <li>
-                                            <a href="#"><md-icon>note</md-icon> Item 2-1</a>
-                                            <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
-                                            <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
-                                            <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
-                                        </li>
-                                        <li>
-                                            <a href="#"><md-icon>note</md-icon> Item 2-2</a>
-                                            <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
-                                            <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
-                                            <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
-                                        </li>
-                                        <li class="md-treeview-branch">
-                                            <a href="#"><md-icon>add</md-icon> Item 2-3</a>
-                                            <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
-                                            <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
-                                            <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
-
-                                            <ul>
-                                                <li class="disabled">
-                                                    <a href="#"><md-icon>note</md-icon> Item 2-3-1</a>
-                                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
-                                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
-                                                    <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><md-icon>note</md-icon> Item 2-3-2</a>
-                                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
-                                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
-                                                    <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#"><md-icon>note</md-icon> Item 3</a>
-                                    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
-                                    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
-                                    <md-button class="md-icon-button"><md-icon>delete</md-icon></md-button>
-                                </li>
+                            <a ui-sref="main.kb_mgmt.info_risk.object({objectId: object.id})"><md-icon>place</md-icon> {{ object.name1 }}</a>
+                            <ul>
+                                <li ng-repeat="node in composition"
+                                    ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
+                                    ng-include="'objlibs.tree_item_template.html'"></li>
                             </ul>
                         </li>
                     </ul>
 
                     <p class="md-title" translate>Object replica(s) in models</p>
 
-                    [ Replicas ]
+                    <p translate>This object has no replica(s) in models.</p>
 
                     <p class="md-title" translate>Scope</p>
 
-                    <div>
+                    <div ng-show="object.scope == 1">
                         <p translate>This object is <strong>LOCAL</strong>. Any change made on the following
                             fields will be applied on every instance in the risk analysis:</p>
                         <ul>
@@ -169,7 +118,7 @@
                             It must be done in context during the risk analysis.</p>
                     </div>
 
-                    <div>
+                    <div ng-show="object.scope == 2">
                         <p translate>This object is <strong>GLOBAL</strong>. The following values will be common
                             to every instance in the risk analysis:</p>
                         <ul>
@@ -237,3 +186,16 @@
         </md-tabs>
     </md-card>
 </div>
+
+<script type="text/ng-template" id="objlibs.tree_item_template.html">
+    <a ui-sref="main.kb_mgmt.info_risk.object({objectId: node.id})"><md-icon>{{ node.children && node.children.length > 0 ? 'add': 'note' }}</md-icon> {{ node.name1 }}</a>
+    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+    <md-button class="md-icon-button" ng-click="deleteCompositionItem($event, node)"><md-icon>delete</md-icon></md-button>
+
+    <ul ng-if="node.children && node.children.length > 0">
+        <li ng-repeat="node in node.children"
+            ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
+            ng-include="'objlibs.tree_item_template.html'"></li>
+    </ul>
+</script>
