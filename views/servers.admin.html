@@ -16,7 +16,7 @@
                 <td md-cell>{{ server.label }}</td>
                 <td md-cell>{{ server.fqdn }}</td>
                 <td md-cell>{{ server.ip_address }}</td>
-                <td md-cell>{{ server.status }}</td>
+                <td md-cell><md-icon>{{ server.status ? 'done' : 'close' }}</md-icon></td>
                 <td md-cell>
                     <md-button class="md-icon-button" ng-click="deleteServer($event, server)">
                         <md-icon>delete</md-icon>
