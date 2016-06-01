@@ -48,7 +48,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="asset" md-select-id="id" ng-repeat="asset in assets.items.assets">
-                        <td md-cell><md-icon>{{ (asset.status ? 'done' : 'clear') | translate }}</md-icon></td>
+                        <td md-cell><md-icon>{{ asset.status ? 'done' : 'clear' }}</md-icon></td>
                         <td md-cell>{{ asset.label1 }}</td>
                         <td md-cell>{{ asset.code }}</td>
                         <td md-cell>{{ assetTypeStr(asset.type) }}</td>
@@ -125,7 +125,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="threat" md-select-id="id" ng-repeat="threat in threats.items.threats">
-                        <td md-cell><md-icon>{{ (threat.status ? 'done' : 'clear') | translate }}</md-icon></td>
+                        <td md-cell><md-icon>{{ threat.status ? 'done' : 'clear' }}</md-icon></td>
                         <td md-cell>{{ threat.label1 }}</td>
                         <td md-cell>{{ threat.code }}</td>
                         <td md-cell>{{ threat.c ? 'C' : '' }}{{ threat.i ? 'I' : '' }}{{ threat.d ? 'D' : '' }}</td>
@@ -201,7 +201,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="vuln" md-select-id="id" ng-repeat="vuln in vulns.items.vulnerabilities">
-                        <td md-cell><md-icon>{{ (vuln.status ? 'done' : 'clear') | translate }}</md-icon></td>
+                        <td md-cell><md-icon>{{ vuln.status ? 'done' : 'clear' }}</md-icon></td>
                         <td md-cell>{{ vuln.label1 }}</td>
                         <td md-cell>{{ vuln.code }}</td>
                         <td md-cell>{{ getVulnModeString(vuln.mode) }}</td>
@@ -274,7 +274,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="measure" md-select-id="id" ng-repeat="measure in measures.items.measures">
-                        <td md-cell><md-icon>{{ (measure.status ? 'done' : 'clear') | translate }}</md-icon></td>
+                        <td md-cell><md-icon>{{ measure.status ? 'done' : 'clear' }}</md-icon></td>
                         <td md-cell>{{ measure.code }}</td>
                         <td md-cell>{{ measure.description1 }}</td>
                         <td md-cell>
