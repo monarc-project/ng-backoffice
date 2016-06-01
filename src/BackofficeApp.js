@@ -37,6 +37,14 @@ angular
                 ncyBreadcrumb: {
                     label: gettext('Home')
                 }
+            }).state('main.account', {
+                url: "/account",
+                views: {
+                    "main@main": {templateUrl: "/views/account.html"}
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Account')
+                }
             }).state('main.admin', {
                 url: "/admin",
                 views: {},

@@ -1,0 +1,40 @@
+<div ng-controller="BackofficeAccountCtrl">
+    <md-card>
+        <md-card-title>
+            <span class="md-headline" translate>My account details</span>
+        </md-card-title>
+        <md-card-content>
+            <form>
+                <p class="md-subhead" translate>Change password</p>
+
+                <div layout="row" layout-align="left start">
+                    <md-input-container>
+                        <label translate>Current password</label>
+                        <input type="password">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label translate>New password</label>
+                        <input type="password">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label translate>Confirm new password</label>
+                        <input type="password">
+                    </md-input-container>
+
+                    <md-button class="md-raised md-primary">{{ 'Update password' | translate }}</md-button>
+                </div>
+
+                <p class="md-subhead">Interface language</p>
+
+                <div layout="row">
+                    <md-select ng-model="language" flex="33" ng-change="onLanguageChanged()" aria-label="{{ 'Language' | translate }}">
+                        <md-option value="en">English</md-option>
+                        <md-option value="fr">Français</md-option>
+                    </md-select>
+                </div>
+            </form>
+        </md-card-content>
+    </md-card>
+</div>
