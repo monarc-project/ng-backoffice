@@ -106,6 +106,20 @@
             })
         }
 
+        $scope.exportObject = function (ev) {
+            var prompt = $mdDialog.prompt()
+                .title(gettext('Password'))
+                .textContent(gettext('Please enter a password to protect your object'))
+                .ariaLabel(gettext('Password'))
+                .targetEvent(ev)
+                .ok(gettext('Export'))
+                .cancel(gettext('Cancel'));
+
+            $mdDialog.show(prompt).then(function (result) {
+                console.log("Http Call to export with password " + result);
+            });
+        }
+
         $scope.createComponent = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
