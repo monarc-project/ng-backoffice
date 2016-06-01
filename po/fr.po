@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"X-Generator: Poedit 1.8.8\n"
 "Last-Translator: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language-Team: \n"
 "Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: views/object.info_risk.kb_mgmt.html:142
 msgid "{{ 3 }} AMV links"
@@ -23,6 +23,10 @@ msgstr "mesures 27002"
 #: views/info_risk.kb_mgmt.html:235
 msgid "27002 Measures"
 msgstr "Mesures 27002"
+
+#: views/dialogs/create.threats.html:38
+msgid "Accidental cause description"
+msgstr "Description de la cause accidentelle"
 
 #: src/BackofficeApp.js:46 views/index.backoffice.html:101
 msgid "Account"
@@ -57,18 +61,94 @@ msgstr "Actif"
 msgid "Add a component"
 msgstr "Ajouter un composant"
 
+#: views/dialogs/create.amvs.html:5
+msgid "Add a new AMV link"
+msgstr "Ajouter un nouveau lien AMV"
+
+#: views/dialogs/create.assets.html:5
+msgid "Add a new asset"
+msgstr "Ajouter un nouvel asset"
+
+#: views/dialogs/create.categories.html:5
+#: views/dialogs/create.objlibs.categories.html:5
+msgid "Add a new category"
+msgstr "Ajouter une nouvelle catégorie"
+
+#: views/dialogs/create.clients.html:5
+msgid "Add a new client"
+msgstr "Ajouter un nouveau client"
+
+#: views/dialogs/create.objlibs.node.html:5
+msgid "Add a new component to object"
+msgstr "Ajouter un nouveau composant à l'objet"
+
+#: views/dialogs/create.measures.html:5
+msgid "Add a new measure"
+msgstr "Ajouter une nouvelle mesure"
+
+#: views/dialogs/create.models.html:5
+msgid "Add a new model"
+msgstr "Ajouter un nouveau modèle"
+
+#: views/dialogs/create.objlibs.html:5
+msgid "Add a new object"
+msgstr "Ajouter un nouvel objet"
+
+#: views/dialogs/create.risks.html:5
+msgid "Add a new risk"
+msgstr "Ajouter un nouveau risque"
+
+#: views/dialogs/create.servers.admin.html:5
+msgid "Add a new server"
+msgstr "Ajouter un nouveau serveur"
+
+#: views/dialogs/create.tags.html:5
+msgid "Add a new tag"
+msgstr "Ajouter un nouveau tag"
+
+#: views/dialogs/create.threats.html:5
+msgid "Add a new threat"
+msgstr "Ajouter une nouvelle menace"
+
+#: views/dialogs/create.users.admin.html:5
+msgid "Add a new user"
+msgstr "Ajouter un nouvel utilisateur"
+
+#: views/dialogs/create.vulns.html:5
+msgid "Add a new vulnerability"
+msgstr "Ajouter une nouvelle vulnérabilité"
+
+#: views/dialogs/create.risks.html:49
+msgid "Add categories..."
+msgstr "Ajouter des catégories..."
+
 #: views/object.info_risk.kb_mgmt.html:52
 #: views/object.info_risk.kb_mgmt.html:54
 msgid "Add component"
 msgstr "Ajouter un composant"
 
-#: views/index.client_mgmt.html:39 views/servers.admin.html:8
+#: views/dialogs/create.risks.html:69
+msgid "Add tags..."
+msgstr "Ajouter des tags..."
+
+#: views/dialogs/create.clients.html:28
+#: views/dialogs/create.servers.admin.html:21 views/index.client_mgmt.html:39
+#: views/servers.admin.html:8
 msgid "Address"
 msgstr "Adresse"
 
 #: src/BackofficeApp.js:52 views/index.backoffice.html:75
 msgid "Administration"
 msgstr "Administration"
+
+#: views/dialogs/create.amvs.html:134
+msgid "after"
+msgstr "après"
+
+#: views/dialogs/create.objlibs.categories.html:60
+#: views/dialogs/create.objlibs.node.html:46
+msgid "after..."
+msgstr "après..."
 
 #: views/info_risk.kb_mgmt.html:303
 msgid "AMVs"
@@ -208,7 +288,7 @@ msgstr "Voulez-vous réellement supprimer la vulnérabilité \"{{ label }}\" ?"
 msgid "Asset"
 msgstr "Asset"
 
-#: views/info_risk.kb_mgmt.html:421
+#: views/dialogs/create.objlibs.html:69 views/info_risk.kb_mgmt.html:421
 msgid "Asset type"
 msgstr "Type d'asset"
 
@@ -219,6 +299,16 @@ msgstr "Type d'asset :&nbsp;"
 #: views/info_risk.kb_mgmt.html:3 views/info_risk.kb_mgmt.html:6
 msgid "Assets"
 msgstr "Assets"
+
+#: views/dialogs/create.amvs.html:133
+#: views/dialogs/create.objlibs.categories.html:58
+#: views/dialogs/create.objlibs.node.html:44
+msgid "at the beginning"
+msgstr "au début"
+
+#: views/dialogs/create.amvs.html:130
+msgid "Audit order"
+msgstr "Ordre de l'audir"
 
 #: views/object.info_risk.kb_mgmt.html:114
 #: views/object.info_risk.kb_mgmt.html:127
@@ -242,7 +332,16 @@ msgstr "Disponibilité :&nbsp;"
 #: src/BackofficeKbModelsCtrl.js:96 src/BackofficeKbOpRiskCtrl.js:106
 #: src/BackofficeKbOpRiskCtrl.js:130 src/BackofficeKbOpRiskCtrl.js:234
 #: src/BackofficeKbOpRiskCtrl.js:258 src/BackofficeKbOpRiskCtrl.js:390
-#: src/BackofficeKbOpRiskCtrl.js:414
+#: src/BackofficeKbOpRiskCtrl.js:414 views/dialogs/create.amvs.html:143
+#: views/dialogs/create.assets.html:78 views/dialogs/create.categories.html:39
+#: views/dialogs/create.clients.html:85 views/dialogs/create.measures.html:39
+#: views/dialogs/create.models.html:47
+#: views/dialogs/create.objlibs.categories.html:93
+#: views/dialogs/create.objlibs.html:146
+#: views/dialogs/create.objlibs.node.html:79 views/dialogs/create.risks.html:85
+#: views/dialogs/create.servers.admin.html:37 views/dialogs/create.tags.html:39
+#: views/dialogs/create.threats.html:131
+#: views/dialogs/create.users.admin.html:44 views/dialogs/create.vulns.html:68
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -251,11 +350,11 @@ msgstr "Annuler"
 msgid "Categories"
 msgstr "Catégories"
 
-#: views/info_risk.kb_mgmt.html:418
+#: views/dialogs/create.objlibs.html:94 views/info_risk.kb_mgmt.html:418
 msgid "Category"
 msgstr "Gatégorie"
 
-#: views/account.html:7
+#: views/account.html:8
 msgid "Change password"
 msgstr "Modifier le mot de passe"
 
@@ -271,12 +370,30 @@ msgstr "Gestion des clients"
 msgid "Clients"
 msgstr "Clients"
 
-#: views/info_risk.kb_mgmt.html:118 views/info_risk.kb_mgmt.html:195
-#: views/info_risk.kb_mgmt.html:269 views/info_risk.kb_mgmt.html:41
-#: views/op_risk.kb_mgmt.html:126 views/op_risk.kb_mgmt.html:210
-#: views/op_risk.kb_mgmt.html:44
+#: views/dialogs/create.amvs.html:9 views/dialogs/create.assets.html:9
+#: views/dialogs/create.categories.html:9 views/dialogs/create.clients.html:9
+#: views/dialogs/create.measures.html:9 views/dialogs/create.models.html:9
+#: views/dialogs/create.objlibs.categories.html:9
+#: views/dialogs/create.objlibs.html:9 views/dialogs/create.objlibs.node.html:9
+#: views/dialogs/create.risks.html:9 views/dialogs/create.servers.admin.html:8
+#: views/dialogs/create.tags.html:9 views/dialogs/create.threats.html:9
+#: views/dialogs/create.users.admin.html:9 views/dialogs/create.vulns.html:9
+msgid "Close dialog"
+msgstr "Fermer la fenêtre"
+
+#: views/dialogs/create.assets.html:49 views/dialogs/create.categories.html:30
+#: views/dialogs/create.measures.html:30 views/dialogs/create.risks.html:36
+#: views/dialogs/create.tags.html:30 views/dialogs/create.threats.html:106
+#: views/dialogs/create.vulns.html:49 views/info_risk.kb_mgmt.html:118
+#: views/info_risk.kb_mgmt.html:195 views/info_risk.kb_mgmt.html:269
+#: views/info_risk.kb_mgmt.html:41 views/op_risk.kb_mgmt.html:126
+#: views/op_risk.kb_mgmt.html:210 views/op_risk.kb_mgmt.html:44
 msgid "Code"
 msgstr "Code"
+
+#: views/dialogs/create.objlibs.node.html:27
+msgid "Component"
+msgstr "Composant"
 
 #: views/object.info_risk.kb_mgmt.html:87
 msgid "Composition"
@@ -291,21 +408,45 @@ msgstr "Impact sur la confidentialité"
 msgid "Confidentiality:&nbsp;"
 msgstr "Confidentialité :&nbsp;"
 
-#: views/account.html:21
+#: views/account.html:22
 msgid "Confirm new password"
 msgstr "Confirmer le nouveau mot de passe :"
 
-#: views/index.client_mgmt.html:43
+#: views/dialogs/create.clients.html:70
+msgid "Contact e-mail"
+msgstr "E-mail du contact"
+
+#: views/dialogs/create.clients.html:64 views/index.client_mgmt.html:43
 msgid "Contact full name"
 msgstr "Nom complet du contact"
 
-#: views/account.html:11
+#: views/dialogs/create.clients.html:76
+msgid "Contact phone number"
+msgstr "Téléphone du contact"
+
+#: views/dialogs/create.servers.admin.html:40
+msgid "Create"
+msgstr "Créer"
+
+#: views/dialogs/create.objlibs.html:101
+msgid "Create this category"
+msgstr "Créer cette catégorie"
+
+#: views/dialogs/create.threats.html:87
+msgid "Create this theme"
+msgstr "Créer ce thème"
+
+#: views/account.html:12
 msgid "Current password"
 msgstr "Mot de passe actuel"
 
 #: views/logs.admin.html:34
 msgid "Date"
 msgstr "Date"
+
+#: views/dialogs/create.models.html:36
+msgid "Default model"
+msgstr "Modèle par défaut"
 
 #: src/BackofficeAdminServerCtrl.js:55 src/BackofficeAdminUsersCtrl.js:93
 #: src/BackofficeClientMgmtCtrl.js:118 src/BackofficeClientMgmtCtrl.js:93
@@ -336,6 +477,13 @@ msgstr "Supprimer cet objet"
 msgid "Delete this object?"
 msgstr "Supprimer cet objet ?"
 
+#: views/dialogs/create.threats.html:50
+msgid "Deliberate cause description"
+msgstr "Description de la cause délibérée"
+
+#: views/dialogs/create.assets.html:32 views/dialogs/create.measures.html:24
+#: views/dialogs/create.models.html:30 views/dialogs/create.risks.html:30
+#: views/dialogs/create.threats.html:32 views/dialogs/create.vulns.html:32
 #: views/info_risk.kb_mgmt.html:121 views/info_risk.kb_mgmt.html:197
 #: views/info_risk.kb_mgmt.html:270 views/info_risk.kb_mgmt.html:44
 #: views/models.kb_mgmt.html:38
@@ -376,9 +524,31 @@ msgstr "Dupliquer l'objet"
 msgid "Edit object"
 msgstr "Modifier l'objet"
 
-#: views/index.client_mgmt.html:42 views/login.html:9 views/users.admin.html:32
+#: views/dialogs/create.models.html:37
+msgid "Editable impact scale"
+msgstr "Echelle d'impact modifiable"
+
+#: views/dialogs/create.clients.html:52
+#: views/dialogs/create.users.admin.html:29 views/index.client_mgmt.html:42
+#: views/login.html:9 views/users.admin.html:32
 msgid "Email"
 msgstr "E-mail"
+
+#: views/dialogs/create.clients.html:58
+msgid "Employees number"
+msgstr "Numéro d'employé"
+
+#: views/dialogs/create.models.html:40
+msgid "Enable raw ROLF values"
+msgstr "Activer les valeurs ROLF brutes"
+
+#: views/dialogs/create.threats.html:44
+msgid "Example (accidental cause)"
+msgstr "Exemple (cause accidentelle)"
+
+#: views/dialogs/create.threats.html:56
+msgid "Example (deliberate cause)"
+msgstr "Exemple (cause délibérée)"
 
 #: src/BackofficeKbInfoObjectCtrl.js:115
 msgid "Export"
@@ -389,22 +559,34 @@ msgstr "Exporter"
 msgid "Export object"
 msgstr "Exporter l'objet"
 
-#: views/users.admin.html:30
+#: views/dialogs/create.clients.html:46
+msgid "Fax"
+msgstr "Fax"
+
+#: views/dialogs/create.users.admin.html:17 views/users.admin.html:30
 msgid "First name"
 msgstr "Prénom"
 
-#: views/servers.admin.html:7
+#: views/dialogs/create.servers.admin.html:27 views/servers.admin.html:7
 msgid "FQDN"
 msgstr "FQDN"
 
+#: views/dialogs/create.assets.html:37 views/dialogs/create.objlibs.html:37
+#: views/dialogs/create.threats.html:67 views/dialogs/create.vulns.html:37
 #: views/object.info_risk.kb_mgmt.html:84
 msgid "General information"
 msgstr "Informations générales"
 
 #: src/BackofficeKbInfoCtrl.js:156 src/BackofficeKbInfoCtrl.js:179
-#: src/BackofficeKbInfoCtrl.js:327
+#: src/BackofficeKbInfoCtrl.js:327 views/dialogs/create.assets.html:43
+#: views/dialogs/create.objlibs.html:52 views/dialogs/create.threats.html:99
+#: views/dialogs/create.vulns.html:43
 msgid "Generic"
 msgstr "Générique"
+
+#: views/dialogs/create.objlibs.html:44
+msgid "Global"
+msgstr "Global"
 
 #: src/BackofficeApp.js:38
 msgid "Home"
@@ -417,6 +599,12 @@ msgstr "ID"
 #: views/object.info_risk.kb_mgmt.html:147
 msgid "Impact"
 msgstr "Impact"
+
+#: views/dialogs/create.amvs.html:132
+#: views/dialogs/create.objlibs.categories.html:59
+#: views/dialogs/create.objlibs.node.html:45
+msgid "in the end"
+msgstr "à la fin"
 
 #: views/object.info_risk.kb_mgmt.html:117
 msgid ""
@@ -452,6 +640,12 @@ msgstr "Intégrité :&nbsp;"
 msgid "KB management"
 msgstr "Gestion BDC"
 
+#: views/dialogs/create.assets.html:26 views/dialogs/create.categories.html:24
+#: views/dialogs/create.models.html:24
+#: views/dialogs/create.objlibs.categories.html:24
+#: views/dialogs/create.objlibs.html:32 views/dialogs/create.risks.html:24
+#: views/dialogs/create.servers.admin.html:15 views/dialogs/create.tags.html:24
+#: views/dialogs/create.threats.html:26 views/dialogs/create.vulns.html:26
 #: views/info_risk.kb_mgmt.html:117 views/info_risk.kb_mgmt.html:194
 #: views/info_risk.kb_mgmt.html:40 views/info_risk.kb_mgmt.html:420
 #: views/models.kb_mgmt.html:37 views/op_risk.kb_mgmt.html:127
@@ -460,9 +654,36 @@ msgstr "Gestion BDC"
 msgid "Label"
 msgstr "Libellé"
 
-#: views/users.admin.html:31
+#: views/dialogs/create.assets.html:15 views/dialogs/create.vulns.html:15
+msgid "Labels"
+msgstr "Libellés"
+
+#: views/dialogs/create.objlibs.html:15 views/dialogs/create.threats.html:15
+msgid "Labels and descriptions"
+msgstr "Libellés et descriptions"
+
+#: views/account.html:32 views/dialogs/create.assets.html:18
+#: views/dialogs/create.categories.html:16
+#: views/dialogs/create.measures.html:16 views/dialogs/create.models.html:16
+#: views/dialogs/create.objlibs.categories.html:16
+#: views/dialogs/create.objlibs.html:18 views/dialogs/create.risks.html:16
+#: views/dialogs/create.tags.html:16 views/dialogs/create.threats.html:18
+#: views/dialogs/create.vulns.html:18
+msgid "Language"
+msgstr "Langue"
+
+#: views/dialogs/create.users.admin.html:23 views/users.admin.html:31
 msgid "Last name"
 msgstr "Nom"
+
+#: views/dialogs/create.objlibs.html:43
+msgid "Local"
+msgstr "Local"
+
+#: views/dialogs/create.objlibs.categories.html:55
+#: views/dialogs/create.objlibs.node.html:41
+msgid "Location"
+msgstr "Lieu"
 
 #: views/login.html:22
 msgid "Log in"
@@ -500,20 +721,24 @@ msgstr "Mesure 2"
 msgid "Measure 3"
 msgstr "Mesure 3"
 
+#: views/dialogs/create.assets.html:40 views/dialogs/create.objlibs.html:49
+#: views/dialogs/create.threats.html:96 views/dialogs/create.vulns.html:40
 #: views/info_risk.kb_mgmt.html:120 views/info_risk.kb_mgmt.html:196
 #: views/info_risk.kb_mgmt.html:423 views/info_risk.kb_mgmt.html:43
 msgid "Mode"
 msgstr "Mode"
 
-#: src/BackofficeApp.js:116 views/index.backoffice.html:36
-#: views/models.kb_mgmt.html:4
+#: src/BackofficeApp.js:116 views/dialogs/create.assets.html:67
+#: views/dialogs/create.threats.html:120 views/dialogs/create.vulns.html:57
+#: views/index.backoffice.html:36 views/models.kb_mgmt.html:4
 msgid "Models"
 msgstr "Modèles"
 
-#: views/account.html:3
+#: views/account.html:4
 msgid "My account details"
 msgstr "Mon compte"
 
+#: views/dialogs/create.clients.html:16 views/dialogs/create.objlibs.html:26
 #: views/index.client_mgmt.html:38 views/info_risk.kb_mgmt.html:419
 msgid "Name"
 msgstr "Nom"
@@ -546,7 +771,7 @@ msgstr "Nouveau modèle"
 msgid "New object"
 msgstr "Nouvel objet"
 
-#: views/account.html:16
+#: views/account.html:17
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
@@ -577,6 +802,42 @@ msgstr "Nouvelle vulnérabilité"
 #: views/info_risk.kb_mgmt.html:223
 msgid "New vulnerability"
 msgstr "Nouvelle vulnérabilité"
+
+#: views/dialogs/create.amvs.html:30 views/dialogs/create.objlibs.html:75
+msgid "No asset matching your search was found"
+msgstr "Aucun asset correspondant à votre recherche n'a été trouvé."
+
+#: views/dialogs/create.objlibs.categories.html:47
+#: views/dialogs/create.objlibs.categories.html:82
+#: views/dialogs/create.objlibs.html:100
+msgid "No category matching your search was found"
+msgstr "Aucune catégorie correspondant à votre recherche n'a été trouvée."
+
+#: views/dialogs/create.objlibs.node.html:33
+#: views/dialogs/create.objlibs.node.html:68
+msgid "No component matching your search was found"
+msgstr "Aucun composant correspondant à votre recherche n'a été trouvé."
+
+#: views/dialogs/create.amvs.html:106 views/dialogs/create.amvs.html:125
+#: views/dialogs/create.amvs.html:87
+msgid "No measure matching your search was found"
+msgstr "Aucune mesure correspondant à votre recherche n'a été trouvée."
+
+#: views/dialogs/create.objlibs.html:126
+msgid "No ROLF tag matching your search was found"
+msgstr "Aucun tag ROLF correspondant à votre recherche n'a été trouvé."
+
+#: views/dialogs/create.threats.html:86
+msgid "No theme matching your search was found"
+msgstr "Aucun thème correspondant à votre recherche n'a été trouvé."
+
+#: views/dialogs/create.amvs.html:49
+msgid "No threat matching your search was found"
+msgstr "Aucune menace correspondant à votre recherche n'a été trouvée."
+
+#: views/dialogs/create.amvs.html:68
+msgid "No vulnerability matching your search was found"
+msgstr "Aucune vulnérabilité correspondant à votre recherche n'a été trouvée."
 
 #: views/object.info_risk.kb_mgmt.html:47
 msgid "Object actions"
@@ -610,12 +871,18 @@ msgstr "Risques opérationnels"
 msgid "Operational risks (ROLF)"
 msgstr "Risques opérationnels (ROLF)"
 
+#: views/dialogs/create.objlibs.categories.html:41
+msgid "Parent category"
+msgstr "Catégorie parent"
+
 #: src/BackofficeKbInfoObjectCtrl.js:111 src/BackofficeKbInfoObjectCtrl.js:113
 #: views/login.html:15
 msgid "Password"
 msgstr "Mot de passe"
 
-#: views/index.client_mgmt.html:41 views/users.admin.html:33
+#: views/dialogs/create.clients.html:40
+#: views/dialogs/create.users.admin.html:35 views/index.client_mgmt.html:41
+#: views/users.admin.html:33
 msgid "Phone"
 msgstr "Téléphone"
 
@@ -623,17 +890,61 @@ msgstr "Téléphone"
 msgid "Please enter a password to protect your object"
 msgstr "Veuillez entrer un mot de passe pour protéger votre objet"
 
-#: views/index.client_mgmt.html:40
+#: views/dialogs/create.threats.html:80
+msgid "Please select a theme"
+msgstr "Choisissez un thème"
+
+#: views/dialogs/create.amvs.html:43
+msgid "Please select a threat"
+msgstr "Choisissez une menace"
+
+#: views/dialogs/create.amvs.html:62
+msgid "Please select a vulnerability"
+msgstr "Choisissez une vulnérabilité"
+
+#: views/dialogs/create.amvs.html:24
+msgid "Please select an asset"
+msgstr "Choisissez un asset"
+
+#: views/dialogs/create.amvs.html:81
+msgid "Please select the first measure"
+msgstr "Choisissez une première mesure"
+
+#: views/dialogs/create.amvs.html:100
+msgid "Please select the second measure"
+msgstr "Choisissez une seconde mesure"
+
+#: views/dialogs/create.amvs.html:119
+msgid "Please select the third measure"
+msgstr "Choisissez une troisième mesure"
+
+#: views/dialogs/create.objlibs.html:134
+msgid "Position"
+msgstr "Position"
+
+#: views/dialogs/create.clients.html:34 views/index.client_mgmt.html:40
 msgid "Postal code"
 msgstr "Code portal"
 
-#: src/BackofficeKbInfoCtrl.js:148
+#: views/dialogs/create.objlibs.categories.html:76
+msgid "Previous category..."
+msgstr "Catégorie précédente..."
+
+#: views/dialogs/create.objlibs.node.html:62
+msgid "Previous component..."
+msgstr "Composant précédent..."
+
+#: src/BackofficeKbInfoCtrl.js:148 views/dialogs/create.assets.html:58
 msgid "Primary"
 msgstr "Primaire"
 
 #: views/object.info_risk.kb_mgmt.html:149
 msgid "Prob."
 msgstr "Prob."
+
+#: views/dialogs/create.clients.html:22
+msgid "Proxy alias"
+msgstr "Alias de proxy"
 
 #: views/object.info_risk.kb_mgmt.html:151
 msgid "Qualif."
@@ -647,7 +958,7 @@ msgstr "Questions"
 msgid "Raw ROLF"
 msgstr "ROLF brut"
 
-#: views/models.kb_mgmt.html:40
+#: views/dialogs/create.models.html:39 views/models.kb_mgmt.html:40
 msgid "Regulator"
 msgstr "Régulateur"
 
@@ -663,7 +974,12 @@ msgstr "Risques"
 msgid "Risks table"
 msgstr "Table des risques"
 
-#: views/info_risk.kb_mgmt.html:422 views/object.info_risk.kb_mgmt.html:106
+#: views/dialogs/create.objlibs.html:120
+msgid "ROLF Tag"
+msgstr "Tag ROLF"
+
+#: views/dialogs/create.objlibs.html:40 views/info_risk.kb_mgmt.html:422
+#: views/object.info_risk.kb_mgmt.html:106
 msgid "Scope"
 msgstr "Portée"
 
@@ -677,7 +993,7 @@ msgstr "Portée"
 msgid "Search..."
 msgstr "Rechercher..."
 
-#: src/BackofficeKbInfoCtrl.js:149
+#: src/BackofficeKbInfoCtrl.js:149 views/dialogs/create.assets.html:59
 msgid "Secondary"
 msgstr "Secondaire"
 
@@ -686,9 +1002,17 @@ msgid "Servers management"
 msgstr "Gestion des serveurs"
 
 #: src/BackofficeKbInfoCtrl.js:157 src/BackofficeKbInfoCtrl.js:182
-#: src/BackofficeKbInfoCtrl.js:330 views/models.kb_mgmt.html:39
+#: src/BackofficeKbInfoCtrl.js:330 views/dialogs/create.assets.html:44
+#: views/dialogs/create.models.html:38 views/dialogs/create.objlibs.html:53
+#: views/dialogs/create.threats.html:100 views/dialogs/create.vulns.html:44
+#: views/models.kb_mgmt.html:39
 msgid "Specific"
 msgstr "Spécifique"
+
+#: views/dialogs/create.assets.html:64 views/dialogs/create.threats.html:117
+#: views/dialogs/create.vulns.html:54
+msgid "Specific models links"
+msgstr "Liens modèles spécifiques"
 
 #: views/servers.admin.html:9
 msgid "State"
@@ -922,17 +1246,75 @@ msgstr "Menaces"
 msgid "Threats and vulnerabilities qualification"
 msgstr "Qualification des menaces et vulnérabilités"
 
-#: views/info_risk.kb_mgmt.html:42 views/logs.admin.html:30
+#: views/dialogs/create.assets.html:55 views/info_risk.kb_mgmt.html:42
+#: views/logs.admin.html:30
 msgid "Type"
 msgstr "Type"
+
+#: views/dialogs/create.threats.html:62
+msgid "Types of consequences"
+msgstr "Types de conséquences"
 
 #: views/index.kb_mgmt.html:3
 msgid "Une introduction sur le fonctionnement du KB manager"
 msgstr "Une introduction sur le fonctionnement du K manager"
 
-#: views/account.html:25
+#: views/dialogs/create.amvs.html:6
+msgid "Update AMV link"
+msgstr "Mettre à jour un lien AMV"
+
+#: views/dialogs/create.assets.html:6
+msgid "Update asset information"
+msgstr "Mettre à jour les informations d'un asset"
+
+#: views/dialogs/create.categories.html:6
+#: views/dialogs/create.objlibs.categories.html:6
+msgid "Update category information"
+msgstr "Mettre à jour les informations d'une catégorie"
+
+#: views/dialogs/create.clients.html:6
+msgid "Update client information"
+msgstr "Mettre à jour les informations d'un client"
+
+#: views/dialogs/create.objlibs.node.html:6
+msgid "Update component information"
+msgstr "Mettre à jour les informations d'un composant"
+
+#: views/dialogs/create.measures.html:6
+msgid "Update measure information"
+msgstr "Mettre à jour les informations d'une mesure"
+
+#: views/dialogs/create.models.html:6
+msgid "Update model information"
+msgstr "Mettre à jour les informations d'un modèle"
+
+#: views/dialogs/create.objlibs.html:6
+msgid "Update object information"
+msgstr "Mettre à jour les informations d'un objet"
+
+#: views/account.html:26
 msgid "Update password"
 msgstr "Mettre à jour le mot de passe"
+
+#: views/dialogs/create.risks.html:6
+msgid "Update risk information"
+msgstr "Mettre à jour les informations d'un risque"
+
+#: views/dialogs/create.tags.html:6
+msgid "Update tag information"
+msgstr "Mettre à jour les informations d'un tag"
+
+#: views/dialogs/create.threats.html:6
+msgid "Update threat information"
+msgstr "Mettre à jour les informations d'une menace"
+
+#: views/dialogs/create.users.admin.html:6
+msgid "Update user information"
+msgstr "Mettre à jour les informations d'un utilisateur"
+
+#: views/dialogs/create.vulns.html:6
+msgid "Update vulnerability information"
+msgstr "Mettre à jour les informations d'une vulnérabilité"
 
 #: views/logs.admin.html:33
 msgid "User"
@@ -946,7 +1328,7 @@ msgstr "Utilisateurs"
 msgid "Users management"
 msgstr "Gestion des utilisateurs"
 
-#: src/BackofficeKbInfoCtrl.js:150
+#: src/BackofficeKbInfoCtrl.js:150 views/dialogs/create.assets.html:60
 msgid "Virtual"
 msgstr "Virtuel"
 
