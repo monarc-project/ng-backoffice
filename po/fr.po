@@ -1,0 +1,974 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.8.8\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
+
+#: views/object.info_risk.kb_mgmt.html:142
+msgid "{{ 3 }} AMV links"
+msgstr ""
+
+#: views/info_risk.kb_mgmt.html:232
+msgid "27002 measures"
+msgstr "mesures 27002"
+
+#: views/info_risk.kb_mgmt.html:235
+msgid "27002 Measures"
+msgstr "Mesures 27002"
+
+#: src/BackofficeApp.js:46 views/index.backoffice.html:101
+msgid "Account"
+msgstr "Compte"
+
+#: views/logs.admin.html:31
+msgid "Action"
+msgstr "Action"
+
+#: views/index.client_mgmt.html:44 views/info_risk.kb_mgmt.html:122
+#: views/info_risk.kb_mgmt.html:198 views/info_risk.kb_mgmt.html:271
+#: views/info_risk.kb_mgmt.html:346 views/info_risk.kb_mgmt.html:424
+#: views/info_risk.kb_mgmt.html:45 views/models.kb_mgmt.html:42
+#: views/op_risk.kb_mgmt.html:128 views/op_risk.kb_mgmt.html:212
+#: views/op_risk.kb_mgmt.html:46 views/servers.admin.html:10
+#: views/users.admin.html:34
+msgid "Actions"
+msgstr "Actions"
+
+#: src/BackofficeApp.js:76 views/index.backoffice.html:94
+#: views/logs.admin.html:4
+msgid "Actions history"
+msgstr "Historique des actions"
+
+#: views/info_risk.kb_mgmt.html:193 views/info_risk.kb_mgmt.html:268
+#: views/info_risk.kb_mgmt.html:339 views/info_risk.kb_mgmt.html:39
+#: views/users.admin.html:29
+msgid "Active"
+msgstr "Actif"
+
+#: views/object.info_risk.kb_mgmt.html:88
+msgid "Add a component"
+msgstr "Ajouter un composant"
+
+#: views/object.info_risk.kb_mgmt.html:52
+#: views/object.info_risk.kb_mgmt.html:54
+msgid "Add component"
+msgstr "Ajouter un composant"
+
+#: views/index.client_mgmt.html:39 views/servers.admin.html:8
+msgid "Address"
+msgstr "Adresse"
+
+#: src/BackofficeApp.js:52 views/index.backoffice.html:75
+msgid "Administration"
+msgstr "Administration"
+
+#: views/info_risk.kb_mgmt.html:303
+msgid "AMVs"
+msgstr "AMVs"
+
+#: views/info_risk.kb_mgmt.html:306
+msgid "AMVs links"
+msgstr "liens AMVs"
+
+#: src/ErrorService.js:13
+msgid "An error occurred while fetching {{ thing }}: {{status}}"
+msgstr "Une erreur est survenue sur {{ thing }} : {{ status }}"
+
+#: src/BackofficeApp.js:140
+msgid "Analysis guide"
+msgstr "Guide de l'analyse"
+
+#: views/analysis_guides.kb_mgmt.html:1 views/index.backoffice.html:57
+msgid "Analysis guides"
+msgstr "Guides de l'analyse"
+
+#: views/object.info_risk.kb_mgmt.html:131
+msgid ""
+"Any change made on these values will be applied to instances of this object "
+"in the\n"
+"                            risk analysis."
+msgstr ""
+"Toute modification apportée à ces valeurs s’appliqueront aux instances de "
+"cet objet dans l’analyse des risques."
+
+#: src/BackofficeAdminUsersCtrl.js:89
+msgid "Are you sure you want to delete \"{{ firstname }} {{ lastname }}\"?"
+msgstr "Voulez-vous réellement supprimer \"{{ firstname }} {{ lastname }}\" ?"
+
+#: src/BackofficeClientMgmtCtrl.js:90
+msgid "Are you sure you want to delete \"{{ name }}\"?"
+msgstr "Voulez-vous réellement supprimer \"{{ name }}\" ?"
+
+#: src/BackofficeAdminServerCtrl.js:52
+msgid "Are you sure you want to delete \"{{label}}\"?"
+msgstr "Voulez-vous réellement supprimer \"{{ label }}\" ?"
+
+#: src/BackofficeKbInfoCtrl.js:102
+msgid "Are you sure you want to delete asset \"{{ label }}\"?"
+msgstr "Voulez-vous réellement supprimer l'asset \"{{ label }}\" ?"
+
+#: src/BackofficeKbOpRiskCtrl.js:101
+msgid "Are you sure you want to delete category \"{{ label }}\"?"
+msgstr "Voulez-vous réellement supprimer la catégorie \"{{ label }}\" ?"
+
+#: src/BackofficeKbInfoCtrl.js:519
+msgid "Are you sure you want to delete measure \"{{ label }}\"?"
+msgstr "Voulez-vous réellement supprimer la mesure \"{{ label }}\" ?"
+
+#: src/BackofficeKbModelsCtrl.js:91
+msgid "Are you sure you want to delete model \"{{ label }}\"?"
+msgstr "Voulez-vous réellement supprimer le modèle \"{{ label }}\" ?"
+
+#: src/BackofficeKbInfoCtrl.js:806
+msgid "Are you sure you want to delete object \"{{ label }}\"?"
+msgstr "Voulez-vous réellement supprimer l'objet \"{{ label }}\" ?"
+
+#: src/BackofficeKbOpRiskCtrl.js:385
+msgid "Are you sure you want to delete risk \"{{ label }}\"?"
+msgstr "Voulez-vous réellement supprimer le risque \"{{ label }}\" ?"
+
+#: src/BackofficeKbOpRiskCtrl.js:229
+msgid "Are you sure you want to delete tag \"{{ label }}\"?"
+msgstr "Voulez-vous réellement supprimer le tag \"{{ label }}\" ?"
+
+#: src/BackofficeKbInfoCtrl.js:684
+msgid "Are you sure you want to delete the {{count}} selected AMV link(s)?"
+msgstr ""
+"Voulez-vous réellement supprimer les {{ count }} liens AMV sélectionnés ?"
+
+#: src/BackofficeKbInfoCtrl.js:126
+msgid "Are you sure you want to delete the {{count}} selected asset(s)?"
+msgstr "Voulez-vous réellement supprimer les {{ count }} assets sélectionnés ?"
+
+#: src/BackofficeKbOpRiskCtrl.js:125
+msgid "Are you sure you want to delete the {{count}} selected category(s)?"
+msgstr ""
+"Voulez-vous réellement supprimer les {{ count }} catégories sélectionnées ?"
+
+#: src/BackofficeClientMgmtCtrl.js:114
+msgid "Are you sure you want to delete the {{count}} selected client(s)?"
+msgstr ""
+"Voulez-vous réellement supprimer les {{ count }} clients sélectionnés ?"
+
+#: src/BackofficeKbInfoCtrl.js:543
+msgid "Are you sure you want to delete the {{count}} selected measures?"
+msgstr ""
+"Voulez-vous réellement supprimer les {{ count }} mesures sélectionnées ?"
+
+#: src/BackofficeKbModelsCtrl.js:115
+msgid "Are you sure you want to delete the {{count}} selected model(s)?"
+msgstr ""
+"Voulez-vous réellement supprimer les {{ count }} modèles sélectionnés ?"
+
+#: src/BackofficeKbInfoCtrl.js:830
+msgid "Are you sure you want to delete the {{count}} selected object(s)?"
+msgstr "Voulez-vous réellement supprimer les {{ count }} objets sélectionnés ?"
+
+#: src/BackofficeKbOpRiskCtrl.js:409
+msgid "Are you sure you want to delete the {{count}} selected risk(s)?"
+msgstr ""
+"Voulez-vous réellement supprimer les {{ count }} risques sélectionnés ?"
+
+#: src/BackofficeKbOpRiskCtrl.js:253
+msgid "Are you sure you want to delete the {{count}} selected tag(s)?"
+msgstr "Voulez-vous réellement supprimer les {{ count }} tags sélectionnés ?"
+
+#: src/BackofficeKbInfoCtrl.js:279
+msgid "Are you sure you want to delete the {{count}} selected threat(s)?"
+msgstr ""
+"Voulez-vous réellement supprimer les {{ count }} menaces sélectionnées ?"
+
+#: src/BackofficeKbInfoCtrl.js:416
+msgid "Are you sure you want to delete the {{count}} selected vulnerabilites?"
+msgstr ""
+"Voulez-vous réellement supprimer les {{ count }} vulnérabilités "
+"sélectionnées ?"
+
+#: src/BackofficeKbInfoCtrl.js:661
+msgid "Are you sure you want to delete this AMV link?"
+msgstr "Voulez-vous réellement supprimer ce lien AMV ?"
+
+#: src/BackofficeKbInfoCtrl.js:255
+msgid "Are you sure you want to delete threat \"{{ label }}\"?"
+msgstr "Voulez-vous réellement supprimer la menace \"{{ label }}\" ?"
+
+#: src/BackofficeKbInfoCtrl.js:392
+msgid "Are you sure you want to delete vulnerability \"{{ label }}\"?"
+msgstr "Voulez-vous réellement supprimer la vulnérabilité \"{{ label }}\" ?"
+
+#: views/info_risk.kb_mgmt.html:340
+msgid "Asset"
+msgstr "Asset"
+
+#: views/info_risk.kb_mgmt.html:421
+msgid "Asset type"
+msgstr "Type d'asset"
+
+#: views/object.info_risk.kb_mgmt.html:12
+msgid "Asset type:&nbsp;"
+msgstr "Type d'asset :&nbsp;"
+
+#: views/info_risk.kb_mgmt.html:3 views/info_risk.kb_mgmt.html:6
+msgid "Assets"
+msgstr "Assets"
+
+#: views/object.info_risk.kb_mgmt.html:114
+#: views/object.info_risk.kb_mgmt.html:127
+msgid "Availability impact"
+msgstr "Impact sur la disponibilité"
+
+#: views/object.info_risk.kb_mgmt.html:37
+msgid "Availability:&nbsp;"
+msgstr "Disponibilité :&nbsp;"
+
+#: src/BackofficeAdminServerCtrl.js:56 src/BackofficeAdminUsersCtrl.js:94
+#: src/BackofficeClientMgmtCtrl.js:119 src/BackofficeClientMgmtCtrl.js:94
+#: src/BackofficeKbInfoCtrl.js:107 src/BackofficeKbInfoCtrl.js:131
+#: src/BackofficeKbInfoCtrl.js:260 src/BackofficeKbInfoCtrl.js:284
+#: src/BackofficeKbInfoCtrl.js:397 src/BackofficeKbInfoCtrl.js:421
+#: src/BackofficeKbInfoCtrl.js:524 src/BackofficeKbInfoCtrl.js:548
+#: src/BackofficeKbInfoCtrl.js:665 src/BackofficeKbInfoCtrl.js:689
+#: src/BackofficeKbInfoCtrl.js:811 src/BackofficeKbInfoCtrl.js:835
+#: src/BackofficeKbInfoObjectCtrl.js:100 src/BackofficeKbInfoObjectCtrl.js:116
+#: src/BackofficeKbInfoObjectCtrl.js:83 src/BackofficeKbModelsCtrl.js:120
+#: src/BackofficeKbModelsCtrl.js:96 src/BackofficeKbOpRiskCtrl.js:106
+#: src/BackofficeKbOpRiskCtrl.js:130 src/BackofficeKbOpRiskCtrl.js:234
+#: src/BackofficeKbOpRiskCtrl.js:258 src/BackofficeKbOpRiskCtrl.js:390
+#: src/BackofficeKbOpRiskCtrl.js:414
+msgid "Cancel"
+msgstr "Annuler"
+
+#: views/op_risk.kb_mgmt.html:208 views/op_risk.kb_mgmt.html:3
+#: views/op_risk.kb_mgmt.html:7
+msgid "Categories"
+msgstr "Catégories"
+
+#: views/info_risk.kb_mgmt.html:418
+msgid "Category"
+msgstr "Gatégorie"
+
+#: views/account.html:7
+msgid "Change password"
+msgstr "Modifier le mot de passe"
+
+#: views/info_risk.kb_mgmt.html:119
+msgid "CID"
+msgstr "CID"
+
+#: src/BackofficeApp.js:84 views/index.backoffice.html:18
+msgid "Client management"
+msgstr "Gestion des clients"
+
+#: views/index.client_mgmt.html:5
+msgid "Clients"
+msgstr "Clients"
+
+#: views/info_risk.kb_mgmt.html:118 views/info_risk.kb_mgmt.html:195
+#: views/info_risk.kb_mgmt.html:269 views/info_risk.kb_mgmt.html:41
+#: views/op_risk.kb_mgmt.html:126 views/op_risk.kb_mgmt.html:210
+#: views/op_risk.kb_mgmt.html:44
+msgid "Code"
+msgstr "Code"
+
+#: views/object.info_risk.kb_mgmt.html:87
+msgid "Composition"
+msgstr "Composition"
+
+#: views/object.info_risk.kb_mgmt.html:112
+#: views/object.info_risk.kb_mgmt.html:125
+msgid "Confidentiality impact"
+msgstr "Impact sur la confidentialité"
+
+#: views/object.info_risk.kb_mgmt.html:17
+msgid "Confidentiality:&nbsp;"
+msgstr "Confidentialité :&nbsp;"
+
+#: views/account.html:21
+msgid "Confirm new password"
+msgstr "Confirmer le nouveau mot de passe :"
+
+#: views/index.client_mgmt.html:43
+msgid "Contact full name"
+msgstr "Nom complet du contact"
+
+#: views/account.html:11
+msgid "Current password"
+msgstr "Mot de passe actuel"
+
+#: views/logs.admin.html:34
+msgid "Date"
+msgstr "Date"
+
+#: src/BackofficeAdminServerCtrl.js:55 src/BackofficeAdminUsersCtrl.js:93
+#: src/BackofficeClientMgmtCtrl.js:118 src/BackofficeClientMgmtCtrl.js:93
+#: src/BackofficeKbInfoCtrl.js:106 src/BackofficeKbInfoCtrl.js:130
+#: src/BackofficeKbInfoCtrl.js:259 src/BackofficeKbInfoCtrl.js:283
+#: src/BackofficeKbInfoCtrl.js:396 src/BackofficeKbInfoCtrl.js:420
+#: src/BackofficeKbInfoCtrl.js:523 src/BackofficeKbInfoCtrl.js:547
+#: src/BackofficeKbInfoCtrl.js:664 src/BackofficeKbInfoCtrl.js:688
+#: src/BackofficeKbInfoCtrl.js:810 src/BackofficeKbInfoCtrl.js:834
+#: src/BackofficeKbInfoObjectCtrl.js:99 src/BackofficeKbModelsCtrl.js:119
+#: src/BackofficeKbModelsCtrl.js:95 src/BackofficeKbOpRiskCtrl.js:105
+#: src/BackofficeKbOpRiskCtrl.js:129 src/BackofficeKbOpRiskCtrl.js:233
+#: src/BackofficeKbOpRiskCtrl.js:257 src/BackofficeKbOpRiskCtrl.js:389
+#: src/BackofficeKbOpRiskCtrl.js:413
+msgid "Delete"
+msgstr "Supprimer"
+
+#: views/object.info_risk.kb_mgmt.html:72
+#: views/object.info_risk.kb_mgmt.html:74
+msgid "Delete object"
+msgstr "Supprimer l'objet"
+
+#: src/BackofficeKbInfoObjectCtrl.js:97
+msgid "Delete this object"
+msgstr "Supprimer cet objet"
+
+#: src/BackofficeKbInfoObjectCtrl.js:94
+msgid "Delete this object?"
+msgstr "Supprimer cet objet ?"
+
+#: views/info_risk.kb_mgmt.html:121 views/info_risk.kb_mgmt.html:197
+#: views/info_risk.kb_mgmt.html:270 views/info_risk.kb_mgmt.html:44
+#: views/models.kb_mgmt.html:38
+msgid "Description"
+msgstr "Description"
+
+#: src/BackofficeKbInfoObjectCtrl.js:82
+msgid "Detach"
+msgstr "Détacher"
+
+#: src/BackofficeKbInfoObjectCtrl.js:80
+msgid "Detach this component"
+msgstr "Détacher ce composant"
+
+#: src/BackofficeKbInfoObjectCtrl.js:78
+msgid "Detach this component?"
+msgstr "Détacher ce composant ?"
+
+#: views/logs.admin.html:32
+msgid "Details"
+msgstr "Détails"
+
+#: src/BackofficeApp.js:132
+msgid "Document models"
+msgstr "Modèles de document"
+
+#: views/doc_models.kb_mgmt.html:1 views/index.backoffice.html:50
+msgid "Document templates"
+msgstr "Modèles de documents"
+
+#: views/object.info_risk.kb_mgmt.html:62
+#: views/object.info_risk.kb_mgmt.html:64
+msgid "Duplicate object"
+msgstr "Dupliquer l'objet"
+
+#: views/object.info_risk.kb_mgmt.html:57
+#: views/object.info_risk.kb_mgmt.html:59
+msgid "Edit object"
+msgstr "Modifier l'objet"
+
+#: views/index.client_mgmt.html:42 views/login.html:9 views/users.admin.html:32
+msgid "Email"
+msgstr "E-mail"
+
+#: src/BackofficeKbInfoObjectCtrl.js:115
+msgid "Export"
+msgstr "Exporter"
+
+#: views/object.info_risk.kb_mgmt.html:67
+#: views/object.info_risk.kb_mgmt.html:69
+msgid "Export object"
+msgstr "Exporter l'objet"
+
+#: views/users.admin.html:30
+msgid "First name"
+msgstr "Prénom"
+
+#: views/servers.admin.html:7
+msgid "FQDN"
+msgstr "FQDN"
+
+#: views/object.info_risk.kb_mgmt.html:84
+msgid "General information"
+msgstr "Informations générales"
+
+#: src/BackofficeKbInfoCtrl.js:156 src/BackofficeKbInfoCtrl.js:179
+#: src/BackofficeKbInfoCtrl.js:327
+msgid "Generic"
+msgstr "Générique"
+
+#: src/BackofficeApp.js:38
+msgid "Home"
+msgstr "Accueil"
+
+#: views/logs.admin.html:29
+msgid "ID"
+msgstr "ID"
+
+#: views/object.info_risk.kb_mgmt.html:147
+msgid "Impact"
+msgstr "Impact"
+
+#: views/object.info_risk.kb_mgmt.html:117
+msgid ""
+"In the library, you may not qualify threats and vulnerabilities of the "
+"object.\n"
+"                            It must be done in context during the risk "
+"analysis."
+msgstr ""
+"Dans la bibliothèque, vous ne pouvez pas qualifier les menaces et les "
+"vulnérabilités de l'objet. Ceci doit être fait dans le contexte lors de "
+"l'analyse de risques."
+
+#: src/BackofficeApp.js:100 views/index.backoffice.html:29
+msgid "Information risks"
+msgstr "Risques de l'information"
+
+#: views/object.info_risk.kb_mgmt.html:18
+#: views/object.info_risk.kb_mgmt.html:28
+#: views/object.info_risk.kb_mgmt.html:38
+msgid "Inherited"
+msgstr "Hérité"
+
+#: views/object.info_risk.kb_mgmt.html:113
+#: views/object.info_risk.kb_mgmt.html:126
+msgid "Integrity impact"
+msgstr "Impact sur l'intégrité"
+
+#: views/object.info_risk.kb_mgmt.html:27
+msgid "Integrity:&nbsp;"
+msgstr "Intégrité :&nbsp;"
+
+#: src/BackofficeApp.js:92 views/index.backoffice.html:23
+msgid "KB management"
+msgstr "Gestion BDC"
+
+#: views/info_risk.kb_mgmt.html:117 views/info_risk.kb_mgmt.html:194
+#: views/info_risk.kb_mgmt.html:40 views/info_risk.kb_mgmt.html:420
+#: views/models.kb_mgmt.html:37 views/op_risk.kb_mgmt.html:127
+#: views/op_risk.kb_mgmt.html:211 views/op_risk.kb_mgmt.html:45
+#: views/servers.admin.html:6
+msgid "Label"
+msgstr "Libellé"
+
+#: views/users.admin.html:31
+msgid "Last name"
+msgstr "Nom"
+
+#: views/login.html:22
+msgid "Log in"
+msgstr "Se connecter"
+
+#: src/BackofficeApp.js:30
+msgid "Login"
+msgstr "Connexion"
+
+#: views/index.backoffice.html:106
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: views/index.backoffice.html:88
+msgid "Manage servers"
+msgstr "Gérer les serveurs"
+
+#: views/index.backoffice.html:82
+msgid "Manage users"
+msgstr "Gérer les utilisateurs"
+
+#: views/object.info_risk.kb_mgmt.html:32
+msgid "Maximum unavailability:&nbsp;"
+msgstr "Indisponibilité maximale :&nbsp;"
+
+#: views/info_risk.kb_mgmt.html:343
+msgid "Measure 1"
+msgstr "Mesure 1"
+
+#: views/info_risk.kb_mgmt.html:344
+msgid "Measure 2"
+msgstr "Mesure 2"
+
+#: views/info_risk.kb_mgmt.html:345
+msgid "Measure 3"
+msgstr "Mesure 3"
+
+#: views/info_risk.kb_mgmt.html:120 views/info_risk.kb_mgmt.html:196
+#: views/info_risk.kb_mgmt.html:423 views/info_risk.kb_mgmt.html:43
+msgid "Mode"
+msgstr "Mode"
+
+#: src/BackofficeApp.js:116 views/index.backoffice.html:36
+#: views/models.kb_mgmt.html:4
+msgid "Models"
+msgstr "Modèles"
+
+#: views/account.html:3
+msgid "My account details"
+msgstr "Mon compte"
+
+#: views/index.client_mgmt.html:38 views/info_risk.kb_mgmt.html:419
+msgid "Name"
+msgstr "Nom"
+
+#: views/info_risk.kb_mgmt.html:373 views/info_risk.kb_mgmt.html:375
+msgid "New AMV link"
+msgstr "Nouveau lien AMV"
+
+#: views/info_risk.kb_mgmt.html:71 views/info_risk.kb_mgmt.html:73
+msgid "New asset"
+msgstr "Nouvel asset"
+
+#: views/op_risk.kb_mgmt.html:75 views/op_risk.kb_mgmt.html:78
+msgid "New category"
+msgstr "Nouvelle catégorie"
+
+#: views/index.client_mgmt.html:70 views/index.client_mgmt.html:72
+msgid "New client"
+msgstr "Nouveau client"
+
+#: views/info_risk.kb_mgmt.html:294 views/info_risk.kb_mgmt.html:296
+msgid "New measure"
+msgstr "Nouvelle mesure"
+
+#: views/models.kb_mgmt.html:67 views/models.kb_mgmt.html:69
+msgid "New model"
+msgstr "Nouveau modèle"
+
+#: views/info_risk.kb_mgmt.html:451 views/info_risk.kb_mgmt.html:453
+msgid "New object"
+msgstr "Nouvel objet"
+
+#: views/account.html:16
+msgid "New password"
+msgstr "Nouveau mot de passe"
+
+#: views/op_risk.kb_mgmt.html:243 views/op_risk.kb_mgmt.html:246
+msgid "New risk"
+msgstr "Nouveau risque"
+
+#: views/servers.admin.html:32 views/servers.admin.html:34
+msgid "New server"
+msgstr "Nouveau serveur"
+
+#: views/op_risk.kb_mgmt.html:157 views/op_risk.kb_mgmt.html:160
+msgid "New tag"
+msgstr "Nouveau tag"
+
+#: views/info_risk.kb_mgmt.html:148 views/info_risk.kb_mgmt.html:150
+msgid "New threat"
+msgstr "Nouvelle menace"
+
+#: views/users.admin.html:59 views/users.admin.html:61
+msgid "New user"
+msgstr "Nouvel utilisateur"
+
+#: views/info_risk.kb_mgmt.html:225
+msgid "New vuln"
+msgstr "Nouvelle vulnérabilité"
+
+#: views/info_risk.kb_mgmt.html:223
+msgid "New vulnerability"
+msgstr "Nouvelle vulnérabilité"
+
+#: views/object.info_risk.kb_mgmt.html:47
+msgid "Object actions"
+msgstr "Actions"
+
+#: src/BackofficeApp.js:108
+msgid "Object details"
+msgstr "Détails de l'objet"
+
+#: views/object.info_risk.kb_mgmt.html:102
+msgid "Object replica(s) in models"
+msgstr "Réplica(s) de l'objet dans les modèles"
+
+#: views/object.info_risk.kb_mgmt.html:22
+msgid "Object specifics:&nbsp;"
+msgstr "Spécificités de l'objet :&nbsp;"
+
+#: views/info_risk.kb_mgmt.html:382 views/info_risk.kb_mgmt.html:385
+msgid "Objects library"
+msgstr "Bibliothèque d'objets"
+
+#: views/object.info_risk.kb_mgmt.html:153
+msgid "Observation"
+msgstr "Observations"
+
+#: src/BackofficeApp.js:124
+msgid "Operational risks"
+msgstr "Risques opérationnels"
+
+#: views/index.backoffice.html:43
+msgid "Operational risks (ROLF)"
+msgstr "Risques opérationnels (ROLF)"
+
+#: src/BackofficeKbInfoObjectCtrl.js:111 src/BackofficeKbInfoObjectCtrl.js:113
+#: views/login.html:15
+msgid "Password"
+msgstr "Mot de passe"
+
+#: views/index.client_mgmt.html:41 views/users.admin.html:33
+msgid "Phone"
+msgstr "Téléphone"
+
+#: src/BackofficeKbInfoObjectCtrl.js:112
+msgid "Please enter a password to protect your object"
+msgstr "Veuillez entrer un mot de passe pour protéger votre objet"
+
+#: views/index.client_mgmt.html:40
+msgid "Postal code"
+msgstr "Code portal"
+
+#: src/BackofficeKbInfoCtrl.js:148
+msgid "Primary"
+msgstr "Primaire"
+
+#: views/object.info_risk.kb_mgmt.html:149
+msgid "Prob."
+msgstr "Prob."
+
+#: views/object.info_risk.kb_mgmt.html:151
+msgid "Qualif."
+msgstr "Qualif."
+
+#: views/info_risk.kb_mgmt.html:460
+msgid "Questions"
+msgstr "Questions"
+
+#: views/models.kb_mgmt.html:41
+msgid "Raw ROLF"
+msgstr "ROLF brut"
+
+#: views/models.kb_mgmt.html:40
+msgid "Regulator"
+msgstr "Régulateur"
+
+#: views/object.info_risk.kb_mgmt.html:152
+msgid "Risk"
+msgstr "Risque"
+
+#: views/op_risk.kb_mgmt.html:167 views/op_risk.kb_mgmt.html:171
+msgid "Risks"
+msgstr "Risques"
+
+#: views/object.info_risk.kb_mgmt.html:137
+msgid "Risks table"
+msgstr "Table des risques"
+
+#: views/info_risk.kb_mgmt.html:422 views/object.info_risk.kb_mgmt.html:106
+msgid "Scope"
+msgstr "Portée"
+
+#: views/index.client_mgmt.html:17 views/info_risk.kb_mgmt.html:172
+#: views/info_risk.kb_mgmt.html:18 views/info_risk.kb_mgmt.html:247
+#: views/info_risk.kb_mgmt.html:318 views/info_risk.kb_mgmt.html:397
+#: views/info_risk.kb_mgmt.html:95 views/logs.admin.html:17
+#: views/models.kb_mgmt.html:16 views/op_risk.kb_mgmt.html:104
+#: views/op_risk.kb_mgmt.html:186 views/op_risk.kb_mgmt.html:22
+#: views/users.admin.html:17
+msgid "Search..."
+msgstr "Rechercher..."
+
+#: src/BackofficeKbInfoCtrl.js:149
+msgid "Secondary"
+msgstr "Secondaire"
+
+#: src/BackofficeApp.js:68
+msgid "Servers management"
+msgstr "Gestion des serveurs"
+
+#: src/BackofficeKbInfoCtrl.js:157 src/BackofficeKbInfoCtrl.js:182
+#: src/BackofficeKbInfoCtrl.js:330 views/models.kb_mgmt.html:39
+msgid "Specific"
+msgstr "Spécifique"
+
+#: views/servers.admin.html:9
+msgid "State"
+msgstr "Etat"
+
+#: views/info_risk.kb_mgmt.html:116
+msgid "Status"
+msgstr "Statut"
+
+#: views/object.info_risk.kb_mgmt.html:154
+msgid "T"
+msgstr "T"
+
+#: views/op_risk.kb_mgmt.html:209 views/op_risk.kb_mgmt.html:85
+#: views/op_risk.kb_mgmt.html:89
+msgid "Tags"
+msgstr "Tags"
+
+#: views/object.info_risk.kb_mgmt.html:155
+msgid "Target risk"
+msgstr "Risque cible"
+
+#: src/BackofficeKbInfoCtrl.js:672
+msgid "The AMV \"{{label}}\" has been deleted."
+msgstr "Le lien AMV a été supprimé."
+
+#: src/BackofficeKbInfoCtrl.js:613
+msgid "The AMV has been created successfully."
+msgstr "Le lien AMV a été créé avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:649
+msgid "The AMV has been updated successfully."
+msgstr "Le lien AMV a été mis à jour avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:114
+msgid "The asset \"{{label}}\" has been deleted."
+msgstr "L'asset \"{{ label }}\" a été supprimé."
+
+#: src/BackofficeKbInfoCtrl.js:61
+msgid "The asset has been created successfully."
+msgstr "L'asset a été créé avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:90
+msgid "The asset has been updated successfully."
+msgstr "L'asset a été mis à jour avec succès."
+
+#: src/BackofficeKbOpRiskCtrl.js:113
+msgid "The category \"{{label}}\" has been deleted."
+msgstr "La catégorie \"{{ label }}\" a été supprimée."
+
+#: src/BackofficeKbInfoCtrl.js:1206 src/BackofficeKbOpRiskCtrl.js:60
+msgid "The category has been created successfully."
+msgstr "La catégorie a été créée avec succès."
+
+#: src/BackofficeKbOpRiskCtrl.js:89
+msgid "The category has been updated successfully."
+msgstr "La catégorie à été mise à jour avec succès."
+
+#: src/BackofficeClientMgmtCtrl.js:101
+msgid "The client \"{{firstname}} {{lastname}}\" has been deleted."
+msgstr "Le client \"{{ firstname}} {{lastname}}\" a été supprimé."
+
+#: src/BackofficeClientMgmtCtrl.js:49
+msgid "The client has been created successfully."
+msgstr "Le client a été créé avec succès."
+
+#: src/BackofficeClientMgmtCtrl.js:78
+msgid "The client information has been updated successfully."
+msgstr "Les informations du client ont été mises à jour avec succès."
+
+#: src/BackofficeKbInfoObjectCtrl.js:95
+msgid ""
+"The current object \"{{ name }}\" will be permanently deleted. Are you sure?"
+msgstr ""
+"L'objet courant \"{{ name }}\" sera supprimé définitivement. Êtes-vous sûr ?"
+
+#: src/BackofficeKbInfoCtrl.js:531
+msgid "The measure \"{{label}}\" has been deleted."
+msgstr "La mesure \"{{label}}\" a été supprimée."
+
+#: src/BackofficeKbInfoCtrl.js:478
+msgid "The measure has been created successfully."
+msgstr "La mesure a été créée avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:507
+msgid "The measure has been updated successfully."
+msgstr "La mesure a été mise à jour avec succès."
+
+#: src/BackofficeKbModelsCtrl.js:103
+msgid "The model \"{{label}}\" has been deleted."
+msgstr "Le modèle \"{{ label }}\" a été supprimé."
+
+#: src/BackofficeKbModelsCtrl.js:50
+msgid "The model has been created successfully."
+msgstr "Le modèle a été créé avec succès."
+
+#: src/BackofficeKbModelsCtrl.js:79
+msgid "The model has been updated successfully."
+msgstr "Le modèle a été mis à jour avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:818
+msgid "The object \"{{label}}\" has been deleted."
+msgstr "L'objet \"{{label}}\" a été supprimé."
+
+#: src/BackofficeKbInfoCtrl.js:783 src/BackofficeKbInfoObjectCtrl.js:144
+#: src/BackofficeKbInfoObjectCtrl.js:199
+msgid "The object has been created successfully."
+msgstr "L'objet a été créé avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:771 src/BackofficeKbInfoObjectCtrl.js:187
+msgid "The object has been updated successfully."
+msgstr "L'objet a été mis à jour avec succès."
+
+#: src/BackofficeKbOpRiskCtrl.js:397
+msgid "The risk \"{{label}}\" has been deleted."
+msgstr "Le risque \"{{ label }}\" a été supprimé."
+
+#: src/BackofficeKbOpRiskCtrl.js:330
+msgid "The risk has been created successfully."
+msgstr "Le risque a été créé avec succès."
+
+#: src/BackofficeKbOpRiskCtrl.js:373
+msgid "The risk has been updated successfully."
+msgstr "Le risque à été mis à jour avec succès."
+
+#: src/BackofficeKbInfoObjectCtrl.js:79
+msgid "The selected component will be detached from the current object."
+msgstr "Le composant sélectionné va être détaché de l'object actuel."
+
+#: src/BackofficeAdminServerCtrl.js:63
+msgid "The server \"{{label}}\" has been deleted."
+msgstr "Le serveur \"{{ label }}\" a été supprimé."
+
+#: src/BackofficeAdminServerCtrl.js:41
+msgid "The server has been created successfully."
+msgstr "Le serveur a été créé avec succès."
+
+#: src/BackofficeKbOpRiskCtrl.js:241
+msgid "The tag \"{{label}}\" has been deleted."
+msgstr "Le tag \"{{ label }}\" a été supprimé."
+
+#: src/BackofficeKbOpRiskCtrl.js:188
+msgid "The tag has been created successfully."
+msgstr "Le tag a été créé avec succès."
+
+#: src/BackofficeKbOpRiskCtrl.js:217
+msgid "The tag has been updated successfully."
+msgstr "Le tag a été mis à jour avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:267
+msgid "The threat \"{{label}}\" has been deleted."
+msgstr "La menace \"{{ label }}\" a été supprimée."
+
+#: src/BackofficeKbInfoCtrl.js:214
+msgid "The threat has been created successfully."
+msgstr "La menace a été créée avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:243
+msgid "The threat has been updated successfully."
+msgstr "La menace a été mise à jour avec succès."
+
+#: src/BackofficeAdminUsersCtrl.js:101
+msgid "The user \"{{firstname}} {{lastname}}\" has been deleted."
+msgstr "L'utilisateur \"{{ firstname }} {{ lastname }}\" a été supprimé."
+
+#: src/BackofficeAdminUsersCtrl.js:49
+msgid "The user has been created successfully."
+msgstr "L'utilisateur a été créé avec succès."
+
+#: src/BackofficeAdminUsersCtrl.js:77
+msgid "The user information has been updated successfully."
+msgstr "Les informations de l'utilisateur ont été mises à jour avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:404
+msgid "The vulnerability \"{{label}}\" has been deleted."
+msgstr "La vulnérabilité \"{{ label }}\" a été supprimée."
+
+#: src/BackofficeKbInfoCtrl.js:351
+msgid "The vulnerability has been created successfully."
+msgstr "La vulnérabilité a été créée avec succès."
+
+#: src/BackofficeKbInfoCtrl.js:380
+msgid "The vulnerability has been updated successfully."
+msgstr "La vulnérabilité a été mise à jour avec succès."
+
+#: views/object.info_risk.kb_mgmt.html:104
+msgid "This object has no replica(s) in models."
+msgstr "Cet objet n'a pas de réplica(s) dans les modèles."
+
+#: views/object.info_risk.kb_mgmt.html:122
+msgid ""
+"This object is <strong>GLOBAL</strong>. The following values will be common\n"
+"                            to every instance in the risk analysis:"
+msgstr ""
+"Cet objet est <strong>GLOBAL</strong>. Les valeurs suivantes seront communes "
+"à toutes les instances dans l'analyse de risque :"
+
+#: views/object.info_risk.kb_mgmt.html:109
+msgid ""
+"This object is <strong>LOCAL</strong>. Any change made on the following\n"
+"                            fields will be applied on every instance in the "
+"risk analysis:"
+msgstr ""
+"Cet objet est <string>LOCAL</string>. Toute modification apportée aux champs "
+"suivants seront appliquées à toutes les instances dans l'analyse de risque :"
+
+#: src/BackofficeAdminServerCtrl.js:53 src/BackofficeAdminUsersCtrl.js:91
+#: src/BackofficeClientMgmtCtrl.js:116 src/BackofficeClientMgmtCtrl.js:91
+#: src/BackofficeKbInfoCtrl.js:104 src/BackofficeKbInfoCtrl.js:128
+#: src/BackofficeKbInfoCtrl.js:257 src/BackofficeKbInfoCtrl.js:281
+#: src/BackofficeKbInfoCtrl.js:394 src/BackofficeKbInfoCtrl.js:418
+#: src/BackofficeKbInfoCtrl.js:521 src/BackofficeKbInfoCtrl.js:545
+#: src/BackofficeKbInfoCtrl.js:662 src/BackofficeKbInfoCtrl.js:686
+#: src/BackofficeKbInfoCtrl.js:808 src/BackofficeKbInfoCtrl.js:832
+#: src/BackofficeKbModelsCtrl.js:117 src/BackofficeKbModelsCtrl.js:93
+#: src/BackofficeKbOpRiskCtrl.js:103 src/BackofficeKbOpRiskCtrl.js:127
+#: src/BackofficeKbOpRiskCtrl.js:231 src/BackofficeKbOpRiskCtrl.js:255
+#: src/BackofficeKbOpRiskCtrl.js:387 src/BackofficeKbOpRiskCtrl.js:411
+msgid "This operation is irreversible."
+msgstr "Cette opération est irréversible."
+
+#: views/info_risk.kb_mgmt.html:341 views/object.info_risk.kb_mgmt.html:148
+msgid "Threat"
+msgstr "Menace"
+
+#: views/info_risk.kb_mgmt.html:80 views/info_risk.kb_mgmt.html:83
+msgid "Threats"
+msgstr "Menaces"
+
+#: views/object.info_risk.kb_mgmt.html:128
+msgid "Threats and vulnerabilities qualification"
+msgstr "Qualification des menaces et vulnérabilités"
+
+#: views/info_risk.kb_mgmt.html:42 views/logs.admin.html:30
+msgid "Type"
+msgstr "Type"
+
+#: views/index.kb_mgmt.html:3
+msgid "Une introduction sur le fonctionnement du KB manager"
+msgstr "Une introduction sur le fonctionnement du K manager"
+
+#: views/account.html:25
+msgid "Update password"
+msgstr "Mettre à jour le mot de passe"
+
+#: views/logs.admin.html:33
+msgid "User"
+msgstr "Utilisateur"
+
+#: views/users.admin.html:4
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: src/BackofficeApp.js:60
+msgid "Users management"
+msgstr "Gestion des utilisateurs"
+
+#: src/BackofficeKbInfoCtrl.js:150
+msgid "Virtual"
+msgstr "Virtuel"
+
+#: views/info_risk.kb_mgmt.html:160
+msgid "Vulnerabilities"
+msgstr "Vulnérabilités"
+
+#: views/info_risk.kb_mgmt.html:342 views/object.info_risk.kb_mgmt.html:150
+msgid "Vulnerability"
+msgstr "Vulnérabilité"
+
+#: views/info_risk.kb_mgmt.html:157
+msgid "Vulns"
+msgstr "Vuln"
+
+#: views/object.info_risk.kb_mgmt.html:139
+msgid "You are in the knowledge base. No evaluation may be set in this space."
+msgstr ""
+"Vous êtes dans la base de connaissance. Aucune évaluation ne peut être "
+"définie dans cet espace."
+
+#: src/BackofficeLoginCtrl.js:32
+msgid "Your e-mail address or password is invalid, please try again."
+msgstr ""
+"Votre adresse e-mail ou mot de passe est incorrect, veuillez réessayer."
