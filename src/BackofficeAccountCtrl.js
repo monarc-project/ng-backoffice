@@ -15,6 +15,7 @@
 
         $scope.onLanguageChanged = function () {
             gettextCatalog.setCurrentLanguage($scope.language);
+            $scope.updatePaginationLabels();
         }
     }
 })();

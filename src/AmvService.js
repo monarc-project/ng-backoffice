@@ -34,7 +34,7 @@
             self.AmvResource.update(params, success, error);
         };
 
-        var deleteAmv = function (id) {
+        var deleteAmv = function (id, success, error) {
             self.AmvResource.delete({amvId: id}, success, error);
         };
 

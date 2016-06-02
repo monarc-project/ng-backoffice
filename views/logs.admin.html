@@ -49,6 +49,6 @@
     </md-table-container>
 
     <md-table-pagination md-limit="logs.query.limit" md-limit-options="[10, 25, 50, 100]" md-page="logs.query.page"
-                         md-total="{{logs.items.count}}" md-on-paginate="updateLogs" md-page-select></md-table-pagination>
+                         md-total="{{logs.items.count}}" md-on-paginate="updateLogs" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
 </div>

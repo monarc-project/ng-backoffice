@@ -190,7 +190,17 @@ angular
             }]);
             $httpProvider.interceptors.push('monarcHttpInter');
         }]).
-    run(['ConfigService', function (ConfigService) {
+    run(['ConfigService', 'gettext', '$rootScope', function (ConfigService, gettext, $rootScope) {
         ConfigService.loadConfig();
+
+        $rootScope.updatePaginationLabels = function () {
+            $rootScope.paginationLabels = {
+                page: gettext('Page:'),
+                rowsPerPage: gettext('Rows per page:'),
+                of: gettext('of')
+            }
+        }
+
+        $rootScope.updatePaginationLabels();
     }
     ]);

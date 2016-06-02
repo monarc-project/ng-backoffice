@@ -64,7 +64,7 @@
             </md-table-container>
 
             <md-table-pagination md-limit="assets.query.limit" md-limit-options="[5, 10, 15]" md-page="assets.query.page"
-                                 md-total="{{assets.items.count}}" md-on-paginate="updateAssets" md-page-select></md-table-pagination>
+                                 md-total="{{assets.items.count}}" md-on-paginate="updateAssets" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
             <div layout="row" class="md-padding">
                 <span flex></span>
@@ -141,7 +141,7 @@
             </md-table-container>
 
             <md-table-pagination md-limit="threats.query.limit" md-limit-options="[5, 10, 15]" md-page="threats.query.page"
-                                 md-total="{{threats.items.count}}" md-on-paginate="updateThreats" md-page-select></md-table-pagination>
+                                 md-total="{{threats.items.count}}" md-on-paginate="updateThreats" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
             <div layout="row" class="md-padding">
                 <span flex></span>
@@ -216,7 +216,7 @@
             </md-table-container>
 
             <md-table-pagination md-limit="vulns.query.limit" md-limit-options="[5, 10, 15]" md-page="vulns.query.page"
-                                 md-total="{{vulns.items.count}}" md-on-paginate="updateVulns" md-page-select></md-table-pagination>
+                                 md-total="{{vulns.items.count}}" md-on-paginate="updateVulns" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
             <div layout="row" class="md-padding">
                 <span flex></span>
@@ -287,7 +287,7 @@
             </md-table-container>
 
             <md-table-pagination md-limit="measures.query.limit" md-limit-options="[5, 10, 15]" md-page="measures.query.page"
-                                 md-total="{{measures.items.count}}" md-on-paginate="updateMeasures" md-page-select></md-table-pagination>
+                                 md-total="{{measures.items.count}}" md-on-paginate="updateMeasures" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
             <div layout="row" class="md-padding">
                 <span flex></span>
@@ -350,12 +350,12 @@
                     <tbody md-body>
                     <tr md-row md-select="amv" md-select-id="id" ng-repeat="amv in amvs.items.amvs">
                         <td md-cell><md-icon>{{ (amv.status ? 'done' : 'clear') | translate }}</md-icon></td>
-                        <td md-cell>{{ amv.asset }}</td>
-                        <td md-cell>{{ amv.threat }}</td>
-                        <td md-cell>{{ amv.vulnerability }}</td>
-                        <td md-cell>{{ amv.measure1 }}</td>
-                        <td md-cell>{{ amv.measure2 }}</td>
-                        <td md-cell>{{ amv.measure3 }}</td>
+                        <td md-cell>{{ amv.asset.code }} - {{ amv.asset.label1 }}</td>
+                        <td md-cell>{{ amv.threat.code }} - {{ amv.threat.label1 }}</td>
+                        <td md-cell>{{ amv.vulnerability.code }} - {{ amv.vulnerability.label1 }}</td>
+                        <td md-cell>{{ amv.measure1.code }} - {{ amv.measure1.description1 }}</td>
+                        <td md-cell>{{ amv.measure2.code }} - {{ amv.measure2.description1 }}</td>
+                        <td md-cell>{{ amv.measure3.code }} - {{ amv.measure3.description1 }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button" ng-click="editAmv($event, amv)"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button" ng-click="deleteAmv($event, amv)"><md-icon>delete</md-icon></md-button>
@@ -366,7 +366,7 @@
             </md-table-container>
 
             <md-table-pagination md-limit="amvs.query.limit" md-limit-options="[5, 10, 15]" md-page="amvs.query.page"
-                                 md-total="{{amvs.items.count}}" md-on-paginate="updateAmvs" md-page-select></md-table-pagination>
+                                 md-total="{{amvs.items.count}}" md-on-paginate="updateAmvs" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
             <div layout="row" class="md-padding">
                 <span flex></span>
@@ -411,6 +411,21 @@
                 </div>
             </md-toolbar>
 
+            <div layout="row" class="md-padding-left" layout-align="space-around center">
+                <p class="md-padding-right" translate>Filter:</p>
+                <md-select ng-model="derp" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" flex>
+                    <md-option value="0">{{ 'All categories' | translate }}</md-option>
+                </md-select>
+                <md-switch aria-label="{{ 'Lock' | translate }}'" class="md-padding-left md-padding-right">{{ 'Lock' | translate }}</md-switch>
+                <md-select ng-model="derp" aria-label="{{ 'Asset type' | translate }}" placeholder="{{ 'Asset type' | translate }}" flex>
+                    <md-option value="0">{{ 'All assets' | translate }}</md-option>
+                </md-select>
+                <md-button class="md-icon-button">
+                    <md-tooltip>{{ 'Reset filters' | translate }}</md-tooltip>
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
+
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="objlibs.selected" md-progress="objlibs.promise">
                     <thead md-head md-order="objlibs.query.order" md-on-reorder="updateObjlibs">
@@ -444,7 +459,7 @@
             </md-table-container>
 
             <md-table-pagination md-limit="objlibs.query.limit" md-limit-options="[5, 10, 15]" md-page="objlibs.query.page"
-                                 md-total="{{objlibs.items.count}}" md-on-paginate="updateObjlibs" md-page-select></md-table-pagination>
+                                 md-total="{{objlibs.items.count}}" md-on-paginate="updateObjlibs" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
             <div layout="row" class="md-padding">
                 <span flex></span>

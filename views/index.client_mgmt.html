@@ -63,7 +63,7 @@
         </md-table-container>
 
         <md-table-pagination md-limit="clients.query.limit" md-limit-options="[5, 10, 15]" md-page="clients.query.page"
-                             md-total="{{clients.items.count}}" md-on-paginate="updateClients" md-page-select></md-table-pagination>
+                             md-total="{{clients.items.count}}" md-on-paginate="updateClients" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
         <div layout="row" class="md-padding">
             <span flex></span>

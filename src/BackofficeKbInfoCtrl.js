@@ -13,6 +13,7 @@
      */
     function BackofficeKbInfoCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService) {
+        $scope.gettext = gettext;
         TableHelperService.resetBookmarks();
 
         /*

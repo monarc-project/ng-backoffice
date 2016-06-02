@@ -52,7 +52,7 @@
     </md-table-container>
 
     <md-table-pagination md-limit="users.query.limit" md-limit-options="[10, 25, 50, 100]" md-page="users.query.page"
-                         md-total="{{users.items.count}}" md-on-paginate="updateUsers" md-page-select></md-table-pagination>
+                         md-total="{{users.items.count}}" md-on-paginate="updateUsers" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
     <div layout="row" class="md-padding">
         <span flex></span>

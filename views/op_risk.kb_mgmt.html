@@ -68,7 +68,7 @@
             <md-table-pagination md-limit="categories.query.limit" md-limit-options="[5, 10, 15]"
                                  md-page="categories.query.page"
                                  md-total="{{categories.items.count}}" md-on-paginate="updateCategories"
-                                 md-page-select></md-table-pagination>
+                                 md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
             <div layout="row" class="md-padding">
                 <span flex></span>
@@ -150,7 +150,7 @@
             <md-table-pagination md-limit="tags.query.limit" md-limit-options="[5, 10, 15]"
                                  md-page="tags.query.page"
                                  md-total="{{tags.items.count}}" md-on-paginate="updateTags"
-                                 md-page-select></md-table-pagination>
+                                 md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
             <div layout="row" class="md-padding">
                 <span flex></span>
@@ -236,7 +236,7 @@
             <md-table-pagination md-limit="risks.query.limit" md-limit-options="[5, 10, 15]"
                                  md-page="risks.query.page"
                                  md-total="{{risks.items.count}}" md-on-paginate="updateRisks"
-                                 md-page-select></md-table-pagination>
+                                 md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
             <div layout="row" class="md-padding">
                 <span flex></span>
