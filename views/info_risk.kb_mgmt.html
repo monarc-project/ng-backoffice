@@ -349,7 +349,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="amv" md-select-id="id" ng-repeat="amv in amvs.items.amvs">
-                        <td md-cell><md-icon>{{ (amv.status ? 'done' : 'clear') | translate }}</md-icon></td>
+                        <td md-cell><md-icon>{{ amv.status ? 'done' : 'clear' }}</md-icon></td>
                         <td md-cell>{{ amv.asset.code }} - {{ amv.asset.label1 }}</td>
                         <td md-cell>{{ amv.threat.code }} - {{ amv.threat.label1 }}</td>
                         <td md-cell>{{ amv.vulnerability.code }} - {{ amv.vulnerability.label1 }}</td>
