@@ -413,14 +413,19 @@
 
             <div layout="row" class="md-padding-left" layout-align="space-around center">
                 <p class="md-padding-right" translate>Filter:</p>
-                <md-select ng-model="derp" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" flex>
+
+                <md-select ng-model="objlib_category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" flex>
                     <md-option value="0">{{ 'All categories' | translate }}</md-option>
                 </md-select>
-                <md-switch aria-label="{{ 'Lock' | translate }}'" class="md-padding-left md-padding-right">{{ 'Lock' | translate }}</md-switch>
-                <md-select ng-model="derp" aria-label="{{ 'Asset type' | translate }}" placeholder="{{ 'Asset type' | translate }}" flex>
+
+                <md-switch aria-label="{{ 'Lock' | translate }}'" class="md-padding-left md-padding-right"
+                           ng-model="objlib_lockswitch" ng-true-value="true" ng-false-value="false">{{ 'Lock' | translate }}</md-switch>
+
+                <md-select ng-model="objlib_asset_filter" aria-label="{{ 'Asset type' | translate }}" placeholder="{{ 'Asset type' | translate }}" flex>
                     <md-option value="0">{{ 'All assets' | translate }}</md-option>
                 </md-select>
-                <md-button class="md-icon-button">
+
+                <md-button class="md-icon-button" ng-click="resetObjlibsFilters()">
                     <md-tooltip>{{ 'Reset filters' | translate }}</md-tooltip>
                     <md-icon>settings_backup_restore</md-icon>
                 </md-button>

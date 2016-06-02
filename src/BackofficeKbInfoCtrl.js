@@ -727,9 +727,30 @@
          */
         $scope.objlibs = TableHelperService.build('name1', 10, 1, '');
 
+        $scope.objlib_category_filter = 0;
+        $scope.objlib_asset_filter = 0;
+        $scope.objlib_lockswitch = false;
+
+        $scope.$watch('objlib_category_filter', function (newValue, oldValue) {
+            // Refresh contents
+        });
+        $scope.$watch('objlib_asset_filter', function (newValue, oldValue) {
+            // Refresh contents
+        });
+        $scope.$watch('objlib_lockswitch', function (newValue, oldValue) {
+            // Refresh contents
+        });
+
+        $scope.resetObjlibsFilters = function () {
+            $scope.objlib_category_filter = 0;
+            $scope.objlib_asset_filter = 0;
+            $scope.objlib_lockswitch = false;
+        };
+
         $scope.selectObjlibsTab = function () {
             //TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);
 
+            // TODO: DEV WHILE WE DON'T HAVE THE BACKEND API - REMOVE ME
             $scope.objlibs.items = {
                 objlibs: [{
                     id: 25,
