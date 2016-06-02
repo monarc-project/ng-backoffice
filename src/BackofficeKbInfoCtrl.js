@@ -206,6 +206,10 @@
                 fullscreen: useFullScreen
             })
                 .then(function (threat) {
+                    if (threat.theme) {
+                        threat.theme = threat.theme.id;
+                    }
+
                     ThreatService.createThreat(threat,
                         function () {
                             $scope.updateThreats();
@@ -235,6 +239,10 @@
                     }
                 })
                     .then(function (threat) {
+                        if (threat.theme) {
+                            threat.theme = threat.theme.id;
+                        }
+
                         ThreatService.updateThreat(threat,
                             function () {
                                 $scope.updateThreats();
@@ -937,26 +945,26 @@
                 description2: '',
                 description3: '',
                 description4: '',
-                desc_accidental1: '',
-                desc_accidental2: '',
-                desc_accidental3: '',
-                desc_accidental4: '',
-                ex_accidental1: '',
-                ex_accidental2: '',
-                ex_accidental3: '',
-                ex_accidental4: '',
-                desc_deliberate1: '',
-                desc_deliberate2: '',
-                desc_deliberate3: '',
-                desc_deliberate4: '',
-                ex_deliberate1: '',
-                ex_deliberate2: '',
-                ex_deliberate3: '',
-                ex_deliberate4: '',
-                type_consequences1: '',
-                type_consequences2: '',
-                type_consequences3: '',
-                type_consequences4: '',
+                descAccidental1: '',
+                descAccidental2: '',
+                descAccidental3: '',
+                descAccidental4: '',
+                exAccidental1: '',
+                exAccidental2: '',
+                exAccidental3: '',
+                exAccidental4: '',
+                descDeliberate1: '',
+                descDeliberate2: '',
+                descDeliberate3: '',
+                descDeliberate4: '',
+                exDeliberate1: '',
+                exDeliberate2: '',
+                exDeliberate3: '',
+                exDeliberate4: '',
+                typeConsequences1: '',
+                typeConsequences2: '',
+                typeConsequences3: '',
+                typeConsequences4: '',
             };
         }
 
@@ -971,7 +979,7 @@
         };
 
         $scope.selectedThemeItemChange = function (item) {
-            $scope.threat.threatTheme = item;
+            $scope.threat.theme = item;
         }
 
         $scope.createTheme = function (label) {

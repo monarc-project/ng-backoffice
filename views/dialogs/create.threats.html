@@ -37,31 +37,31 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Accidental cause description</label>
                     <md-icon>subject</md-icon>
-                    <textarea ng-model="threat['desc_accidental' + language]" rows="4"></textarea>
+                    <textarea ng-model="threat['descAccidental' + language]" rows="4"></textarea>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Example (accidental cause)</label>
                     <md-icon>subject</md-icon>
-                    <textarea ng-model="threat['ex_accidental' + language]" rows="4"></textarea>
+                    <textarea ng-model="threat['exAccidental' + language]" rows="4"></textarea>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Deliberate cause description</label>
                     <md-icon>subject</md-icon>
-                    <textarea ng-model="threat['desc_deliberate' + language]" rows="4"></textarea>
+                    <textarea ng-model="threat['descDeliberate' + language]" rows="4"></textarea>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Example (deliberate cause)</label>
                     <md-icon>subject</md-icon>
-                    <textarea ng-model="threat['ex_deliberate' + language]" rows="4"></textarea>
+                    <textarea ng-model="threat['exDeliberate' + language]" rows="4"></textarea>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Types of consequences</label>
                     <md-icon>subject</md-icon>
-                    <textarea ng-model="threat['type_consequences' + language]" rows="4"></textarea>
+                    <textarea ng-model="threat['typeConsequences' + language]" rows="4"></textarea>
                 </md-input-container>
 
                 <md-subheader>{{ 'General information' | translate }}</md-subheader>
@@ -71,7 +71,7 @@
                         <md-icon style="margin-right: 8px;">class</md-icon>
                         <md-autocomplete
                                 flex
-                                md-selected-item="threat.threat_theme_id"
+                                md-selected-item="threat.theme"
                                 md-search-text="themeSearchText"
                                 md-selected-item-change="selectedThemeItemChange(item)"
                                 md-items="item in queryThemeSearch(themeSearchText)"
