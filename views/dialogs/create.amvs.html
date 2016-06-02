@@ -18,12 +18,12 @@
                         md-search-text="assetSearchText"
                         md-selected-item-change="selectedAssetItemChange(item)"
                         md-items="item in queryAssetSearch(assetSearchText)"
-                        md-item-text="item.label1"
+                        md-item-text="item.code + ' - ' + item.label1"
                         md-delay="300"
                         md-min-length="0"
                         placeholder="{{ 'Please select an asset' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }}</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -37,12 +37,12 @@
                         md-search-text="threatSearchText"
                         md-selected-item-change="selectedThreatItemChange(item)"
                         md-items="item in queryThreatSearch(threatSearchText)"
-                        md-item-text="item.label1"
+                        md-item-text="item.code + ' - ' + item.label1"
                         md-delay="300"
                         md-min-length="0"
                         placeholder="{{ 'Please select a threat' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }}</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -56,12 +56,12 @@
                         md-search-text="vulnSearchText"
                         md-selected-item-change="selectedVulnItemChange(item)"
                         md-items="item in queryVulnSearch(vulnSearchText)"
-                        md-item-text="item.label1"
+                        md-item-text="item.code + ' - ' + item.label1"
                         md-delay="300"
                         md-min-length="0"
                         placeholder="{{ 'Please select a vulnerability' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="vulnSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                        <span md-highlight-text="vulnSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }}</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -75,7 +75,7 @@
                         md-search-text="m1SearchText"
                         md-selected-item-change="selectedMeasureItemChange(1, item)"
                         md-items="item in queryMeasureSearch(m1SearchText)"
-                        md-item-text="item.code"
+                        md-item-text="item.code + ' (' + item.description1 + ')'"
                         md-delay="300"
                         md-min-length="0"
                         placeholder="{{ 'Please select the first measure' | translate }}">
@@ -94,7 +94,7 @@
                         md-search-text="m2SearchText"
                         md-selected-item-change="selectedMeasureItemChange(2, item)"
                         md-items="item in queryMeasureSearch(m2SearchText)"
-                        md-item-text="item.code"
+                        md-item-text="item.code + ' (' + item.description1 + ')'"
                         md-delay="300"
                         md-min-length="0"
                         placeholder="{{ 'Please select the second measure' | translate }}">
@@ -113,7 +113,7 @@
                         md-search-text="m3SearchText"
                         md-selected-item-change="selectedMeasureItemChange(3, item)"
                         md-items="item in queryMeasureSearch(m3SearchText)"
-                        md-item-text="item.code"
+                        md-item-text="item.code + ' (' + item.description1 + ')'"
                         md-delay="300"
                         md-min-length="0"
                         placeholder="{{ 'Please select the third measure' | translate }}">
