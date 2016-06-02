@@ -199,7 +199,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', 'ThreatService', 'ConfigService', CreateThreatDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', CreateThreatDialogCtrl],
                 templateUrl: '/views/dialogs/create.threats.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -225,7 +225,7 @@
 
             ThreatService.getThreat(threat.id).then(function (threatData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
+                    controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                     templateUrl: '/views/dialogs/create.threats.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -898,7 +898,7 @@
         };
     }
 
-    function CreateThreatDialogCtrl($scope, $mdDialog, ModelService, ThreatService, ConfigService, threat) {
+    function CreateThreatDialogCtrl($scope, $mdDialog, $q, ModelService, ThreatService, ConfigService, threat) {
         ModelService.getModels().then(function (data) {
             $scope.models = data.models;
         });
@@ -961,7 +961,13 @@
         }
 
         $scope.queryThemeSearch = function (query) {
-            return ThreatService.getThemes({filter: query});
+            var promise = $q.defer();
+            ThreatService.getThemes({filter: query}).then(function (data) {
+                promise.resolve(data.themes);
+            }, function () {
+                promise.reject();
+            });
+            return promise.promise;
         };
 
         $scope.selectedThemeItemChange = function (item) {

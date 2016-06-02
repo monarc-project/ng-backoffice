@@ -76,7 +76,8 @@
                                 md-selected-item-change="selectedThemeItemChange(item)"
                                 md-items="item in queryThemeSearch(themeSearchText)"
                                 md-item-text="item.label1"
-                                md-min-length="2"
+                                md-min-length="0"
+                                md-no-cache="true"
                                 placeholder="{{ 'Please select a theme' | translate }}">
                             <md-item-template>
                                 <span md-highlight-text="themeSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
