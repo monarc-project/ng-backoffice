@@ -654,12 +654,25 @@
                     }
                 })
                     .then(function (amv) {
-                        amv.measure1 = amv.measure1.id;
-                        amv.measure2 = amv.measure2.id;
-                        amv.measure3 = amv.measure3.id;
-                        amv.threat = amv.threat.id;
-                        amv.asset = amv.asset.id;
-                        amv.vulnerability = amv.vulnerability.id;
+                        if (amv.measure1) {
+                            amv.measure1 = amv.measure1.id;
+                        }
+                        if (amv.measure2) {
+                            amv.measure2 = amv.measure2.id;
+                        }
+                        if (amv.measure3) {
+                            amv.measure3 = amv.measure3.id;
+                        }
+                        if (amv.threat) {
+                            amv.threat = amv.threat.id;
+                        }
+                        if (amv.asset) {
+                            amv.asset = amv.asset.id;
+                        }
+                        if (amv.vulnerability) {
+                            amv.vulnerability = amv.vulnerability.id;
+                        }
+
 
                         AmvService.updateAmv(amv,
                             function () {
