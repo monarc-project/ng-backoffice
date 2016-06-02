@@ -743,6 +743,7 @@
         $scope.objlib_category_filter = 0;
         $scope.objlib_asset_filter = 0;
         $scope.objlib_lockswitch = false;
+        $scope.objlib_assets = [];
 
         $scope.$watch('objlib_category_filter', function (newValue, oldValue) {
             // Refresh contents
@@ -762,6 +763,11 @@
 
         $scope.selectObjlibsTab = function () {
             //TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);
+
+            // Load all assets to fill the md-select dropdown
+            AssetService.getAssets({order: '-code', limit: 0}).then(function (data) {
+                $scope.objlib_assets = data.assets;
+            });
 
             // TODO: DEV WHILE WE DON'T HAVE THE BACKEND API - REMOVE ME
             $scope.objlibs.items = {
