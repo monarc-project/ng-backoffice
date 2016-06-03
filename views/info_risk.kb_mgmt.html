@@ -416,6 +416,7 @@
 
                 <md-select ng-model="objlib_category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" flex>
                     <md-option value="0">{{ 'All categories' | translate }}</md-option>
+                    <md-option ng-repeat="cat in objlib_categories" ng-value="cat.id">{{ cat.label1 }}</md-option>
                 </md-select>
 
                 <md-switch aria-label="{{ 'Lock' | translate }}'" class="md-padding-left md-padding-right"

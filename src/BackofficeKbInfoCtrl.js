@@ -768,6 +768,30 @@
             AssetService.getAssets({order: '-code', limit: 0}).then(function (data) {
                 $scope.objlib_assets = data.assets;
             });
+            ObjlibService.getObjlibsCats({order: '-label1', limit: 0}).then(function (data) {
+                var buildItemRecurse = function (children, depth) {
+                    var output = [];
+
+                    for (var i = 0; i < children.length; ++i) {
+                        var child = children[i];
+
+                        for (var j = 0; j < depth; ++j) {
+                            child.label1 = " >> " + child.label1;
+                        }
+
+                        output.push(child);
+
+                        if (child.child.length > 0) {
+                            var child_output = buildItemRecurse(child.child, depth + 1);
+                            output = output.concat(child_output);
+                        }
+                    }
+
+                    return output;
+                };
+
+                $scope.objlib_categories = buildItemRecurse(data.categories, 0);
+            });
 
             // TODO: DEV WHILE WE DON'T HAVE THE BACKEND API - REMOVE ME
             /*$scope.objlibs.items = {
