@@ -46,6 +46,7 @@
                             md-search-text="categorySearchText"
                             md-items="item in queryCategorySearch(categorySearchText)"
                             md-item-text="item.code"
+                            md-min-length="0"
                             placeholder="{{ 'Add categories...' | translate }}">
                         <span md-highlight-text="categorySearchText">{{ item.label1 }} ({{ item.code }}}</span>
                     </md-autocomplete>
@@ -66,6 +67,7 @@
                                      md-search-text="tagSearchText"
                                      md-items="item in queryTagSearch(tagSearchText)"
                                      md-item-text="item.code"
+                                     md-min-length="0"
                                      placeholder="{{ 'Add tags...' | translate }}">
                         <span md-highlight-text="tagSearchText">{{ item.label1 }} ({{ item.code }}}</span>
                     </md-autocomplete>
