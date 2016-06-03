@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="md-block" layout="column" flex style="margin-bottom: 8px">
-                    <div layout="row">
+                    <div layout="row" layout-align="center center">
                         <md-icon style="margin-right: 8px;">class</md-icon>
                         <md-autocomplete
                                 flex
@@ -102,6 +102,7 @@
                             </md-not-found>
 
                         </md-autocomplete>
+                        <md-button class="md-primary" ng-show="objlib.objectCategory.id" ng-click="editCategory($event, objlib.objectCategory)">{{ 'Edit' | translate }}</md-button>
                     </div>
                 </div>
 

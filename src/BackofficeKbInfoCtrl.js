@@ -762,20 +762,20 @@
         };
 
         $scope.selectObjlibsTab = function () {
-            //TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);
+            TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);
 
-            // Load all assets to fill the md-select dropdown
+            // Load all assets and categories to fill the md-select dropdowns
             AssetService.getAssets({order: '-code', limit: 0}).then(function (data) {
                 $scope.objlib_assets = data.assets;
             });
 
             // TODO: DEV WHILE WE DON'T HAVE THE BACKEND API - REMOVE ME
-            $scope.objlibs.items = {
+            /*$scope.objlibs.items = {
                 objlibs: [{
                     id: 25,
                     label1: 'hardcoded test'
                 }]
-            }
+            }*/
         };
 
         $scope.deselectObjlibsTab = function () {
@@ -1279,6 +1279,36 @@
                 }, function () {
                     objLibDialog.editObjlib(null, $scope.objlib);
                 });
+        };
+
+        $scope.editCategory = function (ev, cat) {
+            ObjlibService.getObjlibCat(cat.id).then(function (cat) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'ObjlibService', 'catName', 'category', CreateObjlibCategoryDialogCtrl],
+                    templateUrl: '/views/dialogs/create.objlibs.categories.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    locals: {
+                        'catName': null,
+                        'category': cat
+                    }
+                })
+                    .then(function (category) {
+                        ObjlibService.updateObjlibCat(category,
+                            function () {
+                                objLibDialog.editObjlib(null, $scope.objlib);
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The category has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    }, function () {
+                        objLibDialog.editObjlib(null, $scope.objlib);
+                    });
+            });
         };
 
         $scope.queryCategorySearch = function (query) {
