@@ -41,7 +41,7 @@
                 fullscreen: useFullScreen
             })
                 .then(function (client) {
-                    ClientService.createClient(client).then(
+                    ClientService.createClient(client,
                         function () {
                             $scope.updateClients();
                             $mdToast.show(
