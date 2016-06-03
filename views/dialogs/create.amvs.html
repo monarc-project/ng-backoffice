@@ -2,8 +2,8 @@
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2 ng-if="!asset.id" translate>Add a new AMV link</h2>
-                <h2 ng-if="asset.id" translate>Update AMV link</h2>
+                <h2 ng-if="!amv.id" translate>Add a new AMV link</h2>
+                <h2 ng-if="amv.id" translate>Update AMV link</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
@@ -143,7 +143,7 @@
                 {{ 'Cancel' | translate }}
             </md-button>
             <md-button ng-click="create()" class="md-accent md-hue-3">
-                {{ (asset.id > 0 ? 'Update' : 'Create') | translate }}
+                {{ (amv.id > 0 ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>
     </form>
