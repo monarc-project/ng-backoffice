@@ -1,1 +1,28 @@
-<h2 translate>Analysis guides</h2>
+<div flex ng-controller="BackofficeAnalysisGuidesCtrl">
+    <md-table-container flex>
+        <table md-table>
+            <thead md-head>
+            <tr md-row>
+                <th md-column><span translate>Category</span></th>
+                <th md-column><span translate>Description</span></th>
+                <th md-column><span translate>Contains items</span></th>
+                <th md-column><span translate>Actions</span></th>
+            </tr>
+            </thead>
+
+            <tbody md-body>
+            <tr md-row ng-repeat="guide in guides">
+                <td md-cell>{{ guide.type }}</td>
+                <td md-cell>{{ guide.description }}</td>
+                <td md-cell><md-button ng-disabled="guide.isWithItems == 0">{{ 'Items' | translate }}</md-button></td>
+                <td md-cell><md-icon>{{ server.status ? 'done' : 'close' }}</md-icon></td>
+                <td md-cell>
+                    <md-button class="md-icon-button" ng-click="deleteServer($event, server)">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+</div>
