@@ -14,9 +14,9 @@
             <tr md-row ng-repeat="guide in guides">
                 <td md-cell>{{ guide.type }}</td>
                 <td md-cell>{{ guide.description }}</td>
-                <td md-cell><md-button ng-disabled="guide.isWithItems == 0">{{ 'Items' | translate }}</md-button></td>
+                <td md-cell><md-button ng-disabled="guide.isWithItems == 0" ui-sref="main.kb_mgmt.analysis_guides.items({guideId: guide.id})">{{ 'Items' | translate }}</md-button></td>
                 <td md-cell>
-                    <md-button class="md-icon-button" ng-click="deleteServer($event, server)">
+                    <md-button class="md-icon-button" ng-click="deleteGuide($event, guide)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </td>
