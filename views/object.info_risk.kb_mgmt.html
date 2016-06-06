@@ -1,9 +1,13 @@
 <div class="md-padding" ng-cloak layout="column" ng-controller="BackofficeKbInfoObjectCtrl">
     <div layout="row" layout-align="space-around center">
-        <div flex="20">
+        <div flex="20" ng-if="object">
             <h2>{{ object.name1 }}</h2>
 
             <p>{{ object.label1 }}</p>
+        </div>
+
+        <div flex="20" ng-if="!object">
+            <md-progress-circular md-indeterminate="true"></md-progress-circular>
         </div>
 
         <md-card flex="70">

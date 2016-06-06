@@ -1293,6 +1293,10 @@
                 }
             })
                 .then(function (category) {
+                    if (category.previous) {
+                        category.previous = category.previous.id;
+                    }
+
                     ObjlibService.createObjlibCat(category,
                         function () {
                             $mdToast.show(
