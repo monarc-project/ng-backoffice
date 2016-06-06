@@ -15,7 +15,6 @@
                 <td md-cell>{{ guide.type }}</td>
                 <td md-cell>{{ guide.description }}</td>
                 <td md-cell><md-button ng-disabled="guide.isWithItems == 0">{{ 'Items' | translate }}</md-button></td>
-                <td md-cell><md-icon>{{ server.status ? 'done' : 'close' }}</md-icon></td>
                 <td md-cell>
                     <md-button class="md-icon-button" ng-click="deleteServer($event, server)">
                         <md-icon>delete</md-icon>
@@ -25,4 +24,14 @@
             </tbody>
         </table>
     </md-table-container>
+
+    <div layout="row" class="md-padding" ng-show="guides.length < 4">
+        <span flex></span>
+        <md-button class="md-fab md-accent" aria-label="{{ 'New guide' | translate }}" ng-click="createNewGuide($event)">
+            <md-tooltip md-direction="left">
+                {{ 'New guide' | translate }}
+            </md-tooltip>
+            <md-icon>add</md-icon>
+        </md-button>
+    </div>
 </div>

@@ -846,6 +846,10 @@
                             objlib.rolfTag = objlib.rolfTag.id;
                         }
 
+                        if (objlib.category) {
+                            objlib.category = objlib.category.id;
+                        }
+
                         if (isUpdate) {
                             ObjlibService.updateObjlib(objlib,
                                 function () {
@@ -1371,7 +1375,7 @@
         };
 
         $scope.selectedCategoryItemChange = function (item) {
-            $scope.objlib.objectCategory = item;
+            $scope.objlib.category = item;
         };
 
         $scope.queryTagSearch = function (query) {

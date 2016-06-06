@@ -85,7 +85,7 @@
                         <md-autocomplete
                                 flex
                                 md-no-cache="true"
-                                md-selected-item="objlib.objectCategory"
+                                md-selected-item="objlib.category"
                                 md-search-text="categorySearchText"
                                 md-selected-item-change="selectedCategoryItemChange(item)"
                                 md-items="item in queryCategorySearch(categorySearchText)"
@@ -102,7 +102,7 @@
                             </md-not-found>
 
                         </md-autocomplete>
-                        <md-button class="md-primary" ng-show="objlib.objectCategory.id" ng-click="editCategory($event, objlib.objectCategory)">{{ 'Edit' | translate }}</md-button>
+                        <md-button class="md-primary" ng-show="objlib.category.id" ng-click="editCategory($event, objlib.category)">{{ 'Edit' | translate }}</md-button>
                     </div>
                 </div>
 
