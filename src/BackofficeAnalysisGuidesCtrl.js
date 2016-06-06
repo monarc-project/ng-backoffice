@@ -26,7 +26,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', CreateGuideDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'gettext', CreateGuideDialogCtrl],
                 templateUrl: '/views/dialogs/create.guides.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -49,14 +49,30 @@
     }
 
 
-    function CreateGuideDialogCtrl($scope, $mdDialog) {
+    function CreateGuideDialogCtrl($scope, $mdDialog, gettext) {
+        $scope.categories = [
+            {
+                id: 1,
+                label: gettext("Risk analysis context")
+            },
+            {
+                id: 2,
+                label: gettext("Risk management context")
+            },
+            {
+                id: 3,
+                label: gettext("Summary assessment of trends and threats")
+            },
+            {
+                id: 4,
+                label: gettext("Summary of assets / impacts")
+            },
+        ];
+
         $scope.guide = {
-            label: '',
-            address: '',
-            fqdn: '',
-            login: '',
-            port: '',
-            ssh: false
+            type: null,
+            mode: null,
+            description: ''
         };
 
         $scope.cancel = function() {

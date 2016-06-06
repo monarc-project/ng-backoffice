@@ -139,6 +139,14 @@ angular
                 ncyBreadcrumb: {
                     label: gettext('Analysis guide')
                 }
+            }).state('main.kb_mgmt.analysis_guides.items', {
+                url: '/:guideId',
+                views: {
+                    'kb_main@main.kb_mgmt': {templateUrl: '/views/items.analysis_guides.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Guide contents')
+                }
             });
 
             $provide.factory('monarcHttpInter', ['$injector', function ($injector) {
