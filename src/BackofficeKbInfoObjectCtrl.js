@@ -12,9 +12,13 @@
      */
     function BackofficeKbInfoObjectCtrl($scope, $mdToast, $mdMedia, $mdDialog, $stateParams,
                                         gettext, gettextCatalog, ObjlibService) {
-        ObjlibService.getObjlib($stateParams.objectId).then(function (object) {
-            $scope.object = object;
-        });
+        $scope.updateObjlib = function () {
+            ObjlibService.getObjlib($stateParams.objectId).then(function (object) {
+                $scope.object = object;
+            });
+        };
+
+        $scope.updateObjlib();
 /*
         $scope.composition = [
             {
@@ -70,6 +74,76 @@
             })
         }
 
+        $scope.createNewObjlib = function (ev, objlib) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            var isUpdate = (objlib && objlib.id);
+
+            $scope.objLibDialog = $mdDialog;
+            $scope.objLibDialog.show({
+                controller: ['$scope', '$mdDialog', '$mdToast', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
+                templateUrl: '/views/dialogs/create.objlibs.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                locals: {
+                    objLibDialog: $scope,
+                    objlib: objlib
+                }
+            })
+                .then(function (objlib) {
+                    if (objlib) {
+                        if (objlib.asset) {
+                            objlib.asset = objlib.asset.id;
+                        }
+
+                        if (objlib.rolfTag) {
+                            objlib.rolfTag = objlib.rolfTag.id;
+                        }
+
+                        if (objlib.category) {
+                            objlib.category = objlib.category.id;
+                        }
+
+                        if (isUpdate) {
+                            ObjlibService.updateObjlib(objlib,
+                                function () {
+                                    $scope.updateObjlib();
+                                    $mdToast.show(
+                                        $mdToast.simple()
+                                            .textContent(gettext('The object has been updated successfully.'))
+                                            .position('top right')
+                                            .hideDelay(3000)
+                                    );
+                                }
+                            );
+                        } else {
+                            ObjlibService.createObjlib(objlib,
+                                function () {
+                                    $scope.updateObjlib();
+                                    $mdToast.show(
+                                        $mdToast.simple()
+                                            .textContent(gettext('The object has been created successfully.'))
+                                            .position('top right')
+                                            .hideDelay(3000)
+                                    );
+                                }
+                            );
+                        }
+                    }
+                });
+        };
+
+        $scope.editObjlib = function (ev, objlib) {
+            if (objlib && objlib.id) {
+                ObjlibService.getObjlib(objlib.id).then(function (objlibData) {
+                    $scope.createNewObjlib(ev, objlibData);
+                });
+            } else {
+                $scope.createNewObjlib(ev, objlib);
+            }
+        };
+
         $scope.exportObject = function (ev) {
             var prompt = $mdDialog.prompt()
                 .title(gettext('Password'))
@@ -100,9 +174,9 @@
                             objlib.object = objlib.object.id;
                         }
 
-                        ObjlibService.createObjlib(objlib,
+                        /*ObjlibService.createObjlib(objlib,
                             function () {
-                                $scope.updateObjlibs();
+                                $scope.updateObjlib();
                                 $mdToast.show(
                                     $mdToast.simple()
                                         .textContent(gettext('The object has been created successfully.'))
@@ -110,7 +184,7 @@
                                         .hideDelay(3000)
                                 );
                             }
-                        );
+                        );*/
                     }
                 });
         };
@@ -145,7 +219,7 @@
                         if (isUpdate) {
                             ObjlibService.updateObjlib(objlib,
                                 function () {
-                                    $scope.updateObjlibs();
+                                    $scope.updateObjlib();
                                     $mdToast.show(
                                         $mdToast.simple()
                                             .textContent(gettext('The object has been updated successfully.'))
@@ -157,7 +231,7 @@
                         } else {
                             ObjlibService.createObjlib(objlib,
                                 function () {
-                                    $scope.updateObjlibs();
+                                    $scope.updateObjlib();
                                     $mdToast.show(
                                         $mdToast.simple()
                                             .textContent(gettext('The object has been created successfully.'))
