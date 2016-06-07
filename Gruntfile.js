@@ -54,7 +54,8 @@ module.exports = function (grunt) {
         uglify: {
             appJs: {
                 files: {
-                    '../../public/js/app.min.js': ['public/js/Starter.js', 'public/js/StarterController.js', 'public/js/translations.js']
+                    // '../../public/js/app.min.js': ['public/js/Starter.js', 'public/js/StarterController.js', 'public/js/translations.js'],
+                    '../../public/js/angular-common-libs.min.js': ['../../public/js/angular-common-libs.js']
                 }
             }
         }
