@@ -208,3 +208,15 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
 .md-treeview li > button > md-icon {
   font-size: 18px;
 }
+
+/** Dropzone Area */
+.md-upload-dropbox {
+  background: #EEEEEE;
+  text-align: center;
+  cursor: pointer;
+}
+
+.md-upload-dropbox.dragover {
+  background: #607D8B;
+  color: white;
+}
