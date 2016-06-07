@@ -115,6 +115,14 @@ angular
                 ncyBreadcrumb: {
                     label: gettext('Models')
                 }
+            }).state('main.kb_mgmt.models.details', {
+                url: '/:modelId',
+                views: {
+                    'kb_main@main.kb_mgmt': {templateUrl: '/views/details.models.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Model details')
+                }
             }).state('main.kb_mgmt.op_risk', {
                 url: '/op',
                 views: {
