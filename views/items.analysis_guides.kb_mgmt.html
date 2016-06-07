@@ -1,4 +1,8 @@
 <div flex ng-controller="BackofficeAnalysisGuidesItemsCtrl">
+    <div layout="row" layout-align="start center">
+        <md-button class="md-icon-button" ui-sref="main.kb_mgmt.analysis_guides"><md-icon>arrow_back</md-icon></md-button>
+        <p class="md-subheader">{{ getGuideLabel(guide.type) }}</p>
+    </div>
     <md-table-container flex>
         <table md-table>
             <thead md-head>

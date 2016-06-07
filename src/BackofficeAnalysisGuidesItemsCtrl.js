@@ -3,14 +3,15 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAnalysisGuidesItemsCtrl', [
-            '$scope', '$mdDialog', '$mdMedia', '$mdToast', 'gettextCatalog', 'gettext', 'GuideService',
+            '$scope', '$mdDialog', '$mdMedia', '$mdToast', '$stateParams', 'gettextCatalog', 'gettext', 'GuideService',
             BackofficeAnalysisGuidesItemsCtrl
         ]);
 
     /**
      * KB > Analysis Guides Items Controller for the Backoffice module
      */
-    function BackofficeAnalysisGuidesItemsCtrl($scope, $mdDialog, $mdMedia, $mdToast, gettextCatalog, gettext, GuideService) {
+    function BackofficeAnalysisGuidesItemsCtrl($scope, $mdDialog, $mdMedia, $mdToast, $stateParams, gettextCatalog,
+                                               gettext, GuideService) {
         $scope.items = [
             {description: 'test 1', position: 1},
             {description: 'test 2', position: 2},
@@ -26,6 +27,10 @@
             });
         }
         //$scope.updateItems();
+
+        GuideService.getGuide($stateParams.guideId).then(function (data) {
+            $scope.guide = data;
+        })
 
         $scope.createNewItem = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -80,6 +85,10 @@
                         );
                     });
             });
+        };
+
+        $scope.getGuideLabel = function (type) {
+            return GuideService.getCategoryLabel(type)
         };
     }
 

@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('GuideService', [ '$resource', GuideService ]);
+        .factory('GuideService', [ '$resource', 'gettext', GuideService ]);
 
-    function GuideService($resource) {
+    function GuideService($resource, gettext) {
         var self = this;
 
         self.GuideResource = $resource('/api/guides/:guideId', { guideId: '@id' },
@@ -68,6 +68,35 @@
             self.ItemResource.delete({itemId: id}, success, error);
         };
 
+
+        const categoriesLabels = {
+            1: gettext("Risk analysis context"),
+            2: gettext("Risk management context"),
+            3: gettext("Summary assessment of trends and threats"),
+            4: gettext("Summary of assets / impacts")
+        }
+
+        const categories = [
+            {
+                id: 1,
+                label: categoriesLabels[1]
+            },
+            {
+                id: 2,
+                label: categoriesLabels[2]
+            },
+            {
+                id: 3,
+                label: categoriesLabels[3]
+            },
+            {
+                id: 4,
+                label: categoriesLabels[4]
+            },
+        ];
+
+
+
         return {
             getGuides: getGuides,
             getGuide: getGuide,
@@ -81,6 +110,8 @@
             deleteItem: deleteItem,
             updateItem: updateItem,
 
+            getCategories: function () { return categories; },
+            getCategoryLabel: function (id) { return categoriesLabels[id]; }
         };
     }
 

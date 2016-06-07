@@ -10,7 +10,8 @@
     /**
      * KB > Analysis Guides Controller for the Backoffice module
      */
-    function BackofficeAnalysisGuidesCtrl($scope, $mdDialog, $mdMedia, $mdToast, gettextCatalog, gettext, GuideService) {
+    function BackofficeAnalysisGuidesCtrl($scope, $mdDialog, $mdMedia, $mdToast, gettextCatalog,
+                                          gettext, GuideService) {
         $scope.guides = [];
 
         $scope.updateGuides = function () {
@@ -26,7 +27,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'gettext', CreateGuideDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'GuideService', CreateGuideDialogCtrl],
                 templateUrl: '/views/dialogs/create.guides.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -49,25 +50,8 @@
     }
 
 
-    function CreateGuideDialogCtrl($scope, $mdDialog, gettext) {
-        $scope.categories = [
-            {
-                id: 1,
-                label: gettext("Risk analysis context")
-            },
-            {
-                id: 2,
-                label: gettext("Risk management context")
-            },
-            {
-                id: 3,
-                label: gettext("Summary assessment of trends and threats")
-            },
-            {
-                id: 4,
-                label: gettext("Summary of assets / impacts")
-            },
-        ];
+    function CreateGuideDialogCtrl($scope, $mdDialog, GuideService) {
+        $scope.categories = GuideService.getCategories()
 
         $scope.guide = {
             type: null,
