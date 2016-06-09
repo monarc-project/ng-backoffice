@@ -131,13 +131,40 @@
                     </div>
                 </div>
 
-                <md-input-container class="md-block">
-                    <label translate>Position</label>
-                    <md-icon>view_list</md-icon>
-                    <md-select ng-model="objlib.position">
-                        <md-option value="1">1</md-option>
+                <md-input-container class="md-block" flex>
+                    <label translate>Location</label>
+                    <md-icon>reorder</md-icon>
+                    <md-select ng-model="objlib.implicitPosition">
+                        <md-option value="1">{{ 'at the beginning' | translate }}</md-option>
+                        <md-option value="2">{{ 'in the end' | translate }}</md-option>
+                        <md-option value="3">{{ 'after...' | translate }}</md-option>
                     </md-select>
                 </md-input-container>
+
+                <div class="md-block" layout="column" flex style="margin-bottom: 8px" ng-show="implicitPosition == 3">
+                    <div layout="row">
+                        <md-icon style="margin-right: 8px;">class</md-icon>
+                        <md-autocomplete
+                                flex
+                                md-no-cache="true"
+                                md-selected-item="objlib.previous"
+                                md-search-text="categoryPreviousSearchText"
+                                md-selected-item-change="selectedPreviousCatItemChange(item)"
+                                md-items="item in queryCategorySearch(categoryPreviousSearchText)"
+                                md-item-text="item.label1"
+                                md-min-length="0"
+                                placeholder="{{ 'Previous category...' | translate }}">
+                            <md-item-template>
+                                <span md-highlight-text="categoryPreviousSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                            </md-item-template>
+
+                            <md-not-found>
+                                {{ 'No category matching your search was found' | translate }}
+                            </md-not-found>
+
+                        </md-autocomplete>
+                    </div>
+                </div>
 
             </div>
         </md-dialog-content>

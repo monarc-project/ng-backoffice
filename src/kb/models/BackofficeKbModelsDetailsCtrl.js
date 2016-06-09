@@ -13,7 +13,9 @@
      */
     function BackofficeKbModelsDetailsCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog,
                                            TableHelperService, ModelService, $stateParams) {
-
+        ModelService.getModel($stateParams.modelId).then(function (data) {
+            $scope.model = data;
+        });
     }
 
 })();

@@ -16,7 +16,9 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, $mdToast, gettext, AssetServi
             name1: '',
             name2: '',
             name3: '',
-            name4: ''
+            name4: '',
+            implicitPosition: 2,
+            previous: null
         };
     }
 

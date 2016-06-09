@@ -747,12 +747,15 @@
 
         $scope.$watch('objlib_category_filter', function (newValue, oldValue) {
             // Refresh contents
+            $scope.updateObjlibs();
         });
         $scope.$watch('objlib_asset_filter', function (newValue, oldValue) {
             // Refresh contents
+            $scope.updateObjlibs();
         });
         $scope.$watch('objlib_lockswitch', function (newValue, oldValue) {
             // Refresh contents
+            $scope.updateObjlibs();
         });
 
         $scope.resetObjlibsFilters = function () {
@@ -799,7 +802,16 @@
         };
 
         $scope.updateObjlibs = function () {
-            $scope.objlibs.promise = ObjlibService.getObjlibs($scope.objlibs.query);
+            var query = angular.copy($scope.objlibs.query);
+            if ($scope.objlib_category_filter > 0) {
+                query.category = $scope.objlib_category_filter;
+            }
+            if ($scope.objlib_asset_filter > 0) {
+                query.asset = $scope.objlib_asset_filter;
+            }
+            query.lock = $scope.objlib_lockswitch;
+
+            $scope.objlibs.promise = ObjlibService.getObjlibs(query);
             $scope.objlibs.promise.then(
                 function (data) {
                     $scope.objlibs.items = data;

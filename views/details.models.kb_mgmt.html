@@ -1,3 +1,43 @@
 <div flex ng-controller="BackofficeKbModelsDetailsCtrl">
-    Model details
+    <div layout="column" layout-align="center center" ng-if="!model" flex class="md-padding">
+        <md-progress-circular md-indeterminate="true"></md-progress-circular>
+    </div>
+
+    <div layout="column" ng-if="model" class="md-padding-left md-padding-right">
+        <h2>{{ ::model.label1 }}</h2>
+
+        <md-card>
+            <md-tabs md-border-bottom="true" md-dynamic-height>
+                <md-tab label="{{ 'CASES Diagonstic' | translate }}">
+                    <h3 translate>Associated questions (projects)</h3>
+                </md-tab>
+
+                <md-tab label="{{ 'Risk analysis' | translate }}">
+                    <div layout="row" layout-padding>
+                        <div flex="15" layout="column">
+                            <p class="md-subheader" translate>Risk analysis</p>
+                            <md-input-container class="md-block">
+                                <md-icon>search</md-icon>
+                                <label translate>Search an instance...</label>
+                                <input type="text">
+                            </md-input-container>
+                        </div>
+
+                        <div flex>
+                            <md-tabs md-dynamic-height>
+                                <md-tab label="{{ 'General information' | translate }}"></md-tab>
+                                <md-tab label="{{ 'Risks table' | translate }}"></md-tab>
+                                <md-tab label="{{ 'OP risks table' | translate }}"></md-tab>
+                            </md-tabs>
+                        </div>
+                    </div>
+
+                </md-tab>
+
+                <md-tab label="{{ 'Evaluation scales' | translate }}">
+
+                </md-tab>
+            </md-tabs>
+        </md-card>
+    </div>
 </div>
