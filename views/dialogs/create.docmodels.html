@@ -16,7 +16,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Category</label>
                     <md-icon>class</md-icon>
-                    <md-select ng-model="guide.type">
+                    <md-select ng-model="docModel.type">
                         <md-option ng-repeat="category in categories" value="{{ category.id }}">{{ category.label }}</md-option>
                     </md-select>
                 </md-input-container>
@@ -24,7 +24,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Description</label>
                     <md-icon>label</md-icon>
-                    <textarea ng-model="guide.description"></textarea>
+                    <textarea ng-model="docModel.description"></textarea>
                 </md-input-container>
 
                 <md-input-container class="md-block">
@@ -44,7 +44,7 @@
                 {{ 'Cancel' | translate }}
             </md-button>
             <md-button ng-click="create()" class="md-accent md-hue-3">
-                {{ (guide.id > 0 ? 'Update' : 'Create') | translate }}
+                {{ (docModel.id > 0 ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>
     </form>
