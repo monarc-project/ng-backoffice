@@ -738,6 +738,7 @@
         /*
          * OBJECTS LIBRARY TAB
          */
+        var objLibTabSelected = false;
         $scope.objlibs = TableHelperService.build('name1', 10, 1, '');
 
         $scope.objlib_category_filter = 0;
@@ -746,16 +747,22 @@
         $scope.objlib_assets = [];
 
         $scope.$watch('objlib_category_filter', function (newValue, oldValue) {
-            // Refresh contents
-            $scope.updateObjlibs();
+            if (objLibTabSelected) {
+                // Refresh contents
+                $scope.updateObjlibs();
+            }
         });
         $scope.$watch('objlib_asset_filter', function (newValue, oldValue) {
-            // Refresh contents
-            $scope.updateObjlibs();
+            if (objLibTabSelected) {
+                // Refresh contents
+                $scope.updateObjlibs();
+            }
         });
         $scope.$watch('objlib_lockswitch', function (newValue, oldValue) {
-            // Refresh contents
-            $scope.updateObjlibs();
+            if (objLibTabSelected) {
+                // Refresh contents
+                $scope.updateObjlibs();
+            }
         });
 
         $scope.resetObjlibsFilters = function () {
@@ -765,6 +772,7 @@
         };
 
         $scope.selectObjlibsTab = function () {
+            objLibTabSelected = true;
             TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);
 
             // Load all assets and categories to fill the md-select dropdowns
@@ -798,6 +806,7 @@
         };
 
         $scope.deselectObjlibsTab = function () {
+            objLibTabSelected = false;
             TableHelperService.unwatchSearch($scope.objlibs);
         };
 

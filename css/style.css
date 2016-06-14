@@ -220,3 +220,47 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
   background: #607D8B;
   color: white;
 }
+
+/** Calculation of risk */
+.tbl-risk-calc {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tbl-risk-calc td, .tbl-risk-calc th {
+  width: 25px;
+  height: 25px;
+}
+
+.tbl-risk-calc .green {
+  background: #A5D6A7;
+}
+
+.tbl-risk-calc .orange {
+  background: #FFCC80;
+}
+
+.tbl-risk-calc .red {
+  background: #EF9A9A;
+}
+
+/** Inline edit customization */
+div.ng-inline-edit {
+  display: inline;
+}
+
+span.ng-inline-edit__text {
+  cursor: pointer;
+}
+
+div.ng-inline-edit input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #2196F3;
+  outline: none;
+}
+
+.small div.ng-inline-edit input {
+  width: 64px;
+}

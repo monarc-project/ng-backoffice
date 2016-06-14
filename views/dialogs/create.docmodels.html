@@ -32,7 +32,8 @@
                          ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="false"
                          accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                          ngf-pattern="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-                        {{ 'Drop your DOCX file in this zone, or click here to select a file' | translate }}
+                        <div ng-if="file.name">{{ file.name }}</div>
+                        <div ng-if="!file.name">{{ 'Drop your DOCX file in this zone, or click here to select a file' | translate }}</div>
                     </div>
                 </md-input-container>
             </div>
