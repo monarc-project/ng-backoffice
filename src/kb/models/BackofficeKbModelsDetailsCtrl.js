@@ -163,12 +163,60 @@
             return (parseInt(val) == val);
         };
 
+        $scope.editSubscale = function (ev, type) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'type', EditSubscaleDialogCtrl],
+                templateUrl: '/views/dialogs/edit.subscale.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                locals: {
+                    type: type
+                }
+            })
+                .then(function (subscale) {
+                    /*ModelService.createModel(model,
+                        function () {
+                            $scope.updateModels();
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent(gettext('The model has been created successfully.'))
+                                    .position('top right')
+                                    .hideDelay(3000)
+                            );
+                        }
+                    );*/
+                });
+        };
+
         $scope.impacts_scale_min = 1;
         $scope.impacts_scale_max = 3;
         $scope.threats_scale_min = 1;
         $scope.threats_scale_max = 3;
         $scope.vulns_scale_min = 1;
         $scope.vulns_scale_max = 3;
+    }
+
+    function EditSubscaleDialogCtrl($scope, $mdDialog, type, subscale) {
+        $scope.type = type;
+
+        if (subscale != undefined && subscale != null) {
+            $scope.subscale = subscale;
+        } else {
+            $scope.subscale = {
+
+            };
+        }
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.subscale);
+        };
     }
 
 })();

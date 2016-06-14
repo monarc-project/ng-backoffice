@@ -8,7 +8,7 @@
 
         <md-card>
             <md-tabs md-border-bottom="true" md-dynamic-height>
-                <md-tab label="{{ 'CASES Diagonstic' | translate }}">
+                <md-tab label="{{ 'CASES Diagnostic' | translate }}">
                     <md-toolbar class="md-table-toolbar md-default" ng-hide="questions.selected.length || questions.filter.show">
                         <div class="md-toolbar-tools">
                             <h2 class="md-title" translate>Associated questions (projects)</h2>
@@ -183,9 +183,9 @@
 
                         <div layout="row" ng-if="impacts_scale_composed">
                             <p translate>Manage sub-scales:</p>
-                            <md-button>{{ 'Confidentiality' | translate }}</md-button>
-                            <md-button>{{ 'Integrity' | translate }}</md-button>
-                            <md-button>{{ 'Availability' | translate }}</md-button>
+                            <md-button ng-click="editSubscale($event, 'c')">{{ 'Confidentiality' | translate }}</md-button>
+                            <md-button ng-click="editSubscale($event, 'i')">{{ 'Integrity' | translate }}</md-button>
+                            <md-button ng-click="editSubscale($event, 'd')">{{ 'Availability' | translate }}</md-button>
                         </div>
 
                         <table class="md-html-table">
@@ -224,18 +224,18 @@
                             <span class="small text-blue" inline-edit="threats_scale_max" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> ]
                         </h4>
 
-                        <ol>
-                            <li ng-repeat="i in range(threats_scale_min, threats_scale_max)"><span inline-edit="threat[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
-                        </ol>
+                        <ul class="no-list-style">
+                            <li ng-repeat="i in range(threats_scale_min, threats_scale_max)">{{i}}. <span inline-edit="threat[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
+                        </ul>
 
                         <h4><span translate>Vulnerabilities scale:</span> [
                             <span class="small text-blue" inline-edit="vulns_scale_min" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> -
                             <span class="small text-blue" inline-edit="vulns_scale_max" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> ]
                         </h4>
 
-                        <ol>
-                            <li ng-repeat="i in range(vulns_scale_min, vulns_scale_max)"><span inline-edit="vuln[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
-                        </ol>
+                        <ul class="no-list-style">
+                            <li ng-repeat="i in range(vulns_scale_min, vulns_scale_max)">{{i}}. <span inline-edit="vuln[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
+                        </ul>
                     </div>
                 </md-tab>
             </md-tabs>

@@ -1,0 +1,99 @@
+<md-dialog style="min-width: 900px;" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 ng-if="type == 'c'" translate>Composed impact on confidentiality</h2>
+                <h2 ng-if="type == 'i'" translate>Composed impact on integrity</h2>
+                <h2 ng-if="type == 'd'" translate>Composed impact on availability</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-switch ng-model="enabled">{{ 'Enable this sub-scale' | translate }}</md-switch>
+
+                <div ng-if="enabled">
+                    <md-subheader>{{ 'Pre-impact X' | translate }}</md-subheader>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Name</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.px_name">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Code</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.px_code">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Min.</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.px_min" type="number">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Max.</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.px_max" type="number">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Default value</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.px_default" type="number">
+                        <p class="md-caption" translate>-1 for inherited</p>
+                    </md-input-container>
+
+                    <md-subheader>{{ 'Pre-impact Y' | translate }}</md-subheader>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Name</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.py_name">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Code</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.py_code">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Min.</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.py_min" type="number">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Max.</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.py_max" type="number">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex>
+                        <label translate>Default value</label>
+                        <md-icon>reorder</md-icon>
+                        <input ng-model="scale.py_default" type="number">
+                        <p class="md-caption" translate>-1 for inherited</p>
+                    </md-input-container>
+
+
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button ng-click="create()" class="md-accent md-hue-3">
+                {{ (tag.id > 0 ? 'Update' : 'Create') | translate }}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
