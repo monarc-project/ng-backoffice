@@ -27,7 +27,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'GuideService', CreateGuideDialogCtrl],
+                controller: ['$scope', 'ConfigService', '$mdDialog', 'GuideService', CreateGuideDialogCtrl],
                 templateUrl: '/views/dialogs/create.guides.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -50,13 +50,18 @@
     }
 
 
-    function CreateGuideDialogCtrl($scope, $mdDialog, GuideService) {
+    function CreateGuideDialogCtrl($scope, ConfigService, $mdDialog, GuideService) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.categories = GuideService.getCategories()
 
         $scope.guide = {
             type: null,
             mode: null,
-            description: ''
+            description1: '',
+            description2: '',
+            description3: '',
+            description4: ''
         };
 
         $scope.cancel = function() {
