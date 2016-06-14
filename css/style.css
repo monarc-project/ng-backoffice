@@ -76,6 +76,10 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
   text-align: right;
 }
 
+.text-blue {
+  color: #2196F3;
+}
+
 .md-card-info {
     background-color: #E3F2FD;
     color: #0D47A1;
@@ -253,7 +257,12 @@ span.ng-inline-edit__text {
   cursor: pointer;
 }
 
-div.ng-inline-edit input {
+span.ng-inline-edit__text--placeholder {
+  font-style: italic;
+  color: #888888;
+}
+
+div.ng-inline-edit input, div.ng-inline-edit textarea {
   border-top: none;
   border-left: none;
   border-right: none;

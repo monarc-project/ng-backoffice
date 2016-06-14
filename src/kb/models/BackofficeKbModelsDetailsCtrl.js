@@ -150,8 +150,25 @@
         /**
          * Evaluation scales
          */
-        $scope.impact_scale_min = 1;
-        $scope.impact_scale_max = 3;
+        $scope.range = function (min, max) {
+            var array = [];
+            for (var v = min; v <= max; ++v) {
+                array.push(v);
+            }
+
+            return array;
+        }
+
+        $scope.inlineNumberValidator = function (val) {
+            return (parseInt(val) == val);
+        };
+
+        $scope.impacts_scale_min = 1;
+        $scope.impacts_scale_max = 3;
+        $scope.threats_scale_min = 1;
+        $scope.threats_scale_max = 3;
+        $scope.vulns_scale_min = 1;
+        $scope.vulns_scale_max = 3;
     }
 
 })();
