@@ -125,9 +125,17 @@ angular
                     label: gettext('Model details')
                 }
             }).state('main.kb_mgmt.models.details.object', {
-                url: '/:objectId',
+                url: '/object/:objectId',
                 views: {
                     'anr@main.kb_mgmt.models.details': {templateUrl: '/views/object.info_risk.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Object information')
+                }
+            }).state('main.kb_mgmt.models.details.instance', {
+                url: '/inst/:instId',
+                views: {
+                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/inst.details.models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Object instance')

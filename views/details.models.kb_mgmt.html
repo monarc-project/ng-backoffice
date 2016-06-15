@@ -216,7 +216,7 @@
         <td tree-dnd-node-handle ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {'padding-left': $callbacks.calsIndent(node.__level__)}"
             ng-class="expandingProperty.cellClass" compile="expandingProperty.cellTemplate">
             <a data-nodrag><md-icon ng-click="toggleExpand(node)" class="tree-icon" ng-if="node.__children__.length > 0">{{ node.__expanded__ ? 'expand_less' : 'expand_more' }}</md-icon></a>
-            <a data-nodrag ng-if="!node.__children__ || node.__children__.length == 0" ui-sref="main"><md-icon>class</md-icon></a>
+            <a data-nodrag ng-if="!node.__children__ || node.__children__.length == 0" ui-sref="main.kb_mgmt.models.details.instance({instId: node.id})"><md-icon>class</md-icon></a>
             {{node[expandingProperty.field] || node[expandingProperty]}}
         </td>
     </tr>
