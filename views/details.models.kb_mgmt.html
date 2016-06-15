@@ -86,6 +86,21 @@
                                 <label translate>Search an instance...</label>
                                 <input type="text">
                             </md-input-container>
+
+                            <tree-dnd
+                                      tree-data="tree_data"
+                                      tree-control="my_tree"
+                                      filter="_filter"
+                                      primary-key="id"
+                                      column-defs="col_defs"
+                                      expand-on="expanding_property"
+                                      template-url="tree-dnd-template-render.html"
+                                      indent="25"
+                                      indent-plus="0"
+                                      indent-unit="px"
+                                      enable-move="true">
+
+                            </tree-dnd>
                         </div>
 
                         <div flex>
@@ -242,3 +257,19 @@
         </md-card>
     </div>
 </div>
+
+<script type="text/ng-template" id="tree-dnd-template-render.html">
+<table ng-class="$tree_class">
+    <tbody tree-dnd-nodes>
+    <tr tree-dnd-node="node" ng-repeat="node in tree_nodes track by node.__hashKey__"
+        ng-show="node.__visible__" ng-class="node.__selected__ ? 'active':''" ng-click="onSelect(node)">
+        <td tree-dnd-node-handle ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {'padding-left': $callbacks.calsIndent(node.__level__)}"
+            ng-class="expandingProperty.cellClass" compile="expandingProperty.cellTemplate">
+            <a data-nodrag><md-icon ng-click="toggleExpand(node)" class="tree-icon" ng-if="node.__children__.length > 0">{{ node.__expanded__ ? 'expand_less' : 'expand_more' }}</md-icon></a>
+            <a data-nodrag ng-if="!node.__children__ || node.__children__.length == 0" ui-sref="main"><md-icon>class</md-icon></a>
+            {{node[expandingProperty.field] || node[expandingProperty]}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+</script>

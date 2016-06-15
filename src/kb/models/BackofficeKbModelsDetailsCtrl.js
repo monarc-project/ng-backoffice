@@ -148,6 +148,25 @@
         };
 
         /**
+         * Risk analysis
+         */
+        var tree = {};
+        $scope.tree_data = [
+            {'id': 1, 'Name': 'test root', __children__: [
+                {'id': 2, 'Name': 'test child', __children__: []}
+            ]}
+        ];
+        $scope.my_tree = tree = {};
+
+        $scope.expanding_property = {
+            field: 'Name'
+        };
+
+        $scope.col_defs = [
+            {field: 'Name'}
+        ]
+
+        /**
          * Evaluation scales
          */
         $scope.range = function (min, max) {
