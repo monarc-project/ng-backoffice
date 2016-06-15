@@ -95,6 +95,10 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
     width: 100%;
 }
 
+.md-errors-spacer {
+  min-height: 0 !important;
+}
+
 .md-html-table td, .md-html-table th {
     border: 1px solid #DDDDDD;
     padding: 8px;

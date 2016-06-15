@@ -79,7 +79,7 @@
 
                 <md-tab label="{{ 'Risk analysis' | translate }}">
                     <div layout="row" layout-padding>
-                        <div flex="15" layout="column">
+                        <div flex="20" layout="column">
                             <p class="md-subheader" translate>Risk analysis</p>
                             <md-input-container class="md-block">
                                 <md-icon>search</md-icon>
@@ -101,82 +101,32 @@
                                       enable-move="true">
 
                             </tree-dnd>
+
+                            <p></p>
+
+                            <p class="md-subheader" translate>Objects library</p>
+                            <div layout="row" layout-align="center center">
+                                <md-input-container class="md-block">
+                                    <md-icon>search</md-icon>
+                                    <label translate>Search an object...</label>
+                                    <input type="text">
+                                </md-input-container>
+                                <md-button class="md-icon-button"><md-icon>add</md-icon></md-button>
+                            </div>
+
+                            <ul class="md-treeview">
+                                <li class="md-treeview-root">
+                                    <a ui-sref="main.kb_mgmt.info_risk.object({objectId: object.id})"><md-icon>place</md-icon> {{ object.name1 }}</a>
+                                    <ul>
+                                        <li ng-repeat="node in composition"
+                                            ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
+                                            ng-include="'objlibs.tree_item_template.html'"></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
 
-                        <div flex>
-                            <md-tabs md-dynamic-height>
-                                <md-tab label="{{ 'General information' | translate }}">
-                                    <div class="md-padding">
-                                        <h4 translate>Calculation of risk / Thresholds - Information Risks</h4>
-
-                                        <table class="tbl-risk-calc">
-                                            <tbody>
-                                            <tr>
-                                                <th></th>
-                                                <th>0</th>
-                                                <th>1</th>
-                                                <th>2</th>
-                                                <th>3</th>
-                                                <th>4</th>
-                                                <th>5</th>
-                                                <th>6</th>
-                                                <th>8</th>
-                                                <th>9</th>
-                                                <th>10</th>
-                                                <th>12</th>
-                                                <th>15</th>
-                                                <th>16</th>
-                                                <th>20</th>
-                                            </tr>
-                                            <tr>
-                                                <th>0</th>
-                                                <td class="green">0</td>
-                                                <td class="green">0</td>
-                                                <td class="green">0</td>
-                                                <td class="green">0</td>
-                                                <td class="green">0</td>
-                                                <td class="orange">0</td>
-                                                <td class="orange">0</td>
-                                                <td class="orange">0</td>
-                                                <td class="orange">0</td>
-                                                <td class="orange">0</td>
-                                                <td class="orange">0</td>
-                                                <td class="red">0</td>
-                                                <td class="red">0</td>
-                                                <td class="red">0</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <h4 translate>Calculation of risk / Thresholds - Operational Risks</h4>
-
-                                        <table class="tbl-risk-calc">
-                                            <tbody>
-                                            <tr>
-                                                <th></th>
-                                                <th>0</th>
-                                                <th>1</th>
-                                                <th>2</th>
-                                                <th>3</th>
-                                                <th>4</th>
-                                            </tr>
-                                            <tr>
-                                                <th>0</th>
-                                                <td class="green">0</td>
-                                                <td class="green">0</td>
-                                                <td class="green">0</td>
-                                                <td class="green">0</td>
-                                                <td class="green">0</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </md-tab>
-
-                                <md-tab label="{{ 'Risks table' | translate }}"></md-tab>
-                                <md-tab label="{{ 'OP risks table' | translate }}"></md-tab>
-                            </md-tabs>
-                        </div>
+                        <div flex ui-view="anr"></div>
                     </div>
 
                 </md-tab>
@@ -272,4 +222,17 @@
     </tr>
     </tbody>
 </table>
+</script>
+
+<script type="text/ng-template" id="objlibs.tree_item_template.html">
+    <a ui-sref="main.kb_mgmt.info_risk.object({objectId: node.id})"><md-icon>{{ node.children && node.children.length > 0 ? 'add': 'note' }}</md-icon> {{ node.name1 }}</a>
+    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+    <md-button class="md-icon-button" ng-click="deleteCompositionItem($event, node)"><md-icon>delete</md-icon></md-button>
+
+    <ul ng-if="node.children && node.children.length > 0">
+        <li ng-repeat="node in node.children"
+            ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
+            ng-include="'objlibs.tree_item_template.html'"></li>
+    </ul>
 </script>

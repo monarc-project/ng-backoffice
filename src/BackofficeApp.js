@@ -118,10 +118,19 @@ angular
             }).state('main.kb_mgmt.models.details', {
                 url: '/:modelId',
                 views: {
-                    'kb_main@main.kb_mgmt': {templateUrl: '/views/details.models.kb_mgmt.html'}
+                    'kb_main@main.kb_mgmt': {templateUrl: '/views/details.models.kb_mgmt.html'},
+                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr.details.models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Model details')
+                }
+            }).state('main.kb_mgmt.models.details.object', {
+                url: '/:objectId',
+                views: {
+                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/object.info_risk.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Object instance')
                 }
             }).state('main.kb_mgmt.op_risk', {
                 url: '/op',
