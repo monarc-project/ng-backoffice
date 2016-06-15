@@ -44,6 +44,34 @@
                 });
         };
 
+        $scope.deleteDocmodel = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the document "{{ label }}"?',
+                    {label: item.description}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                DocModelService.deleteDocModel(item.id,
+                    function () {
+                        $scope.updateItems();
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .textContent(gettextCatalog.getString('The document "{{label}}" has been deleted.',
+                                    {label: item.description}))
+                                .position('top right')
+                                .hideDelay(3000)
+                        );
+                    }
+                );
+            });
+        };
+
+        $scope.getCategoryLabel = function (id) {
+            return DocModelService.getCategoryLabel(id);
+        };
+
     }
 
 
@@ -57,10 +85,6 @@
         $scope.categories = DocModelService.getCategories()
 
         // Upload system
-        $scope.$watch('file', function (newValue, oldValue) {
-            console.log(newValue);
-        });
-
         $scope.cancel = function () {
             $mdDialog.cancel();
         };
@@ -75,7 +99,9 @@
                     data: {category: $scope.docModel.category, description: $scope.docModel.description}
                 }).then(function (resp) {
                         $scope.uploadProgress = null;
-                        $mdDialog.hide($scope.docModel);
+                        if (resp.status == 200) {
+                            $mdDialog.hide($scope.docModel);
+                        }
                     }, function (resp) {
                         $mdToast.show(
                             $mdToast.simple()

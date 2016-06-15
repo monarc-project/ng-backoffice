@@ -11,7 +11,7 @@
 
             <tbody md-body>
             <tr md-row ng-repeat="docmodel in docmodels">
-                <td md-cell>{{ docmodel.type }}</td>
+                <td md-cell>{{ getCategoryLabel(docmodel.category) }}</td>
                 <td md-cell>{{ docmodel.description }}</td>
                 <td md-cell>
                     <md-button class="md-icon-button" ng-click="deleteDocmodel($event, docmodel)">
