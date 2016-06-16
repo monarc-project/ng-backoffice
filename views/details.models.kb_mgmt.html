@@ -8,75 +8,6 @@
 
         <md-card>
             <md-tabs md-border-bottom="true" md-dynamic-height>
-                <md-tab label="{{ 'CASES Diagnostic' | translate }}">
-                    <md-toolbar class="md-table-toolbar md-default" ng-hide="questions.selected.length || questions.filter.show">
-                        <div class="md-toolbar-tools">
-                            <h2 class="md-title" translate>Associated questions (projects)</h2>
-                            <div flex></div>
-                            <md-button class="md-icon-button" ng-click="questions.filter.show = true">
-                                <md-icon>search</md-icon>
-                            </md-button>
-                        </div>
-                    </md-toolbar>
-
-                    <md-toolbar class="md-table-toolbar md-default" ng-show="questions.filter.show && !questions.selected.length">
-                        <div class="md-toolbar-tools">
-                            <md-icon>search</md-icon>
-                            <form flex name="questions.filter.form">
-                                <input type="text" ng-model="questions.query.filter" ng-model-options="questions.filter.options" placeholder="{{ 'Search...' | translate }}">
-                            </form>
-                            <md-button class="md-icon-button" ng-click="removeQuestionsFilter()">
-                                <md-icon>close</md-icon>
-                            </md-button>
-                        </div>
-                    </md-toolbar>
-
-                    <md-toolbar class="md-table-toolbar alternate" ng-show="questions.selected.length">
-                        <div class="md-toolbar-tools" layout-align="space-between center">
-                            <div>{{questions.selected.length}} {{questions.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                            <md-button class="md-icon-button" ng-click="deleteQuestionMass($event)">
-                                <md-icon>delete</md-icon>
-                            </md-button>
-                        </div>
-                    </md-toolbar>
-
-                    <md-table-container flex>
-                        <table md-table md-row-select multiple ng-model="questions.selected" md-progress="questions.promise">
-                            <thead md-head md-order="questions.query.order" md-on-reorder="updateQuestions">
-                            <tr md-row>
-                                <th md-column md-order-by="category"><span translate>Active</span></th>
-                                <th md-column md-order-by="label1"><span translate>Label</span></th>
-                                <th md-column><span translate>Actions</span></th>
-                            </tr>
-                            </thead>
-
-                            <tbody md-body>
-                            <tr md-row md-select="question" md-select-id="id" ng-repeat="question in questions.items.questions">
-                                <td md-cell><md-icon>{{ question.category.label1 }}</md-icon></td>
-                                <td md-cell>{{ question.label1 }}</td>
-                                <td md-cell>
-                                    <md-button class="md-icon-button" ng-click="editQuestion($event, question)"><md-icon>edit</md-icon></md-button>
-                                    <md-button class="md-icon-button" ng-click="deleteQuestion($event, question)"><md-icon>delete</md-icon></md-button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </md-table-container>
-
-                    <md-table-pagination md-limit="questions.query.limit" md-limit-options="[5, 10, 15]" md-page="questions.query.page"
-                                         md-total="{{questions.items.count}}" md-on-paginate="updateQuestions" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-                    <div layout="row" class="md-padding">
-                        <span flex></span>
-                        <md-button class="md-fab md-accent" aria-label="{{ 'New question' | translate }}" ng-click="createNewQuestion($event)">
-                            <md-tooltip md-direction="left">
-                                {{ 'New question' | translate }}
-                            </md-tooltip>
-                            <md-icon>add</md-icon>
-                        </md-button>
-                    </div>
-                </md-tab>
-
                 <md-tab label="{{ 'Risk analysis' | translate }}">
                     <div layout="row" layout-padding>
                         <div flex="20" layout="column">
@@ -140,19 +71,6 @@
                                 <span class="small text-blue" inline-edit="impacts_scale_min" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> -
                                 <span class="small text-blue" inline-edit="impacts_scale_max" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> ]
                             </h4>
-
-                            <md-switch ng-model="impacts_scale_composed" class="md-padding-left">
-                                {{ 'Composed' | translate }}
-                            </md-switch>
-                        </div>
-
-
-
-                        <div layout="row" ng-if="impacts_scale_composed">
-                            <p translate>Manage sub-scales:</p>
-                            <md-button ng-click="editSubscale($event, 'c')">{{ 'Confidentiality' | translate }}</md-button>
-                            <md-button ng-click="editSubscale($event, 'i')">{{ 'Integrity' | translate }}</md-button>
-                            <md-button ng-click="editSubscale($event, 'd')">{{ 'Availability' | translate }}</md-button>
                         </div>
 
                         <table class="md-html-table">
