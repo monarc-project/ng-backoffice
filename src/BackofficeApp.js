@@ -197,7 +197,7 @@ angular
                         if (response.status == 401) {
                             var $state = $injector.get('$state');
                             $state.transitionTo('login');
-                        } else if (response.status >= 400) {
+                        } else if (response.status >= 400 && response.config.url != '/auth') {
                             var ErrorService = $injector.get('ErrorService');
 
                             var message = response.status;
@@ -217,7 +217,8 @@ angular
                             ErrorService.notifyFetchError(url, message + " (" + response.status + ")");
                         }
 
-                        return response;
+                        var $q = $injector.get('$q');
+                        return $q.reject(response);
                     }
                 }
             }]);

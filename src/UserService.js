@@ -36,32 +36,38 @@
 
                 $http.post('/auth', {login: login, password: password}).then(
                     function (data) {
-                        self.authenticated = true;
-                        self.token = data.data.token;
+                        if (data.status == 200) {
+                            self.authenticated = true;
+                            self.token = data.data.token;
 
-                        localStorageService.set('auth_token', self.token);
-                        localStorageService.set('permission_groups', JSON.stringify([]));
+                            localStorageService.set('auth_token', self.token);
+                            localStorageService.set('permission_groups', JSON.stringify([]));
 
-                        $http.get('/api/users-roles').then(
-                            function (data) {
-                                self.permissionGroups = [];
+                            $http.get('/api/users-roles').then(
+                                function (data) {
+                                    self.permissionGroups = [];
 
-                                for (var i = 0; i < data.data.roles.length; ++i) {
-                                    self.permissionGroups.push(data.data.roles[i].role);
+                                    for (var i = 0; i < data.data.roles.length; ++i) {
+                                        self.permissionGroups.push(data.data.roles[i].role);
+                                    }
+
+                                    localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
+
+                                    promise.resolve(true);
+                                },
+                                function (data) {
+                                    self.authenticated = false;
+                                    self.token = null;
+
+                                    promise.reject();
                                 }
+                            )
+                        } else {
+                            self.authenticated = false;
+                            self.token = null;
 
-                                localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
-
-                                promise.resolve(true);
-                            },
-                            function (data) {
-                                self.authenticated = false;
-                                self.token = null;
-
-                                promise.reject();
-                            }
-                        )
-
+                            promise.reject();
+                        }
                     },
 
                     function (data) {
