@@ -68,8 +68,8 @@
                     <div class="md-padding-left md-padding-right" layout="column">
                         <div layout="row">
                             <h4><span translate>Impacts scale:</span> [
-                                <span class="small text-blue" inline-edit="impacts_scale_min" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> -
-                                <span class="small text-blue" inline-edit="impacts_scale_max" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> ]
+                                <span class="small text-blue" inline-edit="scales.impacts.min" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> -
+                                <span class="small text-blue" inline-edit="scales.impacts.max" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> ]
                             </h4>
                         </div>
 
@@ -90,7 +90,7 @@
                             </thead>
 
                             <tbody>
-                            <tr ng-repeat="i in range(impacts_scale_min, impacts_scale_max)">
+                            <tr ng-repeat="i in range(scales.impacts.min, scales.impacts.max)">
                                 <td>{{ i }}</td>
                                 <td><span inline-edit="impact[i].confidentiality" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
                                 <td><span inline-edit="impact[i].integrity" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
@@ -105,21 +105,21 @@
                         </table>
 
                         <h4><span translate>Threats scale:</span> [
-                            <span class="small text-blue" inline-edit="threats_scale_min" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> -
-                            <span class="small text-blue" inline-edit="threats_scale_max" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> ]
+                            <span class="small text-blue" inline-edit="scales.threats.min" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> -
+                            <span class="small text-blue" inline-edit="scales.threats.max" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> ]
                         </h4>
 
                         <ul class="no-list-style">
-                            <li ng-repeat="i in range(threats_scale_min, threats_scale_max)">{{i}}. <span inline-edit="threat[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
+                            <li ng-repeat="i in range(scales.threats.min, scales.threats.max)">{{i}}. <span inline-edit="threat[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
                         </ul>
 
                         <h4><span translate>Vulnerabilities scale:</span> [
-                            <span class="small text-blue" inline-edit="vulns_scale_min" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> -
-                            <span class="small text-blue" inline-edit="vulns_scale_max" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> ]
+                            <span class="small text-blue" inline-edit="scales.vulns.min" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> -
+                            <span class="small text-blue" inline-edit="scales.vulns.max" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> ]
                         </h4>
 
                         <ul class="no-list-style">
-                            <li ng-repeat="i in range(vulns_scale_min, vulns_scale_max)">{{i}}. <span inline-edit="vuln[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
+                            <li ng-repeat="i in range(scales.vulns.min, scales.vulns.max)">{{i}}. <span inline-edit="vuln[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
                         </ul>
                     </div>
                 </md-tab>

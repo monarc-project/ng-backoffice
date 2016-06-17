@@ -7,37 +7,11 @@
                 <tbody>
                 <tr>
                     <th></th>
-                    <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>8</th>
-                    <th>9</th>
-                    <th>10</th>
-                    <th>12</th>
-                    <th>15</th>
-                    <th>16</th>
-                    <th>20</th>
+                    <th ng-repeat="v in info_risk_columns">{{v}}</th>
                 </tr>
-                <tr>
-                    <th>0</th>
-                    <td class="green">0</td>
-                    <td class="green">0</td>
-                    <td class="green">0</td>
-                    <td class="green">0</td>
-                    <td class="green">0</td>
-                    <td class="orange">0</td>
-                    <td class="orange">0</td>
-                    <td class="orange">0</td>
-                    <td class="orange">0</td>
-                    <td class="orange">0</td>
-                    <td class="orange">0</td>
-                    <td class="red">0</td>
-                    <td class="red">0</td>
-                    <td class="red">0</td>
+                <tr ng-repeat="i in info_risk_rows">
+                    <th>{{i}}</th>
+                    <td ng-class="{'green': v*i < 10, 'orange': v*i < 20 && v*i >= 10, 'red': v*i >= 20}" ng-repeat="v in info_risk_columns">{{v*i}}</td>
                 </tr>
                 </tbody>
             </table>

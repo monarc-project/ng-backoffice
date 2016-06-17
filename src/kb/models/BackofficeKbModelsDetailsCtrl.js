@@ -51,12 +51,36 @@
             return (parseInt(val) == val);
         };
 
-        $scope.impacts_scale_min = 1;
-        $scope.impacts_scale_max = 3;
-        $scope.threats_scale_min = 1;
-        $scope.threats_scale_max = 3;
-        $scope.vulns_scale_min = 1;
-        $scope.vulns_scale_max = 3;
+        $scope.updateInfoRiskColumns = function () {
+            var header = [];
+            for (var t = $scope.scales.threats.min; t <= $scope.scales.threats.max; ++t) {
+                for (var v = $scope.scales.vulns.min; v <= $scope.scales.vulns.max; ++v) {
+                    var prod = t * v;
+                    if (header.indexOf(prod) < 0) {
+                        header.push(prod);
+                    }
+                }
+            }
+
+            $scope.info_risk_columns = header.sort(function (a, b) {
+                return parseInt(a) - parseInt(b);
+            });
+        };
+
+        $scope.scales = {
+            impacts: {min: '0', max: '3'},
+            threats: {min: '0', max: '4'},
+            vulns: {min: '0', max: '3'}
+        }
+
+        $scope.info_risk_columns = [];
+        $scope.info_risk_rows = [];
+
+        $scope.$watch('scales', function () {
+            $scope.updateInfoRiskColumns();
+            $scope.info_risk_rows = $scope.range($scope.scales.impacts.min, $scope.scales.impacts.max);
+        }, true);
+
     }
 
 })();
