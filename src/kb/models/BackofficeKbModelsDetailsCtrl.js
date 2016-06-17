@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbModelsDetailsCtrl', [
             '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ModelService', '$stateParams',
+            'ModelService', 'ObjlibService', '$stateParams',
             BackofficeKbModelsDetailsCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > MODELS > MODEL DETAILS
      */
     function BackofficeKbModelsDetailsCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog,
-                                           TableHelperService, ModelService, $stateParams) {
+                                           TableHelperService, ModelService, ObjlibService, $stateParams) {
         ModelService.getModel($stateParams.modelId).then(function (data) {
             $scope.model = data;
         });
@@ -21,8 +21,9 @@
          * Risk analysis
          */
         $scope.tree_data = [
-            {'id': 1, 'Name': 'test root', __children__: [
-                {'id': 2, 'Name': 'test child', __children__: []}
+            {'id': '__root__', 'Name': 'My Risk Analysis', __children__: [
+                {'id': 1, 'Name': 'Object Instance 1', 'ObjectId': 8, __children__: []},
+                {'id': 2, 'Name': 'Object Instance 2', 'ObjectId': 8, __children__: []},
             ]}
         ];
         $scope.my_tree = {};
@@ -34,6 +35,20 @@
         $scope.col_defs = [
             {field: 'Name'}
         ];
+
+        $scope.callbacks = {
+            beforeDrag: function (scopeDrag) {
+                return !(scopeDrag.node.id === '__root__');
+            },
+
+            accept: function (scopeDrag, scopeTarget, align) {
+                return scopeTarget.parent != null;
+            }
+        };
+
+        ObjlibService.getObjlibs({limit: 0}).then(function (data) {
+            console.log(data.objects);
+        })
 
         /**
          * Evaluation scales
