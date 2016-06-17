@@ -22,19 +22,11 @@
                 <tbody>
                 <tr>
                     <th></th>
-                    <th>0</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
+                    <th ng-repeat="p in range(scales.threats.min, scales.threats.max)">{{p}}</th>
                 </tr>
-                <tr>
-                    <th>0</th>
-                    <td class="green">0</td>
-                    <td class="green">0</td>
-                    <td class="green">0</td>
-                    <td class="green">0</td>
-                    <td class="green">0</td>
+                <tr ng-repeat="i in range(scales.impacts.min, scales.impacts.max)">
+                    <th>{{i}}</th>
+                    <td ng-repeat="p in range(scales.threats.min, scales.threats.max)" class="green">{{i*p}}</td>
                 </tr>
                 </tbody>
             </table>
