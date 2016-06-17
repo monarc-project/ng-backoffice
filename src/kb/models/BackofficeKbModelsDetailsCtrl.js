@@ -46,9 +46,41 @@
             }
         };
 
-        ObjlibService.getObjlibs({limit: 0}).then(function (data) {
-            console.log(data.objects);
-        })
+        $scope.updateObjectsLibrary = function () {
+            $scope.objects_library = [];
+
+            var categoriesIds = {};
+
+            ObjlibService.getObjlibsCats({limit: 0}).then(function (data) {
+                var recurseAddCategories = function (category) {
+                    var output = {id: category.id, name1: category.label1, children: []};
+                    categoriesIds[category.id] = output;
+
+                    if (category.child.length > 0) {
+                        for (var i = 0; i < category.child.length; ++i) {
+                            output.children.push(recurseAddCategories(category.child[i]))
+                        }
+                    }
+
+                    return output;
+                };
+
+                for (var v = 0; v < data.categories.length; ++v) {
+                    var cat = data.categories[v];
+                    $scope.objects_library.push(recurseAddCategories(cat));
+                }
+
+                ObjlibService.getObjlibs({limit: 0}).then(function (data) {
+                    for (var i = 0; i < data.objects.length; ++i) {
+                        var obj = data.objects[i];
+                        categoriesIds[obj.category.id].children.push(obj);
+                    }
+                });
+            });
+
+        };
+        $scope.updateObjectsLibrary();
+
 
         /**
          * Evaluation scales

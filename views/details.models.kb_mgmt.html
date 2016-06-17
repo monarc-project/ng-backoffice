@@ -50,9 +50,9 @@
 
                             <ul class="md-treeview">
                                 <li class="md-treeview-root">
-                                    <a ui-sref="main.kb_mgmt.info_risk.object({objectId: object.id})"><md-icon>place</md-icon> {{ object.name1 }}</a>
+                                    <a><md-icon>place</md-icon> {{ 'Objects' | translate }}</a>
                                     <ul>
-                                        <li ng-repeat="node in composition"
+                                        <li ng-repeat="node in objects_library"
                                             ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
                                             ng-include="'objlibs.tree_item_template.html'"></li>
                                     </ul>
@@ -146,7 +146,8 @@
 </script>
 
 <script type="text/ng-template" id="objlibs.tree_item_template.html">
-    <a ui-sref="main.kb_mgmt.models.details.object({objectId: node.id})"><md-icon>{{ node.children && node.children.length > 0 ? 'add': 'note' }}</md-icon> {{ node.name1 }}</a>
+    <a ng-if="node.children && node.children.length > 0"><md-icon>{{ 'add' }}</md-icon> {{ node.name1 }}</a>
+    <a ui-sref="main.kb_mgmt.models.details.object({objectId: node.id})"  ng-if="!node.children || node.children.length == 0"><md-icon>note</md-icon> {{ node.name1 }}</a>
 
     <ul ng-if="node.children && node.children.length > 0">
         <li ng-repeat="node in node.children"
