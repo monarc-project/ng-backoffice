@@ -135,7 +135,7 @@ angular
             }).state('main.kb_mgmt.models.details.instance', {
                 url: '/inst/:instId',
                 views: {
-                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/inst.details.models.kb_mgmt.html'}
+                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/instance.anr.details.models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Object instance')

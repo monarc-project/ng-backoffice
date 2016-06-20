@@ -54,7 +54,7 @@
                                     <ul>
                                         <li ng-repeat="node in objects_library"
                                             ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
-                                            ng-include="'objlibs.tree_item_template.html'"></li>
+                                            ng-include="'objlibs.models.tree_item_template.html'"></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -145,13 +145,13 @@
 </table>
 </script>
 
-<script type="text/ng-template" id="objlibs.tree_item_template.html">
+<script type="text/ng-template" id="objlibs.models.tree_item_template.html">
     <a style="cursor:pointer" ng-if="node.children && node.children.length > 0" ng-click="node.__visible__ = !node.__visible__"><md-icon>{{ node.__visible__ ? 'remove' : 'add' }}</md-icon> {{ node.name1 }}</a>
     <a ui-sref="main.kb_mgmt.models.details.object({objectId: node.id})"  ng-if="!node.children || node.children.length == 0"><md-icon>note</md-icon> {{ node.name1 }}</a>
 
     <ul ng-if="node.children && node.children.length > 0" ng-show="node.__visible__">
         <li ng-repeat="node in node.children"
             ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
-            ng-include="'objlibs.tree_item_template.html'"></li>
+            ng-include="'objlibs.models.tree_item_template.html'"></li>
     </ul>
 </script>

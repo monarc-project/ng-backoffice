@@ -1,0 +1,104 @@
+<div class="md-padding" ng-cloak layout="column" ng-controller="BackofficeAnrObjectInstanceCtrl">
+    <div layout="row" layout-align="space-around start">
+        <div flex="20" ng-if="object">
+            <h2>{{ object.name1 }}</h2>
+
+            <p>{{ object.label1 }}</p>
+        </div>
+
+        <div flex="20" ng-if="!object">
+            <md-progress-circular md-indeterminate="true"></md-progress-circular>
+        </div>
+
+        <md-card flex="70">
+            <md-card-content layout="column" layout-gt-md="row" flex layout-wrap>
+                <div flex="33" layout="column" layout-gt-md="row" layout-align="space-between">
+                    <div flex="33" class="bold txtright" translate>Confidentiality:&nbsp;</div>
+                    <div flex="65" translate>Inherited</div>
+                </div>
+
+                <div flex="33" layout="column" layout-gt-md="row" layout-align="space-between">
+                    <div flex="33" class="bold txtright" translate>Integrity:&nbsp;</div>
+                    <div flex="65" translate>Inherited</div>
+                </div>
+
+                <div flex="33" layout="column" layout-gt-md="row" layout-align="space-between">
+                    <div flex="33" class="bold txtright" translate>Availability:&nbsp;</div>
+                    <div flex="65" translate>Inherited</div>
+                </div>
+            </md-card-content>
+        </md-card>
+
+        <md-fab-speed-dial md-open="false" md-direction="down" class="md-fling md-fab-top-right">
+            <md-fab-trigger>
+                <md-button aria-label="menu" class="md-fab">
+                    <md-icon>menu</md-icon>
+                    <md-tooltip md-direction="left">{{ 'Object actions' | translate }}</md-tooltip>
+                </md-button>
+            </md-fab-trigger>
+
+            <md-fab-actions>
+                <md-button aria-label="{{ 'Add component' | translate }}" class="md-fab md-raised md-mini" ng-click="createComponent($event)">
+                    <md-icon>add_to_photos</md-icon>
+                    <md-tooltip md-direction="left">{{ 'Add component' | translate }}</md-tooltip>
+                </md-button>
+
+                <md-button aria-label="{{ 'Edit object' | translate }}" class="md-fab md-raised md-mini" ng-click="editObjlib($event, object)">
+                    <md-icon>edit</md-icon>
+                    <md-tooltip md-direction="left">{{ 'Edit object' | translate }}</md-tooltip>
+                </md-button>
+
+                <md-button aria-label="{{ 'Duplicate object' | translate }}" class="md-fab md-raised md-mini">
+                    <md-icon>control_point_duplicate</md-icon>
+                    <md-tooltip md-direction="left">{{ 'Duplicate object' | translate }}</md-tooltip>
+                </md-button>
+
+                <md-button aria-label="{{ 'Export object' | translate }}" class="md-fab md-raised md-mini" ng-click="exportObject($event)">
+                    <md-icon>save</md-icon>
+                    <md-tooltip md-direction="left">{{ 'Export object' | translate }}</md-tooltip>
+                </md-button>
+
+                <md-button aria-label="{{ 'Delete object' | translate }}" class="md-fab md-raised md-mini md-warn" ng-click="deleteObject($event)">
+                    <md-icon>delete</md-icon>
+                    <md-tooltip md-direction="left">{{ 'Delete object' | translate }}</md-tooltip>
+                </md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </div>
+
+
+
+    <md-card>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="{{ 'General information' | translate }}">
+                <div class="md-padding">
+                    <p class="md-title" translate>This asset is attached to the following parents</p>
+
+                    <ul class="md-treeview">
+                        <li class="md-treeview-root">
+                            <a ui-sref="main.kb_mgmt.info_risk.object({objectId: object.id})"><md-icon>place</md-icon> {{ object.name1 }}</a>
+                            <ul>
+                                <li ng-repeat="node in composition"
+                                    ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
+                                    ng-include="'objlibs.tree_item_template.html'"></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+            </md-tab>
+        </md-tabs>
+    </md-card>
+</div>
+
+<script type="text/ng-template" id="objlibs.tree_item_template.html">
+    <a ui-sref="main.kb_mgmt.info_risk.object({objectId: node.id})"><md-icon>{{ node.children && node.children.length > 0 ? 'add': 'note' }}</md-icon> {{ node.name1 }}</a>
+    <md-button class="md-icon-button"><md-icon>arrow_upward</md-icon></md-button>
+    <md-button class="md-icon-button"><md-icon>arrow_downward</md-icon></md-button>
+    <md-button class="md-icon-button" ng-click="deleteCompositionItem($event, node)"><md-icon>delete</md-icon></md-button>
+
+    <ul ng-if="node.children && node.children.length > 0">
+        <li ng-repeat="node in node.children"
+            ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
+            ng-include="'objlibs.tree_item_template.html'"></li>
+    </ul>
+</script>
