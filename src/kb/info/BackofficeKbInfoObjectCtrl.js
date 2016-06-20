@@ -170,21 +170,17 @@
             })
                 .then(function (objlib) {
                     if (objlib) {
-                        if (objlib.object) {
-                            objlib.object = objlib.object.id;
-                        }
-
-                        /*ObjlibService.createObjlib(objlib,
+                        ObjlibService.createObjlibNode(objlib,
                             function () {
                                 $scope.updateObjlib();
                                 $mdToast.show(
                                     $mdToast.simple()
-                                        .textContent(gettext('The object has been created successfully.'))
+                                        .textContent(gettext('The component has been created successfully.'))
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
                             }
-                        );*/
+                        );
                     }
                 });
         };
@@ -258,11 +254,10 @@
 
 
     function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService) {
-        $scope.implicitPosition = null;
-
         $scope.component = {
             position: null,
-            object: null
+            object: null,
+            implicitPosition: 1
         };
 
         $scope.cancel = function() {
@@ -270,21 +265,15 @@
         };
 
         $scope.create = function() {
-            if ($scope.implicitPosition == 1 || $scope.implicitPosition == 2) {
-                // -1 ==> At the beginning
-                // -2 ==> In the end
-                $scope.category.position = -$scope.implicitPosition;
+            if ($scope.component.parent) {
+                $scope.component.parent = $scope.component.parent.id;
             }
 
-            if ($scope.category.parent) {
-                $scope.category.parent = $scope.category.parent.id;
+            if ($scope.component.previous) {
+                $scope.component.previous = $scope.component.previous.id;
             }
 
-            if ($scope.category.previous) {
-                $scope.category.previous = $scope.category.previous.id;
-            }
-
-            $mdDialog.hide($scope.category);
+            $mdDialog.hide($scope.component);
         };
 
         $scope.queryObjectSearch = function (query) {
