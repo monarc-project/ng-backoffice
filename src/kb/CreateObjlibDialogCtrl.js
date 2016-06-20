@@ -154,12 +154,19 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, $mdToast, gettext, AssetServi
         $scope.objlib.rolfTag = item;
     };
 
+    $scope.selectedPreviousCatItemChange = function (item) {
+        $scope.objlib.previous = item;
+    };
+
 
     $scope.cancel = function() {
         $mdDialog.cancel();
     };
 
     $scope.create = function() {
+        if ($scope.objlib.previous) {
+            $scope.objlib.previous = $scope.objlib.previous.id;
+        }
         $mdDialog.hide($scope.objlib);
     };
 }
