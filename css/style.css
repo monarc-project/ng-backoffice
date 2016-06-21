@@ -281,3 +281,33 @@ div.ng-inline-edit input, div.ng-inline-edit textarea {
 .small div.ng-inline-edit input {
   width: 64px;
 }
+
+.anr-table-toptitle {
+  text-align: center
+}
+
+.anr-table-sidetitle {
+  transform: rotate(270deg);
+  vertical-align: middle;
+  text-align: center;
+}
+
+.anr-formula-container {
+  padding: 5px;
+  margin-left: 16px;
+  margin-top: 16px;
+}
+
+.anr-formula {
+  text-align: center;
+  border: 1px solid #d6d6d6;
+  border-radius: 20px;
+  background-color: #F4F4F4;
+  color: #8A8A8A;
+  padding: 5px;
+}
+
+.anr-formula-container .green {
+  color: #4CAF50;
+  font-weight: bold;
+}
