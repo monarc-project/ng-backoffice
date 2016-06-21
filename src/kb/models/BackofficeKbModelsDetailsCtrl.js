@@ -20,7 +20,7 @@
         /**
          * Risk analysis
          */
-        $scope.tree_data = [
+        $scope.anr_obj_instances_data = [
             {'id': '__root__', 'Name': 'My Risk Analysis', __children__: [
                 {'id': 1, 'Name': 'Object Instance 1', 'ObjectId': 8, __children__: []},
                 {'id': 2, 'Name': 'Object Instance 2', 'ObjectId': 8, __children__: []},
@@ -46,19 +46,29 @@
             }
         };
 
+        $scope.anr_obj_library_data = [];
+        $scope.expanding_property_obj_library = {
+            field: 'label1'
+        };
+
+        $scope.col_defs_obj_library = [
+            {field: 'label1'}
+        ];
+
+
         $scope.updateObjectsLibrary = function () {
-            $scope.objects_library = [];
+            $scope.anr_obj_library_data = [];
 
             var categoriesIds = {};
 
             ObjlibService.getObjlibsCats({limit: 0}).then(function (data) {
                 var recurseAddCategories = function (category) {
-                    var output = {id: category.id, name1: category.label1, children: []};
+                    var output = {id: category.id, label1: category.label1, __children__: []};
                     categoriesIds[category.id] = output;
 
                     if (category.child.length > 0) {
                         for (var i = 0; i < category.child.length; ++i) {
-                            output.children.push(recurseAddCategories(category.child[i]))
+                            output.__children__.push(recurseAddCategories(category.child[i]))
                         }
                     }
 
@@ -67,13 +77,13 @@
 
                 for (var v = 0; v < data.categories.length; ++v) {
                     var cat = data.categories[v];
-                    $scope.objects_library.push(recurseAddCategories(cat));
+                    $scope.anr_obj_library_data.push(recurseAddCategories(cat));
                 }
 
                 ObjlibService.getObjlibs({limit: 0}).then(function (data) {
                     for (var i = 0; i < data.objects.length; ++i) {
                         var obj = data.objects[i];
-                        categoriesIds[obj.category.id].children.push(obj);
+                        categoriesIds[obj.category.id].__children__.push(obj);
                     }
                 });
             });
