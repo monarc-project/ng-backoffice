@@ -28,7 +28,7 @@
                                       primary-key="id"
                                       column-defs="col_defs"
                                       expand-on="expanding_property"
-                                      template-url="tree-dnd-template-render.html"
+                                      template-url="tree-tmpl-objectsinstance.html"
                                       indent="25"
                                       indent-plus="0"
                                       indent-unit="px"
@@ -129,7 +129,7 @@
     </div>
 </div>
 
-<script type="text/ng-template" id="tree-dnd-template-render.html">
+<script type="text/ng-template" id="tree-tmpl-objectsinstance.html">
 <table ng-class="$tree_class">
     <tbody tree-dnd-nodes>
     <tr tree-dnd-node="node" ng-repeat="node in tree_nodes track by node.__hashKey__"
