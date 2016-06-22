@@ -121,7 +121,8 @@
             impacts: {min: '0', max: '3'},
             threats: {min: '0', max: '4'},
             vulns: {min: '0', max: '3'},
-            thresholds: {min: 8, max: 32}
+            thresholds: {min: 8, max: 32},
+            rolf_thresholds: {min: 4, max: 8}
         }
 
         $scope.info_risk_columns = [];
