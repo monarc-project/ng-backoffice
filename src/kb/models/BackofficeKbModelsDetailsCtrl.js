@@ -21,19 +21,19 @@
          * Risk analysis
          */
         $scope.anr_obj_instances_data = [
-            {'id': '__root__', 'Name': 'My Risk Analysis', __children__: [
-                {'id': 1, 'Name': 'Object Instance 1', 'ObjectId': 8, __children__: []},
-                {'id': 2, 'Name': 'Object Instance 2', 'ObjectId': 8, __children__: []},
+            {'id': '__root__', 'label1': 'My Risk Analysis', __children__: [
+                {'id': 1, 'label1': 'Object Instance 1', 'ObjectId': 8, __children__: []},
+                {'id': 2, 'label1': 'Object Instance 2', 'ObjectId': 8, __children__: []},
             ]}
         ];
         $scope.my_tree = {};
 
         $scope.expanding_property = {
-            field: 'Name'
+            field: 'label1'
         };
 
         $scope.col_defs = [
-            {field: 'Name'}
+            {field: 'label1'}
         ];
 
         $scope.callbacks = {
@@ -47,13 +47,6 @@
         };
 
         $scope.anr_obj_library_data = [];
-        $scope.expanding_property_obj_library = {
-            field: 'label1'
-        };
-
-        $scope.col_defs_obj_library = [
-            {field: 'label1'}
-        ];
 
 
         $scope.updateObjectsLibrary = function () {
@@ -137,6 +130,44 @@
             $scope.updateInfoRiskColumns();
             $scope.info_risk_rows = $scope.range($scope.scales.impacts.min, $scope.scales.impacts.max);
         }, true);
+
+    }
+
+    /////////////////////////////////////////////////////////
+
+    angular
+        .module('BackofficeApp')
+        .controller('BackofficeKbModelsDetailsSubtreeCtrl', [
+            '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            'ModelService', 'ObjlibService', '$stateParams',
+            BackofficeKbModelsDetailsSubtreeCtrl
+        ]);
+
+    /**
+     * BO > KB > MODELS > MODEL DETAILS > SUBTREE WORKAROUND
+     */
+    function BackofficeKbModelsDetailsSubtreeCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog,
+                                           TableHelperService, ModelService, ObjlibService, $stateParams) {
+        var self = this;
+
+        self.draggedFromHere = false;
+
+        $scope.callbacks = {
+            beforeDrag: function (scopeDrag) {
+                self.draggedFromHere = true;
+                return !(scopeDrag.node.id === '__root__');
+            },
+
+            accept: function (scopeDrag, scopeTarget, align) {
+                return scopeTarget.parent != null && !self.draggedFromHere;
+            },
+
+            beforeDrop: function (event) {
+                self.draggedFromHere = false;
+                return true;
+            }
+
+        };
 
     }
 

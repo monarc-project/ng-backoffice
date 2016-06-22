@@ -311,3 +311,11 @@ div.ng-inline-edit input, div.ng-inline-edit textarea {
   color: #4CAF50;
   font-weight: bold;
 }
+
+.horz-expanding-table {
+  overflow-x: scroll;
+}
+
+.horz-expanding-table .md-html-table td, .horz-expanding-table .md-html-table td span span {
+  min-width: 200px;
+}

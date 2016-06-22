@@ -48,19 +48,24 @@
                                 <md-button class="md-icon-button"><md-icon>add</md-icon></md-button>
                             </div>
 
-                            <tree-dnd
-                                    tree-data="anr_obj_library_data"
-                                    tree-control="my_tree"
-                                    filter="_filter"
-                                    callbacks="callbacks"
-                                    primary-key="id"
-                                    column-defs="col_defs_old_library"
-                                    expand-on="expanding_property_obj_library"
-                                    template-url="tree-tmpl-objectslib.html"
-                                    indent="25"
-                                    indent-plus="0"
-                                    indent-unit="px"
-                                    enable-move="true">
+                            <div ng-controller="BackofficeKbModelsDetailsSubtreeCtrl">
+                                <tree-dnd
+                                        tree-data="anr_obj_library_data"
+                                        tree-control="my_tree"
+                                        filter="_filter"
+                                        callbacks="callbacks"
+                                        primary-key="id"
+                                        column-defs="col_defs"
+                                        expand-on="expanding_property"
+                                        template-url="tree-tmpl-objectslib.html"
+                                        indent="25"
+                                        indent-plus="0"
+                                        indent-unit="px"
+                                        enable-hotkey="true"
+                                        enable-move="false"
+                                        enable-drag="true"
+                                        >
+                            </div>
 
                             </tree-dnd>
                         </div>
@@ -79,36 +84,41 @@
                             </h4>
                         </div>
 
-                        <table class="md-html-table">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th translate>Confidentiality</th>
-                                <th translate>Integrity</th>
-                                <th translate>Availability</th>
-                                <th translate>Reputation</th>
-                                <th translate>Operational</th>
-                                <th translate>Legal</th>
-                                <th translate>Financial</th>
-                                <th translate>Person</th>
-                                <!-- <th ng-repeat="custom in customColumns"></th> -->
-                            </tr>
-                            </thead>
+                        <div class="horz-expanding-table">
+                            <table class="md-html-table">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th translate>Confidentiality</th>
+                                    <th translate>Integrity</th>
+                                    <th translate>Availability</th>
+                                    <th translate>Reputation</th>
+                                    <th translate>Operational</th>
+                                    <th translate>Legal</th>
+                                    <th translate>Financial</th>
+                                    <th translate>Person</th>
+                                    <!-- <th ng-repeat="custom in customColumns"></th> -->
+                                    <th><span inline-edit="newColumnName" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-placeholder="{{ 'New column name' | translate }}"></span></th>
+                                </tr>
+                                </thead>
 
-                            <tbody>
-                            <tr ng-repeat="i in range(scales.impacts.min, scales.impacts.max)">
-                                <td>{{ i }}</td>
-                                <td><span inline-edit="impact[i].confidentiality" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                <td><span inline-edit="impact[i].integrity" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                <td><span inline-edit="impact[i].availability" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                <td><span inline-edit="impact[i].reputation" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                <td><span inline-edit="impact[i].operational" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                <td><span inline-edit="impact[i].legal" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                <td><span inline-edit="impact[i].financial" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                <td><span inline-edit="impact[i].person" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                <tbody>
+                                <tr ng-repeat="i in range(scales.impacts.min, scales.impacts.max)">
+                                    <th>{{ i }}</th>
+                                    <td><span inline-edit="impact[i].confidentiality" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="impact[i].integrity" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="impact[i].availability" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="impact[i].reputation" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="impact[i].operational" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="impact[i].legal" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="impact[i].financial" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="impact[i].person" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <!-- <td ng-repeat="custom in customColumns"></td> -->
+                                    <td><span inline-edit="customColumnValue[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <h4><span translate>Threats scale:</span> [
                             <span class="small text-blue" inline-edit="scales.threats.min" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></span> -
