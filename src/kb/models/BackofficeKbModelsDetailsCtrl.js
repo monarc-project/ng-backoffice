@@ -133,6 +133,53 @@
             $scope.info_risk_rows = $scope.range($scope.scales.impacts.min, $scope.scales.impacts.max);
         }, true);
 
+
+        $scope.editAnrInfo = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', CreateAnrDialogCtrl],
+                templateUrl: '/views/dialogs/create.anr.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+            })
+                .then(function (objlib) {
+                    if (objlib) {
+                        ObjlibService.createObjlibNode(objlib,
+                            function () {
+                                $scope.updateObjlib();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The component has been created successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    }
+                });
+        };
+
+    }
+
+    function CreateAnrDialogCtrl($scope, $mdDialog, anr) {
+        if (anr != undefined && anr != null) {
+            $scope.anr = anr;
+        } else {
+            $scope.anr = {
+                name: '',
+                description: ''
+            };
+        }
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.category);
+        };
     }
 
     /////////////////////////////////////////////////////////
