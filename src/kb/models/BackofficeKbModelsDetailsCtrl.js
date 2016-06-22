@@ -120,7 +120,8 @@
         $scope.scales = {
             impacts: {min: '0', max: '3'},
             threats: {min: '0', max: '4'},
-            vulns: {min: '0', max: '3'}
+            vulns: {min: '0', max: '3'},
+            thresholds: {min: 8, max: 32}
         }
 
         $scope.info_risk_columns = [];

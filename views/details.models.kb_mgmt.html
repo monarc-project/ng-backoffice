@@ -137,6 +137,21 @@
                         <ul class="no-list-style">
                             <li ng-repeat="i in range(scales.vulns.min, scales.vulns.max)">{{i}}. <span inline-edit="vuln[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
                         </ul>
+
+                        <h4 translate>Thresholds</h4>
+                        <div layout="row" layout-align="start center">
+                            <div class="anr-scales-demo-block green"></div>
+                            <md-input-container>
+                                <input type="number" min="0" max="128" ng-model="scales.thresholds.min" />
+                            </md-input-container>
+                        </div>
+
+                        <div layout="row" layout-align="start center">
+                            <div class="anr-scales-demo-block orange"></div>
+                            <md-input-container>
+                                <input type="number" min="0" max="128" ng-model="scales.thresholds.max" />
+                            </md-input-container>
+                        </div>
                     </div>
                 </md-tab>
             </md-tabs>

@@ -1,6 +1,8 @@
 <md-tabs md-dynamic-height>
     <md-tab label="{{ 'General information' | translate }}">
         <div class="md-padding">
+            <md-button class="md-primary md-raised">{{ 'Edit risk analysis details' | translate }}</md-button>
+
             <h4 translate>Calculation of risk / Thresholds - Information Risks</h4>
 
             <div layout="row">
@@ -12,7 +14,7 @@
                     </tr>
                     <tr ng-repeat="i in info_risk_rows">
                         <th>{{i}}</th>
-                        <td ng-class="{'green': v*i < 10, 'orange': v*i < 20 && v*i >= 10, 'red': v*i >= 20}" ng-repeat="v in info_risk_columns">{{v*i}}</td>
+                        <td ng-class="{'green': v*i <= scales.thresholds.min, 'orange': v*i <= scales.thresholds.max && v*i > scales.thresholds.min, 'red': v*i > scales.thresholds.max}" ng-repeat="v in info_risk_columns">{{v*i}}</td>
                     </tr>
                     </tbody>
                 </table>
