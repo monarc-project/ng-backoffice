@@ -299,8 +299,25 @@
          */
         $scope.risks = TableHelperService.build('-label1', 10, 1, '');
 
+        var risksTabSelected = false;
+
+        $scope.$watchGroup(['risk_category_filter', 'risk_tag_filter'], function (newValue, oldValue) {
+            if (risksTabSelected) {
+                // Refresh contents
+                $scope.updateRisks();
+            }
+        });
+
         $scope.updateRisks = function () {
-            $scope.risks.promise = RiskService.getRisks($scope.risks.query);
+            var query = angular.copy($scope.risks.query);
+            if ($scope.risk_category_filter > 0) {
+                query.category = $scope.risk_category_filter;
+            }
+            if ($scope.risk_tag_filter > 0) {
+                query.tag = $scope.risk_tag_filter;
+            }
+
+            $scope.risks.promise = RiskService.getRisks(query);
             $scope.risks.promise.then(
                 function (data) {
                     $scope.risks.items = data;
@@ -311,11 +328,26 @@
             TableHelperService.removeFilter($scope.risks);
         };
 
+        $scope.resetRisksFilters = function () {
+            $scope.risk_category_filter = null;
+            $scope.risk_tag_filter = null;
+        }
+
         $scope.selectRisksTab = function () {
+            risksTabSelected = true;
             TableHelperService.watchSearch($scope, 'risks.query.filter', $scope.risks.query, $scope.updateRisks, $scope.risks);
+
+            CategoryService.getCategories({limit: 0, order: '-label1'}).then(function (cats) {
+                $scope.risk_categories = cats.categories;
+            });
+
+            TagService.getTags({limit: 0, order: '-label1'}).then(function (tags) {
+                $scope.risk_tags = tags.tags;
+            })
         };
 
         $scope.deselectRisksTab = function () {
+            risksTabSelected = false;
             TableHelperService.unwatchSearch($scope.risks);
         };
 

@@ -807,19 +807,7 @@
         $scope.objlib_lockswitch = false;
         $scope.objlib_assets = [];
 
-        $scope.$watch('objlib_category_filter', function (newValue, oldValue) {
-            if (objLibTabSelected) {
-                // Refresh contents
-                $scope.updateObjlibs();
-            }
-        });
-        $scope.$watch('objlib_asset_filter', function (newValue, oldValue) {
-            if (objLibTabSelected) {
-                // Refresh contents
-                $scope.updateObjlibs();
-            }
-        });
-        $scope.$watch('objlib_lockswitch', function (newValue, oldValue) {
+        $scope.$watchGroup(['objlib_category_filter', 'objlib_asset_filter', 'objlib_lockswitch'], function (newValue, oldValue) {
             if (objLibTabSelected) {
                 // Refresh contents
                 $scope.updateObjlibs();

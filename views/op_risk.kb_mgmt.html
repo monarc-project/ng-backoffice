@@ -201,6 +201,25 @@
                 </div>
             </md-toolbar>
 
+            <div layout="row" class="md-padding-left" layout-align="space-around center">
+                <p class="md-padding-right" translate>Filter:</p>
+
+                <md-select ng-model="risk_category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" class="md-padding-right" flex>
+                    <md-option value="0">{{ 'All categories' | translate }}</md-option>
+                    <md-option ng-repeat="cat in risk_categories" ng-value="cat.id">{{ cat.label1 }}</md-option>
+                </md-select>
+
+                <md-select ng-model="risk_tag_filter" aria-label="{{ 'Asset type' | translate }}" placeholder="{{ 'Asset type' | translate }}" flex>
+                    <md-option value="0">{{ 'All tags' | translate }}</md-option>
+                    <md-option ng-repeat="tag in risk_tags" ng-value="tag.id">{{ tag.label1 }}</md-option>
+                </md-select>
+
+                <md-button class="md-icon-button" ng-click="resetRisksFilters()">
+                    <md-tooltip>{{ 'Reset filters' | translate }}</md-tooltip>
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
+
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="risks.selected" md-progress="risks.promise">
                     <thead md-head md-order="risks.query.order" md-on-reorder="updateRisks">
