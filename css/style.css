@@ -1,3 +1,7 @@
+.preserve-newlines {
+  white-space: pre-wrap
+}
+
 .md-main-content {
   background-color: #FAFAFA; }
 

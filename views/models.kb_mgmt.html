@@ -46,7 +46,7 @@
             <tbody md-body>
             <tr md-row md-select="model" md-select-id="label" ng-repeat="model in models.items.models">
                 <td md-cell>{{ model.label1 }}</td>
-                <td md-cell>{{ model.description1 }}</td>
+                <td md-cell class="preserve-newlines">{{ model.description1 }}</td>
                 <td md-cell><md-checkbox ng-disabled="true" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></td>
                 <td md-cell><md-checkbox ng-disabled="true" ng-model="model.isRegulator" aria-label="Regulator"></md-checkbox></td>
                 <td md-cell><md-checkbox ng-disabled="true" ng-model="model.showRolfBrut" aria-label="Raw ROLF"></md-checkbox></td>

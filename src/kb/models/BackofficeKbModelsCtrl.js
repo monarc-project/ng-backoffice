@@ -161,6 +161,11 @@
                 description2: '',
                 description3: '',
                 description4: '',
+                isDefault: false,
+                isScalesUpdatable: false,
+                isGeneric: false,
+                isRegulator: false,
+                showRolfBrut: false
             };
         }
 
