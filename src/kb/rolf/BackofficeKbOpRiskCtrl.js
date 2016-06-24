@@ -41,15 +41,18 @@
         };
 
 
-        $scope.createNewCategory = function (ev) {
+        $scope.createNewCategory = function (ev, category) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ConfigService', CreateCategoryDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
                 templateUrl: '/views/dialogs/create.categories.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    'category': category
+                }
             })
                 .then(function (category) {
                     CategoryService.createCategory(category,
@@ -61,6 +64,10 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
+                        },
+
+                        function () {
+                            $scope.createNewCategory(ev, category);
                         }
                     );
                 });
@@ -90,6 +97,10 @@
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
+                            },
+
+                            function () {
+                                $scope.editCategory(ev, category);
                             }
                         );
                     });
@@ -169,15 +180,18 @@
             TableHelperService.unwatchSearch($scope.tags);
         };
 
-        $scope.createNewTag = function (ev) {
+        $scope.createNewTag = function (ev, tag) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ConfigService', CreateTagDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ConfigService', 'tag', CreateTagDialogCtrl],
                 templateUrl: '/views/dialogs/create.tags.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    'tag': tag
+                }
             })
                 .then(function (tag) {
                     TagService.createTag(tag,
@@ -189,6 +203,10 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
+                        },
+
+                        function () {
+                            $scope.createNewTag(ev, tag);
                         }
                     );
                 });
@@ -218,6 +236,10 @@
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
+                            },
+
+                            function () {
+                                $scope.createNewTag(ev, tag);
                             }
                         );
                     });
@@ -297,17 +319,22 @@
             TableHelperService.unwatchSearch($scope.risks);
         };
 
-        $scope.createNewRisk = function (ev) {
+        $scope.createNewRisk = function (ev, risk) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', CreateRiskDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', 'risk', CreateRiskDialogCtrl],
                 templateUrl: '/views/dialogs/create.risks.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    'risk': risk
+                }
             })
                 .then(function (risk) {
+                    var riskBackup = angular.copy(risk);
+
                     var riskCatIds = [];
                     var riskTagIds = [];
 
@@ -331,6 +358,10 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
+                        },
+
+                        function () {
+                            $scope.createNewRisk(ev, riskBackup);
                         }
                     );
                 });
@@ -351,6 +382,7 @@
                     }
                 })
                     .then(function (risk) {
+                        var riskBackup = angular.copy(risk);
                         var riskCatIds = [];
                         var riskTagIds = [];
 
@@ -374,6 +406,10 @@
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
+                            },
+
+                            function () {
+                                $scope.editRisk(ev, riskBackup);
                             }
                         );
                     });

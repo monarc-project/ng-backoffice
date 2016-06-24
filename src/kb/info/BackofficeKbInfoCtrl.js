@@ -41,19 +41,20 @@
             TableHelperService.removeFilter($scope.assets);
         };
 
-        $scope.createNewAsset = function (ev) {
+        $scope.createNewAsset = function (ev, asset) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', CreateAssetDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
                 templateUrl: '/views/dialogs/create.assets.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    'asset': asset
+                }
             })
                 .then(function (asset) {
-
-
                     AssetService.createAsset(asset,
                         function () {
                             $scope.updateAssets();
@@ -63,6 +64,10 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
+                        },
+
+                        function () {
+                            $scope.createNewAsset(ev, asset);
                         }
                     );
                 });
@@ -92,6 +97,10 @@
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
+                            },
+
+                            function () {
+                                $scope.editAsset(ev, asset);
                             }
                         );
                     });
@@ -196,17 +205,22 @@
             TableHelperService.removeFilter($scope.threats);
         };
 
-        $scope.createNewThreat = function (ev) {
+        $scope.createNewThreat = function (ev, threat) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', CreateThreatDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                 templateUrl: '/views/dialogs/create.threats.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    'threat': threat
+                }
             })
                 .then(function (threat) {
+                    var themeBackup = threat.theme;
+
                     if (threat.theme) {
                         threat.theme = threat.theme.id;
                     }
@@ -220,6 +234,11 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
+                        },
+
+                        function () {
+                            threat.theme = themeBackup;
+                            $scope.createNewThreat(ev, threat);
                         }
                     );
                 });
@@ -240,6 +259,7 @@
                     }
                 })
                     .then(function (threat) {
+                        var themeBackup = threat.theme;
                         if (threat.theme) {
                             threat.theme = threat.theme.id;
                         }
@@ -253,6 +273,11 @@
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
+                            },
+
+                            function () {
+                                threat.theme = themeBackup;
+                                $scope.editThreat(ev, threat);
                             }
                         );
                     });
@@ -341,15 +366,18 @@
         }
 
 
-        $scope.createNewVuln = function (ev) {
+        $scope.createNewVuln = function (ev, vuln) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', CreateVulnDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
                 templateUrl: '/views/dialogs/create.vulns.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    'vuln': vuln
+                }
             })
                 .then(function (vuln) {
                     VulnService.createVuln(vuln,
@@ -361,6 +389,10 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
+                        },
+
+                        function () {
+                            $scope.createNewVuln(ev, vuln);
                         }
                     );
                 });
@@ -390,6 +422,10 @@
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
+                            },
+
+                            function () {
+                                $scope.editVuln(ev, vuln);
                             }
                         );
                     });
@@ -468,15 +504,18 @@
         };
 
 
-        $scope.createNewMeasure = function (ev) {
+        $scope.createNewMeasure = function (ev, measure) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ConfigService', CreateMeasureDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
                 templateUrl: '/views/dialogs/create.measures.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    'measure': measure
+                }
             })
                 .then(function (measure) {
                     MeasureService.createMeasure(measure,
@@ -488,6 +527,10 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
+                        },
+
+                        function (err) {
+                            $scope.createNewMeasure(ev, measure);
                         }
                     );
                 });
@@ -517,6 +560,10 @@
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
+                            },
+
+                            function () {
+                                $scope.editMeasure(ev, measure);
                             }
                         );
                     });
@@ -595,17 +642,22 @@
             TableHelperService.removeFilter($scope.amvs);
         };
 
-        $scope.createNewAmv = function (ev) {
+        $scope.createNewAmv = function (ev, amv) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', CreateAmvDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
                 templateUrl: '/views/dialogs/create.amvs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    'amv': amv
+                }
             })
                 .then(function (amv) {
+                    var amvBackup = angular.copy(amv);
+
                     if (amv.measure1) {
                         amv.measure1 = amv.measure1.id;
                     }
@@ -634,6 +686,10 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
+                        },
+
+                        function () {
+                            $scope.createNewAmv(ev, amvBackup);
                         }
                     );
                 });
@@ -654,6 +710,7 @@
                     }
                 })
                     .then(function (amv) {
+                        var amvBackup = angular.copy(amv);
                         if (amv.measure1) {
                             amv.measure1 = amv.measure1.id;
                         }
@@ -683,6 +740,10 @@
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
+                            },
+
+                            function () {
+                                $scope.editAmv(ev, amvBackup);
                             }
                         );
                     });
@@ -851,6 +912,8 @@
             })
                 .then(function (objlib) {
                     if (objlib) {
+                        var objlibBackup = angular.copy(objlib);
+
                         if (objlib.asset) {
                             objlib.asset = objlib.asset.id;
                         }
@@ -873,6 +936,10 @@
                                             .position('top right')
                                             .hideDelay(3000)
                                     );
+                                },
+
+                                function () {
+                                    $scope.createNewObjlib(ev, objlibBackup);
                                 }
                             );
                         } else {
@@ -885,6 +952,10 @@
                                             .position('top right')
                                             .hideDelay(3000)
                                     );
+                                },
+
+                                function () {
+                                    $scope.createNewObjlib(ev, objlibBackup);
                                 }
                             );
                         }

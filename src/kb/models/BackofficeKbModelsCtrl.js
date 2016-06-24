@@ -31,15 +31,18 @@
 
         TableHelperService.watchSearch($scope, 'models.query.filter', $scope.models.query, $scope.updateModels);
 
-        $scope.createNewModel = function (ev) {
+        $scope.createNewModel = function (ev, model) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ConfigService', CreateModelDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ConfigService', 'model', CreateModelDialogCtrl],
                 templateUrl: '/views/dialogs/create.models.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    model: model
+                }
             })
                 .then(function (model) {
                     ModelService.createModel(model,
@@ -51,6 +54,10 @@
                                     .position('top right')
                                     .hideDelay(3000)
                             );
+                        },
+
+                        function () {
+                            $scope.createNewModel(ev, model);
                         }
                     );
                 });
@@ -80,6 +87,10 @@
                                         .position('top right')
                                         .hideDelay(3000)
                                 );
+                            },
+
+                            function () {
+                                $scope.editModel(ev, model);
                             }
                         );
                     });

@@ -27,7 +27,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$mdToast', 'DocModelService', 'Upload', CreateDocModelsDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$mdToast', 'gettext', 'DocModelService', 'Upload', CreateDocModelsDialogCtrl],
                 templateUrl: '/views/dialogs/create.docmodels.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -75,7 +75,7 @@
     }
 
 
-    function CreateDocModelsDialogCtrl($scope, $mdDialog, $mdToast, DocModelService, Upload) {
+    function CreateDocModelsDialogCtrl($scope, $mdDialog, $mdToast, gettext, DocModelService, Upload) {
         $scope.docModel = {
             category: null,
             description: ''
@@ -90,7 +90,7 @@
         };
 
         $scope.create = function () {
-            if (!$scope.file.$error) {
+            if ($scope.file && !$scope.file.$error) {
                 $scope.uploadProgress = 0;
 
                 Upload.upload({
@@ -114,10 +114,17 @@
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                         $scope.uploadProgress = progressPercentage;
                     })
-            } else {
+            } else if ($scope.file && $scope.file.$error) {
                 $mdToast.show(
                     $mdToast.simple()
                         .textContent(gettext('File error: ' + $scope.file.$error))
+                        .position('top right')
+                        .hideDelay(3000)
+                );
+            } else {
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent(gettext('You must select a file'))
                         .position('top right')
                         .hideDelay(3000)
                 );
