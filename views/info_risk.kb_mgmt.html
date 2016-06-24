@@ -194,7 +194,7 @@
                         <th md-column md-order-by="label1"><span translate>Label</span></th>
                         <th md-column md-order-by="code"><span translate>Code</span></th>
                         <th md-column md-order-by="mode"><span translate>Mode</span></th>
-                        <th md-column md-order-by="description"><span translate>Description</span></th>
+                        <th md-column md-order-by="description1"><span translate>Description</span></th>
                         <th md-column><span translate>Actions</span></th>
                     </tr>
                     </thead>
@@ -205,7 +205,7 @@
                         <td md-cell>{{ vuln.label1 }}</td>
                         <td md-cell>{{ vuln.code }}</td>
                         <td md-cell>{{ getVulnModeString(vuln.mode) }}</td>
-                        <td md-cell>{{ vuln.description }}</td>
+                        <td md-cell>{{ vuln.description1 }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button" ng-click="editVuln($event, vuln)"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button" ng-click="deleteVuln($event, vuln)"><md-icon>delete</md-icon></md-button>
