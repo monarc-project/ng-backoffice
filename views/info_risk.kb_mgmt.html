@@ -201,7 +201,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="vuln" md-select-id="id" ng-repeat="vuln in vulns.items.vulnerabilities">
-                        <td md-cell><md-icon>{{ vuln.status ? 'done' : 'clear' }}</md-icon></td>
+                        <td md-cell><md-button class="md-icon-button" ng-click="toggleVulnStatus(vuln)"><md-icon>{{ vuln.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                         <td md-cell>{{ vuln.label1 }}</td>
                         <td md-cell>{{ vuln.code }}</td>
                         <td md-cell>{{ getVulnModeString(vuln.mode) }}</td>

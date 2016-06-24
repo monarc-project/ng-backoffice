@@ -412,6 +412,24 @@
             }
         }
 
+        $scope.toggleVulnStatus = function (vuln) {
+            VulnService.getVuln(vuln.id).then(function (vuln_db) {
+                vuln_db.status = !vuln_db.status;
+
+                if (vuln_db.models && vuln_db.models.length > 0) {
+                    var modelIds = [];
+                    for (var i = 0; i < vuln_db.models.length; ++i) {
+                        modelIds.push(vuln_db.models[i].id);
+                    }
+                    vuln_db.models = modelIds;
+                }
+
+                VulnService.updateVuln(vuln_db, function () {
+                    vuln.status = !vuln.status;
+                });
+
+            })
+        }
 
         $scope.createNewVuln = function (ev, vuln) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
