@@ -85,16 +85,13 @@ angular
                 }
             }).state('main.kb_mgmt', {
                 url: "/kb",
-                views: {
-                    "main": {templateUrl: "/views/index.kb_mgmt.html"}
-                },
                 ncyBreadcrumb: {
                     label: gettext('KB management')
                 }
             }).state('main.kb_mgmt.info_risk', {
                 url: '/info',
                 views: {
-                    'kb_main@main.kb_mgmt': {templateUrl: '/views/info_risk.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/info_risk.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Information risks')
@@ -102,7 +99,7 @@ angular
             }).state('main.kb_mgmt.info_risk.object', {
                 url: '/object/:objectId',
                 views: {
-                    'kb_main@main.kb_mgmt': {templateUrl: '/views/object.info_risk.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/object.info_risk.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Object details')
@@ -110,7 +107,7 @@ angular
             }).state('main.kb_mgmt.models', {
                 url: '/models',
                 views: {
-                    'kb_main@main.kb_mgmt': {templateUrl: '/views/models.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Models')
@@ -118,7 +115,7 @@ angular
             }).state('main.kb_mgmt.models.details', {
                 url: '/:modelId',
                 views: {
-                    'kb_main@main.kb_mgmt': {templateUrl: '/views/details.models.kb_mgmt.html'},
+                    'main@main': {templateUrl: '/views/details.models.kb_mgmt.html'},
                     'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr.details.models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
@@ -143,7 +140,7 @@ angular
             }).state('main.kb_mgmt.op_risk', {
                 url: '/op',
                 views: {
-                    'kb_main@main.kb_mgmt': {templateUrl: '/views/op_risk.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/op_risk.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Operational risks')
@@ -151,7 +148,7 @@ angular
             }).state('main.kb_mgmt.doc_models', {
                 url: '/docs',
                 views: {
-                    'kb_main@main.kb_mgmt': {templateUrl: '/views/doc_models.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/doc_models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Document models')
@@ -159,7 +156,7 @@ angular
             }).state('main.kb_mgmt.analysis_guides', {
                 url: '/guides',
                 views: {
-                    'kb_main@main.kb_mgmt': {templateUrl: '/views/analysis_guides.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/analysis_guides.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Analysis guide')
@@ -167,7 +164,7 @@ angular
             }).state('main.kb_mgmt.analysis_guides.items', {
                 url: '/:guideId',
                 views: {
-                    'kb_main@main.kb_mgmt': {templateUrl: '/views/items.analysis_guides.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/items.analysis_guides.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Guide contents')
