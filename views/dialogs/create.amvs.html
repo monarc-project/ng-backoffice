@@ -1,5 +1,5 @@
 <md-dialog style="min-width: 900px;" ng-cloak>
-    <form>
+    <form name="amvForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2 ng-if="!amv.id" translate>Add a new AMV link</h2>
@@ -11,9 +11,10 @@
             </div>
         </md-toolbar>
         <md-dialog-content>
-            <div class="md-dialog-content" layout="column" layout-margin>
+            <div class="md-dialog-content" layout="column">
                 <md-autocomplete
                         flex
+                        required
                         md-selected-item="amv.asset"
                         md-search-text="assetSearchText"
                         md-selected-item-change="selectedAssetItemChange(item)"
@@ -21,7 +22,8 @@
                         md-item-text="item.code + ' - ' + item.label1"
                         md-delay="300"
                         md-min-length="0"
-                        placeholder="{{ 'Please select an asset' | translate }}">
+                        md-input-name="asset"
+                        md-floating-label="{{ 'Asset' | translate }}">
                     <md-item-template>
                         <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }}</span>
                     </md-item-template>
@@ -29,10 +31,15 @@
                     <md-not-found>
                         {{ 'No asset matching your search was found' | translate }}
                     </md-not-found>
+
+                    <div ng-messages="amvForm.asset.$error">
+                        <div ng-message="required">{{ 'You must select an asset' | translate }}</div>
+                    </div>
                 </md-autocomplete>
 
                 <md-autocomplete
                         flex
+                        required
                         md-selected-item="amv.threat"
                         md-search-text="threatSearchText"
                         md-selected-item-change="selectedThreatItemChange(item)"
@@ -40,7 +47,8 @@
                         md-item-text="item.code + ' - ' + item.label1"
                         md-delay="300"
                         md-min-length="0"
-                        placeholder="{{ 'Please select a threat' | translate }}">
+                        md-input-name="threat"
+                        md-floating-label="{{ 'Threat' | translate }}">
                     <md-item-template>
                         <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }}</span>
                     </md-item-template>
@@ -48,10 +56,15 @@
                     <md-not-found>
                         {{ 'No threat matching your search was found' | translate }}
                     </md-not-found>
+
+                    <div ng-messages="amvForm.threat.$error">
+                        <div ng-message="required">{{ 'You must select a threat' | translate }}</div>
+                    </div>
                 </md-autocomplete>
 
                 <md-autocomplete
                         flex
+                        required
                         md-selected-item="amv.vulnerability"
                         md-search-text="vulnSearchText"
                         md-selected-item-change="selectedVulnItemChange(item)"
@@ -59,7 +72,8 @@
                         md-item-text="item.code + ' - ' + item.label1"
                         md-delay="300"
                         md-min-length="0"
-                        placeholder="{{ 'Please select a vulnerability' | translate }}">
+                        md-input-name="vulnerability"
+                        md-floating-label="{{ 'Vulnerability' | translate }}">
                     <md-item-template>
                         <span md-highlight-text="vulnSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }}</span>
                     </md-item-template>
@@ -67,6 +81,10 @@
                     <md-not-found>
                         {{ 'No vulnerability matching your search was found' | translate }}
                     </md-not-found>
+
+                    <div ng-messages="amvForm.vulnerability.$error">
+                        <div ng-message="required">{{ 'You must select a vulnerability' | translate }}</div>
+                    </div>
                 </md-autocomplete>
 
                 <md-autocomplete
@@ -142,7 +160,7 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="create()" class="md-accent md-hue-3">
+            <md-button ng-click="create()" ng-disabled="amvForm.$error.required" class="md-accent md-hue-3">
                 {{ (amv.id > 0 ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>

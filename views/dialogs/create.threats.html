@@ -1,5 +1,5 @@
 <md-dialog style="min-width: 900px;" ng-cloak>
-    <form>
+    <form name="threatForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2 ng-if="!threat.id" translate>Add a new threat</h2>
@@ -71,14 +71,16 @@
                         <md-icon style="margin-right: 8px;">class</md-icon>
                         <md-autocomplete
                                 flex
+                                required
+                                md-input-name="theme"
+                                md-no-cache="true"
                                 md-selected-item="threat.theme"
                                 md-search-text="themeSearchText"
-                                md-selected-item-change="selectedThemeItemChange(item)"
                                 md-items="item in queryThemeSearch(themeSearchText)"
                                 md-item-text="item.label1"
                                 md-min-length="0"
-                                md-no-cache="true"
-                                placeholder="{{ 'Please select a theme' | translate }}">
+                                md-selected-item-change="selectedThemeItemChange(item)"
+                                md-floating-label="{{ 'Theme' | translate }}">
                             <md-item-template>
                                 <span md-highlight-text="themeSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
                             </md-item-template>
@@ -87,8 +89,11 @@
                                 {{ 'No theme matching your search was found' | translate }}
                                 <md-button ng-click="createTheme(themeSearchText)">{{ 'Create this theme' | translate }}</md-button>
                             </md-not-found>
-
+                            <div ng-messages="threatForm.theme.$error">
+                                <div ng-message="required">{{ 'The theme may not be empty' | translate }}</div>
+                            </div>
                         </md-autocomplete>
+
                     </div>
                 </div>
 
@@ -106,7 +111,10 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Code</label>
                     <md-icon>language</md-icon>
-                    <input ng-model="threat.code">
+                    <input ng-model="threat.code" name="code" required>
+                    <div ng-messages="threatForm.code.$error">
+                        <div ng-message="required">{{ 'The code may not be empty' | translate }}</div>
+                    </div>
                 </md-input-container>
                 
                 <md-input-container layout="row">
@@ -131,7 +139,7 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="create()" class="md-accent md-hue-3">
+            <md-button ng-click="create()" ng-disabled="threatForm.$error.required" class="md-accent md-hue-3">
                 {{ (threat.id > 0 ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>
