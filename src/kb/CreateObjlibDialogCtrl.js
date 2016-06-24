@@ -189,6 +189,7 @@ function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, ConfigService, Ob
     } else {
         $scope.category = {
             parent: null,
+            implicitPosition: null,
             position: null,
             label1: catName,
             label2: '',
@@ -223,6 +224,44 @@ function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, ConfigService, Ob
         var q = $q.defer();
 
         ObjlibService.getObjlibsCats({filter: query}).then(function (x) {
+            if (x && x.categories) {
+                // Recursively build items
+                var buildItemRecurse = function (children, depth) {
+                    var output = [];
+
+                    for (var i = 0; i < children.length; ++i) {
+                        var child = children[i];
+
+                        for (var j = 0; j < depth; ++j) {
+                            child.label1 = " >> " + child.label1;
+                        }
+
+                        output.push(child);
+
+                        if (child.child.length > 0) {
+                            var child_output = buildItemRecurse(child.child, depth + 1);
+                            output = output.concat(child_output);
+                        }
+                    }
+
+                    return output;
+                };
+
+                q.resolve(buildItemRecurse(x.categories, 0));
+            } else {
+                q.reject();
+            }
+        }, function (x) {
+            q.reject(x);
+        });
+
+        return q.promise;
+    };
+
+    $scope.queryCategoryChildrenSearch = function (query) {
+        var q = $q.defer();
+
+        ObjlibService.getObjlibsCats({filter: query, lock: true, parentId: parentId}).then(function (x) {
             if (x && x.categories) {
                 q.resolve(x.categories);
             } else {

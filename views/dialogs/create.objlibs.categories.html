@@ -70,7 +70,7 @@
                                 md-selected-item="category.previous"
                                 md-search-text="categoryPreviousSearchText"
                                 md-selected-item-change="selectedPreviousCatItemChange(item)"
-                                md-items="item in queryCategorySearch(categoryPreviousSearchText)"
+                                md-items="item in queryCategoryChildrenSearch(categoryPreviousSearchText)"
                                 md-item-text="item.label1"
                                 md-min-length="0"
                                 placeholder="{{ 'Previous category...' | translate }}">
