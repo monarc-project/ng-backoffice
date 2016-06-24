@@ -526,7 +526,7 @@
         $scope.deleteMeasure = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete measure "{{ label }}"?',
-                    {label: item.label}))
+                    {label: item.description1}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -538,7 +538,7 @@
                         $mdToast.show(
                             $mdToast.simple()
                                 .textContent(gettextCatalog.getString('The measure "{{label}}" has been deleted.',
-                                    {label: item.label}))
+                                    {label: item.description1}))
                                 .position('top right')
                                 .hideDelay(3000)
                         );
