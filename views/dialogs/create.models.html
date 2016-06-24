@@ -35,7 +35,7 @@
                 <div layout="column">
                     <md-checkbox ng-model="model.isDefault" class="md-primary md-align-top-left">{{ 'Default model' | translate }}</md-checkbox>
                     <md-checkbox ng-model="model.isScalesUpdatable" class="md-primary md-align-top-left">{{ 'Editable impact scale' | translate }}</md-checkbox>
-                    <md-checkbox ng-model="model.isGeneric" class="md-primary md-align-top-left">{{ 'Specific' | translate }}</md-checkbox>
+                    <md-checkbox ng-model="model.isGeneric" ng-disabled="model.isRegulator" class="md-primary md-align-top-left">{{ 'Specific' | translate }}</md-checkbox>
                     <md-checkbox ng-model="model.isRegulator" class="md-primary md-align-top-left">{{ 'Regulator' | translate }}</md-checkbox>
                     <md-checkbox ng-model="model.showRolfBrut" class="md-primary md-align-top-left">{{ 'Enable raw ROLF values' | translate }}</md-checkbox>
                 </div>

@@ -164,6 +164,12 @@
             };
         }
 
+        $scope.$watch('model.isRegulator', function (newValue) {
+            if (newValue) {
+                $scope.model.isGeneric = false;
+            }
+        })
+
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
