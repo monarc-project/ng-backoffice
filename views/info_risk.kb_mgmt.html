@@ -48,7 +48,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="asset" md-select-id="id" ng-repeat="asset in assets.items.assets">
-                        <td md-cell><md-icon>{{ asset.status ? 'done' : 'clear' }}</md-icon></td>
+                        <td md-cell><md-button class="md-icon-button" ng-click="toggleAssetStatus(asset)"><md-icon>{{ asset.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                         <td md-cell>{{ asset.label1 }}</td>
                         <td md-cell>{{ asset.code }}</td>
                         <td md-cell>{{ assetTypeStr(asset.type) }}</td>
@@ -125,7 +125,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="threat" md-select-id="id" ng-repeat="threat in threats.items.threats">
-                        <td md-cell><md-icon>{{ threat.status ? 'done' : 'clear' }}</md-icon></td>
+                        <td md-cell><md-button class="md-icon-button" ng-click="toggleThreatStatus(threat)"><md-icon>{{ threat.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                         <td md-cell>{{ threat.label1 }}</td>
                         <td md-cell>{{ threat.code }}</td>
                         <td md-cell>{{ threat.c ? 'C' : '' }}{{ threat.i ? 'I' : '' }}{{ threat.d ? 'D' : '' }}</td>

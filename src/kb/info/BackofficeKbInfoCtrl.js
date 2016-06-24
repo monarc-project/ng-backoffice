@@ -37,9 +37,31 @@
                 }
             )
         };
+
         $scope.removeAssetsFilter = function () {
             TableHelperService.removeFilter($scope.assets);
         };
+
+        $scope.toggleAssetStatus = function (asset) {
+            AssetService.getAsset(asset.id).then(function (asset_db) {
+                asset_db.status = !asset_db.status;
+
+                if (asset_db.models && asset_db.models.length > 0) {
+                    var modelIds = [];
+                    for (var i = 0; i < asset_db.models.length; ++i) {
+                        modelIds.push(asset_db.models[i].id);
+                    }
+                    asset_db.models = modelIds;
+                }
+
+                AssetService.updateAsset(asset_db, function () {
+                    asset.status = !asset.status;
+                });
+
+            })
+
+
+        }
 
         $scope.createNewAsset = function (ev, asset) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -204,6 +226,31 @@
         $scope.removeThreatsFilter = function () {
             TableHelperService.removeFilter($scope.threats);
         };
+
+
+        $scope.toggleThreatStatus = function (threat) {
+            ThreatService.getThreat(threat.id).then(function (threat_db) {
+                threat_db.status = !threat_db.status;
+
+                if (threat_db.models && threat_db.models.length > 0) {
+                    var modelIds = [];
+                    for (var i = 0; i < threat_db.models.length; ++i) {
+                        modelIds.push(threat_db.models[i].id);
+                    }
+                    threat_db.models = modelIds;
+                }
+                if (threat_db.theme) {
+                    threat_db.theme = threat_db.theme.id;
+                }
+
+                ThreatService.updateThreat(threat_db, function () {
+                    threat.status = !threat.status;
+                });
+
+            })
+
+
+        }
 
         $scope.createNewThreat = function (ev, threat) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
