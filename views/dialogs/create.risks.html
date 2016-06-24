@@ -1,5 +1,5 @@
 <md-dialog style="min-width: 900px;" ng-cloak>
-    <form>
+    <form name="riskForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2 ng-if="!risk.id" translate>Add a new risk</h2>
@@ -35,10 +35,15 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Code</label>
                     <md-icon>reorder</md-icon>
-                    <input ng-model="risk.code">
+                    <input ng-model="risk.code" name="code" required>
+
+                    <div ng-messages="riskForm.code.$error">
+                        <div ng-message="required">{{ 'The code may not be empty' | translate }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-chips ng-model="risk.categories"
+                          required
                           md-autocomplete-snap
                           md-require-match="true">
                     <md-autocomplete flex
@@ -62,6 +67,7 @@
 
                 <md-chips ng-model="risk.tags"
                           md-autocomplete-snap
+                          required
                           md-require-match="true">
                     <md-autocomplete flex
                                      md-selected-item="selectedTagItem"
@@ -88,7 +94,7 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="create()" class="md-accent md-hue-3">
+            <md-button ng-click="create()" class="md-accent md-hue-3" ng-disabled="riskForm.$error.required || risk.tags.length == 0 || risk.categories.length == 0">
                 {{ (risk.id > 0 ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>
