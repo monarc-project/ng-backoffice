@@ -524,7 +524,24 @@
         $scope.queryCategorySearch = function (query) {
             var promise = $q.defer();
             CategoryService.getCategories({filter: query}).then(function (e) {
-                promise.resolve(e.categories);
+                // Filter out values already selected
+                var filtered = [];
+                for (var j = 0; j < e.categories.length; ++j) {
+                    var found = false;
+
+                    for (var i = 0; i < $scope.risk.categories.length; ++i) {
+                        if ($scope.risk.categories[i].id == e.categories[j].id) {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        filtered.push(e.categories[j]);
+                    }
+                }
+
+                promise.resolve(filtered);
             }, function (e) {
                 promise.reject(e);
             });
@@ -537,7 +554,24 @@
         $scope.queryTagSearch = function (query) {
             var promise = $q.defer();
             TagService.getTags({filter: query}).then(function (e) {
-                promise.resolve(e.tags);
+                // Filter out values already selected
+                var filtered = [];
+                for (var j = 0; j < e.tags.length; ++j) {
+                    var found = false;
+
+                    for (var i = 0; i < $scope.risk.tags.length; ++i) {
+                        if ($scope.risk.tags[i].id == e.tags[j].id) {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        filtered.push(e.tags[j]);
+                    }
+                }
+
+                promise.resolve(filtered);
             }, function (e) {
                 promise.reject(e);
             });
