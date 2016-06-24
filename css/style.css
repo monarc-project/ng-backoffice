@@ -2,6 +2,14 @@
   white-space: pre-wrap
 }
 
+.logo-cases-bg {
+  background: url('/img/bg-cases.png') no-repeat left center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
 .md-main-content {
   background-color: #FAFAFA; }
 
