@@ -1,5 +1,5 @@
 <md-dialog style="min-width: 900px;" ng-cloak>
-    <form>
+    <form name="userForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2 ng-if="!user.id" translate>Add a new user</h2>
@@ -16,19 +16,29 @@
                     <md-input-container class="md-block" flex>
                         <label translate>First name</label>
                         <md-icon>person</md-icon>
-                        <input ng-model="user.firstname">
+                        <input ng-model="user.firstname" name="firstname" required>
+                        <div ng-messages="userForm.firstname.$error" role="alert">
+                            <div ng-message="required">{{ 'You must enter the user\'s first name' | translate }}</div>
+                        </div>
                     </md-input-container>
 
                     <md-input-container class="md-block" flex>
                         <label translate>Last name</label>
-                        <input ng-model="user.lastname">
+                        <input ng-model="user.lastname" name="lastname" required>
+                        <div ng-messages="userForm.lastname.$error" role="alert">
+                            <div ng-message="required">{{ 'You must enter the user\'s last name' | translate }}</div>
+                        </div>
                     </md-input-container>
                 </div>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Email</label>
                     <md-icon>email</md-icon>
-                    <input ng-model="user.email">
+                    <input ng-model="user.email" type="email" name="email" ng-pattern="/^.+@.+\..+$/" required>
+                    <div ng-messages="userForm.email.$error" role="alert">
+                        <div ng-message="required">{{ 'You must enter an e-mail address' | translate }}</div>
+                        <div ng-message="pattern">{{ 'This e-mail address does not look valid' | translate }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
@@ -43,7 +53,7 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="create()" class="md-accent md-hue-3">
+            <md-button ng-click="create()" ng-disabled="userForm.$error.required || userForm.$error.pattern" class="md-accent md-hue-3">
                 {{ (user.id ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>
