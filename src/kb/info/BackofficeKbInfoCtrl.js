@@ -1054,7 +1054,8 @@
         };
 
         $scope.create = function() {
-            $mdDialog.hide($scope.asset);
+            console.log ($scope.assetForm.$error)
+            //$mdDialog.hide($scope.asset);
         };
     }
 

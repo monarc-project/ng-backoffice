@@ -1,5 +1,5 @@
 <md-dialog style="min-width: 900px;" ng-cloak>
-    <form>
+    <form name="assetForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2 ng-if="!asset.id" translate>Add a new asset</h2>
@@ -48,7 +48,10 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Code</label>
                     <md-icon>language</md-icon>
-                    <input ng-model="asset.code">
+                    <input ng-model="asset.code" name="code" required>
+                    <div ng-messages="assetForm.code.$error">
+                        <div ng-message="required">{{ 'The code may not be empty' | translate }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" layout="row" flex>
@@ -77,7 +80,7 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="create()" class="md-accent md-hue-3">
+            <md-button ng-click="create()" ng-disabled="assetForm.$error.required && assetForm.$error.required.length > 0" class="md-accent md-hue-3">
                 {{ (asset.id > 0 ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>

@@ -37,7 +37,8 @@ module.exports = function (grunt) {
                     'node_modules/angular-breadcrumb/release/angular-breadcrumb.min.js',
                     'node_modules/ng-file-upload/dist/ng-file-upload.min.js',
                     'node_modules/ng-inline-edit/dist/ng-inline-edit.min.js',
-                    'node_modules/ng-tree-dnd/dist/ng-tree-dnd.min.js'
+                    'node_modules/ng-tree-dnd/dist/ng-tree-dnd.min.js',
+                    'node_modules/angular-messages/angular-messages.min.js'
                 ],
                 dest: '../../public/js/angular-common-libs.js',
                 nonull: true
