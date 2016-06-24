@@ -54,7 +54,15 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, $mdToast, gettext, AssetServi
                 }
 
                 ObjlibService.createObjlibCat(category,
-                    function () {
+                    function (cat) {
+                        // Set the created category on the object
+                        ObjlibService.getObjlibCat(cat.id).then(function (category) {
+                            $scope.objlib.category = category;
+
+                            // Display the dialog again
+                            objLibDialog.editObjlib(null, $scope.objlib);
+                        });
+
                         $mdToast.show(
                             $mdToast.simple()
                                 .textContent(gettext('The category has been created successfully.'))
@@ -63,7 +71,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, $mdToast, gettext, AssetServi
                         );
                     }
                 );
-                objLibDialog.editObjlib(null, $scope.objlib);
+
             }, function () {
                 objLibDialog.editObjlib(null, $scope.objlib);
             });
