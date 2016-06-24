@@ -21,7 +21,7 @@
                 <span flex></span>
                 <md-button class="md-primary" ng-click="login()" ng-hide="isLoggingIn">{{ 'Log in' | translate }}</md-button>
                 <md-progress-circular ng-show="isLoggingIn" md-mode="indeterminate" md-diameter="48"></md-progress-circular>
-                <button style="display:none"></button>
+                <input type="submit" style="position: absolute; left: -99999px">
             </div>
         </form>
     </div>
