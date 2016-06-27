@@ -47,6 +47,36 @@
                 });
         };
 
+        $scope.editServer = function (ev, server) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            AdminServerService.getServer(server.id).then(function (server) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'server', CreateServerDialogCtrl],
+                    templateUrl: '/views/dialogs/create.servers.admin.html',
+                    targetEvent: ev,
+                    clickOutsideToClose: true,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'server': server
+                    }
+                })
+                    .then(function (server) {
+                        AdminServerService.updateServer(server,
+                            function () {
+                                $scope.updateServers();
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The server has been updated successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
+                        );
+                    });
+            });
+        };
+
         $scope.toggleServerStatus = function (server) {
             AdminServerService.getServer(server.id).then(function (server_db) {
                 server_db.status = !server_db.status;
@@ -85,15 +115,19 @@
     }
 
 
-    function CreateServerDialogCtrl($scope, $mdDialog) {
-        $scope.server = {
-            label: '',
-            address: '',
-            fqdn: '',
-            login: '',
-            port: '',
-            ssh: false
-        };
+    function CreateServerDialogCtrl($scope, $mdDialog, server) {
+        if (server) {
+            $scope.server = server;
+        } else {
+            $scope.server = {
+                label: '',
+                address: '',
+                fqdn: '',
+                login: '',
+                port: '',
+                ssh: false
+            };
+        }
 
         $scope.cancel = function() {
             $mdDialog.cancel();
