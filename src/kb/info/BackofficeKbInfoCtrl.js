@@ -569,6 +569,26 @@
         };
 
 
+        $scope.toggleMeasureStatus = function (measure) {
+            MeasureService.getMeasure(measure.id).then(function (measure_db) {
+                measure_db.status = !measure_db.status;
+
+                if (measure_db.models && measure_db.models.length > 0) {
+                    var modelIds = [];
+                    for (var i = 0; i < measure_db.models.length; ++i) {
+                        modelIds.push(measure_db.models[i].id);
+                    }
+                    measure_db.models = modelIds;
+                }
+
+                MeasureService.updateMeasure(measure_db, function () {
+                    measure.status = !measure.status;
+                });
+
+            })
+        }
+
+
         $scope.createNewMeasure = function (ev, measure) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
@@ -706,6 +726,26 @@
         $scope.removeAmvsFilter = function () {
             TableHelperService.removeFilter($scope.amvs);
         };
+
+
+        $scope.toggleAmvStatus = function (amv) {
+            AmvService.getAmv(amv.id).then(function (amv_db) {
+                amv_db.status = !amv_db.status;
+
+                if (amv_db.asset) amv_db.asset = amv_db.asset.id;
+                if (amv_db.threat) amv_db.threat = amv_db.threat.id;
+                if (amv_db.vulnerability) amv_db.vulnerability = amv_db.vulnerability.id;
+                if (amv_db.measure1) amv_db.measure1 = amv_db.measure1.id;
+                if (amv_db.measure2) amv_db.measure2 = amv_db.measure2.id;
+                if (amv_db.measure3) amv_db.measure3 = amv_db.measure3.id;
+
+                AmvService.updateAmv(amv_db, function () {
+                    amv.status = !amv.status;
+                });
+
+            })
+        }
+
 
         $scope.createNewAmv = function (ev, amv) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));

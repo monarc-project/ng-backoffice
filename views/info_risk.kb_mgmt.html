@@ -274,7 +274,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="measure" md-select-id="id" ng-repeat="measure in measures.items.measures">
-                        <td md-cell><md-icon>{{ measure.status ? 'done' : 'clear' }}</md-icon></td>
+                        <td md-cell><md-button class="md-icon-button" ng-click="toggleMeasureStatus(measure)"><md-icon>{{ measure.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                         <td md-cell>{{ measure.code }}</td>
                         <td md-cell>{{ measure.description1 }}</td>
                         <td md-cell>
@@ -349,7 +349,7 @@
 
                     <tbody md-body>
                     <tr md-row md-select="amv" md-select-id="id" ng-repeat="amv in amvs.items.amvs">
-                        <td md-cell><md-icon>{{ amv.status ? 'done' : 'clear' }}</md-icon></td>
+                        <td md-cell><md-button class="md-icon-button" ng-click="toggleAmvStatus(amv)"><md-icon>{{ amv.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                         <td md-cell>{{ amv.asset.code }} - {{ amv.asset.label1 }}</td>
                         <td md-cell>{{ amv.threat.code }} - {{ amv.threat.label1 }}</td>
                         <td md-cell>{{ amv.vulnerability.code }} - {{ amv.vulnerability.label1 }}</td>
