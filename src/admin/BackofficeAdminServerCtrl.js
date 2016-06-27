@@ -47,6 +47,17 @@
                 });
         };
 
+        $scope.toggleServerStatus = function (server) {
+            AdminServerService.getServer(server.id).then(function (server_db) {
+                server_db.status = !server_db.status;
+
+                AdminServerService.updateServer(server_db, function () {
+                    server.status = !server.status;
+                });
+
+            })
+        }
+
         $scope.deleteServer = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete "{{label}}"?', { label: item.label }))

@@ -22,6 +22,10 @@
             return self.ServerResource.query(params).$promise;
         };
 
+        var getServer = function (id) {
+            return self.ServerResource.query({serverId: id}).$promise;
+        };
+
         var createServer = function (params, success, error) {
             new self.ServerResource(params).$save(success, error);
         };
@@ -36,6 +40,7 @@
 
         return {
             getServers: getServers,
+            getServer: getServer,
             createServer: createServer,
             deleteServer: deleteServer,
             updateServer: updateServer
