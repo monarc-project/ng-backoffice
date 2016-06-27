@@ -77,9 +77,16 @@
                 }
             })
                 .then(function (asset) {
+                    var cont = asset.cont;
+                    asset.cont = undefined;
+
                     AssetService.createAsset(asset,
                         function () {
                             $scope.updateAssets();
+
+                            if (cont) {
+                                $scope.createNewAsset(ev);
+                            }
 
                             if (asset.mode == 1 && asset.models.length > 0) {
                                 // If we create a generic asset, but we still have specific models, we should warn
@@ -1171,6 +1178,13 @@
 
         $scope.create = function() {
             if (Object.keys($scope.assetForm.$error).length == 0) {
+                $mdDialog.hide($scope.asset);
+            }
+        };
+
+        $scope.createAndContinue = function() {
+            if (Object.keys($scope.assetForm.$error).length == 0) {
+                $scope.asset.cont = true;
                 $mdDialog.hide($scope.asset);
             }
         };
