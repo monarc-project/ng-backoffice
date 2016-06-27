@@ -20,6 +20,8 @@
          * ASSETS TAB
          */
         $scope.assets = TableHelperService.build('-label1', 10, 1, '');
+        $scope.assets.activeFilter = 1;
+        $scope.$watch('assets.activeFilter', function() { $scope.updateAssets(); });
 
         $scope.selectAssetsTab = function () {
             TableHelperService.watchSearch($scope, 'assets.query.filter', $scope.assets.query, $scope.updateAssets, $scope.assets);
@@ -30,7 +32,10 @@
         };
 
         $scope.updateAssets = function () {
-            $scope.assets.promise = AssetService.getAssets($scope.assets.query);
+            var query = angular.copy($scope.assets.query);
+            query.status = $scope.assets.activeFilter;
+
+            $scope.assets.promise = AssetService.getAssets(query);
             $scope.assets.promise.then(
                 function (data) {
                     $scope.assets.items = data;
