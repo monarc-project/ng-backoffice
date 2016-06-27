@@ -80,12 +80,23 @@
                     AssetService.createAsset(asset,
                         function () {
                             $scope.updateAssets();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The asset has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+
+                            if (asset.mode == 1 && asset.models.length > 0) {
+                                // If we create a generic asset, but we still have specific models, we should warn
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The asset has been created successfully, however without models, the element may not be specific.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            } else {
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The asset has been created successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
                         },
 
                         function () {
