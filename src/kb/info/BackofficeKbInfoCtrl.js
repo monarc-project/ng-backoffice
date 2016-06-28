@@ -1294,6 +1294,24 @@
             });
         };
 
+        $scope.updateTheme = function (theme) {
+            $scope.theme_edit_lock = true;
+            ThreatService.updateTheme(theme, function () {
+                ThreatService.getTheme(theme.id).then(function (theme) {
+                    $scope.threat.theme = theme;
+                    $scope.theme_edit_lock = false;
+                    $scope.theme_edit = null;
+                });
+            });
+        }
+
+        $scope.deleteTheme = function (theme) {
+            ThreatService.deleteTheme(theme.id, function () {
+                $scope.threat.theme = null;
+                $scope.theme_edit = null;
+            });
+        }
+
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
