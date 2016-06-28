@@ -17,6 +17,19 @@
         TableHelperService.resetBookmarks();
 
         /*
+         * Global helpers
+         */
+
+        $scope.specificityStr = function (type) {
+            switch (type) {
+                case 0: return gettext('Generic');
+                case 1: return gettext('Specific');
+            }
+        };
+
+
+
+        /*
          * ASSETS TAB
          */
         $scope.assets = TableHelperService.build('-label1', 10, 1, '');
@@ -206,15 +219,6 @@
             }
         };
 
-        $scope.assetModeStr = function (type) {
-            switch (type) {
-                case 1: return gettext('Generic');
-                case 2: return gettext('Specific');
-            }
-        };
-
-
-
         /*
          * THREATS TAB
          */
@@ -227,16 +231,6 @@
         $scope.deselectThreatsTab = function () {
             TableHelperService.unwatchSearch($scope.threats);
         };
-
-        $scope.getThreatModeString = function (mode) {
-            switch (mode) {
-                case 1:
-                    return gettext("Generic");
-
-                case 2:
-                    return gettext("Specific");
-            }
-        }
 
         $scope.updateThreats = function () {
             $scope.threats.promise = ThreatService.getThreats($scope.threats.query);
@@ -424,16 +418,6 @@
         $scope.removeVulnsFilter = function () {
             TableHelperService.removeFilter($scope.vulns);
         };
-
-        $scope.getVulnModeString = function (mode) {
-            switch (mode) {
-                case 1:
-                    return gettext("Generic");
-
-                case 2:
-                    return gettext("Specific");
-            }
-        }
 
         $scope.toggleVulnStatus = function (vuln) {
             VulnService.getVuln(vuln.id).then(function (vuln_db) {
@@ -941,6 +925,14 @@
                 $scope.updateObjlibs();
             }
         });
+
+        $scope.objlibScopeStr = function (scope) {
+            switch (scope) {
+                case 1: return gettext('Local');
+                case 2: return gettext('Global');
+                default: return scope;
+            }
+        }
 
         $scope.resetObjlibsFilters = function () {
             $scope.objlib_category_filter = 0;
