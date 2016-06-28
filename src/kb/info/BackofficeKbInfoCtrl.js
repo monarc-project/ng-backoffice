@@ -34,13 +34,22 @@
          */
         $scope.assets = TableHelperService.build('-label1', 10, 1, '');
         $scope.assets.activeFilter = 1;
-        $scope.$watch('assets.activeFilter', function() { $scope.updateAssets(); });
+        var assetsFilterWatch;
 
         $scope.selectAssetsTab = function () {
+            var initAssetsFilter = true;
+            assetsFilterWatch = $scope.$watch('assets.activeFilter', function() {
+                if (initAssetsFilter) {
+                    initAssetsFilter = false;
+                } else {
+                    $scope.updateAssets();
+                }
+            });
             TableHelperService.watchSearch($scope, 'assets.query.filter', $scope.assets.query, $scope.updateAssets, $scope.assets);
         };
 
         $scope.deselectAssetsTab = function () {
+            assetsFilterWatch();
             TableHelperService.unwatchSearch($scope.assets);
         };
 
@@ -224,13 +233,22 @@
          */
         $scope.threats = TableHelperService.build('-label1', 10, 1, '');
         $scope.threats.activeFilter = 1;
-        $scope.$watch('threats.activeFilter', function() { $scope.updateThreats(); });
+        var threatsFilterWatch;
 
         $scope.selectThreatsTab = function () {
+            var initThreatsFilter = true;
+            threatsFilterWatch = $scope.$watch('threats.activeFilter', function() {
+                if (initThreatsFilter) {
+                    initThreatsFilter = false;
+                } else {
+                    $scope.updateThreats();
+                }
+            });
             TableHelperService.watchSearch($scope, 'threats.query.filter', $scope.threats.query, $scope.updateThreats, $scope.threats);
         };
 
         $scope.deselectThreatsTab = function () {
+            threatsFilterWatch();
             TableHelperService.unwatchSearch($scope.threats);
         };
 

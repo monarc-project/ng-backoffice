@@ -5,7 +5,7 @@
                 <div class="md-toolbar-tools">
                     <h2 class="md-title" translate>Assets</h2>
                     <div flex></div>
-                    <md-select ng-model="assets.activeFilter" style="font-size: 14px">
+                    <md-select aria-label="filter" ng-model="assets.activeFilter" style="font-size: 14px">
                         <md-option value="all">{{ 'Show all' | translate }}</md-option>
                         <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
                         <md-option value="1">{{ 'Show active only' | translate }}</md-option>
@@ -87,7 +87,7 @@
                 <div class="md-toolbar-tools">
                     <h2 class="md-title" translate>Threats</h2>
                     <div flex></div>
-                    <md-select ng-model="threats.activeFilter" style="font-size: 14px">
+                    <md-select aria-label="filter" ng-model="threats.activeFilter" style="font-size: 14px">
                         <md-option value="all">{{ 'Show all' | translate }}</md-option>
                         <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
                         <md-option value="1">{{ 'Show active only' | translate }}</md-option>

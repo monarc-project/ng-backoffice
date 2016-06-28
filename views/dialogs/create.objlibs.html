@@ -112,7 +112,7 @@
                                 <div ng-message="required">{{ 'You must select a category' | translate }}</div>
                             </div>
                         </md-autocomplete>
-                        <md-button class="md-primary" ng-show="objlib.category.id" ng-click="editCategory($event, objlib.category)">{{ 'Edit' | translate }}</md-button>
+                        <md-button class="md-icon-button" ng-show="objlib.category.id" ng-click="editCategory($event, objlib.category)"><md-icon>edit</md-icon></md-button>
                     </div>
                 </div>
 
