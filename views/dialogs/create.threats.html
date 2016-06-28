@@ -132,6 +132,8 @@
                         <md-option ng-repeat="availModel in models" value="{{ availModel.id }}">{{ availModel.label1 }}</md-option>
                     </md-select>
                 </md-input-container>
+
+                <md-checkbox ng-model="threat.trend" ng-true-value="'1'" ng-false-value="'0'">{{ 'Force AMVs links to follow trends' | translate }}</md-checkbox>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
