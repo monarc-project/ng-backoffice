@@ -1264,7 +1264,11 @@
         }
 
         $scope.createTheme = function (label) {
-            return ThreatService.createTheme({label1: label});
+            ThreatService.createTheme({label1: label}, function (data) {
+                ThreatService.getTheme(data.id).then(function (theme) {
+                    $scope.threat.theme = theme;
+                })
+            });
         };
 
         $scope.cancel = function() {
