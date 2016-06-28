@@ -223,6 +223,8 @@
          * THREATS TAB
          */
         $scope.threats = TableHelperService.build('-label1', 10, 1, '');
+        $scope.threats.activeFilter = 1;
+        $scope.$watch('threats.activeFilter', function() { $scope.updateThreats(); });
 
         $scope.selectThreatsTab = function () {
             TableHelperService.watchSearch($scope, 'threats.query.filter', $scope.threats.query, $scope.updateThreats, $scope.threats);
@@ -233,7 +235,10 @@
         };
 
         $scope.updateThreats = function () {
-            $scope.threats.promise = ThreatService.getThreats($scope.threats.query);
+            var query = angular.copy($scope.threats.query);
+            query.status = $scope.threats.activeFilter;
+
+            $scope.threats.promise = ThreatService.getThreats(query);
             $scope.threats.promise.then(
                 function (data) {
                     $scope.threats.items = data;
