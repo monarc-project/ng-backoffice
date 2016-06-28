@@ -115,7 +115,7 @@
                                 $scope.createNewAsset(ev);
                             }
 
-                            if (asset.mode == 1 && asset.models.length > 0) {
+                            if (asset.mode == 0 && asset.models.length > 0) {
                                 // If we create a generic asset, but we still have specific models, we should warn
                                 $mdToast.show(
                                     $mdToast.simple()
@@ -315,12 +315,23 @@
                     ThreatService.createThreat(threat,
                         function () {
                             $scope.updateThreats();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The threat has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+
+                            if (threat.mode == 0 && threat.models.length > 0) {
+                                // If we create a generic threat, but we still have specific models, we should warn
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The threat has been created successfully, however without models, the element may not be specific.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            } else {
+                                $mdToast.show(
+                                    $mdToast.simple()
+                                        .textContent(gettext('The threat has been created successfully.'))
+                                        .position('top right')
+                                        .hideDelay(3000)
+                                );
+                            }
                         },
 
                         function () {
