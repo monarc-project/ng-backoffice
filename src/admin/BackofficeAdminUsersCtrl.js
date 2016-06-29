@@ -30,6 +30,12 @@
 
         TableHelperService.watchSearch($scope, 'users.query.filter', $scope.users.query, $scope.updateUsers);
 
+        $scope.toggleUserStatus = function (user) {
+            AdminUsersService.patchUser(user.id, {status: !user.status}, function () {
+                user.status = !user.status;
+            });
+        }
+
         $scope.createNewUser = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 

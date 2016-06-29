@@ -12,6 +12,9 @@
                 'update': {
                     method: 'PUT'
                 },
+                'patch': {
+                    method: 'PATCH'
+                },
                 'query': {
                     isArray: false
                 }
@@ -37,12 +40,17 @@
             self.UserResource.delete({userId: id}, success, error);
         };
 
+        var patchUser = function (id, params, success, error) {
+            self.UserResource.patch({userId: id}, params, success, error);
+        }
+
         return {
             getUsers: getUsers,
             getUser: getUser,
             createUser: createUser,
             deleteUser: deleteUser,
-            updateUser: updateUser
+            updateUser: updateUser,
+            patchUser: patchUser
         };
     }
 

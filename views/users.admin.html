@@ -37,7 +37,7 @@
 
             <tbody md-body>
             <tr md-row ng-repeat="user in users.items.users">
-                <td md-cell><md-icon>{{ user.status == 1 ? 'done' : 'close' }}</md-icon></td>
+                <td md-cell><md-button ng-click="toggleUserStatus(user)" class="md-icon-button"><md-icon>{{ user.status == 1 ? 'done' : 'close' }}</md-icon></md-button></td>
                 <td md-cell>{{ user.firstname }}</td>
                 <td md-cell>{{ user.lastname }}</td>
                 <td md-cell>{{ user.email }}</td>
