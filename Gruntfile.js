@@ -38,7 +38,9 @@ module.exports = function (grunt) {
                     'node_modules/ng-file-upload/dist/ng-file-upload.min.js',
                     'node_modules/ng-inline-edit/dist/ng-inline-edit.min.js',
                     'node_modules/ng-tree-dnd/dist/ng-tree-dnd.min.js',
-                    'node_modules/angular-messages/angular-messages.min.js'
+                    'node_modules/angular-messages/angular-messages.min.js',
+                    'node_modules/angular-toastr/dist/angular-toastr.min.js',
+                    'node_modules/angular-toastr/dist/angular-toastr.tpls.min.js',
                 ],
                 dest: '../../public/js/angular-common-libs.js',
                 nonull: true
@@ -49,7 +51,8 @@ module.exports = function (grunt) {
                     'node_modules/angular-material/angular-material.min.css',
                     'node_modules/angular-material-data-table/dist/md-data-table.min.css',
                     'node_modules/ng-inline-edit/dist/ng-inline-edit.min.css',
-                    'node_modules/ng-tree-dnd/dist/ng-tree-dnd.min.css'
+                    'node_modules/ng-tree-dnd/dist/ng-tree-dnd.min.css',
+                    'node_modules/angular-toastr/dist/angular-toastr.min.css'
                 ],
                 dest: '../../public/css/angular-common-libs.css',
                 nonull: true

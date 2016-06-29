@@ -68,11 +68,11 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
 /*# sourceMappingURL=style.css.map */
 
 .md-padding-left {
-  padding-left: 24px;
+  padding-left: 16px;
 }
 
 .md-padding-right {
-  padding-right: 24px;
+  padding-right: 16px;
 }
 
 .clickable-rows {
@@ -343,4 +343,15 @@ div.ng-inline-edit input, div.ng-inline-edit textarea {
 
 .horz-expanding-table .md-html-table td, .horz-expanding-table .md-html-table td span span {
   min-width: 200px;
+}
+
+/** Material Design Overrides */
+body {
+  font-size: 12px;
+}
+h1.md-toolbar-tools {
+  font-size: 18px;
+}
+.md-padding {
+  padding: 8px;
 }
