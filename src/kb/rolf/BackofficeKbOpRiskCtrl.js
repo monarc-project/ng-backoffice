@@ -18,7 +18,7 @@
         /**
          * CATEGORIES
          */
-        $scope.categories = TableHelperService.build('-label1', 10, 1, '');
+        $scope.categories = TableHelperService.build('label1', 10, 1, '');
 
         $scope.updateCategories = function () {
             $scope.categories.promise = CategoryService.getCategories($scope.categories.query);
@@ -158,7 +158,7 @@
         /**
          * TAGS
          */
-        $scope.tags = TableHelperService.build('-label1', 10, 1, '');
+        $scope.tags = TableHelperService.build('label1', 10, 1, '');
 
         $scope.updateTags = function () {
             $scope.tags.promise = TagService.getTags($scope.tags.query);
@@ -297,7 +297,7 @@
         /**
          * RISKS
          */
-        $scope.risks = TableHelperService.build('-label1', 10, 1, '');
+        $scope.risks = TableHelperService.build('label1', 10, 1, '');
 
         var risksTabSelected = false;
 

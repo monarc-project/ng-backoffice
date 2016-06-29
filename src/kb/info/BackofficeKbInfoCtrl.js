@@ -32,7 +32,7 @@
         /*
          * ASSETS TAB
          */
-        $scope.assets = TableHelperService.build('-label1', 10, 1, '');
+        $scope.assets = TableHelperService.build('label1', 10, 1, '');
         $scope.assets.activeFilter = 1;
         var assetsFilterWatch;
 
@@ -216,7 +216,7 @@
         /*
          * THREATS TAB
          */
-        $scope.threats = TableHelperService.build('-label1', 10, 1, '');
+        $scope.threats = TableHelperService.build('label1', 10, 1, '');
         $scope.threats.activeFilter = 1;
         var threatsFilterWatch;
 
@@ -398,7 +398,7 @@
         /*
          * VULNS TAB
          */
-        $scope.vulns = TableHelperService.build('-label1', 10, 1, '');
+        $scope.vulns = TableHelperService.build('label1', 10, 1, '');
 
         $scope.selectVulnsTab = function () {
             TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns, $scope.vulns);
@@ -541,7 +541,7 @@
         /*
          * 27002 MEASURES TAB
          */
-        $scope.measures = TableHelperService.build('-description1', 10, 1, '');
+        $scope.measures = TableHelperService.build('description1', 10, 1, '');
 
         $scope.selectMeasuresTab = function () {
             TableHelperService.watchSearch($scope, 'measures.query.filter', $scope.measures.query, $scope.updateMeasures, $scope.measures);
@@ -686,7 +686,7 @@
         /*
          * AMVS TAB
          */
-        $scope.amvs = TableHelperService.build('-status', 10, 1, '');
+        $scope.amvs = TableHelperService.build('status', 10, 1, '');
 
         $scope.selectAmvsTab = function () {
             TableHelperService.watchSearch($scope, 'amvs.query.filter', $scope.amvs.query, $scope.updateAmvs, $scope.amvs);
@@ -875,7 +875,7 @@
          * OBJECTS LIBRARY TAB
          */
         var objLibTabSelected = false;
-        $scope.objlibs = TableHelperService.build('-name1', 10, 1, '');
+        $scope.objlibs = TableHelperService.build('name1', 10, 1, '');
 
         $scope.objlib_category_filter = 0;
         $scope.objlib_asset_filter = 0;
