@@ -12,6 +12,9 @@
                 'update': {
                     method: 'PUT'
                 },
+                'patch': {
+                    method: 'PATCH'
+                },
                 'query': {
                     isArray: false
                 }
@@ -37,12 +40,17 @@
             self.VulnResource.delete({vulnId: id}, success, error);
         };
 
+        var patchVuln = function (id, params, success, error) {
+            self.VulnResource.patch({vulnId: id}, params, success, error);
+        }
+
         return {
             getVulns: getVulns,
             getVuln: getVuln,
             createVuln: createVuln,
             deleteVuln: deleteVuln,
-            updateVuln: updateVuln
+            updateVuln: updateVuln,
+            patchVuln: patchVuln
         };
     }
 

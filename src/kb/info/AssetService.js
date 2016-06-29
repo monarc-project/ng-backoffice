@@ -12,6 +12,9 @@
                 'update': {
                     method: 'PUT'
                 },
+                'patch': {
+                    method: 'PATCH'
+                },
                 'query': {
                     isArray: false
                 }
@@ -37,12 +40,17 @@
             self.AssetResource.delete({assetId: id}, success, error);
         };
 
+        var patchAsset = function (id, params, success, error) {
+            self.AssetResource.patch({assetId: id}, params, success, error);
+        }
+
         return {
             getAssets: getAssets,
             getAsset: getAsset,
             createAsset: createAsset,
             deleteAsset: deleteAsset,
-            updateAsset: updateAsset
+            updateAsset: updateAsset,
+            patchAsset: patchAsset
         };
     }
 

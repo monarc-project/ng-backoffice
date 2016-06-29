@@ -12,6 +12,9 @@
                 'update': {
                     method: 'PUT'
                 },
+                'patch': {
+                    method: 'PATCH'
+                },
                 'query': {
                     isArray: false
                 }
@@ -37,12 +40,17 @@
             self.MeasureResource.delete({measureId: id}, success, error);
         };
 
+        var patchMeasure = function (id, params, success, error) {
+            self.MeasureResource.patch({measureId: id}, params, success, error);
+        }
+
         return {
             getMeasures: getMeasures,
             getMeasure: getMeasure,
             createMeasure: createMeasure,
             deleteMeasure: deleteMeasure,
-            updateMeasure: updateMeasure
+            updateMeasure: updateMeasure,
+            patchMeasure: patchMeasure
         };
     }
 

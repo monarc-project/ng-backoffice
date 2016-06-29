@@ -12,6 +12,9 @@
                 'update': {
                     method: 'PUT'
                 },
+                'patch': {
+                    method: 'PATCH'
+                },
                 'query': {
                     isArray: false
                 }
@@ -25,7 +28,6 @@
             return self.AmvResource.query({amvId: id}).$promise;
         };
 
-
         var createAmv = function (params, success, error) {
             new self.AmvResource(params).$save(success, error);
         };
@@ -38,12 +40,17 @@
             self.AmvResource.delete({amvId: id}, success, error);
         };
 
+        var patchAmv = function (id, params, success, error) {
+            self.AmvResource.patch({amvId: id}, params, success, error);
+        }
+
         return {
             getAmvs: getAmvs,
             getAmv: getAmv,
             createAmv: createAmv,
             deleteAmv: deleteAmv,
-            updateAmv: updateAmv
+            updateAmv: updateAmv,
+            patchAmv: patchAmv
         };
     }
 

@@ -12,6 +12,9 @@
                 'update': {
                     method: 'PUT'
                 },
+                'patch': {
+                    method: 'PATCH'
+                },
                 'query': {
                     isArray: false
                 }
@@ -20,6 +23,9 @@
             {
                 'update': {
                     method: 'PUT'
+                },
+                'patch': {
+                    method: 'PATCH'
                 },
                 'query': {
                     isArray: false
@@ -47,6 +53,10 @@
             self.ThreatResource.delete({threatId: id}, success, error);
         };
 
+        var patchThreat = function (id, params, success, error) {
+            self.ThreatResource.patch({threatId: id}, params, success, error);
+        };
+
 
         // Themes
         var getThemes = function (params) {
@@ -69,6 +79,10 @@
             self.ThreatThemeResource.delete({themeId: id}, success, error);
         };
 
+        var patchTheme = function (id, params, success, error) {
+            self.ThreatThemeResource.patch({themeId: id}, params, success, error);
+        }
+
 
         return {
             getThreats: getThreats,
@@ -76,12 +90,14 @@
             createThreat: createThreat,
             deleteThreat: deleteThreat,
             updateThreat: updateThreat,
+            patchThreat: patchThreat,
 
             getThemes: getThemes,
             getTheme: getTheme,
             createTheme: createTheme,
             deleteTheme: deleteTheme,
-            updateTheme: updateTheme
+            updateTheme: updateTheme,
+            patchTheme: patchTheme
         };
     }
 

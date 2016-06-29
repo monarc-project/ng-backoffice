@@ -70,25 +70,10 @@
         };
 
         $scope.toggleAssetStatus = function (asset) {
-            AssetService.getAsset(asset.id).then(function (asset_db) {
-                asset_db.status = !asset_db.status;
-
-                if (asset_db.models && asset_db.models.length > 0) {
-                    var modelIds = [];
-                    for (var i = 0; i < asset_db.models.length; ++i) {
-                        modelIds.push(asset_db.models[i].id);
-                    }
-                    asset_db.models = modelIds;
-                }
-
-                AssetService.updateAsset(asset_db, function () {
-                    asset.status = !asset.status;
-                });
-
-            })
-
-
-        }
+            AssetService.patchAsset(asset.id, {status: !asset.status}, function () {
+                asset.status = !asset.status;
+            });
+        };
 
         $scope.createNewAsset = function (ev, asset) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -269,28 +254,10 @@
 
 
         $scope.toggleThreatStatus = function (threat) {
-            ThreatService.getThreat(threat.id).then(function (threat_db) {
-                threat_db.status = !threat_db.status;
-
-                if (threat_db.models && threat_db.models.length > 0) {
-                    var modelIds = [];
-                    for (var i = 0; i < threat_db.models.length; ++i) {
-                        modelIds.push(threat_db.models[i].id);
-                    }
-                    threat_db.models = modelIds;
-                }
-                if (threat_db.theme) {
-                    threat_db.theme = threat_db.theme.id;
-                }
-
-                ThreatService.updateThreat(threat_db, function () {
-                    threat.status = !threat.status;
-                });
-
-            })
-
-
-        }
+            ThreatService.patchThreat(threat.id, {status: !threat.status}, function () {
+                threat.status = !threat.status;
+            });
+        };
 
         $scope.createNewThreat = function (ev, threat) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -454,22 +421,9 @@
         };
 
         $scope.toggleVulnStatus = function (vuln) {
-            VulnService.getVuln(vuln.id).then(function (vuln_db) {
-                vuln_db.status = !vuln_db.status;
-
-                if (vuln_db.models && vuln_db.models.length > 0) {
-                    var modelIds = [];
-                    for (var i = 0; i < vuln_db.models.length; ++i) {
-                        modelIds.push(vuln_db.models[i].id);
-                    }
-                    vuln_db.models = modelIds;
-                }
-
-                VulnService.updateVuln(vuln_db, function () {
-                    vuln.status = !vuln.status;
-                });
-
-            })
+            VulnService.patchVuln(vuln.id, {status: !vuln.status}, function () {
+                vuln.status = !vuln.status;
+            });
         }
 
         $scope.createNewVuln = function (ev, vuln) {
@@ -611,22 +565,9 @@
 
 
         $scope.toggleMeasureStatus = function (measure) {
-            MeasureService.getMeasure(measure.id).then(function (measure_db) {
-                measure_db.status = !measure_db.status;
-
-                if (measure_db.models && measure_db.models.length > 0) {
-                    var modelIds = [];
-                    for (var i = 0; i < measure_db.models.length; ++i) {
-                        modelIds.push(measure_db.models[i].id);
-                    }
-                    measure_db.models = modelIds;
-                }
-
-                MeasureService.updateMeasure(measure_db, function () {
-                    measure.status = !measure.status;
-                });
-
-            })
+            MeasureService.patchMeasure(measure.id, {status: !measure.status}, function () {
+                measure.status = !measure.status;
+            });
         }
 
 
@@ -770,20 +711,8 @@
 
 
         $scope.toggleAmvStatus = function (amv) {
-            AmvService.getAmv(amv.id).then(function (amv_db) {
-                amv_db.status = !amv_db.status;
-
-                if (amv_db.asset) amv_db.asset = amv_db.asset.id;
-                if (amv_db.threat) amv_db.threat = amv_db.threat.id;
-                if (amv_db.vulnerability) amv_db.vulnerability = amv_db.vulnerability.id;
-                if (amv_db.measure1) amv_db.measure1 = amv_db.measure1.id;
-                if (amv_db.measure2) amv_db.measure2 = amv_db.measure2.id;
-                if (amv_db.measure3) amv_db.measure3 = amv_db.measure3.id;
-
-                AmvService.updateAmv(amv_db, function () {
-                    amv.status = !amv.status;
-                });
-
+            AmvService.patchAmv(amv.id, {status: !amv.status}, function () {
+                amv.status = !amv.status;
             })
         }
 
