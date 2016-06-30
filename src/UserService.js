@@ -36,7 +36,7 @@
 
                 $http.post('/auth', {login: login, password: password}).then(
                     function (data) {
-                        if (data.status == 200) {
+                        if (data.status == 200 && data.data && data.data.token) {
                             self.authenticated = true;
                             self.token = data.data.token;
 
@@ -45,15 +45,22 @@
 
                             $http.get('/api/users-roles').then(
                                 function (data) {
-                                    self.permissionGroups = [];
+                                    if (data.status == 200 && data.data && data.data.roles) {
+                                        self.permissionGroups = [];
 
-                                    for (var i = 0; i < data.data.roles.length; ++i) {
-                                        self.permissionGroups.push(data.data.roles[i].role);
+                                        for (var i = 0; i < data.data.roles.length; ++i) {
+                                            self.permissionGroups.push(data.data.roles[i].role);
+                                        }
+
+                                        localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
+
+                                        promise.resolve(true);
+                                    } else {
+                                        self.authenticated = false;
+                                        self.token = null;
+
+                                        promise.reject();
                                     }
-
-                                    localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
-
-                                    promise.resolve(true);
                                 },
                                 function (data) {
                                     self.authenticated = false;
