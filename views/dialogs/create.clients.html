@@ -24,8 +24,8 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Proxy alias</label>
                     <md-icon>redo</md-icon>
-                    <input ng-disabled="client.id" ng-model="client.proxy_alias">
-                    <div ng-messages="clientForm.name.$error">
+                    <input ng-disabled="client.id" name="proxy_alias" required ng-model="client.proxy_alias">
+                    <div ng-messages="clientForm.proxy_alias.$error">
                         <div ng-message="required">{{ 'The proxy alias may not be empty' | translate }}</div>
                     </div>
                 </md-input-container>
@@ -98,7 +98,7 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="create()" class="md-accent md-hue-3">
+            <md-button ng-click="create()" ng-disabled="clientForm.$error.required" class="md-accent md-hue-3">
                 {{ (client.id ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>
