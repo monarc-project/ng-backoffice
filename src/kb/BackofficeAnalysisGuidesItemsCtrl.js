@@ -14,7 +14,7 @@
                                                gettext, GuideService) {
 
         $scope.updateItems = function () {
-            GuideService.getItems().then(function (data) {
+            GuideService.getItems({order: 'position'}).then(function (data) {
                 if (data.items) {
                     $scope.items = data.items;
                 }
@@ -30,7 +30,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', 'ConfigService', '$mdDialog', 'gettext', CreateItemDialogCtrl],
+                controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'gettext', CreateItemDialogCtrl],
                 templateUrl: '/views/dialogs/create.guides.items.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -57,7 +57,7 @@
 
             GuideService.getItem(item.id).then(function (item) {
                 $mdDialog.show({
-                    controller: ['$scope', 'ConfigService', '$mdDialog', 'gettext', 'item', CreateItemDialogCtrl],
+                    controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'gettext', 'item', CreateItemDialogCtrl],
                     templateUrl: '/views/dialogs/create.guides.items.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -114,17 +114,34 @@
     }
 
 
-    function CreateItemDialogCtrl($scope, ConfigService, $mdDialog, gettext) {
+    function CreateItemDialogCtrl($scope, $q, ConfigService, GuideService, $mdDialog, gettext, item) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
-        $scope.item = {
-            type: null,
-            mode: null,
-            description1: '',
-            description2: '',
-            description3: '',
-            description4: '',
+        if (item) {
+            $scope.item = item;
+        } else {
+            $scope.item = {
+                type: null,
+                mode: null,
+                description1: '',
+                description2: '',
+                description3: '',
+                description4: '',
+            };
+        }
+
+        $scope.queryItemSearch = function (query) {
+            var q = $q.defer();
+
+            GuideService.getItems({filter: query}).then(function (x) {
+                q.resolve(x.items);
+
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
         };
 
         $scope.cancel = function() {
@@ -132,6 +149,9 @@
         };
 
         $scope.create = function() {
+            if ($scope.item.previous) {
+                $scope.item.previous = $scope.item.previous.id;
+            }
             $mdDialog.hide($scope.item);
         };
     }

@@ -13,12 +13,39 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <md-input-container class="md-block" flex>
-                    <label translate>Position</label>
-                    <md-icon>class</md-icon>
-                    <md-select ng-model="item.position">
-                        <md-option value="1">1</md-option>
+                    <label translate>Location</label>
+                    <md-icon>reorder</md-icon>
+                    <md-select ng-model="item.implicitPosition">
+                        <md-option value="1">{{ 'at the beginning' | translate }}</md-option>
+                        <md-option value="2">{{ 'in the end' | translate }}</md-option>
+                        <md-option value="3">{{ 'after...' | translate }}</md-option>
                     </md-select>
                 </md-input-container>
+
+                <div class="md-block" layout="column" flex style="margin-bottom: 8px" ng-show="item.implicitPosition == 3">
+                    <div layout="row">
+                        <md-icon style="margin-right: 8px;">class</md-icon>
+                        <md-autocomplete
+                                flex
+                                md-no-cache="true"
+                                md-selected-item="item.previous"
+                                md-search-text="itemPreviousSearchText"
+                                md-selected-item-change="selectedPreviousItemChange(item)"
+                                md-items="item in queryItemSearch(itemPreviousSearchText)"
+                                md-item-text="item.description1"
+                                md-min-length="0"
+                                placeholder="{{ 'Previous item...' | translate }}">
+                            <md-item-template>
+                                <span md-highlight-text="itemPreviousSearchText" md-highlight-flags="^i">{{ item.description1 }}</span>
+                            </md-item-template>
+
+                            <md-not-found>
+                                {{ 'No item matching your search was found' | translate }}
+                            </md-not-found>
+
+                        </md-autocomplete>
+                    </div>
+                </div>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Language</label>
