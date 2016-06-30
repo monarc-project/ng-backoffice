@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAdminUsersCtrl', [
-            '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminUsersService',
+            '$scope', '$state', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminUsersService',
             'TableHelperService',
             BackofficeAdminUsersCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * Admin Users Controller for the Backoffice module
      */
-    function BackofficeAdminUsersCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
+    function BackofficeAdminUsersCtrl($scope, $state, toastr, $mdMedia, $mdDialog, gettextCatalog, gettext,
                                       AdminUsersService, TableHelperService) {
         $scope.users = TableHelperService.build('-firstname', 25, 1, '');
 
@@ -50,12 +50,7 @@
                     AdminUsersService.createUser(user,
                         function () {
                             $scope.updateUsers();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The user has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The user has been created successfully.'), gettext('Creation successful'));
                         });
                 });
         };
@@ -78,12 +73,7 @@
                         AdminUsersService.updateUser(user,
                             function () {
                                 $scope.updateUsers();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The user information has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The user information has been updated successfully.'), gettext('Update successful'));
                             }
                         );
                     });
@@ -102,13 +92,8 @@
                 AdminUsersService.deleteUser(item.id,
                     function () {
                         $scope.updateUsers();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The user "{{firstname}} {{lastname}}" has been deleted.',
-                                    {firstname: item.firstname, lastname: item.lastname}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The user "{{firstname}} {{lastname}}" has been deleted.',
+                                    {firstname: item.firstname, lastname: item.lastname}), gettext('Deletion successful'));
                     }
                 );
             });

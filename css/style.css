@@ -2,6 +2,10 @@
   white-space: pre-wrap
 }
 
+.toast-title {
+  font-weight: bold !important;
+}
+
 .logo-cases-bg {
   background: url('/img/bg-cases.png') no-repeat left center;
   width: 100%;

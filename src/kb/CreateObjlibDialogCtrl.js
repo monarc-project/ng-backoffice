@@ -1,4 +1,4 @@
-function CreateObjlibDialogCtrl($scope, $mdDialog, $mdToast, gettext, AssetService, ObjlibService, ConfigService, TagService, $q, objLibDialog, objlib) {
+function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService, ObjlibService, ConfigService, TagService, $q, objLibDialog, objlib) {
     $scope.languages = ConfigService.getLanguages();
     $scope.language = ConfigService.getDefaultLanguageIndex();
     $scope.assetSearchText = '';
@@ -63,12 +63,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, $mdToast, gettext, AssetServi
                             objLibDialog.editObjlib(null, $scope.objlib);
                         });
 
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettext('The category has been created successfully.'))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettext('The category has been created successfully.'), gettext('Creation successful'));
                     }
                 );
 
@@ -93,12 +88,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, $mdToast, gettext, AssetServi
                     ObjlibService.updateObjlibCat(category,
                         function () {
                             objLibDialog.editObjlib(null, $scope.objlib);
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The category has been updated successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The category has been updated successfully.'), gettext('Update successful'));
                         }
                     );
                 }, function () {

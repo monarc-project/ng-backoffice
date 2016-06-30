@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbOpRiskCtrl', [
-            '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
             'CategoryService', 'TagService', 'RiskService',
             BackofficeKbOpRiskCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > OPERATIONAL RISKS (ROLF)
      */
-    function BackofficeKbOpRiskCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+    function BackofficeKbOpRiskCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
                                     CategoryService, TagService, RiskService) {
         TableHelperService.resetBookmarks();
 
@@ -58,12 +58,7 @@
                     CategoryService.createCategory(category,
                         function () {
                             $scope.updateCategories();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The category has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The category has been created successfully.'), gettext('Creation successful'));
                         },
 
                         function () {
@@ -91,12 +86,7 @@
                         CategoryService.updateCategory(category,
                             function () {
                                 $scope.updateCategories();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The category has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The category has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
@@ -119,13 +109,8 @@
                 CategoryService.deleteCategory(item.id,
                     function () {
                         $scope.updateCategories();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The category "{{label}}" has been deleted.',
-                                    {label: item.label1}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The category "{{label}}" has been deleted.',
+                                    {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -197,12 +182,7 @@
                     TagService.createTag(tag,
                         function () {
                             $scope.updateTags();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The tag has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The tag has been created successfully.'), gettext('Creation successful'));
                         },
 
                         function () {
@@ -230,12 +210,7 @@
                         TagService.updateTag(tag,
                             function () {
                                 $scope.updateTags();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The tag has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The tag has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
@@ -258,13 +233,8 @@
                 TagService.deleteTag(item.id,
                     function () {
                         $scope.updateTags();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The tag "{{label}}" has been deleted.',
-                                    {label: item.label1}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The tag "{{label}}" has been deleted.',
+                                    {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -384,12 +354,7 @@
                     RiskService.createRisk(risk,
                         function () {
                             $scope.updateRisks();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The risk has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The risk has been created successfully.'), gettext('Creation successful'));
                         },
 
                         function () {
@@ -432,12 +397,7 @@
                         RiskService.updateRisk(risk,
                             function () {
                                 $scope.updateRisks();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The risk has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The risk has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
@@ -460,13 +420,8 @@
                 RiskService.deleteRisk(item.id,
                     function () {
                         $scope.updateRisks();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The risk "{{label}}" has been deleted.',
-                                    {label: item.label1}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The risk "{{label}}" has been deleted.',
+                                    {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });

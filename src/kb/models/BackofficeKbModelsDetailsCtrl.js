@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbModelsDetailsCtrl', [
-            '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
             'ModelService', 'ObjlibService', '$stateParams',
             BackofficeKbModelsDetailsCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > MODELS > MODEL DETAILS
      */
-    function BackofficeKbModelsDetailsCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog,
+    function BackofficeKbModelsDetailsCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog,
                                            TableHelperService, ModelService, ObjlibService, $stateParams) {
         ModelService.getModel($stateParams.modelId).then(function (data) {
             $scope.model = data;
@@ -149,12 +149,7 @@
                         ObjlibService.createObjlibNode(objlib,
                             function () {
                                 $scope.updateObjlib();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The component has been created successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The component has been created successfully.'), gettext('Creation successful'));
                             }
                         );
                     }
@@ -187,16 +182,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbModelsDetailsSubtreeCtrl', [
-            '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ModelService', 'ObjlibService', '$stateParams',
+            '$scope',
             BackofficeKbModelsDetailsSubtreeCtrl
         ]);
 
     /**
      * BO > KB > MODELS > MODEL DETAILS > SUBTREE WORKAROUND
      */
-    function BackofficeKbModelsDetailsSubtreeCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog,
-                                           TableHelperService, ModelService, ObjlibService, $stateParams) {
+    function BackofficeKbModelsDetailsSubtreeCtrl($scope) {
         var self = this;
 
         self.draggedFromHere = false;

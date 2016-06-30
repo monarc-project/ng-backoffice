@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeClientMgmtCtrl', [
-            '$scope', '$mdToast', '$mdDialog', '$mdMedia', 'gettextCatalog', 'gettext', 'ClientService',
+            '$scope', 'toastr', '$mdDialog', '$mdMedia', 'gettextCatalog', 'gettext', 'ClientService',
             'TableHelperService',
             BackofficeClientMgmtCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > CM
      */
-    function BackofficeClientMgmtCtrl($scope, $mdToast, $mdDialog, $mdMedia, gettextCatalog, gettext, ClientService,
+    function BackofficeClientMgmtCtrl($scope, toastr, $mdDialog, $mdMedia, gettextCatalog, gettext, ClientService,
                                       TableHelperService) {
         TableHelperService.resetBookmarks();
 
@@ -44,12 +44,7 @@
                     ClientService.createClient(client,
                         function () {
                             $scope.updateClients();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The client has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The client has been created successfully.'), gettext('Creation successful'));
                         }
                     );
                 });
@@ -73,12 +68,7 @@
                         ClientService.updateClient(client,
                             function () {
                                 $scope.updateClients();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The client information has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The client information has been updated successfully.'), gettext('Update successful'));
                             }
                         );
                     });
@@ -96,13 +86,8 @@
                 ClientService.deleteClient(item.id,
                     function () {
                         $scope.updateClients();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The client "{{firstname}} {{lastname}}" has been deleted.',
-                                    {firstname: item.firstname, lastname: item.lastname}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The client "{{name}}" has been deleted.',
+                                    {name: item.name}), gettext('Deletion successful'));
                     }
                 );
             }, function() {

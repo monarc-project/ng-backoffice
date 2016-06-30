@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeDocModelsCtrl', [
-            '$scope', '$mdDialog', '$mdMedia', '$mdToast', 'gettextCatalog', 'gettext', 'DocModelService',
+            '$scope', '$mdDialog', '$mdMedia', 'toastr', 'gettextCatalog', 'gettext', 'DocModelService',
             BackofficeDocModelsCtrl
         ]);
 
     /**
      * KB > Document Models Controller for the Backoffice module
      */
-    function BackofficeDocModelsCtrl($scope, $mdDialog, $mdMedia, $mdToast, gettextCatalog,
+    function BackofficeDocModelsCtrl($scope, $mdDialog, $mdMedia, toastr, gettextCatalog,
                                      gettext, DocModelService) {
         $scope.docmodels = [];
 
@@ -27,7 +27,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$mdToast', 'gettext', 'DocModelService', 'Upload', CreateDocModelsDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'DocModelService', 'Upload', CreateDocModelsDialogCtrl],
                 templateUrl: '/views/dialogs/create.docmodels.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -35,12 +35,7 @@
             })
                 .then(function (docModel) {
                     $scope.updateDocModels();
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .textContent(gettext('The document has been created successfully.'))
-                            .position('top right')
-                            .hideDelay(3000)
-                    );
+                    toastr.success(gettext('The document has been created successfully.'), gettext('Creation successful'));
                 });
         };
 
@@ -56,13 +51,8 @@
                 DocModelService.deleteDocModel(item.id,
                     function () {
                         $scope.updateItems();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The document "{{label}}" has been deleted.',
-                                    {label: item.description}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The document "{{label}}" has been deleted.',
+                                    {label: item.description}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -75,7 +65,7 @@
     }
 
 
-    function CreateDocModelsDialogCtrl($scope, $mdDialog, $mdToast, gettext, DocModelService, Upload) {
+    function CreateDocModelsDialogCtrl($scope, $mdDialog, toastr, gettext, DocModelService, Upload) {
         $scope.docModel = {
             category: null,
             description: ''
@@ -103,31 +93,16 @@
                             $mdDialog.hide($scope.docModel);
                         }
                     }, function (resp) {
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettext('Error while uploading: ' + resp.status))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.error(gettext('The server returned the error code:') + ' ' + resp.status, gettext('Error while uploading'))
                     }
                     , function (evt) {
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                         $scope.uploadProgress = progressPercentage;
                     })
             } else if ($scope.file && $scope.file.$error) {
-                $mdToast.show(
-                    $mdToast.simple()
-                        .textContent(gettext('File error: ' + $scope.file.$error))
-                        .position('top right')
-                        .hideDelay(3000)
-                );
+                toastr.error($scope.file.$error, gettext('File error'));
             } else {
-                $mdToast.show(
-                    $mdToast.simple()
-                        .textContent(gettext('You must select a file'))
-                        .position('top right')
-                        .hideDelay(3000)
-                );
+                toastr.warning(gettext('You must select a file'));
             }
         };
     }

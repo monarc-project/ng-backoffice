@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAdminServerCtrl', [
-            '$scope', '$state', '$mdToast', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminServerService',
+            '$scope', '$state', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminServerService',
             BackofficeAdminServerCtrl
         ]);
 
     /**
      * Admin Server Controller for the Backoffice module
      */
-    function BackofficeAdminServerCtrl($scope, $state, $mdToast, $mdMedia, $mdDialog, gettextCatalog, gettext,
+    function BackofficeAdminServerCtrl($scope, $state, toastr, $mdMedia, $mdDialog, gettextCatalog, gettext,
                                        AdminServerService) {
         $scope.servers = {};
 
@@ -36,12 +36,7 @@
                     AdminServerService.createServer(server,
                         function () {
                             $scope.updateServers();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The server has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The server has been created successfully.'), gettext('Creation successful'));
                         }
                     );
                 });
@@ -65,12 +60,7 @@
                         AdminServerService.updateServer(server,
                             function () {
                                 $scope.updateServers();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The server has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The server has been updated successfully.'), gettext('Update successful'));
                             }
                         );
                     });
@@ -99,13 +89,9 @@
                 AdminServerService.deleteServer(item.id,
                     function () {
                         $scope.updateServers();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The server "{{label}}" has been deleted.',
-                                    {label: item.label}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+
+                        toastr.success(gettextCatalog.getString('The server "{{label}}" has been deleted.',
+                            {label: item.label}), gettext('Deletion successful'));
                     }
                 );
             });

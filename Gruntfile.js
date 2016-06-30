@@ -39,7 +39,6 @@ module.exports = function (grunt) {
                     'node_modules/ng-inline-edit/dist/ng-inline-edit.min.js',
                     'node_modules/ng-tree-dnd/dist/ng-tree-dnd.min.js',
                     'node_modules/angular-messages/angular-messages.min.js',
-                    'node_modules/angular-toastr/dist/angular-toastr.min.js',
                     'node_modules/angular-toastr/dist/angular-toastr.tpls.min.js',
                 ],
                 dest: '../../public/js/angular-common-libs.js',

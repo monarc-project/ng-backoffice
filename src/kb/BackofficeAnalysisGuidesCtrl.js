@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAnalysisGuidesCtrl', [
-            '$scope', '$mdDialog', '$mdMedia', '$mdToast', 'gettextCatalog', 'gettext', 'GuideService',
+            '$scope', '$mdDialog', '$mdMedia', 'toastr', 'gettextCatalog', 'gettext', 'GuideService',
             BackofficeAnalysisGuidesCtrl
         ]);
 
     /**
      * KB > Analysis Guides Controller for the Backoffice module
      */
-    function BackofficeAnalysisGuidesCtrl($scope, $mdDialog, $mdMedia, $mdToast, gettextCatalog,
+    function BackofficeAnalysisGuidesCtrl($scope, $mdDialog, $mdMedia, toastr, gettextCatalog,
                                           gettext, GuideService) {
         $scope.guides = [];
 
@@ -37,12 +37,7 @@
                     GuideService.createGuide(guide,
                         function () {
                             $scope.updateGuides();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The guide has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The guide has been created successfully.'), gettext('Creation successful'));
                         }
                     );
                 });

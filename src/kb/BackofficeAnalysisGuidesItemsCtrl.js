@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAnalysisGuidesItemsCtrl', [
-            '$scope', '$mdDialog', '$mdMedia', '$mdToast', '$stateParams', 'gettextCatalog', 'gettext', 'GuideService',
+            '$scope', '$mdDialog', '$mdMedia', 'toastr', '$stateParams', 'gettextCatalog', 'gettext', 'GuideService',
             BackofficeAnalysisGuidesItemsCtrl
         ]);
 
     /**
      * KB > Analysis Guides Items Controller for the Backoffice module
      */
-    function BackofficeAnalysisGuidesItemsCtrl($scope, $mdDialog, $mdMedia, $mdToast, $stateParams, gettextCatalog,
+    function BackofficeAnalysisGuidesItemsCtrl($scope, $mdDialog, $mdMedia, toastr, $stateParams, gettextCatalog,
                                                gettext, GuideService) {
 
         $scope.updateItems = function () {
@@ -41,12 +41,7 @@
                     GuideService.createItem(item,
                         function () {
                             $scope.updateItems();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The item has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The item has been created successfully.'), gettext('Creation successful'));
                         }
                     );
                 });
@@ -71,12 +66,7 @@
                         GuideService.updateItem(item,
                             function () {
                                 $scope.updateItems();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The item has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The item has been updated successfully.'), gettext('Update successful'));
                             }
                         );
                     });
@@ -95,13 +85,8 @@
                 GuideService.deleteItem(item.id,
                     function () {
                         $scope.updateItems();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The item "{{label}}" has been deleted.',
-                                    {label: item.description1}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The item "{{label}}" has been deleted.',
+                                    {label: item.description1}), gettext('Deletion successful'));
                     }
                 );
             });

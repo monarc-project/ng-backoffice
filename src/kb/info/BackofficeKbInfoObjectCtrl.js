@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
-            '$scope', '$mdToast', '$mdMedia', '$mdDialog', '$stateParams', 'gettext', 'gettextCatalog', 'ObjlibService',
+            '$scope', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', 'gettext', 'gettextCatalog', 'ObjlibService',
             BackofficeKbInfoObjectCtrl
         ]);
 
     /**
      * BO > KB > INFO > Objects Library > Object details
      */
-    function BackofficeKbInfoObjectCtrl($scope, $mdToast, $mdMedia, $mdDialog, $stateParams,
+    function BackofficeKbInfoObjectCtrl($scope, toastr, $mdMedia, $mdDialog, $stateParams,
                                         gettext, gettextCatalog, ObjlibService) {
         $scope.updateObjlib = function () {
             ObjlibService.getObjlib($stateParams.objectId).then(function (object) {
@@ -81,7 +81,7 @@
 
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
-                controller: ['$scope', '$mdDialog', '$mdToast', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -109,24 +109,14 @@
                             ObjlibService.updateObjlib(objlib,
                                 function () {
                                     $scope.updateObjlib();
-                                    $mdToast.show(
-                                        $mdToast.simple()
-                                            .textContent(gettext('The object has been updated successfully.'))
-                                            .position('top right')
-                                            .hideDelay(3000)
-                                    );
+                                    toastr.success(gettext('The object has been updated successfully.'), gettext('Update successful'));
                                 }
                             );
                         } else {
                             ObjlibService.createObjlib(objlib,
                                 function () {
                                     $scope.updateObjlib();
-                                    $mdToast.show(
-                                        $mdToast.simple()
-                                            .textContent(gettext('The object has been created successfully.'))
-                                            .position('top right')
-                                            .hideDelay(3000)
-                                    );
+                                    toastr.success(gettext('The object has been created successfully.'), gettext('Creation successful'));
                                 }
                             );
                         }
@@ -173,12 +163,7 @@
                         ObjlibService.createObjlibNode(objlib,
                             function () {
                                 $scope.updateObjlib();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The component has been created successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The component has been created successfully.'), gettext('Creation successful'));
                             }
                         );
                     }
@@ -192,7 +177,7 @@
 
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
-                controller: ['$scope', '$mdDialog', '$mdToast', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -216,24 +201,14 @@
                             ObjlibService.updateObjlib(objlib,
                                 function () {
                                     $scope.updateObjlib();
-                                    $mdToast.show(
-                                        $mdToast.simple()
-                                            .textContent(gettext('The object has been updated successfully.'))
-                                            .position('top right')
-                                            .hideDelay(3000)
-                                    );
+                                    toastr.success(gettext('The object has been updated successfully.'), gettext('Update successful'));
                                 }
                             );
                         } else {
                             ObjlibService.createObjlib(objlib,
                                 function () {
                                     $scope.updateObjlib();
-                                    $mdToast.show(
-                                        $mdToast.simple()
-                                            .textContent(gettext('The object has been created successfully.'))
-                                            .position('top right')
-                                            .hideDelay(3000)
-                                    );
+                                    toastr.success(gettext('The object has been created successfully.'), gettext('Creation successful'));
                                 }
                             );
                         }

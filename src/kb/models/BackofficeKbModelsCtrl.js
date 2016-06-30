@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbModelsCtrl', [
-            '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
             'ModelService',
             BackofficeKbModelsCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > MODELS
      */
-    function BackofficeKbModelsCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+    function BackofficeKbModelsCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
                                     ModelService) {
         TableHelperService.resetBookmarks();
 
@@ -48,12 +48,7 @@
                     ModelService.createModel(model,
                         function () {
                             $scope.updateModels();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The model has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The model has been created successfully.'), gettext('Creation successful'));
                         },
 
                         function () {
@@ -81,12 +76,7 @@
                         ModelService.updateModel(model,
                             function () {
                                 $scope.updateModels();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The model has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The model has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
@@ -109,13 +99,8 @@
                 ModelService.deleteModel(item.id,
                     function () {
                         $scope.updateModels();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The model "{{label}}" has been deleted.',
-                                    {label: item.label1}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The model "{{label}}" has been deleted.',
+                                    {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });

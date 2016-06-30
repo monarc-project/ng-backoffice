@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
-            '$scope', '$mdToast', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService',
             BackofficeKbInfoCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > INFO
      */
-    function BackofficeKbInfoCtrl($scope, $mdToast, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+    function BackofficeKbInfoCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService) {
         $scope.gettext = gettext;
         TableHelperService.resetBookmarks();
@@ -102,19 +102,9 @@
 
                             if (asset.mode == 0 && asset.models.length > 0) {
                                 // If we create a generic asset, but we still have specific models, we should warn
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The asset has been created successfully, however without models, the element may not be specific.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.warning(gettext('The asset has been created successfully, however without models, the element may not be specific.'));
                             } else {
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The asset has been created successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The asset has been created successfully.'), gettext('Creation successful'));
                             }
                         },
 
@@ -143,12 +133,7 @@
                         AssetService.updateAsset(asset,
                             function () {
                                 $scope.updateAssets();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The asset has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The asset has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
@@ -171,13 +156,8 @@
                 AssetService.deleteAsset(item.id,
                     function () {
                         $scope.updateAssets();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The asset "{{label}}" has been deleted.',
-                                    {label: item.label1}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The asset "{{label}}" has been deleted.',
+                                    {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -285,19 +265,9 @@
 
                             if (threat.mode == 0 && threat.models.length > 0) {
                                 // If we create a generic threat, but we still have specific models, we should warn
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The threat has been created successfully, however without models, the element may not be specific.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.warning(gettext('The threat has been created successfully, however without models, the element may not be specific.'));
                             } else {
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The threat has been created successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The threat has been created successfully.'), gettext('Creation successful'));
                             }
                         },
 
@@ -332,12 +302,7 @@
                         ThreatService.updateThreat(threat,
                             function () {
                                 $scope.updateThreats();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The threat has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The threat has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
@@ -361,13 +326,8 @@
                 ThreatService.deleteThreat(item.id,
                     function () {
                         $scope.updateThreats();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The threat "{{label}}" has been deleted.',
-                                    {label: item.label}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The threat "{{label}}" has been deleted.',
+                                    {label: item.label}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -443,12 +403,7 @@
                     VulnService.createVuln(vuln,
                         function () {
                             $scope.updateVulns();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The vulnerability has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The vulnerability has been created successfully.'), gettext('Creation successful'));
                         },
 
                         function () {
@@ -476,12 +431,7 @@
                         VulnService.updateVuln(vuln,
                             function () {
                                 $scope.updateVulns();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The vulnerability has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The vulnerability has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
@@ -504,13 +454,8 @@
                 VulnService.deleteVuln(item.id,
                     function () {
                         $scope.updateVulns();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The vulnerability "{{label}}" has been deleted.',
-                                    {label: item.label}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The vulnerability "{{label}}" has been deleted.',
+                                    {label: item.label}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -588,12 +533,7 @@
                     MeasureService.createMeasure(measure,
                         function () {
                             $scope.updateMeasures();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The measure has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The measure has been created successfully.'), gettext('Creation successful'));
                         },
 
                         function (err) {
@@ -621,12 +561,7 @@
                         MeasureService.updateMeasure(measure,
                             function () {
                                 $scope.updateMeasures();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The measure has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr.success(gettext('The measure has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
@@ -649,13 +584,8 @@
                 MeasureService.deleteMeasure(item.id,
                     function () {
                         $scope.updateMeasures();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The measure "{{label}}" has been deleted.',
-                                    {label: item.description1}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The measure "{{label}}" has been deleted.',
+                                    {label: item.description1}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -755,12 +685,7 @@
                     AmvService.createAmv(amv,
                         function () {
                             $scope.updateAmvs();
-                            $mdToast.show(
-                                $mdToast.simple()
-                                    .textContent(gettext('The AMV has been created successfully.'))
-                                    .position('top right')
-                                    .hideDelay(3000)
-                            );
+                            toastr.success(gettext('The AMV has been created successfully.'), gettext('Creation successful'));
                         },
 
                         function () {
@@ -809,12 +734,7 @@
                         AmvService.updateAmv(amv,
                             function () {
                                 $scope.updateAmvs();
-                                $mdToast.show(
-                                    $mdToast.simple()
-                                        .textContent(gettext('The AMV has been updated successfully.'))
-                                        .position('top right')
-                                        .hideDelay(3000)
-                                );
+                                toastr(gettext('The AMV has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
@@ -836,13 +756,8 @@
                 AmvService.deleteAmv(item.id,
                     function () {
                         $scope.updateAmvs();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The AMV "{{label}}" has been deleted.',
-                                    {label: item.label}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The AMV "{{label}}" has been deleted.',
+                                    {label: item.label}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -971,7 +886,7 @@
 
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
-                controller: ['$scope', '$mdDialog', '$mdToast', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -1001,12 +916,7 @@
                             ObjlibService.updateObjlib(objlib,
                                 function () {
                                     $scope.updateObjlibs();
-                                    $mdToast.show(
-                                        $mdToast.simple()
-                                            .textContent(gettext('The object has been updated successfully.'))
-                                            .position('top right')
-                                            .hideDelay(3000)
-                                    );
+                                    toastr.success(gettext('The object has been updated successfully.'), gettext('Update successful'));
                                 },
 
                                 function () {
@@ -1017,12 +927,7 @@
                             ObjlibService.createObjlib(objlib,
                                 function () {
                                     $scope.updateObjlibs();
-                                    $mdToast.show(
-                                        $mdToast.simple()
-                                            .textContent(gettext('The object has been created successfully.'))
-                                            .position('top right')
-                                            .hideDelay(3000)
-                                    );
+                                    toastr.success(gettext('The object has been created successfully.'), gettext('Creation successful'));
                                 },
 
                                 function () {
@@ -1056,13 +961,8 @@
                 ObjlibService.deleteObjlib(item.id,
                     function () {
                         $scope.updateObjlibs();
-                        $mdToast.show(
-                            $mdToast.simple()
-                                .textContent(gettextCatalog.getString('The object "{{label}}" has been deleted.',
-                                    {label: item.label1}))
-                                .position('top right')
-                                .hideDelay(3000)
-                        );
+                        toastr.success(gettextCatalog.getString('The object "{{label}}" has been deleted.',
+                                    {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });
