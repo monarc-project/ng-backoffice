@@ -6,6 +6,10 @@
   font-weight: bold !important;
 }
 
+.txtcenter {
+  text-align: center
+}
+
 .logo-cases-bg {
   background: url('/img/bg-cases.png') no-repeat left center;
   width: 100%;

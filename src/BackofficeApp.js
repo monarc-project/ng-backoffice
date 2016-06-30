@@ -26,9 +26,11 @@ angular
                 url: "/",
                 views: {
                     "main": {templateUrl: "/views/login.html"}
-                },
-                ncyBreadcrumb: {
-                    label: gettext('Login')
+                }
+            }).state('passwordforgotten', {
+                url: "/passwordforgotten/:token",
+                views: {
+                    "main": {templateUrl: "/views/passwordforgotten.html"}
                 }
             }).state('main', {
                 url: "/backoffice",
