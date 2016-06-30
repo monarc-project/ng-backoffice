@@ -34,7 +34,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', CreateClientDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ModelService', CreateClientDialogCtrl],
                 templateUrl: '/views/dialogs/create.clients.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -60,7 +60,7 @@
 
             ClientService.getClient(client.id).then(function (clientData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'client', CreateClientDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'ModelService', 'client', CreateClientDialogCtrl],
                     templateUrl: '/views/dialogs/create.clients.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -136,7 +136,11 @@
     }
 
 
-    function CreateClientDialogCtrl($scope, $mdDialog, client) {
+    function CreateClientDialogCtrl($scope, $mdDialog, ModelService, client) {
+        ModelService.getModels().then(function (x) {
+            $scope.models = x.models;
+        });
+
         if (client != undefined && client != null) {
             $scope.client = client;
         } else {
@@ -160,6 +164,10 @@
         };
 
         $scope.create = function() {
+            if ($scope.client.model) {
+                $scope.client.model = $scope.client.model.id;
+            }
+
             $mdDialog.hide($scope.client);
         };
     }
