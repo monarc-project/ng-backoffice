@@ -1149,6 +1149,7 @@
             ThreatService.deleteTheme(theme.id, function () {
                 $scope.threat.theme = null;
                 $scope.theme_edit = null;
+                $scope.themeSearchText = null;
             });
         }
 
