@@ -13,8 +13,8 @@
     function BackofficePasswordForgottenCtrl($scope, $stateParams, $state, $http, toastr, gettextCatalog, gettext, UserService) {
         $scope.isTokenValid = null;
         $scope.user = {
-            password: null,
-            confirm: null
+            password: '',
+            confirm: ''
         }
 
         // Check token
@@ -26,7 +26,7 @@
         });
 
         $scope.resetPassword = function () {
-            $http.post('/api/admin/passwords', {token: $stateParams.token, password: $scope.user.password, confirm: $scope.user.confirm}, function (data) {
+            $http.post('/api/admin/passwords', {token: $stateParams.token, password: $scope.user.password, confirm: $scope.user.confirm}).then(function (data) {
                 toastr.success(gettext("Your password has been reset."));
                 $state.transitionTo('login');
             });
