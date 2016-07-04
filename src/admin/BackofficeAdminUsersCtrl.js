@@ -109,7 +109,8 @@
                 firstname: '',
                 lastname: '',
                 email: '',
-                phone: ''
+                phone: '',
+                role: []
             };
         }
 

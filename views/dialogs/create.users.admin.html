@@ -46,6 +46,17 @@
                     <md-icon>phone</md-icon>
                     <input ng-model="user.phone">
                 </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Permissions and roles</label>
+                    <md-icon>device_hub</md-icon>
+                    <md-select ng-model="user.role" multiple="true">
+                        <md-option value="superadmin">{{ 'Super-admin' | translate }}</md-option>
+                        <md-option value="dbadmin">{{ 'Database admin' | translate }}</md-option>
+                        <md-option value="sysadmin">{{ 'System admin' | translate }}</md-option>
+                        <md-option value="accadmin">{{ 'Accounts admin' | translate }}</md-option>
+                    </md-select>
+                </md-input-container>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
