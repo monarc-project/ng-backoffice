@@ -403,7 +403,13 @@
                     VulnService.createVuln(vuln,
                         function () {
                             $scope.updateVulns();
-                            toastr.success(gettext('The vulnerability has been created successfully.'), gettext('Creation successful'));
+
+                            if (vuln.mode == 0 && vuln.models.length > 0) {
+                                // If we create a generic vulnerability, but we still have specific models, we should warn
+                                toastr.warning(gettext('The vulnerability has been created successfully, however without models, the element may not be specific.'));
+                            } else {
+                                toastr.success(gettext('The vulnerability has been created successfully.'), gettext('Creation successful'));
+                            }
                         },
 
                         function () {
@@ -445,7 +451,7 @@
         $scope.deleteVuln = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete vulnerability "{{ label }}"?',
-                    {label: item.label}))
+                    {label: item.label1}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -455,7 +461,7 @@
                     function () {
                         $scope.updateVulns();
                         toastr.success(gettextCatalog.getString('The vulnerability "{{label}}" has been deleted.',
-                                    {label: item.label}), gettext('Deletion successful'));
+                                    {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });
