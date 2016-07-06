@@ -70,7 +70,7 @@
                     }
                 })
                     .then(function (user) {
-                        AdminUsersService.updateUser(user,
+                        AdminUsersService.patchUser(user.id, user,
                             function () {
                                 $scope.updateUsers();
                                 toastr.success(gettext('The user information has been updated successfully.'), gettext('Update successful'));
@@ -104,6 +104,9 @@
     function CreateUserDialogCtrl($scope, $mdDialog, user) {
         if (user != undefined && user != null) {
             $scope.user = user;
+            // Ensure password isn't set, otherwise it will be erased with the encrypted value, and is going to be
+            // encrypted again.
+            $scope.user.password = undefined;
         } else {
             $scope.user = {
                 firstname: '',
