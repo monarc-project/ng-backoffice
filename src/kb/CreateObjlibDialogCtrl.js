@@ -40,9 +40,8 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService
 
     $scope.createCategory = function (ev, catName) {
         $mdDialog.show({
-            controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'ObjlibService', 'catName', CreateObjlibCategoryDialogCtrl],
+            controller: ['$scope', '$mdDialog', '$q', 'gettext', 'ConfigService', 'ObjlibService', 'catName', CreateObjlibCategoryDialogCtrl],
             templateUrl: '/views/dialogs/create.objlibs.categories.html',
-            targetEvent: ev,
             clickOutsideToClose: true,
             locals: {
                 'catName': catName
@@ -75,9 +74,8 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService
     $scope.editCategory = function (ev, cat) {
         ObjlibService.getObjlibCat(cat.id).then(function (cat) {
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'ObjlibService', 'catName', 'category', CreateObjlibCategoryDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'gettext', 'ConfigService', 'ObjlibService', 'catName', 'category', CreateObjlibCategoryDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.categories.html',
-                targetEvent: ev,
                 clickOutsideToClose: true,
                 locals: {
                     'catName': null,
@@ -169,10 +167,11 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService
     };
 }
 
-function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, ConfigService, ObjlibService, catName, category) {
+function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, gettext, ConfigService, ObjlibService, catName, category) {
     $scope.languages = ConfigService.getLanguages();
     $scope.language = ConfigService.getDefaultLanguageIndex();
     $scope.implicitPosition = null;
+    $scope.showConfirmDeletion = false;
 
     if (category != undefined && category != null) {
         $scope.category = category;
@@ -187,6 +186,16 @@ function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, ConfigService, Ob
             label4: '',
         };
     }
+
+    $scope.destroy = function() {
+        $scope.showConfirmDeletion = true;
+    };
+
+    $scope.destroyConfirm = function() {
+        ObjlibService.deleteObjlibCat($scope.category.id, function () {
+            $mdDialog.cancel();
+        });
+    };
 
     $scope.cancel = function() {
         $mdDialog.cancel();
