@@ -12,8 +12,13 @@
                         { thing: thing, status: status }));
         };
 
+        var notifyError = function (thing) {
+            toastr.error(gettextCatalog.getString(thing));
+        };
+
         return {
-            notifyFetchError: notifyFetchError
+            notifyFetchError: notifyFetchError,
+            notifyError: notifyError
         };
     }
 

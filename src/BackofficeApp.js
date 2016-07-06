@@ -194,12 +194,17 @@ angular
                     },
 
                     'responseError': function (response) {
+                        var ErrorService = $injector.get('ErrorService');
+
                         if (response.status == 401) {
                             var $state = $injector.get('$state');
                             $state.transitionTo('login');
+                        } else if (response.status == 412) {
+                            // Human-readable error, with translation support
+                            for (var i = 0; i < response.data.errors.length; ++i) {
+                                ErrorService.notifyError(response.data.errors[i].message);
+                            }
                         } else if (response.status >= 400 && response.config.url != '/auth') {
-                            var ErrorService = $injector.get('ErrorService');
-
                             var message = response.status;
                             var url = response.config.url;
 
