@@ -260,7 +260,7 @@ function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, gettext, ConfigSe
     $scope.queryCategoryChildrenSearch = function (query) {
         var q = $q.defer();
 
-        ObjlibService.getObjlibsCats({filter: query, lock: true, parentId: parentId}).then(function (x) {
+        ObjlibService.getObjlibsCats({filter: query, lock: true, parentId: $scope.category.parent.id}).then(function (x) {
             if (x && x.categories) {
                 q.resolve(x.categories);
             } else {
