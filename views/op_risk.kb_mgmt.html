@@ -1,5 +1,5 @@
 <div flex ng-controller="BackofficeKbOpRiskCtrl">
-    <md-tabs md-dynamic-height="true" md-border-bottom="true">
+    <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex">
         <md-tab label="{{ 'Categories' | translate }}" md-on-select="selectCategoriesTab()" md-on-deselect="deselectCategoriesTab()">
             <md-toolbar class="md-table-toolbar md-default"
                         ng-hide="categories.selected.length || categories.filter.show">

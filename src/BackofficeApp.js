@@ -92,7 +92,8 @@ angular
                     label: gettext('KB management')
                 }
             }).state('main.kb_mgmt.info_risk', {
-                url: '/info',
+                url: '/info/:tab',
+                params: { tab: { dynamic: true }},
                 views: {
                     'main@main': {templateUrl: '/views/info_risk.kb_mgmt.html'}
                 },
@@ -141,7 +142,8 @@ angular
                     label: gettext('Object instance')
                 }
             }).state('main.kb_mgmt.op_risk', {
-                url: '/op',
+                url: '/op/:tab',
+                params: { tab: { dynamic: true }},
                 views: {
                     'main@main': {templateUrl: '/views/op_risk.kb_mgmt.html'}
                 },
@@ -230,16 +232,17 @@ angular
             $httpProvider.interceptors.push('monarcHttpInter');
         }]).
     run(['ConfigService', 'gettext', '$rootScope', function (ConfigService, gettext, $rootScope) {
-        ConfigService.loadConfig();
+            ConfigService.loadConfig();
 
-        $rootScope.updatePaginationLabels = function () {
-            $rootScope.paginationLabels = {
-                page: gettext('Page:'),
-                rowsPerPage: gettext('Rows per page:'),
-                of: gettext('of')
+            // Method to update pagination labels globally when switching language in account settings
+            $rootScope.updatePaginationLabels = function () {
+                $rootScope.paginationLabels = {
+                    page: gettext('Page:'),
+                    rowsPerPage: gettext('Rows per page:'),
+                    of: gettext('of')
+                }
             }
-        }
 
-        $rootScope.updatePaginationLabels();
-    }
+            $rootScope.updatePaginationLabels();
+        }
     ]);

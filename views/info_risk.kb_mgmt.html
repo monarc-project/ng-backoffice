@@ -1,5 +1,5 @@
 <div flex ng-controller="BackofficeKbInfoCtrl">
-    <md-tabs md-dynamic-height="true" md-border-bottom="true">
+    <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex">
         <md-tab label="{{ 'Assets' | translate }}" md-on-select="selectAssetsTab()" md-on-deselect="deselectAssetsTab()">
             <md-toolbar class="md-table-toolbar md-default" ng-hide="assets.selected.length || assets.filter.show">
                 <div class="md-toolbar-tools">

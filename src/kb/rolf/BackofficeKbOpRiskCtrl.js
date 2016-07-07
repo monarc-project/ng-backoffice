@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbOpRiskCtrl', [
             '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'CategoryService', 'TagService', 'RiskService',
+            'CategoryService', 'TagService', 'RiskService', '$stateParams', '$state',
             BackofficeKbOpRiskCtrl
         ]);
 
@@ -12,8 +12,27 @@
      * BO > KB > OPERATIONAL RISKS (ROLF)
      */
     function BackofficeKbOpRiskCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                    CategoryService, TagService, RiskService) {
+                                    CategoryService, TagService, RiskService, $stateParams, $state) {
+        $scope.tab = $stateParams.tab;
         TableHelperService.resetBookmarks();
+
+        /*
+         * Global helpers
+         */
+        $scope.selectTab = function (tab) {
+            switch (tab) {
+                case 'categories': $scope.currentTabIndex = 0; break;
+                case 'tags': $scope.currentTabIndex = 1; break;
+                case 'risks': $scope.currentTabIndex = 2; break;
+            }
+        }
+        $scope.selectTab($scope.tab);
+
+        $scope.$on('$locationChangeSuccess', function (event, newUrl) {
+            var tabName = newUrl.substring(newUrl.lastIndexOf('/') + 1);
+            $scope.tab = tabName;
+            $scope.selectTab(tabName);
+        });
 
         /**
          * CATEGORIES
@@ -33,6 +52,7 @@
         };
 
         $scope.selectCategoriesTab = function () {
+            $state.transitionTo('main.kb_mgmt.op_risk', {'tab': 'categories'});
             TableHelperService.watchSearch($scope, 'categories.query.filter', $scope.categories.query, $scope.updateCategories, $scope.categories);
         };
 
@@ -158,6 +178,7 @@
         };
 
         $scope.selectTagsTab = function () {
+            $state.transitionTo('main.kb_mgmt.op_risk', {'tab': 'tags'});
             TableHelperService.watchSearch($scope, 'tags.query.filter', $scope.tags.query, $scope.updateTags, $scope.tags);
         };
 
@@ -304,6 +325,7 @@
         }
 
         $scope.selectRisksTab = function () {
+            $state.transitionTo('main.kb_mgmt.op_risk', {'tab': 'risks'});
             risksTabSelected = true;
             TableHelperService.watchSearch($scope, 'risks.query.filter', $scope.risks.query, $scope.updateRisks, $scope.risks);
 

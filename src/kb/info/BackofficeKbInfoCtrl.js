@@ -3,16 +3,18 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
-            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService',
+            '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
             BackofficeKbInfoCtrl
         ]);
 
     /**
      * BO > KB > INFO
      */
-    function BackofficeKbInfoCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
-                                  AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService) {
+    function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+                                  AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
+                                  $state) {
+        $scope.tab = $stateParams.tab;
         $scope.gettext = gettext;
         TableHelperService.resetBookmarks();
 
@@ -27,7 +29,23 @@
             }
         };
 
+        $scope.selectTab = function (tab) {
+            switch (tab) {
+                case 'assets': $scope.currentTabIndex = 0; break;
+                case 'threats': $scope.currentTabIndex = 1; break;
+                case 'vulns': $scope.currentTabIndex = 2; break;
+                case 'measures': $scope.currentTabIndex = 3; break;
+                case 'amvs': $scope.currentTabIndex = 4; break;
+                case 'objlibs': $scope.currentTabIndex = 5; break;
+            }
+        }
+        $scope.selectTab($scope.tab);
 
+        $scope.$on('$locationChangeSuccess', function (event, newUrl) {
+            var tabName = newUrl.substring(newUrl.lastIndexOf('/') + 1);
+            $scope.tab = tabName;
+            $scope.selectTab(tabName);
+        });
 
         /*
          * ASSETS TAB
@@ -37,6 +55,7 @@
         var assetsFilterWatch;
 
         $scope.selectAssetsTab = function () {
+            $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'assets'});
             var initAssetsFilter = true;
             assetsFilterWatch = $scope.$watch('assets.activeFilter', function() {
                 if (initAssetsFilter) {
@@ -201,6 +220,7 @@
         var threatsFilterWatch;
 
         $scope.selectThreatsTab = function () {
+            $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'threats'});
             var initThreatsFilter = true;
             threatsFilterWatch = $scope.$watch('threats.activeFilter', function() {
                 if (initThreatsFilter) {
@@ -361,6 +381,7 @@
         $scope.vulns = TableHelperService.build('label1', 10, 1, '');
 
         $scope.selectVulnsTab = function () {
+            $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'vulns'});
             TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns, $scope.vulns);
         };
 
@@ -495,6 +516,7 @@
         $scope.measures = TableHelperService.build('description1', 10, 1, '');
 
         $scope.selectMeasuresTab = function () {
+            $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'measures'});
             TableHelperService.watchSearch($scope, 'measures.query.filter', $scope.measures.query, $scope.updateMeasures, $scope.measures);
         };
 
@@ -625,6 +647,7 @@
         $scope.amvs = TableHelperService.build('status', 10, 1, '');
 
         $scope.selectAmvsTab = function () {
+            $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'amvs'});
             TableHelperService.watchSearch($scope, 'amvs.query.filter', $scope.amvs.query, $scope.updateAmvs, $scope.amvs);
         };
 
@@ -825,6 +848,7 @@
         };
 
         $scope.selectObjlibsTab = function () {
+            $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'objlibs'});
             objLibTabSelected = true;
             TableHelperService.watchSearch($scope, 'objlibs.query.filter', $scope.objlibs.query, $scope.updateObjlibs, $scope.objlibs);
 
