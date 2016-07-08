@@ -21,10 +21,12 @@
          * Risk analysis
          */
         $scope.anr_obj_instances_data = [
-            {'id': '__root__', 'label1': 'My Risk Analysis', __children__: [
+            {
+                'id': '__root__', 'label1': 'My Risk Analysis', __children__: [
                 {'id': 1, 'label1': 'Object Instance 1', 'ObjectId': 8, __children__: []},
                 {'id': 2, 'label1': 'Object Instance 2', 'ObjectId': 8, __children__: []},
-            ]}
+            ]
+            }
         ];
         $scope.my_tree = {};
 
@@ -160,14 +162,16 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', AddObjectDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'ModelService', 'model_id', AddObjectDialogCtrl],
                 templateUrl: '/views/dialogs/add.objlib.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
+                locals: {
+                    model_id: $scope.model.id
+                }
             })
                 .then(function (objlib) {
-                    console.log(objlib);
                     if (objlib && objlib.id) {
                         ModelService.addExistingObject($scope.model.id, objlib.id);
                     }
@@ -186,16 +190,42 @@
             };
         }
 
-        $scope.cancel = function() {
+        $scope.cancel = function () {
             $mdDialog.cancel();
         };
 
-        $scope.create = function() {
+        $scope.create = function () {
             $mdDialog.hide($scope.category);
         };
     }
 
-    function AddObjectDialogCtrl($scope, $mdDialog, $q, ObjlibService) {
+    function AddObjectDialogCtrl($scope, $mdDialog, $q, ObjlibService, ModelService, model_id) {
+        $scope.createAttachedObject = function () {
+            $scope.objLibDialog = $mdDialog;
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
+                templateUrl: '/views/dialogs/create.objlibs.html',
+                clickOutsideToClose: true,
+                locals: {
+                    objLibDialog: $scope,
+                    objlib: null
+                }
+            }).then(function (objlib) {
+                if (objlib) {
+                    if (objlib.category) {
+                        objlib.category = objlib.category.id;
+                    }
+                    if (objlib.asset) {
+                        objlib.asset = objlib.asset.id;
+                    }
+                    if (objlib.rolfTag) {
+                        objlib.rolfTag = objlib.rolfTag.id;
+                    }
+                    
+                    ModelService.addNewObject(model_id, objlib);
+                }
+            });
+        };
 
         $scope.queryCategorySearch = function (query) {
             var q = $q.defer();
@@ -238,7 +268,11 @@
         $scope.queryObjectSearch = function (query) {
             var q = $q.defer();
 
-            ObjlibService.getObjlibs({filter: query, category: $scope.objlib.category.id, lock: true}).then(function (x) {
+            ObjlibService.getObjlibs({
+                filter: query,
+                category: $scope.objlib.category.id,
+                lock: true
+            }).then(function (x) {
                 if (x && x.objects) {
                     q.resolve(x.objects);
                 } else {
@@ -251,11 +285,11 @@
             return q.promise;
         };
 
-        $scope.cancel = function() {
+        $scope.cancel = function () {
             $mdDialog.cancel();
         };
 
-        $scope.create = function() {
+        $scope.create = function () {
             $mdDialog.hide($scope.object);
         };
     }

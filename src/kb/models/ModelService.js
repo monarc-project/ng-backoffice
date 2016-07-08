@@ -51,13 +51,20 @@
             new self.ModelObjectResource({modelId: model_id, id: object_id}).$save(success, error);
         };
 
+        var addNewObject = function (model_id, object, success, error) {
+            var obj_pump = angular.copy(object);
+            obj_pump.modelId = model_id;
+            new self.ModelObjectResource(obj_pump).$save(success, error);
+        };
+
         return {
             getModels: getModels,
             getModel: getModel,
             createModel: createModel,
             deleteModel: deleteModel,
             updateModel: updateModel,
-            addExistingObject: addExistingObject
+            addExistingObject: addExistingObject,
+            addNewObject: addNewObject
         };
     }
 
