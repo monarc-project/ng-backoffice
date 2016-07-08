@@ -221,7 +221,7 @@
                     if (objlib.rolfTag) {
                         objlib.rolfTag = objlib.rolfTag.id;
                     }
-                    
+
                     ModelService.addNewObject(model_id, objlib);
                 }
             });

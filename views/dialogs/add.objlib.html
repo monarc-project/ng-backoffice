@@ -65,7 +65,7 @@
                         </md-autocomplete>
                     </div>
 
-                    <md-button ng-click="create()" class="md-primary">
+                    <md-button ng-click="create()" class="md-primary" ng-disabled="!object.id || !objlib.category.id">
                         <md-icon>add</md-icon>
                         {{ 'Add the object' | translate }}
                     </md-button>
