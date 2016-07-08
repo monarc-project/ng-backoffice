@@ -17,6 +17,16 @@
                 }
             });
 
+        self.ModelObjectResource = $resource('/api/models/:modelId/objects/:objectId', { modelId: '@modelId', objectId: '@objectId' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            })
+
         var getModels = function (params) {
             return self.ModelResource.query(params).$promise;
         };
@@ -37,12 +47,17 @@
             self.ModelResource.delete({modelId: id}, success, error);
         };
 
+        var addExistingObject = function (model_id, object_id, success, error) {
+            new self.ModelObjectResource({modelId: model_id, id: object_id}).$save(success, error);
+        };
+
         return {
             getModels: getModels,
             getModel: getModel,
             createModel: createModel,
             deleteModel: deleteModel,
-            updateModel: updateModel
+            updateModel: updateModel,
+            addExistingObject: addExistingObject
         };
     }
 

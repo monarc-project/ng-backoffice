@@ -9,7 +9,7 @@
         ]);
 
     /**
-     * BO > KB > MODELS > MODEL DETAILS
+     * BO > KB > MODELS > MODEL DETAILS (ANR)
      */
     function BackofficeKbModelsDetailsCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog,
                                            TableHelperService, ModelService, ObjlibService, $stateParams) {
@@ -156,6 +156,24 @@
                 });
         };
 
+        $scope.addObject = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', AddObjectDialogCtrl],
+                templateUrl: '/views/dialogs/add.objlib.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+            })
+                .then(function (objlib) {
+                    console.log(objlib);
+                    if (objlib && objlib.id) {
+                        ModelService.addExistingObject($scope.model.id, objlib.id);
+                    }
+                });
+        };
+
     }
 
     function CreateAnrDialogCtrl($scope, $mdDialog, anr) {
@@ -174,6 +192,71 @@
 
         $scope.create = function() {
             $mdDialog.hide($scope.category);
+        };
+    }
+
+    function AddObjectDialogCtrl($scope, $mdDialog, $q, ObjlibService) {
+
+        $scope.queryCategorySearch = function (query) {
+            var q = $q.defer();
+
+            ObjlibService.getObjlibsCats({filter: query}).then(function (x) {
+                if (x && x.categories) {
+                    // Recursively build items
+                    var buildItemRecurse = function (children, depth) {
+                        var output = [];
+
+                        for (var i = 0; i < children.length; ++i) {
+                            var child = children[i];
+
+                            for (var j = 0; j < depth; ++j) {
+                                child.label1 = " >> " + child.label1;
+                            }
+
+                            output.push(child);
+
+                            if (child.child.length > 0) {
+                                var child_output = buildItemRecurse(child.child, depth + 1);
+                                output = output.concat(child_output);
+                            }
+                        }
+
+                        return output;
+                    };
+
+                    q.resolve(buildItemRecurse(x.categories, 0));
+                } else {
+                    q.reject();
+                }
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
+        };
+
+        $scope.queryObjectSearch = function (query) {
+            var q = $q.defer();
+
+            ObjlibService.getObjlibs({filter: query, category: $scope.objlib.category.id, lock: true}).then(function (x) {
+                if (x && x.objects) {
+                    q.resolve(x.objects);
+                } else {
+                    q.reject();
+                }
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
+        };
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.object);
         };
     }
 
@@ -210,7 +293,6 @@
             }
 
         };
-
     }
 
 })();
