@@ -50,7 +50,7 @@
             $mdDialog.show(confirm).then(function() {
                 DocModelService.deleteDocModel(item.id,
                     function () {
-                        $scope.updateItems();
+                        $scope.updateDocModels();
                         toastr.success(gettextCatalog.getString('The document "{{label}}" has been deleted.',
                                     {label: item.description}), gettext('Deletion successful'));
                     }
