@@ -156,7 +156,7 @@ angular
                     'main@main': {templateUrl: '/views/doc_models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Document models')
+                    label: gettext('Document templates')
                 }
             }).state('main.kb_mgmt.analysis_guides', {
                 url: '/guides',
