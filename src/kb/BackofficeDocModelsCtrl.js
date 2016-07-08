@@ -94,8 +94,33 @@
             };
         }
 
+        if (!$scope.docModel.id) {
+            // Hide categories which already have an item
+            DocModelService.getDocModels().then(function (existing_docmodels) {
+                var all_categories = DocModelService.getCategories();
+                $scope.categories = [];
+
+                for (var i = 0; i < all_categories.length; ++i) {
+                    var found = false;
+
+                    for (var j = 0; j < existing_docmodels.docmodels.length; ++j) {
+                        if (existing_docmodels.docmodels[j].category == all_categories[i].id) {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        $scope.categories.push(all_categories[i]);
+                    }
+                }
+            });
+        } else {
+            $scope.categories = DocModelService.getCategories();
+        }
+
+
         $scope.uploadProgress = null;
-        $scope.categories = DocModelService.getCategories()
 
         // Upload system
         $scope.cancel = function () {
