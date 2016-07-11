@@ -264,6 +264,10 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
   height: 25px;
 }
 
+.tbl-risk-calc td.wide {
+  width: 72px;
+}
+
 .tbl-risk-calc .green {
   background: #A5D6A7;
 }

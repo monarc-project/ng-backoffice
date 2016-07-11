@@ -38,29 +38,14 @@
             </md-fab-trigger>
 
             <md-fab-actions>
-                <md-button aria-label="{{ 'Add component' | translate }}" class="md-fab md-raised md-mini" ng-click="createComponent($event)">
-                    <md-icon>add_to_photos</md-icon>
-                    <md-tooltip md-direction="left">{{ 'Add component' | translate }}</md-tooltip>
-                </md-button>
-
-                <md-button aria-label="{{ 'Edit object' | translate }}" class="md-fab md-raised md-mini" ng-click="editObjlib($event, object)">
+                <md-button aria-label="{{ 'Edit instance settings' | translate }}" class="md-fab md-raised md-mini" ng-click="editInstance($event, object)">
                     <md-icon>edit</md-icon>
-                    <md-tooltip md-direction="left">{{ 'Edit object' | translate }}</md-tooltip>
+                    <md-tooltip md-direction="left">{{ 'Edit instance settings' | translate }}</md-tooltip>
                 </md-button>
 
-                <md-button aria-label="{{ 'Duplicate object' | translate }}" class="md-fab md-raised md-mini">
-                    <md-icon>control_point_duplicate</md-icon>
-                    <md-tooltip md-direction="left">{{ 'Duplicate object' | translate }}</md-tooltip>
-                </md-button>
-
-                <md-button aria-label="{{ 'Export object' | translate }}" class="md-fab md-raised md-mini" ng-click="exportObject($event)">
-                    <md-icon>save</md-icon>
-                    <md-tooltip md-direction="left">{{ 'Export object' | translate }}</md-tooltip>
-                </md-button>
-
-                <md-button aria-label="{{ 'Delete object' | translate }}" class="md-fab md-raised md-mini md-warn" ng-click="deleteObject($event)">
-                    <md-icon>delete</md-icon>
-                    <md-tooltip md-direction="left">{{ 'Delete object' | translate }}</md-tooltip>
+                <md-button aria-label="{{ 'Detach' | translate }}" class="md-fab md-raised md-mini">
+                    <md-icon>content_cut</md-icon>
+                    <md-tooltip md-direction="left">{{ 'Detach' | translate }}</md-tooltip>
                 </md-button>
             </md-fab-actions>
         </md-fab-speed-dial>
@@ -84,7 +69,118 @@
                             </ul>
                         </li>
                     </ul>
+            </md-tab>
 
+            <md-tab label="{{ 'Risks table' | translate }}">
+                <div class="md-padding" ng-if="sheet_id">
+                    <h3 translate layout="row" layout-align="start center"><md-button class="md-icon-button" ng-click="resetSheet()"><md-icon>arrow_back</md-icon></md-button> Risk sheet</h3>
+
+                    <table class="md-html-table">
+                        <tbody>
+                        <tr>
+                            <td class="bold txtright" translate>Threat:</td>
+                            <td>Erreur d'utilisation</td>
+                        </tr>
+                        <tr>
+                            <td class="bold txtright" translate>Vulnerability:</td>
+                            <td>Les administrateurs n'ont pas suivi des formations à la sécurité</td>
+                        </tr>
+                        <tr>
+                            <td class="bold txtright" translate>Observations:</td>
+                            <td>Hello world</td>
+                        </tr>
+                        <tr>
+                            <td class="bold txtright" translate>Threat probability:</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td class="bold txtright" translate>Vulnerability qualification:</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="bold txtright" translate>Measure #1:</td>
+                            <td>7.2.2 - Sensibilisation, qualification et formations en matière de sécurité de l'information</td>
+                        </tr>
+                        <tr>
+                            <td class="bold txtright" translate>Measure #2:</td>
+                            <td>7.2.2 - Sensibilisation, qualification et formations en matière de sécurité de l'information</td>
+                        </tr>
+                        <tr>
+                            <td class="bold txtright" translate>Measure #3:</td>
+                            <td>7.2.2 - Sensibilisation, qualification et formations en matière de sécurité de l'information</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="tbl-risk-calc">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="bold txtright wide" translate>Current risk</td>
+                            <td class="txtcenter green">-1</td>
+                            <td class="txtcenter green">-1</td>
+                            <td class="txtcenter green">-1</td>
+                        </tr>
+                        <tr>
+                            <td class="bold txtright wide" translate>Target risk</td>
+                            <td class="txtcenter green">-1</td>
+                            <td class="txtcenter green">-1</td>
+                            <td class="txtcenter green">-1</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <table class="md-html-table" ng-if="!sheet_id">
+                    <thead>
+                    <tr>
+                        <th colspan="3"><p translate>Impact</p></th>
+                        <th rowspan="2"><p translate>Threat</p></th>
+                        <th rowspan="2"><p translate>Prob.</p></th>
+                        <th rowspan="2"><p translate>Vulnerability</p></th>
+                        <th rowspan="2"><p translate>Qualif.</p></th>
+                        <th colspan="3"><p translate>Risk</p></th>
+                        <th rowspan="2"><p translate>Observation</p></th>
+                        <th rowspan="2"><p translate>T</p></th>
+                        <th rowspan="2"><p translate>Target risk</p></th>
+                        <th rowspan="2"><p translate>Actions</p></th>
+                    </tr>
+                    <tr>
+                        <th>C</th>
+                        <th>I</th>
+                        <th>D</th>
+                        <th>C</th>
+                        <th>I</th>
+                        <th>D</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>-1</td>
+                        <td>-1</td>
+                        <td>-1</td>
+                        <td>Récupération de supports recyclés ou mis au rebut</td>
+                        <td>-</td>
+                        <td>La mise au rebut n'est pas correctement assurée</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><md-button class="md-icon-button" ng-click="openRiskSheet()"><md-icon>open_in_new</md-icon></md-button></td>
+                    </tr>
+                    </tbody>
+                </table>
             </md-tab>
         </md-tabs>
     </md-card>
