@@ -3,14 +3,15 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
-            '$scope', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', 'gettext', 'gettextCatalog', 'ObjlibService',
+            '$scope', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettext', 'gettextCatalog',
+            'ObjlibService',
             BackofficeKbInfoObjectCtrl
         ]);
 
     /**
      * BO > KB > INFO > Objects Library > Object details
      */
-    function BackofficeKbInfoObjectCtrl($scope, toastr, $mdMedia, $mdDialog, $stateParams,
+    function BackofficeKbInfoObjectCtrl($scope, toastr, $mdMedia, $mdDialog, $stateParams, $http,
                                         gettext, gettextCatalog, ObjlibService) {
         $scope.updateObjlib = function () {
             ObjlibService.getObjlib($stateParams.objectId).then(function (object) {
@@ -146,7 +147,13 @@
             $mdDialog.show(prompt).then(function (result) {
                 console.log("Http Call to export with password " + result);
             });
-        }
+        };
+
+        $scope.cloneObject = function (ev) {
+            $http.post("/api/objects-duplication", {id: $scope.object.id, implicitPosition: 2}).then(function (data) {
+                toastr.success(gettext('Ths object has been duplicated successfully.'), gettext('Duplication successful'));
+            });
+        };
 
         $scope.createComponent = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
