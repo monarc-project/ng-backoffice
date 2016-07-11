@@ -763,7 +763,7 @@
                         AmvService.updateAmv(amv,
                             function () {
                                 $scope.updateAmvs();
-                                toastr(gettext('The AMV has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettext('The AMV has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
