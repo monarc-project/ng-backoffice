@@ -72,7 +72,7 @@
             </md-tab>
 
             <md-tab label="{{ 'Risks table' | translate }}">
-                <div class="md-padding" ng-if="sheet_id">
+                <div class="md-padding-left md-padding-right" ng-if="sheet_id">
                     <h3 translate layout="row" layout-align="start center"><md-button class="md-icon-button" ng-click="resetSheet()"><md-icon>arrow_back</md-icon></md-button> Risk sheet</h3>
 
                     <table class="md-html-table">
@@ -136,6 +136,40 @@
                         </tr>
                         </tbody>
                     </table>
+
+                    <form class="md-padding">
+                        <md-input-container class="md-block">
+                            <label translate>Processing type</label>
+                            <md-icon>widgets</md-icon>
+                            <md-select ng-model="sheet_processing">
+                                <md-option value="0">{{ 'Not processed' | translate }}</md-option>
+                                <md-option value="1">{{ 'Reduction' | translate }}</md-option>
+                                <md-option value="2">{{ 'Denied' | translate }}</md-option>
+                                <md-option value="3">{{ 'Accepted' | translate }}</md-option>
+                                <md-option value="4">{{ 'Shared' | translate }}</md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label translate>Reduce vulnerability by</label>
+                            <md-icon>trending_down</md-icon>
+                            <md-select ng-model="sheet_reduction">
+                                <md-option value="0">0</md-option>
+                                <md-option value="1">1</md-option>
+                                <md-option value="2">2</md-option>
+                                <md-option value="3">3</md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <p class="bold" translate>List of recommendations:</p>
+                        <ul>
+                            <li><strong>#HALO</strong> &gt; test</li>
+                        </ul>
+
+                        <div layout="row" layout-align="end center">
+                            <md-button class="md-raised md-primary">{{ 'Save changes' | translate }}</md-button>
+                        </div>
+                    </form>
                 </div>
 
                 <table class="md-html-table" ng-if="!sheet_id">
