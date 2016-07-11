@@ -18,19 +18,19 @@
             <p>{{ 'Client management' | translate }}</p>
         </md-list-item>
 
-        <md-list-item ui-sref="main.kb_mgmt.info_risk" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
+        <md-list-item ui-sref="main.kb_mgmt" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
             <md-icon>local_library</md-icon>
             <p>{{ 'KB management' | translate }}</p>
         </md-list-item>
 
-        <md-list-item ui-sref="main.kb_mgmt.info_risk({tab: 'assets'})" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
+        <md-list-item ui-sref="main.kb_mgmt.info_risk" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
             <p class="sidenav-sub-item">
                 <md-icon>find_in_page</md-icon>
                 {{ 'Information risks' | translate }}
             </p>
         </md-list-item>
 
-        <md-list-item ui-sref="main.kb_mgmt.op_risk({tab: 'categories'})" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
+        <md-list-item ui-sref="main.kb_mgmt.op_risk" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
             <p class="sidenav-sub-item">
                 <md-icon>warning</md-icon>
                 {{ 'Operational risks (ROLF)' | translate }}

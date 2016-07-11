@@ -90,10 +90,10 @@ angular
                 url: "/kb",
                 ncyBreadcrumb: {
                     label: gettext('KB management')
-                }
+                },
             }).state('main.kb_mgmt.info_risk', {
                 url: '/info/:tab',
-                params: { tab: { dynamic: true }},
+                params: { tab: { dynamic: true, value: 'assets' }},
                 views: {
                     'main@main': {templateUrl: '/views/info_risk.kb_mgmt.html'}
                 },
@@ -143,7 +143,7 @@ angular
                 }
             }).state('main.kb_mgmt.op_risk', {
                 url: '/op/:tab',
-                params: { tab: { dynamic: true }},
+                params: { tab: { dynamic: true, value: 'categories' }},
                 views: {
                     'main@main': {templateUrl: '/views/op_risk.kb_mgmt.html'}
                 },
