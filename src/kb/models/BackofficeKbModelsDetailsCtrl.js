@@ -30,6 +30,8 @@
         ];
         $scope.my_tree = {};
 
+        $scope._filter = {};
+
         $scope.expanding_property = {
             field: 'label1'
         };

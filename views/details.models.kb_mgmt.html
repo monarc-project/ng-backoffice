@@ -17,7 +17,7 @@
                             <md-input-container class="md-block">
                                 <md-icon>search</md-icon>
                                 <label translate>Search an instance...</label>
-                                <input type="text">
+                                <input type="text" ng-model="_filter._$">
                             </md-input-container>
 
                             <tree-dnd
@@ -187,7 +187,7 @@
 <table ng-class="$tree_class">
     <tbody tree-dnd-nodes>
     <tr tree-dnd-node="node" ng-repeat="node in tree_nodes track by node.__hashKey__"
-        ng-show="node.__visible__" ng-class="node.__selected__ ? 'active':''" ng-click="onSelect(node)">
+        ng-show="enabledFilter ? node.__visible__ && node.__filtered__.visible : node.__visible__" ng-class="node.__selected__ ? 'active':''" ng-click="onSelect(node)">
         <td tree-dnd-node-handle ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {'padding-left': $callbacks.calsIndent(node.__level__), 'font-weight': 'normal'}"
             ng-class="expandingProperty.cellClass" compile="expandingProperty.cellTemplate">
             <a data-nodrag><md-icon ng-click="toggleExpand(node)" class="tree-icon" ng-if="node.__children__.length > 0">{{ node.__expanded__ ? 'expand_less' : 'expand_more' }}</md-icon></a>
@@ -203,7 +203,7 @@
     <table ng-class="$tree_class">
         <tbody tree-dnd-nodes>
         <tr tree-dnd-node="node" ng-repeat="node in tree_nodes track by node.__hashKey__"
-            ng-show="node.__visible__" ng-class="node.__selected__ ? 'active':''" ng-click="onSelect(node)">
+            ng-show="enabledFilter ? node.__visible__ && node.__filtered__.visible : node.__visible__" ng-class="node.__selected__ ? 'active':''" ng-click="onSelect(node)">
             <td tree-dnd-node-handle ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {'padding-left': $callbacks.calsIndent(node.__level__), 'font-weight': 'normal'}"
                 ng-class="expandingProperty.cellClass" compile="expandingProperty.cellTemplate">
                 <a data-nodrag><md-icon ng-click="toggleExpand(node)" class="tree-icon" ng-if="node.__children__.length > 0">{{ node.__expanded__ ? 'expand_less' : 'expand_more' }}</md-icon></a>
