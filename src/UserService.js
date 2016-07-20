@@ -11,6 +11,7 @@
             var self = this;
 
             self.token = null;
+            self.uid = null;
             self.authenticated = false;
             self.permissionGroups = [];
 
@@ -18,6 +19,7 @@
                 if (localStorageService.get('auth_token') != null) {
                     self.authenticated = true;
                     self.token = localStorageService.get('auth_token');
+                    self.uid = localStorageService.get('uid');
                     self.permissionGroups = JSON.parse(localStorageService.get('permission_groups'));
                     return true;
                 } else {
@@ -39,8 +41,10 @@
                         if (data.status == 200 && data.data && data.data.token) {
                             self.authenticated = true;
                             self.token = data.data.token;
+                            self.uid = data.data.uid;
 
                             localStorageService.set('auth_token', self.token);
+                            localStorageService.set('uid', self.uid);
                             localStorageService.set('permission_groups', JSON.stringify([]));
 
                             $http.get('/api/users-roles').then(
@@ -107,6 +111,13 @@
             };
 
             /**
+             * @returns {null|int} The current user ID, or null
+             */
+            var getUserId = function () {
+                return self.uid;
+            }
+
+            /**
              * @returns {boolean} True if authenticated, false otherwise
              */
             var isAuthenticated = function () {
@@ -128,6 +139,7 @@
                 authenticate: authenticate,
                 logout: logout,
                 getToken: getToken,
+                getUserId: getUserId,
                 isAuthenticated: isAuthenticated,
                 isAllowed: isAllowed
             };
