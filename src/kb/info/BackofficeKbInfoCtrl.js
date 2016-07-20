@@ -1041,7 +1041,11 @@
             var modelsIds = [];
 
             for (var i = 0; i < $scope.asset.models.length; ++i) {
-                modelsIds.push($scope.asset.models[i].id);
+                if ($scope.asset.models[i].id) {
+                    modelsIds.push($scope.asset.models[i].id);
+                } else {
+                    modelsIds.push($scope.asset.models[i]);
+                }
             }
 
             $scope.asset.models = modelsIds;
@@ -1095,7 +1099,11 @@
             var modelsIds = [];
 
             for (var i = 0; i < $scope.threat.models.length; ++i) {
-                modelsIds.push($scope.threat.models[i].id);
+                if ($scope.threat.models[i].id) {
+                    modelsIds.push($scope.threat.models[i].id);
+                } else {
+                    modelsIds.push($scope.threat.models[i]);
+                }
             }
 
             $scope.threat.models = modelsIds;
@@ -1206,7 +1214,11 @@
             var modelsIds = [];
 
             for (var i = 0; i < $scope.vuln.models.length; ++i) {
-                modelsIds.push($scope.vuln.models[i].id);
+                if ($scope.vuln.models[i].id) {
+                    modelsIds.push($scope.vuln.models[i].id);
+                } else {
+                    modelsIds.push($scope.vuln.models[i]);
+                }
             }
 
             $scope.vuln.models = modelsIds;
