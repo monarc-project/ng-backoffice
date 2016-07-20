@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeAdminUsersCtrl', [
             '$scope', '$state', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminUsersService',
-            'TableHelperService',
+            'TableHelperService', 'UserService',
             BackofficeAdminUsersCtrl
         ]);
 
@@ -12,7 +12,10 @@
      * Admin Users Controller for the Backoffice module
      */
     function BackofficeAdminUsersCtrl($scope, $state, toastr, $mdMedia, $mdDialog, gettextCatalog, gettext,
-                                      AdminUsersService, TableHelperService) {
+                                      AdminUsersService, TableHelperService, UserService) {
+
+        $scope.myself = UserService.getUserId();
+
         $scope.users = TableHelperService.build('-firstname', 25, 1, '');
 
         $scope.removeFilter = function () {
