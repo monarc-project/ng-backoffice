@@ -42,23 +42,23 @@
                     <md-input-container class="md-block" flex>
                         <label translate>Current password</label>
                         <md-icon>no_encryption</md-icon>
-                        <input type="password" flex>
+                        <input type="password" ng-model="password.old" flex>
                     </md-input-container>
 
                     <md-input-container class="md-block" flex>
                         <label translate>New password</label>
                         <md-icon>enhanced_encryption</md-icon>
-                        <input type="password" flex>
+                        <input type="password" ng-model="password.new" flex>
                     </md-input-container>
 
                     <md-input-container class="md-block" flex>
                         <label translate>Confirm new password</label>
                         <md-icon>enhanced_encryption</md-icon>
-                        <input type="password" flex>
+                        <input type="password" ng-model="password.confirm" flex>
                     </md-input-container>
 
                     <div layout="row">
-                        <md-button class="md-raised md-primary">{{ 'Update password' | translate }}</md-button>
+                        <md-button class="md-raised md-primary" ng-click="updatePassword()" ng-disabled="password.old == '' || password.new == '' || password.old == '' || password.new != password.confirm">{{ 'Update password' | translate }}</md-button>
                     </div>
                 </div>
 
