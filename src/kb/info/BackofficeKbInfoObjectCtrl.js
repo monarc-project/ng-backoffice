@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
-            '$scope', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettext', 'gettextCatalog',
+            '$scope', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettext', 'gettextCatalog',
             'ObjlibService',
             BackofficeKbInfoObjectCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > INFO > Objects Library > Object details
      */
-    function BackofficeKbInfoObjectCtrl($scope, toastr, $mdMedia, $mdDialog, $stateParams, $http,
+    function BackofficeKbInfoObjectCtrl($scope, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
                                         gettext, gettextCatalog, ObjlibService) {
         $scope.updateObjlib = function () {
             ObjlibService.getObjlib($stateParams.objectId).then(function (object) {
@@ -21,27 +21,6 @@
         };
 
         $scope.updateObjlib();
-/*
-        $scope.composition = [
-            {
-                id: 30,
-                name1: 'Enfant 1'
-            },
-            {
-                id: 31,
-                name1: 'Enfant 2',
-                children: [
-                    {
-                        id: 41,
-                        name1: 'Sous-enfant 2-1'
-                    }
-                ]
-            },
-            {
-                id: 32,
-                name1: 'Enfant 3'
-            }
-        ];*/
 
         $scope.deleteCompositionItem = function (ev, item) {
             var confirm = $mdDialog.confirm()
@@ -53,7 +32,10 @@
                 .cancel(gettext('Cancel'));
 
             $mdDialog.show(confirm).then(function () {
-                // Validated
+                ObjlibService.deleteObjlibNode(item.component_link_id, function () {
+                    $scope.updateObjlib();
+                    toastr.success(gettext('The object has been detached successfully'), gettext('Component detached'));
+                });
             }, function () {
                 // Cancel
             })
@@ -70,7 +52,9 @@
                 .cancel(gettext('Cancel'));
 
             $mdDialog.show(confirm).then(function () {
-                // Validated
+                ObjlibService.deleteObjlib($scope.object.id, function () {
+                    $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'objlibs'});
+                });
             }, function () {
                 // Cancel
             })
