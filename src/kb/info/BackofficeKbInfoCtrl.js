@@ -833,6 +833,16 @@
             }
         });
 
+        $scope.objlibAssetTypeStr = function (type) {
+            if (type == 'bdc') {
+                return gettext('Knowledge base');
+            } else if (type == 'anr') {
+                return gettext('Risk analysis');
+            } else {
+                return type;
+            }
+        }
+
         $scope.objlibScopeStr = function (scope) {
             switch (scope) {
                 case 1: return gettext('Local');
