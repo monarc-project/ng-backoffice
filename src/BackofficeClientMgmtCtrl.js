@@ -140,7 +140,8 @@
                 employees_number: '',
                 contact_fullname: '',
                 contact_email: '',
-                contact_phone: ''
+                contact_phone: '',
+                model_id: null
             };
         }
 
@@ -149,10 +150,6 @@
         };
 
         $scope.create = function() {
-            if ($scope.client.model) {
-                $scope.client.model = $scope.client.model.id;
-            }
-
             $mdDialog.hide($scope.client);
         };
     }
