@@ -136,6 +136,8 @@
 
         if (model != undefined && model != null) {
             $scope.model = model;
+            // Field is "isGeneric", but for UX reasons we display a "Specific" checkbox - invert the value here
+            $scope.model.isGeneric = !$scope.model.isGeneric;
         } else {
             $scope.model = {
                 label1: '',
@@ -156,7 +158,7 @@
 
         $scope.$watch('model.isRegulator', function (newValue) {
             if (newValue) {
-                $scope.model.isGeneric = false;
+                $scope.model.isGeneric = true; // Which is inverted (see UX note) - a Regulator model may NOT be Generic
             }
         })
 
@@ -165,6 +167,9 @@
         };
 
         $scope.create = function() {
+            // Field is "isGeneric", but for UX reasons we display a "Specific" checkbox - invert the value here
+            $scope.model.isGeneric = !$scope.model.isGeneric;
+
             $mdDialog.hide($scope.model);
         };
     }
