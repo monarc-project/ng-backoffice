@@ -145,7 +145,28 @@
                 .cancel(gettext('Cancel'));
 
             $mdDialog.show(prompt).then(function (result) {
-                console.log("Http Call to export with password " + result);
+                $http.post('/api/objects-export', {id: $scope.object.id, password: result}).then(function (data) {
+
+                    var saveData = (function () {
+                        var a = document.createElement('a');
+                        document.body.appendChild(a);
+                        a.style = 'display: none';
+
+                        return function (blobData, fileName) {
+                            var blob = new Blob([blobData], {type: 'octet/stream'}),
+                                url = window.URL.createObjectURL(blob);
+
+                            a.href = url;
+                            a.download = fileName;
+                            a.click();
+                            window.URL.revokeObjectURL(url);
+                        };
+                    }());
+
+                    saveData(data.data, 'object.bin');
+
+                    toastr.success(gettext('The object has been exported successfully.'), gettext('Export successful'));
+                })
             });
         };
 
