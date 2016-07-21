@@ -16,6 +16,7 @@
         $scope.updateObjlib = function () {
             ObjlibService.getObjlib($stateParams.objectId).then(function (object) {
                 $scope.object = object;
+                $scope.composition = object.children;
             });
         };
 
@@ -188,6 +189,8 @@
             })
                 .then(function (objlib) {
                     if (objlib) {
+                        objlib.father = $scope.object.id;
+
                         ObjlibService.createObjlibNode(objlib,
                             function () {
                                 $scope.updateObjlib();
@@ -259,7 +262,7 @@
     function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService) {
         $scope.component = {
             position: null,
-            object: null,
+            child: null,
             implicitPosition: 1
         };
 
@@ -268,8 +271,8 @@
         };
 
         $scope.create = function() {
-            if ($scope.component.parent) {
-                $scope.component.parent = $scope.component.parent.id;
+            if ($scope.component.child) {
+                $scope.component.child = $scope.component.child.id;
             }
 
             if ($scope.component.previous) {
@@ -296,7 +299,7 @@
         };
 
         $scope.selectedObjectChange = function (item) {
-            $scope.component.object = item;
+            $scope.component.child = item;
         };
     }
 })();
