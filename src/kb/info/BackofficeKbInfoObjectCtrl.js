@@ -165,11 +165,14 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', CreateComponentDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', CreateComponentDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.node.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
+                locals: {
+                    'myself': $scope.object.id
+                }
             })
                 .then(function (objlib) {
                     if (objlib) {
@@ -243,7 +246,7 @@
     }
 
 
-    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService) {
+    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself) {
         $scope.component = {
             position: null,
             child: null,
@@ -271,7 +274,15 @@
 
             ObjlibService.getObjlibs({filter: query}).then(function (x) {
                 if (x && x.objects) {
-                    q.resolve(x.objects);
+                    var objects_filtered = [];
+
+                    for (var i = 0; i < x.objects.length; ++i) {
+                        if (x.objects[i].id != myself) {
+                            objects_filtered.push(x.objects[i]);
+                        }
+                    }
+
+                    q.resolve(objects_filtered);
                 } else {
                     q.reject();
                 }
