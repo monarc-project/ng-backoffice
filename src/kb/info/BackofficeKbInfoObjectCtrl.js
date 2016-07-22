@@ -33,6 +33,9 @@
                         ObjlibService.updateRisk(newItem.id, newItem);
                     }
                 }
+
+                // Update the whole table
+                $scope.updateObjlib();
             }
         }, true);
 

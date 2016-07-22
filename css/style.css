@@ -272,15 +272,15 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
   width: 72px;
 }
 
-.tbl-risk-calc .green {
+.tbl-risk-calc .green, .tbl-risk-calc.green {
   background: #A5D6A7;
 }
 
-.tbl-risk-calc .orange {
+.tbl-risk-calc .orange, .tbl-risk-calc.orange {
   background: #FFCC80;
 }
 
-.tbl-risk-calc .red {
+.tbl-risk-calc .red, .tbl-risk-calc.red {
   background: #EF9A9A;
 }
 
