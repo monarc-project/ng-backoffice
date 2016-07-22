@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
-            '$scope', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettext', 'gettextCatalog',
+            '$scope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettext', 'gettextCatalog',
             'ObjlibService',
             BackofficeKbInfoObjectCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > INFO > Objects Library > Object details
      */
-    function BackofficeKbInfoObjectCtrl($scope, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
+    function BackofficeKbInfoObjectCtrl($scope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
                                         gettext, gettextCatalog, ObjlibService) {
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
@@ -20,14 +20,34 @@
             $scope.mode = 'bdc';
         }
 
+        var isObjectLoading = true;
+
+        $scope.$watch('object.risks', function (newValue, oldValue) {
+            if (!isObjectLoading) {
+                for (var i = 0; i < newValue.length; ++i) {
+                    var newItem = newValue[i];
+                    var oldItem = oldValue[i];
+
+                    if (!angular.equals(newItem, oldItem)) {
+                        // This risk changed, update it
+                        ObjlibService.updateRisk(newItem.id, newItem);
+                    }
+                }
+            }
+        }, true);
+
+
         $scope.updateObjlib = function () {
+            isObjectLoading = true;
             ObjlibService.getObjlib($stateParams.objectId, {mode: $scope.mode}).then(function (object) {
                 $scope.object = object;
                 $scope.composition = object.children;
+                $timeout(function() { isObjectLoading = false; });
             });
         };
 
         $scope.updateObjlib();
+
 
         $scope.deleteCompositionItem = function (ev, item) {
             var confirm = $mdDialog.confirm()

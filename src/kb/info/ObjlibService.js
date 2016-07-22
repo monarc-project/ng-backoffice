@@ -122,9 +122,13 @@
             return self.RiskResource.query({riskId: id}).$promise;
         };
 
+        var updateRisk = function (id, params, success, error) {
+            self.RiskResource.update({riskId: id}, params, success, error);
+        };
+
         var patchRisk = function (id, params, success, error) {
             self.RiskResource.patch({riskId: id}, params, success, error);
-        }
+        };
 
 
 
@@ -148,6 +152,7 @@
             deleteObjlibNode: deleteObjlibNode,
 
             getRisk: getRisk,
+            updateRisk: updateRisk,
             patchRisk: patchRisk,
         };
     }
