@@ -171,7 +171,7 @@
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
-                    'myself': $scope.object.id
+                    'myself': $scope.object
                 }
             })
                 .then(function (objlib) {
@@ -263,7 +263,7 @@
             }
 
             if ($scope.component.previous) {
-                $scope.component.previous = $scope.component.previous.id;
+                $scope.component.previous = $scope.component.previous.component_link_id;
             }
 
             $mdDialog.hide($scope.component);
@@ -277,7 +277,7 @@
                     var objects_filtered = [];
 
                     for (var i = 0; i < x.objects.length; ++i) {
-                        if (x.objects[i].id != myself) {
+                        if (x.objects[i].id != myself.id) {
                             objects_filtered.push(x.objects[i]);
                         }
                     }
@@ -291,6 +291,27 @@
             });
 
             return q.promise;
+        };
+
+        $scope.selectedObjectChange = function (item) {
+            $scope.component.child = item;
+        };
+
+        $scope.queryComponentSearch = function (query) {
+            if (query != '' && query != null) {
+                var output = [];
+
+                for (var i = 0; i < myself.children.length; i++) {
+                    var child = myself.children[i];
+                    if (child.name1.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+                        output.push(child);
+                    }
+                }
+
+                return output;
+            } else {
+                return myself.children;
+            }
         };
 
         $scope.selectedObjectChange = function (item) {
