@@ -21,7 +21,7 @@
         }
 
         $scope.updateObjlib = function () {
-            ObjlibService.getObjlib($stateParams.objectId, {mode: $state.mode}).then(function (object) {
+            ObjlibService.getObjlib($stateParams.objectId, {mode: $scope.mode}).then(function (object) {
                 $scope.object = object;
                 $scope.composition = object.children;
             });
