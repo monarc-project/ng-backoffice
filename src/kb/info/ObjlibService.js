@@ -85,6 +85,10 @@
             return self.ObjlibNodeResource.query({objlibId: id}).$promise;
         };
 
+        var createObjlibNode = function (params, success, error) {
+            new self.ObjlibNodeResource(params).$save(success, error);
+        };
+
         var moveObjlibNode = function (params, success, error) {
             $http.put('/api/objects-objects/' + params.id, params).then(success, error);
         };
@@ -109,6 +113,7 @@
 
             getObjlibsNodes: getObjlibsNodes,
             getObjlibNode: getObjlibNode,
+            createObjlibNode: createObjlibNode,
             moveObjlibNode: moveObjlibNode,
             deleteObjlibNode: deleteObjlibNode
         };
