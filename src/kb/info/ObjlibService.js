@@ -105,6 +105,28 @@
             self.ObjlibNodeResource.delete({objlibId: id}, success, error);
         };
 
+        self.RiskResource = $resource('/api/objects-risks/:riskId', {riskId: '@id'},
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'patch': {
+                    method: 'PATCH'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
+
+        var getRisk = function (id) {
+            return self.RiskResource.query({riskId: id}).$promise;
+        };
+
+        var patchRisk = function (id, params, success, error) {
+            self.RiskResource.patch({riskId: id}, params, success, error);
+        }
+
+
 
         return {
             getObjlibs: getObjlibs,
@@ -123,7 +145,10 @@
             getObjlibNode: getObjlibNode,
             createObjlibNode: createObjlibNode,
             moveObjlibNode: moveObjlibNode,
-            deleteObjlibNode: deleteObjlibNode
+            deleteObjlibNode: deleteObjlibNode,
+
+            getRisk: getRisk,
+            patchRisk: patchRisk,
         };
     }
 

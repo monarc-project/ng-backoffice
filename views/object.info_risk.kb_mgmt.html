@@ -162,13 +162,15 @@
                         <td>{{risk.i_impact}}</td>
                         <td>{{risk.d_impact}}</td>
                         <td>{{risk.threat_description}}</td>
-                        <td>{{risk.prob}}</td>
+                        <td ng-if="mode=='bdc'">{{risk.prob}}</td>
+                        <td ng-if="mode=='anr'" inline-edit="risk.prob" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></td>
                         <td>{{risk.vuln_description}}</td>
-                        <td>{{risk.qualif}}</td>
+                        <td ng-if="mode=='bdc'">{{risk.qualif}}</td>
+                        <td ng-if="mode=='anr'" inline-edit="risk.qualif" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></td>
                         <td ng-disabled="!risk.c_risk_enabled">{{risk.c_risk}}</td>
                         <td ng-disabled="!risk.i_risk_enabled">{{risk.i_risk}}</td>
                         <td ng-disabled="!risk.d_risk_enabled">{{risk.d_risk}}</td>
-                        <td>{{risk.comment}}</td>
+                        <td inline-edit="risk.comment" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-placeholder="Click to type..." inline-edit-on-click>{{risk.comment}}</td>
                         <td>-</td>
                         <td>{{risk.target}}</td>
                     </tr>
