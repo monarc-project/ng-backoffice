@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('ObjlibService', [ '$resource', ObjlibService ]);
+        .factory('ObjlibService', [ '$resource', '$http', ObjlibService ]);
 
-    function ObjlibService($resource) {
+    function ObjlibService($resource, $http) {
         var self = this;
 
         self.ObjlibResource = $resource('/api/objects/:objlibId', { objlibId: '@id' },
@@ -85,12 +85,8 @@
             return self.ObjlibNodeResource.query({objlibId: id}).$promise;
         };
 
-        var createObjlibNode = function (params, success, error) {
-            new self.ObjlibNodeResource(params).$save(success, error);
-        };
-
-        var updateObjlibNode = function (params, success, error) {
-            self.ObjlibNodeResource.update(params, success, error);
+        var moveObjlibNode = function (params, success, error) {
+            $http.put('/api/objects-objects/' + params.id, params).then(success, error);
         };
 
         var deleteObjlibNode = function (id, success, error) {
@@ -113,8 +109,7 @@
 
             getObjlibsNodes: getObjlibsNodes,
             getObjlibNode: getObjlibNode,
-            createObjlibNode: createObjlibNode,
-            updateObjlibNode: updateObjlibNode,
+            moveObjlibNode: moveObjlibNode,
             deleteObjlibNode: deleteObjlibNode
         };
     }

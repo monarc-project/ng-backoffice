@@ -188,6 +188,12 @@
                 });
         };
 
+        $scope.moveComponent = function (item, direction) {
+            ObjlibService.moveObjlibNode({id: item.component_link_id, move: direction}, function (data) {
+                $scope.updateObjlib();
+            })
+        };
+
         $scope.createNewObjlib = function (ev, objlib) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
