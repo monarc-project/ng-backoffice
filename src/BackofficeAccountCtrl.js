@@ -21,7 +21,13 @@
 
         $scope.refreshProfile = function () {
             UserProfileService.getProfile().then(function (data) {
-                $scope.user = data.data;
+                // Keep only the fields that matters for a clean PATCH
+                $scope.user = {
+                    firstname: data.firstname,
+                    lastname: data.lastname,
+                    email: data.email,
+                    phone: data.phone
+                };
             });
         }
         $scope.refreshProfile();

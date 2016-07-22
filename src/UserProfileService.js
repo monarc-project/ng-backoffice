@@ -9,7 +9,7 @@
 
         self.UserProfileResource = $resource('/api/user/profile', { }, {
             'update': {
-                method: 'PUT'
+                method: 'PATCH'
             },
             'query': {
                 isArray: false
