@@ -13,8 +13,15 @@
      */
     function BackofficeKbInfoObjectCtrl($scope, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
                                         gettext, gettextCatalog, ObjlibService) {
+
+        if ($state.current.name == 'main.kb_mgmt.models.details.object') {
+            $scope.mode = 'anr';
+        } else {
+            $scope.mode = 'bdc';
+        }
+
         $scope.updateObjlib = function () {
-            ObjlibService.getObjlib($stateParams.objectId).then(function (object) {
+            ObjlibService.getObjlib($stateParams.objectId, {mode: $state.mode}).then(function (object) {
                 $scope.object = object;
                 $scope.composition = object.children;
             });
@@ -65,14 +72,18 @@
 
             var isUpdate = (objlib && objlib.id);
 
+            console.log('ici');
+            console.log($scope.mode);
+
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
+                    mode: $scope.mode,
                     objLibDialog: $scope,
                     objlib: objlib
                 }
@@ -192,62 +203,6 @@
             ObjlibService.moveObjlibNode({id: item.component_link_id, move: direction}, function (data) {
                 $scope.updateObjlib();
             })
-        };
-
-        $scope.createNewObjlib = function (ev, objlib) {
-            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
-            var isUpdate = (objlib && objlib.id);
-
-            $scope.objLibDialog = $mdDialog;
-            $scope.objLibDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
-                templateUrl: '/views/dialogs/create.objlibs.html',
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                fullscreen: useFullScreen,
-                locals: {
-                    objLibDialog: $scope,
-                    objlib: objlib
-                }
-            })
-                .then(function (objlib) {
-                    if (objlib) {
-                        if (objlib.asset) {
-                            objlib.asset = objlib.asset.id;
-                        }
-
-                        if (objlib.rolfTag) {
-                            objlib.rolfTag = objlib.rolfTag.id;
-                        }
-
-                        if (isUpdate) {
-                            ObjlibService.updateObjlib(objlib,
-                                function () {
-                                    $scope.updateObjlib();
-                                    toastr.success(gettext('The object has been updated successfully.'), gettext('Update successful'));
-                                }
-                            );
-                        } else {
-                            ObjlibService.createObjlib(objlib,
-                                function () {
-                                    $scope.updateObjlib();
-                                    toastr.success(gettext('The object has been created successfully.'), gettext('Creation successful'));
-                                }
-                            );
-                        }
-                    }
-                });
-        };
-
-        $scope.editObjlib = function (ev, objlib) {
-            if (objlib && objlib.id) {
-                ObjlibService.getObjlib(objlib.id).then(function (objlibData) {
-                    $scope.createNewObjlib(ev, objlibData);
-                });
-            } else {
-                $scope.createNewObjlib(ev, objlib);
-            }
         };
     }
 

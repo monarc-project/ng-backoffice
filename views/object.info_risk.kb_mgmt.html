@@ -14,17 +14,20 @@
             <md-card-content layout="column" layout-gt-md="row" style="font-size: 14px;" flex layout-wrap>
                 <div flex="33" layout="column" layout-gt-md="row" layout-align="space-between">
                     <div flex="33" class="bold txtright" translate>Confidentiality:&nbsp;</div>
-                    <div flex="65" translate>Inherited</div>
+                    <div flex="65" ng-if="mode=='bdc' || object.c < 0" translate>Inherited</div>
+                    <div flex="65" ng-if="mode=='anr'">{{ object.c }}</div>
                 </div>
 
                 <div flex="33" layout="column" layout-gt-md="row" layout-align="space-between">
                     <div flex="33" class="bold txtright" translate>Integrity:&nbsp;</div>
-                    <div flex="65" translate>Inherited</div>
+                    <div flex="65" ng-if="mode=='bdc' || object.i < 0" translate>Inherited</div>
+                    <div flex="65" ng-if="mode=='anr'">{{ object.i }}</div>
                 </div>
 
                 <div flex="33" layout="column" layout-gt-md="row" layout-align="space-between">
                     <div flex="33" class="bold txtright" translate>Availability:&nbsp;</div>
-                    <div flex="65" translate>Inherited</div>
+                    <div flex="65" ng-if="mode=='bdc' || object.d < 0" translate>Inherited</div>
+                    <div flex="65" ng-if="mode=='anr'">{{ object.d }}</div>
                 </div>
             </md-card-content>
         </md-card>
@@ -124,7 +127,7 @@
             </md-tab>
 
             <md-tab label="{{ 'Risks table' | translate }}">
-                <md-card class="md-card-info"><md-card-content>
+                <md-card class="md-card-info" ng-if="mode == 'bdc'"><md-card-content>
                     <p translate>You are in the knowledge base. No evaluation may be set in this space.</p>
                 </md-card-content></md-card>
 

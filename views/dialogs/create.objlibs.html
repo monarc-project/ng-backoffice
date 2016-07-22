@@ -54,6 +54,51 @@
                     </md-select>
                 </md-input-container>
 
+                <md-input-container class="md-block" layout="row" ng-if="mode=='anr'" flex>
+                    <label translate>Maximum unavailability (days)</label>
+                    <md-icon>power_settings_new</md-icon>
+                    <input ng-model="objlib.disponibility">
+                </md-input-container>
+
+                <md-input-container class="md-block" layout="row" ng-if="mode=='anr'" flex>
+                    <label translate>Confidentiality</label>
+                    <md-icon>https</md-icon>
+                    <md-select ng-model="objlib.c">
+                        <md-option value="-1">{{ 'Inherited' | translate }}</md-option>
+                        <md-option value="0">0</md-option>
+                        <md-option value="1">1</md-option>
+                        <md-option value="2">2</md-option>
+                        <md-option value="3">3</md-option>
+                        <md-option value="4">4</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" layout="row" ng-if="mode=='anr'" flex>
+                    <label translate>Integrity</label>
+                    <md-icon>assessment</md-icon>
+                    <md-select ng-model="objlib.i">
+                        <md-option value="-1">{{ 'Inherited' | translate }}</md-option>
+                        <md-option value="0">0</md-option>
+                        <md-option value="1">1</md-option>
+                        <md-option value="2">2</md-option>
+                        <md-option value="3">3</md-option>
+                        <md-option value="4">4</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" layout="row" ng-if="mode=='anr'" flex>
+                    <label translate>Availability</label>
+                    <md-icon>done</md-icon>
+                    <md-select ng-model="objlib.d">
+                        <md-option value="-1">{{ 'Inherited' | translate }}</md-option>
+                        <md-option value="0">0</md-option>
+                        <md-option value="1">1</md-option>
+                        <md-option value="2">2</md-option>
+                        <md-option value="3">3</md-option>
+                        <md-option value="4">4</md-option>
+                    </md-select>
+                </md-input-container>
+
                 <div class="md-block" layout="column" flex>
                     <div layout="row">
                         <md-icon style="margin-right: 8px;">class</md-icon>
@@ -121,7 +166,6 @@
                         <md-icon style="margin-right: 8px;">class</md-icon>
                         <md-autocomplete
                                 flex
-                                required
                                 md-no-cache="true"
                                 md-selected-item="objlib.rolfTag"
                                 md-search-text="tagSearchText"
@@ -138,10 +182,6 @@
                             <md-not-found>
                                 {{ 'No ROLF tag matching your search was found' | translate }}
                             </md-not-found>
-
-                            <div ng-messages="objlibForm.tag.$error">
-                                <div ng-message="required">{{ 'You must select a tag' | translate }}</div>
-                            </div>
                         </md-autocomplete>
                     </div>
                 </div>

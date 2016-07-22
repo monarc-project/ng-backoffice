@@ -80,7 +80,11 @@
                 ObjlibService.getObjlibs({limit: 0}).then(function (data) {
                     for (var i = 0; i < data.objects.length; ++i) {
                         var obj = data.objects[i];
-                        categoriesIds[obj.category.id].__children__.push(obj);
+                        if (categoriesIds[obj.category.id]) {
+                            categoriesIds[obj.category.id].__children__.push(obj);
+                        } else {
+                            console.warn("Trying to add object to inexisting category!");
+                        }
                     }
                 });
             });
@@ -205,10 +209,11 @@
         $scope.createAttachedObject = function () {
             $scope.objLibDialog = $mdDialog;
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.html',
                 clickOutsideToClose: true,
                 locals: {
+                    mode: 'anr',
                     objLibDialog: $scope,
                     objlib: null
                 }

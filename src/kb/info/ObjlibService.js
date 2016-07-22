@@ -21,8 +21,16 @@
             return self.ObjlibResource.query(params).$promise;
         };
 
-        var getObjlib = function (id) {
-            return self.ObjlibResource.query({objlibId: id}).$promise;
+        var getObjlib = function (id, params) {
+            var fullParams;
+            if (params) {
+                fullParams = angular.copy(params);
+                fullParams.objlibId = id;
+            } else {
+                fullParams = {objlibId: id};
+            }
+
+            return self.ObjlibResource.query(fullParams).$promise;
         };
 
         var createObjlib = function (params, success, error) {
