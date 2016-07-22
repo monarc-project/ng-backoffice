@@ -128,7 +128,7 @@
                     <p translate>You are in the knowledge base. No evaluation may be set in this space.</p>
                 </md-card-content></md-card>
 
-                <p class="md-title md-padding" translate>{{ 3 }} AMV links</p>
+                <p class="md-title md-padding" translate>{{ object.risks.length }} AMV links</p>
 
                 <table class="md-html-table">
                     <thead>
@@ -154,20 +154,20 @@
                     </thead>
 
                     <tbody>
-                    <tr>
-                        <td>-1</td>
-                        <td>-1</td>
-                        <td>-1</td>
-                        <td>Récupération de supports recyclés ou mis au rebut</td>
+                    <tr ng-repeat="risk in object.risks">
+                        <td>{{risk.c_impact}}</td>
+                        <td>{{risk.i_impact}}</td>
+                        <td>{{risk.d_impact}}</td>
+                        <td>{{risk.threat_description}}</td>
+                        <td>{{risk.prob}}</td>
+                        <td>{{risk.vuln_description}}</td>
+                        <td>{{risk.qualif}}</td>
+                        <td ng-disabled="!risk.c_risk_enabled">{{risk.c_risk}}</td>
+                        <td ng-disabled="!risk.i_risk_enabled">{{risk.i_risk}}</td>
+                        <td ng-disabled="!risk.d_risk_enabled">{{risk.d_risk}}</td>
+                        <td>{{risk.comment}}</td>
                         <td>-</td>
-                        <td>La mise au rebut n'est pas correctement assurée</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>{{risk.target}}</td>
                     </tr>
                     </tbody>
                 </table>

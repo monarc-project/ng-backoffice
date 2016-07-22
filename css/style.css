@@ -124,6 +124,10 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
     padding: 8px;
 }
 
+.md-html-table td[disabled] {
+  background: #CCCCCC;
+}
+
 /** TREE VIEW **/
 
 .md-treeview li>a, .md-treeview.md-treeview-default li>a, .md-treeview.md-treeview-default>a, .md-treeview>a {
