@@ -3,21 +3,21 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAccountCtrl', [
-            '$scope', 'gettext', 'gettextCatalog', 'toastr', '$http', 'UserService', 'UserProfileService',
+            '$scope', 'gettext', 'gettextCatalog', 'toastr', '$http', 'UserService', 'UserProfileService', 'ConfigService',
             BackofficeAccountCtrl
         ]);
 
     /**
      * Account Controller for the Backoffice module
      */
-    function BackofficeAccountCtrl($scope, gettext, gettextCatalog, toastr, $http, UserService, UserProfileService) {
-        $scope.language = 'en';
-
+    function BackofficeAccountCtrl($scope, gettext, gettextCatalog, toastr, $http, UserService, UserProfileService, ConfigService) {
         $scope.password = {
             old: '',
             new: '',
             confirm: ''
         }
+
+        $scope.languages = ConfigService.getLanguages();
 
         $scope.refreshProfile = function () {
             UserProfileService.getProfile().then(function (data) {
@@ -26,10 +26,12 @@
                     firstname: data.firstname,
                     lastname: data.lastname,
                     email: data.email,
-                    phone: data.phone
+                    phone: data.phone,
+                    language: data.language
                 };
             });
-        }
+        };
+
         $scope.refreshProfile();
 
         $scope.updateProfile = function () {
@@ -47,8 +49,9 @@
         }
 
         $scope.onLanguageChanged = function () {
-            gettextCatalog.setCurrentLanguage($scope.language);
+            gettextCatalog.setCurrentLanguage($scope.languages[$scope.user.language].substring(0, 2).toLowerCase());
             $scope.updatePaginationLabels();
+            $scope.updateProfile();
         }
     }
 })();

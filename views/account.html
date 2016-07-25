@@ -68,9 +68,8 @@
                 <md-input-container class="md-block">
                     <label translate>Current language</label>
                     <md-icon>language</md-icon>
-                    <md-select ng-model="language" flex ng-change="onLanguageChanged()" aria-label="{{ 'Language' | translate }}">
-                        <md-option value="en">English</md-option>
-                        <md-option value="fr">Français</md-option>
+                    <md-select ng-model="user.language" flex ng-change="onLanguageChanged()" aria-label="{{ 'Language' | translate }}">
+                        <md-option ng-repeat="(lang_idx, lang) in languages" value="{{ lang_idx }}">{{ lang }}</md-option>
                     </md-select>
                 </md-input-container>
             </form>
