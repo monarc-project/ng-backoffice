@@ -1,5 +1,4 @@
 function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService, ObjlibService, ConfigService, TagService, $q, mode, objLibDialog, objlib) {
-    console.log($scope.mode);
     $scope.mode = mode;
     $scope.languages = ConfigService.getLanguages();
     $scope.language = ConfigService.getDefaultLanguageIndex();

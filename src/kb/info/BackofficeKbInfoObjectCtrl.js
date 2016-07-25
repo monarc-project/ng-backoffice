@@ -95,9 +95,6 @@
 
             var isUpdate = (objlib && objlib.id);
 
-            console.log('ici');
-            console.log($scope.mode);
-
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
