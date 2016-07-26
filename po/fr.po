@@ -1049,7 +1049,7 @@ msgstr "Position"
 
 #: views/dialogs/create.clients.html:40 views/index.client_mgmt.html:40
 msgid "Postal code"
-msgstr "Code portal"
+msgstr "Code postal"
 
 #: views/dialogs/create.objlibs.categories.html:76
 #: views/dialogs/create.objlibs.html:171
