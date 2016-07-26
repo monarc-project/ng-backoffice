@@ -23,13 +23,13 @@
                 <md-input-container class="md-block">
                     <label translate>E-mail</label>
                     <md-icon>email</md-icon>
-                    <input type="email" ng-model="user.email">
+                    <input type="email" autocomplete="email" ng-model="user.email">
                 </md-input-container>
 
                 <md-input-container class="md-block">
                     <label translate>Phone</label>
                     <md-icon>phone</md-icon>
-                    <input type="text" ng-model="user.phone">
+                    <input type="text" autocomplete="tel" ng-model="user.phone">
                 </md-input-container>
 
                 <div layout="row">
@@ -42,19 +42,19 @@
                     <md-input-container class="md-block" flex>
                         <label translate>Current password</label>
                         <md-icon>no_encryption</md-icon>
-                        <input type="password" ng-model="password.old" flex>
+                        <input type="password" ng-model="password.old" autocomplete="off" flex>
                     </md-input-container>
 
                     <md-input-container class="md-block" flex>
                         <label translate>New password</label>
                         <md-icon>enhanced_encryption</md-icon>
-                        <input type="password" ng-model="password.new" flex>
+                        <input type="password" ng-model="password.new" autocomplete="off" flex>
                     </md-input-container>
 
                     <md-input-container class="md-block" flex>
                         <label translate>Confirm new password</label>
                         <md-icon>enhanced_encryption</md-icon>
-                        <input type="password" ng-model="password.confirm" flex>
+                        <input type="password" ng-model="password.confirm" autocomplete="off" flex>
                     </md-input-container>
 
                     <div layout="row">
