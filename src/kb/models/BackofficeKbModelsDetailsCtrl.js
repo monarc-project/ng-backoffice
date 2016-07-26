@@ -77,7 +77,7 @@
                     $scope.anr_obj_library_data.push(recurseAddCategories(cat));
                 }
 
-                ObjlibService.getObjlibs({limit: 0}).then(function (data) {
+                ObjlibService.getObjlibs({limit: 0, lock: 'true'}).then(function (data) {
                     for (var i = 0; i < data.objects.length; ++i) {
                         var obj = data.objects[i];
                         if (categoriesIds[obj.category.id]) {
