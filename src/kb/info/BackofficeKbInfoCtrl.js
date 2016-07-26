@@ -1039,7 +1039,7 @@
     //////////////////////
 
     function CreateAssetDialogCtrl($scope, $mdDialog, ModelService, ConfigService, asset) {
-        ModelService.getModels().then(function (data) {
+        ModelService.getModels({isGeneric:0}).then(function (data) {
             $scope.models = data.models;
         });
 
@@ -1096,7 +1096,7 @@
     }
 
     function CreateThreatDialogCtrl($scope, $mdDialog, $q, ModelService, ThreatService, ConfigService, threat) {
-        ModelService.getModels().then(function (data) {
+        ModelService.getModels({isGeneric:0}).then(function (data) {
             $scope.models = data.models;
         });
 
@@ -1212,7 +1212,7 @@
     }
 
     function CreateVulnDialogCtrl($scope, $mdDialog, ModelService, ConfigService, vuln) {
-        ModelService.getModels().then(function (data) {
+        ModelService.getModels({isGeneric:0}).then(function (data) {
             $scope.models = data.models;
         });
 
