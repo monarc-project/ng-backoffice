@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeDocModelsCtrl', [
-            '$scope', '$mdDialog', '$mdMedia', 'toastr', 'gettextCatalog', 'gettext', 'DocModelService',
+            '$scope', '$mdDialog', '$mdMedia', '$http', 'DownloadService', 'toastr', 'gettextCatalog', 'gettext', 'DocModelService',
             BackofficeDocModelsCtrl
         ]);
 
     /**
      * KB > Document Models Controller for the Backoffice module
      */
-    function BackofficeDocModelsCtrl($scope, $mdDialog, $mdMedia, toastr, gettextCatalog,
+    function BackofficeDocModelsCtrl($scope, $mdDialog, $mdMedia, $http, DownloadService, toastr, gettextCatalog,
                                      gettext, DocModelService) {
         $scope.docmodels = [];
 
@@ -76,6 +76,13 @@
                 );
             });
         };
+
+        $scope.downloadDocmodel = function (ev, item) {
+            $http.get(item.path).then(function (data) {
+                DownloadService.downloadBlob(data.data, 'document.docx');
+            })
+
+        }
 
         $scope.getCategoryLabel = function (id) {
             return DocModelService.getCategoryLabel(id);

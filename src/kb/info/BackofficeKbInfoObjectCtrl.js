@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
             '$scope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettext', 'gettextCatalog',
-            'ObjlibService',
+            'ObjlibService', 'DownloadService',
             BackofficeKbInfoObjectCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO > Objects Library > Object details
      */
     function BackofficeKbInfoObjectCtrl($scope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
-                                        gettext, gettextCatalog, ObjlibService) {
+                                        gettext, gettextCatalog, ObjlibService, DownloadService) {
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
@@ -162,25 +162,7 @@
 
             $mdDialog.show(prompt).then(function (result) {
                 $http.post('/api/objects-export', {id: $scope.object.id, password: result}).then(function (data) {
-
-                    var saveData = (function () {
-                        var a = document.createElement('a');
-                        document.body.appendChild(a);
-                        a.style = 'display: none';
-
-                        return function (blobData, fileName) {
-                            var blob = new Blob([blobData], {type: 'octet/stream'}),
-                                url = window.URL.createObjectURL(blob);
-
-                            a.href = url;
-                            a.download = fileName;
-                            a.click();
-                            window.URL.revokeObjectURL(url);
-                        };
-                    }());
-
-                    saveData(data.data, 'object.bin');
-
+                    DownloadService.downloadBlob(data.data, 'object.bin');
                     toastr.success(gettext('The object has been exported successfully.'), gettext('Export successful'));
                 })
             });

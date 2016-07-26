@@ -20,7 +20,7 @@
                 <td md-cell>{{ getCategoryLabel(docmodel.category) }}</td>
                 <td md-cell>{{ docmodel.description }}</td>
                 <td md-cell>
-                    <md-button class="md-icon-button" ng-click="downloadDocmodel($event, docmodel)" ng-href="{{docmodel.path}}">
+                    <md-button class="md-icon-button" ng-click="downloadDocmodel($event, docmodel)">
                         <md-icon>file_download</md-icon>
                     </md-button>
                     <md-button class="md-icon-button" ng-click="editDocmodel($event, docmodel)">
