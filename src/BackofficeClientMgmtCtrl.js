@@ -34,7 +34,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ModelService', CreateClientDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'CityService', CreateClientDialogCtrl],
                 templateUrl: '/views/dialogs/create.clients.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -55,7 +55,7 @@
 
             ClientService.getClient(client.id).then(function (clientData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ModelService', 'client', CreateClientDialogCtrl],
+                    controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'CityService', 'client', CreateClientDialogCtrl],
                     templateUrl: '/views/dialogs/create.clients.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -121,7 +121,7 @@
     }
 
 
-    function CreateClientDialogCtrl($scope, $mdDialog, ModelService, client) {
+    function CreateClientDialogCtrl($scope, $mdDialog, $q, ModelService, CityService, client) {
         ModelService.getModels().then(function (x) {
             $scope.models = x.models;
         });
@@ -141,7 +141,8 @@
                 contact_fullname: '',
                 contact_email: '',
                 contact_phone: '',
-                model_id: null
+                model_id: null,
+                country_id: null
             };
         }
 
@@ -150,7 +151,20 @@
         };
 
         $scope.create = function() {
+            $scope.client.country_id = $scope.selectedCountry.id;
             $mdDialog.hide($scope.client);
+        };
+
+        $scope.queryCountrySearch = function (query) {
+            var q = $q.defer();
+
+            CityService.getCountries({filter: query}).then(function (x) {
+                q.resolve(x.countries);
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
         };
     }
 

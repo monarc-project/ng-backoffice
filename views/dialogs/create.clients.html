@@ -36,6 +36,33 @@
                     <input ng-model="client.address">
                 </md-input-container>
 
+                <div class="md-block" flex>
+                    <div layout="row">
+                        <md-icon style="margin-right: 10px;">language</md-icon>
+
+                        <md-autocomplete flex required
+                                         md-no-cache="true"
+                                         md-input-name="country"
+                                         md-selected-item="client.country"
+                                         md-search-text="searchCountryText"
+                                         md-items="item in queryCountrySearch(searchCountryText)"
+                                         md-item-text="item.name"
+                                         md-min-length="0"
+                                         md-floating-label="{{ 'Country' | translate }}">
+                            <md-item-template>
+                                <span md-highlight-text="searchCountryText" md-highlight-flags="^i">{{item.name}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                {{ 'No country matching your search was found' | translate }}
+                            </md-not-found>
+
+                            <div ng-messages="clientForm.country.$error" ng-if="clientForm.country.$touched">
+                                <div ng-message="required">{{ 'You must select a country' | translate }}</div>
+                            </div>
+                        </md-autocomplete>
+                    </div>
+                </div>
+
                 <md-input-container class="md-block" flex>
                     <label translate>Postal code</label>
                     <md-icon>pin_drop</md-icon>
@@ -67,7 +94,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Employees number</label>
                     <md-icon>people</md-icon>
-                    <input ng-model="client.employees_number" type="number" min="0" step="1">
+                    <input ng-model="client.employees_number">
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
