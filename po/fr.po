@@ -16,9 +16,13 @@ msgstr ""
 msgid "- or -"
 msgstr "- ou -"
 
-#: views/object.info_risk.kb_mgmt.html:131
-msgid "{{ 3 }} AMV links"
-msgstr ""
+#: views/object.info_risk.kb_mgmt.html:190
+msgid "{{ object.oprisks.length || 0 }} operational risk(s)"
+msgstr "{{ object.oprisks.length || 0 }} risque(s) opérationnel(s)"
+
+#: views/object.info_risk.kb_mgmt.html:134
+msgid "{{ object.risks.length }} AMV links"
+msgstr "{{ object.risks.length }} liens AMV"
 
 #: views/info_risk.kb_mgmt.html:242
 msgid "27002 measures"
@@ -27,6 +31,10 @@ msgstr "mesures 27002"
 #: views/info_risk.kb_mgmt.html:245
 msgid "27002 Measures"
 msgstr "Mesures 27002"
+
+#: views/instance.anr.details.models.kb_mgmt.html:148
+msgid "Accepted"
+msgstr "Accepté"
 
 #: views/dialogs/create.threats.html:38
 msgid "Accidental cause description"
@@ -48,10 +56,12 @@ msgstr "Action"
 #: views/index.client_mgmt.html:44 views/info_risk.kb_mgmt.html:132
 #: views/info_risk.kb_mgmt.html:208 views/info_risk.kb_mgmt.html:281
 #: views/info_risk.kb_mgmt.html:356 views/info_risk.kb_mgmt.html:456
-#: views/info_risk.kb_mgmt.html:50 views/items.analysis_guides.kb_mgmt.html:12
-#: views/models.kb_mgmt.html:42 views/op_risk.kb_mgmt.html:128
-#: views/op_risk.kb_mgmt.html:231 views/op_risk.kb_mgmt.html:46
-#: views/servers.admin.html:10 views/users.admin.html:34
+#: views/info_risk.kb_mgmt.html:50
+#: views/instance.anr.details.models.kb_mgmt.html:187
+#: views/items.analysis_guides.kb_mgmt.html:12 views/models.kb_mgmt.html:42
+#: views/op_risk.kb_mgmt.html:128 views/op_risk.kb_mgmt.html:231
+#: views/op_risk.kb_mgmt.html:46 views/servers.admin.html:10
+#: views/users.admin.html:34
 msgid "Actions"
 msgstr "Actions"
 
@@ -60,13 +70,7 @@ msgstr "Actions"
 msgid "Actions history"
 msgstr "Historique des actions"
 
-#: views/info_risk.kb_mgmt.html:203 views/info_risk.kb_mgmt.html:278
-#: views/info_risk.kb_mgmt.html:349 views/info_risk.kb_mgmt.html:44
-#: views/users.admin.html:29
-msgid "Active"
-msgstr "Actif"
-
-#: views/object.info_risk.kb_mgmt.html:77
+#: views/object.info_risk.kb_mgmt.html:80
 msgid "Add a component"
 msgstr "Ajouter un composant"
 
@@ -99,7 +103,11 @@ msgstr "Ajouter un nouveau client"
 msgid "Add a new component to object"
 msgstr "Ajouter un nouveau composant à l'objet"
 
-#: views/dialogs/create.docmodels.html:5 views/dialogs/create.guides.html:5
+#: views/dialogs/create.docmodels.html:5
+msgid "Add a new document template"
+msgstr "Ajouter un nouveau modèle de document"
+
+#: views/dialogs/create.guides.html:5
 msgid "Add a new guide"
 msgstr "Ajouter un nouveau guide"
 
@@ -151,10 +159,8 @@ msgstr "Ajouter un objet à la bibliothèque du modèle"
 msgid "Add categories..."
 msgstr "Ajouter des catégories..."
 
-#: views/instance.anr.details.models.kb_mgmt.html:41
-#: views/instance.anr.details.models.kb_mgmt.html:43
-#: views/object.info_risk.kb_mgmt.html:41
-#: views/object.info_risk.kb_mgmt.html:43
+#: views/object.info_risk.kb_mgmt.html:44
+#: views/object.info_risk.kb_mgmt.html:46
 msgid "Add component"
 msgstr "Ajouter un composant"
 
@@ -182,7 +188,7 @@ msgstr "après"
 
 #: views/dialogs/create.guides.items.html:21
 #: views/dialogs/create.objlibs.categories.html:60
-#: views/dialogs/create.objlibs.html:155
+#: views/dialogs/create.objlibs.html:195
 #: views/dialogs/create.objlibs.node.html:46
 msgid "after..."
 msgstr "après..."
@@ -219,7 +225,7 @@ msgstr "Guide de l'analyse"
 msgid "Analysis guides"
 msgstr "Guides de l'analyse"
 
-#: views/object.info_risk.kb_mgmt.html:120
+#: views/object.info_risk.kb_mgmt.html:123
 msgid ""
 "Any change made on these values will be applied to instances of this object "
 "in the\n"
@@ -241,7 +247,7 @@ msgstr ""
 msgid "Asset"
 msgstr "Asset"
 
-#: views/dialogs/create.objlibs.html:71 views/info_risk.kb_mgmt.html:435
+#: views/dialogs/create.objlibs.html:116 views/info_risk.kb_mgmt.html:435
 #: views/info_risk.kb_mgmt.html:453 views/op_risk.kb_mgmt.html:212
 msgid "Asset type"
 msgstr "Type d'asset"
@@ -252,7 +258,7 @@ msgstr "Assets"
 
 #: views/dialogs/create.amvs.html:151 views/dialogs/create.guides.items.html:19
 #: views/dialogs/create.objlibs.categories.html:58
-#: views/dialogs/create.objlibs.html:153
+#: views/dialogs/create.objlibs.html:193
 #: views/dialogs/create.objlibs.node.html:44
 msgid "at the beginning"
 msgstr "au début"
@@ -261,19 +267,23 @@ msgstr "au début"
 msgid "Audit order"
 msgstr "Ordre de l'audir"
 
-#: views/details.models.kb_mgmt.html:94
+#: views/details.models.kb_mgmt.html:94 views/dialogs/create.objlibs.html:90
 msgid "Availability"
 msgstr "Disponibilité"
 
-#: views/object.info_risk.kb_mgmt.html:103
-#: views/object.info_risk.kb_mgmt.html:116
+#: views/object.info_risk.kb_mgmt.html:106
+#: views/object.info_risk.kb_mgmt.html:119
 msgid "Availability impact"
 msgstr "Impact sur la disponibilité"
 
 #: views/instance.anr.details.models.kb_mgmt.html:26
-#: views/object.info_risk.kb_mgmt.html:26
+#: views/object.info_risk.kb_mgmt.html:28
 msgid "Availability:&nbsp;"
 msgstr "Disponibilité :&nbsp;"
+
+#: views/object.info_risk.kb_mgmt.html:205
+msgid "Calculated risk"
+msgstr "Risque calculé"
 
 #: views/anr.details.models.kb_mgmt.html:6
 msgid "Calculation of risk / Thresholds - Information Risks"
@@ -286,12 +296,13 @@ msgstr "Calcul du risque / Seuils - Risques opérationnels"
 #: src/BackofficeClientMgmtCtrl.js:104 src/BackofficeClientMgmtCtrl.js:84
 #: views/dialogs/add.objlib.html:82 views/dialogs/create.amvs.html:161
 #: views/dialogs/create.anr.html:31 views/dialogs/create.assets.html:85
-#: views/dialogs/create.categories.html:43 views/dialogs/create.clients.html:99
-#: views/dialogs/create.docmodels.html:46 views/dialogs/create.guides.html:50
+#: views/dialogs/create.categories.html:43
+#: views/dialogs/create.clients.html:138 views/dialogs/create.docmodels.html:46
+#: views/dialogs/create.guides.html:50
 #: views/dialogs/create.guides.items.html:68
 #: views/dialogs/create.measures.html:42 views/dialogs/create.models.html:47
 #: views/dialogs/create.objlibs.categories.html:99
-#: views/dialogs/create.objlibs.html:189
+#: views/dialogs/create.objlibs.html:229
 #: views/dialogs/create.objlibs.node.html:79 views/dialogs/create.risks.html:95
 #: views/dialogs/create.servers.admin.html:39 views/dialogs/create.tags.html:43
 #: views/dialogs/create.threats.html:159
@@ -305,7 +316,7 @@ msgid "Categories"
 msgstr "Catégories"
 
 #: views/analysis_guides.kb_mgmt.html:6 views/dialogs/create.docmodels.html:16
-#: views/dialogs/create.guides.html:16 views/dialogs/create.objlibs.html:101
+#: views/dialogs/create.guides.html:16 views/dialogs/create.objlibs.html:146
 #: views/doc_models.kb_mgmt.html:12 views/info_risk.kb_mgmt.html:427
 #: views/info_risk.kb_mgmt.html:450 views/op_risk.kb_mgmt.html:207
 msgid "Category"
@@ -331,6 +342,10 @@ msgstr "Cliquez à nouveau pour confirmer la suppression"
 #: views/details.models.kb_mgmt.html:138
 msgid "Click here to type..."
 msgstr "Cliquez ici pour écrire…"
+
+#: views/object.info_risk.kb_mgmt.html:176
+msgid "Click to type..."
+msgstr "Cliquez pour écrire…"
 
 #: src/BackofficeApp.js:87 views/index.backoffice.html:18
 msgid "Client management"
@@ -364,20 +379,24 @@ msgstr "Fermer la fenêtre"
 msgid "Code"
 msgstr "Code"
 
+#: views/dialogs/create.clients.html:16 views/index.client_mgmt.html:38
+msgid "Company"
+msgstr "Entreprise"
+
 #: views/dialogs/create.objlibs.node.html:27
 msgid "Component"
 msgstr "Composant"
 
-#: views/object.info_risk.kb_mgmt.html:76
+#: views/object.info_risk.kb_mgmt.html:79
 msgid "Composition"
 msgstr "Composition"
 
-#: views/details.models.kb_mgmt.html:92
+#: views/details.models.kb_mgmt.html:92 views/dialogs/create.objlibs.html:64
 msgid "Confidentiality"
 msgstr "Confidentialité"
 
-#: views/object.info_risk.kb_mgmt.html:101
-#: views/object.info_risk.kb_mgmt.html:114
+#: views/object.info_risk.kb_mgmt.html:104
+#: views/object.info_risk.kb_mgmt.html:117
 msgid "Confidentiality impact"
 msgstr "Impact sur la confidentialité"
 
@@ -390,21 +409,25 @@ msgstr "Confidentialité :&nbsp;"
 msgid "Confirm new password"
 msgstr "Confirmer le nouveau mot de passe :"
 
-#: views/dialogs/create.clients.html:76
+#: views/dialogs/create.clients.html:107
 msgid "Contact e-mail"
 msgstr "E-mail du contact"
 
-#: views/dialogs/create.clients.html:70 views/index.client_mgmt.html:43
+#: views/dialogs/create.clients.html:101 views/index.client_mgmt.html:43
 msgid "Contact full name"
 msgstr "Nom complet du contact"
 
-#: views/dialogs/create.clients.html:82
+#: views/dialogs/create.clients.html:117
 msgid "Contact phone number"
 msgstr "Téléphone du contact"
 
 #: views/analysis_guides.kb_mgmt.html:8 views/dialogs/create.guides.html:28
 msgid "Contains items"
 msgstr "Contient des éléments"
+
+#: views/dialogs/create.clients.html:51
+msgid "Country"
+msgstr "Pays"
 
 #: views/_gettext_caveats.html:4
 msgid "Create"
@@ -418,7 +441,7 @@ msgstr "Créer un nouvel objet et l’attacher à ce modèle"
 msgid "Create and continue"
 msgstr "Créer et continuer"
 
-#: views/dialogs/add.objlib.html:36 views/dialogs/create.objlibs.html:108
+#: views/dialogs/add.objlib.html:36 views/dialogs/create.objlibs.html:153
 msgid "Create this category"
 msgstr "Créer cette catégorie"
 
@@ -438,6 +461,10 @@ msgstr "Langue actuelle"
 msgid "Current password"
 msgstr "Mot de passe actuel"
 
+#: views/instance.anr.details.models.kb_mgmt.html:126
+msgid "Current risk"
+msgstr "Risque actuel"
+
 #: views/dialogs/create.users.admin.html:55
 msgid "Database admin"
 msgstr "Administrateur de base de données"
@@ -455,10 +482,8 @@ msgstr "Modèle par défaut"
 msgid "Delete"
 msgstr "Supprimer"
 
-#: views/instance.anr.details.models.kb_mgmt.html:61
-#: views/instance.anr.details.models.kb_mgmt.html:63
-#: views/object.info_risk.kb_mgmt.html:61
-#: views/object.info_risk.kb_mgmt.html:63
+#: views/object.info_risk.kb_mgmt.html:64
+#: views/object.info_risk.kb_mgmt.html:66
 msgid "Delete object"
 msgstr "Supprimer l'objet"
 
@@ -469,6 +494,10 @@ msgstr "Suppression réussie"
 #: views/dialogs/create.threats.html:50
 msgid "Deliberate cause description"
 msgstr "Description de la cause délibérée"
+
+#: views/instance.anr.details.models.kb_mgmt.html:147
+msgid "Denied"
+msgstr "Refusé"
 
 #: views/analysis_guides.kb_mgmt.html:7 views/dialogs/create.anr.html:22
 #: views/dialogs/create.assets.html:32 views/dialogs/create.docmodels.html:27
@@ -481,6 +510,11 @@ msgstr "Description de la cause délibérée"
 #: views/items.analysis_guides.kb_mgmt.html:11 views/models.kb_mgmt.html:38
 msgid "Description"
 msgstr "Description"
+
+#: views/instance.anr.details.models.kb_mgmt.html:46
+#: views/instance.anr.details.models.kb_mgmt.html:48
+msgid "Detach"
+msgstr "Détacher"
 
 #: views/logs.admin.html:32
 msgid "Details"
@@ -497,10 +531,8 @@ msgstr ""
 "Glissez votre fichier DOCX dans cette zone, ou cliquez ici pour sélectionner "
 "un fichier"
 
-#: views/instance.anr.details.models.kb_mgmt.html:51
-#: views/instance.anr.details.models.kb_mgmt.html:53
-#: views/object.info_risk.kb_mgmt.html:51
-#: views/object.info_risk.kb_mgmt.html:53
+#: views/object.info_risk.kb_mgmt.html:54
+#: views/object.info_risk.kb_mgmt.html:56
 msgid "Duplicate object"
 msgstr "Dupliquer l'objet"
 
@@ -508,10 +540,13 @@ msgstr "Dupliquer l'objet"
 msgid "E-mail"
 msgstr "E-mail"
 
-#: views/instance.anr.details.models.kb_mgmt.html:46
-#: views/instance.anr.details.models.kb_mgmt.html:48
-#: views/object.info_risk.kb_mgmt.html:46
-#: views/object.info_risk.kb_mgmt.html:48
+#: views/instance.anr.details.models.kb_mgmt.html:41
+#: views/instance.anr.details.models.kb_mgmt.html:43
+msgid "Edit instance settings"
+msgstr "Editer les paramètres d’instance"
+
+#: views/object.info_risk.kb_mgmt.html:49
+#: views/object.info_risk.kb_mgmt.html:51
 msgid "Edit object"
 msgstr "Modifier l'objet"
 
@@ -523,13 +558,13 @@ msgstr "Editer l’analyse de risque"
 msgid "Editable impact scale"
 msgstr "Echelle d'impact modifiable"
 
-#: views/dialogs/create.clients.html:58
+#: views/dialogs/create.clients.html:85
 #: views/dialogs/create.users.admin.html:35 views/index.client_mgmt.html:42
 #: views/login.html:11 views/login.html:43 views/users.admin.html:32
 msgid "Email"
 msgstr "E-mail"
 
-#: views/dialogs/create.clients.html:64
+#: views/dialogs/create.clients.html:95
 msgid "Employees number"
 msgstr "Numéro d'employé"
 
@@ -549,14 +584,12 @@ msgstr "Exemple (cause accidentelle)"
 msgid "Example (deliberate cause)"
 msgstr "Exemple (cause délibérée)"
 
-#: views/instance.anr.details.models.kb_mgmt.html:56
-#: views/instance.anr.details.models.kb_mgmt.html:58
-#: views/object.info_risk.kb_mgmt.html:56
-#: views/object.info_risk.kb_mgmt.html:58
+#: views/object.info_risk.kb_mgmt.html:59
+#: views/object.info_risk.kb_mgmt.html:61
 msgid "Export object"
 msgstr "Exporter l'objet"
 
-#: views/dialogs/create.clients.html:52
+#: views/dialogs/create.clients.html:79
 msgid "Fax"
 msgstr "Fax"
 
@@ -588,8 +621,8 @@ msgstr "FQDN"
 #: views/anr.details.models.kb_mgmt.html:2 views/dialogs/create.assets.html:37
 #: views/dialogs/create.objlibs.html:37 views/dialogs/create.threats.html:67
 #: views/dialogs/create.vulns.html:37
-#: views/instance.anr.details.models.kb_mgmt.html:73
-#: views/object.info_risk.kb_mgmt.html:73
+#: views/instance.anr.details.models.kb_mgmt.html:58
+#: views/object.info_risk.kb_mgmt.html:76
 msgid "General information"
 msgstr "Informations générales"
 
@@ -619,7 +652,10 @@ msgid "ID"
 msgstr "ID"
 
 #: views/anr.details.models.kb_mgmt.html:34
-#: views/object.info_risk.kb_mgmt.html:136
+#: views/anr.details.models.kb_mgmt.html:70
+#: views/instance.anr.details.models.kb_mgmt.html:178
+#: views/object.info_risk.kb_mgmt.html:139
+#: views/object.info_risk.kb_mgmt.html:204
 msgid "Impact"
 msgstr "Impact"
 
@@ -629,12 +665,12 @@ msgstr "Echelle d’impacts :"
 
 #: views/dialogs/create.amvs.html:150 views/dialogs/create.guides.items.html:20
 #: views/dialogs/create.objlibs.categories.html:59
-#: views/dialogs/create.objlibs.html:154
+#: views/dialogs/create.objlibs.html:194
 #: views/dialogs/create.objlibs.node.html:45
 msgid "in the end"
 msgstr "à la fin"
 
-#: views/object.info_risk.kb_mgmt.html:106
+#: views/object.info_risk.kb_mgmt.html:109
 msgid ""
 "In the library, you may not qualify threats and vulnerabilities of the "
 "object.\n"
@@ -649,26 +685,28 @@ msgstr ""
 msgid "Information risks"
 msgstr "Risques de l'information"
 
+#: views/dialogs/create.objlibs.html:67 views/dialogs/create.objlibs.html:80
+#: views/dialogs/create.objlibs.html:93
 #: views/instance.anr.details.models.kb_mgmt.html:17
 #: views/instance.anr.details.models.kb_mgmt.html:22
 #: views/instance.anr.details.models.kb_mgmt.html:27
 #: views/object.info_risk.kb_mgmt.html:17
-#: views/object.info_risk.kb_mgmt.html:22
-#: views/object.info_risk.kb_mgmt.html:27
+#: views/object.info_risk.kb_mgmt.html:23
+#: views/object.info_risk.kb_mgmt.html:29
 msgid "Inherited"
 msgstr "Hérité"
 
-#: views/details.models.kb_mgmt.html:93
+#: views/details.models.kb_mgmt.html:93 views/dialogs/create.objlibs.html:77
 msgid "Integrity"
 msgstr "Intégrité"
 
-#: views/object.info_risk.kb_mgmt.html:102
-#: views/object.info_risk.kb_mgmt.html:115
+#: views/object.info_risk.kb_mgmt.html:105
+#: views/object.info_risk.kb_mgmt.html:118
 msgid "Integrity impact"
 msgstr "Impact sur l'intégrité"
 
 #: views/instance.anr.details.models.kb_mgmt.html:21
-#: views/object.info_risk.kb_mgmt.html:21
+#: views/object.info_risk.kb_mgmt.html:22
 msgid "Integrity:&nbsp;"
 msgstr "Intégrité :&nbsp;"
 
@@ -698,11 +736,8 @@ msgstr "Gestion BDC"
 msgid "Label"
 msgstr "Libellé"
 
-#: views/dialogs/create.assets.html:15 views/dialogs/create.vulns.html:15
-msgid "Labels"
-msgstr "Libellés"
-
-#: views/dialogs/create.objlibs.html:15 views/dialogs/create.threats.html:15
+#: views/dialogs/create.assets.html:15 views/dialogs/create.objlibs.html:15
+#: views/dialogs/create.threats.html:15 views/dialogs/create.vulns.html:15
 msgid "Labels and descriptions"
 msgstr "Libellés et descriptions"
 
@@ -726,13 +761,17 @@ msgstr "Nom"
 msgid "Legal"
 msgstr "Légal"
 
+#: views/instance.anr.details.models.kb_mgmt.html:164
+msgid "List of recommendations:"
+msgstr "Liste des recommandations :"
+
 #: views/dialogs/create.objlibs.html:43
 msgid "Local"
 msgstr "Local"
 
 #: views/dialogs/create.guides.items.html:16
 #: views/dialogs/create.objlibs.categories.html:55
-#: views/dialogs/create.objlibs.html:150
+#: views/dialogs/create.objlibs.html:190
 #: views/dialogs/create.objlibs.node.html:41
 msgid "Location"
 msgstr "Lieu"
@@ -765,6 +804,22 @@ msgstr "Seuils de risques maximum"
 msgid "Max ROLF thresholds"
 msgstr "Seuils ROLF maximum"
 
+#: views/dialogs/create.objlibs.html:58
+msgid "Maximum unavailability (days)"
+msgstr "Indisponibilité maximum (jours)"
+
+#: views/instance.anr.details.models.kb_mgmt.html:101
+msgid "Measure #1:"
+msgstr "Mesure #1 :"
+
+#: views/instance.anr.details.models.kb_mgmt.html:105
+msgid "Measure #2:"
+msgstr "Mesure #2 :"
+
+#: views/instance.anr.details.models.kb_mgmt.html:109
+msgid "Measure #3:"
+msgstr "Mesure #3 :"
+
 #: views/info_risk.kb_mgmt.html:353
 msgid "Measure 1"
 msgstr "Mesure 1"
@@ -785,7 +840,7 @@ msgstr "Mesure 3"
 msgid "Mode"
 msgstr "Mode"
 
-#: views/dialogs/create.clients.html:88
+#: views/dialogs/create.clients.html:123
 msgid "Model"
 msgstr "Modèle"
 
@@ -803,11 +858,14 @@ msgstr "Modèles"
 msgid "My account details"
 msgstr "Mon compte"
 
-#: views/dialogs/create.anr.html:16 views/dialogs/create.clients.html:16
-#: views/dialogs/create.objlibs.html:26 views/index.client_mgmt.html:38
+#: views/dialogs/create.anr.html:16 views/dialogs/create.objlibs.html:26
 #: views/info_risk.kb_mgmt.html:451
 msgid "Name"
 msgstr "Nom"
+
+#: views/object.info_risk.kb_mgmt.html:196
+msgid "NET"
+msgstr "NET"
 
 #: views/info_risk.kb_mgmt.html:383 views/info_risk.kb_mgmt.html:385
 msgid "New AMV link"
@@ -882,14 +940,14 @@ msgstr "Nouvelle vulnérabilité"
 msgid "New vulnerability"
 msgstr "Nouvelle vulnérabilité"
 
-#: views/dialogs/create.amvs.html:32 views/dialogs/create.objlibs.html:77
+#: views/dialogs/create.amvs.html:32 views/dialogs/create.objlibs.html:122
 msgid "No asset matching your search was found"
 msgstr "Aucun asset correspondant à votre recherche n'a été trouvé."
 
 #: views/dialogs/add.objlib.html:35
 #: views/dialogs/create.objlibs.categories.html:47
 #: views/dialogs/create.objlibs.categories.html:82
-#: views/dialogs/create.objlibs.html:107 views/dialogs/create.objlibs.html:177
+#: views/dialogs/create.objlibs.html:152 views/dialogs/create.objlibs.html:217
 msgid "No category matching your search was found"
 msgstr "Aucune catégorie correspondant à votre recherche n'a été trouvée."
 
@@ -897,6 +955,10 @@ msgstr "Aucune catégorie correspondant à votre recherche n'a été trouvée."
 #: views/dialogs/create.objlibs.node.html:68
 msgid "No component matching your search was found"
 msgstr "Aucun composant correspondant à votre recherche n'a été trouvé."
+
+#: views/dialogs/create.clients.html:56
+msgid "No country matching your search was found"
+msgstr "Aucun pays correspondant à votre recherche n’a été trouvé."
 
 #: views/dialogs/create.guides.items.html:43
 msgid "No item matching your search was found"
@@ -915,7 +977,7 @@ msgstr "Aucune mesure correspondant à votre recherche n'a été trouvée."
 msgid "No object matching your search was found"
 msgstr "Aucun objet correspondant à votre recherche n’a été trouvé."
 
-#: views/dialogs/create.objlibs.html:139
+#: views/dialogs/create.objlibs.html:183
 msgid "No ROLF tag matching your search was found"
 msgstr "Aucun tag ROLF correspondant à votre recherche n'a été trouvé."
 
@@ -931,8 +993,12 @@ msgstr "Aucune menace correspondant à votre recherche n'a été trouvée."
 msgid "No vulnerability matching your search was found"
 msgstr "Aucune vulnérabilité correspondant à votre recherche n'a été trouvée."
 
+#: views/instance.anr.details.models.kb_mgmt.html:145
+msgid "Not processed"
+msgstr "Non traité"
+
 #: views/instance.anr.details.models.kb_mgmt.html:36
-#: views/object.info_risk.kb_mgmt.html:36
+#: views/object.info_risk.kb_mgmt.html:39
 msgid "Object actions"
 msgstr "Actions"
 
@@ -948,7 +1014,7 @@ msgstr "Informations de l’objet"
 msgid "Object instance"
 msgstr "Instance de l’objet"
 
-#: views/object.info_risk.kb_mgmt.html:91
+#: views/object.info_risk.kb_mgmt.html:94
 msgid "Object replica(s) in models"
 msgstr "Réplica(s) de l'objet dans les modèles"
 
@@ -957,15 +1023,23 @@ msgstr "Réplica(s) de l'objet dans les modèles"
 msgid "Objects library"
 msgstr "Bibliothèque d'objets"
 
-#: views/object.info_risk.kb_mgmt.html:142
+#: views/anr.details.models.kb_mgmt.html:76
+#: views/instance.anr.details.models.kb_mgmt.html:184
+#: views/object.info_risk.kb_mgmt.html:145
+#: views/object.info_risk.kb_mgmt.html:197
 msgid "Observation"
 msgstr "Observations"
+
+#: views/instance.anr.details.models.kb_mgmt.html:89
+msgid "Observations:"
+msgstr "Remarques :"
 
 #: src/BackofficeApp.js:242
 msgid "of"
 msgstr "de"
 
-#: views/anr.details.models.kb_mgmt.html:66
+#: views/anr.details.models.kb_mgmt.html:110
+#: views/object.info_risk.kb_mgmt.html:185
 msgid "OP risks table"
 msgstr "Table des risques OP"
 
@@ -980,6 +1054,12 @@ msgstr "Risques opérationnels"
 #: views/index.backoffice.html:36
 msgid "Operational risks (ROLF)"
 msgstr "Risques opérationnels (ROLF)"
+
+#: views/object.info_risk.kb_mgmt.html:187
+msgid "Operational risks may not be pre-evaluated in the knowledge base."
+msgstr ""
+"Les risques opérationnels ne peuvent pas être pré-évalués dans la base de "
+"connaissances."
 
 #: src/BackofficeApp.js:240
 msgid "Page:"
@@ -1009,7 +1089,7 @@ msgstr "Personne"
 msgid "Personal information"
 msgstr "Informations personnelles"
 
-#: views/account.html:30 views/dialogs/create.clients.html:46
+#: views/account.html:30 views/dialogs/create.clients.html:73
 #: views/dialogs/create.users.admin.html:45 views/index.client_mgmt.html:41
 #: views/users.admin.html:33
 msgid "Phone"
@@ -1047,12 +1127,12 @@ msgstr "Veuillez entrer et confirmer votre nouveau mot de passe."
 msgid "Position"
 msgstr "Position"
 
-#: views/dialogs/create.clients.html:40 views/index.client_mgmt.html:40
+#: views/dialogs/create.clients.html:67 views/index.client_mgmt.html:40
 msgid "Postal code"
 msgstr "Code postal"
 
 #: views/dialogs/create.objlibs.categories.html:76
-#: views/dialogs/create.objlibs.html:171
+#: views/dialogs/create.objlibs.html:211
 msgid "Previous category..."
 msgstr "Catégorie précédente..."
 
@@ -1068,7 +1148,10 @@ msgstr "Elément précédent…"
 msgid "Primary"
 msgstr "Primaire"
 
-#: views/object.info_risk.kb_mgmt.html:138
+#: views/anr.details.models.kb_mgmt.html:72
+#: views/instance.anr.details.models.kb_mgmt.html:180
+#: views/object.info_risk.kb_mgmt.html:141
+#: views/object.info_risk.kb_mgmt.html:203
 msgid "Prob."
 msgstr "Prob."
 
@@ -1076,11 +1159,21 @@ msgstr "Prob."
 msgid "Probability"
 msgstr "Probabilité"
 
+#: views/instance.anr.details.models.kb_mgmt.html:142
+msgid "Processing type"
+msgstr "Type de traitement"
+
+#: src/BackofficeAccountCtrl.js:39
+msgid "Profile updated"
+msgstr "Profil mis à jour"
+
 #: views/dialogs/create.clients.html:25
 msgid "Proxy alias"
 msgstr "Alias de proxy"
 
-#: views/object.info_risk.kb_mgmt.html:140
+#: views/anr.details.models.kb_mgmt.html:74
+#: views/instance.anr.details.models.kb_mgmt.html:182
+#: views/object.info_risk.kb_mgmt.html:143
 msgid "Qualif."
 msgstr "Qualif."
 
@@ -1100,6 +1193,14 @@ msgstr "R : Risque, I : Impact, P : Probabilité"
 msgid "Raw ROLF"
 msgstr "ROLF brut"
 
+#: views/instance.anr.details.models.kb_mgmt.html:154
+msgid "Reduce vulnerability by"
+msgstr "Réduit la vulnérabilité de"
+
+#: views/instance.anr.details.models.kb_mgmt.html:146
+msgid "Reduction"
+msgstr "Réduction"
+
 #: views/dialogs/create.models.html:39 views/models.kb_mgmt.html:40
 msgid "Regulator"
 msgstr "Régulateur"
@@ -1116,7 +1217,9 @@ msgstr "Remettre à zéro les filtres"
 msgid "Reset password"
 msgstr "Réinitialiser le mot de passe"
 
-#: views/object.info_risk.kb_mgmt.html:141
+#: views/anr.details.models.kb_mgmt.html:75
+#: views/instance.anr.details.models.kb_mgmt.html:183
+#: views/object.info_risk.kb_mgmt.html:144
 msgid "Risk"
 msgstr "Risque"
 
@@ -1128,16 +1231,25 @@ msgstr "Analyse de risques"
 msgid "Risk analysis overview"
 msgstr "Résumé de l’analyse de risques"
 
+#: views/object.info_risk.kb_mgmt.html:195
+msgid "Risk description"
+msgstr "Description du risque"
+
+#: views/instance.anr.details.models.kb_mgmt.html:76
+msgid "Risk sheet"
+msgstr "Fiche de risque"
+
 #: views/op_risk.kb_mgmt.html:167 views/op_risk.kb_mgmt.html:171
 msgid "Risks"
 msgstr "Risques"
 
 #: views/anr.details.models.kb_mgmt.html:65
-#: views/object.info_risk.kb_mgmt.html:126
+#: views/instance.anr.details.models.kb_mgmt.html:74
+#: views/object.info_risk.kb_mgmt.html:129
 msgid "Risks table"
 msgstr "Table des risques"
 
-#: views/dialogs/create.objlibs.html:133
+#: views/dialogs/create.objlibs.html:177
 msgid "ROLF Tag"
 msgstr "Tag ROLF"
 
@@ -1145,12 +1257,12 @@ msgstr "Tag ROLF"
 msgid "Rows per page:"
 msgstr "Lignes par page :"
 
-#: views/account.html:36
+#: views/account.html:36 views/instance.anr.details.models.kb_mgmt.html:170
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
 #: views/dialogs/create.objlibs.html:40 views/info_risk.kb_mgmt.html:454
-#: views/object.info_risk.kb_mgmt.html:95
+#: views/object.info_risk.kb_mgmt.html:98
 msgid "Scope"
 msgstr "Portée"
 
@@ -1188,6 +1300,10 @@ msgstr "Sélectionnez un objet"
 msgid "Servers management"
 msgstr "Gestion des serveurs"
 
+#: views/instance.anr.details.models.kb_mgmt.html:149
+msgid "Shared"
+msgstr "Partagé"
+
 #: views/info_risk.kb_mgmt.html:11 views/info_risk.kb_mgmt.html:93
 msgid "Show active only"
 msgstr "Afficher actifs uniquement"
@@ -1215,7 +1331,9 @@ msgstr "Liens modèles spécifiques"
 msgid "State"
 msgstr "Etat"
 
-#: views/info_risk.kb_mgmt.html:126
+#: views/info_risk.kb_mgmt.html:126 views/info_risk.kb_mgmt.html:203
+#: views/info_risk.kb_mgmt.html:278 views/info_risk.kb_mgmt.html:349
+#: views/info_risk.kb_mgmt.html:44 views/users.admin.html:29
 msgid "Status"
 msgstr "Statut"
 
@@ -1227,7 +1345,9 @@ msgstr "Super-admin"
 msgid "System admin"
 msgstr "Administrateur système"
 
-#: views/object.info_risk.kb_mgmt.html:143
+#: views/anr.details.models.kb_mgmt.html:77
+#: views/instance.anr.details.models.kb_mgmt.html:185
+#: views/object.info_risk.kb_mgmt.html:146
 msgid "T"
 msgstr "T"
 
@@ -1236,7 +1356,11 @@ msgstr "T"
 msgid "Tags"
 msgstr "Tags"
 
-#: views/object.info_risk.kb_mgmt.html:144
+#: views/anr.details.models.kb_mgmt.html:78
+#: views/instance.anr.details.models.kb_mgmt.html:132
+#: views/instance.anr.details.models.kb_mgmt.html:186
+#: views/object.info_risk.kb_mgmt.html:147
+#: views/object.info_risk.kb_mgmt.html:199
 msgid "Target risk"
 msgstr "Risque cible"
 
@@ -1287,19 +1411,23 @@ msgstr "Thème"
 msgid "Theme label"
 msgstr "Nom du thème"
 
-#: views/instance.anr.details.models.kb_mgmt.html:75
+#: views/instance.anr.details.models.kb_mgmt.html:60
 msgid "This asset is attached to the following parents"
 msgstr "Cet asset est attaché aux parents suivants"
+
+#: views/dialogs/create.clients.html:112 views/dialogs/create.clients.html:90
+msgid "This does not look like an e-mail address"
+msgstr "Ceci ne ressemble pas à une adresse e-mail"
 
 #: views/dialogs/create.users.admin.html:40
 msgid "This e-mail address does not look valid"
 msgstr "Cet adresse e-mail ne semble pas valide"
 
-#: views/object.info_risk.kb_mgmt.html:93
+#: views/object.info_risk.kb_mgmt.html:96
 msgid "This object has no replica(s) in models."
 msgstr "Cet objet n'a pas de réplica(s) dans les modèles."
 
-#: views/object.info_risk.kb_mgmt.html:111
+#: views/object.info_risk.kb_mgmt.html:114
 msgid ""
 "This object is <strong>GLOBAL</strong>. The following values will be common\n"
 "                            to every instance in the risk analysis:"
@@ -1307,7 +1435,7 @@ msgstr ""
 "Cet objet est <strong>GLOBAL</strong>. Les valeurs suivantes seront communes "
 "à toutes les instances dans l'analyse de risque :"
 
-#: views/object.info_risk.kb_mgmt.html:98
+#: views/object.info_risk.kb_mgmt.html:101
 msgid ""
 "This object is <strong>LOCAL</strong>. Any change made on the following\n"
 "                            fields will be applied on every instance in the "
@@ -1320,16 +1448,26 @@ msgstr ""
 msgid "This operation is irreversible."
 msgstr "Cette opération est irréversible."
 
-#: views/dialogs/create.amvs.html:51 views/info_risk.kb_mgmt.html:351
-#: views/object.info_risk.kb_mgmt.html:137
+#: views/anr.details.models.kb_mgmt.html:71 views/dialogs/create.amvs.html:51
+#: views/info_risk.kb_mgmt.html:351
+#: views/instance.anr.details.models.kb_mgmt.html:179
+#: views/object.info_risk.kb_mgmt.html:140
 msgid "Threat"
 msgstr "Menace"
+
+#: views/instance.anr.details.models.kb_mgmt.html:93
+msgid "Threat probability:"
+msgstr "Probabilité de la menace :"
+
+#: views/instance.anr.details.models.kb_mgmt.html:81
+msgid "Threat:"
+msgstr "Menace :"
 
 #: views/info_risk.kb_mgmt.html:85 views/info_risk.kb_mgmt.html:88
 msgid "Threats"
 msgstr "Menaces"
 
-#: views/object.info_risk.kb_mgmt.html:117
+#: views/object.info_risk.kb_mgmt.html:120
 msgid "Threats and vulnerabilities qualification"
 msgstr "Qualification des menaces et vulnérabilités"
 
@@ -1363,8 +1501,8 @@ msgid "Update ANR information"
 msgstr "Mettre à jour les informations de l’ANR"
 
 #: views/dialogs/create.assets.html:6
-msgid "Update asset information"
-msgstr "Mettre à jour les informations d'un asset"
+msgid "Update asset \"{{asset.label1}}\" information"
+msgstr "Mettre à jour les informations de l’asset « {{asset.label1}} »"
 
 #: views/dialogs/create.categories.html:6
 #: views/dialogs/create.objlibs.categories.html:6
@@ -1379,7 +1517,11 @@ msgstr "Mettre à jour les informations d'un client"
 msgid "Update component information"
 msgstr "Mettre à jour les informations d'un composant"
 
-#: views/dialogs/create.docmodels.html:6 views/dialogs/create.guides.html:6
+#: views/dialogs/create.docmodels.html:6
+msgid "Update document template information"
+msgstr "Mettre à jour les informations du modèle de documents"
+
+#: views/dialogs/create.guides.html:6
 msgid "Update guide information"
 msgstr "Mettre à jour les informations du guide"
 
@@ -1388,16 +1530,17 @@ msgid "Update item information"
 msgstr "Mettre à jour les informations de l’élément"
 
 #: views/dialogs/create.measures.html:6
-msgid "Update measure information"
-msgstr "Mettre à jour les informations d'une mesure"
+msgid "Update measure \"{{measure.description1}}\" information"
+msgstr ""
+"Mettre à jour les informations de la mesure « {{measure.description1}} »"
 
 #: views/dialogs/create.models.html:6
 msgid "Update model information"
 msgstr "Mettre à jour les informations d'un modèle"
 
 #: views/dialogs/create.objlibs.html:6
-msgid "Update object information"
-msgstr "Mettre à jour les informations d'un objet"
+msgid "Update object \"{{objlib.label1}}\" information"
+msgstr "Mettre à jour les informations de l’objet « {{objlib.label1}} »"
 
 #: views/account.html:61
 msgid "Update password"
@@ -1420,16 +1563,16 @@ msgid "Update tag information"
 msgstr "Mettre à jour les informations d'un tag"
 
 #: views/dialogs/create.threats.html:6
-msgid "Update threat information"
-msgstr "Mettre à jour les informations d'une menace"
+msgid "Update threat \"{{threat.label1}}\" information"
+msgstr "Mettre à jour les informations de la menace « {{threat.label1}} »"
 
 #: views/dialogs/create.users.admin.html:6
 msgid "Update user information"
 msgstr "Mettre à jour les informations d'un utilisateur"
 
 #: views/dialogs/create.vulns.html:6
-msgid "Update vulnerability information"
-msgstr "Mettre à jour les informations d'une vulnérabilité"
+msgid "Update vulnerability \"{{vuln.label1}}\" information"
+msgstr "Mettre à jour les informations de la vulnérabilité « {{vuln.label1}} »"
 
 #: views/logs.admin.html:33
 msgid "User"
@@ -1455,16 +1598,26 @@ msgstr "Vulnérabilités"
 msgid "Vulnerabilities scale:"
 msgstr "Echelle des vulnérabilités :"
 
-#: views/dialogs/create.amvs.html:76 views/info_risk.kb_mgmt.html:352
-#: views/object.info_risk.kb_mgmt.html:139
+#: views/anr.details.models.kb_mgmt.html:73 views/dialogs/create.amvs.html:76
+#: views/info_risk.kb_mgmt.html:352
+#: views/instance.anr.details.models.kb_mgmt.html:181
+#: views/object.info_risk.kb_mgmt.html:142
 msgid "Vulnerability"
 msgstr "Vulnérabilité"
+
+#: views/instance.anr.details.models.kb_mgmt.html:97
+msgid "Vulnerability qualification:"
+msgstr "Qualification de la vulnérabilité :"
+
+#: views/instance.anr.details.models.kb_mgmt.html:85
+msgid "Vulnerability:"
+msgstr "Vulnérabilité :"
 
 #: views/info_risk.kb_mgmt.html:167
 msgid "Vulns"
 msgstr "Vuln"
 
-#: views/object.info_risk.kb_mgmt.html:128
+#: views/object.info_risk.kb_mgmt.html:131
 msgid "You are in the knowledge base. No evaluation may be set in this space."
 msgstr ""
 "Vous êtes dans la base de connaissance. Aucune évaluation ne peut être "
@@ -1482,13 +1635,17 @@ msgstr "Vous devez entrer le prénom de l’utilisateur"
 msgid "You must enter the user's last name"
 msgstr "Vous devez entrer le nom de l'utilisateur"
 
-#: views/dialogs/create.docmodels.html:22 views/dialogs/create.objlibs.html:112
+#: views/dialogs/create.docmodels.html:22 views/dialogs/create.objlibs.html:157
 msgid "You must select a category"
 msgstr "Vous devez sélectionner une catégorie"
 
-#: views/dialogs/create.objlibs.html:143
-msgid "You must select a tag"
-msgstr "Vous devez sélectionner un tag"
+#: views/dialogs/create.clients.html:60
+msgid "You must select a country"
+msgstr "Vous devez sélectionner un pays"
+
+#: views/dialogs/create.clients.html:130
+msgid "You must select a model"
+msgstr "Vous devez sélectionner un modèle"
 
 #: views/dialogs/create.amvs.html:61
 msgid "You must select a threat"
@@ -1498,7 +1655,7 @@ msgstr "Vous devez sélectionner une menace"
 msgid "You must select a vulnerability"
 msgstr "Vous devez sélectionner une vulnérabilité"
 
-#: views/dialogs/create.amvs.html:36 views/dialogs/create.objlibs.html:81
+#: views/dialogs/create.amvs.html:36 views/dialogs/create.objlibs.html:126
 msgid "You must select an asset"
 msgstr "Vous devez sélectionner un asset"
 
@@ -1511,9 +1668,41 @@ msgstr ""
 msgid "Your password has been reset."
 msgstr "Votre mot de passe a été réinitialisé."
 
+#: src/BackofficeAccountCtrl.js:46
+msgid "Your password has been updated successfully"
+msgstr "Votre mot de passe a été mis à jour avec succès."
+
 #: src/BackofficePasswordForgottenCtrl.js:23
 msgid "Your password reset code is invalid. Please try again."
 msgstr "Votre code de remise à zéro est invalide. Veuillez réessayer."
+
+#: src/BackofficeAccountCtrl.js:39
+msgid "Your profile has been updated successfully"
+msgstr "Votre profil a été mis à jour avec succès."
+
+#~ msgid "Active"
+#~ msgstr "Actif"
+
+#~ msgid "Labels"
+#~ msgstr "Libellés"
+
+#~ msgid "Update asset information"
+#~ msgstr "Mettre à jour les informations d'un asset"
+
+#~ msgid "Update measure information"
+#~ msgstr "Mettre à jour les informations d'une mesure"
+
+#~ msgid "Update object information"
+#~ msgstr "Mettre à jour les informations d'un objet"
+
+#~ msgid "Update threat information"
+#~ msgstr "Mettre à jour les informations d'une menace"
+
+#~ msgid "Update vulnerability information"
+#~ msgstr "Mettre à jour les informations d'une vulnérabilité"
+
+#~ msgid "You must select a tag"
+#~ msgstr "Vous devez sélectionner un tag"
 
 #~ msgid "Are you sure you want to delete \"{{ firstname }} {{ lastname }}\"?"
 #~ msgstr ""
@@ -1603,9 +1792,6 @@ msgstr "Votre code de remise à zéro est invalide. Veuillez réessayer."
 
 #~ msgid "Delete this object?"
 #~ msgstr "Supprimer cet objet ?"
-
-#~ msgid "Detach"
-#~ msgstr "Détacher"
 
 #~ msgid "Detach this component"
 #~ msgstr "Détacher ce composant"
