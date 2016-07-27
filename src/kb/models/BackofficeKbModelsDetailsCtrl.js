@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbModelsDetailsCtrl', [
             '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ModelService', 'ObjlibService', '$stateParams',
+            'ModelService', 'ObjlibService', 'AnrService', '$stateParams',
             BackofficeKbModelsDetailsCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > MODELS > MODEL DETAILS (ANR)
      */
     function BackofficeKbModelsDetailsCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog,
-                                           TableHelperService, ModelService, ObjlibService, $stateParams) {
+                                           TableHelperService, ModelService, ObjlibService, AnrService, $stateParams) {
         ModelService.getModel($stateParams.modelId).then(function (data) {
             $scope.model = data;
         });
@@ -179,7 +179,7 @@
             })
                 .then(function (objlib) {
                     if (objlib && objlib.id) {
-                        ModelService.addExistingObject($scope.model.id, objlib.id);
+                        AnrService.addExistingObjectToLibrary($scope.model.id, objlib.id);
                     }
                 });
         };
@@ -229,7 +229,9 @@
                         objlib.rolfTag = objlib.rolfTag.id;
                     }
 
-                    ModelService.addNewObject(model_id, objlib);
+                    ModelService.addNewObject(model_id, objlib, function (data) {
+
+                    });
                 }
             });
         };
