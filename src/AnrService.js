@@ -28,7 +28,7 @@
         };
 
         var getObjectsLibrary = function (anr_id) {
-            return self.LibraryResource.query({anrId: anrId});
+            return self.LibraryResource.query({anrId: anr_id}).$promise;
         };
 
         return {

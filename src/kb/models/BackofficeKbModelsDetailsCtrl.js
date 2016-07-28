@@ -15,6 +15,7 @@
                                            TableHelperService, ModelService, ObjlibService, AnrService, $stateParams) {
         ModelService.getModel($stateParams.modelId).then(function (data) {
             $scope.model = data;
+            $scope.updateObjectsLibrary();
         });
 
         /**
@@ -56,16 +57,19 @@
         $scope.updateObjectsLibrary = function () {
             $scope.anr_obj_library_data = [];
 
-            var categoriesIds = {};
-
-            ObjlibService.getObjlibsCats({limit: 0}).then(function (data) {
-                var recurseAddCategories = function (category) {
+            AnrService.getObjectsLibrary($scope.model.anr.id).then(function (data) {
+                var recurseFillTree = function (category) {
                     var output = {id: category.id, label1: category.label1, __children__: []};
-                    categoriesIds[category.id] = output;
 
-                    if (category.child.length > 0) {
+                    if (category.child && category.child.length > 0) {
                         for (var i = 0; i < category.child.length; ++i) {
-                            output.__children__.push(recurseAddCategories(category.child[i]))
+                            output.__children__.push(recurseFillTree(category.child[i]));
+                        }
+                    }
+
+                    if (category.objects && category.objects.length > 0) {
+                        for (var i = 0; i < category.objects.length; ++i) {
+                            output.__children__.push(category.objects[i]);
                         }
                     }
 
@@ -74,23 +78,10 @@
 
                 for (var v = 0; v < data.categories.length; ++v) {
                     var cat = data.categories[v];
-                    $scope.anr_obj_library_data.push(recurseAddCategories(cat));
+                    $scope.anr_obj_library_data.push(recurseFillTree(cat));
                 }
-
-                ObjlibService.getObjlibs({limit: 0, lock: 'true'}).then(function (data) {
-                    for (var i = 0; i < data.objects.length; ++i) {
-                        var obj = data.objects[i];
-                        if (categoriesIds[obj.category.id]) {
-                            categoriesIds[obj.category.id].__children__.push(obj);
-                        } else {
-                            console.warn("Trying to add object to inexisting category!");
-                        }
-                    }
-                });
             });
-
         };
-        $scope.updateObjectsLibrary();
 
 
         /**
@@ -179,7 +170,7 @@
             })
                 .then(function (objlib) {
                     if (objlib && objlib.id) {
-                        AnrService.addExistingObjectToLibrary($scope.model.id, objlib.id);
+                        AnrService.addExistingObjectToLibrary($scope.model.anr.id, objlib.id);
                     }
                 });
         };
@@ -254,7 +245,7 @@
 
                             output.push(child);
 
-                            if (child.child.length > 0) {
+                            if (child.child && child.child.length > 0) {
                                 var child_output = buildItemRecurse(child.child, depth + 1);
                                 output = output.concat(child_output);
                             }
