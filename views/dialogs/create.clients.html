@@ -30,12 +30,6 @@
                     </div>
                 </md-input-container>
 
-                <md-input-container class="md-block" flex>
-                    <label translate>Address</label>
-                    <md-icon>map</md-icon>
-                    <input ng-model="client.address">
-                </md-input-container>
-
                 <div class="md-block" flex>
                     <div layout="row">
                         <md-icon style="margin-right: 10px;">language</md-icon>
@@ -64,6 +58,18 @@
                     </div>
                 </div>
 
+                <md-input-container class="md-block" flex>
+                    <label translate>Address</label>
+                    <md-icon>map</md-icon>
+                    <input ng-model="client.address">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>Postal code</label>
+                    <md-icon>pin_drop</md-icon>
+                    <input ng-model="client.postalcode">
+                </md-input-container>
+
                 <div class="md-block" flex>
                     <div layout="row">
                         <md-icon style="margin-right: 10px;">location_city</md-icon>
@@ -90,12 +96,6 @@
                         </md-autocomplete>
                     </div>
                 </div>
-
-                <md-input-container class="md-block" flex>
-                    <label translate>Postal code</label>
-                    <md-icon>pin_drop</md-icon>
-                    <input ng-model="client.postalcode">
-                </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Phone</label>
