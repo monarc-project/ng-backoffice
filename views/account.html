@@ -4,7 +4,7 @@
             <span class="md-headline" translate>My account details</span>
         </md-card-title>
         <md-card-content>
-            <form layout="column" flex>
+            <form layout="column" name="accountForm" flex>
                 <p class="md-subhead" translate>Personal information</p>
 
                 <div layout="row">
@@ -48,17 +48,24 @@
                     <md-input-container class="md-block" flex>
                         <label translate>New password</label>
                         <md-icon>enhanced_encryption</md-icon>
-                        <input type="password" ng-model="password.new" autocomplete="off" flex>
+                        <input type="password" name="passwordnew" ng-model="password.new" autocomplete="off" ng-minlength="9" ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{9,}/" flex>
+                        <div ng-messages="accountForm.passwordnew.$error" ng-messages-multiple>
+                            <p ng-message="minlength" translate>Your password is too short (min 9 characters).</p>
+                            <p ng-message="pattern" translate>Your password must contain at least: one uppercase, one number and one special character ($@$!%*#?&).</p>
+                        </div>
                     </md-input-container>
 
                     <md-input-container class="md-block" flex>
                         <label translate>Confirm new password</label>
                         <md-icon>enhanced_encryption</md-icon>
-                        <input type="password" ng-model="password.confirm" autocomplete="off" flex>
+                        <input type="password" name="passwordconfirm" ng-model="password.confirm" autocomplete="off" ng-pattern="password.new" flex>
+                        <div ng-messages="accountForm.passwordconfirm.$error" ng-messages-multiple>
+                            <p ng-message="pattern" translate>The two passwords are differents.</p>
+                        </div>
                     </md-input-container>
 
                     <div layout="row">
-                        <md-button class="md-raised md-primary" ng-click="updatePassword()" ng-disabled="password.old == '' || password.new == '' || password.old == '' || password.new != password.confirm">{{ 'Update password' | translate }}</md-button>
+                        <md-button class="md-raised md-primary" ng-click="updatePassword()" ng-disabled="password.old == '' || password.new == '' || password.old == '' || password.new != password.confirm || accountForm.passwordnew.$invalid || account.passwordconfirm.$invalid">{{ 'Update password' | translate }}</md-button>
                     </div>
                 </div>
 
