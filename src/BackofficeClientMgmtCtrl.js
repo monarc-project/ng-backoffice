@@ -142,7 +142,8 @@
                 contact_email: '',
                 contact_phone: '',
                 model_id: null,
-                country_id: null
+                country_id: null,
+                city_id: null
             };
         }
 
@@ -151,7 +152,8 @@
         };
 
         $scope.create = function() {
-            $scope.client.country_id = $scope.selectedCountry.id;
+            $scope.client.country_id = $scope.client.country.id;
+            $scope.client.city_id = $scope.client.city.id;
             $mdDialog.hide($scope.client);
         };
 
@@ -165,6 +167,25 @@
             });
 
             return q.promise;
+        };
+
+        $scope.queryCitySearch = function (query) {
+            var q = $q.defer();
+
+            CityService.getCities({filter: query, country_id: $scope.client.country.id}).then(function (x) {
+                q.resolve(x.cities);
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
+        };
+
+        $scope.selectedCountryItemChange = function (item) {
+            $scope.client.country = item;
+            if (item) {
+                $scope.client.city = null;
+            }
         };
     }
 

@@ -44,6 +44,7 @@
                                          md-no-cache="true"
                                          md-input-name="country"
                                          md-selected-item="client.country"
+                                         md-selected-item-change="selectedCountryItemChange(item)"
                                          md-search-text="searchCountryText"
                                          md-items="item in queryCountrySearch(searchCountryText)"
                                          md-item-text="item.name"
@@ -58,6 +59,33 @@
 
                             <div ng-messages="clientForm.country.$error" ng-if="clientForm.country.$touched">
                                 <div ng-message="required">{{ 'You must select a country' | translate }}</div>
+                            </div>
+                        </md-autocomplete>
+                    </div>
+                </div>
+
+                <div class="md-block" flex>
+                    <div layout="row">
+                        <md-icon style="margin-right: 10px;">location_city</md-icon>
+
+                        <md-autocomplete flex required
+                                         md-no-cache="true"
+                                         md-input-name="city"
+                                         md-selected-item="client.city"
+                                         md-search-text="searchCityText"
+                                         md-items="item in queryCitySearch(searchCityText)"
+                                         md-item-text="item.label"
+                                         md-min-length="0"
+                                         md-floating-label="{{ 'City' | translate }}">
+                            <md-item-template>
+                                <span md-highlight-text="searchCountryText" md-highlight-flags="^i">{{item.label}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                {{ 'No city matching your search was found' | translate }}
+                            </md-not-found>
+
+                            <div ng-messages="clientForm.city.$error" ng-if="clientForm.city.$touched">
+                                <div ng-message="required">{{ 'You must select a city' | translate }}</div>
                             </div>
                         </md-autocomplete>
                     </div>
