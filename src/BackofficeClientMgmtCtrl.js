@@ -131,7 +131,7 @@
         } else {
             $scope.client = {
                 name: '',
-                proxy_alias: '',
+                proxyAlias: '',
                 address: '',
                 postalcode: '',
                 phone: '',
