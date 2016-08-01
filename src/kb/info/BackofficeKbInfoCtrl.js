@@ -119,7 +119,7 @@
                                 $scope.createNewAsset(ev);
                             }
 
-                            if (asset.mode == 0 && asset.models.length > 0) {
+                            if (asset.mode == 0 && asset.models && asset.models.length > 0) {
                                 // If we create a generic asset, but we still have specific models, we should warn
                                 toastr.warning(gettext('The asset has been created successfully, however without models, the element may not be specific.'));
                             } else {
@@ -153,7 +153,7 @@
                             function () {
                                 $scope.updateAssets();
 
-                                if (asset.mode == 0 && asset.models.length > 0) {
+                                if (asset.mode == 0 && assets.models && asset.models.length > 0) {
                                     // If we create a generic asset, but we still have specific models, we should warn
                                     toastr.warning(gettext('The asset has been updated successfully, however without models, the element may not be specific.'));
                                 } else {
@@ -289,7 +289,7 @@
                         function () {
                             $scope.updateThreats();
 
-                            if (threat.mode == 0 && threat.models.length > 0) {
+                            if (threat.mode == 0 && threat.models && threat.models.length > 0) {
                                 // If we create a generic threat, but we still have specific models, we should warn
                                 toastr.warning(gettext('The threat has been created successfully, however without models, the element may not be specific.'));
                             } else {
@@ -328,7 +328,13 @@
                         ThreatService.updateThreat(threat,
                             function () {
                                 $scope.updateThreats();
-                                toastr.success(gettext('The threat has been updated successfully.'), gettext('Update successful'));
+
+                                if (threat.mode == 0 && threat.models && threat.models.length > 0) {
+                                    // If we create a generic threat, but we still have specific models, we should warn
+                                    toastr.warning(gettext('The threat has been updated successfully, however without models, the element may not be specific.'));
+                                } else {
+                                    toastr.success(gettext('The threat has been updated successfully.'), gettext('Update successful'));
+                                }
                             },
 
                             function () {
@@ -431,7 +437,7 @@
                         function () {
                             $scope.updateVulns();
 
-                            if (vuln.mode == 0 && vuln.models.length > 0) {
+                            if (vuln.mode == 0 && vuln.models && vuln.models.length > 0) {
                                 // If we create a generic vulnerability, but we still have specific models, we should warn
                                 toastr.warning(gettext('The vulnerability has been created successfully, however without models, the element may not be specific.'));
                             } else {
@@ -464,7 +470,13 @@
                         VulnService.updateVuln(vuln,
                             function () {
                                 $scope.updateVulns();
-                                toastr.success(gettext('The vulnerability has been updated successfully.'), gettext('Update successful'));
+
+                                if (vuln.mode == 0 && vuln.models && vuln.models.length > 0) {
+                                    // If we create a generic vulnerability, but we still have specific models, we should warn
+                                    toastr.warning(gettext('The vulnerability has been updated successfully, however without models, the element may not be specific.'));
+                                } else {
+                                    toastr.success(gettext('The vulnerability has been updated successfully.'), gettext('Update successful'));
+                                }
                             },
 
                             function () {
