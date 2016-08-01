@@ -152,7 +152,13 @@
                         AssetService.updateAsset(asset,
                             function () {
                                 $scope.updateAssets();
-                                toastr.success(gettext('The asset has been updated successfully.'), gettext('Update successful'));
+
+                                if (asset.mode == 0 && asset.models.length > 0) {
+                                    // If we create a generic asset, but we still have specific models, we should warn
+                                    toastr.warning(gettext('The asset has been updated successfully, however without models, the element may not be specific.'));
+                                } else {
+                                    toastr.success(gettext('The asset has been updated successfully.'), gettext('Update successful'));
+                                }
                             },
 
                             function () {
