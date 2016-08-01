@@ -1340,7 +1340,7 @@
         // Threat
         $scope.queryThreatSearch = function (query) {
             var promise = $q.defer();
-            ThreatService.getThreats({filter: query}).then(function (e) {
+            ThreatService.getThreats({filter: query, status: 1}).then(function (e) {
                 promise.resolve(e.threats);
             }, function (e) {
                 promise.reject(e);
