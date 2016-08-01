@@ -1,36 +1,14 @@
 <div class="md-padding" ng-cloak layout="column" ng-controller="BackofficeKbInfoObjectCtrl">
     <div layout="row" layout-align="space-around start">
-        <div flex="20" ng-if="object">
+        <div class="md-padding" flex ng-if="object">
             <h2>{{ object.name1 }}</h2>
 
             <p>{{ object.label1 }}</p>
         </div>
 
-        <div flex="20" ng-if="!object">
+        <div flex ng-if="!object">
             <md-progress-circular md-indeterminate="true"></md-progress-circular>
         </div>
-
-        <md-card flex="70">
-            <md-card-content layout="column" layout-gt-md="row" style="font-size: 14px;" flex layout-wrap>
-                <div flex="33" layout="column" layout-gt-md="row" layout-align="space-between">
-                    <div flex="33" class="bold txtright" translate>Confidentiality:&nbsp;</div>
-                    <div flex="65" ng-if="mode=='bdc' || object.c < 0" translate>Inherited</div>
-                    <div flex="65" ng-if="mode=='anr'">{{ object.c }}</div>
-                </div>
-
-                <div flex="33" layout="column" layout-gt-md="row" layout-align="space-between">
-                    <div flex="33" class="bold txtright" translate>Integrity:&nbsp;</div>
-                    <div flex="65" ng-if="mode=='bdc' || object.i < 0" translate>Inherited</div>
-                    <div flex="65" ng-if="mode=='anr'">{{ object.i }}</div>
-                </div>
-
-                <div flex="33" layout="column" layout-gt-md="row" layout-align="space-between">
-                    <div flex="33" class="bold txtright" translate>Availability:&nbsp;</div>
-                    <div flex="65" ng-if="mode=='bdc' || object.d < 0" translate>Inherited</div>
-                    <div flex="65" ng-if="mode=='anr'">{{ object.d }}</div>
-                </div>
-            </md-card-content>
-        </md-card>
 
         <md-fab-speed-dial md-open="false" md-direction="down" class="md-fling md-fab-top-right" style="margin-top: 48px">
             <md-fab-trigger>
@@ -173,7 +151,7 @@
                             ng-class="{'green': risk.i_risk > 0 && risk.i_risk < scales.thresholds.min, 'orange': risk.i_risk >= scales.thresholds.min && risk.i_risk < scales.thresholds.max, 'red': risk.i_risk >= scales.thresholds.max}">{{risk.i_risk}}</td>
                         <td ng-disabled="!risk.d_risk_enabled" class="tbl-risk-calc"
                             ng-class="{'green': risk.d_risk > 0 && risk.d_risk < scales.thresholds.min, 'orange': risk.d_risk >= scales.thresholds.min && risk.d_risk < scales.thresholds.max, 'red': risk.d_risk >= scales.thresholds.max}">{{risk.d_risk}}</td>
-                        <td ng-if="mode=='anr'" inline-edit="risk.comment" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-placeholder="{{ 'Click to type...' | translate }}" inline-edit-on-click>{{risk.comment}}</td>
+                        <td ng-if="mode=='anr'" inline-edit="risk.comment" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-placeholder="{{ 'Click to type...' | translate }}" inline-edit-on-click></td>
                         <td ng-if="mode=='bdc'"></td>
                         <td>-</td>
                         <td>{{risk.target}}</td>
@@ -215,18 +193,18 @@
                     </thead>
 
                     <tbody>
-                    <tr>
-                        <td>desc</td>
-                        <td>prob</td>
-                        <td>r</td>
-                        <td>o</td>
-                        <td>l</td>
-                        <td>f</td>
-                        <td>p</td>
-                        <td>risk</td>
-                        <td>obs</td>
-                        <td>T</td>
-                        <td>Target</td>
+                    <tr ng-repeat="risk in object.oprisks">
+                        <td>{{ risk.description }}</td>
+                        <td>{{ risk.prob }}</td>
+                        <td>{{ risk.r }}</td>
+                        <td>{{ risk.o }}</td>
+                        <td>{{ risk.l }}</td>
+                        <td>{{ risk.f }}</td>
+                        <td>{{ risk.p }}</td>
+                        <td>{{ risk.risk }}</td>
+                        <td>{{ risk.comment }}</td>
+                        <td>{{ risk.t }}</td>
+                        <td>{{ risk.target }}</td>
                     </tr>
                     </tbody>
                 </table>

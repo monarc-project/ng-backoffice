@@ -60,7 +60,7 @@
                     <input ng-model="objlib.disponibility">
                 </md-input-container>
 
-                <md-input-container class="md-block" layout="row" ng-if="mode=='anr'" flex>
+                <md-input-container class="md-block" layout="row" ng-if="mode=='anr_inst'" flex>
                     <label translate>Confidentiality</label>
                     <md-icon>https</md-icon>
                     <md-select ng-model="objlib.c">
@@ -73,7 +73,7 @@
                     </md-select>
                 </md-input-container>
 
-                <md-input-container class="md-block" layout="row" ng-if="mode=='anr'" flex>
+                <md-input-container class="md-block" layout="row" ng-if="mode=='anr_inst'" flex>
                     <label translate>Integrity</label>
                     <md-icon>assessment</md-icon>
                     <md-select ng-model="objlib.i">
@@ -86,7 +86,7 @@
                     </md-select>
                 </md-input-container>
 
-                <md-input-container class="md-block" layout="row" ng-if="mode=='anr'" flex>
+                <md-input-container class="md-block" layout="row" ng-if="mode=='anr_inst'" flex>
                     <label translate>Availability</label>
                     <md-icon>done</md-icon>
                     <md-select ng-model="objlib.d">
