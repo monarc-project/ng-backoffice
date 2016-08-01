@@ -173,7 +173,7 @@
                             ng-class="{'green': risk.i_risk > 0 && risk.i_risk < scales.thresholds.min, 'orange': risk.i_risk >= scales.thresholds.min && risk.i_risk < scales.thresholds.max, 'red': risk.i_risk >= scales.thresholds.max}">{{risk.i_risk}}</td>
                         <td ng-disabled="!risk.d_risk_enabled" class="tbl-risk-calc"
                             ng-class="{'green': risk.d_risk > 0 && risk.d_risk < scales.thresholds.min, 'orange': risk.d_risk >= scales.thresholds.min && risk.d_risk < scales.thresholds.max, 'red': risk.d_risk >= scales.thresholds.max}">{{risk.d_risk}}</td>
-                        <td ng-if="mode=='anr'" inline-edit="risk.comment" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-placeholder="{{ 'Click to type...' | translate }}" inline-edit-on-click>{{risk.comment}}</td>
+                        <td ng-if="mode=='anr'" inline-edit="risk.comment" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-placeholder="{{ 'Click to type...' | translate }}" inline-edit-on-click></td>
                         <td ng-if="mode=='bdc'"></td>
                         <td>-</td>
                         <td>{{risk.target}}</td>
