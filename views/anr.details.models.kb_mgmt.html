@@ -14,7 +14,7 @@
                     </tr>
                     <tr ng-repeat="i in info_risk_rows">
                         <th>{{i}}</th>
-                        <td ng-class="{'green': v*i <= scales.thresholds.min, 'orange': v*i <= scales.thresholds.max && v*i > scales.thresholds.min, 'red': v*i > scales.thresholds.max}"
+                        <td ng-class="{'green': v*i <= thresholds.thresholds.min, 'orange': v*i <= thresholds.thresholds.max && v*i > thresholds.thresholds.min, 'red': v*i > thresholds.thresholds.max}"
                             ng-repeat="v in info_risk_columns">{{v*i}}</td>
                     </tr>
                     </tbody>
@@ -45,7 +45,7 @@
                     <tr ng-repeat="i in range(scales.impacts.min, scales.impacts.max)">
                         <th>{{i}}</th>
                         <td ng-repeat="p in range(scales.threats.min, scales.threats.max)"
-                            ng-class="{'green': p*i <= scales.rolf_thresholds.min, 'orange': p*i <= scales.rolf_thresholds.max && p*i > scales.rolf_thresholds.min, 'red': p*i > scales.rolf_thresholds.max}">{{i*p}}</td>
+                            ng-class="{'green': p*i <= thresholds.rolf_thresholds.min, 'orange': p*i <= thresholds.rolf_thresholds.max && p*i > thresholds.rolf_thresholds.min, 'red': p*i > thresholds.rolf_thresholds.max}">{{i*p}}</td>
                     </tr>
                     </tbody>
                 </table>
