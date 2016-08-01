@@ -215,18 +215,18 @@
                     </thead>
 
                     <tbody>
-                    <tr>
-                        <td>desc</td>
-                        <td>prob</td>
-                        <td>r</td>
-                        <td>o</td>
-                        <td>l</td>
-                        <td>f</td>
-                        <td>p</td>
-                        <td>risk</td>
-                        <td>obs</td>
-                        <td>T</td>
-                        <td>Target</td>
+                    <tr ng-repeat="risk in object.oprisks">
+                        <td>{{ risk.description }}</td>
+                        <td>{{ risk.prob }}</td>
+                        <td>{{ risk.r }}</td>
+                        <td>{{ risk.o }}</td>
+                        <td>{{ risk.l }}</td>
+                        <td>{{ risk.f }}</td>
+                        <td>{{ risk.p }}</td>
+                        <td>{{ risk.risk }}</td>
+                        <td>{{ risk.comment }}</td>
+                        <td>{{ risk.t }}</td>
+                        <td>{{ risk.target }}</td>
                     </tr>
                     </tbody>
                 </table>
