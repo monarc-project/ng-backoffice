@@ -1358,7 +1358,7 @@
         // Vulnerability
         $scope.queryVulnSearch = function (query) {
             var promise = $q.defer();
-            VulnService.getVulns({filter: query}).then(function (e) {
+            VulnService.getVulns({filter: query, status: 1}).then(function (e) {
                 promise.resolve(e.vulnerabilities);
             }, function (e) {
                 promise.reject(e);
