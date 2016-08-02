@@ -22,6 +22,18 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
+                    <label translate>Server</label>
+                    <md-icon>storage</md-icon>
+                    <md-select ng-disabled="client.id" ng-model="client.server_id" name="server_id" required>
+                        <md-option ng-repeat="server in servers" value="{{server.id}}">{{ server.label }} [ {{server.fqdn}} ]</md-option>
+                    </md-select>
+
+                    <div ng-messages="clientForm.server_id.$error">
+                        <div ng-message="required">{{ 'You must select a server' | translate }}</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
                     <label translate>Proxy alias</label>
                     <md-icon>redo</md-icon>
                     <input ng-disabled="client.id" name="proxyAlias" required ng-model="client.proxyAlias">
@@ -147,7 +159,7 @@
                     <input ng-model="client.contact_phone">
                 </md-input-container>
 
-                <md-input-container>
+                <md-input-container class="md-block" flex>
                     <label translate>Model</label>
                     <md-icon>widgets</md-icon>
                     <md-select ng-model="client.model_id" name="model_id" required>
