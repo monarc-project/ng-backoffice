@@ -32,7 +32,7 @@
         ];
         $scope.my_tree = {};
 
-        $scope._filter = {};
+        //$scope._filter = {};
 
         $scope.expanding_property = {
             field: 'label1'
@@ -195,7 +195,9 @@
             })
                 .then(function (objlib) {
                     if (objlib && objlib.id) {
-                        AnrService.addExistingObjectToLibrary($scope.model.anr.id, objlib.id);
+                        AnrService.addExistingObjectToLibrary($scope.model.anr.id, objlib.id, function () {
+                            $scope.updateObjectsLibrary();
+                        });
                     }
                 });
         };
@@ -250,6 +252,14 @@
     }
 
     function AddObjectDialogCtrl($scope, $mdDialog, $q, ObjlibService, ModelService, model_id) {
+        $scope.objectSearchText = '';
+        $scope.categorySearchText = '';
+
+        $scope.objlib = {
+            category: null,
+            object: null
+        };
+
         $scope.createAttachedObject = function () {
             $scope.objLibDialog = $mdDialog;
             $mdDialog.show({
@@ -343,7 +353,7 @@
         };
 
         $scope.create = function () {
-            $mdDialog.hide($scope.object);
+            $mdDialog.hide($scope.objlib.object);
         };
     }
 
@@ -363,6 +373,8 @@
         var self = this;
 
         self.draggedFromHere = false;
+
+        $scope._filter = {};
 
         $scope.callbacks = {
             beforeDrag: function (scopeDrag) {

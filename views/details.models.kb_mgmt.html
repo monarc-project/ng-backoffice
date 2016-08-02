@@ -39,16 +39,16 @@
                             <p></p>
 
                             <p class="md-subheader" translate>Objects library</p>
-                            <div layout="row" layout-align="center center">
-                                <md-input-container class="md-block">
-                                    <md-icon>search</md-icon>
-                                    <label translate>Search an object...</label>
-                                    <input type="text">
-                                </md-input-container>
-                                <md-button class="md-icon-button" ng-click="addObject($event)"><md-icon>add</md-icon></md-button>
-                            </div>
-
                             <div ng-controller="BackofficeKbModelsDetailsSubtreeCtrl">
+                                <div layout="row" layout-align="center center">
+                                    <md-input-container class="md-block">
+                                        <md-icon>search</md-icon>
+                                        <label translate>Search an object...</label>
+                                        <input type="text" ng-model="_filter._$">
+                                    </md-input-container>
+                                    <md-button class="md-icon-button" ng-click="addObject($event)"><md-icon>add</md-icon></md-button>
+                                </div>
+
                                 <tree-dnd
                                         tree-data="anr_obj_library_data"
                                         tree-control="my_tree"
@@ -203,13 +203,17 @@
     <table ng-class="$tree_class">
         <tbody tree-dnd-nodes>
         <tr tree-dnd-node="node" ng-repeat="node in tree_nodes track by node.__hashKey__"
-            ng-show="enabledFilter ? node.__visible__ && node.__filtered__.visible : node.__visible__" ng-class="node.__selected__ ? 'active':''" ng-click="onSelect(node)">
-            <td tree-dnd-node-handle ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {'padding-left': $callbacks.calsIndent(node.__level__), 'font-weight': 'normal'}"
-                ng-class="expandingProperty.cellClass" compile="expandingProperty.cellTemplate">
+            ng-show="enabledFilter ? node.__filtered_visible__ === true && node.__visible__ : node.__visible__" ng-class="node.__selected__ ? 'active':''" ng-click="onSelect(node)">
+
+            <td tree-dnd-node-handle
+                ng-style="expandingProperty.cellStyle ? expandingProperty.cellStyle : {'padding-left': $callbacks.calsIndent(node.__level__), 'font-weight': 'normal'}"
+                ng-class="expandingProperty.cellClass"
+                compile="expandingProperty.cellTemplate">
                 <a data-nodrag><md-icon ng-click="toggleExpand(node)" class="tree-icon" ng-if="node.__children__.length > 0">{{ node.__expanded__ ? 'expand_less' : 'expand_more' }}</md-icon></a>
                 <a data-nodrag ng-if="!node.__children__ || node.__children__.length == 0" ui-sref="main.kb_mgmt.models.details.object({objectId: node.id})"><md-icon>class</md-icon></a>
                 {{node[expandingProperty.field] || node[expandingProperty]}}
             </td>
+
         </tr>
         </tbody>
     </table>

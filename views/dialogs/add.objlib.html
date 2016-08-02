@@ -46,7 +46,7 @@
                                 flex
                                 style="min-width: 500px"
                                 md-no-cache="true"
-                                md-selected-item="object"
+                                md-selected-item="objlib.object"
                                 md-search-text="objectSearchText"
                                 md-selected-item-change="selectedObjectItemChange(item)"
                                 md-items="item in queryObjectSearch(objectSearchText)"
@@ -65,7 +65,7 @@
                         </md-autocomplete>
                     </div>
 
-                    <md-button ng-click="create()" class="md-primary" ng-disabled="!object.id || !objlib.category.id">
+                    <md-button ng-click="create()" class="md-primary" ng-disabled="!objlib.object.id || !objlib.category.id">
                         <md-icon>add</md-icon>
                         {{ 'Add the object' | translate }}
                     </md-button>
