@@ -54,7 +54,7 @@
                                          md-search-text="searchCountryText"
                                          md-items="item in queryCountrySearch(searchCountryText)"
                                          md-item-text="item.name"
-                                         md-min-length="0"
+                                         md-min-length="2"
                                          md-floating-label="{{ 'Country' | translate }}">
                             <md-item-template>
                                 <span md-highlight-text="searchCountryText" md-highlight-flags="^i">{{item.name}}</span>
@@ -93,7 +93,7 @@
                                          md-search-text="searchCityText"
                                          md-items="item in queryCitySearch(searchCityText)"
                                          md-item-text="item.label"
-                                         md-min-length="0"
+                                         md-min-length="2"
                                          md-floating-label="{{ 'City' | translate }}">
                             <md-item-template>
                                 <span md-highlight-text="searchCountryText" md-highlight-flags="^i">{{item.label}}</span>
