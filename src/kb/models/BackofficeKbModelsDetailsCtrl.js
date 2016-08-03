@@ -59,6 +59,7 @@
                         for (var i = 0; i < category.objects.length; ++i) {
                             var obj = category.objects[i];
                             obj.type = 'lib';
+                            obj.__children__ = [];
                             output.__children__.push(obj);
                         }
                     }

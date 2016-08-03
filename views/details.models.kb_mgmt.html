@@ -162,7 +162,7 @@
 
 <script type="text/ng-template" id="tree_node_renderer.html">
     <div ui-tree-handle>
-        <md-button class="md-icon-button" ng-click="toggle(this)" ng-if="node.type == 'libcat'" ng-disabled="node.__children__.length == 0" data-nodrag>
+        <md-button class="md-icon-button" ng-click="toggle(this)" ng-if="node.type == 'libcat' || node.__children__.length > 0" ng-disabled="node.__children__.length == 0" data-nodrag>
             <md-icon>{{ (collapsed || node.__children__.length == 0) ? 'expand_less' : 'expand_more' }}</md-icon>
         </md-button>
 
