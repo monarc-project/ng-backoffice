@@ -47,7 +47,7 @@
 
             AnrService.getObjectsLibrary($scope.model.anr.id).then(function (data) {
                 var recurseFillTree = function (category) {
-                    var output = {id: category.id, label1: category.label1, __children__: []};
+                    var output = {id: category.id, type: 'libcat', label1: category.label1, __children__: []};
 
                     if (category.child && category.child.length > 0) {
                         for (var i = 0; i < category.child.length; ++i) {
@@ -57,7 +57,9 @@
 
                     if (category.objects && category.objects.length > 0) {
                         for (var i = 0; i < category.objects.length; ++i) {
-                            output.__children__.push(category.objects[i]);
+                            var obj = category.objects[i];
+                            obj.type = 'lib';
+                            output.__children__.push(obj);
                         }
                     }
 
@@ -76,7 +78,7 @@
                 $scope.anr_obj_instances_data = [];
 
                 var recurseFillTree = function (instance) {
-                    var output = {id: instance.id, label1: instance.label1, __children__: []};
+                    var output = {id: instance.id, type: 'inst', label1: instance.label1, __children__: []};
 
                     if (instance.child && instance.child.length > 0) {
                         for (var i = 0; i < instance.child.length; ++i) {
