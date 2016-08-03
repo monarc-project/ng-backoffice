@@ -191,7 +191,7 @@
 
                 <md-input-container class="md-block" flex>
                     <label translate>First user email</label>
-                    <md-icon>person</md-icon>
+                    <md-icon>email</md-icon>
                     <input ng-model="client.first_user_email" name="first_user_email" type="email" required ng-disabled="client.id">
                     <div ng-messages="clientForm.first_user_email.$error">
                         <div ng-message="required">{{ 'The first user email may not be empty' | translate }}</div>
@@ -200,7 +200,7 @@
 
                 <md-input-container class="md-block" flex>
                     <label translate>First user phone</label>
-                    <md-icon>person</md-icon>
+                    <md-icon>phone</md-icon>
                     <input ng-model="client.first_user_phone" name="first_user_phone" required ng-disabled="client.id">
                     <div ng-messages="clientForm.first_user_phone.$error">
                         <div ng-message="required">{{ 'The first user phone may not be empty' | translate }}</div>
