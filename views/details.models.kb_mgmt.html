@@ -163,13 +163,13 @@
 <script type="text/ng-template" id="tree_node_renderer.html">
     <div ui-tree-handle>
         <md-button class="md-icon-button" ng-click="toggle(this)" data-nodrag>
-            <md-icon>{{ node.__children__.length > 0 ? 'expand_more' : 'class' }}</md-icon>
+            <md-icon>{{ node.__children__.length > 0 ? (collapsed ? 'expand_less' : 'expand_more') : 'class' }}</md-icon>
         </md-button>
 
         {{ node.label1 }}
     </div>
 
-    <ol class="no-list-style" ui-tree-nodes="" ng-model="node.__children__">
+    <ol class="no-list-style" ui-tree-nodes="" ng-model="node.__children__" ng-show="!collapsed">
         <li ng-repeat="node in node.__children__" ui-tree-node ng-include="'tree_node_renderer.html'"></li>
     </ol>
 </script>
