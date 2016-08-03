@@ -47,17 +47,40 @@
             }
 
             return true;
-        }
+        };
+
+        $scope.insTreeCallbacks = {
+            dropped: function (e) {
+                return true;
+            }
+        };
 
         $scope.libTreeCallbacks = {
 
+            accept: function (sourceNodeScope, destNodeScope, destIndex) {
+                return sourceNodeScope.$modelValue.type == 'inst';
+            },
+
             dropped: function (e) {
-                // Make a copy of the item from the library tree to the inst tree
-                var copy = angular.copy(e.source.nodeScope.$modelValue);
-                copy.type = 'inst';
-                e.source.nodesScope.$modelValue.push(copy);
+                if (e.source.nodesScope.$id == e.dest.nodesScope.$id) {
+                    return false;
+                } else {
+                    // Make a copy of the item from the library tree to the inst tree
+                    var copy = angular.copy(e.source.nodeScope.$modelValue);
+                    copy.type = 'inst';
+                    e.source.nodesScope.$modelValue.push(copy);
+
+                    console.log(e);
+
+                    // Also, tell the server to instantiate the object
+                    AnrService.addInstance($scope.model.anr.id, copy.id, e.dest.nodesScope.$parent.$modelValue ? e.dest.nodesScope.$parent.$modelValue.id : 0, e.dest.index, function () {
+                        $scope.updateInstances();
+                    });
+
+                    return true;
+                }
             }
-        }
+        };
 
 
         $scope.updateObjectsLibrary = function () {
@@ -116,8 +139,10 @@
 
                 for (var v = 0; v < data.instances.length; ++v) {
                     var instance = data.instances[v];
-                    $scope.anr_obj_library_data.push(recurseFillTree(instance));
+                    $scope.anr_obj_instances_data.push(recurseFillTree(instance));
                 }
+
+                console.log($scope.anr_obj_instances_data);
             });
 
 
