@@ -30,6 +30,16 @@
                 }
             });
 
+        self.InstanceResource = $resource('/api/anr/:anrId/instances/:instId', { anrId: '@anrId', instId: '@instId' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
+
         self.ScalesResource = $resource('/api/anr/:anrId/scales/:scaleId', { anrId: '@anrId', scaleId: '@scaleId' },
             {
                 'update': {
@@ -51,12 +61,14 @@
             });
 
 
+        // ANRs
         var patchAnr = function (anr_id, fields, success, error) {
             var obj_pump = angular.copy(fields);
             obj_pump.anrId = anr_id;
             self.AnrResource.update(obj_pump, success, error);
         };
 
+        // Object library
         var addExistingObjectToLibrary = function (anr_id, object_id, success, error) {
             new self.LibraryResource({anrId: anr_id, objectId: object_id}).$save(success, error);
         };
@@ -71,6 +83,12 @@
             return self.LibraryResource.query({anrId: anr_id}).$promise;
         };
 
+        // Instances
+        var getInstances = function (anr_id) {
+            return self.InstanceResource.query({anrId: anr_id}).$promise;
+        }
+
+        // Scales
         var getScales = function (anr_id) {
             return self.ScalesResource.query({anrId: anr_id}).$promise;
         };
@@ -79,6 +97,7 @@
             return self.ScalesResource.update({anrId: anr_id, scaleId: type, min: min, max: max}, success, error);
         };
 
+        // Scales comments
         var getScaleComments = function (anr_id, type, row, column) {
             return self.ScalesCommentResource.query({anrId: anr_id, scaleId: type, row: row, column: column}).$promise;
         };
@@ -86,6 +105,8 @@
         var updateScaleComment = function (anr_id, type, comment, row, column, success, error) {
             return self.ScalesResource.update({anrId: anr_id, scaleId: type, row: row, column: column, comment: comment}, success, error);
         };
+
+
 
         return {
             patchAnr: patchAnr,
@@ -96,7 +117,9 @@
 
             getScales: getScales,
             updateScale: updateScale,
-            getScaleComments: getScaleComments
+            getScaleComments: getScaleComments,
+
+            getInstances: getInstances,
         };
     }
 

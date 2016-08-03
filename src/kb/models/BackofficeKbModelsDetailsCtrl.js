@@ -13,8 +13,10 @@
      */
     function BackofficeKbModelsDetailsCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog,
                                            TableHelperService, ModelService, ObjlibService, AnrService, $stateParams) {
+        var self = this;
+
         ModelService.getModel($stateParams.modelId).then(function (data) {
-            $scope.model = data;
+            $scope.model = data; $scope.updateInstances();
             $scope.updateObjectsLibrary();
             $scope.updateScalesComments();
         });
@@ -22,37 +24,22 @@
         /**
          * Risk analysis
          */
-        $scope.anr_obj_instances_data = [
-            {
-                'id': '__root__', 'label1': 'My Risk Analysis', __children__: [
-                {'id': 1, 'label1': 'Object Instance 1', 'ObjectId': 8, __children__: []},
-                {'id': 2, 'label1': 'Object Instance 2', 'ObjectId': 8, __children__: []},
-            ]
-            }
-        ];
-        $scope.my_tree = {};
-
-        //$scope._filter = {};
-
-        $scope.expanding_property = {
-            field: 'label1'
-        };
-
-        $scope.col_defs = [
-            {field: 'label1'}
-        ];
-
-        $scope.callbacks = {
-            beforeDrag: function (scopeDrag) {
-                return !(scopeDrag.node.id === '__root__');
-            },
-
-            accept: function (scopeDrag, scopeTarget, align) {
-                return scopeTarget.parent != null;
-            }
-        };
-
+        // Tree
+        $scope.anr_obj_instances_data = [];
         $scope.anr_obj_library_data = [];
+
+        $scope.toggle = function (scope) {
+            scope.toggle();
+        }
+
+        $scope.libTreeCallbacks = {
+
+            dropped: function (e) {
+                // Make a copy of the item from the library tree to the inst tree
+                var copy = angular.copy(e.source.nodeScope.$modelValue);
+                e.source.nodesScope.$modelValue.push(copy);
+            }
+        }
 
 
         $scope.updateObjectsLibrary = function () {
@@ -82,6 +69,38 @@
                     $scope.anr_obj_library_data.push(recurseFillTree(cat));
                 }
             });
+        };
+
+        $scope.updateInstances = function () {
+            AnrService.getInstances($scope.model.anr.id).then(function (data) {
+                $scope.anr_obj_instances_data = [];
+
+                var recurseFillTree = function (instance) {
+                    var output = {id: instance.id, label1: instance.label1, __children__: []};
+
+                    if (instance.child && instance.child.length > 0) {
+                        for (var i = 0; i < instance.child.length; ++i) {
+                            output.__children__.push(recurseFillTree(instance.child[i]));
+                        }
+                    }
+
+                    if (instance.objects && instance.objects.length > 0) {
+                        for (var i = 0; i < instance.objects.length; ++i) {
+                            output.__children__.push(instance.objects[i]);
+                        }
+                    }
+
+                    return output;
+                };
+
+                for (var v = 0; v < data.instances.length; ++v) {
+                    var instance = data.instances[v];
+                    $scope.anr_obj_library_data.push(recurseFillTree(instance));
+                }
+            });
+
+
+
         };
 
 
@@ -354,43 +373,6 @@
 
         $scope.create = function () {
             $mdDialog.hide($scope.objlib.object);
-        };
-    }
-
-    /////////////////////////////////////////////////////////
-
-    angular
-        .module('BackofficeApp')
-        .controller('BackofficeKbModelsDetailsSubtreeCtrl', [
-            '$scope',
-            BackofficeKbModelsDetailsSubtreeCtrl
-        ]);
-
-    /**
-     * BO > KB > MODELS > MODEL DETAILS > SUBTREE WORKAROUND
-     */
-    function BackofficeKbModelsDetailsSubtreeCtrl($scope) {
-        var self = this;
-
-        self.draggedFromHere = false;
-
-        $scope._filter = {};
-
-        $scope.callbacks = {
-            beforeDrag: function (scopeDrag) {
-                self.draggedFromHere = true;
-                return !(scopeDrag.node.id === '__root__');
-            },
-
-            accept: function (scopeDrag, scopeTarget, align) {
-                return scopeTarget.parent != null && !self.draggedFromHere;
-            },
-
-            beforeDrop: function (event) {
-                self.draggedFromHere = false;
-                return true;
-            }
-
         };
     }
 

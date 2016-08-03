@@ -361,6 +361,24 @@ div.ng-inline-edit input, div.ng-inline-edit textarea {
   min-width: 200px;
 }
 
+/** Drag & Drop */
+.angular-ui-tree-drag {
+  border: 2px solid #808080;
+  font-weight: bold;
+}
+
+.angular-ui-tree-placeholder {
+  border: 2px dashed #33B5E5;
+}
+
+.angular-ui-tree-handle {
+  font-weight: normal;
+}
+
+.angular-ui-tree {
+  min-height: 30px;
+}
+
 /** Material Design Overrides */
 body {
   font-size: 12px;
