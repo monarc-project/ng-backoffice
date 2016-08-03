@@ -170,6 +170,43 @@
                         <div ng-message="required">{{ 'You must select a model' | translate }}</div>
                     </div>
                 </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>First user first name</label>
+                    <md-icon>person</md-icon>
+                    <input ng-model="client.first_user_firstname" name="first_user_firstname" required ng-disabled="client.id">
+                    <div ng-messages="clientForm.first_user_firstname.$error">
+                        <div ng-message="required">{{ 'The first user first name may not be empty' | translate }}</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>First user last name</label>
+                    <md-icon>person</md-icon>
+                    <input ng-model="client.first_user_lastname" name="first_user_lastname" required ng-disabled="client.id">
+                    <div ng-messages="clientForm.first_user_lastname.$error">
+                        <div ng-message="required">{{ 'The first user last name may not be empty' | translate }}</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>First user email</label>
+                    <md-icon>person</md-icon>
+                    <input ng-model="client.first_user_email" name="first_user_email" type="email" required ng-disabled="client.id">
+                    <div ng-messages="clientForm.first_user_email.$error">
+                        <div ng-message="required">{{ 'The first user email may not be empty' | translate }}</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label translate>First user phone</label>
+                    <md-icon>person</md-icon>
+                    <input ng-model="client.first_user_phone" name="first_user_phone" required ng-disabled="client.id">
+                    <div ng-messages="clientForm.first_user_phone.$error">
+                        <div ng-message="required">{{ 'The first user phone may not be empty' | translate }}</div>
+                    </div>
+                </md-input-container>
+
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
