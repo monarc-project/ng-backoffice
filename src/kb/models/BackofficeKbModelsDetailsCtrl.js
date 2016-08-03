@@ -28,8 +28,25 @@
         $scope.anr_obj_instances_data = [];
         $scope.anr_obj_library_data = [];
 
+        $scope.filter = {
+            instance: '',
+            library: ''
+        };
+
         $scope.toggle = function (scope) {
             scope.toggle();
+        }
+
+        $scope.visible = function (item) {
+            if (item.type == 'lib') {
+                return !($scope.filter.library && $scope.filter.library.length > 0 &&
+                    item.label1.toLowerCase().indexOf($scope.filter.library.toLowerCase()) == -1);
+            } else if (item.type == 'inst') {
+                return !($scope.filter.instance && $scope.filter.instance.length > 0 &&
+                item.label1.toLowerCase().indexOf($scope.filter.instance.toLowerCase()) == -1);
+            }
+
+            return true;
         }
 
         $scope.libTreeCallbacks = {
@@ -37,6 +54,7 @@
             dropped: function (e) {
                 // Make a copy of the item from the library tree to the inst tree
                 var copy = angular.copy(e.source.nodeScope.$modelValue);
+                copy.type = 'inst';
                 e.source.nodesScope.$modelValue.push(copy);
             }
         }

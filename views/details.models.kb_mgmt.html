@@ -17,7 +17,7 @@
                             <md-input-container class="md-block">
                                 <md-icon>search</md-icon>
                                 <label translate>Search an instance...</label>
-                                <input type="text" ng-model="instree_Filter._$">
+                                <input type="text" ng-model="filter.instance">
                             </md-input-container>
 
                             <div class="angular-ui-tree" ui-tree>
@@ -33,7 +33,7 @@
                                 <md-input-container class="md-block" flex>
                                     <md-icon>search</md-icon>
                                     <label translate>Search an object...</label>
-                                    <input type="text" ng-model="libtree_Filter._$">
+                                    <input type="text" ng-model="filter.library">
                                 </md-input-container>
                                 <md-button class="md-icon-button" ng-click="addObject($event)"><md-icon>add</md-icon></md-button>
                             </div>
@@ -178,6 +178,6 @@
     </div>
 
     <ol class="no-list-style" ui-tree-nodes="" ng-model="node.__children__" ng-show="!collapsed">
-        <li ng-repeat="node in node.__children__" ui-tree-node ng-include="'tree_node_renderer.html'"></li>
+        <li ng-repeat="node in node.__children__" ui-tree-node ng-include="'tree_node_renderer.html'" ng-show="visible(node)"></li>
     </ol>
 </script>
