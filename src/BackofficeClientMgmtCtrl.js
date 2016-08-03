@@ -147,7 +147,9 @@
                 contact_phone: '',
                 model_id: null,
                 country_id: null,
-                city_id: null
+                city_id: null,
+                country: null,
+                city: null
             };
         }
 
