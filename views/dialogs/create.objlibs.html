@@ -100,7 +100,7 @@
                 </md-input-container>
 
                 <div class="md-block" layout="column" flex>
-                    <div layout="row">
+                    <div layout="row" layout-align="center center">
                         <md-icon style="margin-right: 8px;">class</md-icon>
                         <md-autocomplete
                                 flex
@@ -113,7 +113,7 @@
                                 md-item-text="item.label1"
                                 md-min-length="0"
                                 md-input-name="asset"
-                                md-floating-label="{{ 'Asset type' | translate }}">
+                                md-floating-label="{{ 'Asset' | translate }}">
                             <md-item-template>
                                 <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
                             </md-item-template>
@@ -126,6 +126,7 @@
                                 <div ng-message="required">{{ 'You must select an asset' | translate }}</div>
                             </div>
                         </md-autocomplete>
+                        <md-button class="md-icon-button" ng-show="objlib.asset.id > 0" ng-click="objlib.asset = null"><md-icon>close</md-icon></md-button>
                     </div>
                 </div>
 
