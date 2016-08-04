@@ -68,7 +68,7 @@
         var patchAnr = function (anr_id, fields, success, error) {
             var obj_pump = angular.copy(fields);
             obj_pump.anrId = anr_id;
-            self.AnrResource.update(obj_pump, success, error);
+            self.AnrResource.patch(obj_pump, success, error);
         };
 
         // Object library

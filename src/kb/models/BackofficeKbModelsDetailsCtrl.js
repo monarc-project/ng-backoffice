@@ -65,7 +65,6 @@
         };
 
         $scope.libTreeCallbacks = {
-
             accept: function (sourceNodeScope, destNodeScope, destIndex) {
                 return sourceNodeScope.$id == destNodeScope.$id;
             },
@@ -232,21 +231,19 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', CreateAnrDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'anr', CreateAnrDialogCtrl],
                 templateUrl: '/views/dialogs/create.anr.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
+                locals: {
+                    anr: $scope.model.anr
+                }
             })
-                .then(function (objlib) {
-                    if (objlib) {
-                        ObjlibService.createObjlibNode(objlib,
-                            function () {
-                                $scope.updateObjlib();
-                                toastr.success(gettext('The component has been created successfully.'), gettext('Creation successful'));
-                            }
-                        );
-                    }
+                .then(function (anr) {
+                    AnrService.patchAnr($scope.model.anr.id, anr, function () {
+                        toastr.success(gettext("The risk analysis details have been updated"), gettext("Update successful"));
+                    });
                 });
         };
 
@@ -317,7 +314,7 @@
         };
 
         $scope.create = function () {
-            $mdDialog.hide($scope.category);
+            $mdDialog.hide($scope.anr);
         };
     }
 
