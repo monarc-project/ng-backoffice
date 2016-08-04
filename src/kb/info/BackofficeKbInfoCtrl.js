@@ -5,6 +5,7 @@
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
+            '$timeout',
             BackofficeKbInfoCtrl
         ]);
 
@@ -13,7 +14,7 @@
      */
     function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
-                                  $state) {
+                                  $state, $timeout) {
         $scope.tab = $stateParams.tab;
         $scope.gettext = gettext;
         TableHelperService.resetBookmarks();
@@ -189,18 +190,29 @@
         };
 
         $scope.deleteAssetMass = function (ev, item) {
+            var count = $scope.assets.selected.length;
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected asset(s)?',
-                    {count: $scope.assets.selected.length}))
+                    {count: count}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
+                var outpromise = null;
+
                 angular.forEach($scope.assets.selected, function (value, key) {
                     AssetService.deleteAsset(value.id,
                         function () {
-                            $scope.updateAssets();
+                            if (outpromise) {
+                                $timeout.cancel(outpromise);
+                            }
+
+                            outpromise = $timeout(function() {
+                                toastr.success(gettextCatalog.getString('{{count}} assets have been deleted.',
+                                    {count: count}), gettext('Deletion successful'));
+                                $scope.updateAssets();
+                            }, 350);
                         }
                     );
                 });
@@ -366,9 +378,12 @@
         };
 
         $scope.deleteThreatMass = function (ev, item) {
+            var outpromise = null;
+            var count = $scope.threats.selected.length;
+
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected threat(s)?',
-                    {count: $scope.threats.selected.length}))
+                    {count: count}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -377,7 +392,15 @@
                 angular.forEach($scope.threats.selected, function (value, key) {
                     ThreatService.deleteThreat(value.id,
                         function () {
-                            $scope.updateThreats();
+                            if (outpromise) {
+                                $timeout.cancel(outpromise);
+                            }
+
+                            outpromise = $timeout(function () {
+                                $scope.updateThreats();
+                                toastr.success(gettextCatalog.getString('{{count}} threats have been deleted.',
+                                    {count: count}), gettext('Deletion successful'));
+                            }, 350);
                         }
                     );
                 });
@@ -507,9 +530,12 @@
         };
 
         $scope.deleteVulnMass = function (ev, item) {
+            var count = $scope.vulns.selected.length;
+            var outpromise = null;
+
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected vulnerabilites?',
-                    {count: $scope.vulns.selected.length}))
+                    {count: count}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -518,7 +544,15 @@
                 angular.forEach($scope.vulns.selected, function (value, key) {
                     VulnService.deleteVuln(value.id,
                         function () {
-                            $scope.updateVulns();
+                            if (outpromise) {
+                                $timeout.cancel(outpromise);
+                            }
+
+                            outpromise = $timeout(function () {
+                                $scope.updateVulns();
+                                toastr.success(gettextCatalog.getString('{{count}} vulnerabilities have been deleted.',
+                                    {count: count}), gettext('Deletion successful'));
+                            }, 350);
                         }
                     );
                 });
@@ -638,9 +672,12 @@
         };
 
         $scope.deleteMeasureMass = function (ev, item) {
+            var outpromise = null;
+            var count = $scope.measures.selected.length;
+
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected measures?',
-                    {count: $scope.measures.selected.length}))
+                    {count: count}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -649,7 +686,16 @@
                 angular.forEach($scope.measures.selected, function (value, key) {
                     MeasureService.deleteMeasure(value.id,
                         function () {
-                            $scope.updateMeasures();
+                            if (outpromise) {
+                                $timeout.cancel(outpromise);
+                            }
+
+                            outpromise = $timeout(function () {
+                                $scope.updateMeasures();
+                                toastr.success(gettextCatalog.getString('{{count}} measures have been deleted.',
+                                    {count: count}), gettext('Deletion successful'));
+                            }, 350)
+
                         }
                     );
                 });
@@ -803,17 +849,19 @@
                 AmvService.deleteAmv(item.id,
                     function () {
                         $scope.updateAmvs();
-                        toastr.success(gettextCatalog.getString('The AMV "{{label}}" has been deleted.',
-                                    {label: item.label}), gettext('Deletion successful'));
+                        toastr.success(gettextCatalog.getString('The AMV link has been deleted.'), gettext('Deletion successful'));
                     }
                 );
             });
         };
 
         $scope.deleteAmvMass = function (ev, item) {
+            var count = $scope.amvs.selected.length;
+            var outpromise = null;
+
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected AMV link(s)?',
-                    {count: $scope.amvs.selected.length}))
+                    {count: count}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -822,7 +870,16 @@
                 angular.forEach($scope.amvs.selected, function (value, key) {
                     AmvService.deleteAmv(value.id,
                         function () {
-                            $scope.updateAmvs();
+                            if (outpromise) {
+                                $timeout.cancel(outpromise);
+                            }
+
+                            outpromise = $timeout(function () {
+                                toastr.success(gettextCatalog.getString('{{ count }} AMV links have been deleted.',
+                                    {count: count}), gettext('Deletion successful'));
+                                $scope.updateAmvs();
+                            }, 350);
+
                         }
                     );
                 });
@@ -1028,9 +1085,12 @@
         };
 
         $scope.deleteObjlibMass = function (ev, item) {
+            var count = $scope.objlibs.selected.length;
+            var outpromise = null;
+
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected object(s)?',
-                    {count: $scope.objlibs.selected.length}))
+                    {count: count}))
                 .textContent(gettext('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettext('Delete'))
@@ -1039,7 +1099,15 @@
                 angular.forEach($scope.objlibs.selected, function (value, key) {
                     ObjlibService.deleteObjlib(value.id,
                         function () {
-                            $scope.updateObjlibs();
+                            if (outpromise) {
+                                $timeout.cancel(outpromise);
+                            }
+
+                            outpromise = $timeout(function () {
+                                toastr.success(gettextCatalog.getString('{{count}} objects have been deleted.',
+                                    {count: count}), gettext('Deletion successful'));
+                                $scope.updateObjlibs();
+                            }, 350);
                         }
                     );
                 });
