@@ -414,9 +414,21 @@
          * VULNS TAB
          */
         $scope.vulns = TableHelperService.build('label1', 10, 1, '');
+        $scope.vulns.activeFilter = 1;
+        var vulnsFilterWatch;
+
 
         $scope.selectVulnsTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'vulns'});
+            var initVulnsFilter = true;
+            vulnsFilterWatch = $scope.$watch('vulns.activeFilter', function() {
+                if (initVulnsFilter) {
+                    initVulnsFilter = false;
+                } else {
+                    $scope.updateVulns();
+                }
+            });
+            
             TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns, $scope.vulns);
         };
 
@@ -425,7 +437,10 @@
         };
 
         $scope.updateVulns = function () {
-            $scope.vulns.promise = VulnService.getVulns($scope.vulns.query);
+            var query = angular.copy($scope.vulns.query);
+            query.status = $scope.vulns.activeFilter;
+
+            $scope.vulns.promise = VulnService.getVulns(query);
             $scope.vulns.promise.then(
                 function (data) {
                     $scope.vulns.items = data;
