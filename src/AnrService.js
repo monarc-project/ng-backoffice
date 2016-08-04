@@ -96,7 +96,7 @@
         };
 
         var moveInstance = function (anr_id, instance_id, parent_id, position, success, error) {
-            self.InstanceResource.patch({instId: instance_id, anrId: anr_id, parent: parent_id, position}, success, error);
+            self.InstanceResource.patch({instId: instance_id, anrId: anr_id, parent: parent_id, position: position}, success, error);
         };
 
         // Scales
