@@ -141,11 +141,7 @@
                     var instance = data.instances[v];
                     $scope.anr_obj_instances_data.push(recurseFillTree(instance));
                 }
-
-                console.log($scope.anr_obj_instances_data);
             });
-
-
 
         };
 

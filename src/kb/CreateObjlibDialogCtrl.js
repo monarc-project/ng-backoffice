@@ -113,7 +113,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService
 
                     output.push(child);
 
-                    if (child.child.length > 0) {
+                    if (child.child && child.child.length > 0) {
                         var child_output = buildItemRecurse(child.child, depth + 1);
                         output = output.concat(child_output);
                     }
