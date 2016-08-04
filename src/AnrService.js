@@ -35,6 +35,9 @@
                 'update': {
                     method: 'PUT'
                 },
+                'patch': {
+                    method: 'PATCH'
+                },
                 'query': {
                     isArray: false
                 }
@@ -92,6 +95,10 @@
             new self.InstanceResource({object: object_id, parent: parent_id, position: position, anrId: anr_id}).$save(success, error);
         };
 
+        var moveInstance = function (anr_id, instance_id, parent_id, position, success, error) {
+            self.InstanceResource.patch({instId: instance_id, anrId: anr_id, parent: parent_id, position}, success, error);
+        };
+
         // Scales
         var getScales = function (anr_id) {
             return self.ScalesResource.query({anrId: anr_id}).$promise;
@@ -124,7 +131,8 @@
             getScaleComments: getScaleComments,
 
             getInstances: getInstances,
-            addInstance: addInstance
+            addInstance: addInstance,
+            moveInstance: moveInstance
         };
     }
 

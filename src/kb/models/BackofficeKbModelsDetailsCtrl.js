@@ -51,14 +51,23 @@
 
         $scope.insTreeCallbacks = {
             dropped: function (e) {
-                return true;
+                if (e.source.nodesScope.$id == e.dest.nodesScope.$id) {
+                    var obj = e.source.nodeScope.$modelValue;
+                    AnrService.moveInstance($scope.model.anr.id, obj.id, e.dest.nodesScope.$parent.$modelValue ? e.dest.nodesScope.$parent.$modelValue.id : 0, e.dest.index, function () {
+                        $scope.updateInstances();
+                    });
+
+                    return true;
+                } else {
+                    return false;
+                }
             }
         };
 
         $scope.libTreeCallbacks = {
 
             accept: function (sourceNodeScope, destNodeScope, destIndex) {
-                return sourceNodeScope.$modelValue.type == 'inst';
+                return sourceNodeScope.$id == destNodeScope.$id;
             },
 
             dropped: function (e) {
