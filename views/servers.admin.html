@@ -1,4 +1,12 @@
 <div flex ng-controller="BackofficeAdminServerCtrl">
+    <div layout="row" layout-align="end center" class="md-padding-right">
+        <md-select aria-label="filter" ng-model="serversFilter.activeFilter" style="font-size: 14px">
+            <md-option value="all">{{ 'Show all' | translate }}</md-option>
+            <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+            <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+        </md-select>
+    </div>
+
     <md-table-container flex>
         <table md-table>
             <thead md-head>

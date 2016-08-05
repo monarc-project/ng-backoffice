@@ -13,9 +13,20 @@
     function BackofficeAdminServerCtrl($scope, $state, toastr, $mdMedia, $mdDialog, gettextCatalog, gettext,
                                        AdminServerService) {
         $scope.servers = {};
+        $scope.serversFilter = {};
+
+        $scope.serversFilter.activeFilter = 1;
+        var initServersFilter = true;
+        $scope.$watch('serversFilter.activeFilter', function() {
+            if (initServersFilter) {
+                initServersFilter = false;
+            } else {
+                $scope.updateServers();
+            }
+        });
 
         $scope.updateServers = function () {
-            AdminServerService.getServers().then(
+            AdminServerService.getServers({status: $scope.serversFilter.activeFilter}).then(
                 function (data) {
                     $scope.servers = data;
                 }
