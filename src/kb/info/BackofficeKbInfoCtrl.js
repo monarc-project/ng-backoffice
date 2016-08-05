@@ -581,9 +581,20 @@
          * 27002 MEASURES TAB
          */
         $scope.measures = TableHelperService.build('description1', 10, 1, '');
+        $scope.measures.activeFilter = 1;
+        var measuresFilterWatch;
 
         $scope.selectMeasuresTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'measures'});
+            var initMeasuresFilter = true;
+            initMeasuresFilter = $scope.$watch('measures.activeFilter', function() {
+                if (initMeasuresFilter) {
+                    initMeasuresFilter = false;
+                } else {
+                    $scope.updateMeasures();
+                }
+            });
+
             TableHelperService.watchSearch($scope, 'measures.query.filter', $scope.measures.query, $scope.updateMeasures, $scope.measures);
         };
 
@@ -592,7 +603,10 @@
         };
 
         $scope.updateMeasures = function () {
-            $scope.measures.promise = MeasureService.getMeasures($scope.measures.query);
+            var query = angular.copy($scope.measures.query);
+            query.status = $scope.measures.activeFilter;
+
+            $scope.measures.promise = MeasureService.getMeasures(query);
             $scope.measures.promise.then(
                 function (data) {
                     $scope.measures.items = data;
@@ -724,9 +738,20 @@
          * AMVS TAB
          */
         $scope.amvs = TableHelperService.build('status', 10, 1, '');
+        $scope.amvs.activeFilter = 1;
+        var amvsFilterWatch;
 
         $scope.selectAmvsTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'amvs'});
+            var initAmvsFilter = true;
+            initAmvsFilter = $scope.$watch('amvs.activeFilter', function() {
+                if (initAmvsFilter) {
+                    initAmvsFilter = false;
+                } else {
+                    $scope.updateAmvs();
+                }
+            });
+
             TableHelperService.watchSearch($scope, 'amvs.query.filter', $scope.amvs.query, $scope.updateAmvs, $scope.amvs);
         };
 
@@ -735,7 +760,10 @@
         };
 
         $scope.updateAmvs = function () {
-            $scope.amvs.promise = AmvService.getAmvs($scope.amvs.query);
+            var query = angular.copy($scope.amvs.query);
+            query.status = $scope.amvs.activeFilter;
+
+            $scope.amvs.promise = AmvService.getAmvs(query);
             $scope.amvs.promise.then(
                 function (data) {
                     $scope.amvs.items = data;
