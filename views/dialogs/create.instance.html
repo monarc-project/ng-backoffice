@@ -1,0 +1,32 @@
+<md-dialog style="min-width: 900px;" ng-cloak>
+    <form name="measureForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 ng-if="!instance.id" translate>Add a new instance</h2>
+                <h2 ng-if="instance.id" translate>Update instance "{{instance.label1}}" details</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout="row">
+                    <div layout="column">
+
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button ng-click="create()" ng-disabled="measureForm.$error.required" class="md-accent md-hue-3">
+                {{ (measure.id > 0 ? 'Update' : 'Create') | translate }}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

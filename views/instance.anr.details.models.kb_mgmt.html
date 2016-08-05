@@ -1,12 +1,12 @@
 <div class="md-padding" ng-cloak layout="column" ng-controller="BackofficeAnrObjectInstanceCtrl">
     <div layout="row" layout-align="space-around start">
-        <div flex="20" ng-if="object">
+        <div flex="20" ng-if="instance">
             <h2>{{ object.name1 }}</h2>
 
             <p>{{ object.label1 }}</p>
         </div>
 
-        <div flex="20" ng-if="!object">
+        <div flex="20" ng-if="!instance">
             <md-progress-circular md-indeterminate="true"></md-progress-circular>
         </div>
 
@@ -160,11 +160,6 @@
                                 <md-option value="3">3</md-option>
                             </md-select>
                         </md-input-container>
-
-                        <p class="bold" translate>List of recommendations:</p>
-                        <ul>
-                            <li><strong>#HALO</strong> &gt; test</li>
-                        </ul>
 
                         <div layout="row" layout-align="end center">
                             <md-button class="md-raised md-primary">{{ 'Save changes' | translate }}</md-button>

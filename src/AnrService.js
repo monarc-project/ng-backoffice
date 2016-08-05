@@ -91,6 +91,10 @@
             return self.InstanceResource.query({anrId: anr_id}).$promise;
         };
 
+        var getInstance = function (anr_id, instance_id) {
+            return self.InstanceResource.query({anrId: anr_id, instId: instance_id}).$promise;
+        };
+
         var addInstance = function (anr_id, object_id, parent_id, position, success, error) {
             new self.InstanceResource({object: object_id, parent: parent_id, position: position, anrId: anr_id}).$save(success, error);
         };
@@ -131,6 +135,7 @@
             getScaleComments: getScaleComments,
 
             getInstances: getInstances,
+            getInstance: getInstance,
             addInstance: addInstance,
             moveInstance: moveInstance
         };
