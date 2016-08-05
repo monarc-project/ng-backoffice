@@ -161,7 +161,7 @@
 
 
 <script type="text/ng-template" id="tree_node_renderer.html">
-    <div ui-tree-handle>
+    <div ui-tree-handle layout="row" layout-align="start center">
         <md-button class="md-icon-button" ng-click="toggle(this)" ng-if="node.type == 'libcat' || node.__children__.length > 0" ng-disabled="node.__children__.length == 0" data-nodrag>
             <md-icon>{{ (collapsed || node.__children__.length == 0) ? 'expand_less' : 'expand_more' }}</md-icon>
         </md-button>
@@ -174,7 +174,7 @@
             <md-icon>class</md-icon>
         </md-button>
 
-        {{ node.label1 }}
+        <p ng-class="{'bold': node.type == 'inst' && node.id == anr_selected_instance_id}">{{ node.label1 }}</p>
     </div>
 
     <ol class="no-list-style" ui-tree-nodes="" ng-model="node.__children__" ng-show="!collapsed">

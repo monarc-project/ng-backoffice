@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeAnrObjectInstanceCtrl', [
             '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ModelService', 'ObjlibService', '$stateParams', 'AnrService',
+            'ModelService', 'ObjlibService', '$stateParams', 'AnrService', '$rootScope',
             BackofficeAnrObjectInstanceCtrl
         ]);
 
@@ -12,9 +12,12 @@
      * BO > KB > MODELS > MODEL DETAILS > OBJECT INSTANCE
      */
     function BackofficeAnrObjectInstanceCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog,
-                                           TableHelperService, ModelService, ObjlibService, $stateParams, AnrService) {
+                                            TableHelperService, ModelService, ObjlibService, $stateParams, AnrService,
+                                            $rootScope) {
 
         $scope.instance = {};
+
+        $rootScope.anr_selected_instance_id = $stateParams.instId;
 
         AnrService.getInstance($scope.model.anr.id, $stateParams.instId).then(function (data) {
             $scope.instance = data;

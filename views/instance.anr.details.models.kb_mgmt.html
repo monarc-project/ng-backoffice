@@ -167,7 +167,11 @@
                     </form>
                 </div>
 
-                <table class="md-html-table" ng-if="!sheet_id">
+                <div ng-if="!instance.risks || !instance.risks.length" class="md-padding">
+                    <em>{{ 'There is no AMV link for this instance, so the risks table is empty.' | translate }}</em>
+                </div>
+
+                <table class="md-html-table" ng-if="!sheet_id && instance.risks.length > 0">
                     <thead>
                     <tr>
                         <th colspan="3"><p translate>Impact</p></th>
@@ -192,20 +196,23 @@
                     </thead>
 
                     <tbody>
-                    <tr>
-                        <td>-1</td>
-                        <td>-1</td>
-                        <td>-1</td>
-                        <td>Récupération de supports recyclés ou mis au rebut</td>
+                    <tr ng-repeat="risk in instance.risks">
+                        <td>{{risk.c_impact}}</td>
+                        <td>{{risk.i_impact}}</td>
+                        <td>{{risk.d_impact}}</td>
+                        <td>{{risk.threatDescription}}</td>
+                        <td inline-edit="risk.threatRate" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></td>
+                        <td>{{risk.vulnDescription}}</td>
+                        <td inline-edit="risk.vulnerabilityRate" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></td>
+                        <td ng-disabled="!risk.c_risk_enabled" class="tbl-risk-calc"
+                            ng-class="{'green': risk.c_risk > 0 && risk.c_risk < scales.thresholds.min, 'orange': risk.c_risk >= scales.thresholds.min && risk.c_risk < scales.thresholds.max, 'red': risk.c_risk >= scales.thresholds.max}">{{risk.c_risk}}</td>
+                        <td ng-disabled="!risk.i_risk_enabled" class="tbl-risk-calc"
+                            ng-class="{'green': risk.i_risk > 0 && risk.i_risk < scales.thresholds.min, 'orange': risk.i_risk >= scales.thresholds.min && risk.i_risk < scales.thresholds.max, 'red': risk.i_risk >= scales.thresholds.max}">{{risk.i_risk}}</td>
+                        <td ng-disabled="!risk.d_risk_enabled" class="tbl-risk-calc"
+                            ng-class="{'green': risk.d_risk > 0 && risk.d_risk < scales.thresholds.min, 'orange': risk.d_risk >= scales.thresholds.min && risk.d_risk < scales.thresholds.max, 'red': risk.d_risk >= scales.thresholds.max}">{{risk.d_risk}}</td>
+                        <td inline-edit="risk.comment" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-placeholder="{{ 'Click to type...' | translate }}" inline-edit-on-click></td>
                         <td>-</td>
-                        <td>La mise au rebut n'est pas correctement assurée</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>{{risk.target}}</td>
                         <td><md-button class="md-icon-button" ng-click="openRiskSheet()"><md-icon>open_in_new</md-icon></md-button></td>
                     </tr>
                     </tbody>

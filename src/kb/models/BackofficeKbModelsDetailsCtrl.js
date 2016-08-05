@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbModelsDetailsCtrl', [
             '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'ModelService', 'ObjlibService', 'AnrService', '$stateParams',
+            'ModelService', 'ObjlibService', 'AnrService', '$stateParams', '$rootScope',
             BackofficeKbModelsDetailsCtrl
         ]);
 
@@ -12,7 +12,8 @@
      * BO > KB > MODELS > MODEL DETAILS (ANR)
      */
     function BackofficeKbModelsDetailsCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog,
-                                           TableHelperService, ModelService, ObjlibService, AnrService, $stateParams) {
+                                           TableHelperService, ModelService, ObjlibService, AnrService, $stateParams,
+                                           $rootScope) {
         var self = this;
 
         ModelService.getModel($stateParams.modelId).then(function (data) {
@@ -27,6 +28,10 @@
         // Tree
         $scope.anr_obj_instances_data = [];
         $scope.anr_obj_library_data = [];
+
+        // As our controller are static in this zone, we must go through the rootScope to update the selected instance
+        // ID from the child controller (BackofficeAnrObjectInstanceCtrl)
+        $rootScope.anr_selected_instance_id = $stateParams.instId;
 
         $scope.filter = {
             instance: '',
