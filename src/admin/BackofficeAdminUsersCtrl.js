@@ -17,13 +17,27 @@
         $scope.myself = UserService.getUserId();
 
         $scope.users = TableHelperService.build('-firstname', 25, 1, '');
+        $scope.users.activeFilter = 1;
+        var initUsersFilter = true;
+        $scope.$watch('users.activeFilter', function() {
+            if (initUsersFilter) {
+                initUsersFilter = false;
+            } else {
+                $scope.updateUsers();
+            }
+        });
+
+
 
         $scope.removeFilter = function () {
             TableHelperService.removeFilter($scope.users);
         };
 
         $scope.updateUsers = function () {
-            $scope.users.promise = AdminUsersService.getUsers($scope.users.query);
+            var query = angular.copy($scope.users.query);
+            query.status = $scope.users.activeFilter;
+
+            $scope.users.promise = AdminUsersService.getUsers(query);
             $scope.users.promise.then(
                 function (data) {
                     $scope.users.items = data;
