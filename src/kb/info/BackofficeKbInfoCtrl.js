@@ -654,7 +654,8 @@
                     MeasureService.createMeasure(measure,
                         function () {
                             $scope.updateMeasures();
-                            toastr.success(gettext('The measure has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The measure "{{measureLabel}}" has been created successfully.',
+                                {measureLabel: measure.description1}), gettext('Creation successful'));
                         },
 
                         function (err) {
@@ -682,7 +683,8 @@
                         MeasureService.updateMeasure(measure,
                             function () {
                                 $scope.updateMeasures();
-                                toastr.success(gettext('The measure has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The measure "{{measureLabel}}" has been updated successfully.',
+                                    {measureLabel: measure.description1}), gettext('Update successful'));
                             },
 
                             function () {
