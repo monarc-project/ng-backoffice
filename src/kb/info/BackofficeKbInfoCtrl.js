@@ -307,9 +307,11 @@
 
                             if (threat.mode == 0 && threat.models && threat.models.length > 0) {
                                 // If we create a generic threat, but we still have specific models, we should warn
-                                toastr.warning(gettext('The threat has been created successfully, however without models, the element may not be specific.'));
+                                toastr.warning(gettextCatalog.getString('The threat "{{threatLabel}}" has been created successfully, however without models, the element may not be specific.',
+                                    {threatLabel: threat.label1}));
                             } else {
-                                toastr.success(gettext('The threat has been created successfully.'), gettext('Creation successful'));
+                                toastr.success(gettextCatalog.getString('The threat "{{threatLabel}}" has been created successfully.',
+                                    {threatLabel: threat.label1}), gettext('Creation successful'));
                             }
                         },
 
@@ -347,9 +349,11 @@
 
                                 if (threat.mode == 0 && threat.models && threat.models.length > 0) {
                                     // If we create a generic threat, but we still have specific models, we should warn
-                                    toastr.warning(gettext('The threat has been updated successfully, however without models, the element may not be specific.'));
+                                    toastr.warning(gettextCatalog.getString('The threat "{{threatLabel}}" has been updated successfully, however without models, the element may not be specific.',
+                                        {threatLabel: threat.label1}));
                                 } else {
-                                    toastr.success(gettext('The threat has been updated successfully.'), gettext('Update successful'));
+                                    toastr.success(gettextCatalog.getString('The threat "{{threatLabel}}" has been updated successfully.',
+                                        {threatLabel: threat.label1}), gettext('Update successful'));
                                 }
                             },
 
