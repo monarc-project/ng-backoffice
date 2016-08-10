@@ -25,7 +25,10 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Label</label>
                     <md-icon>label</md-icon>
-                    <input ng-model="threat['label' + language ]" required>
+                    <input ng-model="threat['label' + language ]" name="label" required>
+                    <div ng-messages="threatForm.label.$error">
+                        <div ng-message="required">{{ 'The label may not be empty' | translate }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
