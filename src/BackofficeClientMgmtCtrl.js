@@ -68,7 +68,8 @@
                         ClientService.updateClient(client,
                             function () {
                                 $scope.updateClients();
-                                toastr.success(gettext('The client information has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The client "{{clientName}}" information has been updated successfully.',
+                                    {clientName: client.name}), gettext('Update successful'));
                             }
                         );
                     });
@@ -94,7 +95,7 @@
             });
         };
 
-        $scope.deleteClientMass = function (ev, item) {
+        $scope.deleteClientMass = function (ev) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected client(s)?',
                     {count: $scope.clients.selected.length}))
@@ -104,13 +105,12 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.clients.selected, function (value, key) {
-                    ClientService.deleteClient(value.id,
-                        function () {
-                            $scope.updateClients();
-                        }
-                    );
+                    ClientService.deleteClient(value.id);
                 });
 
+                $scope.updateClients();
+                toastr.success(gettextCatalog.getString('{{count}} clients have been deleted.',
+                    {count: $scope.clients.selected.length}), gettext('Deletion successful'));
                 $scope.clients.selected = [];
 
             }, function() {
