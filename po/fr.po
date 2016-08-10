@@ -243,7 +243,7 @@ msgstr "Voulez-vous réellement supprimer la catégorie \"{{ label }}\" ?"
 msgid "Are you sure you want to delete item \"{{ label }}\"?"
 msgstr ""
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:694
+#: src/kb/info/BackofficeKbInfoCtrl.js:698
 msgid "Are you sure you want to delete measure \"{{ label }}\"?"
 msgstr "Voulez-vous réellement supprimer la mesure \"{{ label }}\" ?"
 
@@ -251,7 +251,7 @@ msgstr "Voulez-vous réellement supprimer la mesure \"{{ label }}\" ?"
 msgid "Are you sure you want to delete model \"{{ label }}\"?"
 msgstr "Voulez-vous réellement supprimer le modèle \"{{ label }}\" ?"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:1121
+#: src/kb/info/BackofficeKbInfoCtrl.js:1125
 msgid "Are you sure you want to delete object \"{{ label }}\"?"
 msgstr "Voulez-vous réellement supprimer l'objet \"{{ label }}\" ?"
 
@@ -267,7 +267,7 @@ msgstr "Voulez-vous réellement supprimer le tag \"{{ label }}\" ?"
 msgid "Are you sure you want to delete the document \"{{ label }}\"?"
 msgstr ""
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:914
+#: src/kb/info/BackofficeKbInfoCtrl.js:918
 msgid "Are you sure you want to delete the {{count}} selected AMV link(s)?"
 msgstr ""
 "Voulez-vous réellement supprimer les {{ count }} liens AMV sélectionnés ?"
@@ -286,7 +286,7 @@ msgid "Are you sure you want to delete the {{count}} selected client(s)?"
 msgstr ""
 "Voulez-vous réellement supprimer les {{ count }} clients sélectionnés ?"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:716
+#: src/kb/info/BackofficeKbInfoCtrl.js:720
 msgid "Are you sure you want to delete the {{count}} selected measures?"
 msgstr ""
 "Voulez-vous réellement supprimer les {{ count }} mesures sélectionnées ?"
@@ -296,7 +296,7 @@ msgid "Are you sure you want to delete the {{count}} selected model(s)?"
 msgstr ""
 "Voulez-vous réellement supprimer les {{ count }} modèles sélectionnés ?"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:1143
+#: src/kb/info/BackofficeKbInfoCtrl.js:1147
 msgid "Are you sure you want to delete the {{count}} selected object(s)?"
 msgstr "Voulez-vous réellement supprimer les {{ count }} objets sélectionnés ?"
 
@@ -314,13 +314,13 @@ msgid "Are you sure you want to delete the {{count}} selected threat(s)?"
 msgstr ""
 "Voulez-vous réellement supprimer les {{ count }} menaces sélectionnées ?"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:560
+#: src/kb/info/BackofficeKbInfoCtrl.js:564
 msgid "Are you sure you want to delete the {{count}} selected vulnerabilites?"
 msgstr ""
 "Voulez-vous réellement supprimer les {{ count }} vulnérabilités "
 "sélectionnées ?"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:894
+#: src/kb/info/BackofficeKbInfoCtrl.js:898
 msgid "Are you sure you want to delete this AMV link?"
 msgstr "Voulez-vous réellement supprimer ce lien AMV ?"
 
@@ -328,7 +328,7 @@ msgstr "Voulez-vous réellement supprimer ce lien AMV ?"
 msgid "Are you sure you want to delete threat \"{{ label }}\"?"
 msgstr "Voulez-vous réellement supprimer la menace \"{{ label }}\" ?"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:538
+#: src/kb/info/BackofficeKbInfoCtrl.js:542
 msgid "Are you sure you want to delete vulnerability \"{{ label }}\"?"
 msgstr "Voulez-vous réellement supprimer la vulnérabilité \"{{ label }}\" ?"
 
@@ -384,18 +384,18 @@ msgstr "Calcul du risque / Seuils - Risques opérationnels"
 #: src/admin/BackofficeAdminUsersCtrl.js:107
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:83
 #: src/kb/BackofficeDocModelsCtrl.js:68
-#: src/kb/info/BackofficeKbInfoCtrl.js:1126
-#: src/kb/info/BackofficeKbInfoCtrl.js:1148
+#: src/kb/info/BackofficeKbInfoCtrl.js:1130
+#: src/kb/info/BackofficeKbInfoCtrl.js:1152
 #: src/kb/info/BackofficeKbInfoCtrl.js:184
 #: src/kb/info/BackofficeKbInfoCtrl.js:204
 #: src/kb/info/BackofficeKbInfoCtrl.js:376
 #: src/kb/info/BackofficeKbInfoCtrl.js:398
-#: src/kb/info/BackofficeKbInfoCtrl.js:543
-#: src/kb/info/BackofficeKbInfoCtrl.js:565
-#: src/kb/info/BackofficeKbInfoCtrl.js:699
-#: src/kb/info/BackofficeKbInfoCtrl.js:721
-#: src/kb/info/BackofficeKbInfoCtrl.js:898
-#: src/kb/info/BackofficeKbInfoCtrl.js:919
+#: src/kb/info/BackofficeKbInfoCtrl.js:547
+#: src/kb/info/BackofficeKbInfoCtrl.js:569
+#: src/kb/info/BackofficeKbInfoCtrl.js:703
+#: src/kb/info/BackofficeKbInfoCtrl.js:725
+#: src/kb/info/BackofficeKbInfoCtrl.js:902
+#: src/kb/info/BackofficeKbInfoCtrl.js:923
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:161
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:62
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:82
@@ -572,12 +572,12 @@ msgstr "Créer ce thème"
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:40
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:44
 #: src/kb/BackofficeDocModelsCtrl.js:38 src/kb/CreateObjlibDialogCtrl.js:66
-#: src/kb/info/BackofficeKbInfoCtrl.js:1097
+#: src/kb/info/BackofficeKbInfoCtrl.js:1101
 #: src/kb/info/BackofficeKbInfoCtrl.js:129
 #: src/kb/info/BackofficeKbInfoCtrl.js:314
-#: src/kb/info/BackofficeKbInfoCtrl.js:490
-#: src/kb/info/BackofficeKbInfoCtrl.js:653
-#: src/kb/info/BackofficeKbInfoCtrl.js:832
+#: src/kb/info/BackofficeKbInfoCtrl.js:492
+#: src/kb/info/BackofficeKbInfoCtrl.js:657
+#: src/kb/info/BackofficeKbInfoCtrl.js:836
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:136
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:197
 #: src/kb/models/BackofficeKbModelsCtrl.js:51
@@ -616,18 +616,18 @@ msgstr "Modèle par défaut"
 #: src/admin/BackofficeAdminUsersCtrl.js:106
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:82
 #: src/kb/BackofficeDocModelsCtrl.js:67
-#: src/kb/info/BackofficeKbInfoCtrl.js:1125
-#: src/kb/info/BackofficeKbInfoCtrl.js:1147
+#: src/kb/info/BackofficeKbInfoCtrl.js:1129
+#: src/kb/info/BackofficeKbInfoCtrl.js:1151
 #: src/kb/info/BackofficeKbInfoCtrl.js:183
 #: src/kb/info/BackofficeKbInfoCtrl.js:203
 #: src/kb/info/BackofficeKbInfoCtrl.js:375
 #: src/kb/info/BackofficeKbInfoCtrl.js:397
-#: src/kb/info/BackofficeKbInfoCtrl.js:542
-#: src/kb/info/BackofficeKbInfoCtrl.js:564
-#: src/kb/info/BackofficeKbInfoCtrl.js:698
-#: src/kb/info/BackofficeKbInfoCtrl.js:720
-#: src/kb/info/BackofficeKbInfoCtrl.js:897
-#: src/kb/info/BackofficeKbInfoCtrl.js:918
+#: src/kb/info/BackofficeKbInfoCtrl.js:546
+#: src/kb/info/BackofficeKbInfoCtrl.js:568
+#: src/kb/info/BackofficeKbInfoCtrl.js:702
+#: src/kb/info/BackofficeKbInfoCtrl.js:724
+#: src/kb/info/BackofficeKbInfoCtrl.js:901
+#: src/kb/info/BackofficeKbInfoCtrl.js:922
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:81
 #: src/kb/models/BackofficeKbModelsCtrl.js:115
 #: src/kb/models/BackofficeKbModelsCtrl.js:96
@@ -659,18 +659,18 @@ msgstr "Supprimer cet objet ?"
 #: src/admin/BackofficeAdminUsersCtrl.js:113
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:89
 #: src/kb/BackofficeDocModelsCtrl.js:74
-#: src/kb/info/BackofficeKbInfoCtrl.js:1132
-#: src/kb/info/BackofficeKbInfoCtrl.js:1159
+#: src/kb/info/BackofficeKbInfoCtrl.js:1136
+#: src/kb/info/BackofficeKbInfoCtrl.js:1163
 #: src/kb/info/BackofficeKbInfoCtrl.js:190
 #: src/kb/info/BackofficeKbInfoCtrl.js:217
 #: src/kb/info/BackofficeKbInfoCtrl.js:382
 #: src/kb/info/BackofficeKbInfoCtrl.js:410
-#: src/kb/info/BackofficeKbInfoCtrl.js:549
-#: src/kb/info/BackofficeKbInfoCtrl.js:577
-#: src/kb/info/BackofficeKbInfoCtrl.js:705
-#: src/kb/info/BackofficeKbInfoCtrl.js:733
-#: src/kb/info/BackofficeKbInfoCtrl.js:903
-#: src/kb/info/BackofficeKbInfoCtrl.js:930
+#: src/kb/info/BackofficeKbInfoCtrl.js:553
+#: src/kb/info/BackofficeKbInfoCtrl.js:581
+#: src/kb/info/BackofficeKbInfoCtrl.js:709
+#: src/kb/info/BackofficeKbInfoCtrl.js:737
+#: src/kb/info/BackofficeKbInfoCtrl.js:907
+#: src/kb/info/BackofficeKbInfoCtrl.js:934
 #: src/kb/models/BackofficeKbModelsCtrl.js:103
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:133
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:258
@@ -876,7 +876,7 @@ msgstr "Informations générales"
 msgid "Generic"
 msgstr "Générique"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:975 views/dialogs/create.objlibs.html:44
+#: src/kb/info/BackofficeKbInfoCtrl.js:979 views/dialogs/create.objlibs.html:44
 msgid "Global"
 msgstr "Global"
 
@@ -957,7 +957,7 @@ msgstr "Eléments"
 msgid "KB management"
 msgstr "Gestion BDC"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:964
+#: src/kb/info/BackofficeKbInfoCtrl.js:968
 msgid "Knowledge base"
 msgstr ""
 
@@ -1000,7 +1000,7 @@ msgstr "Nom"
 msgid "Legal"
 msgstr "Légal"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:974 views/dialogs/create.objlibs.html:43
+#: src/kb/info/BackofficeKbInfoCtrl.js:978 views/dialogs/create.objlibs.html:43
 msgid "Local"
 msgstr "Local"
 
@@ -1466,7 +1466,7 @@ msgstr "Réinitialiser le mot de passe"
 msgid "Risk"
 msgstr "Risque"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:966 views/details.models.kb_mgmt.html:11
+#: src/kb/info/BackofficeKbInfoCtrl.js:970 views/details.models.kb_mgmt.html:11
 #: views/details.models.kb_mgmt.html:16
 msgid "Risk analysis"
 msgstr "Analyse de risques"
@@ -1636,15 +1636,15 @@ msgstr "Tags"
 msgid "Target risk"
 msgstr "Risque cible"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:832
+#: src/kb/info/BackofficeKbInfoCtrl.js:836
 msgid "The AMV has been created successfully."
 msgstr "Le lien AMV a été créé avec succès."
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:881
+#: src/kb/info/BackofficeKbInfoCtrl.js:885
 msgid "The AMV has been updated successfully."
 msgstr "Le lien AMV a été mis à jour avec succès."
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:903
+#: src/kb/info/BackofficeKbInfoCtrl.js:907
 msgid "The AMV link has been deleted."
 msgstr ""
 
@@ -1760,15 +1760,15 @@ msgstr ""
 msgid "The item has been updated successfully."
 msgstr ""
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:704
+#: src/kb/info/BackofficeKbInfoCtrl.js:708
 msgid "The measure \"{{label}}\" has been deleted."
 msgstr "La mesure \"{{label}}\" a été supprimée."
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:653
+#: src/kb/info/BackofficeKbInfoCtrl.js:657
 msgid "The measure has been created successfully."
 msgstr "La mesure a été créée avec succès."
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:681
+#: src/kb/info/BackofficeKbInfoCtrl.js:685
 msgid "The measure has been updated successfully."
 msgstr "La mesure a été mise à jour avec succès."
 
@@ -1788,11 +1788,11 @@ msgstr "Le modèle a été mis à jour avec succès."
 msgid "The name may not be empty"
 msgstr "Le nom ne peut pas être vite"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:1131
+#: src/kb/info/BackofficeKbInfoCtrl.js:1135
 msgid "The object \"{{label}}\" has been deleted."
 msgstr "L'objet \"{{label}}\" a été supprimé."
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:1097
+#: src/kb/info/BackofficeKbInfoCtrl.js:1101
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:136
 msgid "The object has been created successfully."
 msgstr "L'objet a été créé avec succès."
@@ -1805,7 +1805,7 @@ msgstr ""
 msgid "The object has been exported successfully."
 msgstr ""
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:1086
+#: src/kb/info/BackofficeKbInfoCtrl.js:1090
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:129
 msgid "The object has been updated successfully."
 msgstr "L'objet a été mis à jour avec succès."
@@ -1914,29 +1914,29 @@ msgstr "L'utilisateur a été créé avec succès."
 msgid "The user information has been updated successfully."
 msgstr "Les informations de l'utilisateur ont été mises à jour avec succès."
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:548
+#: src/kb/info/BackofficeKbInfoCtrl.js:552
 msgid "The vulnerability \"{{label}}\" has been deleted."
 msgstr "La vulnérabilité \"{{ label }}\" a été supprimée."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:488
 msgid ""
-"The vulnerability has been created successfully, however without models, the "
-"element may not be specific."
+"The vulnerability \"{{vulnLabel}}\" has been created successfully, however "
+"without models, the element may not be specific."
 msgstr ""
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:490
-msgid "The vulnerability has been created successfully."
-msgstr "La vulnérabilité a été créée avec succès."
-
-#: src/kb/info/BackofficeKbInfoCtrl.js:522
-msgid ""
-"The vulnerability has been updated successfully, however without models, the "
-"element may not be specific."
+#: src/kb/info/BackofficeKbInfoCtrl.js:491
+msgid "The vulnerability \"{{vulnLabel}}\" has been created successfully."
 msgstr ""
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:524
-msgid "The vulnerability has been updated successfully."
-msgstr "La vulnérabilité a été mise à jour avec succès."
+msgid ""
+"The vulnerability \"{{vulnLabel}}\" has been updated successfully, however "
+"without models, the element may not be specific."
+msgstr ""
+
+#: src/kb/info/BackofficeKbInfoCtrl.js:527
+msgid "The vulnerability \"{{vulnLabel}}\" has been updated successfully."
+msgstr ""
 
 #: views/dialogs/create.threats.html:83
 msgid "Theme"
@@ -1990,18 +1990,18 @@ msgstr ""
 #: src/admin/BackofficeAdminUsersCtrl.js:104
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:80
 #: src/kb/BackofficeDocModelsCtrl.js:65
-#: src/kb/info/BackofficeKbInfoCtrl.js:1123
-#: src/kb/info/BackofficeKbInfoCtrl.js:1145
+#: src/kb/info/BackofficeKbInfoCtrl.js:1127
+#: src/kb/info/BackofficeKbInfoCtrl.js:1149
 #: src/kb/info/BackofficeKbInfoCtrl.js:181
 #: src/kb/info/BackofficeKbInfoCtrl.js:201
 #: src/kb/info/BackofficeKbInfoCtrl.js:373
 #: src/kb/info/BackofficeKbInfoCtrl.js:395
-#: src/kb/info/BackofficeKbInfoCtrl.js:540
-#: src/kb/info/BackofficeKbInfoCtrl.js:562
-#: src/kb/info/BackofficeKbInfoCtrl.js:696
-#: src/kb/info/BackofficeKbInfoCtrl.js:718
-#: src/kb/info/BackofficeKbInfoCtrl.js:895
-#: src/kb/info/BackofficeKbInfoCtrl.js:916
+#: src/kb/info/BackofficeKbInfoCtrl.js:544
+#: src/kb/info/BackofficeKbInfoCtrl.js:566
+#: src/kb/info/BackofficeKbInfoCtrl.js:700
+#: src/kb/info/BackofficeKbInfoCtrl.js:722
+#: src/kb/info/BackofficeKbInfoCtrl.js:899
+#: src/kb/info/BackofficeKbInfoCtrl.js:920
 #: src/kb/models/BackofficeKbModelsCtrl.js:113
 #: src/kb/models/BackofficeKbModelsCtrl.js:94
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:124
@@ -2131,12 +2131,12 @@ msgstr "Mettre à jour les informations du serveur"
 #: src/admin/BackofficeAdminUsersCtrl.js:93
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:69
 #: src/kb/BackofficeDocModelsCtrl.js:57 src/kb/CreateObjlibDialogCtrl.js:90
-#: src/kb/info/BackofficeKbInfoCtrl.js:1086
+#: src/kb/info/BackofficeKbInfoCtrl.js:1090
 #: src/kb/info/BackofficeKbInfoCtrl.js:165
 #: src/kb/info/BackofficeKbInfoCtrl.js:356
-#: src/kb/info/BackofficeKbInfoCtrl.js:524
-#: src/kb/info/BackofficeKbInfoCtrl.js:681
-#: src/kb/info/BackofficeKbInfoCtrl.js:881
+#: src/kb/info/BackofficeKbInfoCtrl.js:528
+#: src/kb/info/BackofficeKbInfoCtrl.js:685
+#: src/kb/info/BackofficeKbInfoCtrl.js:885
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:129
 #: src/kb/models/BackofficeKbModelsCtrl.js:79
 #: src/kb/models/BackofficeKbModelsDetailsCtrl.js:250
@@ -2325,7 +2325,7 @@ msgstr "à la fin"
 msgid "of"
 msgstr "de"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:929
+#: src/kb/info/BackofficeKbInfoCtrl.js:933
 msgid "{{ count }} AMV links have been deleted."
 msgstr ""
 
@@ -2346,11 +2346,11 @@ msgstr ""
 msgid "{{count}} clients have been deleted."
 msgstr "{{count}} clients ont été supprimés."
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:732
+#: src/kb/info/BackofficeKbInfoCtrl.js:736
 msgid "{{count}} measures have been deleted."
 msgstr ""
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:1158
+#: src/kb/info/BackofficeKbInfoCtrl.js:1162
 msgid "{{count}} objects have been deleted."
 msgstr ""
 
@@ -2358,9 +2358,15 @@ msgstr ""
 msgid "{{count}} threats have been deleted."
 msgstr ""
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:576
+#: src/kb/info/BackofficeKbInfoCtrl.js:580
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr ""
+
+#~ msgid "The vulnerability has been created successfully."
+#~ msgstr "La vulnérabilité a été créée avec succès."
+
+#~ msgid "The vulnerability has been updated successfully."
+#~ msgstr "La vulnérabilité a été mise à jour avec succès."
 
 #~ msgid "The threat has been updated successfully."
 #~ msgstr "La menace a été mise à jour avec succès."

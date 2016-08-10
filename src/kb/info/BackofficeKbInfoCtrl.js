@@ -485,9 +485,11 @@
 
                             if (vuln.mode == 0 && vuln.models && vuln.models.length > 0) {
                                 // If we create a generic vulnerability, but we still have specific models, we should warn
-                                toastr.warning(gettext('The vulnerability has been created successfully, however without models, the element may not be specific.'));
+                                toastr.warning(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been created successfully, however without models, the element may not be specific.',
+                                    {vulnLabel: vuln.label1}));
                             } else {
-                                toastr.success(gettext('The vulnerability has been created successfully.'), gettext('Creation successful'));
+                                toastr.success(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been created successfully.',
+                                    {vulnLabel: vuln.label1}), gettext('Creation successful'));
                             }
                         },
 
@@ -519,9 +521,11 @@
 
                                 if (vuln.mode == 0 && vuln.models && vuln.models.length > 0) {
                                     // If we create a generic vulnerability, but we still have specific models, we should warn
-                                    toastr.warning(gettext('The vulnerability has been updated successfully, however without models, the element may not be specific.'));
+                                    toastr.warning(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been updated successfully, however without models, the element may not be specific.',
+                                        {vulnLabel: vuln.label1}));
                                 } else {
-                                    toastr.success(gettext('The vulnerability has been updated successfully.'), gettext('Update successful'));
+                                    toastr.success(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been updated successfully.',
+                                        {vulnLabel: vuln.label1}), gettext('Update successful'));
                                 }
                             },
 
