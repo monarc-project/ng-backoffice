@@ -122,9 +122,11 @@
 
                             if (asset.mode == 0 && asset.models && asset.models.length > 0) {
                                 // If we create a generic asset, but we still have specific models, we should warn
-                                toastr.warning(gettext('The asset has been created successfully, however without models, the element may not be specific.'));
+                                toastr.warning(gettextCatalog.getString('The asset "{{assetLabel}}" has been created successfully, however without models, the element may not be specific.',
+                                    {assetLabel: asset.label1}));
                             } else {
-                                toastr.success(gettext('The asset has been created successfully.'), gettext('Creation successful'));
+                                toastr.success(gettextCatalog.getString('The asset "{{assetLabel}}" has been created successfully.',
+                                    {assetLabel: asset.label1}), gettext('Creation successful'));
                             }
                         },
 
@@ -156,9 +158,11 @@
 
                                 if (asset.mode == 0 && assets.models && asset.models.length > 0) {
                                     // If we create a generic asset, but we still have specific models, we should warn
-                                    toastr.warning(gettext('The asset has been updated successfully, however without models, the element may not be specific.'));
+                                    toastr.warning(gettextCatalog.getString('The asset "{{assetLabel}}" has been updated successfully, however without models, the element may not be specific.',
+                                        {assetLabel: asset.label1}));
                                 } else {
-                                    toastr.success(gettext('The asset has been updated successfully.'), gettext('Update successful'));
+                                    toastr.success(gettextCatalog.getString('The asset "{{assetLabel}}" has been updated successfully.',
+                                        {assetLabel: asset.label1}), gettext('Update successful'));
                                 }
                             },
 
