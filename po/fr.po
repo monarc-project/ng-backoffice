@@ -219,11 +219,11 @@ msgstr ""
 "Toute modification apportée à ces valeurs s’appliqueront aux instances de "
 "cet objet dans l’analyse des risques."
 
-#: src/BackofficeClientMgmtCtrl.js:80
+#: src/BackofficeClientMgmtCtrl.js:82
 msgid "Are you sure you want to delete \"{{ name }}\"?"
 msgstr "Voulez-vous réellement supprimer \"{{ name }}\" ?"
 
-#: src/BackofficeClientMgmtCtrl.js:99
+#: src/BackofficeClientMgmtCtrl.js:101
 msgid "Are you sure you want to delete the {{count}} selected client(s)?"
 msgstr ""
 "Voulez-vous réellement supprimer les {{ count }} clients sélectionnés ?"
@@ -275,7 +275,7 @@ msgstr "Calcul du risque / Seuils - Risques de l’information"
 msgid "Calculation of risk / Thresholds - Operational Risks"
 msgstr "Calcul du risque / Seuils - Risques opérationnels"
 
-#: src/BackofficeClientMgmtCtrl.js:104 src/BackofficeClientMgmtCtrl.js:84
+#: src/BackofficeClientMgmtCtrl.js:106 src/BackofficeClientMgmtCtrl.js:86
 #: views/dialogs/add.objlib.html:82 views/dialogs/create.amvs.html:161
 #: views/dialogs/create.anr.html:31 views/dialogs/create.assets.html:85
 #: views/dialogs/create.categories.html:43
@@ -433,7 +433,7 @@ msgstr "Créer cette catégorie"
 msgid "Create this theme"
 msgstr "Créer ce thème"
 
-#: src/BackofficeClientMgmtCtrl.js:47
+#: src/BackofficeClientMgmtCtrl.js:48
 msgid "Creation successful"
 msgstr "Création réussie"
 
@@ -461,7 +461,7 @@ msgstr "Date"
 msgid "Default model"
 msgstr "Modèle par défaut"
 
-#: src/BackofficeClientMgmtCtrl.js:103 src/BackofficeClientMgmtCtrl.js:83
+#: src/BackofficeClientMgmtCtrl.js:105 src/BackofficeClientMgmtCtrl.js:85
 #: views/dialogs/create.objlibs.categories.html:93
 msgid "Delete"
 msgstr "Supprimer"
@@ -471,7 +471,7 @@ msgstr "Supprimer"
 msgid "Delete object"
 msgstr "Supprimer l'objet"
 
-#: src/BackofficeClientMgmtCtrl.js:116 src/BackofficeClientMgmtCtrl.js:90
+#: src/BackofficeClientMgmtCtrl.js:114 src/BackofficeClientMgmtCtrl.js:92
 msgid "Deletion successful"
 msgstr "Suppression réussie"
 
@@ -1364,19 +1364,19 @@ msgstr "Tags"
 msgid "Target risk"
 msgstr "Risque cible"
 
-#: src/BackofficeClientMgmtCtrl.js:71
+#: src/BackofficeClientMgmtCtrl.js:47
+msgid "The client \"{{clientName}}\" has been created successfully."
+msgstr "Le client « clientName » a été créé avec succès"
+
+#: src/BackofficeClientMgmtCtrl.js:72
 msgid ""
 "The client \"{{clientName}}\" information has been updated successfully."
 msgstr ""
 "Les informations du client « {{clientName}} » ont bien été mises à jour."
 
-#: src/BackofficeClientMgmtCtrl.js:89
+#: src/BackofficeClientMgmtCtrl.js:91
 msgid "The client \"{{name}}\" has been deleted."
 msgstr "Le client « {{name}} » a été supprimé."
-
-#: src/BackofficeClientMgmtCtrl.js:47
-msgid "The client has been created successfully."
-msgstr "Le client a été créé avec succès."
 
 #: views/dialogs/create.assets.html:53 views/dialogs/create.categories.html:35
 #: views/dialogs/create.measures.html:34 views/dialogs/create.risks.html:41
@@ -1472,7 +1472,7 @@ msgstr ""
 "Cet objet est <string>LOCAL</string>. Toute modification apportée aux champs "
 "suivants seront appliquées à toutes les instances dans l'analyse de risque :"
 
-#: src/BackofficeClientMgmtCtrl.js:101 src/BackofficeClientMgmtCtrl.js:81
+#: src/BackofficeClientMgmtCtrl.js:103 src/BackofficeClientMgmtCtrl.js:83
 msgid "This operation is irreversible."
 msgstr "Cette opération est irréversible."
 
@@ -1586,7 +1586,7 @@ msgstr "Mettre à jour les informations d'un risque"
 msgid "Update server information"
 msgstr "Mettre à jour les informations du serveur"
 
-#: src/BackofficeClientMgmtCtrl.js:71
+#: src/BackofficeClientMgmtCtrl.js:73
 msgid "Update successful"
 msgstr "Mise à jour réussie"
 
@@ -1774,9 +1774,12 @@ msgstr "{{ object.oprisks.length || 0 }} risque(s) opérationnel(s)"
 msgid "{{ object.risks.length }} AMV links"
 msgstr "{{ object.risks.length }} liens AMV"
 
-#: src/BackofficeClientMgmtCtrl.js:115
+#: src/BackofficeClientMgmtCtrl.js:113
 msgid "{{count}} clients have been deleted."
 msgstr "{{count}} clients ont été supprimés."
+
+#~ msgid "The client has been created successfully."
+#~ msgstr "Le client a été créé avec succès."
 
 #~ msgid "List of recommendations:"
 #~ msgstr "Liste des recommandations :"

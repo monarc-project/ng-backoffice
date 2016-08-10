@@ -44,7 +44,8 @@
                     ClientService.createClient(client,
                         function () {
                             $scope.updateClients();
-                            toastr.success(gettext('The client has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The client "{{clientName}}" has been created successfully.',
+                                {clientName: client.name}), gettext('Creation successful'));
                         }
                     );
                 });
