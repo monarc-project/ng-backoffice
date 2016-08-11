@@ -156,7 +156,7 @@
                             function () {
                                 $scope.updateAssets();
 
-                                if (asset.mode == 0 && assets.models && asset.models.length > 0) {
+                                if (asset.mode == 0 && asset.models && asset.models.length > 0) {
                                     // If we create a generic asset, but we still have specific models, we should warn
                                     toastr.warning(gettextCatalog.getString('The asset "{{assetLabel}}" has been updated successfully, however without models, the element may not be specific.',
                                         {assetLabel: asset.label1}));
@@ -835,7 +835,7 @@
                     AmvService.createAmv(amv,
                         function () {
                             $scope.updateAmvs();
-                            toastr.success(gettext('The AMV has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettext('The AMV link has been created successfully.'), gettext('Creation successful'));
                         },
 
                         function () {
@@ -884,7 +884,7 @@
                         AmvService.updateAmv(amv,
                             function () {
                                 $scope.updateAmvs();
-                                toastr.success(gettext('The AMV has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettext('The AMV link has been updated successfully.'), gettext('Update successful'));
                             },
 
                             function () {
