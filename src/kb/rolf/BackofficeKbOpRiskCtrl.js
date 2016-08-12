@@ -378,7 +378,8 @@
                     RiskService.createRisk(risk,
                         function () {
                             $scope.updateRisks();
-                            toastr.success(gettext('The risk has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The risk "{{riskLabel}}" has been created successfully.',
+                                {riskLabel: risk.label1}), gettext('Creation successful'));
                         },
 
                         function () {
@@ -421,7 +422,8 @@
                         RiskService.updateRisk(risk,
                             function () {
                                 $scope.updateRisks();
-                                toastr.success(gettext('The risk has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The risk "{{riskLabel}}" has been updated successfully.',
+                                    {riskLabel: risk.label1}), gettext('Update successful'));
                             },
 
                             function () {
@@ -445,7 +447,7 @@
                     function () {
                         $scope.updateRisks();
                         toastr.success(gettextCatalog.getString('The risk "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettext('Deletion successful'));
+                            {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -461,13 +463,12 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.risks.selected, function (value, key) {
-                    RiskService.deleteRisk(value.id,
-                        function () {
-                            $scope.updateRisks();
-                        }
-                    );
+                    RiskService.deleteRisk(value.id);
                 });
 
+                $scope.updateRisks();
+                toastr.success(gettextCatalog.getString('{{count}} risks have been deleted.',
+                    {count: $scope.risks.selected.length}), gettext('Deletion successful'));
                 $scope.risks.selected = [];
 
             }, function() {
