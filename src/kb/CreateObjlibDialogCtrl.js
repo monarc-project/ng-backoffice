@@ -198,7 +198,7 @@ function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, toastr, gettext, 
         ObjlibService.deleteObjlibCat($scope.category.id, function () {
             $mdDialog.cancel();
             toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been deleted.',
-                {categoryLabel: category.label1}), gettext('Delete successful'));
+                {categoryLabel: category.label1}), gettext('Deletion successful'));
         });
     };
 
