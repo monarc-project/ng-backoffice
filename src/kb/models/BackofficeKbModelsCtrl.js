@@ -48,7 +48,8 @@
                     ModelService.createModel(model,
                         function () {
                             $scope.updateModels();
-                            toastr.success(gettext('The model has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The model "{{modelLabel}}" has been created successfully.',
+                                {modelLabel: model.label1}), gettext('Creation successful'));
                         },
 
                         function () {
@@ -76,7 +77,8 @@
                         ModelService.updateModel(model,
                             function () {
                                 $scope.updateModels();
-                                toastr.success(gettext('The model has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The model "{{modelLabel}}" has been updated successfully.',
+                                    {modelLabel: model.label1}), gettext('Update successful'));
                             },
 
                             function () {
@@ -100,7 +102,7 @@
                     function () {
                         $scope.updateModels();
                         toastr.success(gettextCatalog.getString('The model "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettext('Deletion successful'));
+                            {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -116,13 +118,12 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.models.selected, function (value, key) {
-                    ModelService.deleteModel(value.id,
-                        function () {
-                            $scope.updateModels();
-                        }
-                    );
+                    ModelService.deleteModel(value.id);
                 });
 
+                $scope.updateModels();
+                toastr.success(gettextCatalog.getString('{{count}} models have been deleted.',
+                    {count: $scope.models.selected.length}), gettext('Deletion successful'));
                 $scope.models.selected = [];
 
             }, function() {
