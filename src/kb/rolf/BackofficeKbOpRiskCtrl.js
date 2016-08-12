@@ -132,7 +132,7 @@
                     function () {
                         $scope.updateCategories();
                         toastr.success(gettextCatalog.getString('The category "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettext('Deletion successful'));
+                            {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -204,7 +204,8 @@
                     TagService.createTag(tag,
                         function () {
                             $scope.updateTags();
-                            toastr.success(gettext('The tag has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The tag "{{tagLabel}}" has been created successfully.',
+                                {tagLabel: tag.label1}), gettext('Creation successful'));
                         },
 
                         function () {
@@ -232,7 +233,8 @@
                         TagService.updateTag(tag,
                             function () {
                                 $scope.updateTags();
-                                toastr.success(gettext('The tag has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The tag "{{tagLabel}}" has been updated successfully.',
+                                    {tagLabel: tag.label1}), gettext('Update successful'));
                             },
 
                             function () {
@@ -256,7 +258,7 @@
                     function () {
                         $scope.updateTags();
                         toastr.success(gettextCatalog.getString('The tag "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettext('Deletion successful'));
+                            {label: item.label1}), gettext('Deletion successful'));
                     }
                 );
             });
@@ -272,13 +274,12 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.tags.selected, function (value, key) {
-                    TagService.deleteTag(value.id,
-                        function () {
-                            $scope.updateTags();
-                        }
-                    );
+                    TagService.deleteTag(value.id);
                 });
 
+                $scope.updateTags();
+                toastr.success(gettextCatalog.getString('{{count}} tags have been deleted.',
+                    {count: $scope.tags.selected.length}), gettext('Deletion successful'));
                 $scope.tags.selected = [];
 
             }, function() {
