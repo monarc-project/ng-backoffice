@@ -47,7 +47,8 @@
                     AdminServerService.createServer(server,
                         function () {
                             $scope.updateServers();
-                            toastr.success(gettext('The server has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The server "{{label}}" has been created successfully.',
+                                {label: server.label}), gettext('Creation successful'));
                         }
                     );
                 });
@@ -71,7 +72,8 @@
                         AdminServerService.updateServer(server,
                             function () {
                                 $scope.updateServers();
-                                toastr.success(gettext('The server has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The server "{{label}}" has been updated successfully.',
+                                    {label: server.label}), gettext('Update successful'));
                             }
                         );
                     });
