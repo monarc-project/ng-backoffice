@@ -1,4 +1,4 @@
-function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService, ObjlibService, ConfigService, TagService, $q, mode, objLibDialog, objlib) {
+function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatalog, AssetService, ObjlibService, ConfigService, TagService, $q, mode, objLibDialog, objlib) {
     $scope.mode = mode;
     $scope.languages = ConfigService.getLanguages();
     $scope.language = ConfigService.getDefaultLanguageIndex();
@@ -41,7 +41,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService
 
     $scope.createCategory = function (ev, catName) {
         $mdDialog.show({
-            controller: ['$scope', '$mdDialog', '$q', 'gettext', 'ConfigService', 'ObjlibService', 'catName', CreateObjlibCategoryDialogCtrl],
+            controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettext', 'gettextCatalog', 'ConfigService', 'ObjlibService', 'catName', CreateObjlibCategoryDialogCtrl],
             templateUrl: '/views/dialogs/create.objlibs.categories.html',
             clickOutsideToClose: true,
             locals: {
@@ -63,7 +63,8 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService
                             objLibDialog.editObjlib(null, $scope.objlib);
                         });
 
-                        toastr.success(gettext('The category has been created successfully.'), gettext('Creation successful'));
+                        toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been created successfully.',
+                            {categoryLabel: category.label1}), gettext('Creation successful'));
                     }
                 );
 
@@ -75,7 +76,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService
     $scope.editCategory = function (ev, cat) {
         ObjlibService.getObjlibCat(cat.id).then(function (cat) {
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'gettext', 'ConfigService', 'ObjlibService', 'catName', 'category', CreateObjlibCategoryDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettext', 'gettextCatalog', 'ConfigService', 'ObjlibService', 'catName', 'category', CreateObjlibCategoryDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.categories.html',
                 clickOutsideToClose: true,
                 locals: {
@@ -87,7 +88,8 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService
                     ObjlibService.updateObjlibCat(category,
                         function () {
                             objLibDialog.editObjlib(null, $scope.objlib);
-                            toastr.success(gettext('The category has been updated successfully.'), gettext('Update successful'));
+                            toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been updated successfully.',
+                                {categoryLabel: category.label1}), gettext('Update successful'));
                         }
                     );
                 }, function () {
@@ -168,7 +170,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, AssetService
     };
 }
 
-function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, gettext, ConfigService, ObjlibService, catName, category) {
+function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, toastr, gettext, gettextCatalog, ConfigService, ObjlibService, catName, category) {
     $scope.languages = ConfigService.getLanguages();
     $scope.language = ConfigService.getDefaultLanguageIndex();
     $scope.implicitPosition = null;
@@ -195,6 +197,8 @@ function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, gettext, ConfigSe
     $scope.destroyConfirm = function() {
         ObjlibService.deleteObjlibCat($scope.category.id, function () {
             $mdDialog.cancel();
+            toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been deleted.',
+                {categoryLabel: category.label1}), gettext('Delete successful'));
         });
     };
 

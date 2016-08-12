@@ -414,7 +414,7 @@ msgstr "Calcul du risque / Seuils - Risques opérationnels"
 #: views/dialogs/create.guides.items.html:68
 #: views/dialogs/create.instance.html:25 views/dialogs/create.measures.html:45
 #: views/dialogs/create.models.html:47
-#: views/dialogs/create.objlibs.categories.html:99
+#: views/dialogs/create.objlibs.categories.html:105
 #: views/dialogs/create.objlibs.html:230
 #: views/dialogs/create.objlibs.node.html:79 views/dialogs/create.risks.html:95
 #: views/dialogs/create.servers.admin.html:39 views/dialogs/create.tags.html:43
@@ -443,7 +443,7 @@ msgstr "Modifier le mot de passe"
 msgid "City"
 msgstr "Ville"
 
-#: views/dialogs/create.objlibs.categories.html:96
+#: views/dialogs/create.objlibs.categories.html:102
 msgid "Click again to confirm deletion"
 msgstr "Cliquez à nouveau pour confirmer la suppression"
 
@@ -571,7 +571,7 @@ msgstr "Créer ce thème"
 #: src/admin/BackofficeAdminUsersCtrl.js:70
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:40
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:44
-#: src/kb/BackofficeDocModelsCtrl.js:38 src/kb/CreateObjlibDialogCtrl.js:66
+#: src/kb/BackofficeDocModelsCtrl.js:38 src/kb/CreateObjlibDialogCtrl.js:67
 #: src/kb/info/BackofficeKbInfoCtrl.js:1103
 #: src/kb/info/BackofficeKbInfoCtrl.js:129
 #: src/kb/info/BackofficeKbInfoCtrl.js:314
@@ -637,7 +637,7 @@ msgstr "Modèle par défaut"
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:270
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:439
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:458
-#: views/dialogs/create.objlibs.categories.html:93
+#: views/dialogs/create.objlibs.categories.html:99
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -1005,7 +1005,7 @@ msgid "Local"
 msgstr "Local"
 
 #: views/dialogs/create.guides.items.html:16
-#: views/dialogs/create.objlibs.categories.html:55
+#: views/dialogs/create.objlibs.categories.html:58
 #: views/dialogs/create.objlibs.html:191
 #: views/dialogs/create.objlibs.node.html:41
 msgid "Location"
@@ -1185,8 +1185,8 @@ msgid "No asset matching your search was found"
 msgstr "Aucun asset correspondant à votre recherche n'a été trouvé."
 
 #: views/dialogs/add.objlib.html:35
-#: views/dialogs/create.objlibs.categories.html:47
-#: views/dialogs/create.objlibs.categories.html:82
+#: views/dialogs/create.objlibs.categories.html:50
+#: views/dialogs/create.objlibs.categories.html:88
 #: views/dialogs/create.objlibs.html:153 views/dialogs/create.objlibs.html:218
 msgid "No category matching your search was found"
 msgstr "Aucune catégorie correspondant à votre recherche n'a été trouvée."
@@ -1302,7 +1302,7 @@ msgstr ""
 msgid "Page:"
 msgstr "Page :"
 
-#: views/dialogs/create.objlibs.categories.html:41
+#: views/dialogs/create.objlibs.categories.html:44
 msgid "Parent category"
 msgstr "Catégorie parent"
 
@@ -1373,7 +1373,7 @@ msgstr "Position"
 msgid "Postal code"
 msgstr "Code postal"
 
-#: views/dialogs/create.objlibs.categories.html:76
+#: views/dialogs/create.objlibs.categories.html:82
 #: views/dialogs/create.objlibs.html:212
 msgid "Previous category..."
 msgstr "Catégorie précédente..."
@@ -1672,15 +1672,22 @@ msgstr ""
 msgid "The asset \"{{label}}\" has been deleted."
 msgstr "L'asset \"{{ label }}\" a été supprimé."
 
+#: src/kb/CreateObjlibDialogCtrl.js:66
+msgid "The category \"{{categoryLabel}}\" has been created successfully."
+msgstr ""
+
+#: src/kb/CreateObjlibDialogCtrl.js:91
+msgid "The category \"{{categoryLabel}}\" has been updated successfully."
+msgstr ""
+
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:132
 msgid "The category \"{{label}}\" has been deleted."
 msgstr "La catégorie \"{{ label }}\" a été supprimée."
 
-#: src/kb/CreateObjlibDialogCtrl.js:66 src/kb/rolf/BackofficeKbOpRiskCtrl.js:81
+#: src/kb/rolf/BackofficeKbOpRiskCtrl.js:81
 msgid "The category has been created successfully."
 msgstr "La catégorie a été créée avec succès."
 
-#: src/kb/CreateObjlibDialogCtrl.js:90
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:109
 msgid "The category has been updated successfully."
 msgstr "La catégorie à été mise à jour avec succès."
@@ -1761,6 +1768,7 @@ msgid "The item has been updated successfully."
 msgstr ""
 
 #: views/dialogs/create.assets.html:30 views/dialogs/create.measures.html:28
+#: views/dialogs/create.objlibs.categories.html:28
 #: views/dialogs/create.threats.html:30 views/dialogs/create.vulns.html:30
 msgid "The label may not be empty"
 msgstr ""
@@ -1822,6 +1830,10 @@ msgid ""
 msgstr ""
 "Votre demande de ré-initialisation de mot de passe a été envoyée. Vous allez "
 "recevoir rapidement un e-mail avec la suite de la procédure."
+
+#: views/dialogs/create.objlibs.categories.html:66
+msgid "The position may not be empty"
+msgstr ""
 
 #: views/dialogs/create.clients.html:41
 msgid "The proxy alias may not be empty"
@@ -2139,7 +2151,7 @@ msgstr "Mettre à jour les informations du serveur"
 #: src/BackofficeClientMgmtCtrl.js:73 src/admin/BackofficeAdminServerCtrl.js:74
 #: src/admin/BackofficeAdminUsersCtrl.js:93
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:69
-#: src/kb/BackofficeDocModelsCtrl.js:57 src/kb/CreateObjlibDialogCtrl.js:90
+#: src/kb/BackofficeDocModelsCtrl.js:57 src/kb/CreateObjlibDialogCtrl.js:92
 #: src/kb/info/BackofficeKbInfoCtrl.js:1092
 #: src/kb/info/BackofficeKbInfoCtrl.js:165
 #: src/kb/info/BackofficeKbInfoCtrl.js:356
@@ -2310,21 +2322,21 @@ msgid "after"
 msgstr "après"
 
 #: views/dialogs/create.guides.items.html:21
-#: views/dialogs/create.objlibs.categories.html:60
+#: views/dialogs/create.objlibs.categories.html:63
 #: views/dialogs/create.objlibs.html:196
 #: views/dialogs/create.objlibs.node.html:46
 msgid "after..."
 msgstr "après..."
 
 #: views/dialogs/create.amvs.html:151 views/dialogs/create.guides.items.html:19
-#: views/dialogs/create.objlibs.categories.html:58
+#: views/dialogs/create.objlibs.categories.html:61
 #: views/dialogs/create.objlibs.html:194
 #: views/dialogs/create.objlibs.node.html:44
 msgid "at the beginning"
 msgstr "au début"
 
 #: views/dialogs/create.amvs.html:150 views/dialogs/create.guides.items.html:20
-#: views/dialogs/create.objlibs.categories.html:59
+#: views/dialogs/create.objlibs.categories.html:62
 #: views/dialogs/create.objlibs.html:195
 #: views/dialogs/create.objlibs.node.html:45
 msgid "in the end"

@@ -25,13 +25,19 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Name</label>
                     <md-icon>label</md-icon>
-                    <input ng-model="objlib['name' + language ]">
+                    <input ng-model="objlib['name' + language ]" name="name" required>
+                    <div ng-messages="objlibForm.name.$error">
+                        <div ng-message="required">{{ 'The name may not be empty' | translate }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Label</label>
                     <md-icon>label</md-icon>
-                    <input ng-model="objlib['label' + language ]">
+                    <input ng-model="objlib['label' + language ]" name="label" required>
+                    <div ng-messages="objlibForm.label.$error">
+                        <div ng-message="required">{{ 'The label may not be empty' | translate }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-subheader>{{ 'General information' | translate }}</md-subheader>
