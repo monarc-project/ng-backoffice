@@ -67,7 +67,8 @@
                     AdminUsersService.createUser(user,
                         function () {
                             $scope.updateUsers();
-                            toastr.success(gettext('The user has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The user "{{firstname}} {{lastname}}" has been created successfully.',
+                                {firstname: user.firstname, lastname: user.lastname}), gettext('Creation successful'));
                         });
                 });
         };
@@ -90,7 +91,8 @@
                         AdminUsersService.patchUser(user.id, user,
                             function () {
                                 $scope.updateUsers();
-                                toastr.success(gettext('The user information has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The user "{{firstname}} {{lastname}}" information has been updated successfully.',
+                                    {firstname: user.firstname, lastname: user.lastname}), gettext('Update successful'));
                             }
                         );
                     });
