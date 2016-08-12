@@ -1089,7 +1089,8 @@
                             ObjlibService.updateObjlib(objlib,
                                 function () {
                                     $scope.updateObjlibs();
-                                    toastr.success(gettext('The object has been updated successfully.'), gettext('Update successful'));
+                                    toastr.success(gettextCatalog.getString('The object "{{objlibLabel}}" has been updated successfully.',
+                                        {objlibLabel: objlib.label1}), gettext('Update successful'));
                                 },
 
                                 function () {
@@ -1100,7 +1101,8 @@
                             ObjlibService.createObjlib(objlib,
                                 function () {
                                     $scope.updateObjlibs();
-                                    toastr.success(gettext('The object has been created successfully.'), gettext('Creation successful'));
+                                    toastr.success(gettextCatalog.getString('The object "{{objlibLabel}}" has been created successfully.',
+                                        {objlibLabel: objlib.label1}), gettext('Creation successful'));
                                 },
 
                                 function () {
