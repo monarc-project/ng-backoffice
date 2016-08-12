@@ -37,7 +37,8 @@
                     GuideService.createGuide(guide,
                         function () {
                             $scope.updateGuides();
-                            toastr.success(gettext('The guide has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The guide "{{guideLabel}}" has been created successfully.',
+                                {guideLabel: guide.description1}), gettext('Creation successful'));
                         }
                     );
                 });

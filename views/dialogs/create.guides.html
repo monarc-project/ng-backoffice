@@ -1,5 +1,5 @@
 <md-dialog style="min-width: 900px;">
-    <form>
+    <form name="guideForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2 ng-if="!model.id" translate>Add a new guide</h2>
@@ -15,18 +15,24 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Category</label>
                     <md-icon>class</md-icon>
-                    <md-select ng-model="guide.type">
+                    <md-select ng-model="guide.type" name="type" required>
                         <md-option ng-repeat="category in categories" value="{{ category.id }}">{{ category.label }}</md-option>
                     </md-select>
+                    <div ng-messages="guideForm.type.$error">
+                        <div ng-message="required">{{ 'You must select a category' | translate }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label translate>Mode</label>
                     <md-icon>class</md-icon>
-                    <md-select ng-model="guide.isWithItems">
+                    <md-select ng-model="guide.isWithItems" name="isWithItems" required>
                         <md-option value="0">{{ 'No items' | translate }}</md-option>
                         <md-option value="1">{{ 'Contains items' | translate }}</md-option>
                     </md-select>
+                    <div ng-messages="guideForm.isWithItems.$error">
+                        <div ng-message="required">{{ 'You must select a mode' | translate }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
@@ -49,7 +55,7 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="create()" class="md-accent md-hue-3">
+            <md-button ng-click="create()" ng-disabled="guideForm.$error.required" class="md-accent md-hue-3">
                 {{ (guide.id > 0 ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>
