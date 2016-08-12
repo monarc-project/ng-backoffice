@@ -35,7 +35,8 @@
             })
                 .then(function (docModel) {
                     $scope.updateDocModels();
-                    toastr.success(gettext('The document has been created successfully.'), gettext('Creation successful'));
+                    toastr.success(gettextCatalog.getString('The document "{{docModelLabel}}" has been created successfully.',
+                        {docModelLabel: docModel.description}), gettext('Creation successful'));
                 });
         };
 
@@ -54,7 +55,8 @@
             })
                 .then(function (docModel) {
                     $scope.updateDocModels();
-                    toastr.success(gettext('The document has been updated successfully.'), gettext('Update successful'));
+                    toastr.success(gettextCatalog.getString('The document "{{docModelLabel}}" has been updated successfully.',
+                        {docModelLabel: docModel.description}), gettext('Update successful'));
                 });
         };
 
@@ -71,7 +73,7 @@
                     function () {
                         $scope.updateDocModels();
                         toastr.success(gettextCatalog.getString('The document "{{label}}" has been deleted.',
-                                    {label: item.description}), gettext('Deletion successful'));
+                            {label: item.description}), gettext('Deletion successful'));
                     }
                 );
             });
