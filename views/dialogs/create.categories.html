@@ -23,7 +23,10 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Label</label>
                     <md-icon>label</md-icon>
-                    <input ng-model="category['label' + language ]">
+                    <input ng-model="category['label' + language ]" name="label" required>
+                    <div ng-messages="categoryForm.label.$error">
+                        <div ng-message="required">{{ 'The label may not be empty' | translate }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>

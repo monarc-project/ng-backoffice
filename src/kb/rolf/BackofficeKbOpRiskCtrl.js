@@ -78,7 +78,8 @@
                     CategoryService.createCategory(category,
                         function () {
                             $scope.updateCategories();
-                            toastr.success(gettext('The category has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been created successfully.',
+                                {categoryLabel: category.label1}), gettext('Creation successful'));
                         },
 
                         function () {
@@ -106,7 +107,8 @@
                         CategoryService.updateCategory(category,
                             function () {
                                 $scope.updateCategories();
-                                toastr.success(gettext('The category has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been updated successfully.',
+                                    {categoryLabel: category.label1}), gettext('Update successful'));
                             },
 
                             function () {
@@ -136,7 +138,7 @@
             });
         };
 
-        $scope.deleteCategoryMass = function (ev, item) {
+        $scope.deleteCategoryMass = function (ev) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected category(s)?',
                     {count: $scope.categories.selected.length}))
@@ -146,13 +148,12 @@
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.categories.selected, function (value, key) {
-                    CategoryService.deleteCategory(value.id,
-                        function () {
-                            $scope.updateCategories();
-                        }
-                    );
+                    CategoryService.deleteCategory(value.id);
                 });
 
+                $scope.updateCategories();
+                toastr.success(gettextCatalog.getString('{{count}} categories have been deleted.',
+                    {count: $scope.categories.selected.length}), gettext('Deletion successful'));
                 $scope.categories.selected = [];
 
             }, function() {
