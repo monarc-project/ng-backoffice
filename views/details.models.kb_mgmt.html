@@ -81,16 +81,16 @@
                                 <tbody>
                                 <tr ng-repeat="i in range(scales.impacts.min, scales.impacts.max)">
                                     <th>{{ i }}</th>
-                                    <td><span inline-edit="impact[i].confidentiality" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="impact[i].integrity" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="impact[i].availability" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="impact[i].reputation" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="impact[i].operational" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="impact[i].legal" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="impact[i].financial" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="impact[i].person" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="comms.impact[i].confidentiality" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="comms.impact[i].integrity" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="comms.impact[i].availability" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="comms.impact[i].reputation" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="comms.impact[i].operational" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="comms.impact[i].legal" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="comms.impact[i].financial" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="comms.impact[i].person" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
                                     <!-- <td ng-repeat="custom in customColumns"></td> -->
-                                    <td><span inline-edit="customColumnValue[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td><span inline-edit="comms.customColumnValue[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -102,7 +102,7 @@
                         </h4>
 
                         <ul class="no-list-style">
-                            <li ng-repeat="i in range(scales.threats.min, scales.threats.max)">{{i}}. <span inline-edit="threat[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
+                            <li ng-repeat="i in range(scales.threats.min, scales.threats.max)">{{i}}. <span inline-edit="comms.threat[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
                         </ul>
 
                         <h4><span translate>Vulnerabilities scale:</span> [
@@ -111,7 +111,7 @@
                         </h4>
 
                         <ul class="no-list-style">
-                            <li ng-repeat="i in range(scales.vulns.min, scales.vulns.max)">{{i}}. <span inline-edit="vuln[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
+                            <li ng-repeat="i in range(scales.vulns.min, scales.vulns.max)">{{i}}. <span inline-edit="comms.vuln[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></li>
                         </ul>
 
                         <h4 translate>Thresholds</h4>

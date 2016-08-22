@@ -201,6 +201,12 @@
             impacts: {min: '0', max: '3'},
             threats: {min: '0', max: '4'},
             vulns: {min: '0', max: '3'},
+        };
+
+        $scope.comms = {
+            impact: [],
+            threat: [],
+            vuln: []
         }
 
         $scope.info_risk_columns = [];
@@ -242,9 +248,38 @@
             scaleWatchSetup = true;
         }, true);
 
-        $scope.$watchGroup(['threat', 'impact', 'vuln'], function (newValue, oldValue) {
+        $scope.$watch('comms', function (newValue, oldValue) {
             if (commsWatchSetup) {
-                console.log(newValue);
+                var smthChanged = false;
+
+                if (!angular.equals(newValue.impact, oldValue.impact)) {
+                    // Find which cell changed
+                    // TODO: We don't have any API to get scales_impact_types yet!
+                }
+
+                if (!angular.equals(newValue.threat, oldValue.threat)) {
+                    // Find which line changed
+                    for (var i in newValue.threat) {
+                        if (oldValue.threat[i] !== undefined && newValue.threat[i] != oldValue.threat[i]) {
+                            AnrService.updateScaleComment($scope.model.anr.id, 'threat', newValue.threat[i], i, undefined);
+                            smthChanged = true;
+                        }
+                    }
+                }
+
+                if (!angular.equals(newValue.vuln, oldValue.vuln)) {
+                    // Find which line changed
+                    for (var i in newValue.threat) {
+                        if (oldValue.vuln[i] !== undefined && newValue.vuln[i] != oldValue.vuln[i]) {
+                            AnrService.updateScaleComment($scope.model.anr.id, 'vulnerability', newValue.vuln[i], i, undefined);
+                            smthChanged = true;
+                        }
+                    }
+                }
+
+                if (smthChanged) {
+                    $scope.updateScalesComments();
+                }
             }
 
             commsWatchSetup = true;
@@ -306,11 +341,11 @@
 
 
                     if (scale.type == "impact") {
-                        $scope.impact = obj;
+                        $scope.comms.impact = obj;
                     } else if (scale.type == "threat") {
-                        $scope.threat = obj;
+                        $scope.comms.threat = obj;
                     } else if (scale.type == "vulnerability") {
-                        $scope.vuln = obj;
+                        $scope.comms.vuln = obj;
                     }
                 }
 

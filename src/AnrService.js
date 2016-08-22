@@ -116,7 +116,7 @@
         };
 
         var updateScaleComment = function (anr_id, type, comment, row, column, success, error) {
-            return self.ScalesResource.update({anrId: anr_id, scaleId: type, row: row, column: column, comment: comment}, success, error);
+            return self.ScalesCommentResource.update({anrId: anr_id, scaleId: type, row: row, column: column}, {comment: comment}, success, error);
         };
 
 
@@ -131,6 +131,7 @@
             getScales: getScales,
             updateScale: updateScale,
             getScaleComments: getScaleComments,
+            updateScaleComment: updateScaleComment,
 
             getInstances: getInstances,
             getInstance: getInstance,
