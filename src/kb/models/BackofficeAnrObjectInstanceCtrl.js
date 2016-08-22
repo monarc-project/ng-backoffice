@@ -47,7 +47,7 @@
                 .then(function (instance) {
                     if (objlib && objlib.id) {
                         AnrService.updateInstance($scope.instance.anr.id, instance, function () {
-                            // TODO: Toast
+                            toastr.success(gettext("The instance details have been updated"), gettext("Update successful"));
                         });
                     }
                 });

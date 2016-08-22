@@ -101,6 +101,10 @@
             new self.InstanceResource({object: object_id, parent: parent_id, position: position, anrId: anr_id}).$save(success, error);
         };
 
+        var updateInstance = function (instance, success, error) {
+            new self.InstanceResource(instance).$save(success, error);
+        };
+
         var moveInstance = function (anr_id, instance_id, parent_id, position, success, error) {
             self.InstanceResource.patch({instId: instance_id, anrId: anr_id, parent: parent_id, position: position}, success, error);
         };
@@ -141,6 +145,7 @@
             getInstance: getInstance,
             deleteInstance: deleteInstance,
             addInstance: addInstance,
+            updateInstance: updateInstance,
             moveInstance: moveInstance
         };
     }
