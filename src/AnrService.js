@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AnrService', [ '$resource', AnrService ]);
+        .factory('AnrService', [ '$resource', '$http', AnrService ]);
 
-    function AnrService($resource) {
+    function AnrService($resource, $http) {
         var self = this;
 
         self.AnrResource = $resource('/api/anr/:anrId', { anrId: '@anrId' },
@@ -66,9 +66,14 @@
 
         // ANRs
         var patchAnr = function (anr_id, fields, success, error) {
-            var obj_pump = angular.copy(fields);
-            obj_pump.anrId = anr_id;
-            self.AnrResource.patch(obj_pump, success, error);
+            // For some reason, if we use a Resource here for PATCH, Angular builds the parameters inside the query
+            // string instead of the request body (even if we request from another resource that works!). Fallback to
+            // $http for now.
+            //var obj_pump = angular.copy(fields);
+            //obj_pump.anrId = anr_id;
+            //self.InstanceResource.patch(obj_pump, success, error);
+
+            $http.patch('/api/anr/' + anr_id, fields).then(success, error);
         };
 
         // Object library

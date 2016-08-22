@@ -17,7 +17,13 @@
         var self = this;
 
         ModelService.getModel($stateParams.modelId).then(function (data) {
-            $scope.model = data; $scope.updateInstances();
+            $scope.model = data;
+            $scope.thresholds = {
+                thresholds: {min: $scope.model.anr.seuil1, max: $scope.model.anr.seuil2},
+                rolf_thresholds: {min: $scope.model.anr.seuilRolf1, max: $scope.model.anr.seuilRolf2}
+            }
+
+            $scope.updateInstances();
             $scope.updateObjectsLibrary();
             $scope.updateScalesComments();
         });
@@ -191,11 +197,6 @@
             });
         };
 
-        $scope.thresholds = {
-            thresholds: {min: 8, max: 32},
-            rolf_thresholds: {min: 4, max: 8}
-        }
-
         $scope.scales = {
             impacts: {min: '0', max: '3'},
             threats: {min: '0', max: '4'},
@@ -214,8 +215,8 @@
                 AnrService.patchAnr($scope.model.anr.id, {
                     seuil1: $scope.thresholds.thresholds.min,
                     seuil2: $scope.thresholds.thresholds.max,
-                    seuil_rolf1: $scope.thresholds.rolf_thresholds.min,
-                    seuil_rolf2: $scope.thresholds.rolf_thresholds.max,
+                    seuilRolf1: $scope.thresholds.rolf_thresholds.min,
+                    seuilRolf2: $scope.thresholds.rolf_thresholds.max,
                 });
             }
 
