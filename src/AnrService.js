@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AnrService', [ '$resource', '$http', AnrService ]);
+        .factory('AnrService', [ '$resource', AnrService ]);
 
-    function AnrService($resource, $http) {
+    function AnrService($resource) {
         var self = this;
 
         self.AnrResource = $resource('/api/anr/:anrId', { anrId: '@anrId' },
@@ -65,15 +65,8 @@
 
 
         // ANRs
-        var patchAnr = function (anr_id, fields, success, error) {
-            // For some reason, if we use a Resource here for PATCH, Angular builds the parameters inside the query
-            // string instead of the request body (even if we request from another resource that works!). Fallback to
-            // $http for now.
-            //var obj_pump = angular.copy(fields);
-            //obj_pump.anrId = anr_id;
-            //self.InstanceResource.patch(obj_pump, success, error);
-
-            $http.patch('/api/anr/' + anr_id, fields).then(success, error);
+        var patchAnr = function (anr_id, fields, success, error) {;
+            self.AnrResource.patch({anrId: anr_id}, fields, success, error);
         };
 
         // Object library
@@ -114,7 +107,7 @@
         };
 
         var updateScale = function (anr_id, type, min, max, success, error) {
-            return self.ScalesResource.update({anrId: anr_id, scaleId: type, min: min, max: max}, success, error);
+            return self.ScalesResource.update({anrId: anr_id, scaleId: type}, {min: min, max: max}, success, error);
         };
 
         // Scales comments

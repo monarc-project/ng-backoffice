@@ -207,10 +207,11 @@
         $scope.info_risk_rows = [];
 
         var scaleWatchSetup = false;
+        var thresholdsWatchSetup = false;
         var commsWatchSetup = false;
 
         $scope.$watch('thresholds', function () {
-            if ($scope.model && $scope.model.anr && scaleWatchSetup) {
+            if ($scope.model && $scope.model.anr && thresholdsWatchSetup) {
                 // This structure holds (ROLF) thresholds, as well as scales ranges
                 AnrService.patchAnr($scope.model.anr.id, {
                     seuil1: $scope.thresholds.thresholds.min,
@@ -222,6 +223,22 @@
 
             $scope.updateInfoRiskColumns();
             $scope.info_risk_rows = $scope.range($scope.scales.impacts.min, $scope.scales.impacts.max);
+            thresholdsWatchSetup = true;
+        }, true);
+
+        $scope.$watch('scales', function (newValue, oldValue) {
+            if ($scope.model && $scope.model.anr && scaleWatchSetup) {
+                if (!angular.equals(oldValue.impacts, newValue.impacts)) {
+                    AnrService.updateScale($scope.model.anr.id, 'impact', newValue.impacts.min, newValue.impacts.max);
+                }
+                if (!angular.equals(oldValue.threats, newValue.threats)) {
+                    AnrService.updateScale($scope.model.anr.id, 'threat', newValue.threats.min, newValue.threats.max);
+                }
+                if (!angular.equals(oldValue.vulns, newValue.vulns)) {
+                    AnrService.updateScale($scope.model.anr.id, 'vulnerability', newValue.vulns.min, newValue.vulns.max);
+                }
+            }
+
             scaleWatchSetup = true;
         }, true);
 
