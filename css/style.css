@@ -73,8 +73,6 @@ md-input-container .hint.ng-leave, md-input-container .hint.ng-enter.ng-enter-ac
   bottom: 7px;
   opacity: 1; }
 
-/*# sourceMappingURL=style.css.map */
-
 .md-padding-left {
   padding-left: 16px;
 }
@@ -388,4 +386,7 @@ h1.md-toolbar-tools {
 }
 .md-padding {
   padding: 8px;
+}
+md-chips.md-default-theme .md-chips, md-chips .md-chips {
+  box-shadow: none !important;
 }
