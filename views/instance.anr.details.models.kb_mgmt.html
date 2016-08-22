@@ -38,12 +38,12 @@
             </md-fab-trigger>
 
             <md-fab-actions>
-                <md-button aria-label="{{ 'Edit instance settings' | translate }}" class="md-fab md-raised md-mini" ng-click="editInstance($event, object)">
+                <md-button aria-label="{{ 'Edit instance settings' | translate }}" class="md-fab md-raised md-mini" ng-click="editInstanceDetails($event)">
                     <md-icon>edit</md-icon>
                     <md-tooltip md-direction="left">{{ 'Edit instance settings' | translate }}</md-tooltip>
                 </md-button>
 
-                <md-button aria-label="{{ 'Detach' | translate }}" class="md-fab md-raised md-mini">
+                <md-button aria-label="{{ 'Detach' | translate }}" class="md-fab md-raised md-mini" ng-click="detachInstance($event)">
                     <md-icon>content_cut</md-icon>
                     <md-tooltip md-direction="left">{{ 'Detach' | translate }}</md-tooltip>
                 </md-button>

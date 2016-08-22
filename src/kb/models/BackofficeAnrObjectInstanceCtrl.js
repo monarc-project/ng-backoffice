@@ -35,7 +35,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'instace', CreateInstanceDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'instance', CreateInstanceDialogCtrl],
                 templateUrl: '/views/dialogs/create.instance.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -51,6 +51,19 @@
                         });
                     }
                 });
+        };
+
+        $scope.detachInstance = function (ev) {
+            var confirm = $mdDialog.confirm()
+                .title(gettext('Are you sure you want to detach this instance?'))
+                .textContent(gettext('This instance and all its children will be removed from the risk analysis. This operation cannot be undone.'))
+                .ariaLabel('Detach instance')
+                .targetEvent(ev)
+                .ok(gettext('Detach'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                AnrService.deleteInstance($scope.model.anr.id, $stateParams.instId);
+            });
         };
     }
 

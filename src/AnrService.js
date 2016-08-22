@@ -93,6 +93,10 @@
             return self.InstanceResource.query({anrId: anr_id, instId: instance_id}).$promise;
         };
 
+        var deleteInstance = function (anr_id, instance_id, success, error) {
+            self.InstanceResource.delete({instId: instance_id, anrId: anr_id}, success, error);
+        };
+
         var addInstance = function (anr_id, object_id, parent_id, position, success, error) {
             new self.InstanceResource({object: object_id, parent: parent_id, position: position, anrId: anr_id}).$save(success, error);
         };
@@ -135,6 +139,7 @@
 
             getInstances: getInstances,
             getInstance: getInstance,
+            deleteInstance: deleteInstance,
             addInstance: addInstance,
             moveInstance: moveInstance
         };
