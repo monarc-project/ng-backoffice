@@ -18,6 +18,8 @@
 
         ModelService.getModel($stateParams.modelId).then(function (data) {
             $scope.model = data;
+
+            thresholdsWatchSetup = false;
             $scope.thresholds = {
                 thresholds: {min: $scope.model.anr.seuil1, max: $scope.model.anr.seuil2},
                 rolf_thresholds: {min: $scope.model.anr.seuilRolf1, max: $scope.model.anr.seuilRolf2}
@@ -234,13 +236,13 @@
 
         $scope.$watch('scales', function (newValue, oldValue) {
             if ($scope.model && $scope.model.anr && scaleWatchSetup) {
-                if (!angular.equals(oldValue.impacts, newValue.impacts)) {
+                if (oldValue.impacts.min != newValue.impacts.min || oldValue.impacts.max != newValue.impacts.max) {
                     AnrService.updateScale($scope.model.anr.id, 'impact', newValue.impacts.min, newValue.impacts.max);
                 }
-                if (!angular.equals(oldValue.threats, newValue.threats)) {
+                if (oldValue.threats.min != newValue.threats.min || oldValue.threats.max != newValue.threats.max) {
                     AnrService.updateScale($scope.model.anr.id, 'threat', newValue.threats.min, newValue.threats.max);
                 }
-                if (!angular.equals(oldValue.vulns, newValue.vulns)) {
+                if (oldValue.vulns.min != newValue.vulns.min || oldValue.vulns.max != newValue.vulns.max) {
                     AnrService.updateScale($scope.model.anr.id, 'vulnerability', newValue.vulns.min, newValue.vulns.max);
                 }
             }
@@ -269,7 +271,7 @@
 
                 if (!angular.equals(newValue.vuln, oldValue.vuln)) {
                     // Find which line changed
-                    for (var i in newValue.threat) {
+                    for (var i in newValue.vuln) {
                         if (oldValue.vuln[i] !== undefined && newValue.vuln[i] != oldValue.vuln[i]) {
                             AnrService.updateScaleComment($scope.model.anr.id, 'vulnerability', newValue.vuln[i], i, undefined);
                             smthChanged = true;
@@ -334,23 +336,27 @@
                 for (var i = 0; i < data.scales.length; ++i) {
                     var scale = data.scales[i];
 
-                    var obj = {};
-                    for (var j = scale.min; j < scale.max; j++) {
-                        obj[j] = null;
-                    }
-
-
+                    scaleWatchSetup = false;
                     if (scale.type == "impact") {
-                        $scope.comms.impact = obj;
+                        $scope.scales.impacts = scale;
                     } else if (scale.type == "threat") {
-                        $scope.comms.threat = obj;
+                        $scope.scales.threats = scale;
                     } else if (scale.type == "vulnerability") {
-                        $scope.comms.vuln = obj;
+                        $scope.scales.vulns = scale;
                     }
                 }
 
                 AnrService.getScaleComments($scope.model.anr.id).then(function (data) {
-                    console.log(data);
+                    // console.log(data);
+
+                    // Data must be != undefined to be updated properly on user inline input
+                    for (var i =  $scope.scales.threats.min; i < $scope.scales.threats.max; ++i) {
+                        $scope.comms.threat[i] = null;
+                    }
+
+                    for (var i =  $scope.scales.vulns.min; i < $scope.scales.vulns.max; ++i) {
+                        $scope.comms.vuln[i] = null;
+                    }
                 })
             });
         };
