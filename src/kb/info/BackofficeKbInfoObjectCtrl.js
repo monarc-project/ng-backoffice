@@ -35,7 +35,7 @@
                 }
 
                 // Update the whole table
-                $scope.updateObjlib();
+                $timeout($scope.updateObjlib, 500);
             }
         }, true);
 
