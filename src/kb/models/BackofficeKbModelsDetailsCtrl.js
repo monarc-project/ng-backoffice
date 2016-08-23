@@ -16,19 +16,23 @@
                                            $rootScope) {
         var self = this;
 
-        ModelService.getModel($stateParams.modelId).then(function (data) {
-            $scope.model = data;
+        $scope.updateModel = function () {
+            ModelService.getModel($stateParams.modelId).then(function (data) {
+                $scope.model = data;
 
-            thresholdsWatchSetup = false;
-            $scope.thresholds = {
-                thresholds: {min: $scope.model.anr.seuil1, max: $scope.model.anr.seuil2},
-                rolf_thresholds: {min: $scope.model.anr.seuilRolf1, max: $scope.model.anr.seuilRolf2}
-            }
+                thresholdsWatchSetup = false;
+                $scope.thresholds = {
+                    thresholds: {min: $scope.model.anr.seuil1, max: $scope.model.anr.seuil2},
+                    rolf_thresholds: {min: $scope.model.anr.seuilRolf1, max: $scope.model.anr.seuilRolf2}
+                }
 
-            $scope.updateInstances();
-            $scope.updateObjectsLibrary();
-            $scope.updateScales();
-        });
+                $scope.updateInstances();
+                $scope.updateObjectsLibrary();
+                $scope.updateScales();
+            });
+        };
+
+        $scope.updateModel();
 
         /**
          * Risk analysis
@@ -422,6 +426,7 @@
         };
 
         $scope.updateScaleComments = function (scale_id) {
+            commsWatchSetup = false;
             AnrService.getScaleComments($scope.model.anr.id, scale_id).then(function (data) {
                 var obj;
                 var isImpact = false;

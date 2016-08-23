@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAnrObjectInstanceCtrl', [
-            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', '$state', 'TableHelperService',
             'ModelService', 'ObjlibService', '$stateParams', 'AnrService', '$rootScope',
             BackofficeAnrObjectInstanceCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > MODELS > MODEL DETAILS > OBJECT INSTANCE
      */
-    function BackofficeAnrObjectInstanceCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog,
+    function BackofficeAnrObjectInstanceCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, $state,
                                             TableHelperService, ModelService, ObjlibService, $stateParams, AnrService,
                                             $rootScope) {
 
@@ -62,7 +62,10 @@
                 .ok(gettext('Detach'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AnrService.deleteInstance($scope.model.anr.id, $stateParams.instId);
+                AnrService.deleteInstance($scope.model.anr.id, $stateParams.instId, function () {
+                    $scope.updateInstances();
+                });
+                $state.transitionTo('main.kb_mgmt.models.details', {modelId: $scope.model.id});
             });
         };
     }
