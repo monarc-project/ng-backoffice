@@ -255,8 +255,22 @@
                 var smthChanged = false;
 
                 if (!angular.equals(newValue.impact, oldValue.impact)) {
+                    var update = function () {
+                        $scope.updateScaleComments($scope.scales.impacts.id);
+                    };
+
                     // Find which cell changed
-                    // TODO: We don't have any API to get scales_impact_types yet!
+                    for (var i in newValue.impact) {
+                        for (var j in newValue.impact[i]) {
+                            if (oldValue.impact[i][j] !== undefined && oldValue.impact[i][j].comment1 != newValue.impact[i][j].comment1) {
+                                if (newValue.impact[i][j].id == null) {
+                                    AnrService.createScaleComment($scope.model.anr.id, $scope.scales.impacts.id, i, newValue.impact[i][j].comment1, newValue.impact[i][j].scaleTypeImpact, update);
+                                } else {
+                                    AnrService.updateScaleComment($scope.model.anr.id, $scope.scales.impacts.id, newValue.impact[i][j].id, newValue.impact[i][j], update);
+                                }
+                            }
+                        }
+                    }
                 }
 
                 if (!angular.equals(newValue.threat, oldValue.threat)) {
@@ -374,23 +388,54 @@
                     }
                 }
 
-                $scope.updateScaleComments($scope.scales.threats.id);
-                $scope.updateScaleComments($scope.scales.vulns.id);
+                AnrService.getScalesTypes($scope.model.anr.id).then(function (data) {
+                    $scope.scales_types = data.types;
+
+                    // Same as above, setup placeholder comments structures
+                    for (var i = $scope.scales.impacts.min; i < $scope.scales.impacts.max; ++i) {
+                        $scope.comms.impact[i] = {};
+
+                        for (var j = 0; j < $scope.scales_types.length; ++j) {
+                            $scope.comms.impact[i][$scope.scales_types[j].id] = {
+                                id: null,
+                                comment1: null,
+                                scaleTypeImpact: $scope.scales_types[j].id
+                            };
+                        }
+                    }
+
+
+                    // Then we finally load the actual comments for each section
+                    $scope.updateScaleComments($scope.scales.impacts.id);
+                    $scope.updateScaleComments($scope.scales.threats.id);
+                    $scope.updateScaleComments($scope.scales.vulns.id);
+                });
             });
+
         };
 
         $scope.updateScaleComments = function (scale_id) {
             AnrService.getScaleComments($scope.model.anr.id, scale_id).then(function (data) {
                 var obj;
+                var isImpact = false;
+
                 if (scale_id === $scope.scales.threats.id) {
                     obj = $scope.comms.threat;
                 } else if (scale_id === $scope.scales.vulns.id) {
-                    obj = $scope.comms.vulns;
+                    obj = $scope.comms.vuln;
+                } else if (scale_id === $scope.scales.impacts.id) {
+                    obj = $scope.comms.impact;
+                    isImpact = true;
                 }
 
                 for (var i = 0; i < data.comments.length; ++i) {
                     var comm = data.comments[i];
-                    obj[comm.val] = comm;
+
+                    if (isImpact) {
+                        obj[comm.val][comm.scaleTypeImpact.id] = comm;
+                    } else {
+                        obj[comm.val] = comm;
+                    }
                 }
             });
         };

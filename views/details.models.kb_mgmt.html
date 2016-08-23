@@ -65,15 +65,7 @@
                                 <thead>
                                 <tr>
                                     <th></th>
-                                    <th translate>Confidentiality</th>
-                                    <th translate>Integrity</th>
-                                    <th translate>Availability</th>
-                                    <th translate>Reputation</th>
-                                    <th translate>Operational</th>
-                                    <th translate>Legal</th>
-                                    <th translate>Financial</th>
-                                    <th translate>Person</th>
-                                    <!-- <th ng-repeat="custom in customColumns"></th> -->
+                                    <th ng-repeat="type in scales_types">{{ type.label1 }}</th>
                                     <th><span inline-edit="newColumnName" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-placeholder="{{ 'New column name' | translate }}"></span></th>
                                 </tr>
                                 </thead>
@@ -81,16 +73,7 @@
                                 <tbody>
                                 <tr ng-repeat="i in range(scales.impacts.min, scales.impacts.max)">
                                     <th>{{ i }}</th>
-                                    <td><span inline-edit="comms.impact[i].confidentiality" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="comms.impact[i].integrity" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="comms.impact[i].availability" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="comms.impact[i].reputation" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="comms.impact[i].operational" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="comms.impact[i].legal" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="comms.impact[i].financial" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <td><span inline-edit="comms.impact[i].person" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
-                                    <!-- <td ng-repeat="custom in customColumns"></td> -->
-                                    <td><span inline-edit="comms.customColumnValue[i]" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
+                                    <td ng-repeat="type in scales_types"><span inline-edit="comms.impact[i][type.id].comment1" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-textarea inline-edit-placeholder="{{ 'Click here to type...' | translate }}"></span></td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -53,6 +53,16 @@
                 }
             });
 
+        self.ScalesTypesResource = $resource('/api/anr/:anrId/scales-types/:scaleTypeId', { anrId: '@anrId', scaleTypeId: '@scaleTypeId' },
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
+
         self.ScalesCommentResource = $resource('/api/anr/:anrId/scales/:scaleId/comments/:commentId', { anrId: '@anrId', scaleId: '@scaleId', commentId: "@commentId" },
             {
                 'update': {
@@ -118,16 +128,24 @@
             return self.ScalesResource.update({anrId: anr_id, scaleId: type}, {min: min, max: max}, success, error);
         };
 
+        var getScalesTypes = function (anr_id) {
+            return self.ScalesTypesResource.query({anrId: anr_id}).$promise;
+        };
+
         // Scales comments
         var getScaleComments = function (anr_id, type) {
             return self.ScalesCommentResource.query({anrId: anr_id, scaleId: type}).$promise;
         };
 
         var createScaleComment = function (anr_id, scale_id, row, comment, type_impact_id, success, error) {
-            new self.ScalesCommentResource({anrId: anr_id, scaleId: scale_id, val: row, scaleTypeImpactId: type_impact_id, comment1: comment}).$save(success, error);
+            new self.ScalesCommentResource({anrId: anr_id, scaleId: scale_id, val: row, scaleTypeImpact: type_impact_id, comment1: comment}).$save(success, error);
         };
 
         var updateScaleComment = function (anr_id, scale_id, comment_id, params, success, error) {
+            if (params.scaleTypeImpact && params.scaleTypeImpact.id) {
+                params.scaleTypeImpact = params.scaleTypeImpact.id;
+            }
+            
             return self.ScalesCommentResource.update({anrId: anr_id, scaleId: scale_id, commentId: comment_id}, params, success, error);
         };
 
@@ -142,6 +160,7 @@
 
             getScales: getScales,
             updateScale: updateScale,
+            getScalesTypes: getScalesTypes,
             getScaleComments: getScaleComments,
             createScaleComment: createScaleComment,
             updateScaleComment: updateScaleComment,
