@@ -53,7 +53,7 @@
                 }
             });
 
-        self.ScalesCommentResource = $resource('/api/anr/:anrId/scales/:scaleId/comments/:row/:column', { anrId: '@anrId', scaleId: '@scaleId', row: "@row", column:"@column" },
+        self.ScalesCommentResource = $resource('/api/anr/:anrId/scales/:scaleId/comments/:commentId', { anrId: '@anrId', scaleId: '@scaleId', commentId: "@commentId" },
             {
                 'update': {
                     method: 'PUT'
@@ -119,12 +119,16 @@
         };
 
         // Scales comments
-        var getScaleComments = function (anr_id, type, row, column) {
-            return self.ScalesCommentResource.query({anrId: anr_id, scaleId: type, row: row, column: column}).$promise;
+        var getScaleComments = function (anr_id, type) {
+            return self.ScalesCommentResource.query({anrId: anr_id, scaleId: type}).$promise;
         };
 
-        var updateScaleComment = function (anr_id, type, comment, row, column, success, error) {
-            return self.ScalesCommentResource.update({anrId: anr_id, scaleId: type, row: row, column: column}, {comment: comment}, success, error);
+        var createScaleComment = function (anr_id, scale_id, row, comment, type_impact_id, success, error) {
+            new self.ScalesCommentResource({anrId: anr_id, scaleId: scale_id, val: row, scaleTypeImpactId: type_impact_id, comment1: comment}).$save(success, error);
+        };
+
+        var updateScaleComment = function (anr_id, scale_id, comment_id, params, success, error) {
+            return self.ScalesCommentResource.update({anrId: anr_id, scaleId: scale_id, commentId: comment_id}, params, success, error);
         };
 
 
@@ -139,6 +143,7 @@
             getScales: getScales,
             updateScale: updateScale,
             getScaleComments: getScaleComments,
+            createScaleComment: createScaleComment,
             updateScaleComment: updateScaleComment,
 
             getInstances: getInstances,

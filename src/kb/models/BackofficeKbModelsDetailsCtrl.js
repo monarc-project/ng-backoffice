@@ -27,7 +27,7 @@
 
             $scope.updateInstances();
             $scope.updateObjectsLibrary();
-            $scope.updateScalesComments();
+            $scope.updateScales();
         });
 
         /**
@@ -260,31 +260,42 @@
                 }
 
                 if (!angular.equals(newValue.threat, oldValue.threat)) {
+                    var update = function () {
+                        $scope.updateScaleComments($scope.scales.threats.id);
+                    };
+
                     // Find which line changed
                     for (var i in newValue.threat) {
-                        if (oldValue.threat[i] !== undefined && newValue.threat[i] != oldValue.threat[i]) {
-                            AnrService.updateScaleComment($scope.model.anr.id, 'threat', newValue.threat[i], i, undefined);
-                            smthChanged = true;
+                        if (oldValue.threat[i] !== undefined && newValue.threat[i].comment1 != oldValue.threat[i].comment1) {
+                            if (newValue.threat[i].id == null) {
+                                AnrService.createScaleComment($scope.model.anr.id, $scope.scales.threats.id, i, newValue.threat[i].comment1, undefined, update);
+                            } else {
+                                AnrService.updateScaleComment($scope.model.anr.id, $scope.scales.threats.id, newValue.threat[i].id, newValue.threat[i], update);
+                            }
                         }
                     }
                 }
 
                 if (!angular.equals(newValue.vuln, oldValue.vuln)) {
+                    var update = function () {
+                        $scope.updateScaleComments($scope.scales.vulns.id);
+                    };
+
                     // Find which line changed
                     for (var i in newValue.vuln) {
-                        if (oldValue.vuln[i] !== undefined && newValue.vuln[i] != oldValue.vuln[i]) {
-                            AnrService.updateScaleComment($scope.model.anr.id, 'vulnerability', newValue.vuln[i], i, undefined);
-                            smthChanged = true;
+                        if (oldValue.vuln[i] !== undefined && newValue.vuln[i].comment1 != oldValue.vuln[i].comment1) {
+                            if (newValue.vuln[i].id == null) {
+                                AnrService.createScaleComment($scope.model.anr.id, $scope.scales.vulns.id, i, newValue.vuln[i].comment1, undefined, update);
+                            } else {
+                                AnrService.updateScaleComment($scope.model.anr.id, $scope.scales.vulns.id, newValue.vuln[i].id, newValue.vuln[i], update);
+                            }
                         }
                     }
                 }
-
-                if (smthChanged) {
-                    $scope.updateScalesComments();
-                }
             }
 
-            commsWatchSetup = true;
+            // Debounce the watch by 1 second
+            setTimeout(function () { commsWatchSetup = true; }, 1000);
         }, true);
 
         $scope.editAnrInfo = function (ev) {
@@ -329,35 +340,58 @@
                 });
         };
 
-        $scope.updateScalesComments = function () {
+        $scope.updateScales = function () {
             AnrService.getScales($scope.model.anr.id).then(function (data) {
-                $scope.anr_scales = data;
-
                 for (var i = 0; i < data.scales.length; ++i) {
                     var scale = data.scales[i];
+
+                    // We initialize empty objects for comments, then we call getScaleComments. Because Zend.
+                    // When we post a comment, we need to check if the ID is empty or not, and call POST/PUT methods
+                    // accordingly on the scales/:id/comments endpoint. For UI/UX reasons, we need to filter everything
+                    // here since we don't have proper backend endpoints.
 
                     scaleWatchSetup = false;
                     if (scale.type == "impact") {
                         $scope.scales.impacts = scale;
                     } else if (scale.type == "threat") {
                         $scope.scales.threats = scale;
+
+                        for (var j =  $scope.scales.threats.min; j < $scope.scales.threats.max; ++j) {
+                            $scope.comms.threat[j] = {
+                                id: null,
+                                comment1: null
+                            };
+                        }
                     } else if (scale.type == "vulnerability") {
                         $scope.scales.vulns = scale;
+
+                        for (var j =  $scope.scales.vulns.min; j < $scope.scales.vulns.max; ++j) {
+                            $scope.comms.vuln[j] = {
+                                id: null,
+                                comment1: null
+                            };
+                        }
                     }
                 }
 
-                AnrService.getScaleComments($scope.model.anr.id).then(function (data) {
-                    // console.log(data);
+                $scope.updateScaleComments($scope.scales.threats.id);
+                $scope.updateScaleComments($scope.scales.vulns.id);
+            });
+        };
 
-                    // Data must be != undefined to be updated properly on user inline input
-                    for (var i =  $scope.scales.threats.min; i < $scope.scales.threats.max; ++i) {
-                        $scope.comms.threat[i] = null;
-                    }
+        $scope.updateScaleComments = function (scale_id) {
+            AnrService.getScaleComments($scope.model.anr.id, scale_id).then(function (data) {
+                var obj;
+                if (scale_id === $scope.scales.threats.id) {
+                    obj = $scope.comms.threat;
+                } else if (scale_id === $scope.scales.vulns.id) {
+                    obj = $scope.comms.vulns;
+                }
 
-                    for (var i =  $scope.scales.vulns.min; i < $scope.scales.vulns.max; ++i) {
-                        $scope.comms.vuln[i] = null;
-                    }
-                })
+                for (var i = 0; i < data.comments.length; ++i) {
+                    var comm = data.comments[i];
+                    obj[comm.val] = comm;
+                }
             });
         };
 
