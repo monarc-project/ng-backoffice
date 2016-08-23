@@ -31,6 +31,16 @@
             $scope.sheet_id = undefined;
         };
 
+
+        $scope.openOpRiskSheet = function () {
+            $scope.opsheet_id = 1;
+        };
+
+        $scope.resetOpSheet = function () {
+            $scope.opsheet_id = undefined;
+        };
+
+
         $scope.editInstanceDetails = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 

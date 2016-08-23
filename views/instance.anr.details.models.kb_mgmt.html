@@ -136,7 +136,9 @@
             <md-tab label="{{ 'OP risks table' | translate }}">
                 <p class="md-title md-padding" translate>{{ instance.oprisks.length || 0 }} operational risk(s)</p>
 
-                <table class="md-html-table">
+                <div ng-include="'views/partials/risk_sheet.html'" ng-if="opsheet_id"></div>
+
+                <table class="md-html-table" ng-if="!opsheet_id">
                     <thead>
                     <tr>
                         <th rowspan="3" translate>Risk description</th>
@@ -144,6 +146,7 @@
                         <th rowspan="3" translate>Observation</th>
                         <th rowspan="3">T</th>
                         <th rowspan="3" translate>Target risk</th>
+                        <th rowspan="3" translate>Actions</th>
                     </tr>
 
                     <tr>
@@ -174,6 +177,10 @@
                         <td>{{ risk.comment }}</td>
                         <td>{{ risk.t }}</td>
                         <td>{{ risk.target }}</td>
+                        <td><md-button class="md-icon-button" ng-click="openOpRiskSheet()">
+                            <md-tooltip>{{ 'Open risk sheet' | translate }}</md-tooltip>
+                            <md-icon>open_in_new</md-icon>
+                        </md-button></td>
                     </tr>
                     </tbody>
                 </table>
