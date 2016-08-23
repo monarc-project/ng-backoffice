@@ -25,7 +25,7 @@
                 'query': {
                     isArray: false
                 }
-            })
+            });
 
         var getModels = function (params) {
             return self.ModelResource.query(params).$promise;
@@ -47,19 +47,12 @@
             self.ModelResource.delete({modelId: id}, success, error);
         };
 
-        var addNewObject = function (model_id, object, success, error) {
-            var obj_pump = angular.copy(object);
-            obj_pump.anrId = model_id;
-            new self.LibraryResource(obj_pump).$save(success, error);
-        };
-
         return {
             getModels: getModels,
             getModel: getModel,
             createModel: createModel,
             deleteModel: deleteModel,
-            updateModel: updateModel,
-            addNewObject: addNewObject
+            updateModel: updateModel
         };
     }
 

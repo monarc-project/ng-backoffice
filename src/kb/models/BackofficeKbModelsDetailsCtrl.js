@@ -95,8 +95,6 @@
                     copy.type = 'inst';
                     e.source.nodesScope.$modelValue.push(copy);
 
-                    console.log(e);
-
                     // Also, tell the server to instantiate the object
                     AnrService.addInstance($scope.model.anr.id, copy.id, e.dest.nodesScope.$parent.$modelValue ? e.dest.nodesScope.$parent.$modelValue.id : 0, e.dest.index, function () {
                         $scope.updateInstances();
@@ -347,13 +345,13 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'ModelService', 'model_id', AddObjectDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'AnrService', 'anr_id', AddObjectDialogCtrl],
                 templateUrl: '/views/dialogs/add.objlib.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
-                    model_id: $scope.model.id
+                    anr_id: $scope.model.anr.id
                 }
             })
                 .then(function (objlib) {
@@ -473,7 +471,7 @@
         };
     }
 
-    function AddObjectDialogCtrl($scope, $mdDialog, $q, ObjlibService, ModelService, model_id) {
+    function AddObjectDialogCtrl($scope, $mdDialog, $q, ObjlibService, AnrService, anr_id) {
         $scope.objectSearchText = '';
         $scope.categorySearchText = '';
 
@@ -505,7 +503,7 @@
                         objlib.rolfTag = objlib.rolfTag.id;
                     }
 
-                    ModelService.addNewObject(model_id, objlib, function (data) {
+                    AnrService.addNewObjectToLibrary(anr_id, objlib, function (data) {
 
                     });
                 }

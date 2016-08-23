@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AnrService', [ '$resource', AnrService ]);
+        .factory('AnrService', [ '$resource', 'ObjlibService', AnrService ]);
 
-    function AnrService($resource) {
+    function AnrService($resource, ObjlibService) {
         var self = this;
 
         self.AnrResource = $resource('/api/anr/:anrId', { anrId: '@anrId' },
@@ -85,9 +85,9 @@
         };
 
         var addNewObjectToLibrary = function (anr_id, object, success, error) {
-            var obj_pump = angular.copy(object);
-            obj_pump.anrId = anr_id;
-            new self.LibraryResource(obj_pump).$save(success, error);
+            ObjlibService.createObjlib(object, function (data) {
+                addExistingObjectToLibrary(anr_id, data.id, success, error);
+            }, error);
         };
 
         var getObjectsLibrary = function (anr_id) {
