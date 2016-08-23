@@ -56,14 +56,18 @@
     <md-card>
         <md-tabs md-dynamic-height md-border-bottom>
             <md-tab label="{{ 'General information' | translate }}">
-                <div class="md-padding">
+                <md-progress-circular ng-if="!instance.id"></md-progress-circular>
+
+                <div class="md-padding" ng-if="instance.id">
                     <p class="md-title" translate>This asset is attached to the following parents</p>
 
-                    <ul class="md-treeview">
+                    <p ng-if="instance.parent == null">This asset has no parents.</p>
+
+                    <ul class="md-treeview" ng-if="instance.parent != null">
                         <li class="md-treeview-root">
-                            <a ui-sref="main.kb_mgmt.info_risk.object({objectId: object.id})"><md-icon>place</md-icon> {{ object.name1 }}</a>
+                            <a ui-sref="main.kb_mgmt.models.details.instance({instId: instance.id})"><md-icon>place</md-icon> {{ object.name1 }}</a>
                             <ul>
-                                <li ng-repeat="node in composition"
+                                <li ng-repeat="node in [instance.parent]"
                                     ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
                                     ng-include="'objlibs.tree_item_template.html'"></li>
                             </ul>
