@@ -16,6 +16,14 @@
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
+
+            $scope.openRiskSheet = function () {
+                $scope.sheet_id = 1;
+            };
+
+            $scope.resetSheet = function () {
+                $scope.sheet_id = undefined;
+            };
         } else {
             $scope.mode = 'bdc';
         }
