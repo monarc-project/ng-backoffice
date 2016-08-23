@@ -68,7 +68,7 @@
 
         $scope.insTreeCallbacks = {
             dropped: function (e) {
-                if (e.source.nodesScope.$id == e.dest.nodesScope.$id) {
+                if (e.source.nodesScope.$treeScope.$id == e.dest.nodesScope.$treeScope.$id) {
                     var obj = e.source.nodeScope.$modelValue;
                     AnrService.moveInstance($scope.model.anr.id, obj.id, e.dest.nodesScope.$parent.$modelValue ? e.dest.nodesScope.$parent.$modelValue.id : 0, e.dest.index, function () {
                         $scope.updateInstances();
@@ -87,7 +87,7 @@
             },
 
             dropped: function (e) {
-                if (e.source.nodesScope.$id == e.dest.nodesScope.$id) {
+                if (e.source.nodesScope.$treeScope.$id == e.dest.nodesScope.$treeScope.$id) {
                     return false;
                 } else {
                     // Make a copy of the item from the library tree to the inst tree
