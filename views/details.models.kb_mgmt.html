@@ -66,7 +66,7 @@
                                 <tr>
                                     <th></th>
                                     <th ng-repeat="type in scales_types">{{ type.label1 }}</th>
-                                    <th><span inline-edit="newColumnName" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-placeholder="{{ 'New column name' | translate }}"></span></th>
+                                    <th><span inline-edit="newColumnName" inline-edit-callback="onCreateNewColumn(newValue)" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click inline-edit-placeholder="{{ 'New column name' | translate }}"></span></th>
                                 </tr>
                                 </thead>
 

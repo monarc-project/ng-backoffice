@@ -132,6 +132,10 @@
             return self.ScalesTypesResource.query({anrId: anr_id}).$promise;
         };
 
+        var createScaleType = function (anr_id, scale_id, label1, success, error) {
+            new self.ScalesTypesResource({anrId: anr_id, anr: anr_id, scale: scale_id, label1: label1, isHidden: false, isSys: false, implicitPosition: 1}).$save(success, error);
+        };
+
         // Scales comments
         var getScaleComments = function (anr_id, type) {
             return self.ScalesCommentResource.query({anrId: anr_id, scaleId: type}).$promise;
@@ -145,7 +149,7 @@
             if (params.scaleTypeImpact && params.scaleTypeImpact.id) {
                 params.scaleTypeImpact = params.scaleTypeImpact.id;
             }
-            
+
             return self.ScalesCommentResource.update({anrId: anr_id, scaleId: scale_id, commentId: comment_id}, params, success, error);
         };
 
@@ -161,6 +165,7 @@
             getScales: getScales,
             updateScale: updateScale,
             getScalesTypes: getScalesTypes,
+            createScaleType: createScaleType,
             getScaleComments: getScaleComments,
             createScaleComment: createScaleComment,
             updateScaleComment: updateScaleComment,
