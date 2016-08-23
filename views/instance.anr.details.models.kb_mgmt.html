@@ -120,7 +120,10 @@
                         <td inline-edit="risk.comment" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-placeholder="{{ 'Click to type...' | translate }}" inline-edit-on-click></td>
                         <td>-</td>
                         <td>{{risk.target}}</td>
-                        <td><md-button class="md-icon-button" ng-click="openRiskSheet()"><md-icon>open_in_new</md-icon></md-button></td>
+                        <td><md-button class="md-icon-button" ng-click="openRiskSheet()">
+                            <md-tooltip>{{ 'Open risk sheet' | translate }}</md-tooltip>
+                            <md-icon>open_in_new</md-icon>
+                        </md-button></td>
                     </tr>
                     </tbody>
                 </table>

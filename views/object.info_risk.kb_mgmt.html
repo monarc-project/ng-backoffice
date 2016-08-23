@@ -158,7 +158,10 @@
                         <td ng-if="mode=='bdc'"></td>
                         <td>-</td>
                         <td>{{risk.target}}</td>
-                        <td ng-if="mode=='anr'"><md-button class="md-icon-button" ng-click="openRiskSheet()"><md-icon>open_in_new</md-icon></md-button></td>
+                        <td ng-if="mode=='anr'"><md-button class="md-icon-button" ng-click="openRiskSheet()">
+                            <md-tooltip>{{ 'Open risk sheet' | translate }}</md-tooltip>
+                            <md-icon>open_in_new</md-icon>
+                        </md-button></td>
                     </tr>
                     </tbody>
                 </table>
