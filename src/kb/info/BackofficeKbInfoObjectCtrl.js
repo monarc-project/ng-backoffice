@@ -17,8 +17,8 @@
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
 
-            $scope.openRiskSheet = function () {
-                $scope.sheet_id = 1;
+            $scope.openRiskSheet = function (id) {
+                $scope.sheet_id = id;
             };
 
             $scope.resetSheet = function () {
