@@ -116,7 +116,6 @@
                 <table class="md-html-table" ng-if="!sheet_id">
                     <thead>
                     <tr>
-                        <th colspan="3"><p translate>Impact</p></th>
                         <th rowspan="2"><p translate>Threat</p></th>
                         <th rowspan="2"><p translate>Prob.</p></th>
                         <th rowspan="2"><p translate>Vulnerability</p></th>
@@ -131,17 +130,11 @@
                         <th>C</th>
                         <th>I</th>
                         <th>D</th>
-                        <th>C</th>
-                        <th>I</th>
-                        <th>D</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     <tr ng-repeat="risk in object.risks">
-                        <td>{{risk.c_impact}}</td>
-                        <td>{{risk.i_impact}}</td>
-                        <td>{{risk.d_impact}}</td>
                         <td>{{risk.threatDescription}}</td>
                         <td ng-if="mode=='bdc'">{{risk.threatRate}}</td>
                         <td ng-if="mode=='anr'" inline-edit="risk.threatRate" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></td>
