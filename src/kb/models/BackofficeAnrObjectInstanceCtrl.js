@@ -23,8 +23,8 @@
             $scope.instance = data;
         });
 
-        $scope.openRiskSheet = function () {
-            $scope.sheet_id = 1;
+        $scope.openRiskSheet = function (id) {
+            $scope.sheet_id = id;
         };
 
         $scope.resetSheet = function () {
@@ -32,8 +32,8 @@
         };
 
 
-        $scope.openOpRiskSheet = function () {
-            $scope.opsheet_id = 1;
+        $scope.openOpRiskSheet = function (id) {
+            $scope.opsheet_id = id;
         };
 
         $scope.resetOpSheet = function () {

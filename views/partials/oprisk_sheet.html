@@ -24,10 +24,12 @@
             <td>-</td>
             <td>-</td>
             <td>-</td>
+            <td>-</td>
         </tr>
 
         <tr>
             <td translate>Target</td>
+            <td>-</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
@@ -41,7 +43,8 @@
     <form class="md-padding">
         <md-input-container class="md-block">
             <label translate>Observation</label>
-            <textarea></textarea>
+            <md-icon>visibility</md-icon>
+            <textarea rows="3"></textarea>
         </md-input-container>
         <md-input-container class="md-block">
             <label translate>Processing type</label>
@@ -56,14 +59,9 @@
         </md-input-container>
 
         <md-input-container class="md-block">
-            <label translate>Reduce vulnerability by</label>
-            <md-icon>trending_down</md-icon>
-            <md-select ng-model="sheet_reduction">
-                <md-option value="0">0</md-option>
-                <md-option value="1">1</md-option>
-                <md-option value="2">2</md-option>
-                <md-option value="3">3</md-option>
-            </md-select>
+            <label translate>Mitigation</label>
+            <md-icon>call_missed</md-icon>
+            <textarea rows="3"></textarea>
         </md-input-container>
 
         <div layout="row" layout-align="end center">
