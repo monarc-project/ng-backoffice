@@ -45,7 +45,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'instance', CreateInstanceDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'AnrService', 'instance', CreateInstanceDialogCtrl],
                 templateUrl: '/views/dialogs/create.instance.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -83,8 +83,14 @@
 
 
 
-    function CreateInstanceDialogCtrl($scope, $mdDialog, instance) {
+    function CreateInstanceDialogCtrl($scope, $mdDialog, AnrService, instance) {
+        $scope.cancel = function () {
+            $mdDialog.cancel();
+        };
 
+        AnrService.getScalesTypes(instance.anr.id).then(function (data) {
+            $scope.scalesTypes = data.types;
+        });
     }
 
 })();
