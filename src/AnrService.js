@@ -43,7 +43,7 @@
                 }
             });
 
-        self.InstanceRiskResource = $resource('/api/instances-risks/:riskId', {riskId: '@id'},
+        self.InstanceRiskResource = $resource('/api/anr/:anrId/instances-risks/:riskId', {anrId: '@anrId', riskId: '@id'},
             {
                 'update': {
                     method: 'PUT'
@@ -56,7 +56,7 @@
                 }
             });
 
-        self.InstanceOpRiskResource = $resource('/api/instances-oprisks/:riskId', {riskId: '@id'},
+        self.InstanceOpRiskResource = $resource('/api/anr/:anrId/instances-oprisks/:riskId', {anrId: '@anrId', riskId: '@id'},
             {
                 'update': {
                     method: 'PUT'
@@ -145,28 +145,28 @@
             self.InstanceResource.patch({instId: instance_id, anrId: anr_id, parent: parent_id, position: position}, success, error);
         };
 
-        var getInstanceRisk = function (id) {
-            return self.InstanceRiskResource.query({riskId: id}).$promise;
+        var getInstanceRisk = function (anr_id, id) {
+            return self.InstanceRiskResource.query({anrId: anr_id, riskId: id}).$promise;
         };
 
-        var updateInstanceRisk = function (id, params, success, error) {
-            self.InstanceRiskResource.update({riskId: id}, params, success, error);
+        var updateInstanceRisk = function (anr_id, id, params, success, error) {
+            self.InstanceRiskResource.update({anrId: anr_id, riskId: id}, params, success, error);
         };
 
-        var patchInstanceRisk = function (id, params, success, error) {
-            self.InstanceRiskResource.patch({riskId: id}, params, success, error);
+        var patchInstanceRisk = function (anr_id, id, params, success, error) {
+            self.InstanceRiskResource.patch({anrId: anr_id, riskId: id}, params, success, error);
         };
 
-        var getInstanceOpRisk = function (id) {
-            return self.InstanceOpRiskResource.query({riskId: id}).$promise;
+        var getInstanceOpRisk = function (anr_id, id) {
+            return self.InstanceOpRiskResource.query({anrId: anr_id, riskId: id}).$promise;
         };
 
-        var updateInstanceOpRisk = function (id, params, success, error) {
-            self.InstanceOpRiskResource.update({riskId: id}, params, success, error);
+        var updateInstanceOpRisk = function (anr_id, id, params, success, error) {
+            self.InstanceOpRiskResource.update({anrId: anr_id, riskId: id}, params, success, error);
         };
 
-        var patchInstanceOpRisk = function (id, params, success, error) {
-            self.InstanceOpRiskResource.patch({riskId: id}, params, success, error);
+        var patchInstanceOpRisk = function (anr_id, id, params, success, error) {
+            self.InstanceOpRiskResource.patch({anrId: anr_id, riskId: id}, params, success, error);
         };
 
 

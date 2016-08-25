@@ -38,7 +38,7 @@
 
                     if (!angular.equals(newItem, oldItem)) {
                         // This risk changed, update it
-                        AnrService.updateInstanceRisk(newItem.id, newItem);
+                        AnrService.updateInstanceRisk($scope.model.anr.id, newItem.id, newItem);
                     }
                 }
 
@@ -55,7 +55,7 @@
 
                     if (!angular.equals(newItem, oldItem)) {
                         // This OP risk changed, update it
-                        AnrService.updateInstanceOpRisk(newItem.id, newItem);
+                        AnrService.updateInstanceOpRisk($scope.model.anr.id, newItem.id, newItem);
                     }
                 }
 
