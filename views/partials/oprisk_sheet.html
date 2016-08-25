@@ -18,23 +18,23 @@
 
         <tr>
             <td translate>NET</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
+            <td>{{ opsheet_risk.netProb }}</td>
+            <td>{{ opsheet_risk.netR }}</td>
+            <td>{{ opsheet_risk.netO }}</td>
+            <td>{{ opsheet_risk.netL }}</td>
+            <td>{{ opsheet_risk.netF }}</td>
+            <td>{{ opsheet_risk.netP }}</td>
             <td>-</td>
         </tr>
 
         <tr>
             <td translate>Target</td>
-            <td inline-edit="opsheet_risk.targeted_prob" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="opsheet_risk.targeted_r" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="opsheet_risk.targeted_o" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="opsheet_risk.targeted_l" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="opsheet_risk.targeted_f" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="opsheet_risk.targeted_p" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targetedProb" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targetedR" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targetedO" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targetedL" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targetedF" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targetedP" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
             <td>-</td>
         </tr>
         </tbody>
@@ -49,7 +49,7 @@
         <md-input-container class="md-block">
             <label translate>Processing type</label>
             <md-icon>widgets</md-icon>
-            <md-select ng-model="opsheet_risk.kind_of_measure">
+            <md-select ng-model="opsheet_risk.kindOfMeasure">
                 <md-option value="0">{{ 'Not processed' | translate }}</md-option>
                 <md-option value="1">{{ 'Reduction' | translate }}</md-option>
                 <md-option value="2">{{ 'Denied' | translate }}</md-option>
