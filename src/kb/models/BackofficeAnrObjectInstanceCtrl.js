@@ -126,6 +126,12 @@
                 toastr.success(gettext('The risk sheet changes have been saved successfully'), gettext('Save successful'));
             })
         };
+
+        $scope.saveOpRiskSheet = function (sheet) {
+            AnrService.updateInstanceOpRisk($scope.instance.anr.id, sheet.id, sheet, function () {
+                toastr.success(gettext('The operational risk sheet changes have been saved successfully'), gettext('Save successful'));
+            })
+        };
     }
 
 
