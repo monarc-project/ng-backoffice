@@ -135,10 +135,10 @@
 
                     <tbody>
                     <tr ng-repeat="risk in object.risks">
-                        <td>{{risk.threatDescription}}</td>
+                        <td>{{risk.threatDescription1}}</td>
                         <td ng-if="mode=='bdc'">{{risk.threatRate}}</td>
                         <td ng-if="mode=='anr'" inline-edit="risk.threatRate" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></td>
-                        <td>{{risk.vulnDescription}}</td>
+                        <td>{{risk.vulnDescription1}}</td>
                         <td ng-if="mode=='bdc'">{{risk.vulnerabilityRate}}</td>
                         <td ng-if="mode=='anr'" inline-edit="risk.vulnerabilityRate" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-validation="inlineNumberValidator(newValue)" inline-edit-on-click></td>
                         <td ng-disabled="!risk.c_risk_enabled" class="tbl-risk-calc"
