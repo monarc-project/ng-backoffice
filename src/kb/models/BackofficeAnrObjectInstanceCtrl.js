@@ -23,21 +23,21 @@
             $scope.instance = data;
         });
 
-        $scope.openRiskSheet = function (id) {
-            $scope.sheet_id = id;
+        $scope.openRiskSheet = function (risk) {
+            $scope.sheet_risk = risk;
         };
 
         $scope.resetSheet = function () {
-            $scope.sheet_id = undefined;
+            $scope.sheet_risk = undefined;
         };
 
 
-        $scope.openOpRiskSheet = function (id) {
-            $scope.opsheet_id = id;
+        $scope.openOpRiskSheet = function (risk) {
+            $scope.opsheet_risk = risk;
         };
 
         $scope.resetOpSheet = function () {
-            $scope.opsheet_id = undefined;
+            $scope.opsheet_risk = undefined;
         };
 
 

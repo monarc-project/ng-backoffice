@@ -5,35 +5,35 @@
         <tbody>
         <tr>
             <td class="bold txtright" translate>Threat:</td>
-            <td>Erreur d'utilisation</td>
+            <td>{{ sheet_risk.threatDescription1 }}</td>
         </tr>
         <tr>
             <td class="bold txtright" translate>Vulnerability:</td>
-            <td>Les administrateurs n'ont pas suivi des formations à la sécurité</td>
+            <td>{{ sheet_risk.vulnDescription1 }}</td>
         </tr>
         <tr>
             <td class="bold txtright" translate>Observations:</td>
-            <td>Hello world</td>
+            <td>{{ sheet_risk.comment }}</td>
         </tr>
         <tr>
             <td class="bold txtright" translate>Threat probability:</td>
-            <td>4</td>
+            <td>{{ sheet_risk.threatRate }}</td>
         </tr>
         <tr>
             <td class="bold txtright" translate>Vulnerability qualification:</td>
-            <td>3</td>
+            <td>{{ sheet_risk.vulnerabilityRate }}</td>
         </tr>
         <tr>
             <td class="bold txtright" translate>Measure #1:</td>
-            <td>7.2.2 - Sensibilisation, qualification et formations en matière de sécurité de l'information</td>
+            <td>{{ sheet_risk.measure1.code }} - {{ sheet_risk.measure1.label1 }}</td>
         </tr>
         <tr>
             <td class="bold txtright" translate>Measure #2:</td>
-            <td>7.2.2 - Sensibilisation, qualification et formations en matière de sécurité de l'information</td>
+            <td>{{ sheet_risk.measure2.code }} - {{ sheet_risk.measure2.label1 }}</td>
         </tr>
         <tr>
             <td class="bold txtright" translate>Measure #3:</td>
-            <td>7.2.2 - Sensibilisation, qualification et formations en matière de sécurité de l'information</td>
+            <td>{{ sheet_risk.measure3.code }} - {{ sheet_risk.measure3.label1 }}</td>
         </tr>
         </tbody>
     </table>
@@ -67,7 +67,7 @@
         <md-input-container class="md-block">
             <label translate>Processing type</label>
             <md-icon>widgets</md-icon>
-            <md-select ng-model="sheet_processing">
+            <md-select ng-model="sheet_risk.kind_of_measure">
                 <md-option value="0">{{ 'Not processed' | translate }}</md-option>
                 <md-option value="1">{{ 'Reduction' | translate }}</md-option>
                 <md-option value="2">{{ 'Denied' | translate }}</md-option>
@@ -79,7 +79,7 @@
         <md-input-container class="md-block">
             <label translate>Reduce vulnerability by</label>
             <md-icon>trending_down</md-icon>
-            <md-select ng-model="sheet_reduction">
+            <md-select ng-model="sheet_risk.reduction_amount">
                 <md-option value="0">0</md-option>
                 <md-option value="1">1</md-option>
                 <md-option value="2">2</md-option>

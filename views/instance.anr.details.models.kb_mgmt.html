@@ -77,13 +77,13 @@
             </md-tab>
 
             <md-tab label="{{ 'Risks table' | translate }}">
-                <div ng-include="'views/partials/risk_sheet.html'" ng-if="sheet_id"></div>
+                <div ng-include="'views/partials/risk_sheet.html'" ng-if="sheet_risk"></div>
 
                 <div ng-if="!instance.risks || !instance.risks.length" class="md-padding">
                     <em>{{ 'There is no AMV link for this instance, so the risks table is empty.' | translate }}</em>
                 </div>
 
-                <table class="md-html-table" ng-if="!sheet_id && instance.risks.length > 0">
+                <table class="md-html-table" ng-if="!sheet_risk && instance.risks.length > 0">
                     <thead>
                     <tr>
                         <th colspan="3"><p translate>Impact</p></th>
@@ -125,7 +125,7 @@
                         <td inline-edit="risk.comment" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-placeholder="{{ 'Click to type...' | translate }}" inline-edit-on-click></td>
                         <td>-</td>
                         <td>{{risk.target}}</td>
-                        <td><md-button class="md-icon-button" ng-click="openRiskSheet(risk.id)">
+                        <td><md-button class="md-icon-button" ng-click="openRiskSheet(risk)">
                             <md-tooltip>{{ 'Open risk sheet' | translate }}</md-tooltip>
                             <md-icon>open_in_new</md-icon>
                         </md-button></td>
@@ -137,9 +137,9 @@
             <md-tab label="{{ 'OP risks table' | translate }}">
                 <p class="md-title md-padding" translate>{{ instance.oprisks.length || 0 }} operational risk(s)</p>
 
-                <div ng-include="'views/partials/oprisk_sheet.html'" ng-if="opsheet_id"></div>
+                <div ng-include="'views/partials/oprisk_sheet.html'" ng-if="opsheet_risk"></div>
 
-                <table class="md-html-table" ng-if="!opsheet_id">
+                <table class="md-html-table" ng-if="!opsheet_risk">
                     <thead>
                     <tr>
                         <th rowspan="3" translate>Risk description</th>

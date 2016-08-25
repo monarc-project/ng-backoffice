@@ -111,9 +111,9 @@
 
                 <p class="md-title md-padding" translate>{{ object.risks.length }} AMV links</p>
 
-                <div ng-include="'views/partials/risk_sheet.html'" ng-if="sheet_id"></div>
+                <div ng-include="'views/partials/risk_sheet.html'" ng-if="sheet_risk"></div>
 
-                <table class="md-html-table" ng-if="!sheet_id">
+                <table class="md-html-table" ng-if="!sheet_risk">
                     <thead>
                     <tr>
                         <th rowspan="2"><p translate>Threat</p></th>
@@ -151,7 +151,7 @@
                         <td ng-if="mode=='bdc'"></td>
                         <td>-</td>
                         <td>{{risk.target}}</td>
-                        <td ng-if="mode=='anr'"><md-button class="md-icon-button" ng-click="openRiskSheet(risk.id)">
+                        <td ng-if="mode=='anr'"><md-button class="md-icon-button" ng-click="openRiskSheet(risk)">
                             <md-tooltip>{{ 'Open risk sheet' | translate }}</md-tooltip>
                             <md-icon>open_in_new</md-icon>
                         </md-button></td>
