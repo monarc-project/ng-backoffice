@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeAnrObjectInstanceCtrl', [
             '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', '$state', 'TableHelperService',
-            'ModelService', 'ObjlibService', '$stateParams', 'AnrService', '$rootScope',
+            'ModelService', 'ObjlibService', '$stateParams', 'AnrService', '$rootScope', '$timeout',
             BackofficeAnrObjectInstanceCtrl
         ]);
 
@@ -13,15 +13,40 @@
      */
     function BackofficeAnrObjectInstanceCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, $state,
                                             TableHelperService, ModelService, ObjlibService, $stateParams, AnrService,
-                                            $rootScope) {
+                                            $rootScope, $timeout) {
 
         $scope.instance = {};
 
         $rootScope.anr_selected_instance_id = $stateParams.instId;
 
-        AnrService.getInstance($scope.model.anr.id, $stateParams.instId).then(function (data) {
-            $scope.instance = data;
-        });
+
+        var isInstanceLoading = true;
+
+        $scope.updateInstance = function () {
+            AnrService.getInstance($scope.model.anr.id, $stateParams.instId).then(function (data) {
+                $scope.instance = data;
+                isInstanceLoading = false;
+            });
+        };
+        $scope.updateInstance();
+
+        $scope.$watch('instance.risks', function (newValue, oldValue) {
+            if (!isInstanceLoading) {
+                for (var i = 0; i < newValue.length; ++i) {
+                    var newItem = newValue[i];
+                    var oldItem = oldValue[i];
+
+                    if (!angular.equals(newItem, oldItem)) {
+                        // This risk changed, update it
+                        AnrService.updateInstanceRisk(newItem.id, newItem);
+                    }
+                }
+
+                // Update the whole table
+                $timeout($scope.updateInstance, 500);
+            }
+        }, true);
+
 
         $scope.openRiskSheet = function (risk) {
             $scope.sheet_risk = risk;
