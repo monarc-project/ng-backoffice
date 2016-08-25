@@ -29,12 +29,12 @@
 
         <tr>
             <td translate>Target</td>
-            <td inline-edit="target.prob" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="target.r" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="target.o" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="target.l" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="target.f" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
-            <td inline-edit="target.p" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targeted_prob" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targeted_r" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targeted_o" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targeted_l" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targeted_f" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
+            <td inline-edit="opsheet_risk.targeted_p" inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit-on-click></td>
             <td>-</td>
         </tr>
         </tbody>
@@ -44,12 +44,12 @@
         <md-input-container class="md-block">
             <label translate>Observation</label>
             <md-icon>visibility</md-icon>
-            <textarea rows="3"></textarea>
+            <textarea ng-model="opsheet_risk.comment" rows="3"></textarea>
         </md-input-container>
         <md-input-container class="md-block">
             <label translate>Processing type</label>
             <md-icon>widgets</md-icon>
-            <md-select ng-model="sheet_processing">
+            <md-select ng-model="opsheet_risk.kind_of_measure">
                 <md-option value="0">{{ 'Not processed' | translate }}</md-option>
                 <md-option value="1">{{ 'Reduction' | translate }}</md-option>
                 <md-option value="2">{{ 'Denied' | translate }}</md-option>
@@ -61,7 +61,7 @@
         <md-input-container class="md-block">
             <label translate>Mitigation</label>
             <md-icon>call_missed</md-icon>
-            <textarea rows="3"></textarea>
+            <textarea ng-model="opsheet_risk.mitigation" rows="3"></textarea>
         </md-input-container>
 
         <div layout="row" layout-align="end center">
