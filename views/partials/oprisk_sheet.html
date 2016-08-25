@@ -1,7 +1,7 @@
 <div class="md-padding-left md-padding-right">
     <h3 layout="row" layout-align="start center"><md-button class="md-icon-button" ng-click="resetOpSheet()"><md-icon>arrow_back</md-icon></md-button> <span translate>Operational risk sheet</span></h3>
 
-    <p><b>R2 - Risque deux</b></p>
+    <p><b>{{ opsheet_risk.rolfRisk.code }} - {{ opsheet_risk.rolfRisk.label1 }}</b></p>
 
     <table class="md-html-table">
         <tbody>
@@ -56,12 +56,6 @@
                 <md-option value="3">{{ 'Accepted' | translate }}</md-option>
                 <md-option value="4">{{ 'Shared' | translate }}</md-option>
             </md-select>
-        </md-input-container>
-
-        <md-input-container class="md-block">
-            <label translate>Mitigation</label>
-            <md-icon>call_missed</md-icon>
-            <textarea ng-model="opsheet_risk.mitigation" rows="3"></textarea>
         </md-input-container>
 
         <div layout="row" layout-align="end center">
