@@ -56,6 +56,19 @@
                 }
             });
 
+        self.InstanceOpRiskResource = $resource('/api/instances-oprisks/:riskId', {riskId: '@id'},
+            {
+                'update': {
+                    method: 'PUT'
+                },
+                'patch': {
+                    method: 'PATCH'
+                },
+                'query': {
+                    isArray: false
+                }
+            });
+
         self.ScalesResource = $resource('/api/anr/:anrId/scales/:scaleId', { anrId: '@anrId', scaleId: '@scaleId' },
             {
                 'update': {
@@ -144,6 +157,18 @@
             self.InstanceRiskResource.patch({riskId: id}, params, success, error);
         };
 
+        var getInstanceOpRisk = function (id) {
+            return self.InstanceOpRiskResource.query({riskId: id}).$promise;
+        };
+
+        var updateInstanceOpRisk = function (id, params, success, error) {
+            self.InstanceOpRiskResource.update({riskId: id}, params, success, error);
+        };
+
+        var patchInstanceOpRisk = function (id, params, success, error) {
+            self.InstanceOpRiskResource.patch({riskId: id}, params, success, error);
+        };
+
 
         // Scales
         var getScales = function (anr_id) {
@@ -204,7 +229,10 @@
             moveInstance: moveInstance,
             getInstanceRisk: getInstanceRisk,
             updateInstanceRisk: updateInstanceRisk,
-            patchInstanceRisk: patchInstanceRisk
+            patchInstanceRisk: patchInstanceRisk,
+            getInstanceOpRisk: getInstanceOpRisk,
+            updateInstanceOpRisk: updateInstanceOpRisk,
+            patchInstanceOpRisk: patchInstanceOpRisk,
         };
     }
 

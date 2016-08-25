@@ -31,7 +31,7 @@
         $scope.updateInstance();
 
         $scope.$watch('instance.risks', function (newValue, oldValue) {
-            if (!isInstanceLoading) {
+            if (!isInstanceLoading && oldValue !== undefined) {
                 for (var i = 0; i < newValue.length; ++i) {
                     var newItem = newValue[i];
                     var oldItem = oldValue[i];
@@ -39,6 +39,23 @@
                     if (!angular.equals(newItem, oldItem)) {
                         // This risk changed, update it
                         AnrService.updateInstanceRisk(newItem.id, newItem);
+                    }
+                }
+
+                // Update the whole table
+                $timeout($scope.updateInstance, 500);
+            }
+        }, true);
+
+        $scope.$watch('instance.oprisks', function (newValue, oldValue) {
+            if (!isInstanceLoading && oldValue !== undefined) {
+                for (var i = 0; i < newValue.length; ++i) {
+                    var newItem = newValue[i];
+                    var oldItem = oldValue[i];
+
+                    if (!angular.equals(newItem, oldItem)) {
+                        // This OP risk changed, update it
+                        AnrService.updateInstanceOpRisk(newItem.id, newItem);
                     }
                 }
 
