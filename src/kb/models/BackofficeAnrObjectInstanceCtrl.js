@@ -143,7 +143,14 @@
         };
 
         AnrService.getScalesTypes(instance.anr.id).then(function (data) {
-            $scope.scalesTypes = data.types;
+            var types = [];
+
+            for (var i = 0; i < data.types.length; ++i) {
+                if (["C", "I", "D"].indexOf(data.types[i].type) < 0) {
+                    types.push(data.types[i]);
+                }
+            }
+            $scope.scalesTypes = types;
         });
     }
 
