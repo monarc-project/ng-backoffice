@@ -1207,7 +1207,7 @@
             $scope.asset.models = modelsIds;
         } else {
             $scope.asset = {
-                mode: 1,
+                mode: 0,
                 code: '',
                 type: 1,
                 label1: '',
@@ -1270,7 +1270,7 @@
 
         } else {
             $scope.threat = {
-                mode: 1,
+                mode: 0,
                 code: '',
                 c: false,
                 i: false,
@@ -1380,7 +1380,7 @@
             $scope.vuln.models = modelsIds;
         } else {
             $scope.vuln = {
-                mode: 1,
+                mode: 0,
                 code: '',
                 label1: '',
                 label2: '',

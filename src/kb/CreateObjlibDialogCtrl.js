@@ -8,7 +8,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
         $scope.objlib = objlib;
     } else {
         $scope.objlib = {
-            mode: 1,
+            mode: 0,
             scope: 1,
             label1: '',
             label2: '',
