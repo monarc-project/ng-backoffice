@@ -22,6 +22,11 @@
                     <form flex name="assets.filter.form">
                         <input type="text" ng-model="assets.query.filter" ng-model-options="assets.filter.options" placeholder="{{ 'Search...' | translate }}">
                     </form>
+                    <md-select aria-label="filter" ng-model="assets.activeFilter" style="font-size: 14px">
+                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                    </md-select>
                     <md-button class="md-icon-button" ng-click="removeAssetsFilter()">
                         <md-icon>close</md-icon>
                     </md-button>
@@ -104,6 +109,11 @@
                     <form flex name="threats.filter.form">
                         <input type="text" ng-model="threats.query.filter" ng-model-options="threats.filter.options" placeholder="{{ 'Search...' | translate }}">
                     </form>
+                    <md-select aria-label="filter" ng-model="threats.activeFilter" style="font-size: 14px">
+                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                    </md-select>
                     <md-button class="md-icon-button" ng-click="removeThreatsFilter()">
                         <md-icon>close</md-icon>
                     </md-button>
@@ -186,6 +196,11 @@
                     <form flex name="vulns.filter.form">
                         <input type="text" ng-model="vulns.query.filter" ng-model-options="vulns.filter.options" placeholder="{{ 'Search...' | translate }}">
                     </form>
+                    <md-select aria-label="filter" ng-model="vulns.activeFilter" style="font-size: 14px">
+                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                    </md-select>
                     <md-button class="md-icon-button" ng-click="removeVulnsFilter()">
                         <md-icon>close</md-icon>
                     </md-button>
@@ -266,6 +281,11 @@
                     <form flex name="measures.filter.form">
                         <input type="text" ng-model="measures.query.filter" ng-model-options="measures.filter.options" placeholder="{{ 'Search...' | translate }}">
                     </form>
+                    <md-select aria-label="filter" ng-model="measures.activeFilter" style="font-size: 14px">
+                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                    </md-select>
                     <md-button class="md-icon-button" ng-click="removeMeasuresFilter()">
                         <md-icon>close</md-icon>
                     </md-button>
@@ -342,6 +362,11 @@
                     <form flex name="amvs.filter.form">
                         <input type="text" ng-model="amvs.query.filter" ng-model-options="amvs.filter.options" placeholder="{{ 'Search...' | translate }}">
                     </form>
+                    <md-select aria-label="filter" ng-model="amvs.activeFilter" style="font-size: 14px">
+                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                    </md-select>
                     <md-button class="md-icon-button" ng-click="removeAmvsFilter()">
                         <md-icon>close</md-icon>
                     </md-button>
