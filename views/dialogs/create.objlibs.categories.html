@@ -41,7 +41,7 @@
                                 md-items="item in queryCategorySearch(categoryParentSearchText)"
                                 md-item-text="item.label1"
                                 md-min-length="0"
-                                placeholder="{{ 'Parent category' | translate }}">
+                                placeholder="{{ 'Parent category (leave empty for root)' | translate }}">
                             <md-item-template>
                                 <span md-highlight-text="categoryParentSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
                             </md-item-template>
