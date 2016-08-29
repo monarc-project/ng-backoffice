@@ -1,5 +1,5 @@
 <md-dialog class="dialog-width">
-    <form flex>
+    <form style="min-height: 400px">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2 translate>Add an object to the model library</h2>
@@ -9,8 +9,8 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <md-dialog-content flex>
-            <div class="md-dialog-content" layout="column" layout-align="center center" flex>
+        <md-dialog-content>
+            <div class="md-dialog-content" layout="column" layout-align="center center">
                 <p translate>Pick an existing object from the knowledge base</p>
 
                 <div class="md-block" layout="column" flex>
@@ -27,19 +27,21 @@
                                 md-item-text="item.label1"
                                 md-min-length="0"
                                 placeholder="{{ 'Select a category' | translate }}"
-                            <md-item-template>
-                                <span md-highlight-text="categorySearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
-                            </md-item-template>
+                        <md-item-template>
+                            <span md-highlight-text="categorySearchText"
+                                  md-highlight-flags="^i">{{ item.label1 }}</span>
+                        </md-item-template>
 
-                            <md-not-found>
-                                {{ 'No category matching your search was found' | translate }}
-                                <md-button ng-click="createCategory($event, categorySearchText)">{{ 'Create this category' | translate }}</md-button>
-                            </md-not-found>
+                        <md-not-found>
+                            {{ 'No category matching your search was found' | translate }}
+                            <md-button ng-click="createCategory($event, categorySearchText)">{{ 'Create this category' | translate }}
+                            </md-button>
+                        </md-not-found>
                         </md-autocomplete>
                     </div>
                 </div>
 
-                <div class="md-block" layout="column" flex style="margin-bottom: 8px">
+                <div class="md-block" layout="column" style="margin-bottom: 8px">
                     <div layout="row">
                         <md-icon style="margin-right: 8px;">class</md-icon>
                         <md-autocomplete
@@ -55,7 +57,8 @@
                                 md-min-length="0"
                                 placeholder="{{ 'Select an object' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="objectSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                                <span md-highlight-text="objectSearchText"
+                                      md-highlight-flags="^i">{{ item.label1 }}</span>
                             </md-item-template>
 
                             <md-not-found>
@@ -65,7 +68,8 @@
                         </md-autocomplete>
                     </div>
 
-                    <md-button ng-click="create()" class="md-primary" ng-disabled="!objlib.object.id || !objlib.category.id">
+                    <md-button ng-click="create()" class="md-primary"
+                               ng-disabled="!objlib.object.id || !objlib.category.id">
                         <md-icon>add</md-icon>
                         {{ 'Add the object' | translate }}
                     </md-button>
@@ -73,7 +77,10 @@
 
                 <p translate>- or -</p>
 
-                <md-button class="md-primary" ng-click="createAttachedObject()"><md-icon>add</md-icon> {{ 'Create a new object and attach it to this model' | translate }}</md-button>
+                <md-button class="md-primary" ng-click="createAttachedObject()">
+                    <md-icon>add</md-icon>
+                    {{ 'Create a new object and attach it to this model' | translate }}
+                </md-button>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
