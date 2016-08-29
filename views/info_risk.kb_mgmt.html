@@ -1,40 +1,30 @@
 <div flex ng-controller="BackofficeKbInfoCtrl">
     <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex">
         <md-tab label="{{ 'Assets' | translate }}" md-on-select="selectAssetsTab()" md-on-deselect="deselectAssetsTab()">
-            <md-toolbar class="md-table-toolbar md-default" ng-hide="assets.selected.length || assets.filter.show">
-                <div class="md-toolbar-tools">
-                    <h2 class="md-title" translate>Assets</h2>
-                    <div flex></div>
-                    <md-select aria-label="filter" ng-model="assets.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="assets.filter.show = true">
-                        <md-icon>search</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
 
-            <md-toolbar class="md-table-toolbar md-default" ng-show="assets.filter.show && !assets.selected.length">
-                <div class="md-toolbar-tools">
-                    <md-icon>search</md-icon>
-                    <form flex name="assets.filter.form">
-                        <input type="text" ng-model="assets.query.filter" ng-model-options="assets.filter.options" placeholder="{{ 'Search...' | translate }}">
-                    </form>
-                    <md-select aria-label="filter" ng-model="assets.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="removeAssetsFilter()">
-                        <md-icon>close</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+            <div layout="row" layout-align="start center" class="md-padding" ng-if="!assets.selected.length">
+                <h2 class="md-title md-padding-right md-padding-left" translate>Assets</h2>
 
-            <md-toolbar class="md-table-toolbar alternate" ng-show="assets.selected.length">
-                <div class="md-toolbar-tools" layout-align="space-between center">
+                <form flex name="assets.filter.form">
+                    <md-input-container class="md-block md-padding-left md-padding-right">
+                        <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                        <input ng-model="assets.query.filter" ng-model-options="assets.filter.options">
+                    </md-input-container>
+                </form>
+
+                <md-select aria-label="filter" ng-model="assets.activeFilter">
+                    <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                    <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                    <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                </md-select>
+
+                <md-button class="md-icon-button" ng-click="removeAssetsFilter()">
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
+
+            <md-toolbar class="md-table-toolbar alternate" ng-if="assets.selected.length">
+                <div class="md-toolbar-tools md-toolbar-pad" layout-align="space-between center">
                     <div>{{assets.selected.length}} {{assets.selected.length > 1 ? 'items' : 'item'}} selected</div>
                     <md-button class="md-icon-button" ng-click="deleteAssetMass($event)">
                         <md-icon>delete</md-icon>
@@ -88,40 +78,27 @@
         </md-tab>
 
         <md-tab label="{{ 'Threats' | translate }}" md-on-select="selectThreatsTab()" md-on-deselect="deselectThreatsTab()">
-            <md-toolbar class="md-table-toolbar md-default" ng-hide="threats.selected.length || threats.filter.show">
-                <div class="md-toolbar-tools">
-                    <h2 class="md-title" translate>Threats</h2>
-                    <div flex></div>
-                    <md-select aria-label="filter" ng-model="threats.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="threats.filter.show = true">
-                        <md-icon>search</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+            <div class="md-padding" ng-if="!threats.selected.length" layout="row" layout-align="start center">
+                <h2 class="md-title md-padding-right md-padding-left" translate>Threats</h2>
 
-            <md-toolbar class="md-table-toolbar md-default" ng-show="threats.filter.show && !threats.selected.length">
-                <div class="md-toolbar-tools">
-                    <md-icon>search</md-icon>
-                    <form flex name="threats.filter.form">
-                        <input type="text" ng-model="threats.query.filter" ng-model-options="threats.filter.options" placeholder="{{ 'Search...' | translate }}">
-                    </form>
-                    <md-select aria-label="filter" ng-model="threats.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="removeThreatsFilter()">
-                        <md-icon>close</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+                <form flex name="threats.filter.form">
+                    <md-input-container class="md-block md-padding-left md-padding-right">
+                        <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                        <input type="text" ng-model="threats.query.filter" ng-model-options="threats.filter.options">
+                    </md-input-container>
+                </form>
+                <md-select aria-label="filter" ng-model="threats.activeFilter" style="font-size: 14px">
+                    <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                    <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                    <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                </md-select>
+                <md-button class="md-icon-button" ng-click="removeThreatsFilter()">
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
 
-            <md-toolbar class="md-table-toolbar alternate" ng-show="threats.selected.length">
-                <div class="md-toolbar-tools" layout-align="space-between center">
+            <md-toolbar class="md-table-toolbar alternate" ng-if="threats.selected.length">
+                <div class="md-toolbar-tools md-toolbar-pad" layout-align="space-between center">
                     <div>{{threats.selected.length}} {{threats.selected.length > 1 ? 'items' : 'item'}} selected</div>
                     <md-button class="md-icon-button" ng-click="deleteThreatMass($event)">
                         <md-icon>delete</md-icon>
@@ -175,42 +152,31 @@
         </md-tab>
 
         <md-tab label="{{ 'Vulns' | translate }}" md-on-select="selectVulnsTab()" md-on-deselect="deselectVulnsTab()">
-            <md-toolbar class="md-table-toolbar md-default" ng-hide="vulns.selected.length || vulns.filter.show">
-                <div class="md-toolbar-tools">
-                    <h2 class="md-title" translate>Vulnerabilities</h2>
-                    <div flex></div>
-                    <md-select aria-label="filter" ng-model="vulns.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="vulns.filter.show = true">
-                        <md-icon>search</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+            <div layout="row" layout-align="start center" class="md-padding" ng-if="!vulns.selected.length">
+                <h2 class="md-title md-padding-right md-padding-left" translate>Vulnerabilties</h2>
 
-            <md-toolbar class="md-table-toolbar md-default" ng-show="vulns.filter.show && !vulns.selected.length">
-                <div class="md-toolbar-tools">
-                    <md-icon>search</md-icon>
-                    <form flex name="vulns.filter.form">
-                        <input type="text" ng-model="vulns.query.filter" ng-model-options="vulns.filter.options" placeholder="{{ 'Search...' | translate }}">
-                    </form>
-                    <md-select aria-label="filter" ng-model="vulns.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="removeVulnsFilter()">
-                        <md-icon>close</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+                <form flex name="vulns.filter.form">
+                    <md-input-container class="md-block md-padding-left md-padding-right">
+                        <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                        <input ng-model="vulns.query.filter" ng-model-options="vulns.filter.options">
+                    </md-input-container>
+                </form>
 
-            <md-toolbar class="md-table-toolbar alternate" ng-show="vulns.selected.length">
-                <div class="md-toolbar-tools" layout-align="space-between center">
+                <md-select aria-label="filter" ng-model="vulns.activeFilter">
+                    <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                    <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                    <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                </md-select>
+
+                <md-button class="md-icon-button" ng-click="removevulnsFilter()">
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
+
+            <md-toolbar class="md-table-toolbar alternate" ng-if="vulns.selected.length">
+                <div class="md-toolbar-tools md-toolbar-pad" layout-align="space-between center">
                     <div>{{vulns.selected.length}} {{vulns.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                    <md-button class="md-icon-button" ng-click="deleteVulnMass($event)">
+                    <md-button class="md-icon-button" ng-click="deleteAssetMass($event)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </div>
@@ -260,42 +226,31 @@
         </md-tab>
 
         <md-tab label="{{ '27002 measures' | translate }}" md-on-select="selectMeasuresTab()" md-on-deselect="deselectMeasuresTab()">
-            <md-toolbar class="md-table-toolbar md-default" ng-hide="measures.selected.length || measures.filter.show">
-                <div class="md-toolbar-tools">
-                    <h2 class="md-title" translate>27002 Measures</h2>
-                    <div flex></div>
-                    <md-select aria-label="filter" ng-model="measures.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="measures.filter.show = true">
-                        <md-icon>search</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+            <div layout="row" layout-align="start center" class="md-padding" ng-if="!measures.selected.length">
+                <h2 class="md-title md-padding-right md-padding-left" translate>27002 measures</h2>
 
-            <md-toolbar class="md-table-toolbar md-default" ng-show="measures.filter.show && !measures.selected.length">
-                <div class="md-toolbar-tools">
-                    <md-icon>search</md-icon>
-                    <form flex name="measures.filter.form">
-                        <input type="text" ng-model="measures.query.filter" ng-model-options="measures.filter.options" placeholder="{{ 'Search...' | translate }}">
-                    </form>
-                    <md-select aria-label="filter" ng-model="measures.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="removeMeasuresFilter()">
-                        <md-icon>close</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+                <form flex name="measures.filter.form">
+                    <md-input-container class="md-block md-padding-left md-padding-right">
+                        <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                        <input ng-model="measures.query.filter" ng-model-options="measures.filter.options">
+                    </md-input-container>
+                </form>
 
-            <md-toolbar class="md-table-toolbar alternate" ng-show="measures.selected.length">
-                <div class="md-toolbar-tools" layout-align="space-between center">
+                <md-select aria-label="filter" ng-model="measures.activeFilter">
+                    <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                    <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                    <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                </md-select>
+
+                <md-button class="md-icon-button" ng-click="removemeasuresFilter()">
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
+
+            <md-toolbar class="md-table-toolbar alternate" ng-if="measures.selected.length">
+                <div class="md-toolbar-tools md-toolbar-pad" layout-align="space-between center">
                     <div>{{measures.selected.length}} {{measures.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                    <md-button class="md-icon-button" ng-click="deleteMeasureMass($event)">
+                    <md-button class="md-icon-button" ng-click="deleteAssetMass($event)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </div>
@@ -341,42 +296,31 @@
         </md-tab>
 
         <md-tab label="{{ 'AMVs' | translate }}" md-on-select="selectAmvsTab()" md-on-deselect="deselectAmvsTab()">
-            <md-toolbar class="md-table-toolbar md-default" ng-hide="amvs.selected.length || amvs.filter.show">
-                <div class="md-toolbar-tools">
-                    <h2 class="md-title" translate>AMVs links</h2>
-                    <div flex></div>
-                    <md-select aria-label="filter" ng-model="amvs.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="amvs.filter.show = true">
-                        <md-icon>search</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+            <div layout="row" layout-align="start center" class="md-padding" ng-if="!amvs.selected.length">
+                <h2 class="md-title md-padding-right md-padding-left" translate>AMVs links</h2>
 
-            <md-toolbar class="md-table-toolbar md-default" ng-show="amvs.filter.show && !amvs.selected.length">
-                <div class="md-toolbar-tools">
-                    <md-icon>search</md-icon>
-                    <form flex name="amvs.filter.form">
-                        <input type="text" ng-model="amvs.query.filter" ng-model-options="amvs.filter.options" placeholder="{{ 'Search...' | translate }}">
-                    </form>
-                    <md-select aria-label="filter" ng-model="amvs.activeFilter" style="font-size: 14px">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                    <md-button class="md-icon-button" ng-click="removeAmvsFilter()">
-                        <md-icon>close</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+                <form flex name="amvs.filter.form">
+                    <md-input-container class="md-block md-padding-left md-padding-right">
+                        <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                        <input ng-model="amvs.query.filter" ng-model-options="amvs.filter.options">
+                    </md-input-container>
+                </form>
 
-            <md-toolbar class="md-table-toolbar alternate" ng-show="amvs.selected.length">
-                <div class="md-toolbar-tools" layout-align="space-between center">
+                <md-select aria-label="filter" ng-model="amvs.activeFilter">
+                    <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                    <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                    <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                </md-select>
+
+                <md-button class="md-icon-button" ng-click="removeamvsFilter()">
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
+
+            <md-toolbar class="md-table-toolbar alternate" ng-if="amvs.selected.length">
+                <div class="md-toolbar-tools md-toolbar-pad" layout-align="space-between center">
                     <div>{{amvs.selected.length}} {{amvs.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                    <md-button class="md-icon-button" ng-click="deleteAmvMass($event)">
+                    <md-button class="md-icon-button" ng-click="deleteamvMass($event)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </div>
@@ -430,29 +374,21 @@
         </md-tab>
 
         <md-tab label="{{ 'Objects library' | translate }}" md-on-select="selectObjlibsTab()" md-on-deselect="deselectObjlibsTab()">
-            <md-toolbar class="md-table-toolbar md-default" ng-hide="objlibs.selected.length || objlibs.filter.show">
-                <div class="md-toolbar-tools">
-                    <h2 class="md-title" translate>Objects library</h2>
-                    <div flex></div>
-                    <md-button class="md-icon-button" ng-click="objlibs.filter.show = true">
-                        <md-icon>search</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+            <div class="md-table-toolbar md-default" ng-if="!objlibs.selected.length" layout="row" layout-align="start center">
+                <p class="md-title md-padding-left md-padding-right">Objects library</p>
+                <form flex name="objlibs.filter.form">
+                    <md-input-container class="md-block">
+                        <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                        <input type="text" ng-model="objlibs.query.filter" ng-model-options="objlibs.filter.options">
+                    </md-input-container>
+                </form>
 
-            <md-toolbar class="md-table-toolbar md-default" ng-show="objlibs.filter.show && !objlibs.selected.length">
-                <div class="md-toolbar-tools">
-                    <md-icon>search</md-icon>
-                    <form flex name="objlibs.filter.form">
-                        <input type="text" ng-model="objlibs.query.filter" ng-model-options="objlibs.filter.options" placeholder="{{ 'Search...' | translate }}">
-                    </form>
-                    <md-button class="md-icon-button" ng-click="removeObjlibsFilter()">
-                        <md-icon>close</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
+                <md-button class="md-icon-button" ng-click="removeObjlibsFilter()">
+                    <md-icon>close</md-icon>
+                </md-button>
+            </div>
 
-            <md-toolbar class="md-table-toolbar alternate" ng-show="objlibs.selected.length">
+            <md-toolbar class="md-table-toolbar alternate" ng-if="objlibs.selected.length">
                 <div class="md-toolbar-tools" layout-align="space-between center">
                     <div>{{objlibs.selected.length}} {{objlibs.selected.length > 1 ? 'items' : 'item'}} selected</div>
                     <md-button class="md-icon-button" ng-click="deleteObjlibMass($event)">

@@ -2,6 +2,11 @@
   white-space: pre-wrap
 }
 
+.md-toolbar-pad {
+  padding-top: 46px !important;
+  padding-bottom: 46px !important;
+}
+
 .toast-title {
   font-weight: bold !important;
 }

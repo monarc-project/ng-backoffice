@@ -31,6 +31,7 @@
         };
 
         var removeFilter = function (struct, form) {
+            struct.activeFilter = 1;
             struct.filter.show = false;
             struct.query.filter = '';
 
