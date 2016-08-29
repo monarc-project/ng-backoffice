@@ -989,6 +989,10 @@
             $scope.objlib_lockswitch = false;
         };
 
+        $scope.selectCategoryFilter = function (id) {
+            $scope.objlib_category_filter = id;
+        };
+
         $scope.selectObjlibsTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'objlibs'});
             objLibTabSelected = true;
