@@ -502,7 +502,7 @@
                         <td md-cell>{{ objlib.category.label1 }}</td>
                         <td md-cell>{{ objlib.name1 }}</td>
                         <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.id})">{{ objlib.label1 }}</td>
-                        <td md-cell>{{ objlibAssetTypeStr(objlib.type) }}</td>
+                        <td md-cell>{{ objlib.asset.code }} - {{ objlib.asset.label1 }}</td>
                         <td md-cell>{{ objlibScopeStr(objlib.scope) }}</td>
                         <td md-cell>{{ specificityStr(objlib.mode) }}</td>
                         <td md-cell>
