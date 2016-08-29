@@ -116,7 +116,7 @@
                                 md-search-text="assetSearchText"
                                 md-selected-item-change="selectedAssetItemChange(item)"
                                 md-items="item in queryAssetSearch(assetSearchText)"
-                                md-item-text="item.label1"
+                                md-item-text="item.code + ' - ' + item.label1"
                                 md-min-length="0"
                                 md-input-name="asset"
                                 md-floating-label="{{ 'Asset' | translate }}">
