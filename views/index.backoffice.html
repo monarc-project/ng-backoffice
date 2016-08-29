@@ -77,7 +77,7 @@
             </md-button>
 
             <md-menu-content width="4">
-                <md-menu-item ng-show="isAllowed('accadmin')">
+                <md-menu-item ng-show="isAllowed('accadmin') || isAllowed('superadmin')">
                     <md-button ui-sref="main.admin.users">
                         <md-icon>people</md-icon> {{ 'Manage users' | translate }}
                     </md-button>
