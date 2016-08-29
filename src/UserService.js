@@ -3,16 +3,17 @@
         angular
             .module('BackofficeApp')
             .factory('UserService', [
-                '$resource', '$http', '$q', 'localStorageService',
+                '$resource', '$http', '$q', 'localStorageService', 'gettextCatalog',
                 UserService
             ]);
 
-        function UserService($resource, $http, $q, localStorageService) {
+        function UserService($resource, $http, $q, localStorageService, gettextCatalog) {
             var self = this;
 
             self.token = null;
             self.uid = null;
             self.authenticated = false;
+            self.uiLanguage = 'en';
             self.permissionGroups = [];
 
             var reauthenticate = function () {
@@ -21,6 +22,7 @@
                     self.token = localStorageService.get('auth_token');
                     self.uid = localStorageService.get('uid');
                     self.permissionGroups = JSON.parse(localStorageService.get('permission_groups'));
+                    self.uiLanguage = localStorageService.get('uiLanguage');
                     return true;
                 } else {
                     return false;
@@ -42,10 +44,12 @@
                             self.authenticated = true;
                             self.token = data.data.token;
                             self.uid = data.data.uid;
+                            self.uiLanguage = data.data.language;
 
                             localStorageService.set('auth_token', self.token);
                             localStorageService.set('uid', self.uid);
                             localStorageService.set('permission_groups', JSON.stringify([]));
+                            localStorageService.set('uiLanguage', data.data.language);
 
                             $http.get('/api/users-roles').then(
                                 function (data) {
@@ -132,6 +136,10 @@
                 return (self.permissionGroups.indexOf(group) >= 0);
             };
 
+            var getUiLanguage = function () {
+                return self.uiLanguage;
+            }
+
             ////////////////////////////////////
 
             return {
@@ -140,6 +148,7 @@
                 logout: logout,
                 getToken: getToken,
                 getUserId: getUserId,
+                getUiLanguage: getUiLanguage,
                 isAuthenticated: isAuthenticated,
                 isAllowed: isAllowed
             };

@@ -3,21 +3,30 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAccountCtrl', [
-            '$scope', 'gettext', 'gettextCatalog', 'toastr', '$http', 'UserService', 'UserProfileService', 'ConfigService',
+            '$scope', 'gettext', 'gettextCatalog', 'toastr', '$http', 'UserService', 'UserProfileService',
+            'ConfigService', 'localStorageService',
             BackofficeAccountCtrl
         ]);
 
     /**
      * Account Controller for the Backoffice module
      */
-    function BackofficeAccountCtrl($scope, gettext, gettextCatalog, toastr, $http, UserService, UserProfileService, ConfigService) {
+    function BackofficeAccountCtrl($scope, gettext, gettextCatalog, toastr, $http, UserService, UserProfileService,
+                                   ConfigService, localStorageService) {
         $scope.password = {
             old: '',
             new: '',
             confirm: ''
         }
 
-        $scope.languages = ConfigService.getLanguages();
+        var ensureLanguagesLoaded = function () {
+            if (ConfigService.isLoaded()) {
+                $scope.languages = ConfigService.getLanguages();
+            } else {
+                setTimeout(ensureLanguagesLoaded, 500);
+            }
+        };
+        ensureLanguagesLoaded();
 
         $scope.refreshProfile = function () {
             UserProfileService.getProfile().then(function (data) {
@@ -49,6 +58,7 @@
         }
 
         $scope.onLanguageChanged = function () {
+            localStorageService.set('uiLanguage', $scope.user.language);
             gettextCatalog.setCurrentLanguage($scope.languages[$scope.user.language].substring(0, 2).toLowerCase());
             $scope.updatePaginationLabels();
             $scope.updateProfile();

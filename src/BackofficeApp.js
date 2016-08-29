@@ -231,8 +231,15 @@ angular
             }]);
             $httpProvider.interceptors.push('monarcHttpInter');
         }]).
-    run(['ConfigService', 'gettext', '$rootScope', function (ConfigService, gettext, $rootScope) {
-            ConfigService.loadConfig();
+    run(['ConfigService', 'UserService', 'gettext', 'gettextCatalog', '$rootScope',
+        function (ConfigService, UserService, gettext, gettextCatalog, $rootScope) {
+            ConfigService.loadConfig(function () {
+                var languages = ConfigService.getLanguages();
+                var uiLang = UserService.getUiLanguage();
+
+                gettextCatalog.setCurrentLanguage(languages[uiLang].substring(0, 2).toLowerCase());
+                $rootScope.updatePaginationLabels();
+            });
 
             // Method to update pagination labels globally when switching language in account settings
             $rootScope.updatePaginationLabels = function () {
