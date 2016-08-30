@@ -119,8 +119,8 @@ angular
             }).state('main.kb_mgmt.models.details', {
                 url: '/:modelId',
                 views: {
-                    'main@main': {templateUrl: '/views/details.models.kb_mgmt.html'},
-                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr.details.models.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/anr/anr.layout.html'},
+                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr/anr.home.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Model details')
@@ -136,7 +136,7 @@ angular
             }).state('main.kb_mgmt.models.details.instance', {
                 url: '/inst/:instId',
                 views: {
-                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/instance.anr.details.models.kb_mgmt.html'}
+                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr/anr.instance.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Object instance')
