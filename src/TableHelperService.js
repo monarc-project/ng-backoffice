@@ -17,10 +17,11 @@
                 selected: [],
                 query: {
                     order: order ? order : null,
-                    limit: limit ? limit : 10,
-                    page: page ? page : 10,
+                    limit: limit ? limit : 20,
+                    page: page ? page : 1,
                     filter: filter ? filter : ''
                 },
+                previousQueryOrder: null,
                 filter: {
                     show: false,
                     options: {

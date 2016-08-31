@@ -62,6 +62,7 @@
                 if (initAssetsFilter) {
                     initAssetsFilter = false;
                 } else {
+                    $scope.assets.query.page = 1;
                     $scope.updateAssets();
                 }
             });
@@ -76,6 +77,11 @@
         $scope.updateAssets = function () {
             var query = angular.copy($scope.assets.query);
             query.status = $scope.assets.activeFilter;
+
+            if ($scope.assets.previousQueryOrder != $scope.assets.query.order) {
+                $scope.assets.query.page = query.page = 1;
+                $scope.assets.previousQueryOrder = $scope.assets.query.order;
+            }
 
             $scope.assets.promise = AssetService.getAssets(query);
             $scope.assets.promise.then(
@@ -263,6 +269,11 @@
             var query = angular.copy($scope.threats.query);
             query.status = $scope.threats.activeFilter;
 
+            if ($scope.threats.previousQueryOrder != $scope.threats.query.order) {
+                $scope.threats.query.page = query.page = 1;
+                $scope.threats.previousQueryOrder = $scope.threats.query.order;
+            }
+
             $scope.threats.promise = ThreatService.getThreats(query);
             $scope.threats.promise.then(
                 function (data) {
@@ -448,6 +459,11 @@
             var query = angular.copy($scope.vulns.query);
             query.status = $scope.vulns.activeFilter;
 
+            if ($scope.vulns.previousQueryOrder != $scope.vulns.query.order) {
+                $scope.vulns.query.page = query.page = 1;
+                $scope.vulns.previousQueryOrder = $scope.vulns.query.order;
+            }
+
             $scope.vulns.promise = VulnService.getVulns(query);
             $scope.vulns.promise.then(
                 function (data) {
@@ -618,6 +634,11 @@
             var query = angular.copy($scope.measures.query);
             query.status = $scope.measures.activeFilter;
 
+            if ($scope.measures.previousQueryOrder != $scope.measures.query.order) {
+                $scope.measures.query.page = query.page = 1;
+                $scope.measures.previousQueryOrder = $scope.measures.query.order;
+            }
+
             $scope.measures.promise = MeasureService.getMeasures(query);
             $scope.measures.promise.then(
                 function (data) {
@@ -776,6 +797,11 @@
         $scope.updateAmvs = function () {
             var query = angular.copy($scope.amvs.query);
             query.status = $scope.amvs.activeFilter;
+
+            if ($scope.amvs.previousQueryOrder != $scope.amvs.query.order) {
+                $scope.amvs.query.page = query.page = 1;
+                $scope.amvs.previousQueryOrder = $scope.amvs.query.order;
+            }
 
             $scope.amvs.promise = AmvService.getAmvs(query);
             $scope.amvs.promise.then(
@@ -1042,6 +1068,11 @@
                 query.asset = $scope.objlib_asset_filter;
             }
             query.lock = $scope.objlib_lockswitch;
+
+            if ($scope.objlibs.previousQueryOrder != $scope.objlibs.query.order) {
+                $scope.objlibs.query.page = query.page = 1;
+                $scope.objlibs.previousQueryOrder = $scope.objlibs.query.order;
+            }
 
             $scope.objlibs.promise = ObjlibService.getObjlibs(query);
             $scope.objlibs.promise.then(
