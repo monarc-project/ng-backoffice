@@ -26,6 +26,14 @@
 .md-main-content {
   background-color: #FAFAFA; }
 
+.md-chips .md-chip-input-container {
+  width: 100%;
+}
+
+.md-chips .md-chip-input-container md-autocomplete md-autocomplete-wrap {
+  width: 100%;
+}
+
 md-list-item p {
   font-weight: normal; }
 
