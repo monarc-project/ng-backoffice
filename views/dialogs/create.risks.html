@@ -77,6 +77,9 @@
             <md-button ng-click="create()" class="md-accent md-hue-3" ng-disabled="riskForm.$error.required || risk.tags.length == 0">
                 {{ (risk.id > 0 ? 'Update' : 'Create') | translate }}
             </md-button>
+            <md-button ng-click="createAndContinue()" class="md-accent md-hue-3" ng-if="!risk.id" ng-disabled="riskForm.$error.required || risk.tags.length == 0">
+                {{ 'Create and continue' | translate }}
+            </md-button>
         </md-dialog-actions>
     </form>
 </md-dialog>

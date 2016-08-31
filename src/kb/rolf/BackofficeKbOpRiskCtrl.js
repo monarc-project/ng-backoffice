@@ -239,11 +239,18 @@
 
                     risk.tags = riskTagIds;
 
+                    var cont = risk.cont;
+                    risk.cont = undefined;
+
                     RiskService.createRisk(risk,
                         function () {
                             $scope.updateRisks();
                             toastr.success(gettextCatalog.getString('The risk "{{riskLabel}}" has been created successfully.',
                                 {riskLabel: risk.label1}), gettext('Creation successful'));
+
+                            if (cont) {
+                                $scope.createNewRisk(ev);
+                            }
                         },
 
                         function () {
@@ -426,6 +433,11 @@
         };
 
         $scope.create = function() {
+            $mdDialog.hide($scope.risk);
+        };
+
+        $scope.createAndContinue = function() {
+            $scope.risk.cont = true;
             $mdDialog.hide($scope.risk);
         };
     }
