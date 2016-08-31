@@ -160,7 +160,7 @@
                 </table>
             </md-tab>
 
-            <md-tab label="{{ 'OP risks table' | translate }}">
+            <md-tab label="{{ 'OP risks table' | translate }}" ng-if="object.asset.type == 1">
                 <md-card class="md-card-info" ng-if="mode == 'bdc'"><md-card-content>
                     <p translate>Operational risks may not be pre-evaluated in the knowledge base.</p>
                 </md-card-content></md-card>
