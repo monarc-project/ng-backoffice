@@ -13,7 +13,7 @@
             self.token = null;
             self.uid = null;
             self.authenticated = false;
-            self.uiLanguage = 'en';
+            self.uiLanguage = null;
             self.permissionGroups = [];
 
             var reauthenticate = function () {

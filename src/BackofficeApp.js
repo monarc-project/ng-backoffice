@@ -237,7 +237,12 @@ angular
                 var languages = ConfigService.getLanguages();
                 var uiLang = UserService.getUiLanguage();
 
-                gettextCatalog.setCurrentLanguage(languages[uiLang].substring(0, 2).toLowerCase());
+                if (uiLang === undefined || uiLang === null) {
+                    gettextCatalog.setCurrentLanguage('en');
+                } else {
+                    gettextCatalog.setCurrentLanguage(languages[uiLang].substring(0, 2).toLowerCase());
+                }
+
                 $rootScope.updatePaginationLabels();
             });
 
