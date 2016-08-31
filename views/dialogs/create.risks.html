@@ -57,7 +57,7 @@
                             md-min-length="0"
                             md-no-cache="true"
                             placeholder="{{ 'Add categories...' | translate }}">
-                        <span md-highlight-text="categorySearchText">{{ item.label1 }} ({{ item.code }})</span>
+                        <span md-highlight-text="categorySearchText"><b>{{ item.code }}</b> - {{ item.label1 }}</span>
                     </md-autocomplete>
 
                     <md-chip-template>
@@ -80,13 +80,13 @@
                                      md-min-length="0"
                                      md-no-cache="true"
                                      placeholder="{{ 'Add tags...' | translate }}">
-                        <span md-highlight-text="tagSearchText">{{ item.label1 }} ({{ item.code }})</span>
+                        <span md-highlight-text="tagSearchText">{{ item.code }} - {{ item.label1 }}</span>
                     </md-autocomplete>
 
                     <md-chip-template>
                         <span>
-                            <strong>{{$chip.label1}}</strong>
-                            <em>{{$chip.code}}</em>
+                            <strong>{{$chip.code}}</strong>
+                            <em>{{$chip.label1}}</em>
                         </span>
                     </md-chip-template>
                 </md-chips>
