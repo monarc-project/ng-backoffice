@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbOpRiskCtrl', [
             '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
-            'CategoryService', 'TagService', 'RiskService', '$stateParams', '$state',
+            'TagService', 'RiskService', '$stateParams', '$state',
             BackofficeKbOpRiskCtrl
         ]);
 
@@ -21,9 +21,8 @@
          */
         $scope.selectTab = function (tab) {
             switch (tab) {
-                case 'categories': $scope.currentTabIndex = 0; break;
-                case 'tags': $scope.currentTabIndex = 1; break;
-                case 'risks': $scope.currentTabIndex = 2; break;
+                case 'tags': $scope.currentTabIndex = 0; break;
+                case 'risks': $scope.currentTabIndex = 1; break;
             }
         }
         $scope.selectTab($scope.tab);
