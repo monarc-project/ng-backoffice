@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbOpRiskCtrl', [
-            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            '$scope', '$timeout', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
             'TagService', 'RiskService', '$stateParams', '$state',
             BackofficeKbOpRiskCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > OPERATIONAL RISKS (ROLF)
      */
-    function BackofficeKbOpRiskCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+    function BackofficeKbOpRiskCtrl($scope, $timeout, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
                                     TagService, RiskService, $stateParams, $state) {
         $scope.tab = $stateParams.tab;
         TableHelperService.resetBookmarks();
@@ -145,15 +145,22 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
+                var outpromise = null;
+
                 angular.forEach($scope.tags.selected, function (value, key) {
-                    TagService.deleteTag(value.id);
+                    TagService.deleteTag(value.id, function () {
+                        if (outpromise) {
+                            $timeout.cancel(outpromise);
+                        }
+
+                        outpromise = $timeout(function() {
+                            toastr.success(gettextCatalog.getString('{{count}} tags have been deleted.',
+                                {count: $scope.tags.selected.length}), gettext('Deletion successful'));
+                            $scope.tags.selected = [];
+                            $scope.updateTags();
+                        }, 350);
+                    });
                 });
-
-                $scope.updateTags();
-                toastr.success(gettextCatalog.getString('{{count}} tags have been deleted.',
-                    {count: $scope.tags.selected.length}), gettext('Deletion successful'));
-                $scope.tags.selected = [];
-
             }, function() {
             });
         };
@@ -313,14 +320,25 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
+                var outpromise = null;
+
                 angular.forEach($scope.risks.selected, function (value, key) {
-                    RiskService.deleteRisk(value.id);
+                    RiskService.deleteRisk(value.id, function () {
+                        if (outpromise) {
+                            $timeout.cancel(outpromise);
+                        }
+
+                        outpromise = $timeout(function() {
+                            toastr.success(gettextCatalog.getString('{{count}} risks have been deleted.',
+                                {count: $scope.risks.selected.length}), gettext('Deletion successful'));
+                            $scope.risks.selected = [];
+
+                            $scope.updateRisks();
+                        }, 350);
+                    });
                 });
 
-                $scope.updateRisks();
-                toastr.success(gettextCatalog.getString('{{count}} risks have been deleted.',
-                    {count: $scope.risks.selected.length}), gettext('Deletion successful'));
-                $scope.risks.selected = [];
+
 
             }, function() {
             });
