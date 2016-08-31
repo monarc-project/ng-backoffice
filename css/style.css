@@ -34,6 +34,16 @@
   width: 100%;
 }
 
+.md-chips md-chip {
+  padding: 0 6px;
+  height: 26px;
+  line-height: 26px;
+}
+
+.md-chip-content {
+  font-size: 12px;
+}
+
 md-list-item p {
   font-weight: normal; }
 
