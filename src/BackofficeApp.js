@@ -13,6 +13,11 @@ angular
                 .primaryPalette('blue')
                 .accentPalette('amber');
 
+            // Keep copied with default - allow commonization of theme declarations with the front in ANR module
+            $mdThemingProvider.theme('light')
+                .primaryPalette('blue')
+                .accentPalette('amber');
+
             $urlRouterProvider.otherwise('/');
 
             localStorageServiceProvider
