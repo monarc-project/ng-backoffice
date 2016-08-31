@@ -52,13 +52,13 @@
                                 md-search-text="objectSearchText"
                                 md-selected-item-change="selectedObjectItemChange(item)"
                                 md-items="item in queryObjectSearch(objectSearchText)"
-                                md-item-text="item.label1"
+                                md-item-text="item.name1"
                                 ng-disabled="!objlib.category.id"
                                 md-min-length="0"
                                 placeholder="{{ 'Select an object' | translate }}">
                             <md-item-template>
                                 <span md-highlight-text="objectSearchText"
-                                      md-highlight-flags="^i">{{ item.label1 }}</span>
+                                      md-highlight-flags="^i">{{ item.name1 }}</span>
                             </md-item-template>
 
                             <md-not-found>
