@@ -72,35 +72,6 @@
                     <p class="md-title" translate>Object replica(s) in models</p>
 
                     <p translate>This object has no replica(s) in models.</p>
-
-                    <p class="md-title" translate>Scope</p>
-
-                    <div ng-show="object.scope == 1">
-                        <p translate>This object is <strong>LOCAL</strong>. Any change made on the following
-                            fields will be applied on every instance in the risk analysis:</p>
-                        <ul>
-                            <li translate>Confidentiality impact</li>
-                            <li translate>Integrity impact</li>
-                            <li translate>Availability impact</li>
-                        </ul>
-
-                        <p translate>In the library, you may not qualify threats and vulnerabilities of the object.
-                            It must be done in context during the risk analysis.</p>
-                    </div>
-
-                    <div ng-show="object.scope == 2">
-                        <p translate>This object is <strong>GLOBAL</strong>. The following values will be common
-                            to every instance in the risk analysis:</p>
-                        <ul>
-                            <li translate>Confidentiality impact</li>
-                            <li translate>Integrity impact</li>
-                            <li translate>Availability impact</li>
-                            <li translate>Threats and vulnerabilities qualification</li>
-                        </ul>
-
-                        <p translate>Any change made on these values will be applied to instances of this object in the
-                            risk analysis.</p>
-                    </div>
                 </div>
             </md-tab>
 
