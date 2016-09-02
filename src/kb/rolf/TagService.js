@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('TagService', [ '$resource', TagService ]);
+        .factory('TagService', [ '$resource', 'MassDeleteService', TagService ]);
 
-    function TagService($resource) {
+    function TagService($resource, MassDeleteService) {
         var self = this;
 
         self.TagResource = $resource('/api/rolf-tags/:tagId', { tagId: '@id' },
@@ -35,6 +35,10 @@
 
         var deleteTag = function (id, success, error) {
             self.TagResource.delete({tagId: id}, success, error);
+        };
+
+        var deleteMassTag = function (ids, success, error) {
+            MassDeleteService.deleteMass('/api/rolf-risks', ids, success, error);
         };
 
         return {

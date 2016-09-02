@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AmvService', [ '$resource', AmvService ]);
+        .factory('AmvService', [ '$resource', 'MassDeleteService', AmvService ]);
 
-    function AmvService($resource) {
+    function AmvService($resource, MassDeleteService) {
         var self = this;
 
         self.AmvResource = $resource('/api/amvs/:amvId', { amvId: '@id' },
@@ -40,6 +40,10 @@
             self.AmvResource.delete({amvId: id}, success, error);
         };
 
+        var deleteMassAmv = function (ids, success, error) {
+            MassDeleteService.deleteMass('/api/amvs', ids, success, error);
+        };
+
         var patchAmv = function (id, params, success, error) {
             self.AmvResource.patch({amvId: id}, params, success, error);
         }
@@ -49,6 +53,7 @@
             getAmv: getAmv,
             createAmv: createAmv,
             deleteAmv: deleteAmv,
+            deleteMassAmv: deleteMassAmv,
             updateAmv: updateAmv,
             patchAmv: patchAmv
         };

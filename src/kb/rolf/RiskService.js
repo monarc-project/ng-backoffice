@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('RiskService', [ '$resource', RiskService ]);
+        .factory('RiskService', [ '$resource', 'MassDeleteService', RiskService ]);
 
-    function RiskService($resource) {
+    function RiskService($resource, MassDeleteService) {
         var self = this;
 
         self.RiskResource = $resource('/api/rolf-risks/:riskId', { riskId: '@id' },
@@ -37,11 +37,16 @@
             self.RiskResource.delete({riskId: id}, success, error);
         };
 
+        var deleteMassRisk = function (ids, success, error) {
+            MassDeleteService.deleteMass('/api/rolf-risks', ids, success, error);
+        };
+
         return {
             getRisks: getRisks,
             getRisk: getRisk,
             createRisk: createRisk,
             deleteRisk: deleteRisk,
+            deleteMassRisk: deleteMassRisk,
             updateRisk: updateRisk
         };
     }

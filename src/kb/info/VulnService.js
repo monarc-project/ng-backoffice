@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('VulnService', [ '$resource', VulnService ]);
+        .factory('VulnService', [ '$resource', 'MassDeleteService', VulnService ]);
 
-    function VulnService($resource, $http, $q, $httpParamSerializer) {
+    function VulnService($resource, MassDeleteService) {
         var self = this;
 
         self.VulnResource = $resource('/api/vulnerabilities/:vulnId', { vulnId: '@id' },
@@ -40,6 +40,10 @@
             self.VulnResource.delete({vulnId: id}, success, error);
         };
 
+        var deleteMassVuln = function (ids, success, error) {
+            MassDeleteService.deleteMass('/api/vulnerabilities', ids, success, error);
+        };
+
         var patchVuln = function (id, params, success, error) {
             self.VulnResource.patch({vulnId: id}, params, success, error);
         }
@@ -49,6 +53,7 @@
             getVuln: getVuln,
             createVuln: createVuln,
             deleteVuln: deleteVuln,
+            deleteMassVuln: deleteMassVuln,
             updateVuln: updateVuln,
             patchVuln: patchVuln
         };

@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('ThreatService', [ '$resource', ThreatService ]);
+        .factory('ThreatService', [ '$resource', 'MassDeleteService', ThreatService ]);
 
-    function ThreatService($resource) {
+    function ThreatService($resource, MassDeleteService) {
         var self = this;
 
         self.ThreatResource = $resource('/api/threats/:threatId', { threatId: '@id' },
@@ -53,6 +53,10 @@
             self.ThreatResource.delete({threatId: id}, success, error);
         };
 
+        var deleteMassThreat = function (ids, success, error) {
+            MassDeleteService.deleteMass('/api/threats', ids, success, error);
+        };
+
         var patchThreat = function (id, params, success, error) {
             self.ThreatResource.patch({threatId: id}, params, success, error);
         };
@@ -89,6 +93,7 @@
             getThreat: getThreat,
             createThreat: createThreat,
             deleteThreat: deleteThreat,
+            deleteMassThreat: deleteMassThreat,
             updateThreat: updateThreat,
             patchThreat: patchThreat,
 
