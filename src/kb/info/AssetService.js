@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('AssetService', [ '$resource', AssetService ]);
+        .factory('AssetService', [ '$resource', '$http', AssetService ]);
 
-    function AssetService($resource) {
+    function AssetService($resource, $http) {
         var self = this;
 
         self.AssetResource = $resource('/api/assets/:assetId', { assetId: '@id' },
@@ -40,15 +40,25 @@
             self.AssetResource.delete({assetId: id}, success, error);
         };
 
+        var deleteMassAsset = function (ids, success, error) {
+            $http({
+                method: 'DELETE',
+                url: '/api/assets',
+                data: ids,
+                headers: {'Content-Type': 'application/json; charset=utf-8'}
+            }).then(success, error);
+        };
+
         var patchAsset = function (id, params, success, error) {
             self.AssetResource.patch({assetId: id}, params, success, error);
-        }
+        };
 
         return {
             getAssets: getAssets,
             getAsset: getAsset,
             createAsset: createAsset,
             deleteAsset: deleteAsset,
+            deleteMassAsset: deleteMassAsset,
             updateAsset: updateAsset,
             patchAsset: patchAsset
         };

@@ -209,22 +209,15 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                var outpromise = null;
+                var ids = [];
+                for (var i = 0; i < $scope.assets.selected.length; ++i) {
+                    ids.push($scope.assets.selected[i].id);
+                }
 
-                angular.forEach($scope.assets.selected, function (value, key) {
-                    AssetService.deleteAsset(value.id,
-                        function () {
-                            if (outpromise) {
-                                $timeout.cancel(outpromise);
-                            }
-
-                            outpromise = $timeout(function() {
-                                toastr.success(gettextCatalog.getString('{{count}} assets have been deleted.',
-                                    {count: count}), gettext('Deletion successful'));
-                                $scope.updateAssets();
-                            }, 350);
-                        }
-                    );
+                AssetService.deleteMassAsset(ids, function () {
+                    toastr.success(gettextCatalog.getString('{{count}} assets have been deleted.',
+                        {count: count}), gettext('Deletion successful'));
+                    $scope.updateAssets();
                 });
 
                 $scope.assets.selected = [];
