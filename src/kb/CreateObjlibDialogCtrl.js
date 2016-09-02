@@ -56,15 +56,15 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
                 ObjlibService.createObjlibCat(category,
                     function (cat) {
                         // Set the created category on the object
-                        ObjlibService.getObjlibCat(cat.id).then(function (category) {
-                            $scope.objlib.category = category;
+                        ObjlibService.getObjlibCat(cat.id).then(function (new_category) {
+                            $scope.objlib.category = new_category;
 
                             // Display the dialog again
-                            objLibDialog.editObjlib(null, $scope.objlib);
-                        });
+                            objLibDialog.editObjlib(null, $scope.objlib, true);
 
-                        toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been created successfully.',
-                            {categoryLabel: category.label1}), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been created successfully.',
+                                {categoryLabel: category.label1}), gettext('Creation successful'));
+                        });
                     }
                 );
 
