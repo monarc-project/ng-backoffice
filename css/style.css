@@ -419,3 +419,7 @@ md-chips.md-default-theme .md-chips, md-chips .md-chips {
     min-width: 900px;
   }
 }
+
+.actions-column {
+  min-width: 150px;
+}
