@@ -36,7 +36,7 @@
         /**
          * TAGS
          */
-        $scope.tags = TableHelperService.build('label1', 10, 1, '');
+        $scope.tags = TableHelperService.build('label1', 20, 1, '');
 
         $scope.updateTags = function () {
             $scope.tags.promise = TagService.getTags($scope.tags.query);
@@ -169,7 +169,7 @@
         /**
          * RISKS
          */
-        $scope.risks = TableHelperService.build('label1', 10, 1, '');
+        $scope.risks = TableHelperService.build('label1', 20, 1, '');
 
         var risksTabSelected = false;
 
