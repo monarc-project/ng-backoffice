@@ -46,6 +46,7 @@
             getTag: getTag,
             createTag: createTag,
             deleteTag: deleteTag,
+            deleteMassTag: deleteMassTag,
             updateTag: updateTag
         };
     }

@@ -145,21 +145,16 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                var outpromise = null;
+                var ids = [];
+                for (var i = 0; i < $scope.tags.selected.length; ++i) {
+                    ids.push($scope.tags.selected[i].id);
+                }
 
-                angular.forEach($scope.tags.selected, function (value, key) {
-                    TagService.deleteTag(value.id, function () {
-                        if (outpromise) {
-                            $timeout.cancel(outpromise);
-                        }
-
-                        outpromise = $timeout(function() {
-                            toastr.success(gettextCatalog.getString('{{count}} tags have been deleted.',
-                                {count: $scope.tags.selected.length}), gettext('Deletion successful'));
-                            $scope.tags.selected = [];
-                            $scope.updateTags();
-                        }, 350);
-                    });
+                TagService.deleteMassTag(ids, function () {
+                    toastr.success(gettextCatalog.getString('{{count}} tags have been deleted.',
+                        {count: $scope.tags.selected.length}), gettext('Deletion successful'));
+                    $scope.tags.selected = [];
+                    $scope.updateTags();
                 });
             }, function() {
             });
@@ -332,26 +327,18 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                var outpromise = null;
+                var ids = [];
+                for (var i = 0; i < $scope.risks.selected.length; ++i) {
+                    ids.push($scope.risks.selected[i].id);
+                }
 
-                angular.forEach($scope.risks.selected, function (value, key) {
-                    RiskService.deleteRisk(value.id, function () {
-                        if (outpromise) {
-                            $timeout.cancel(outpromise);
-                        }
+                RiskService.deleteMassRisk(ids, function () {
+                    toastr.success(gettextCatalog.getString('{{count}} risks have been deleted.',
+                        {count: $scope.risks.selected.length}), gettext('Deletion successful'));
+                    $scope.risks.selected = [];
 
-                        outpromise = $timeout(function() {
-                            toastr.success(gettextCatalog.getString('{{count}} risks have been deleted.',
-                                {count: $scope.risks.selected.length}), gettext('Deletion successful'));
-                            $scope.risks.selected = [];
-
-                            $scope.updateRisks();
-                        }, 350);
-                    });
+                    $scope.updateRisks();;
                 });
-
-
-
             }, function() {
             });
         };
