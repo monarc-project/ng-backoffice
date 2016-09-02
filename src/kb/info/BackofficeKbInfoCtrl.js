@@ -1077,6 +1077,9 @@
             })
                 .then(function (objlib) {
                     if (objlib) {
+                        var cont = objlib.cont;
+                        objlib.cont = undefined;
+
                         var objlibBackup = angular.copy(objlib);
 
                         if (objlib.asset) {
@@ -1109,6 +1112,10 @@
                                     $scope.updateObjlibs();
                                     toastr.success(gettextCatalog.getString('The object "{{objlibLabel}}" has been created successfully.',
                                         {objlibLabel: objlib.label1}), gettext('Creation successful'));
+
+                                    if (cont) {
+                                        $scope.createNewObjlib(ev);
+                                    }
                                 },
 
                                 function () {

@@ -168,6 +168,11 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
         }
         $mdDialog.hide($scope.objlib);
     };
+
+    $scope.createAndContinue = function () {
+        $scope.objlib.cont = true;
+        $scope.create();
+    }
 }
 
 function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, toastr, gettext, gettextCatalog, ConfigService, ObjlibService, catName, category) {
