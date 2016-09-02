@@ -1028,7 +1028,7 @@
             AssetService.getAssets({order: '-code', limit: 0}).then(function (data) {
                 $scope.objlib_assets = data.assets;
             });
-            ObjlibService.getObjlibsCats({order: '-label1', limit: 0}).then(function (data) {
+            ObjlibService.getObjlibsCats({limit: 0}).then(function (data) {
                 var buildItemRecurse = function (children, depth) {
                     var output = [];
 
