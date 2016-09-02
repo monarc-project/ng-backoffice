@@ -172,7 +172,7 @@
             <md-toolbar class="md-table-toolbar alternate" ng-if="vulns.selected.length">
                 <div class="md-toolbar-tools md-toolbar-pad" layout-align="space-between center">
                     <div>{{vulns.selected.length}} {{vulns.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                    <md-button class="md-icon-button" ng-click="deleteAssetMass($event)">
+                    <md-button class="md-icon-button" ng-click="deleteVulnMass($event)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </div>
@@ -243,7 +243,7 @@
             <md-toolbar class="md-table-toolbar alternate" ng-if="measures.selected.length">
                 <div class="md-toolbar-tools md-toolbar-pad" layout-align="space-between center">
                     <div>{{measures.selected.length}} {{measures.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                    <md-button class="md-icon-button" ng-click="deleteAssetMass($event)">
+                    <md-button class="md-icon-button" ng-click="deleteMeasureMass($event)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </div>
@@ -302,7 +302,7 @@
                     <md-option value="1">{{ 'Show active only' | translate }}</md-option>
                 </md-select>
 
-                <md-button class="md-icon-button" ng-click="removeamvsFilter()">
+                <md-button class="md-icon-button" ng-click="removeAmvsFilter()">
                     <md-icon>settings_backup_restore</md-icon>
                 </md-button>
             </div>
@@ -310,7 +310,7 @@
             <md-toolbar class="md-table-toolbar alternate" ng-if="amvs.selected.length">
                 <div class="md-toolbar-tools md-toolbar-pad" layout-align="space-between center">
                     <div>{{amvs.selected.length}} {{amvs.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                    <md-button class="md-icon-button" ng-click="deleteamvMass($event)">
+                    <md-button class="md-icon-button" ng-click="deleteAmvMass($event)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </div>

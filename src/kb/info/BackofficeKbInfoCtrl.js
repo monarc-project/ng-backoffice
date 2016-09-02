@@ -401,20 +401,15 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                angular.forEach($scope.threats.selected, function (value, key) {
-                    ThreatService.deleteThreat(value.id,
-                        function () {
-                            if (outpromise) {
-                                $timeout.cancel(outpromise);
-                            }
+                var ids = [];
+                for (var i = 0; i < $scope.threats.selected.length; ++i) {
+                    ids.push($scope.threats.selected[i].id);
+                }
 
-                            outpromise = $timeout(function () {
-                                $scope.updateThreats();
-                                toastr.success(gettextCatalog.getString('{{count}} threats have been deleted.',
-                                    {count: count}), gettext('Deletion successful'));
-                            }, 350);
-                        }
-                    );
+                ThreatService.deleteMassThreat(ids, function () {
+                    $scope.updateThreats();
+                    toastr.success(gettextCatalog.getString('{{count}} threats have been deleted.',
+                        {count: ids.length}), gettext('Deletion successful'));
                 });
 
                 $scope.threats.selected = [];
@@ -577,20 +572,15 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                angular.forEach($scope.vulns.selected, function (value, key) {
-                    VulnService.deleteVuln(value.id,
-                        function () {
-                            if (outpromise) {
-                                $timeout.cancel(outpromise);
-                            }
+                var ids = [];
+                for (var i = 0; i < $scope.vulns.selected.length; ++i) {
+                    ids.push($scope.vulns.selected[i].id);
+                }
 
-                            outpromise = $timeout(function () {
-                                $scope.updateVulns();
-                                toastr.success(gettextCatalog.getString('{{count}} vulnerabilities have been deleted.',
-                                    {count: count}), gettext('Deletion successful'));
-                            }, 350);
-                        }
-                    );
+                VulnService.deleteMassVuln(ids, function () {
+                    $scope.updateVulns();
+                    toastr.success(gettextCatalog.getString('{{count}} vulnerabilities have been deleted.',
+                        {count: ids.length}), gettext('Deletion successful'));
                 });
 
                 $scope.vulns.selected = [];
@@ -740,21 +730,15 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                angular.forEach($scope.measures.selected, function (value, key) {
-                    MeasureService.deleteMeasure(value.id,
-                        function () {
-                            if (outpromise) {
-                                $timeout.cancel(outpromise);
-                            }
+                var ids = [];
+                for (var i = 0; i < $scope.measures.selected.length; ++i) {
+                    ids.push($scope.measures.selected[i].id);
+                }
 
-                            outpromise = $timeout(function () {
-                                $scope.updateMeasures();
-                                toastr.success(gettextCatalog.getString('{{count}} measures have been deleted.',
-                                    {count: count}), gettext('Deletion successful'));
-                            }, 350)
-
-                        }
-                    );
+                MeasureService.deleteMassMeasure(ids, function () {
+                    $scope.updateMeasures();
+                    toastr.success(gettextCatalog.getString('{{count}} measures have been deleted.',
+                        {count: count}), gettext('Deletion successful'));
                 });
 
                 $scope.measures.selected = [];
@@ -943,21 +927,15 @@
                 .ok(gettext('Delete'))
                 .cancel(gettext('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                angular.forEach($scope.amvs.selected, function (value, key) {
-                    AmvService.deleteAmv(value.id,
-                        function () {
-                            if (outpromise) {
-                                $timeout.cancel(outpromise);
-                            }
+                var ids = [];
+                for (var i = 0; i < $scope.amvs.selected.length; ++i) {
+                    ids.push($scope.amvs.selected[i].id);
+                }
 
-                            outpromise = $timeout(function () {
-                                toastr.success(gettextCatalog.getString('{{ count }} AMV links have been deleted.',
-                                    {count: count}), gettext('Deletion successful'));
-                                $scope.updateAmvs();
-                            }, 350);
-
-                        }
-                    );
+                AmvService.deleteMassAmv(ids, function () {
+                    toastr.success(gettextCatalog.getString('{{ count }} AMV links have been deleted.',
+                        {count: count}), gettext('Deletion successful'));
+                    $scope.updateAmvs();
                 });
 
                 $scope.amvs.selected = [];
