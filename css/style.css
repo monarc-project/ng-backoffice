@@ -423,3 +423,11 @@ md-chips.md-default-theme .md-chips, md-chips .md-chips {
 .actions-column {
   min-width: 150px;
 }
+
+.table-fab-top {
+  margin-top: 64px;
+}
+
+.table-fab-top-withactions {
+  margin-top: 112px;
+}

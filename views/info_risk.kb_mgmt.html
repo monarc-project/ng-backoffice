@@ -32,6 +32,13 @@
                 </div>
             </md-toolbar>
 
+            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New asset' | translate }}" ng-click="createNewAsset($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New asset' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
+
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="assets.selected" md-progress="assets.promise">
                     <thead md-head md-order="assets.query.order" md-on-reorder="updateAssets">
@@ -66,15 +73,7 @@
             <md-table-pagination md-limit="assets.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="assets.query.page"
                                  md-total="{{assets.items.count}}" md-on-paginate="updateAssets" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
-            <div layout="row" class="md-padding">
-                <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New asset' | translate }}" ng-click="createNewAsset($event)">
-                    <md-tooltip md-direction="left">
-                        {{ 'New asset' | translate }}
-                    </md-tooltip>
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
+
         </md-tab>
 
         <md-tab label="{{ 'Threats' | translate }}" md-on-select="selectThreatsTab()" md-on-deselect="deselectThreatsTab()">
@@ -105,6 +104,13 @@
                     </md-button>
                 </div>
             </md-toolbar>
+
+            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New threat' | translate }}" ng-click="createNewThreat($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New threat' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="threats.selected" md-progress="threats.promise">
@@ -139,16 +145,6 @@
 
             <md-table-pagination md-limit="threats.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="threats.query.page"
                                  md-total="{{threats.items.count}}" md-on-paginate="updateThreats" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-            <div layout="row" class="md-padding">
-                <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New threat' | translate }}" ng-click="createNewThreat($event)">
-                    <md-tooltip md-direction="left">
-                        {{ 'New threat' | translate }}
-                    </md-tooltip>
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
         </md-tab>
 
         <md-tab label="{{ 'Vulns' | translate }}" md-on-select="selectVulnsTab()" md-on-deselect="deselectVulnsTab()">
@@ -182,6 +178,13 @@
                 </div>
             </md-toolbar>
 
+            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New vulnerability' | translate }}" ng-click="createNewVuln($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New vuln' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
+
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="vulns.selected" md-progress="vulns.promise">
                     <thead md-head md-order="vulns.query.order" md-on-reorder="updateVulns">
@@ -213,16 +216,6 @@
 
             <md-table-pagination md-limit="vulns.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="vulns.query.page"
                                  md-total="{{vulns.items.count}}" md-on-paginate="updateVulns" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-            <div layout="row" class="md-padding">
-                <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New vulnerability' | translate }}" ng-click="createNewVuln($event)">
-                    <md-tooltip md-direction="left">
-                        {{ 'New vuln' | translate }}
-                    </md-tooltip>
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
         </md-tab>
 
         <md-tab label="{{ '27002 measures' | translate }}" md-on-select="selectMeasuresTab()" md-on-deselect="deselectMeasuresTab()">
@@ -256,6 +249,13 @@
                 </div>
             </md-toolbar>
 
+            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New measure' | translate }}" ng-click="createNewMeasure($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New measure' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
+
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="measures.selected" md-progress="measures.promise">
                     <thead md-head md-order="measures.query.order" md-on-reorder="updateMeasures">
@@ -283,16 +283,6 @@
 
             <md-table-pagination md-limit="measures.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="measures.query.page"
                                  md-total="{{measures.items.count}}" md-on-paginate="updateMeasures" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-            <div layout="row" class="md-padding">
-                <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New measure' | translate }}" ng-click="createNewMeasure($event)">
-                    <md-tooltip md-direction="left">
-                        {{ 'New measure' | translate }}
-                    </md-tooltip>
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
         </md-tab>
 
         <md-tab label="{{ 'AMVs' | translate }}" md-on-select="selectAmvsTab()" md-on-deselect="deselectAmvsTab()">
@@ -325,6 +315,13 @@
                     </md-button>
                 </div>
             </md-toolbar>
+
+            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New AMV link' | translate }}" ng-click="createNewAmv($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New AMV link' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="amvs.selected" md-progress="amvs.promise">
@@ -361,16 +358,6 @@
 
             <md-table-pagination md-limit="amvs.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="amvs.query.page"
                                  md-total="{{amvs.items.count}}" md-on-paginate="updateAmvs" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-            <div layout="row" class="md-padding">
-                <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New AMV link' | translate }}" ng-click="createNewAmv($event)">
-                    <md-tooltip md-direction="left">
-                        {{ 'New AMV link' | translate }}
-                    </md-tooltip>
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
         </md-tab>
 
         <md-tab label="{{ 'Objects library' | translate }}" md-on-select="selectObjlibsTab()" md-on-deselect="deselectObjlibsTab()">
@@ -419,6 +406,13 @@
                 </md-button>
             </div>
 
+            <md-button class="md-fab md-accent md-fab-top-right table-fab-top-withactions" aria-label="{{ 'New object' | translate }}" ng-click="createNewObjlib($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New object' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
+
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="objlibs.selected" md-progress="objlibs.promise">
                     <thead md-head md-order="objlibs.query.order" md-on-reorder="updateObjlibs">
@@ -453,16 +447,6 @@
 
             <md-table-pagination md-limit="objlibs.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="objlibs.query.page"
                                  md-total="{{objlibs.items.count}}" md-on-paginate="updateObjlibs" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-            <div layout="row" class="md-padding">
-                <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New object' | translate }}" ng-click="createNewObjlib($event)">
-                    <md-tooltip md-direction="left">
-                        {{ 'New object' | translate }}
-                    </md-tooltip>
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
         </md-tab>
     </md-tabs>
 </div>

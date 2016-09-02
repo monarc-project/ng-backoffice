@@ -37,6 +37,14 @@
                 </div>
             </md-toolbar>
 
+            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New tag' | translate }}"
+                       ng-click="createNewTag($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New tag' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
+
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="tags.selected" md-progress="tags.promise">
                     <thead md-head md-order="tags.query.order" md-on-reorder="updateTags">
@@ -69,17 +77,6 @@
                                  md-page="tags.query.page"
                                  md-total="{{tags.items.count}}" md-on-paginate="updateTags"
                                  md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-            <div layout="row" class="md-padding">
-                <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New tag' | translate }}"
-                           ng-click="createNewTag($event)">
-                    <md-tooltip md-direction="left">
-                        {{ 'New tag' | translate }}
-                    </md-tooltip>
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
         </md-tab>
 
         <md-tab label="{{ 'Risks' | translate }}" md-on-select="selectRisksTab()" md-on-deselect="deselectRisksTab()">
@@ -133,6 +130,14 @@
                 </md-button>
             </div>
 
+            <md-button class="md-fab md-accent md-fab-top-right table-fab-top-withactions" aria-label="{{ 'New risk' | translate }}"
+                       ng-click="createNewRisk($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New risk' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
+
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="risks.selected" md-progress="risks.promise">
                     <thead md-head md-order="risks.query.order" md-on-reorder="updateRisks">
@@ -167,17 +172,6 @@
                                  md-page="risks.query.page"
                                  md-total="{{risks.items.count}}" md-on-paginate="updateRisks"
                                  md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-            <div layout="row" class="md-padding">
-                <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New risk' | translate }}"
-                           ng-click="createNewRisk($event)">
-                    <md-tooltip md-direction="left">
-                        {{ 'New risk' | translate }}
-                    </md-tooltip>
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
         </md-tab>
     </md-tabs>
 </div>
