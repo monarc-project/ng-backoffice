@@ -17,12 +17,12 @@
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
 
-            $scope.openRiskSheet = function (id) {
-                $scope.sheet_id = id;
+            $scope.openRiskSheet = function (risk) {
+                $scope.sheet_risk = risk;
             };
 
             $scope.resetSheet = function () {
-                $scope.sheet_id = undefined;
+                $scope.sheet_risk = undefined;
             };
         } else {
             $scope.mode = 'bdc';
