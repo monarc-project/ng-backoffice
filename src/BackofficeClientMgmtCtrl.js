@@ -34,7 +34,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'CityService', 'AdminServerService', CreateClientDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'CityService', 'AdminServerGetService', CreateClientDialogCtrl],
                 templateUrl: '/views/dialogs/create.clients.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -56,7 +56,7 @@
 
             ClientService.getClient(client.id).then(function (clientData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'CityService', 'AdminServerService', 'client', CreateClientDialogCtrl],
+                    controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
                     templateUrl: '/views/dialogs/create.clients.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -122,12 +122,12 @@
     }
 
 
-    function CreateClientDialogCtrl($scope, $mdDialog, $q, ModelService, CityService, AdminServerService, client) {
+    function CreateClientDialogCtrl($scope, $mdDialog, $q, ModelService, CityService, AdminServerGetService, client) {
         ModelService.getModels().then(function (x) {
             $scope.models = x.models;
         });
 
-        AdminServerService.getServers().then(function (x) {
+        AdminServerGetService.getServers().then(function (x) {
             $scope.servers = x.servers;
         });
 

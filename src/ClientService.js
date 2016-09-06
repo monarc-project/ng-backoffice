@@ -45,5 +45,34 @@
         };
     }
 
+    angular
+        .module('BackofficeApp')
+        .factory('AdminServerGetService', [ '$resource', AdminServerGetService ]);
+
+    function AdminServerGetService($resource) {
+        var self = this;
+
+        self.ServerResource = $resource('/api/admin/serversget/:serverId', { serverId: '@id' },
+            {
+                'query': {
+                    isArray: false
+                }
+            });
+
+
+        var getServers = function (params) {
+            return self.ServerResource.query(params).$promise;
+        };
+
+        var getServer = function (id) {
+            return self.ServerResource.query({serverId: id}).$promise;
+        };
+
+        return {
+            getServers: getServers,
+            getServer: getServer
+        };
+    }
+
 })
 ();
