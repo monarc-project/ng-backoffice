@@ -14,10 +14,13 @@
             self.uid = null;
             self.authenticated = false;
             self.uiLanguage = null;
+            self.isLoggingOut = false;
             self.permissionGroups = [];
 
             var reauthenticate = function () {
                 if (localStorageService.get('auth_token') != null) {
+                    console.log(localStorageService.get('auth_token') );
+
                     self.authenticated = true;
                     self.token = localStorageService.get('auth_token');
                     self.uid = localStorageService.get('uid');
@@ -114,10 +117,23 @@
              * @returns Promise
              */
             var logout = function () {
-                self.token = null;
-                self.authenticated = false;
+                var promise = $q.defer();
+                $http.delete('/auth').then(function (data) {
+                    localStorageService.set('permission_groups', JSON.stringify([]));
+                    localStorageService.set('auth_token', null);
+                    localStorageService.set('uid', null);
 
-                return $http.delete('/auth');
+                    self.token = null;
+                    self.authenticated = false;
+                    self.permissionGroups = [];
+                    self.uid = null;
+
+                    promise.resolve(data);
+                }, function (data) {
+                    promise.reject(data);
+                });
+
+                return promise.promise;
             };
 
             /**
@@ -147,6 +163,10 @@
              */
             var isAllowed = function (group) {
                 return (self.permissionGroups.indexOf(group) >= 0);
+            };
+
+            var isLoggingOut = function () {
+                return self.isLoggingOut;
             };
 
             var getUiLanguage = function () {
