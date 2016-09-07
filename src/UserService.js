@@ -3,11 +3,11 @@
         angular
             .module('BackofficeApp')
             .factory('UserService', [
-                '$resource', '$http', '$q', 'localStorageService', 'gettextCatalog',
+                '$resource', '$http', '$q', 'localStorageService', 'ConfigService', 'gettextCatalog',
                 UserService
             ]);
 
-        function UserService($resource, $http, $q, localStorageService, gettextCatalog) {
+        function UserService($resource, $http, $q, localStorageService, ConfigService, gettextCatalog) {
             var self = this;
 
             self.token = null;
@@ -19,8 +19,6 @@
 
             var reauthenticate = function () {
                 if (localStorageService.get('auth_token') != null) {
-                    console.log(localStorageService.get('auth_token') );
-
                     self.authenticated = true;
                     self.token = localStorageService.get('auth_token');
                     self.uid = localStorageService.get('uid');
@@ -91,6 +89,14 @@
                             localStorageService.set('uid', self.uid);
                             localStorageService.set('permission_groups', JSON.stringify([]));
                             localStorageService.set('uiLanguage', data.data.language);
+
+                            var languages = ConfigService.getLanguages();
+
+                            if (data.data.language === undefined || data.data.language === null) {
+                                gettextCatalog.setCurrentLanguage('en');
+                            } else {
+                                gettextCatalog.setCurrentLanguage(languages[data.data.language].substring(0, 2).toLowerCase());
+                            }
 
                             updateRoles(promise);
                         } else {
