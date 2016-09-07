@@ -38,7 +38,7 @@
         };
 
         var deleteMassTag = function (ids, success, error) {
-            MassDeleteService.deleteMass('/api/rolf-risks', ids, success, error);
+            MassDeleteService.deleteMass('/api/rolf-tags', ids, success, error);
         };
 
         return {
