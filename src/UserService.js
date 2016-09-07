@@ -23,10 +23,48 @@
                     self.uid = localStorageService.get('uid');
                     self.permissionGroups = JSON.parse(localStorageService.get('permission_groups'));
                     self.uiLanguage = localStorageService.get('uiLanguage');
+
+                    updateRoles();
+
                     return true;
                 } else {
                     return false;
                 }
+            };
+
+            var updateRoles = function (promise) {
+                $http.get('/api/users-roles').then(
+                    function (data) {
+                        if (data.status == 200 && data.data && data.data.roles) {
+                            self.permissionGroups = [];
+
+                            for (var i = 0; i < data.data.roles.length; ++i) {
+                                self.permissionGroups.push(data.data.roles[i].role);
+                            }
+
+                            localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
+
+                            if (promise) {
+                                promise.resolve(true);
+                            }
+                        } else {
+                            self.authenticated = false;
+                            self.token = null;
+
+                            if (promise) {
+                                promise.reject();
+                            }
+                        }
+                    },
+                    function (data) {
+                        self.authenticated = false;
+                        self.token = null;
+
+                        if (promise) {
+                            promise.reject();
+                        }
+                    }
+                )
             };
 
             /**
@@ -51,32 +89,7 @@
                             localStorageService.set('permission_groups', JSON.stringify([]));
                             localStorageService.set('uiLanguage', data.data.language);
 
-                            $http.get('/api/users-roles').then(
-                                function (data) {
-                                    if (data.status == 200 && data.data && data.data.roles) {
-                                        self.permissionGroups = [];
-
-                                        for (var i = 0; i < data.data.roles.length; ++i) {
-                                            self.permissionGroups.push(data.data.roles[i].role);
-                                        }
-
-                                        localStorageService.set('permission_groups', JSON.stringify(self.permissionGroups));
-
-                                        promise.resolve(true);
-                                    } else {
-                                        self.authenticated = false;
-                                        self.token = null;
-
-                                        promise.reject();
-                                    }
-                                },
-                                function (data) {
-                                    self.authenticated = false;
-                                    self.token = null;
-
-                                    promise.reject();
-                                }
-                            )
+                            updateRoles(promise);
                         } else {
                             self.authenticated = false;
                             self.token = null;
