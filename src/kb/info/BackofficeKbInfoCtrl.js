@@ -229,7 +229,6 @@
             switch (type) {
                 case 1: return gettext('Primary');
                 case 2: return gettext('Secondary');
-                case 3: return gettext('Virtual');
             }
         };
 
