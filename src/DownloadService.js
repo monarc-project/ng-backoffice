@@ -9,14 +9,14 @@
     function DownloadService() {
         var self = this;
 
-        var downloadBlob = function (data, name) {
+        var downloadBlob = function (data, name, typeF = 'octet/stream') {
             var saveData = (function () {
                 var a = document.createElement('a');
                 document.body.appendChild(a);
                 a.style = 'display: none';
 
-                return function (blobData, fileName) {
-                    var blob = new Blob([blobData], {type: 'octet/stream'}),
+                return function (blobData, fileName,typeF = 'octet/stream') {
+                    var blob = new Blob([blobData], {type: typeF}),
                         url = window.URL.createObjectURL(blob);
 
                     a.href = url;
@@ -26,7 +26,7 @@
                 };
             }());
 
-            saveData(data, name);
+            saveData(data, name,typeF);
         };
 
         return {

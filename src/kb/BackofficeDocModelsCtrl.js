@@ -80,8 +80,12 @@
         };
 
         $scope.downloadDocmodel = function (ev, item) {
-            $http.get(item.path).then(function (data) {
-                DownloadService.downloadBlob(data.data, 'document.docx');
+            $http.get(item.path,{responseType: 'arraybuffer'}).then(function (data) {
+                var contentD = data.headers('Content-Disposition'),
+                    contentT = data.headers('Content-Type');
+                contentD = contentD.substring(0,contentD.length-1).split('filename="');
+                contentD = contentD[contentD.length-1];
+                DownloadService.downloadBlob(data.data, contentD,contentT);
             })
 
         }
