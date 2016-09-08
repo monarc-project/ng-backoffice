@@ -2483,4 +2483,8 @@ msgstr ""
 #~ msgstr "Le client \"{{ firstname}} {{lastname}}\" a été supprimé."
 
 #~ msgid "Une introduction sur le fonctionnement du KB manager"
-#~ msgstr "Une introduction sur le fonctionnement du K manager"
+#~ msgstr "Une introduction sur le fonctionnement du KB manager"
+
+#: views/index.backoffice.html:36
+msgid "Operational risks (ROLFP)"
+msgstr "Risques opérationels (ROLFP)"
