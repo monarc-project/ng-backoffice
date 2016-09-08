@@ -11,7 +11,7 @@
      * Admin Logs Controller for the Backoffice module
      */
     function BackofficeAdminLogsCtrl($scope, AdminLogsService, TableHelperService) {
-        $scope.logs = TableHelperService.build('-createdAt', 25, 1, '');
+        $scope.logs = TableHelperService.build('-createdAt', 20, 1, '');
 
         $scope.removeFilter = function () {
             TableHelperService.removeFilter($scope.logs);
