@@ -44,6 +44,31 @@
                 });
         };
 
+        $scope.editGuide = function (ev, item) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', 'ConfigService', '$mdDialog', 'GuideService', 'guide', CreateGuideDialogCtrl],
+                templateUrl: '/views/dialogs/create.guides.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                locals: {
+                    guide: item
+                }
+            })
+                .then(function (guide) {
+                    GuideService.updateGuide(guide,
+                        function () {
+                            $scope.updateGuides();
+                            toastr.success(gettextCatalog.getString('The guide "{{guideLabel}}" has been updated successfully.',
+                                {guideLabel: guide.description1}), gettext('Update successful'));
+                        }
+                    );
+                });
+        };
+
+
         $scope.deleteGuide = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete this guide?',
@@ -65,19 +90,23 @@
     }
 
 
-    function CreateGuideDialogCtrl($scope, ConfigService, $mdDialog, GuideService) {
+    function CreateGuideDialogCtrl($scope, ConfigService, $mdDialog, GuideService, guide) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.categories = GuideService.getCategories()
 
-        $scope.guide = {
-            type: null,
-            mode: null,
-            description1: '',
-            description2: '',
-            description3: '',
-            description4: ''
-        };
+        if (guide) {
+            $scope.guide = guide;
+        } else {
+            $scope.guide = {
+                type: null,
+                mode: null,
+                description1: '',
+                description2: '',
+                description3: '',
+                description4: ''
+            };
+        }
 
         $scope.cancel = function() {
             $mdDialog.cancel();
