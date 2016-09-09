@@ -239,7 +239,7 @@ angular
     run(['ConfigService', 'UserService', 'gettext', 'gettextCatalog', '$rootScope',
         function (ConfigService, UserService, gettext, gettextCatalog, $rootScope) {
             $rootScope.OFFICE_MODE = 'FO';
-            
+
             ConfigService.loadConfig(function () {
                 var languages = ConfigService.getLanguages();
                 var uiLang = UserService.getUiLanguage();

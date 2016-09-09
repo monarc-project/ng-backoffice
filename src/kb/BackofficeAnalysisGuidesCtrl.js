@@ -43,6 +43,25 @@
                     );
                 });
         };
+
+        $scope.deleteGuide = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete this guide?',
+                    {label: item.description}))
+                .textContent(gettext('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettext('Delete'))
+                .cancel(gettext('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                GuideService.deleteGuide(item.id,
+                    function () {
+                        $scope.updateGuides();
+                        toastr.success(gettextCatalog.getString('The guide has been deleted.',
+                            {label: item.description}), gettext('Deletion successful'));
+                    }
+                );
+            });
+        };
     }
 
 
