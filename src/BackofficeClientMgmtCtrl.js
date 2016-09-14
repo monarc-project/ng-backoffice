@@ -34,7 +34,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'CityService', 'AdminServerGetService', CreateClientDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettext', 'ModelService', 'CityService', 'AdminServerGetService', CreateClientDialogCtrl],
                 templateUrl: '/views/dialogs/create.clients.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -56,7 +56,7 @@
 
             ClientService.getClient(client.id).then(function (clientData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
+                    controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettext', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
                     templateUrl: '/views/dialogs/create.clients.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -122,7 +122,7 @@
     }
 
 
-    function CreateClientDialogCtrl($scope, $mdDialog, $q, ModelService, CityService, AdminServerGetService, client) {
+    function CreateClientDialogCtrl($scope, $mdDialog, $q, toastr, gettext, ModelService, CityService, AdminServerGetService, client) {
         ModelService.getModels().then(function (x) {
             $scope.models = x.models;
         });
@@ -159,6 +159,11 @@
         };
 
         $scope.create = function() {
+            if (!$scope.client.country || !$scope.client.city) {
+                toastr.error(gettext("Please select a country and/or a city in the list."));
+                return;
+            }
+            
             $scope.client.country_id = $scope.client.country.id;
             $scope.client.city_id = $scope.client.city.id;
             $mdDialog.hide($scope.client);
