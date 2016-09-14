@@ -163,7 +163,7 @@
                 toastr.error(gettext("Please select a country and/or a city in the list."));
                 return;
             }
-            
+
             $scope.client.country_id = $scope.client.country.id;
             $scope.client.city_id = $scope.client.city.id;
             $mdDialog.hide($scope.client);
