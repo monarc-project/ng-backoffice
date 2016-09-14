@@ -77,7 +77,7 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="create()" ng-disabled="vulnForm.$error.required" class="md-accent md-hue-3">
+            <md-button ng-click="create()" ng-disabled="vulnForm.$error.required" type="submit" class="md-accent md-hue-3">
                 {{ (vuln.id > 0 ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>

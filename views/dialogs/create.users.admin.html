@@ -67,7 +67,7 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="create()" ng-disabled="userForm.$error.required || userForm.$error.pattern" class="md-accent md-hue-3">
+            <md-button ng-click="create()" ng-disabled="userForm.$error.required || userForm.$error.pattern" type="submit" class="md-accent md-hue-3">
                 {{ (user.id ? 'Update' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>
