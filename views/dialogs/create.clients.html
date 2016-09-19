@@ -164,7 +164,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Model</label>
                     <md-icon>widgets</md-icon>
-                    <md-select ng-model="client.model_id" name="model_id" required>
+                    <md-select ng-model="client.model_id" name="model_id" ng-disabled="client.id" required>
                         <md-option ng-repeat="model in models" value="{{model.id}}">{{ model.label1 }}</md-option>
                     </md-select>
 

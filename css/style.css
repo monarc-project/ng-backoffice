@@ -15,6 +15,10 @@
   text-align: center
 }
 
+a {
+  color: black;
+}
+
 .logo-cases-bg {
   background: url('/img/bg-cases.png') no-repeat left center;
   width: 100%;
@@ -430,4 +434,34 @@ md-chips.md-default-theme .md-chips, md-chips .md-chips {
 
 .table-fab-top-withactions {
   margin-top: 112px;
+}
+
+.reorder-button {
+  cursor: move;
+  margin: 0 0 !important;
+  padding: 4px 0 !important;
+  height: 24px !important;
+}
+
+.md-tree-unwrap-button {
+  margin: 0 0 !important;
+  padding: 4px 4px !important;
+  height: 24px !important;
+  width: 24px !important;
+}
+
+.md-tree-unwrap-button md-icon {
+  line-height: 22px !important;
+  font-size: 22px !important;
+}
+
+.md-tree-unwrap-button .md-ripple-container {
+  height: 32px !important;
+  width: 32px !important;
+}
+
+.md-tree-link {
+  cursor: pointer;
+  margin: 0 0;
+  font-size: 12px;
 }
