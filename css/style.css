@@ -15,6 +15,10 @@
   text-align: center
 }
 
+a {
+  color: black;
+}
+
 .logo-cases-bg {
   background: url('/img/bg-cases.png') no-repeat left center;
   width: 100%;
