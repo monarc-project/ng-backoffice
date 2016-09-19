@@ -23,6 +23,13 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
         };
     }
 
+    $scope.specificityStr = function (type) {
+        switch (type) {
+            case 0: return gettext('Generic');
+            case 1: return gettext('Specific');
+        }
+    };
+
     $scope.queryAssetSearch = function (query) {
         var q = $q.defer();
 
