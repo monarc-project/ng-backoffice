@@ -348,6 +348,10 @@ div.ng-inline-edit input, div.ng-inline-edit textarea {
   width: 64px;
 }
 
+.large div.ng-inline-edit textarea {
+  width: 300px;
+}
+
 .anr-table-toptitle {
   text-align: center
 }
