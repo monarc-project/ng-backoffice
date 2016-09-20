@@ -93,6 +93,7 @@ angular
                 }
             }).state('main.kb_mgmt', {
                 url: "/kb",
+                redirectTo: 'main.kb_mgmt.info_risk',
                 ncyBreadcrumb: {
                     label: gettext('KB management')
                 },
