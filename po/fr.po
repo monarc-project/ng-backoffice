@@ -28,6 +28,10 @@ msgstr "AMVs"
 msgid "AMVs links"
 msgstr "liens AMVs"
 
+#: views/partials/oprisk_sheet.html:56 views/partials/risk_sheet.html:74
+msgid "Accepted"
+msgstr "Accepté"
+
 #: views/dialogs/create.threats.html:41
 msgid "Accidental cause description"
 msgstr "Description de la cause accidentelle"
@@ -339,7 +343,7 @@ msgid "CID"
 msgstr "CID"
 
 #: ../ng_anr/views/anr.home.html:119 ../ng_anr/views/anr.instance.html:156
-#: views/object.info_risk.kb_mgmt.html:155
+#: views/object.info_risk.kb_mgmt.html:155 views/partials/oprisk_sheet.html:16
 msgid "Calculated risk"
 msgstr "Risque calculé"
 
@@ -555,6 +559,10 @@ msgstr "Langue actuelle"
 msgid "Current password"
 msgstr "Mot de passe actuel"
 
+#: views/partials/risk_sheet.html:52
+msgid "Current risk"
+msgstr "Risque actuel"
+
 #: views/dialogs/create.users.admin.html:55
 msgid "Database admin"
 msgstr "Administrateur de base de données"
@@ -639,6 +647,10 @@ msgstr "Suppression réussie"
 #: views/dialogs/create.threats.html:53
 msgid "Deliberate cause description"
 msgstr "Description de la cause délibérée"
+
+#: views/partials/oprisk_sheet.html:55 views/partials/risk_sheet.html:73
+msgid "Denied"
+msgstr "Refusé"
 
 #: views/analysis_guides.kb_mgmt.html:7 views/dialogs/create.anr.html:22
 #: views/dialogs/create.assets.html:35 views/dialogs/create.docmodels.html:27
@@ -977,6 +989,18 @@ msgstr "Seuils de risques maximum"
 msgid "Maximum unavailability (days)"
 msgstr "Indisponibilité maximum (jours)"
 
+#: views/partials/risk_sheet.html:27
+msgid "Measure #1:"
+msgstr "Mesure #1 :"
+
+#: views/partials/risk_sheet.html:31
+msgid "Measure #2:"
+msgstr "Mesure #2 :"
+
+#: views/partials/risk_sheet.html:35
+msgid "Measure #3:"
+msgstr "Mesure #3 :"
+
 #: views/info_risk.kb_mgmt.html:334
 msgid "Measure 1"
 msgstr "Mesure 1"
@@ -1016,7 +1040,7 @@ msgid "My account details"
 msgstr "Mon compte"
 
 #: ../ng_anr/views/anr.home.html:110 ../ng_anr/views/anr.instance.html:146
-#: views/object.info_risk.kb_mgmt.html:146
+#: views/object.info_risk.kb_mgmt.html:146 views/partials/oprisk_sheet.html:20
 msgid "NET"
 msgstr "NET"
 
@@ -1151,6 +1175,10 @@ msgstr "Aucune menace correspondant à votre recherche n'a été trouvée."
 msgid "No vulnerability matching your search was found"
 msgstr "Aucune vulnérabilité correspondant à votre recherche n'a été trouvée."
 
+#: views/partials/oprisk_sheet.html:53 views/partials/risk_sheet.html:71
+msgid "Not processed"
+msgstr "Non traité"
+
 #: ../ng_anr/views/anr.home.html:103 ../ng_anr/views/anr.instance.html:137
 #: views/object.info_risk.kb_mgmt.html:135
 msgid "OP risks table"
@@ -1184,14 +1212,22 @@ msgstr "Bibliothèque d'objets"
 #: ../ng_anr/views/anr.home.html:111 ../ng_anr/views/anr.home.html:75
 #: ../ng_anr/views/anr.instance.html:147 ../ng_anr/views/anr.instance.html:95
 #: views/object.info_risk.kb_mgmt.html:147
-#: views/object.info_risk.kb_mgmt.html:96
+#: views/object.info_risk.kb_mgmt.html:96 views/partials/oprisk_sheet.html:45
 msgid "Observation"
 msgstr "Observations"
+
+#: views/partials/risk_sheet.html:15
+msgid "Observations:"
+msgstr "Remarques :"
 
 #: ../ng_anr/views/anr.instance.html:129 ../ng_anr/views/anr.instance.html:182
 #: views/object.info_risk.kb_mgmt.html:127
 msgid "Open risk sheet"
 msgstr "Ouvrir la fiche de risque"
+
+#: views/partials/oprisk_sheet.html:2
+msgid "Operational risk sheet"
+msgstr "Fiche de risque opérationnel"
 
 #: src/BackofficeApp.js:156
 msgid "Operational risks"
@@ -1290,13 +1326,17 @@ msgstr "Primaire"
 #: ../ng_anr/views/anr.home.html:117 ../ng_anr/views/anr.home.html:71
 #: ../ng_anr/views/anr.instance.html:154 ../ng_anr/views/anr.instance.html:91
 #: views/object.info_risk.kb_mgmt.html:153
-#: views/object.info_risk.kb_mgmt.html:92
+#: views/object.info_risk.kb_mgmt.html:92 views/partials/oprisk_sheet.html:10
 msgid "Prob."
 msgstr "Prob."
 
 #: ../ng_anr/views/anr.home.html:39
 msgid "Probability"
 msgstr "Probabilité"
+
+#: views/partials/oprisk_sheet.html:50 views/partials/risk_sheet.html:68
+msgid "Processing type"
+msgstr "Type de traitement"
 
 #: src/BackofficeAccountCtrl.js:48
 msgid "Profile updated"
@@ -1326,6 +1366,14 @@ msgstr "Tag ROLF"
 #: views/models.kb_mgmt.html:41
 msgid "Raw ROLF"
 msgstr "ROLF brut"
+
+#: views/partials/risk_sheet.html:80
+msgid "Reduce vulnerability by"
+msgstr "Réduit la vulnérabilité de"
+
+#: views/partials/oprisk_sheet.html:54 views/partials/risk_sheet.html:72
+msgid "Reduction"
+msgstr "Réduction"
 
 #: views/dialogs/create.models.html:42 views/models.kb_mgmt.html:40
 msgid "Regulator"
@@ -1366,6 +1414,10 @@ msgstr "Description du risque"
 msgid "Risk management context"
 msgstr "Contexte de la gestion du risque"
 
+#: views/partials/risk_sheet.html:2
+msgid "Risk sheet"
+msgstr "Fiche de risque"
+
 #: views/op_risk.kb_mgmt.html:82 views/op_risk.kb_mgmt.html:86
 msgid "Risks"
 msgstr "Risques"
@@ -1379,7 +1431,8 @@ msgstr "Table des risques"
 msgid "Rows per page:"
 msgstr "Lignes par page :"
 
-#: views/account.html:36
+#: views/account.html:36 views/partials/oprisk_sheet.html:62
+#: views/partials/risk_sheet.html:91
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
@@ -1432,6 +1485,10 @@ msgstr "Serveur"
 #: src/BackofficeApp.js:76
 msgid "Servers management"
 msgstr "Gestion des serveurs"
+
+#: views/partials/oprisk_sheet.html:57 views/partials/risk_sheet.html:75
+msgid "Shared"
+msgstr "Partagé"
 
 #: views/info_risk.kb_mgmt.html:164 views/info_risk.kb_mgmt.html:18
 #: views/info_risk.kb_mgmt.html:235 views/info_risk.kb_mgmt.html:302
@@ -1506,10 +1563,14 @@ msgstr "T"
 msgid "Tags"
 msgstr "Tags"
 
+#: views/partials/oprisk_sheet.html:31
+msgid "Target"
+msgstr "Cible"
+
 #: ../ng_anr/views/anr.home.html:113 ../ng_anr/views/anr.home.html:77
 #: ../ng_anr/views/anr.instance.html:149 ../ng_anr/views/anr.instance.html:97
 #: views/object.info_risk.kb_mgmt.html:149
-#: views/object.info_risk.kb_mgmt.html:98
+#: views/object.info_risk.kb_mgmt.html:98 views/partials/risk_sheet.html:58
 msgid "Target risk"
 msgstr "Risque cible"
 
@@ -1957,6 +2018,14 @@ msgstr "Cette opération est irréversible."
 msgid "Threat"
 msgstr "Menace"
 
+#: views/partials/risk_sheet.html:19
+msgid "Threat probability:"
+msgstr "Probabilité de la menace :"
+
+#: views/partials/risk_sheet.html:7
+msgid "Threat:"
+msgstr "Menace :"
+
 #: views/info_risk.kb_mgmt.html:79 views/info_risk.kb_mgmt.html:81
 msgid "Threats"
 msgstr "Menaces"
@@ -2108,6 +2177,14 @@ msgstr "Echelle des vulnérabilités :"
 #: views/object.info_risk.kb_mgmt.html:93
 msgid "Vulnerability"
 msgstr "Vulnérabilité"
+
+#: views/partials/risk_sheet.html:23
+msgid "Vulnerability qualification:"
+msgstr "Qualification de la vulnérabilité :"
+
+#: views/partials/risk_sheet.html:11
+msgid "Vulnerability:"
+msgstr "Vulnérabilité :"
 
 #: views/info_risk.kb_mgmt.html:152
 msgid "Vulnerabilties"
@@ -2301,63 +2378,6 @@ msgstr "{{count}} menaces ont été supprimées."
 #: src/kb/info/BackofficeKbInfoCtrl.js:581
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnérabilités ont été supprimées."
-
-#~ msgid "Accepted"
-#~ msgstr "Accepté"
-
-#~ msgid "Current risk"
-#~ msgstr "Risque actuel"
-
-#~ msgid "Denied"
-#~ msgstr "Refusé"
-
-#~ msgid "Measure #1:"
-#~ msgstr "Mesure #1 :"
-
-#~ msgid "Measure #2:"
-#~ msgstr "Mesure #2 :"
-
-#~ msgid "Measure #3:"
-#~ msgstr "Mesure #3 :"
-
-#~ msgid "Not processed"
-#~ msgstr "Non traité"
-
-#~ msgid "Observations:"
-#~ msgstr "Remarques :"
-
-#~ msgid "Operational risk sheet"
-#~ msgstr "Fiche de risque opérationnel"
-
-#~ msgid "Processing type"
-#~ msgstr "Type de traitement"
-
-#~ msgid "Reduce vulnerability by"
-#~ msgstr "Réduit la vulnérabilité de"
-
-#~ msgid "Reduction"
-#~ msgstr "Réduction"
-
-#~ msgid "Risk sheet"
-#~ msgstr "Fiche de risque"
-
-#~ msgid "Shared"
-#~ msgstr "Partagé"
-
-#~ msgid "Target"
-#~ msgstr "Cible"
-
-#~ msgid "Threat probability:"
-#~ msgstr "Probabilité de la menace :"
-
-#~ msgid "Threat:"
-#~ msgstr "Menace :"
-
-#~ msgid "Vulnerability qualification:"
-#~ msgstr "Qualification de la vulnérabilité :"
-
-#~ msgid "Vulnerability:"
-#~ msgstr "Vulnérabilité :"
 
 #~ msgid "27002 Measures"
 #~ msgstr "Mesures 27002"
