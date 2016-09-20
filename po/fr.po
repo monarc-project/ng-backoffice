@@ -20,6 +20,10 @@ msgstr "- ou -"
 msgid "27002 measures"
 msgstr "mesures 27002"
 
+#: views/_gettext_caveats.html:21
+msgid "A regulator model may not be generic"
+msgstr "Un modèle régulateur ne peut pas être générique"
+
 #: views/info_risk.kb_mgmt.html:288
 msgid "AMVs"
 msgstr "AMVs"
@@ -342,6 +346,14 @@ msgstr "Disponibilité"
 msgid "Availability:&nbsp;"
 msgstr "Disponibilité :&nbsp;"
 
+#: views/_gettext_caveats.html:20
+msgid ""
+"Bad mode for this object or models attached to asset incoherent with this "
+"object"
+msgstr ""
+"Mauvais mode pour cet objet ou modèles attachés à l’asset incohérents avec "
+"cet objet"
+
 #: views/info_risk.kb_mgmt.html:122
 msgid "CID"
 msgstr "CID"
@@ -567,6 +579,10 @@ msgstr "Mot de passe actuel"
 msgid "Current risk"
 msgstr "Risque actuel"
 
+#: views/_gettext_caveats.html:15
+msgid "Data missing"
+msgstr "Données manquantes"
+
 #: views/dialogs/create.users.admin.html:55
 msgid "Database admin"
 msgstr "Administrateur de base de données"
@@ -753,6 +769,10 @@ msgstr "Numéro d'employé"
 msgid "Enable raw ROLF values"
 msgstr "Activer les valeurs ROLF brutes"
 
+#: views/_gettext_caveats.html:14
+msgid "Entity not exist"
+msgstr "L’entité n’existe pas"
+
 #: src/kb/BackofficeDocModelsCtrl.js:158
 msgid "Error while uploading"
 msgstr "Erreur lors de l’envoi"
@@ -890,10 +910,18 @@ msgstr "Risques de l'information"
 msgid "Inherited"
 msgstr "Hérité"
 
+#: views/_gettext_caveats.html:19
+msgid "Instance not exist"
+msgstr "L’instance n’existe pas"
+
 #: ../ng_anr/views/create.instance.html:32
 #: ../ng_anr/views/create.instance.html:76 views/dialogs/create.objlibs.html:83
 msgid "Integrity"
 msgstr "Intégrité"
+
+#: views/_gettext_caveats.html:16
+msgid "Integrity AMV links violation"
+msgstr "Violation de l’intégrité des liens AMV"
 
 #: ../ng_anr/views/anr.instance.html:21
 msgid "Integrity:&nbsp;"
@@ -1204,6 +1232,10 @@ msgstr "Informations de l’objet"
 msgid "Object instance"
 msgstr "Instance de l’objet"
 
+#: views/_gettext_caveats.html:18
+msgid "Object is not an object of this anr"
+msgstr "L’objet n’appartient pas à cette ANR"
+
 #: views/object.info_risk.kb_mgmt.html:73
 msgid "Object replica(s) in models"
 msgstr "Réplica(s) de l'objet dans les modèles"
@@ -1247,6 +1279,10 @@ msgstr ""
 "Les risques opérationnels ne peuvent pas être pré-évalués dans la base de "
 "connaissances."
 
+#: views/_gettext_caveats.html:28
+msgid "Original password incorrect"
+msgstr "Mot de passe original incorrect"
+
 #: src/BackofficeApp.js:259
 msgid "Page:"
 msgstr "Page :"
@@ -1254,6 +1290,10 @@ msgstr "Page :"
 #: views/dialogs/create.objlibs.categories.html:44
 msgid "Parent category (leave empty for root)"
 msgstr "Catégorie parente (vide pour la racine)"
+
+#: views/_gettext_caveats.html:11
+msgid "Parent missing"
+msgstr "Parent manquant"
 
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:164
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:166 views/login.html:17
@@ -1985,6 +2025,10 @@ msgstr ""
 "Cette instance et tous ses enfants seront supprimés de l’analyse de risques. "
 "Cette opération ne peut pas être annulée."
 
+#: views/_gettext_caveats.html:12
+msgid "This object already exists in the current risk analysis"
+msgstr "Cet objet existe déjà dans l’analyse de risque"
+
 #: views/object.info_risk.kb_mgmt.html:75
 msgid "This object has no replica(s) in models."
 msgstr "Cet objet n'a pas de réplica(s) dans les modèles."
@@ -2015,6 +2059,13 @@ msgstr "Cet objet n'a pas de réplica(s) dans les modèles."
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:325
 msgid "This operation is irreversible."
 msgstr "Cette opération est irréversible."
+
+#: views/_gettext_caveats.html:17
+msgid ""
+"This type of asset is used in a model that is no longer part of the list"
+msgstr ""
+"Ce type d’asset est utilisé dans un modèle qui ne fait plus partie de cette "
+"liste"
 
 #: ../ng_anr/views/anr.home.html:70 ../ng_anr/views/anr.instance.html:90
 #: views/dialogs/create.amvs.html:51 views/info_risk.kb_mgmt.html:332
@@ -2204,6 +2255,34 @@ msgstr ""
 "Vous êtes dans la base de connaissance. Aucune évaluation ne peut être "
 "définie dans cet espace."
 
+#: views/_gettext_caveats.html:13
+msgid "You can't delete yourself"
+msgstr "Vous ne pouvez pas vous supprimer vous-même"
+
+#: views/_gettext_caveats.html:10 views/_gettext_caveats.html:24
+msgid "You cannot add a specific object to a generic parent"
+msgstr "Vous ne pouvez pas ajouter d’objet spécifique à un parent générique"
+
+#: views/_gettext_caveats.html:23
+msgid "You cannot add yourself as a component"
+msgstr "Vous ne pouvez pas vous ajouter vous-même comme composant"
+
+#: views/_gettext_caveats.html:26
+msgid ""
+"You cannot set this object to generic mode because one of its children is in "
+"specific mode."
+msgstr ""
+"Vous ne pouvez pas rendre cet objet générique car un de ses enfants est "
+"spécifique."
+
+#: views/_gettext_caveats.html:25
+msgid ""
+"You cannot set this object to specific mode because one of its parents is in "
+"generic mode."
+msgstr ""
+"Vous ne pouvez pas rendre cet objet spécifique car un de ses parents est "
+"générique."
+
 #: views/dialogs/create.users.admin.html:39
 msgid "You must enter an e-mail address"
 msgstr "Vous devez entrer une adresse e-mail"
@@ -2245,6 +2324,10 @@ msgstr "Vous devez sélectionner un mode"
 msgid "You must select a model"
 msgstr "Vous devez sélectionner un modèle"
 
+#: views/_gettext_caveats.html:22
+msgid "You must select a position for your category"
+msgstr "Vous devez choisir une position pour votre catégorie"
+
 #: views/dialogs/create.clients.html:32
 msgid "You must select a server"
 msgstr "Vous devez sélectionner un serveur"
@@ -2264,6 +2347,10 @@ msgstr "Vous devez sélectionner un asset"
 #: views/dialogs/create.users.admin.html:60
 msgid "You must select one or more roles"
 msgstr "Vous devez sélectionner un ou plusieurs rôles"
+
+#: views/_gettext_caveats.html:27
+msgid "You must type in a password"
+msgstr "Vous devez entrer un mot de passe"
 
 #: src/BackofficeLoginCtrl.js:46
 msgid "Your e-mail address or password is invalid, please try again."
