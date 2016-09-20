@@ -15,6 +15,13 @@
   text-align: center
 }
 
+.green-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: green;
+}
+
 a {
   color: black;
 }
