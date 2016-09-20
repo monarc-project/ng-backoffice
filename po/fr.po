@@ -65,6 +65,10 @@ msgstr "Actions"
 msgid "Actions history"
 msgstr "Historique des actions"
 
+#: views/_gettext_caveats.html:6
+msgid "Add"
+msgstr "Ajouter"
+
 #: views/object.info_risk.kb_mgmt.html:59
 msgid "Add a component"
 msgstr "Ajouter un composant"
