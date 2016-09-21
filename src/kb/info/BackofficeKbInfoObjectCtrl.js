@@ -28,6 +28,9 @@
             $scope.mode = 'bdc';
         }
 
+        $rootScope.anr_selected_instance_id = null;
+        $rootScope.anr_selected_object_id = $stateParams.objectId;
+
         var isObjectLoading = true;
 
         $scope.$watch('object.risks', function (newValue, oldValue) {
