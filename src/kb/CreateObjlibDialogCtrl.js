@@ -76,7 +76,11 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, Asset
                 );
 
             }, function () {
-                objLibDialog.editObjlib(null, $scope.objlib);
+                if (objLibDialog.editObjlib) {
+                    objLibDialog.editObjlib(null, $scope.objlib);
+                } else if (objLibDialog.createAttachedObject) {
+                    objLibDialog.createAttachedObject(null, $scope.objlib);
+                }
             });
     };
 
