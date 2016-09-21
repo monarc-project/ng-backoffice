@@ -750,7 +750,7 @@ msgstr "Modifier l'objet"
 
 #: ../ng_anr/views/anr.home.html:4
 msgid "Edit risk analysis details"
-msgstr "Editer l’analyse de risque"
+msgstr "Editer l’analyse de risques"
 
 #: views/dialogs/create.models.html:40
 msgid "Editable impact scale"
