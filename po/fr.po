@@ -989,7 +989,7 @@ msgstr "Local"
 #: views/dialogs/create.objlibs.html:198
 #: views/dialogs/create.objlibs.node.html:41
 msgid "Location"
-msgstr "Lieu"
+msgstr "Position"
 
 #: views/info_risk.kb_mgmt.html:395 views/info_risk.kb_mgmt.html:396
 msgid "Lock"
