@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbOpRiskCtrl', [
-            '$scope', '$timeout', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            '$scope', '$timeout', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'TagService', 'RiskService', '$stateParams', '$state',
             BackofficeKbOpRiskCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > OPERATIONAL RISKS (ROLF)
      */
-    function BackofficeKbOpRiskCtrl($scope, $timeout, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+    function BackofficeKbOpRiskCtrl($scope, $timeout, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                     TagService, RiskService, $stateParams, $state) {
         $scope.tab = $stateParams.tab;
         TableHelperService.resetBookmarks();
@@ -77,7 +77,7 @@
                         function () {
                             $scope.updateTags();
                             toastr.success(gettextCatalog.getString('The tag "{{tagLabel}}" has been created successfully.',
-                                {tagLabel: tag.label1}), gettext('Creation successful'));
+                                {tagLabel: tag.label1}), gettextCatalog.getString('Creation successful'));
                         },
 
                         function () {
@@ -106,7 +106,7 @@
                             function () {
                                 $scope.updateTags();
                                 toastr.success(gettextCatalog.getString('The tag "{{tagLabel}}" has been updated successfully.',
-                                    {tagLabel: tag.label1}), gettext('Update successful'));
+                                    {tagLabel: tag.label1}), gettextCatalog.getString('Update successful'));
                             },
 
                             function () {
@@ -121,16 +121,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete tag "{{ label }}"?',
                     {label: item.label1}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 TagService.deleteTag(item.id,
                     function () {
                         $scope.updateTags();
                         toastr.success(gettextCatalog.getString('The tag "{{label}}" has been deleted.',
-                            {label: item.label1}), gettext('Deletion successful'));
+                            {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -140,10 +140,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected tag(s)?',
                     {count: $scope.tags.selected.length}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.tags.selected.length; ++i) {
@@ -152,7 +152,7 @@
 
                 TagService.deleteMassTag(ids, function () {
                     toastr.success(gettextCatalog.getString('{{count}} tags have been deleted.',
-                        {count: $scope.tags.selected.length}), gettext('Deletion successful'));
+                        {count: $scope.tags.selected.length}), gettextCatalog.getString('Deletion successful'));
                     $scope.tags.selected = [];
                     $scope.updateTags();
                 });
@@ -246,7 +246,7 @@
                         function () {
                             $scope.updateRisks();
                             toastr.success(gettextCatalog.getString('The risk "{{riskLabel}}" has been created successfully.',
-                                {riskLabel: risk.label1}), gettext('Creation successful'));
+                                {riskLabel: risk.label1}), gettextCatalog.getString('Creation successful'));
 
                             if (cont) {
                                 $scope.createNewRisk(ev);
@@ -288,7 +288,7 @@
                             function () {
                                 $scope.updateRisks();
                                 toastr.success(gettextCatalog.getString('The risk "{{riskLabel}}" has been updated successfully.',
-                                    {riskLabel: risk.label1}), gettext('Update successful'));
+                                    {riskLabel: risk.label1}), gettextCatalog.getString('Update successful'));
                             },
 
                             function () {
@@ -303,16 +303,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete risk "{{ label }}"?',
                     {label: item.label1}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 RiskService.deleteRisk(item.id,
                     function () {
                         $scope.updateRisks();
                         toastr.success(gettextCatalog.getString('The risk "{{label}}" has been deleted.',
-                            {label: item.label1}), gettext('Deletion successful'));
+                            {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -322,10 +322,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected risk(s)?',
                     {count: $scope.risks.selected.length}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.risks.selected.length; ++i) {
@@ -334,7 +334,7 @@
 
                 RiskService.deleteMassRisk(ids, function () {
                     toastr.success(gettextCatalog.getString('{{count}} risks have been deleted.',
-                        {count: $scope.risks.selected.length}), gettext('Deletion successful'));
+                        {count: $scope.risks.selected.length}), gettextCatalog.getString('Deletion successful'));
                     $scope.risks.selected = [];
 
                     $scope.updateRisks();;

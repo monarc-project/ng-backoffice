@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAccountCtrl', [
-            '$scope', 'gettext', 'gettextCatalog', 'toastr', '$http', 'UserService', 'UserProfileService',
+            '$scope', 'gettextCatalog', 'toastr', '$http', 'UserService', 'UserProfileService',
             'ConfigService', 'localStorageService',
             BackofficeAccountCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * Account Controller for the Backoffice module
      */
-    function BackofficeAccountCtrl($scope, gettext, gettextCatalog, toastr, $http, UserService, UserProfileService,
+    function BackofficeAccountCtrl($scope, gettextCatalog, toastr, $http, UserService, UserProfileService,
                                    ConfigService, localStorageService) {
         $scope.password = {
             old: '',
@@ -45,14 +45,14 @@
 
         $scope.updateProfile = function () {
             UserProfileService.updateProfile($scope.user, function (data) {
-                toastr.success(gettext('Your profile has been updated successfully'), gettext('Profile updated'));
+                toastr.success(gettextCatalog.getString('Your profile has been updated successfully'), gettextCatalog.getString('Profile updated'));
             });
         }
 
         $scope.updatePassword = function () {
             $http.put('/api/user/password/' + UserService.getUserId(), $scope.password).then(function (data) {
                 if (data.data.status == 'ok') {
-                    toastr.success(gettext('Your password has been updated successfully'));
+                    toastr.success(gettextCatalog.getString('Your password has been updated successfully'));
                 }
             })
         }

@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoCtrl', [
-            '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
             '$timeout',
             BackofficeKbInfoCtrl
@@ -12,11 +12,11 @@
     /**
      * BO > KB > INFO
      */
-    function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+    function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
                                   $state, $timeout) {
         $scope.tab = $stateParams.tab;
-        $scope.gettext = gettext;
+        $scope.gettext = gettextCatalog.getString;
         TableHelperService.resetBookmarks();
 
         /*
@@ -25,8 +25,8 @@
 
         $scope.specificityStr = function (type) {
             switch (type) {
-                case 0: return gettext('Generic');
-                case 1: return gettext('Specific');
+                case 0: return gettextCatalog.getString('Generic');
+                case 1: return gettextCatalog.getString('Specific');
             }
         };
 
@@ -132,7 +132,7 @@
                                     {assetLabel: asset.label1}));
                             } else {
                                 toastr.success(gettextCatalog.getString('The asset "{{assetLabel}}" has been created successfully.',
-                                    {assetLabel: asset.label1}), gettext('Creation successful'));
+                                    {assetLabel: asset.label1}), gettextCatalog.getString('Creation successful'));
                             }
                         },
 
@@ -168,7 +168,7 @@
                                         {assetLabel: asset.label1}));
                                 } else {
                                     toastr.success(gettextCatalog.getString('The asset "{{assetLabel}}" has been updated successfully.',
-                                        {assetLabel: asset.label1}), gettext('Update successful'));
+                                        {assetLabel: asset.label1}), gettextCatalog.getString('Update successful'));
                                 }
                             },
 
@@ -184,16 +184,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete asset "{{ label }}"?',
                     {label: item.label1}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 AssetService.deleteAsset(item.id,
                     function () {
                         $scope.updateAssets();
                         toastr.success(gettextCatalog.getString('The asset "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettext('Deletion successful'));
+                                    {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -204,10 +204,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected asset(s)?',
                     {count: count}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.assets.selected.length; ++i) {
@@ -216,7 +216,7 @@
 
                 AssetService.deleteMassAsset(ids, function () {
                     toastr.success(gettextCatalog.getString('{{count}} assets have been deleted.',
-                        {count: count}), gettext('Deletion successful'));
+                        {count: count}), gettextCatalog.getString('Deletion successful'));
                     $scope.updateAssets();
                 });
 
@@ -227,8 +227,8 @@
 
         $scope.assetTypeStr = function (type) {
             switch (type) {
-                case 1: return gettext('Primary');
-                case 2: return gettext('Secondary');
+                case 1: return gettextCatalog.getString('Primary');
+                case 2: return gettextCatalog.getString('Secondary');
             }
         };
 
@@ -314,7 +314,7 @@
                                     {threatLabel: threat.label1}));
                             } else {
                                 toastr.success(gettextCatalog.getString('The threat "{{threatLabel}}" has been created successfully.',
-                                    {threatLabel: threat.label1}), gettext('Creation successful'));
+                                    {threatLabel: threat.label1}), gettextCatalog.getString('Creation successful'));
                             }
                         },
 
@@ -356,7 +356,7 @@
                                         {threatLabel: threat.label1}));
                                 } else {
                                     toastr.success(gettextCatalog.getString('The threat "{{threatLabel}}" has been updated successfully.',
-                                        {threatLabel: threat.label1}), gettext('Update successful'));
+                                        {threatLabel: threat.label1}), gettextCatalog.getString('Update successful'));
                                 }
                             },
 
@@ -373,16 +373,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete threat "{{ label }}"?',
                     {label: item.label}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 ThreatService.deleteThreat(item.id,
                     function () {
                         $scope.updateThreats();
                         toastr.success(gettextCatalog.getString('The threat "{{label}}" has been deleted.',
-                                    {label: item.label}), gettext('Deletion successful'));
+                                    {label: item.label}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -395,10 +395,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected threat(s)?',
                     {count: count}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.threats.selected.length; ++i) {
@@ -408,7 +408,7 @@
                 ThreatService.deleteMassThreat(ids, function () {
                     $scope.updateThreats();
                     toastr.success(gettextCatalog.getString('{{count}} threats have been deleted.',
-                        {count: ids.length}), gettext('Deletion successful'));
+                        {count: ids.length}), gettextCatalog.getString('Deletion successful'));
                 });
 
                 $scope.threats.selected = [];
@@ -492,7 +492,7 @@
                                     {vulnLabel: vuln.label1}));
                             } else {
                                 toastr.success(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been created successfully.',
-                                    {vulnLabel: vuln.label1}), gettext('Creation successful'));
+                                    {vulnLabel: vuln.label1}), gettextCatalog.getString('Creation successful'));
                             }
                         },
 
@@ -528,7 +528,7 @@
                                         {vulnLabel: vuln.label1}));
                                 } else {
                                     toastr.success(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been updated successfully.',
-                                        {vulnLabel: vuln.label1}), gettext('Update successful'));
+                                        {vulnLabel: vuln.label1}), gettextCatalog.getString('Update successful'));
                                 }
                             },
 
@@ -544,16 +544,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete vulnerability "{{ label }}"?',
                     {label: item.label1}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 VulnService.deleteVuln(item.id,
                     function () {
                         $scope.updateVulns();
                         toastr.success(gettextCatalog.getString('The vulnerability "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettext('Deletion successful'));
+                                    {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -566,10 +566,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected vulnerabilites?',
                     {count: count}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.vulns.selected.length; ++i) {
@@ -579,7 +579,7 @@
                 VulnService.deleteMassVuln(ids, function () {
                     $scope.updateVulns();
                     toastr.success(gettextCatalog.getString('{{count}} vulnerabilities have been deleted.',
-                        {count: ids.length}), gettext('Deletion successful'));
+                        {count: ids.length}), gettextCatalog.getString('Deletion successful'));
                 });
 
                 $scope.vulns.selected = [];
@@ -658,7 +658,7 @@
                         function () {
                             $scope.updateMeasures();
                             toastr.success(gettextCatalog.getString('The measure "{{measureLabel}}" has been created successfully.',
-                                {measureLabel: measure.description1}), gettext('Creation successful'));
+                                {measureLabel: measure.description1}), gettextCatalog.getString('Creation successful'));
                         },
 
                         function (err) {
@@ -687,7 +687,7 @@
                             function () {
                                 $scope.updateMeasures();
                                 toastr.success(gettextCatalog.getString('The measure "{{measureLabel}}" has been updated successfully.',
-                                    {measureLabel: measure.description1}), gettext('Update successful'));
+                                    {measureLabel: measure.description1}), gettextCatalog.getString('Update successful'));
                             },
 
                             function () {
@@ -702,16 +702,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete measure "{{ label }}"?',
                     {label: item.description1}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 MeasureService.deleteMeasure(item.id,
                     function () {
                         $scope.updateMeasures();
                         toastr.success(gettextCatalog.getString('The measure "{{label}}" has been deleted.',
-                                    {label: item.description1}), gettext('Deletion successful'));
+                                    {label: item.description1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -724,10 +724,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected measures?',
                     {count: count}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.measures.selected.length; ++i) {
@@ -737,7 +737,7 @@
                 MeasureService.deleteMassMeasure(ids, function () {
                     $scope.updateMeasures();
                     toastr.success(gettextCatalog.getString('{{count}} measures have been deleted.',
-                        {count: count}), gettext('Deletion successful'));
+                        {count: count}), gettextCatalog.getString('Deletion successful'));
                 });
 
                 $scope.measures.selected = [];
@@ -837,7 +837,7 @@
                     AmvService.createAmv(amv,
                         function () {
                             $scope.updateAmvs();
-                            toastr.success(gettext('The AMV link has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The AMV link has been created successfully.'), gettextCatalog.getString('Creation successful'));
                         },
 
                         function () {
@@ -886,7 +886,7 @@
                         AmvService.updateAmv(amv,
                             function () {
                                 $scope.updateAmvs();
-                                toastr.success(gettext('The AMV link has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The AMV link has been updated successfully.'), gettextCatalog.getString('Update successful'));
                             },
 
                             function () {
@@ -900,15 +900,15 @@
         $scope.deleteAmv = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete this AMV link?'))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 AmvService.deleteAmv(item.id,
                     function () {
                         $scope.updateAmvs();
-                        toastr.success(gettextCatalog.getString('The AMV link has been deleted.'), gettext('Deletion successful'));
+                        toastr.success(gettextCatalog.getString('The AMV link has been deleted.'), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -921,10 +921,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected AMV link(s)?',
                     {count: count}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.amvs.selected.length; ++i) {
@@ -933,7 +933,7 @@
 
                 AmvService.deleteMassAmv(ids, function () {
                     toastr.success(gettextCatalog.getString('{{ count }} AMV links have been deleted.',
-                        {count: count}), gettext('Deletion successful'));
+                        {count: count}), gettextCatalog.getString('Deletion successful'));
                     $scope.updateAmvs();
                 });
 
@@ -963,9 +963,9 @@
 
         $scope.objlibAssetTypeStr = function (type) {
             if (type == 'bdc') {
-                return gettext('Knowledge base');
+                return gettextCatalog.getString('Knowledge base');
             } else if (type == 'anr') {
-                return gettext('Risk analysis');
+                return gettextCatalog.getString('Risk analysis');
             } else {
                 return type;
             }
@@ -973,8 +973,8 @@
 
         $scope.objlibScopeStr = function (scope) {
             switch (scope) {
-                case 1: return gettext('Local');
-                case 2: return gettext('Global');
+                case 1: return gettextCatalog.getString('Local');
+                case 2: return gettextCatalog.getString('Global');
                 default: return scope;
             }
         }
@@ -1063,7 +1063,7 @@
 
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'gettextCatalog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -1098,7 +1098,7 @@
                                 function () {
                                     $scope.updateObjlibs();
                                     toastr.success(gettextCatalog.getString('The object "{{objlibLabel}}" has been updated successfully.',
-                                        {objlibLabel: objlib.label1}), gettext('Update successful'));
+                                        {objlibLabel: objlib.label1}), gettextCatalog.getString('Update successful'));
                                 },
 
                                 function () {
@@ -1110,7 +1110,7 @@
                                 function () {
                                     $scope.updateObjlibs();
                                     toastr.success(gettextCatalog.getString('The object "{{objlibLabel}}" has been created successfully.',
-                                        {objlibLabel: objlib.label1}), gettext('Creation successful'));
+                                        {objlibLabel: objlib.label1}), gettextCatalog.getString('Creation successful'));
 
                                     if (cont) {
                                         $scope.createNewObjlib(ev);
@@ -1144,16 +1144,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete object "{{ label }}"?',
                     {label: item.label1}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 ObjlibService.deleteObjlib(item.id,
                     function () {
                         $scope.updateObjlibs();
                         toastr.success(gettextCatalog.getString('The object "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettext('Deletion successful'));
+                                    {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -1166,10 +1166,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected object(s)?',
                     {count: count}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.objlibs.selected, function (value, key) {
                     ObjlibService.deleteObjlib(value.id,
@@ -1180,7 +1180,7 @@
 
                             outpromise = $timeout(function () {
                                 toastr.success(gettextCatalog.getString('{{count}} objects have been deleted.',
-                                    {count: count}), gettext('Deletion successful'));
+                                    {count: count}), gettextCatalog.getString('Deletion successful'));
                                 $scope.updateObjlibs();
                             }, 350);
                         }

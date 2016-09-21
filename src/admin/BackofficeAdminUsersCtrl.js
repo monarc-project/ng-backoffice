@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAdminUsersCtrl', [
-            '$scope', '$state', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminUsersService',
+            '$scope', '$state', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'AdminUsersService',
             'TableHelperService', 'UserService',
             BackofficeAdminUsersCtrl
         ]);
@@ -11,8 +11,8 @@
     /**
      * Admin Users Controller for the Backoffice module
      */
-    function BackofficeAdminUsersCtrl($scope, $state, toastr, $mdMedia, $mdDialog, gettextCatalog, gettext,
-                                      AdminUsersService, TableHelperService, UserService) {
+    function BackofficeAdminUsersCtrl($scope, $state, toastr, $mdMedia, $mdDialog, gettextCatalog, AdminUsersService,
+                                      TableHelperService, UserService) {
 
         $scope.myself = UserService.getUserId();
 
@@ -68,7 +68,7 @@
                         function () {
                             $scope.updateUsers();
                             toastr.success(gettextCatalog.getString('The user "{{firstname}} {{lastname}}" has been created successfully.',
-                                {firstname: user.firstname, lastname: user.lastname}), gettext('Creation successful'));
+                                {firstname: user.firstname, lastname: user.lastname}), gettextCatalog.getString('Creation successful'));
                         });
                 });
         };
@@ -92,7 +92,7 @@
                             function () {
                                 $scope.updateUsers();
                                 toastr.success(gettextCatalog.getString('The user "{{firstname}} {{lastname}}" information has been updated successfully.',
-                                    {firstname: user.firstname, lastname: user.lastname}), gettext('Update successful'));
+                                    {firstname: user.firstname, lastname: user.lastname}), gettextCatalog.getString('Update successful'));
                             }
                         );
                     });
@@ -103,16 +103,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete "{{ firstname }} {{ lastname }}"?',
                     {firstname: item.firstname, lastname: item.lastname}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 AdminUsersService.deleteUser(item.id,
                     function () {
                         $scope.updateUsers();
                         toastr.success(gettextCatalog.getString('The user "{{firstname}} {{lastname}}" has been deleted.',
-                                    {firstname: item.firstname, lastname: item.lastname}), gettext('Deletion successful'));
+                                    {firstname: item.firstname, lastname: item.lastname}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });

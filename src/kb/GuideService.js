@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('GuideService', [ '$resource', 'gettext', GuideService ]);
+        .factory('GuideService', [ '$resource', 'gettextCatalog', GuideService ]);
 
-    function GuideService($resource, gettext) {
+    function GuideService($resource, gettextCatalog) {
         var self = this;
 
         self.GuideResource = $resource('/api/guides/:guideId', { guideId: '@id' },
@@ -70,10 +70,10 @@
 
 
         const categoriesLabels = {
-            1: gettext("Risk analysis context"),
-            2: gettext("Risk management context"),
-            3: gettext("Summary assessment of trends and threats"),
-            4: gettext("Summary of assets / impacts")
+            1: gettextCatalog.getString("Risk analysis context"),
+            2: gettextCatalog.getString("Risk management context"),
+            3: gettextCatalog.getString("Summary assessment of trends and threats"),
+            4: gettextCatalog.getString("Summary of assets / impacts")
         }
 
         const categories = [

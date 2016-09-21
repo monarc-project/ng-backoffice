@@ -237,8 +237,8 @@ angular
             }]);
             $httpProvider.interceptors.push('monarcHttpInter');
         }]).
-    run(['ConfigService', 'UserService', 'gettext', 'gettextCatalog', '$rootScope',
-        function (ConfigService, UserService, gettext, gettextCatalog, $rootScope) {
+    run(['ConfigService', 'UserService', 'gettextCatalog', '$rootScope',
+        function (ConfigService, UserService, gettextCatalog, $rootScope) {
             $rootScope.OFFICE_MODE = 'BO';
 
             ConfigService.loadConfig(function () {
@@ -257,9 +257,9 @@ angular
             // Method to update pagination labels globally when switching language in account settings
             $rootScope.updatePaginationLabels = function () {
                 $rootScope.paginationLabels = {
-                    page: gettext('Page:'),
-                    rowsPerPage: gettext('Rows per page:'),
-                    of: gettext('of')
+                    page: gettextCatalog.getString('Page:'),
+                    rowsPerPage: gettextCatalog.getString('Rows per page:'),
+                    of: gettextCatalog.getString('of')
                 }
             }
 

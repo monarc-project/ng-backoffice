@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbModelsCtrl', [
-            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettext', 'gettextCatalog', 'TableHelperService',
+            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'ModelService',
             BackofficeKbModelsCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > MODELS
      */
-    function BackofficeKbModelsCtrl($scope, toastr, $mdMedia, $mdDialog, gettext, gettextCatalog, TableHelperService,
+    function BackofficeKbModelsCtrl($scope, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                     ModelService) {
         TableHelperService.resetBookmarks();
 
@@ -49,7 +49,7 @@
                         function () {
                             $scope.updateModels();
                             toastr.success(gettextCatalog.getString('The model "{{modelLabel}}" has been created successfully.',
-                                {modelLabel: model.label1}), gettext('Creation successful'));
+                                {modelLabel: model.label1}), gettextCatalog.getString('Creation successful'));
                         },
 
                         function () {
@@ -78,7 +78,7 @@
                             function () {
                                 $scope.updateModels();
                                 toastr.success(gettextCatalog.getString('The model "{{modelLabel}}" has been updated successfully.',
-                                    {modelLabel: model.label1}), gettext('Update successful'));
+                                    {modelLabel: model.label1}), gettextCatalog.getString('Update successful'));
                             },
 
                             function () {
@@ -93,16 +93,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete model "{{ label }}"?',
                     {label: item.label1}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 ModelService.deleteModel(item.id,
                     function () {
                         $scope.updateModels();
                         toastr.success(gettextCatalog.getString('The model "{{label}}" has been deleted.',
-                            {label: item.label1}), gettext('Deletion successful'));
+                            {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -112,10 +112,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected model(s)?',
                     {count: $scope.models.selected.length}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.models.selected, function (value, key) {
                     ModelService.deleteModel(value.id);
@@ -123,7 +123,7 @@
 
                 $scope.updateModels();
                 toastr.success(gettextCatalog.getString('{{count}} models have been deleted.',
-                    {count: $scope.models.selected.length}), gettext('Deletion successful'));
+                    {count: $scope.models.selected.length}), gettextCatalog.getString('Deletion successful'));
                 $scope.models.selected = [];
 
             }, function() {

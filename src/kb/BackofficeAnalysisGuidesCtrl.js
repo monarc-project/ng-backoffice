@@ -3,15 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAnalysisGuidesCtrl', [
-            '$scope', '$mdDialog', '$mdMedia', 'toastr', 'gettextCatalog', 'gettext', 'GuideService',
+            '$scope', '$mdDialog', '$mdMedia', 'toastr', 'gettextCatalog', 'GuideService',
             BackofficeAnalysisGuidesCtrl
         ]);
 
     /**
      * KB > Analysis Guides Controller for the Backoffice module
      */
-    function BackofficeAnalysisGuidesCtrl($scope, $mdDialog, $mdMedia, toastr, gettextCatalog,
-                                          gettext, GuideService) {
+    function BackofficeAnalysisGuidesCtrl($scope, $mdDialog, $mdMedia, toastr, gettextCatalog, GuideService) {
         $scope.guides = [];
 
         $scope.updateGuides = function () {
@@ -38,7 +37,7 @@
                         function () {
                             $scope.updateGuides();
                             toastr.success(gettextCatalog.getString('The guide "{{guideLabel}}" has been created successfully.',
-                                {guideLabel: guide.description1}), gettext('Creation successful'));
+                                {guideLabel: guide.description1}), gettextCatalog.getString('Creation successful'));
                         }
                     );
                 });
@@ -62,7 +61,7 @@
                         function () {
                             $scope.updateGuides();
                             toastr.success(gettextCatalog.getString('The guide "{{guideLabel}}" has been updated successfully.',
-                                {guideLabel: guide.description1}), gettext('Update successful'));
+                                {guideLabel: guide.description1}), gettextCatalog.getString('Update successful'));
                         }
                     );
                 });
@@ -73,16 +72,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete this guide?',
                     {label: item.description}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 GuideService.deleteGuide(item.id,
                     function () {
                         $scope.updateGuides();
                         toastr.success(gettextCatalog.getString('The guide has been deleted.',
-                            {label: item.description}), gettext('Deletion successful'));
+                            {label: item.description}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });

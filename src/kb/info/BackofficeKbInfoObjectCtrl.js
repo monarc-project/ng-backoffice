@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
-            '$scope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettext', 'gettextCatalog',
+            '$scope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettextCatalog',
             'ObjlibService', 'DownloadService',
             BackofficeKbInfoObjectCtrl
         ]);
@@ -12,7 +12,7 @@
      * BO > KB > INFO > Objects Library > Object details
      */
     function BackofficeKbInfoObjectCtrl($scope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
-                                        gettext, gettextCatalog, ObjlibService, DownloadService) {
+                                        gettextCatalog, ObjlibService, DownloadService) {
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
@@ -62,17 +62,17 @@
 
         $scope.deleteCompositionItem = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettext('Detach this component?'))
-                .textContent(gettext('The selected component will be detached from the current object.'))
-                .ariaLabel(gettext('Detach this component'))
+                .title(gettextCatalog.getString('Detach this component?'))
+                .textContent(gettextCatalog.getString('The selected component will be detached from the current object.'))
+                .ariaLabel(gettextCatalog.getString('Detach this component'))
                 .targetEvent(ev)
-                .ok(gettext('Detach'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Detach'))
+                .cancel(gettextCatalog.getString('Cancel'));
 
             $mdDialog.show(confirm).then(function () {
                 ObjlibService.deleteObjlibNode(item.component_link_id, function () {
                     $scope.updateObjlib();
-                    toastr.success(gettext('The object has been detached successfully'), gettext('Component detached'));
+                    toastr.success(gettextCatalog.getString('The object has been detached successfully'), gettextCatalog.getString('Component detached'));
                 });
             }, function () {
                 // Cancel
@@ -81,13 +81,13 @@
 
         $scope.deleteObject = function (ev) {
             var confirm = $mdDialog.confirm()
-                .title(gettext('Delete this object?'))
+                .title(gettextCatalog.getString('Delete this object?'))
                 .textContent(gettextCatalog.getString('The current object "{{ name }}" will be permanently deleted. Are you sure?',
                     {name: $scope.object.name1}))
-                .ariaLabel(gettext('Delete this object'))
+                .ariaLabel(gettextCatalog.getString('Delete this object'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
 
             $mdDialog.show(confirm).then(function () {
                 ObjlibService.deleteObjlib($scope.object.id, function () {
@@ -105,7 +105,7 @@
 
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'gettextCatalog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -134,14 +134,14 @@
                             ObjlibService.updateObjlib(objlib,
                                 function () {
                                     $scope.updateObjlib();
-                                    toastr.success(gettext('The object has been updated successfully.'), gettext('Update successful'));
+                                    toastr.success(gettextCatalog.getString('The object has been updated successfully.'), gettextCatalog.getString('Update successful'));
                                 }
                             );
                         } else {
                             ObjlibService.createObjlib(objlib,
                                 function () {
                                     $scope.updateObjlib();
-                                    toastr.success(gettext('The object has been created successfully.'), gettext('Creation successful'));
+                                    toastr.success(gettextCatalog.getString('The object has been created successfully.'), gettextCatalog.getString('Creation successful'));
                                 }
                             );
                         }
@@ -161,24 +161,24 @@
 
         $scope.exportObject = function (ev) {
             var prompt = $mdDialog.prompt()
-                .title(gettext('Password'))
-                .textContent(gettext('Please enter a password to protect your object'))
-                .ariaLabel(gettext('Password'))
+                .title(gettextCatalog.getString('Password'))
+                .textContent(gettextCatalog.getString('Please enter a password to protect your object'))
+                .ariaLabel(gettextCatalog.getString('Password'))
                 .targetEvent(ev)
-                .ok(gettext('Export'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Export'))
+                .cancel(gettextCatalog.getString('Cancel'));
 
             $mdDialog.show(prompt).then(function (result) {
                 $http.post('/api/objects-export', {id: $scope.object.id, password: result}).then(function (data) {
                     DownloadService.downloadBlob(data.data, 'object.bin');
-                    toastr.success(gettext('The object has been exported successfully.'), gettext('Export successful'));
+                    toastr.success(gettextCatalog.getString('The object has been exported successfully.'), gettextCatalog.getString('Export successful'));
                 })
             });
         };
 
         $scope.cloneObject = function (ev) {
             $http.post("/api/objects-duplication", {id: $scope.object.id, implicitPosition: 2}).then(function (data) {
-                toastr.success(gettext('Ths object has been duplicated successfully.'), gettext('Duplication successful'));
+                toastr.success(gettextCatalog.getString('Ths object has been duplicated successfully.'), gettextCatalog.getString('Duplication successful'));
             });
         };
 
@@ -202,7 +202,7 @@
                         ObjlibService.createObjlibNode(objlib,
                             function () {
                                 $scope.updateObjlib();
-                                toastr.success(gettext('The component has been created successfully.'), gettext('Creation successful'));
+                                toastr.success(gettextCatalog.getString('The component has been created successfully.'), gettextCatalog.getString('Creation successful'));
                             }
                         );
                     }

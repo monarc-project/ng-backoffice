@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeDocModelsCtrl', [
-            '$scope', '$mdDialog', '$mdMedia', '$http', 'DownloadService', 'toastr', 'gettextCatalog', 'gettext', 'DocModelService',
+            '$scope', '$mdDialog', '$mdMedia', '$http', 'DownloadService', 'toastr', 'gettextCatalog', 'DocModelService',
             BackofficeDocModelsCtrl
         ]);
 
@@ -11,7 +11,7 @@
      * KB > Document Models Controller for the Backoffice module
      */
     function BackofficeDocModelsCtrl($scope, $mdDialog, $mdMedia, $http, DownloadService, toastr, gettextCatalog,
-                                     gettext, DocModelService) {
+                                     DocModelService) {
         $scope.docmodels = [];
 
         $scope.updateDocModels = function () {
@@ -27,7 +27,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'DocModelService', 'Upload', CreateDocModelsDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'DocModelService', 'Upload', CreateDocModelsDialogCtrl],
                 templateUrl: '/views/dialogs/create.docmodels.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -36,7 +36,7 @@
                 .then(function (docModel) {
                     $scope.updateDocModels();
                     toastr.success(gettextCatalog.getString('The document "{{docModelLabel}}" has been created successfully.',
-                        {docModelLabel: docModel.description}), gettext('Creation successful'));
+                        {docModelLabel: docModel.description}), gettextCatalog.getString('Creation successful'));
                 });
         };
 
@@ -44,7 +44,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettext', 'DocModelService', 'Upload', 'docmodel', CreateDocModelsDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'DocModelService', 'Upload', 'docmodel', CreateDocModelsDialogCtrl],
                 templateUrl: '/views/dialogs/create.docmodels.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -56,7 +56,7 @@
                 .then(function (docModel) {
                     $scope.updateDocModels();
                     toastr.success(gettextCatalog.getString('The document "{{docModelLabel}}" has been updated successfully.',
-                        {docModelLabel: docModel.description}), gettext('Update successful'));
+                        {docModelLabel: docModel.description}), gettextCatalog.getString('Update successful'));
                 });
         };
 
@@ -64,16 +64,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the document "{{ label }}"?',
                     {label: item.description}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 DocModelService.deleteDocModel(item.id,
                     function () {
                         $scope.updateDocModels();
                         toastr.success(gettextCatalog.getString('The document "{{label}}" has been deleted.',
-                            {label: item.description}), gettext('Deletion successful'));
+                            {label: item.description}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -97,7 +97,7 @@
     }
 
 
-    function CreateDocModelsDialogCtrl($scope, $mdDialog, toastr, gettext, DocModelService, Upload, docmodel) {
+    function CreateDocModelsDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, DocModelService, Upload, docmodel) {
         if (docmodel) {
             $scope.docModel = docmodel;
         } else {
@@ -155,14 +155,14 @@
                             $mdDialog.hide($scope.docModel);
                         }
                     }, function (resp) {
-                        toastr.error(gettext('The server returned the error code:') + ' ' + resp.status, gettext('Error while uploading'))
+                        toastr.error(gettextCatalog.getString('The server returned the error code:') + ' ' + resp.status, gettextCatalog.getString('Error while uploading'))
                     }
                     , function (evt) {
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                         $scope.uploadProgress = progressPercentage;
                     })
             } else if ($scope.file && $scope.file.$error) {
-                toastr.error($scope.file.$error, gettext('File error'));
+                toastr.error($scope.file.$error, gettextCatalog.getString('File error'));
             } else if ($scope.docModel.id > 0) {
                 DocModelService.updateDocModel($scope.docModel, function () {
                     $mdDialog.hide($scope.docModel);
@@ -170,7 +170,7 @@
 
                 });
             } else {
-                toastr.warning(gettext('You must select a file'));
+                toastr.warning(gettextCatalog.getString('You must select a file'));
             }
         };
     }

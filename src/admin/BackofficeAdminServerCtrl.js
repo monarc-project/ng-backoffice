@@ -3,15 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAdminServerCtrl', [
-            '$scope', '$state', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'gettext', 'AdminServerService',
+            '$scope', '$state', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'AdminServerService',
             BackofficeAdminServerCtrl
         ]);
 
     /**
      * Admin Server Controller for the Backoffice module
      */
-    function BackofficeAdminServerCtrl($scope, $state, toastr, $mdMedia, $mdDialog, gettextCatalog, gettext,
-                                       AdminServerService) {
+    function BackofficeAdminServerCtrl($scope, $state, toastr, $mdMedia, $mdDialog, gettextCatalog, AdminServerService) {
         $scope.servers = {};
         $scope.serversFilter = {};
 
@@ -48,7 +47,7 @@
                         function () {
                             $scope.updateServers();
                             toastr.success(gettextCatalog.getString('The server "{{label}}" has been created successfully.',
-                                {label: server.label}), gettext('Creation successful'));
+                                {label: server.label}), gettextCatalog.getString('Creation successful'));
                         }
                     );
                 });
@@ -73,7 +72,7 @@
                             function () {
                                 $scope.updateServers();
                                 toastr.success(gettextCatalog.getString('The server "{{label}}" has been updated successfully.',
-                                    {label: server.label}), gettext('Update successful'));
+                                    {label: server.label}), gettextCatalog.getString('Update successful'));
                             }
                         );
                     });
@@ -94,17 +93,17 @@
         $scope.deleteServer = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete "{{label}}"?', { label: item.label }))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 AdminServerService.deleteServer(item.id,
                     function () {
                         $scope.updateServers();
 
                         toastr.success(gettextCatalog.getString('The server "{{label}}" has been deleted.',
-                            {label: item.label}), gettext('Deletion successful'));
+                            {label: item.label}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });

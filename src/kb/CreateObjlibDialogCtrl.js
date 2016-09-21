@@ -1,4 +1,4 @@
-function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatalog, AssetService, ObjlibService, ConfigService, TagService, $q, mode, objLibDialog, objlib) {
+function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, AssetService, ObjlibService, ConfigService, TagService, $q, mode, objLibDialog, objlib) {
     $scope.mode = mode;
     $scope.languages = ConfigService.getLanguages();
     $scope.language = ConfigService.getDefaultLanguageIndex();
@@ -25,8 +25,8 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
 
     $scope.specificityStr = function (type) {
         switch (type) {
-            case 0: return gettext('Generic');
-            case 1: return gettext('Specific');
+            case 0: return gettextCatalog.getString('Generic');
+            case 1: return gettextCatalog.getString('Specific');
         }
     };
 
@@ -48,7 +48,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
 
     $scope.createCategory = function (ev, catName) {
         $mdDialog.show({
-            controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettext', 'gettextCatalog', 'ConfigService', 'ObjlibService', 'catName', CreateObjlibCategoryDialogCtrl],
+            controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ConfigService', 'ObjlibService', 'catName', CreateObjlibCategoryDialogCtrl],
             templateUrl: '/views/dialogs/create.objlibs.categories.html',
             clickOutsideToClose: true,
             locals: {
@@ -70,7 +70,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
                             objLibDialog.editObjlib(null, $scope.objlib, true);
 
                             toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been created successfully.',
-                                {categoryLabel: category.label1}), gettext('Creation successful'));
+                                {categoryLabel: category.label1}), gettextCatalog.getString('Creation successful'));
                         });
                     }
                 );
@@ -83,7 +83,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
     $scope.editCategory = function (ev, cat) {
         ObjlibService.getObjlibCat(cat.id).then(function (cat) {
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettext', 'gettextCatalog', 'ConfigService', 'ObjlibService', 'catName', 'category', CreateObjlibCategoryDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ConfigService', 'ObjlibService', 'catName', 'category', CreateObjlibCategoryDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.categories.html',
                 clickOutsideToClose: true,
                 locals: {
@@ -96,7 +96,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
                         function () {
                             objLibDialog.editObjlib(null, $scope.objlib);
                             toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been updated successfully.',
-                                {categoryLabel: category.label1}), gettext('Update successful'));
+                                {categoryLabel: category.label1}), gettextCatalog.getString('Update successful'));
                         }
                     );
                 }, function () {
@@ -182,7 +182,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettext, gettextCatal
     }
 }
 
-function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, toastr, gettext, gettextCatalog, ConfigService, ObjlibService, catName, category) {
+function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, toastr, gettextCatalog, ConfigService, ObjlibService, catName, category) {
     $scope.languages = ConfigService.getLanguages();
     $scope.language = ConfigService.getDefaultLanguageIndex();
     $scope.implicitPosition = null;
@@ -210,7 +210,7 @@ function CreateObjlibCategoryDialogCtrl($scope, $mdDialog, $q, toastr, gettext, 
         ObjlibService.deleteObjlibCat($scope.category.id, function () {
             $mdDialog.cancel();
             toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been deleted.',
-                {categoryLabel: category.label1}), gettext('Deletion successful'));
+                {categoryLabel: category.label1}), gettextCatalog.getString('Deletion successful'));
         });
     };
 

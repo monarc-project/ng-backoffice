@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAnalysisGuidesItemsCtrl', [
-            '$scope', '$mdDialog', '$mdMedia', 'toastr', '$stateParams', 'gettextCatalog', 'gettext', 'GuideService',
+            '$scope', '$mdDialog', '$mdMedia', 'toastr', '$stateParams', 'gettextCatalog', 'GuideService',
             BackofficeAnalysisGuidesItemsCtrl
         ]);
 
@@ -11,7 +11,7 @@
      * KB > Analysis Guides Items Controller for the Backoffice module
      */
     function BackofficeAnalysisGuidesItemsCtrl($scope, $mdDialog, $mdMedia, toastr, $stateParams, gettextCatalog,
-                                               gettext, GuideService) {
+                                               GuideService) {
 
         $scope.updateItems = function () {
             GuideService.getItems({order: 'position'}).then(function (data) {
@@ -30,7 +30,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'gettext', CreateItemDialogCtrl],
+                controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', CreateItemDialogCtrl],
                 templateUrl: '/views/dialogs/create.guides.items.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -41,7 +41,7 @@
                     GuideService.createItem(item,
                         function () {
                             $scope.updateItems();
-                            toastr.success(gettext('The item has been created successfully.'), gettext('Creation successful'));
+                            toastr.success(gettextCatalog.getString('The item has been created successfully.'), gettextCatalog.getString('Creation successful'));
                         }
                     );
                 });
@@ -52,7 +52,7 @@
 
             GuideService.getItem(item.id).then(function (item) {
                 $mdDialog.show({
-                    controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'gettext', 'item', CreateItemDialogCtrl],
+                    controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'item', CreateItemDialogCtrl],
                     templateUrl: '/views/dialogs/create.guides.items.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -66,7 +66,7 @@
                         GuideService.updateItem(item,
                             function () {
                                 $scope.updateItems();
-                                toastr.success(gettext('The item has been updated successfully.'), gettext('Update successful'));
+                                toastr.success(gettextCatalog.getString('The item has been updated successfully.'), gettextCatalog.getString('Update successful'));
                             }
                         );
                     });
@@ -77,16 +77,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete item "{{ label }}"?',
                     {label: item.description1}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 GuideService.deleteItem(item.id,
                     function () {
                         $scope.updateItems();
                         toastr.success(gettextCatalog.getString('The item "{{label}}" has been deleted.',
-                                    {label: item.description1}), gettext('Deletion successful'));
+                                    {label: item.description1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -99,7 +99,7 @@
     }
 
 
-    function CreateItemDialogCtrl($scope, $q, ConfigService, GuideService, $mdDialog, gettext, item) {
+    function CreateItemDialogCtrl($scope, $q, ConfigService, GuideService, $mdDialog, item) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 

@@ -2,9 +2,9 @@
 
     angular
         .module('BackofficeApp')
-        .factory('DocModelService', [ '$resource', 'gettext', DocModelService ]);
+        .factory('DocModelService', [ '$resource', 'gettextCatalog', DocModelService ]);
 
-    function DocModelService($resource, gettext) {
+    function DocModelService($resource, gettextCatalog) {
         var self = this;
 
         self.DocModelResource = $resource('/api/docmodels/:docModelId', { docModelId: '@id' },
@@ -39,9 +39,9 @@
         
 
         const categoriesLabels = {
-            1: gettext("Document model for Context validation"),
-            2: gettext("Document model for Assets and models validation"),
-            3: gettext("Document model for Risk analysis")
+            1: gettextCatalog.getString("Document model for Context validation"),
+            2: gettextCatalog.getString("Document model for Assets and models validation"),
+            3: gettextCatalog.getString("Document model for Risk analysis")
         }
 
         const categories = [

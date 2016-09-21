@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeLoginCtrl', [
-            '$scope', '$state', '$http', 'toastr', 'gettextCatalog', 'gettext', 'UserService',
+            '$scope', '$state', '$http', 'toastr', 'gettextCatalog', 'UserService',
             BackofficeLoginCtrl
         ]);
 
     /**
      * Login Controller for the Backoffice module
      */
-    function BackofficeLoginCtrl($scope, $state, $http, toastr, gettextCatalog, gettext, UserService) {
+    function BackofficeLoginCtrl($scope, $state, $http, toastr, gettextCatalog, UserService) {
         $scope.isLoggingIn = false;
         $scope.pwForgotMode = false;
         $scope.user = {
@@ -24,7 +24,7 @@
 
         $scope.passwordForgottenImpl = function () {
             $http.post('/api/admin/passwords', {email: $scope.user.email}).then(function (data) {
-                toastr.success(gettext("The password reset request has been sent successfully. You will receive a mail shortly with information on how to reset your account password."));
+                toastr.success(gettextCatalog.getString("The password reset request has been sent successfully. You will receive a mail shortly with information on how to reset your account password."));
                 $scope.returnToLogin();
             });
         };
@@ -43,7 +43,7 @@
 
                 function () {
                     $scope.isLoggingIn = false;
-                    toastr.warning(gettext('Your e-mail address or password is invalid, please try again.'));
+                    toastr.warning(gettextCatalog.getString('Your e-mail address or password is invalid, please try again.'));
                 }
             );
         }

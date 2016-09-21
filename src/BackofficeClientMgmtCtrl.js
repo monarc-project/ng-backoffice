@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeClientMgmtCtrl', [
-            '$scope', 'toastr', '$mdDialog', '$mdMedia', 'gettextCatalog', 'gettext', 'ClientService',
+            '$scope', 'toastr', '$mdDialog', '$mdMedia', 'gettextCatalog', 'ClientService',
             'TableHelperService',
             BackofficeClientMgmtCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > CM
      */
-    function BackofficeClientMgmtCtrl($scope, toastr, $mdDialog, $mdMedia, gettextCatalog, gettext, ClientService,
+    function BackofficeClientMgmtCtrl($scope, toastr, $mdDialog, $mdMedia, gettextCatalog, ClientService,
                                       TableHelperService) {
         TableHelperService.resetBookmarks();
 
@@ -34,7 +34,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettext', 'ModelService', 'CityService', 'AdminServerGetService', CreateClientDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', CreateClientDialogCtrl],
                 templateUrl: '/views/dialogs/create.clients.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -45,7 +45,7 @@
                         function () {
                             $scope.updateClients();
                             toastr.success(gettextCatalog.getString('The client "{{clientName}}" has been created successfully.',
-                                {clientName: client.name}), gettext('Creation successful'));
+                                {clientName: client.name}), gettextCatalog.getString('Creation successful'));
                         }
                     );
                 });
@@ -56,7 +56,7 @@
 
             ClientService.getClient(client.id).then(function (clientData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettext', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
+                    controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
                     templateUrl: '/views/dialogs/create.clients.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
@@ -70,7 +70,7 @@
                             function () {
                                 $scope.updateClients();
                                 toastr.success(gettextCatalog.getString('The client "{{clientName}}" information has been updated successfully.',
-                                    {clientName: client.name}), gettext('Update successful'));
+                                    {clientName: client.name}), gettextCatalog.getString('Update successful'));
                             }
                         );
                     });
@@ -80,16 +80,16 @@
         $scope.deleteClient = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete "{{ name }}"?',  {name: item.name}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 ClientService.deleteClient(item.id,
                     function () {
                         $scope.updateClients();
                         toastr.success(gettextCatalog.getString('The client "{{name}}" has been deleted.',
-                                    {name: item.name}), gettext('Deletion successful'));
+                                    {name: item.name}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             }, function() {
@@ -100,10 +100,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected client(s)?',
                     {count: $scope.clients.selected.length}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.clients.selected, function (value, key) {
                     ClientService.deleteClient(value.id);
@@ -111,7 +111,7 @@
 
                 $scope.updateClients();
                 toastr.success(gettextCatalog.getString('{{count}} clients have been deleted.',
-                    {count: $scope.clients.selected.length}), gettext('Deletion successful'));
+                    {count: $scope.clients.selected.length}), gettextCatalog.getString('Deletion successful'));
                 $scope.clients.selected = [];
 
             }, function() {
@@ -122,7 +122,7 @@
     }
 
 
-    function CreateClientDialogCtrl($scope, $mdDialog, $q, toastr, gettext, ModelService, CityService, AdminServerGetService, client) {
+    function CreateClientDialogCtrl($scope, $mdDialog, $q, toastr, gettextCatalog, ModelService, CityService, AdminServerGetService, client) {
         ModelService.getModels().then(function (x) {
             $scope.models = x.models;
         });
@@ -160,7 +160,7 @@
 
         $scope.create = function() {
             if (!$scope.client.country || !$scope.client.city) {
-                toastr.error(gettext("Please select a country and/or a city in the list."));
+                toastr.error(gettextCatalog.getString("Please select a country and/or a city in the list."));
                 return;
             }
 
