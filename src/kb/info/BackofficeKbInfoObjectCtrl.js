@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
-            '$scope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettextCatalog',
+            '$scope', '$rootScope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettextCatalog',
             'ObjlibService', 'DownloadService',
             BackofficeKbInfoObjectCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > INFO > Objects Library > Object details
      */
-    function BackofficeKbInfoObjectCtrl($scope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
+    function BackofficeKbInfoObjectCtrl($scope, $rootScope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
                                         gettextCatalog, ObjlibService, DownloadService) {
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
@@ -134,6 +134,13 @@
                             ObjlibService.updateObjlib(objlib,
                                 function () {
                                     $scope.updateObjlib();
+
+                                    // If we're in an ANR, we might want to know when an object has been updated to
+                                    // update labels in the trees
+                                    if ($rootScope.hookUpdateObjlib) {
+                                        $rootScope.hookUpdateObjlib();
+                                    }
+
                                     toastr.success(gettextCatalog.getString('The object has been updated successfully.'), gettextCatalog.getString('Update successful'));
                                 }
                             );
