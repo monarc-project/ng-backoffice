@@ -250,7 +250,7 @@
         $scope.queryObjectSearch = function (query) {
             var q = $q.defer();
 
-            ObjlibService.getObjlibs({filter: query}).then(function (x) {
+            ObjlibService.getObjlibs({filter: query, order: 'label1'}).then(function (x) {
                 if (x && x.objects) {
                     var objects_filtered = [];
 
