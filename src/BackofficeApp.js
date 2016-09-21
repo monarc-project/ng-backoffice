@@ -21,7 +21,7 @@ angular
             $urlRouterProvider.otherwise('/');
 
             localStorageServiceProvider
-                .setStorageType('sessionStorage');
+                .setStorageType('localStorage');
 
             $breadcrumbProvider.setOptions({
                 template: '<div><span ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract"><a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a><span ng-switch-when="false"> <md-icon>chevron_right</md-icon> </span><span ng-switch-when="true">{{step.ncyBreadcrumbLabel}}</span></span></div>'
