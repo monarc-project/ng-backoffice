@@ -216,7 +216,7 @@ msgstr "Voulez-vous réellement supprimer \"{{ firstname }} {{ lastname }}\" ?"
 msgid "Are you sure you want to delete \"{{ name }}\"?"
 msgstr "Voulez-vous réellement supprimer \"{{ name }}\" ?"
 
-#: src/admin/BackofficeAdminServerCtrl.js:96
+#: src/admin/BackofficeAdminServerCtrl.js:95
 msgid "Are you sure you want to delete \"{{label}}\"?"
 msgstr "Voulez-vous réellement supprimer \"{{ label }}\" ?"
 
@@ -304,7 +304,7 @@ msgstr ""
 msgid "Are you sure you want to delete this AMV link?"
 msgstr "Voulez-vous réellement supprimer ce lien AMV ?"
 
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:74
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:73
 msgid "Are you sure you want to delete this guide?"
 msgstr "Voulez-vous réellement supprimer ce guide ?"
 
@@ -373,10 +373,9 @@ msgstr "Calcul du risque / Seuils - Risques opérationnels"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:125
 #: ../ng_anr/views/create.instance.html:105 src/BackofficeClientMgmtCtrl.js:106
-#: src/BackofficeClientMgmtCtrl.js:86
-#: src/admin/BackofficeAdminServerCtrl.js:100
+#: src/BackofficeClientMgmtCtrl.js:86 src/admin/BackofficeAdminServerCtrl.js:99
 #: src/admin/BackofficeAdminUsersCtrl.js:109
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:79
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:78
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:83
 #: src/kb/BackofficeDocModelsCtrl.js:70
 #: src/kb/info/BackofficeKbInfoCtrl.js:1150
@@ -548,9 +547,9 @@ msgstr "Créer cette catégorie"
 msgid "Create this theme"
 msgstr "Créer ce thème"
 
-#: src/BackofficeClientMgmtCtrl.js:48 src/admin/BackofficeAdminServerCtrl.js:51
+#: src/BackofficeClientMgmtCtrl.js:48 src/admin/BackofficeAdminServerCtrl.js:50
 #: src/admin/BackofficeAdminUsersCtrl.js:71
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:41
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:40
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:44
 #: src/kb/BackofficeDocModelsCtrl.js:39 src/kb/CreateObjlibDialogCtrl.js:73
 #: src/kb/info/BackofficeKbInfoCtrl.js:1113
@@ -597,9 +596,9 @@ msgid "Default model"
 msgstr "Modèle par défaut"
 
 #: src/BackofficeClientMgmtCtrl.js:105 src/BackofficeClientMgmtCtrl.js:85
-#: src/admin/BackofficeAdminServerCtrl.js:99
+#: src/admin/BackofficeAdminServerCtrl.js:98
 #: src/admin/BackofficeAdminUsersCtrl.js:108
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:78
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:77
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:82
 #: src/kb/BackofficeDocModelsCtrl.js:69
 #: src/kb/info/BackofficeKbInfoCtrl.js:1149
@@ -639,9 +638,9 @@ msgid "Delete this object?"
 msgstr "Supprimer cet objet ?"
 
 #: src/BackofficeClientMgmtCtrl.js:114 src/BackofficeClientMgmtCtrl.js:92
-#: src/admin/BackofficeAdminServerCtrl.js:107
+#: src/admin/BackofficeAdminServerCtrl.js:106
 #: src/admin/BackofficeAdminUsersCtrl.js:115
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:85
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:84
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:89
 #: src/kb/BackofficeDocModelsCtrl.js:76 src/kb/CreateObjlibDialogCtrl.js:213
 #: src/kb/info/BackofficeKbInfoCtrl.js:1156
@@ -1745,15 +1744,15 @@ msgstr "Le nom du premier utilisateur ne peut pas être vide"
 msgid "The first user phone may not be empty"
 msgstr "Le téléphone du premier utilisateur ne peut pas être vide"
 
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:40
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:39
 msgid "The guide \"{{guideLabel}}\" has been created successfully."
 msgstr "Le guide « {{guideLabel}} » a été créé avec succès."
 
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:64
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:63
 msgid "The guide \"{{guideLabel}}\" has been updated successfully."
 msgstr "Le guide « {{guideLabel}} » a été mis à jour avec succès."
 
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:84
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:83
 msgid "The guide has been deleted."
 msgstr "Le guide a bien été supprimé."
 
@@ -1868,7 +1867,7 @@ msgstr "Le risque « {{riskLabel}} » a bien été créé."
 msgid "The risk \"{{riskLabel}}\" has been updated successfully."
 msgstr "Le risque « {{riskLabel}} » a bien été mis à jour."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:345
+#: ../ng_anr/src/AnrLayoutCtrl.js:344
 msgid "The risk analysis details have been updated"
 msgstr "Les détails de l’analyse de risque ont bien été mises à jour."
 
@@ -1880,15 +1879,15 @@ msgstr "Les changements de la fiche de risques ont bien été enregistrés."
 msgid "The selected component will be detached from the current object."
 msgstr "Le composant sélectionné va être détaché de l'object actuel."
 
-#: src/admin/BackofficeAdminServerCtrl.js:50
+#: src/admin/BackofficeAdminServerCtrl.js:49
 msgid "The server \"{{label}}\" has been created successfully."
 msgstr "Le serveur « {{label}} » a bien été créé."
 
-#: src/admin/BackofficeAdminServerCtrl.js:106
+#: src/admin/BackofficeAdminServerCtrl.js:105
 msgid "The server \"{{label}}\" has been deleted."
 msgstr "Le serveur \"{{ label }}\" a été supprimé."
 
-#: src/admin/BackofficeAdminServerCtrl.js:75
+#: src/admin/BackofficeAdminServerCtrl.js:74
 msgid "The server \"{{label}}\" has been updated successfully."
 msgstr "Le serveur « {{label}} » a bien été mis à jour."
 
@@ -2010,6 +2009,10 @@ msgstr "Troisième mesure"
 msgid "This AMV link is already used"
 msgstr "Ce lien AMV est déjà utilisé"
 
+#: ../ng_anr/views/anr.instance.html:64
+msgid "This asset has no parents."
+msgstr "Cet asset n’a pas de parents."
+
 #: ../ng_anr/views/anr.instance.html:62
 msgid "This asset is attached to the following parents"
 msgstr "Cet asset est attaché aux parents suivants"
@@ -2039,9 +2042,9 @@ msgid "This object has no replica(s) in models."
 msgstr "Cet objet n'a pas de réplica(s) dans les modèles."
 
 #: src/BackofficeClientMgmtCtrl.js:103 src/BackofficeClientMgmtCtrl.js:83
-#: src/admin/BackofficeAdminServerCtrl.js:97
+#: src/admin/BackofficeAdminServerCtrl.js:96
 #: src/admin/BackofficeAdminUsersCtrl.js:106
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:76
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:75
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:80
 #: src/kb/BackofficeDocModelsCtrl.js:67
 #: src/kb/info/BackofficeKbInfoCtrl.js:1147
@@ -2180,11 +2183,11 @@ msgstr "Mettre à jour les informations d'un risque"
 msgid "Update server information"
 msgstr "Mettre à jour les informations du serveur"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:345
+#: ../ng_anr/src/AnrLayoutCtrl.js:344
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:112
-#: src/BackofficeClientMgmtCtrl.js:73 src/admin/BackofficeAdminServerCtrl.js:76
+#: src/BackofficeClientMgmtCtrl.js:73 src/admin/BackofficeAdminServerCtrl.js:75
 #: src/admin/BackofficeAdminUsersCtrl.js:95
-#: src/kb/BackofficeAnalysisGuidesCtrl.js:65
+#: src/kb/BackofficeAnalysisGuidesCtrl.js:64
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:69
 #: src/kb/BackofficeDocModelsCtrl.js:59 src/kb/CreateObjlibDialogCtrl.js:99
 #: src/kb/info/BackofficeKbInfoCtrl.js:1101
