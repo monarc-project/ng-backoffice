@@ -12,7 +12,7 @@
      * BO > KB > OPERATIONAL RISKS (ROLF)
      */
     function BackofficeKbOpRiskCtrl($scope, $timeout, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
-                                    TagService, RiskService, $stateParams, $state) {
+                                    CategoryService, TagService, RiskService, $stateParams, $state) {
         $scope.tab = $stateParams.tab;
         TableHelperService.resetBookmarks();
 
