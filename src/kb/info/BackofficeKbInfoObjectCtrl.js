@@ -159,11 +159,15 @@
                 });
         };
 
-        $scope.editObjlib = function (ev, objlib) {
+        $scope.editObjlib = function (ev, objlib, dontFetch) {
             if (objlib && objlib.id) {
-                ObjlibService.getObjlib(objlib.id).then(function (objlibData) {
-                    $scope.createNewObjlib(ev, objlibData);
-                });
+                if (dontFetch) {
+                    $scope.createNewObjlib(ev, objlib);
+                } else {
+                    ObjlibService.getObjlib(objlib.id).then(function (objlibData) {
+                        $scope.createNewObjlib(ev, objlibData);
+                    });
+                }
             } else {
                 $scope.createNewObjlib(ev, objlib);
             }
