@@ -57,11 +57,11 @@
                                 md-search-text="componentPreviousSearchText"
                                 md-selected-item-change="selectedPreviousItemChange(item)"
                                 md-items="item in queryComponentSearch(componentPreviousSearchText)"
-                                md-item-text="item.label1"
+                                md-item-text="item.name1"
                                 md-min-length="0"
                                 placeholder="{{ 'Previous component...' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="componentPreviousSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                                <span md-highlight-text="componentPreviousSearchText" md-highlight-flags="^i">{{ item.name1 }}</span>
                             </md-item-template>
 
                             <md-not-found>
