@@ -61,7 +61,9 @@
 
                     <ul class="md-treeview">
                         <li class="md-treeview-root">
-                            <a ui-sref="main.kb_mgmt.info_risk.object({objectId: object.id})"><md-icon>place</md-icon> {{ object.name1 }}</a>
+                            <a ng-if="mode == 'bdc'" ui-sref="main.kb_mgmt.info_risk.object({objectId: object.id})"><md-icon>place</md-icon> {{ object.name1 }}</a>
+                            <a ng-if="mode == 'anr'" ui-sref="main.kb_mgmt.models.details.object({objectId: object.id})"><md-icon>place</md-icon> {{ object.name1 }}</a>
+
                             <ul>
                                 <li ng-repeat="node in composition"
                                     ng-class="{'md-treeview-branch': node.children && node.children.length > 0}"
