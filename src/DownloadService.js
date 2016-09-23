@@ -16,11 +16,11 @@
             var saveData = (function () {
                 var a = document.createElement('a');
                 document.body.appendChild(a);
-                a.style = 'display: none';
+                a.style.display = 'none';
 
                 return function (blobData, fileName,typeF) {
-                    if(typeF == undefined){
-                        typeF = 'octet/stream';
+                    if (typeF == undefined) {
+                        typeF = 'application/octet-stream';
                     }
                     var blob = new Blob([blobData], {type: typeF}),
                         url = window.URL.createObjectURL(blob);
@@ -28,7 +28,10 @@
                     a.href = url;
                     a.download = fileName;
                     a.click();
-                    window.URL.revokeObjectURL(url);
+
+                    setTimeout(function() {
+                        window.URL.revokeObjectURL(url);
+                    }, 800);
                 };
             }());
 
