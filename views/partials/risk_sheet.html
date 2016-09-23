@@ -38,32 +38,7 @@
         </tbody>
     </table>
 
-    <table class="tbl-risk-calc">
-        <thead>
-        <tr>
-            <th></th>
-            <th>C</th>
-            <th>I</th>
-            <th>D</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="bold txtright wide" translate>Current risk</td>
-            <td class="txtcenter green">-1</td>
-            <td class="txtcenter green">-1</td>
-            <td class="txtcenter green">-1</td>
-        </tr>
-        <tr>
-            <td class="bold txtright wide" translate>Target risk</td>
-            <td class="txtcenter green">-1</td>
-            <td class="txtcenter green">-1</td>
-            <td class="txtcenter green">-1</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <form class="md-padding">
+    <form class="md-padding" ng-if="instmode == 'inst'">
         <md-input-container class="md-block">
             <label translate>Processing type</label>
             <md-icon>widgets</md-icon>

@@ -28,6 +28,8 @@
             $scope.mode = 'bdc';
         }
 
+        $scope.instmode = 'obj';
+
         $rootScope.anr_selected_instance_id = null;
         $rootScope.anr_selected_object_id = $stateParams.objectId;
 
@@ -276,7 +278,7 @@
         $scope.queryObjectSearch = function (query) {
             var q = $q.defer();
 
-            ObjlibService.getObjlibs({filter: query, order: 'label1'}).then(function (x) {
+            ObjlibService.getObjlibs({filter: query, order: 'name1'}).then(function (x) {
                 if (x && x.objects) {
                     var objects_filtered = [];
 
