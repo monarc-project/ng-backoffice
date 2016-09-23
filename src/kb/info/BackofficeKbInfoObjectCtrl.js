@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
             '$scope', '$rootScope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettextCatalog',
-            'ObjlibService', 'DownloadService',
+            'ObjlibService', 'DownloadService', 'AnrService',
             BackofficeKbInfoObjectCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO > Objects Library > Object details
      */
     function BackofficeKbInfoObjectCtrl($scope, $rootScope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
-                                        gettextCatalog, ObjlibService, DownloadService) {
+                                        gettextCatalog, ObjlibService, DownloadService, AnrService) {
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
@@ -83,22 +83,41 @@
         }
 
         $scope.deleteObject = function (ev) {
-            var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Delete this object?'))
-                .textContent(gettextCatalog.getString('The current object "{{ name }}" will be permanently deleted. Are you sure?',
-                    {name: $scope.object.name1}))
-                .ariaLabel(gettextCatalog.getString('Delete this object'))
-                .targetEvent(ev)
-                .ok(gettextCatalog.getString('Delete'))
-                .cancel(gettextCatalog.getString('Cancel'));
+            if ($scope.mode == 'bdc') {
+                var confirm = $mdDialog.confirm()
+                    .title(gettextCatalog.getString('Delete this object?'))
+                    .textContent(gettextCatalog.getString('The current object "{{ name }}" will be permanently deleted. Are you sure?',
+                        {name: $scope.object.name1}))
+                    .ariaLabel(gettextCatalog.getString('Delete this object'))
+                    .targetEvent(ev)
+                    .ok(gettextCatalog.getString('Delete'))
+                    .cancel(gettextCatalog.getString('Cancel'));
 
-            $mdDialog.show(confirm).then(function () {
-                ObjlibService.deleteObjlib($scope.object.id, function () {
-                    $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'objlibs'});
-                });
-            }, function () {
-                // Cancel
-            })
+                $mdDialog.show(confirm).then(function () {
+                    ObjlibService.deleteObjlib($scope.object.id, function () {
+                        $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'objlibs'});
+                    });
+                }, function () {
+                    // Cancel
+                })
+            } else if ($scope.mode == 'anr') {
+                var confirm = $mdDialog.confirm()
+                    .title(gettextCatalog.getString('Detach this object?'))
+                    .textContent(gettextCatalog.getString('The current object "{{ name }}" will be removed from the library. Are you sure?',
+                        {name: $scope.object.name1}))
+                    .ariaLabel(gettextCatalog.getString('Detach this object'))
+                    .targetEvent(ev)
+                    .ok(gettextCatalog.getString('Detach'))
+                    .cancel(gettextCatalog.getString('Cancel'));
+
+                $mdDialog.show(confirm).then(function () {
+                    AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
+                        toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
+                    });
+                }, function () {
+                    // Cancel
+                })
+            }
         }
 
         $scope.createNewObjlib = function (ev, objlib) {
