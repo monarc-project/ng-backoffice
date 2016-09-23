@@ -79,7 +79,7 @@
                         function () {
                             $scope.updateCategories();
                             toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been created successfully.',
-                                {categoryLabel: category.label1}), gettext('Creation successful'));
+                                {categoryLabel: category.label1}), gettextCatalog.getString('Creation successful'));
                         },
 
                         function () {
@@ -108,7 +108,7 @@
                             function () {
                                 $scope.updateCategories();
                                 toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been updated successfully.',
-                                    {categoryLabel: category.label1}), gettext('Update successful'));
+                                    {categoryLabel: category.label1}), gettextCatalog.getString('Update successful'));
                             },
 
                             function () {
@@ -123,16 +123,16 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete category "{{ label }}"?',
                     {label: item.label1}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 CategoryService.deleteCategory(item.id,
                     function () {
                         $scope.updateCategories();
                         toastr.success(gettextCatalog.getString('The category "{{label}}" has been deleted.',
-                            {label: item.label1}), gettext('Deletion successful'));
+                            {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -142,10 +142,10 @@
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected category(s)?',
                     {count: $scope.categories.selected.length}))
-                .textContent(gettext('This operation is irreversible.'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
-                .ok(gettext('Delete'))
-                .cancel(gettext('Cancel'));
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.categories.selected, function (value, key) {
                     CategoryService.deleteCategory(value.id);
@@ -153,7 +153,7 @@
 
                 $scope.updateCategories();
                 toastr.success(gettextCatalog.getString('{{count}} categories have been deleted.',
-                    {count: $scope.categories.selected.length}), gettext('Deletion successful'));
+                    {count: $scope.categories.selected.length}), gettextCatalog.getString('Deletion successful'));
                 $scope.categories.selected = [];
 
             }, function() {
