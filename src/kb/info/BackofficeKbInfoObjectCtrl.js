@@ -195,20 +195,21 @@
         };
 
         $scope.exportObject = function (ev) {
-            var prompt = $mdDialog.prompt()
-                .title(gettextCatalog.getString('Password'))
-                .textContent(gettextCatalog.getString('Please enter a password to protect your object'))
-                .ariaLabel(gettextCatalog.getString('Password'))
-                .targetEvent(ev)
-                .ok(gettextCatalog.getString('Export'))
-                .cancel(gettextCatalog.getString('Cancel'));
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            $mdDialog.show(prompt).then(function (result) {
-                $http.post('/api/objects-export', {id: $scope.object.id, password: result}).then(function (data) {
-                    DownloadService.downloadBlob(data.data, 'object.bin');
-                    toastr.success(gettextCatalog.getString('The object has been exported successfully.'), gettextCatalog.getString('Export successful'));
-                })
-            });
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', ExportObjectDialog],
+                templateUrl: '/views/dialogs/export.objlibs.html',
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+            })
+                .then(function (exports) {
+                    $http.post('/api/objects-export', {id: $scope.object.id, password: exports.password}).then(function (data) {
+                        DownloadService.downloadBlob(data.data, 'object.bin');
+                        toastr.success(gettextCatalog.getString('The object has been exported successfully.'), gettextCatalog.getString('Export successful'));
+                    })
+                });
         };
 
         $scope.cloneObject = function (ev) {
@@ -323,5 +324,20 @@
         $scope.selectedObjectChange = function (item) {
             $scope.component.child = item;
         };
+    }
+
+    function ExportObjectDialog($scope, $mdDialog) {
+        $scope.export = {
+            password: null
+        };
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.export = function() {
+            $mdDialog.hide($scope.export);
+        };
+
     }
 })();
