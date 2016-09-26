@@ -481,6 +481,16 @@ md-chips.md-default-theme .md-chips, md-chips .md-chips {
   padding: 0 0 0 12px;
 }
 
+.active-obj {
+  font-weight: bold;
+  color: #F57C00;
+}
+
+.active-inst {
+  font-weight: bold;
+  color: #388E3C;
+}
+
 /** Resizable directive */
 .resizable {
   position: relative;
