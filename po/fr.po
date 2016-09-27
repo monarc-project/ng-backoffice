@@ -441,7 +441,7 @@ msgstr "Catégories"
 #: views/doc_models.kb_mgmt.html:12 views/info_risk.kb_mgmt.html:390
 #: views/info_risk.kb_mgmt.html:420 views/op_risk.kb_mgmt.html:204
 msgid "Category"
-msgstr "Gatégorie"
+msgstr "Catégorie"
 
 #: views/account.html:41
 msgid "Change password"
