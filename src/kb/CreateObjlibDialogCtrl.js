@@ -67,7 +67,12 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, Asset
                             $scope.objlib.category = new_category;
 
                             // Display the dialog again
-                            objLibDialog.editObjlib(null, $scope.objlib, true);
+                            if (objLibDialog.editObjlib) {
+                                objLibDialog.editObjlib(null, $scope.objlib, true);
+                            } else if (objLibDialog.createAttachedObject) {
+                                objLibDialog.createAttachedObject(null, $scope.objlib, true);
+                            }
+
 
                             toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been created successfully.',
                                 {categoryLabel: category[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
@@ -90,6 +95,8 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, Asset
                 controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ConfigService', 'ObjlibService', 'catName', 'category', CreateObjlibCategoryDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.categories.html',
                 clickOutsideToClose: true,
+                preserveScope: true,
+                scope: $scope,
                 locals: {
                     'catName': null,
                     'category': cat
@@ -98,13 +105,22 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, Asset
                 .then(function (category) {
                     ObjlibService.updateObjlibCat(category,
                         function () {
-                            objLibDialog.editObjlib(null, $scope.objlib);
+                            if (objLibDialog.editObjlib) {
+                                objLibDialog.editObjlib(null, $scope.objlib);
+                            } else if (objLibDialog.createAttachedObject) {
+                                objLibDialog.createAttachedObject(null, $scope.objlib);
+                            }
+                            
                             toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been updated successfully.',
                                 {categoryLabel: category.label1}), gettextCatalog.getString('Update successful'));
                         }
                     );
                 }, function () {
-                    objLibDialog.editObjlib(null, $scope.objlib);
+                    if (objLibDialog.editObjlib) {
+                        objLibDialog.editObjlib(null, $scope.objlib);
+                    } else if (objLibDialog.createAttachedObject) {
+                        objLibDialog.createAttachedObject(null, $scope.objlib);
+                    }
                 });
         });
     };
