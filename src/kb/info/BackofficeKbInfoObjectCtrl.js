@@ -132,6 +132,8 @@
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -201,6 +203,8 @@
                 controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', ExportObjectDialog],
                 templateUrl: '/views/dialogs/export.objlibs.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
             })
