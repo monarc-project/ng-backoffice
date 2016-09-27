@@ -3,7 +3,7 @@
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2 ng-if="!objlib.id" translate>Add a new object</h2>
-                <h2 ng-if="objlib.id" translate>Update object "{{objlib.label1}}" information</h2>
+                <h2 ng-if="objlib.id" translate>Update object "{{objlib[_langField('label')]}}" information</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
@@ -116,12 +116,12 @@
                                 md-search-text="assetSearchText"
                                 md-selected-item-change="selectedAssetItemChange(item)"
                                 md-items="item in queryAssetSearch(assetSearchText)"
-                                md-item-text="item.code + ' - ' + item.label1"
+                                md-item-text="item.code + ' - ' + item[_langField('label')]"
                                 md-min-length="0"
                                 md-input-name="asset"
                                 md-floating-label="{{ 'Asset' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }} ({{ specificityStr(item.mode) }})</span>
+                                <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item[_langField('label')] }} ({{ specificityStr(item.mode) }})</span>
                             </md-item-template>
 
                             <md-not-found>
@@ -147,12 +147,12 @@
                                 md-search-text="categorySearchText"
                                 md-selected-item-change="selectedCategoryItemChange(item)"
                                 md-items="item in queryCategorySearch(categorySearchText)"
-                                md-item-text="item.label1"
+                                md-item-text="item[_langField('label')]"
                                 md-min-length="0"
                                 md-input-name="category"
                                 md-floating-label="{{ 'Category' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="categorySearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                                <span md-highlight-text="categorySearchText" md-highlight-flags="^i">{{ item[_langField('label')] }}</span>
                             </md-item-template>
 
                             <md-not-found>
@@ -179,12 +179,12 @@
                                 md-search-text="tagSearchText"
                                 md-selected-item-change="selectedTagItemChange(item)"
                                 md-items="item in queryTagSearch(tagSearchText)"
-                                md-item-text="item.label1"
+                                md-item-text="item[_langField('label')]"
                                 md-min-length="0"
                                 md-input-name="tag"
                                 md-floating-label="{{ 'ROLF Tag' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="tagSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                                <span md-highlight-text="tagSearchText" md-highlight-flags="^i">{{ item[_langField('label')] }}</span>
                             </md-item-template>
 
                             <md-not-found>
@@ -214,11 +214,11 @@
                                 md-search-text="categoryPreviousSearchText"
                                 md-selected-item-change="selectedPreviousCatItemChange(item)"
                                 md-items="item in queryCategorySearch(categoryPreviousSearchText)"
-                                md-item-text="item.label1"
+                                md-item-text="item[_langField('label')]"
                                 md-min-length="0"
                                 placeholder="{{ 'Previous category...' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="categoryPreviousSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                                <span md-highlight-text="categoryPreviousSearchText" md-highlight-flags="^i">{{ item[_langField('label')] }}</span>
                             </md-item-template>
 
                             <md-not-found>

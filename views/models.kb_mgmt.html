@@ -45,8 +45,8 @@
 
             <tbody md-body>
             <tr md-row md-select="model" md-select-id="label" ng-repeat="model in models.items.models" ng-init="model.isGeneric = !model.isGeneric">
-                <td class="clickable-rows" ng-class="{'bold': model.isDefault}" md-cell ui-sref="main.kb_mgmt.models.details({modelId: model.id})">{{ model.label1 }}</td>
-                <td md-cell class="preserve-newlines">{{ model.description1 }}</td>
+                <td class="clickable-rows" ng-class="{'bold': model.isDefault}" md-cell ui-sref="main.kb_mgmt.models.details({modelId: model.id})">{{ model[_langField('label')] }}</td>
+                <td md-cell class="preserve-newlines">{{ model[_langField('description')] }}</td>
                 <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></div></td>
                 <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isRegulator" aria-label="Regulator"></md-checkbox></div></td>
                 <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.showRolfBrut" aria-label="Raw ROLF"></md-checkbox></div></td>

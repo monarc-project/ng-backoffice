@@ -70,7 +70,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, Asset
                             objLibDialog.editObjlib(null, $scope.objlib, true);
 
                             toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been created successfully.',
-                                {categoryLabel: category.label1}), gettextCatalog.getString('Creation successful'));
+                                {categoryLabel: category[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
                         });
                     }
                 );

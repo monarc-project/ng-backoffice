@@ -19,13 +19,13 @@
                         md-search-text="assetSearchText"
                         md-selected-item-change="selectedAssetItemChange(item)"
                         md-items="item in queryAssetSearch(assetSearchText)"
-                        md-item-text="item.code + ' - ' + item.label1"
+                        md-item-text="item.code + ' - ' + item[_langField('label')]"
                         md-delay="300"
                         md-min-length="0"
                         md-input-name="asset"
                         md-floating-label="{{ 'Asset' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }}</span>
+                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item[_langField('label')] }}</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -44,13 +44,13 @@
                         md-search-text="threatSearchText"
                         md-selected-item-change="selectedThreatItemChange(item)"
                         md-items="item in queryThreatSearch(threatSearchText)"
-                        md-item-text="item.code + ' - ' + item.label1"
+                        md-item-text="item.code + ' - ' + item[_langField('label')]"
                         md-delay="300"
                         md-min-length="0"
                         md-input-name="threat"
                         md-floating-label="{{ 'Threat' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }}</span>
+                        <span md-highlight-text="assetSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item[_langField('label')] }}</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -69,13 +69,13 @@
                         md-search-text="vulnSearchText"
                         md-selected-item-change="selectedVulnItemChange(item)"
                         md-items="item in queryVulnSearch(vulnSearchText)"
-                        md-item-text="item.code + ' - ' + item.label1"
+                        md-item-text="item.code + ' - ' + item[_langField('label')]"
                         md-delay="300"
                         md-min-length="0"
                         md-input-name="vulnerability"
                         md-floating-label="{{ 'Vulnerability' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="vulnSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item.label1 }}</span>
+                        <span md-highlight-text="vulnSearchText" md-highlight-flags="^i">{{ item.code }} - {{ item[_langField('label')] }}</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -93,12 +93,12 @@
                         md-search-text="m1SearchText"
                         md-selected-item-change="selectedMeasureItemChange(1, item)"
                         md-items="item in queryMeasureSearch(m1SearchText)"
-                        md-item-text="item.code + ' (' + item.description1 + ')'"
+                        md-item-text="item.code + ' (' + item[_langField('description')] + ')'"
                         md-delay="300"
                         md-min-length="0"
                         md-floating-label="{{ 'First measure' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="m1SearchText" md-highlight-flags="^i">{{ item.code }} ({{ item.description1 }})</span>
+                        <span md-highlight-text="m1SearchText" md-highlight-flags="^i">{{ item.code }} ({{ item[_langField('description')] }})</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -112,12 +112,12 @@
                         md-search-text="m2SearchText"
                         md-selected-item-change="selectedMeasureItemChange(2, item)"
                         md-items="item in queryMeasureSearch(m2SearchText)"
-                        md-item-text="item.code + ' (' + item.description1 + ')'"
+                        md-item-text="item.code + ' (' + item[_langField('description')] + ')'"
                         md-delay="300"
                         md-min-length="0"
                         md-floating-label="{{ 'Second measure' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="m2SearchText" md-highlight-flags="^i">{{ item.code }} ({{ item.description1 }})</span>
+                        <span md-highlight-text="m2SearchText" md-highlight-flags="^i">{{ item.code }} ({{ item[_langField('description')] }})</span>
                     </md-item-template>
 
                     <md-not-found>
@@ -131,12 +131,12 @@
                         md-search-text="m3SearchText"
                         md-selected-item-change="selectedMeasureItemChange(3, item)"
                         md-items="item in queryMeasureSearch(m3SearchText)"
-                        md-item-text="item.code + ' (' + item.description1 + ')'"
+                        md-item-text="item.code + ' (' + item[_langField('description')] + ')'"
                         md-delay="300"
                         md-min-length="0"
                         md-floating-label="{{ 'Third measure' | translate }}">
                     <md-item-template>
-                        <span md-highlight-text="m3SearchText" md-highlight-flags="^i">{{ item.code }} ({{ item.description1 }})</span>
+                        <span md-highlight-text="m3SearchText" md-highlight-flags="^i">{{ item.code }} ({{ item[_langField('description')] }})</span>
                     </md-item-template>
 
                     <md-not-found>

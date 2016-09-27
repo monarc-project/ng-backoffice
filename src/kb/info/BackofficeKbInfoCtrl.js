@@ -108,6 +108,8 @@
                 controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
                 templateUrl: '/views/dialogs/create.assets.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -151,6 +153,8 @@
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
                     templateUrl: '/views/dialogs/create.assets.html',
                     targetEvent: ev,
+                    preserveScope: true,
+                    scope: $scope,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
                     locals: {
@@ -291,6 +295,8 @@
                 controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                 templateUrl: '/views/dialogs/create.threats.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -334,6 +340,8 @@
                     controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                     templateUrl: '/views/dialogs/create.threats.html',
                     targetEvent: ev,
+                    preserveScope: true,
+                    scope: $scope,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
                     locals: {
@@ -475,6 +483,8 @@
                 controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
                 templateUrl: '/views/dialogs/create.vulns.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -511,6 +521,8 @@
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
                     templateUrl: '/views/dialogs/create.vulns.html',
                     targetEvent: ev,
+                    preserveScope: true,
+                    scope: $scope,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
                     locals: {
@@ -647,6 +659,8 @@
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
                 templateUrl: '/views/dialogs/create.measures.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -676,6 +690,8 @@
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
                     templateUrl: '/views/dialogs/create.measures.html',
                     targetEvent: ev,
+                    preserveScope: true,
+                    scope: $scope,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
                     locals: {
@@ -806,6 +822,8 @@
                 controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
                 templateUrl: '/views/dialogs/create.amvs.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -855,6 +873,8 @@
                     controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
                     templateUrl: '/views/dialogs/create.amvs.html',
                     targetEvent: ev,
+                    preserveScope: true,
+                    scope: $scope,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
                     locals: {
@@ -1066,6 +1086,8 @@
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/dialogs/create.objlibs.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {

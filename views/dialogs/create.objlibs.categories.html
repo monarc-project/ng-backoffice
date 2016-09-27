@@ -39,11 +39,11 @@
                                 md-search-text="categoryParentSearchText"
                                 md-selected-item-change="selectedParentCatItemChange(item)"
                                 md-items="item in queryCategorySearch(categoryParentSearchText)"
-                                md-item-text="item.label1"
+                                md-item-text="item[_langField('label')]"
                                 md-min-length="0"
                                 placeholder="{{ 'Parent category (leave empty for root)' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="categoryParentSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                                <span md-highlight-text="categoryParentSearchText" md-highlight-flags="^i">{{ item[_langField('label')] }}</span>
                             </md-item-template>
 
                             <md-not-found>
@@ -77,11 +77,11 @@
                                 md-search-text="categoryPreviousSearchText"
                                 md-selected-item-change="selectedPreviousCatItemChange(item)"
                                 md-items="item in queryCategoryChildrenSearch(categoryPreviousSearchText)"
-                                md-item-text="item.label1"
+                                md-item-text="item[_langField('label')]"
                                 md-min-length="0"
                                 placeholder="{{ 'Previous category...' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="categoryPreviousSearchText" md-highlight-flags="^i">{{ item.label1 }}</span>
+                                <span md-highlight-text="categoryPreviousSearchText" md-highlight-flags="^i">{{ item[_langField('label')] }}</span>
                             </md-item-template>
 
                             <md-not-found>

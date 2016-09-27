@@ -51,7 +51,7 @@
                     <tr md-row md-select="category" md-select-id="id"
                         ng-repeat="category in categories.items.categories">
                         <td md-cell>{{ category.code }}</td>
-                        <td md-cell>{{ category.label1 }}</td>
+                        <td md-cell>{{ category[_langField('label')] }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button" ng-click="editCategory($event, category)">
                                 <md-icon>edit</md-icon>
@@ -141,7 +141,7 @@
                     <tr md-row md-select="tag" md-select-id="id"
                         ng-repeat="tag in tags.items.tags">
                         <td md-cell>{{ tag.code }}</td>
-                        <td md-cell>{{ tag.label1 }}</td>
+                        <td md-cell>{{ tag[_langField('label')] }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button" ng-click="editTag($event, tag)">
                                 <md-icon>edit</md-icon>
@@ -203,12 +203,12 @@
 
                 <md-select ng-model="risk_category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" class="md-padding-right" flex>
                     <md-option value="0">{{ 'All categories' | translate }}</md-option>
-                    <md-option ng-repeat="cat in risk_categories" ng-value="cat.id">{{ cat.label1 }}</md-option>
+                    <md-option ng-repeat="cat in risk_categories" ng-value="cat.id">{{ cat[_langField('label')] }}</md-option>
                 </md-select>
 
                 <md-select ng-model="risk_tag_filter" aria-label="{{ 'Asset type' | translate }}" placeholder="{{ 'Asset type' | translate }}" flex>
                     <md-option value="0">{{ 'All tags' | translate }}</md-option>
-                    <md-option ng-repeat="tag in risk_tags" ng-value="tag.id">{{ tag.code }} ({{ tag.label1 }})</md-option>
+                    <md-option ng-repeat="tag in risk_tags" ng-value="tag.id">{{ tag.code }} ({{ tag[_langField('label')] }})</md-option>
                 </md-select>
 
                 <md-button class="md-icon-button" ng-click="resetRisksFilters()">
@@ -243,7 +243,7 @@
                         <td md-cell><md-chips readonly="true" ng-model="risk.categories"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
                         <td md-cell><md-chips readonly="true" ng-model="risk.tags"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
                         <td md-cell>{{ risk.code }}</td>
-                        <td md-cell>{{ risk.label1 }}</td>
+                        <td md-cell>{{ risk[_langField('label')] }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button" ng-click="editRisk($event, risk)">
                                 <md-icon>edit</md-icon>

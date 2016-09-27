@@ -1,7 +1,7 @@
 <div class="md-padding-left md-padding-right">
     <h3 layout="row" layout-align="start center"><md-button class="md-icon-button" ng-click="resetOpSheet()"><md-icon>arrow_back</md-icon></md-button> <span translate>Operational risk sheet</span></h3>
 
-    <p><b>{{ opsheet_risk.rolfRisk.code }} - {{ opsheet_risk.rolfRisk.label1 }}</b></p>
+    <p><b>{{ opsheet_risk.rolfRisk.code }} - {{ opsheet_risk.rolfRisk[_langField('label')] }}</b></p>
 
     <table class="md-html-table">
         <tbody>

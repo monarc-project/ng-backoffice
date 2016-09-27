@@ -254,6 +254,10 @@ angular
                 $rootScope.updatePaginationLabels();
             });
 
+            $rootScope._langField = function (field) {
+                return field + ConfigService.getDefaultLanguageIndex();
+            };
+
             // Method to update pagination labels globally when switching language in account settings
             $rootScope.updatePaginationLabels = function () {
                 $rootScope.paginationLabels = {

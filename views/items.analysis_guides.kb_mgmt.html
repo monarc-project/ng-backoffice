@@ -16,7 +16,7 @@
             <tbody md-body>
             <tr md-row ng-repeat="item in items">
                 <td md-cell>{{ item.position }}</td>
-                <td md-cell>{{ item.description1 }}</td>
+                <td md-cell>{{ item[_langField('description')] }}</td>
                 <td md-cell>
                     <md-button class="md-icon-button" ng-click="editItem($event, item)">
                         <md-icon>edit</md-icon>
