@@ -110,7 +110,7 @@ function CreateObjlibDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, Asset
                             } else if (objLibDialog.createAttachedObject) {
                                 objLibDialog.createAttachedObject(null, $scope.objlib);
                             }
-                            
+
                             toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been updated successfully.',
                                 {categoryLabel: category.label1}), gettextCatalog.getString('Update successful'));
                         }
