@@ -1084,7 +1084,7 @@
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
-                templateUrl: '/views/dialogs/create.objlibs.html',
+                templateUrl: '/views/anr/create.objlibs.html',
                 targetEvent: ev,
                 preserveScope: true,
                 scope: $scope,
