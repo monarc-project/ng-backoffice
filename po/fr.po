@@ -177,7 +177,7 @@ msgstr "Ajouter des tags..."
 
 #: views/dialogs/add.objlib.html:74
 msgid "Add the object"
-msgstr "Ajouter l’objet"
+msgstr "Ajouter l'objet"
 
 #: views/dialogs/create.clients.html:75
 #: views/dialogs/create.servers.admin.html:25 views/index.client_mgmt.html:39
@@ -235,7 +235,7 @@ msgstr "Voulez-vous réellement supprimer la catégorie \"{{ label }}\" ?"
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:78
 msgid "Are you sure you want to delete item \"{{ label }}\"?"
-msgstr "Voulez-vous réellement supprimer l’élément « {{ label }} » ?"
+msgstr "Voulez-vous réellement supprimer l'élément « {{ label }} » ?"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:719
 msgid "Are you sure you want to delete measure \"{{ label }}\"?"
@@ -365,7 +365,7 @@ msgid ""
 "Bad mode for this object or models attached to asset incoherent with this "
 "object"
 msgstr ""
-"Mauvais mode pour cet objet ou modèles attachés à l’asset incohérents avec "
+"Mauvais mode pour cet objet ou modèles attachés à l'asset incohérents avec "
 "cet objet"
 
 #: views/info_risk.kb_mgmt.html:122
@@ -379,7 +379,7 @@ msgstr "Risque calculé"
 
 #: ../ng_anr/views/anr.home.html:6
 msgid "Calculation of risk / Thresholds - Information Risks"
-msgstr "Calcul du risque / Seuils - Risques de l’information"
+msgstr "Calcul du risque / Seuils - Risques de l'information"
 
 #: ../ng_anr/views/anr.home.html:31
 msgid "Calculation of risk / Thresholds - Operational Risks"
@@ -557,7 +557,7 @@ msgstr "Créer"
 
 #: views/dialogs/add.objlib.html:82
 msgid "Create a new object and attach it to this model"
-msgstr "Créer un nouvel objet et l’attacher à ce modèle"
+msgstr "Créer un nouvel objet et l'attacher à ce modèle"
 
 #: views/dialogs/create.assets.html:93 views/dialogs/create.objlibs.html:243
 #: views/dialogs/create.risks.html:104
@@ -750,7 +750,7 @@ msgstr "Modèle de document pour la Validation des contextes"
 
 #: src/kb/DocModelService.js:44
 msgid "Document model for Risk analysis"
-msgstr "Modèle de document pour l’Analyse de risques"
+msgstr "Modèle de document pour l'Analyse de risques"
 
 #: src/BackofficeApp.js:165 views/doc_models.kb_mgmt.html:4
 #: views/index.backoffice.html:50
@@ -778,7 +778,7 @@ msgstr "E-mail"
 
 #: ../ng_anr/views/anr.instance.html:37 ../ng_anr/views/anr.instance.html:39
 msgid "Edit instance settings"
-msgstr "Editer les paramètres d’instance"
+msgstr "Editer les paramètres d'instance"
 
 #: views/object.info_risk.kb_mgmt.html:28
 #: views/object.info_risk.kb_mgmt.html:30
@@ -787,7 +787,7 @@ msgstr "Modifier l'objet"
 
 #: ../ng_anr/views/anr.home.html:4
 msgid "Edit risk analysis details"
-msgstr "Editer l’analyse de risques"
+msgstr "Editer l'analyse de risques"
 
 #: views/dialogs/create.models.html:40
 msgid "Editable impact scale"
@@ -809,15 +809,15 @@ msgstr "Activer les valeurs ROLF brutes"
 
 #: views/_gettext_caveats.html:14
 msgid "Entity not exist"
-msgstr "L’entité n’existe pas"
+msgstr "L'entité n'existe pas"
 
 #: src/kb/BackofficeDocModelsCtrl.js:158
 msgid "Error while uploading"
-msgstr "Erreur lors de l’envoi"
+msgstr "Erreur lors de l'envoi"
 
 #: ../ng_anr/views/anr.layout.html:80
 msgid "Evaluation scales"
-msgstr "Echelle d’évaluation"
+msgstr "Echelle d'évaluation"
 
 #: views/dialogs/create.threats.html:47
 msgid "Example (accidental cause)"
@@ -935,7 +935,7 @@ msgstr "Impact"
 
 #: ../ng_anr/views/anr.layout.html:83
 msgid "Impacts scale:"
-msgstr "Echelle d’impacts :"
+msgstr "Echelle d'impacts :"
 
 #: src/BackofficeApp.js:107 views/index.backoffice.html:29
 msgid "Information risks"
@@ -954,7 +954,7 @@ msgstr "Hérité"
 
 #: views/_gettext_caveats.html:19
 msgid "Instance not exist"
-msgstr "L’instance n’existe pas"
+msgstr "L'instance n'existe pas"
 
 #: ../ng_anr/views/create.instance.html:32
 #: ../ng_anr/views/create.instance.html:76 views/dialogs/create.objlibs.html:83
@@ -963,7 +963,7 @@ msgstr "Intégrité"
 
 #: views/_gettext_caveats.html:16
 msgid "Integrity AMV links violation"
-msgstr "Violation de l’intégrité des liens AMV"
+msgstr "Violation de l'intégrité des liens AMV"
 
 #: ../ng_anr/views/anr.instance.html:17
 msgid "Integrity:&nbsp;"
@@ -971,7 +971,7 @@ msgstr "Intégrité :&nbsp;"
 
 #: views/account.html:75
 msgid "Interface language"
-msgstr "Langue de l’interface"
+msgstr "Langue de l'interface"
 
 #: views/analysis_guides.kb_mgmt.html:17
 msgid "Items"
@@ -1220,7 +1220,7 @@ msgstr "Aucune catégorie correspondant à votre recherche n'a été trouvée."
 
 #: views/dialogs/create.clients.html:104
 msgid "No city matching your search was found"
-msgstr "Aucune ville correspondant à votre recherche n’a été trouvée."
+msgstr "Aucune ville correspondant à votre recherche n'a été trouvée."
 
 #: views/dialogs/create.objlibs.node.html:33
 #: views/dialogs/create.objlibs.node.html:68
@@ -1229,11 +1229,11 @@ msgstr "Aucun composant correspondant à votre recherche n'a été trouvé."
 
 #: views/dialogs/create.clients.html:64
 msgid "No country matching your search was found"
-msgstr "Aucun pays correspondant à votre recherche n’a été trouvé."
+msgstr "Aucun pays correspondant à votre recherche n'a été trouvé."
 
 #: views/dialogs/create.guides.items.html:43
 msgid "No item matching your search was found"
-msgstr "Aucun élément correspondant à votre recherche n’a été trouvé."
+msgstr "Aucun élément correspondant à votre recherche n'a été trouvé."
 
 #: views/dialogs/create.guides.html:30
 msgid "No items"
@@ -1246,7 +1246,7 @@ msgstr "Aucune mesure correspondant à votre recherche n'a été trouvée."
 
 #: views/dialogs/add.objlib.html:65
 msgid "No object matching your search was found"
-msgstr "Aucun objet correspondant à votre recherche n’a été trouvé."
+msgstr "Aucun objet correspondant à votre recherche n'a été trouvé."
 
 #: views/dialogs/create.threats.html:92
 msgid "No theme matching your search was found"
@@ -1275,7 +1275,7 @@ msgstr "Actions"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:394
 msgid "Object added successfully"
-msgstr "L’objet a bien été ajouté"
+msgstr "L'objet a bien été ajouté"
 
 #: src/BackofficeApp.js:115
 msgid "Object details"
@@ -1283,15 +1283,15 @@ msgstr "Détails de l'objet"
 
 #: src/BackofficeApp.js:140
 msgid "Object information"
-msgstr "Informations de l’objet"
+msgstr "Informations de l'objet"
 
 #: src/BackofficeApp.js:148
 msgid "Object instance"
-msgstr "Instance de l’objet"
+msgstr "Instance de l'objet"
 
 #: views/_gettext_caveats.html:18
 msgid "Object is not an object of this anr"
-msgstr "L’objet n’appartient pas à cette ANR"
+msgstr "L'objet n'appartient pas à cette ANR"
 
 #: views/object.info_risk.kb_mgmt.html:76
 msgid "Object replica(s) in models"
@@ -1386,7 +1386,7 @@ msgid ""
 "Please enter the e-mail address associated to your account. An e-mail will "
 "be sent to you with account recovery instructions."
 msgstr ""
-"Veuillez entrer l’adresse e-mail associée à votre compte. Un e-mail vous "
+"Veuillez entrer l'adresse e-mail associée à votre compte. Un e-mail vous "
 "sera envoyé avec des instructions vous permettant de récupérer celui-ci."
 
 #: src/BackofficeClientMgmtCtrl.js:163
@@ -1497,7 +1497,7 @@ msgstr "Analyse de risques"
 
 #: src/kb/GuideService.js:73
 msgid "Risk analysis context"
-msgstr "Contexte de l’analyse de risques"
+msgstr "Contexte de l'analyse de risques"
 
 #: ../ng_anr/views/anr.home.html:121 ../ng_anr/views/anr.instance.html:147
 #: views/object.info_risk.kb_mgmt.html:148
@@ -1638,7 +1638,7 @@ msgstr "Statut"
 
 #: src/kb/GuideService.js:75
 msgid "Summary assessment of trends and threats"
-msgstr "Résumé de l’évaluation des tendances et des menaces"
+msgstr "Résumé de l'évaluation des tendances et des menaces"
 
 #: src/kb/GuideService.js:76
 msgid "Summary of assets / impacts"
@@ -1691,35 +1691,35 @@ msgstr "Le FQDN ne peut pas être vide"
 
 #: views/dialogs/create.servers.admin.html:31
 msgid "The IP address may not be empty"
-msgstr "L’adresse IP ne pas pas être vide"
+msgstr "L'adresse IP ne pas pas être vide"
 
 #: views/dialogs/create.servers.admin.html:32
 msgid "The IP address must be of this form : xxx.xxx.xxx.xxx"
-msgstr "L’adresse IP doit être de la la forme : xxx.xxx.xxx.xxx"
+msgstr "L'adresse IP doit être de la la forme : xxx.xxx.xxx.xxx"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:133
 msgid ""
 "The asset \"{{assetLabel}}\" has been created successfully, however without "
 "models, the element may not be specific."
 msgstr ""
-"L’asset « {{assetLabel}} » a été créé avec succès, cependant sans modèles, "
-"l’élément ne peut pas être spécifique."
+"L'asset « {{assetLabel}} » a été créé avec succès, cependant sans modèles, "
+"l'élément ne peut pas être spécifique."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:136
 msgid "The asset \"{{assetLabel}}\" has been created successfully."
-msgstr "L’asset « {{assetLabel}} » a été créé avec succès."
+msgstr "L'asset « {{assetLabel}} » a été créé avec succès."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:171
 msgid ""
 "The asset \"{{assetLabel}}\" has been updated successfully, however without "
 "models, the element may not be specific."
 msgstr ""
-"L’asset « {{assetLabel}} » a été mis à jour avec succès, cependant sans "
-"modèles, l’élément ne peut pas être spécifique."
+"L'asset « {{assetLabel}} » a été mis à jour avec succès, cependant sans "
+"modèles, l'élément ne peut pas être spécifique."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:174
 msgid "The asset \"{{assetLabel}}\" has been updated successfully."
-msgstr "L’asset « {{assetLabel}} » a été mis à jour avec succès."
+msgstr "L'asset « {{assetLabel}} » a été mis à jour avec succès."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:199
 msgid "The asset \"{{label}}\" has been deleted."
@@ -1778,7 +1778,7 @@ msgid ""
 "The current object \"{{ name }}\" will be removed from the library. Are you "
 "sure?"
 msgstr ""
-"L’objet courant « {{ name }} » va être supprimé de la bibliothèque. Êtes-"
+"L'objet courant « {{ name }} » va être supprimé de la bibliothèque. Êtes-"
 "vous sûr ?"
 
 #: src/kb/BackofficeDocModelsCtrl.js:38
@@ -1795,7 +1795,7 @@ msgstr "Le document « {{label}} » a été supprimé."
 
 #: views/dialogs/create.clients.html:199
 msgid "The first user email may not be empty"
-msgstr "L’adresse email du premier utilisateur ne peut pas être vide"
+msgstr "L'adresse email du premier utilisateur ne peut pas être vide"
 
 #: views/dialogs/create.clients.html:181
 msgid "The first user first name may not be empty"
@@ -1823,19 +1823,19 @@ msgstr "Le guide a bien été supprimé."
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:115
 msgid "The instance details have been updated"
-msgstr "Les détails de l’instance ont bien été mises à jour."
+msgstr "Les détails de l'instance ont bien été mises à jour."
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:88
 msgid "The item \"{{label}}\" has been deleted."
-msgstr "L’élément « {{label}} » a bien été supprimé."
+msgstr "L'élément « {{label}} » a bien été supprimé."
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:44
 msgid "The item has been created successfully."
-msgstr "L’élément a bien été créé."
+msgstr "L'élément a bien été créé."
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:69
 msgid "The item has been updated successfully."
-msgstr "L’élément a bien été mis à jour."
+msgstr "L'élément a bien été mis à jour."
 
 #: views/dialogs/create.assets.html:30 views/dialogs/create.categories.html:28
 #: views/dialogs/create.measures.html:28 views/dialogs/create.models.html:28
@@ -1880,15 +1880,15 @@ msgstr "L'objet \"{{label}}\" a été supprimé."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:1134
 msgid "The object \"{{objlibLabel}}\" has been created successfully."
-msgstr "L’objet « {{objlibLabel}} » a bien été créé."
+msgstr "L'objet « {{objlibLabel}} » a bien été créé."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:1122
 msgid "The object \"{{objlibLabel}}\" has been updated successfully."
-msgstr "L’objet « {{objlibLabel}} » a bien été mis à jour."
+msgstr "L'objet « {{objlibLabel}} » a bien été mis à jour."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:394
 msgid "The object has been added to the library."
-msgstr "L’objet a été ajouté à la bibliothèque."
+msgstr "L'objet a été ajouté à la bibliothèque."
 
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:177
 msgid "The object has been created successfully."
@@ -1896,15 +1896,15 @@ msgstr "L'objet a été créé avec succès."
 
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:117
 msgid "The object has been detached from the library."
-msgstr "L’objet a bien été détaché de la bibliothèque."
+msgstr "L'objet a bien été détaché de la bibliothèque."
 
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:80
 msgid "The object has been detached successfully"
-msgstr "L’objet a bien été détaché"
+msgstr "L'objet a bien été détaché"
 
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:214
 msgid "The object has been exported successfully."
-msgstr "L’objet a bien été exporté."
+msgstr "L'objet a bien été exporté."
 
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:170
 msgid "The object has been updated successfully."
@@ -1926,7 +1926,7 @@ msgstr ""
 
 #: views/dialogs/create.clients.html:41
 msgid "The proxy alias may not be empty"
-msgstr "L’alias de proxy ne peut pas être vide"
+msgstr "L'alias de proxy ne peut pas être vide"
 
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:463
 msgid "The risk \"{{label}}\" has been deleted."
@@ -1942,7 +1942,7 @@ msgstr "Le risque « {{riskLabel}} » a bien été mis à jour."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:369
 msgid "The risk analysis details have been updated"
-msgstr "Les détails de l’analyse de risque ont bien été mises à jour."
+msgstr "Les détails de l'analyse de risque ont bien été mises à jour."
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:139
 msgid "The risk sheet changes have been saved successfully"
@@ -1966,7 +1966,7 @@ msgstr "Le serveur « {{label}} » a bien été mis à jour."
 
 #: src/kb/BackofficeDocModelsCtrl.js:158
 msgid "The server returned the error code:"
-msgstr "Le serveur a renvoyé le code d’erreur : "
+msgstr "Le serveur a renvoyé le code d'erreur : "
 
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:260
 msgid "The tag \"{{label}}\" has been deleted."
@@ -1994,7 +1994,7 @@ msgid ""
 "without models, the element may not be specific."
 msgstr ""
 "La menace « {{threatLabel}} » a bien été créée, cependant sans modèles, "
-"l’élément ne peut pas être spécifique."
+"l'élément ne peut pas être spécifique."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:322
 msgid "The threat \"{{threatLabel}}\" has been created successfully."
@@ -2006,7 +2006,7 @@ msgid ""
 "without models, the element may not be specific."
 msgstr ""
 "La menace « {{threatLabel}} » a bien été mise à jour, cependant sans "
-"modèles, l’élément ne peut pas être spécifique."
+"modèles, l'élément ne peut pas être spécifique."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:366
 msgid "The threat \"{{threatLabel}}\" has been updated successfully."
@@ -2014,7 +2014,7 @@ msgstr "La mentale « {{threatLabel}} » a bien été mise à jour."
 
 #: src/admin/BackofficeAdminUsersCtrl.js:70
 msgid "The user \"{{firstname}} {{lastname}}\" has been created successfully."
-msgstr "L’utilisateur « {{firstname}} {{lastname}} » a bien été créé."
+msgstr "L'utilisateur « {{firstname}} {{lastname}} » a bien été créé."
 
 #: src/admin/BackofficeAdminUsersCtrl.js:114
 msgid "The user \"{{firstname}} {{lastname}}\" has been deleted."
@@ -2025,7 +2025,7 @@ msgid ""
 "The user \"{{firstname}} {{lastname}}\" information has been updated "
 "successfully."
 msgstr ""
-"Les informations de l’utilisateur « {{firstname}} {{lastname}} » ont bien "
+"Les informations de l'utilisateur « {{firstname}} {{lastname}} » ont bien "
 "été mises à jour."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:567
@@ -2038,7 +2038,7 @@ msgid ""
 "without models, the element may not be specific."
 msgstr ""
 "La vulnérabilité « {{vulnLabel}} » a bien été créée, cependant sans modèles, "
-"l’élément ne peut pas être spécifique."
+"l'élément ne peut pas être spécifique."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:504
 msgid "The vulnerability \"{{vulnLabel}}\" has been created successfully."
@@ -2050,7 +2050,7 @@ msgid ""
 "without models, the element may not be specific."
 msgstr ""
 "La vulnérabilité « {{vulnLabel}} » a bien été mise à jour, cependant sans "
-"modèles, l’élément ne peut pas être spécifique."
+"modèles, l'élément ne peut pas être spécifique."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:542
 msgid "The vulnerability \"{{vulnLabel}}\" has been updated successfully."
@@ -2069,21 +2069,21 @@ msgid ""
 "There are no operational risks for this instance, so the operational risks "
 "table is empty."
 msgstr ""
-"Il n’y a pas de risques opérationnels pour cette instance, donc la table des "
+"Il n'y a pas de risques opérationnels pour cette instance, donc la table des "
 "risques opérationnels est vide."
 
 #: ../ng_anr/views/anr.home.html:115
 msgid "There are no operational risks for this risk analysis."
-msgstr "Il n’y a pas de risques opérationnels pour cette analyse de risques."
+msgstr "Il n'y a pas de risques opérationnels pour cette analyse de risques."
 
 #: ../ng_anr/views/anr.home.html:69
 msgid "There are no risks for this risk analysis."
-msgstr "Il n’y a pas de risques pour cette analyse de risques."
+msgstr "Il n'y a pas de risques pour cette analyse de risques."
 
 #: ../ng_anr/views/anr.instance.html:81
 msgid "There is no AMV link for this instance, so the risks table is empty."
 msgstr ""
-"Il n’y a aucun lien AMV pour cette instance, donc le tableau des risques est "
+"Il n'y a aucun lien AMV pour cette instance, donc le tableau des risques est "
 "vide."
 
 #: views/dialogs/create.amvs.html:137
@@ -2096,7 +2096,7 @@ msgstr "Ce lien AMV est déjà utilisé"
 
 #: ../ng_anr/views/anr.instance.html:62
 msgid "This asset has no parents."
-msgstr "Cet asset n’a pas de parents."
+msgstr "Cet asset n'a pas de parents."
 
 #: ../ng_anr/views/anr.instance.html:60
 msgid "This asset is attached to the following parents"
@@ -2115,12 +2115,12 @@ msgid ""
 "This instance and all its children will be removed from the risk analysis. "
 "This operation cannot be undone."
 msgstr ""
-"Cette instance et tous ses enfants seront supprimés de l’analyse de risques. "
+"Cette instance et tous ses enfants seront supprimés de l'analyse de risques. "
 "Cette opération ne peut pas être annulée."
 
 #: views/_gettext_caveats.html:12
 msgid "This object already exists in the current risk analysis"
-msgstr "Cet objet existe déjà dans l’analyse de risque"
+msgstr "Cet objet existe déjà dans l'analyse de risque"
 
 #: views/object.info_risk.kb_mgmt.html:78
 msgid "This object has no replica(s) in models."
@@ -2159,7 +2159,7 @@ msgstr "Cette opération est irréversible."
 msgid ""
 "This type of asset is used in a model that is no longer part of the list"
 msgstr ""
-"Ce type d’asset est utilisé dans un modèle qui ne fait plus partie de cette "
+"Ce type d'asset est utilisé dans un modèle qui ne fait plus partie de cette "
 "liste"
 
 #: ../ng_anr/views/anr.home.html:75 ../ng_anr/views/anr.instance.html:88
@@ -2190,7 +2190,7 @@ msgstr "Seuils"
 
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:221
 msgid "Ths object has been duplicated successfully."
-msgstr "L’objet a bien été dupliqué."
+msgstr "L'objet a bien été dupliqué."
 
 #: views/dialogs/create.assets.html:61 views/info_risk.kb_mgmt.html:49
 #: views/logs.admin.html:30
@@ -2211,12 +2211,12 @@ msgstr "Mettre à jour un lien AMV"
 
 #: views/dialogs/create.anr.html:6
 msgid "Update ANR information"
-msgstr "Mettre à jour les informations de l’ANR"
+msgstr "Mettre à jour les informations de l'ANR"
 
 #: views/dialogs/create.assets.html:6
 msgid "Update asset \"{{asset[_langField('label')]}}\" information"
 msgstr ""
-"Mettre à jour les informations de l’asset « {{asset[_langFIeld(‘label’)]}} »"
+"Mettre à jour les informations de l'asset « {{asset[_langField('label')]}} »"
 
 #: views/dialogs/create.categories.html:6
 #: views/dialogs/create.objlibs.categories.html:6
@@ -2242,17 +2242,17 @@ msgstr "Mettre à jour les informations du guide"
 #: ../ng_anr/views/create.instance.html:6
 msgid "Update instance \"{{instance[_langField('label')]}}\" details"
 msgstr ""
-"Mettre à jour les détails de l’instance « {{instance[_langFIeld(‘label’)]}} »"
+"Mettre à jour les détails de l'instance « {{instance[_langFIeld('label')]}} »"
 
 #: views/dialogs/create.guides.items.html:6
 msgid "Update item information"
-msgstr "Mettre à jour les informations de l’élément"
+msgstr "Mettre à jour les informations de l'élément"
 
 #: views/dialogs/create.measures.html:6
 msgid "Update measure \"{{measure[_langField('description')]}}\" information"
 msgstr ""
 "Mettre à jour les informations de la mesure "
-"« {{measure[_langField(‘description’)]}} »"
+"« {{measure[_langField('description')]}} »"
 
 #: views/dialogs/create.models.html:6
 msgid "Update model information"
@@ -2261,7 +2261,7 @@ msgstr "Mettre à jour les informations d'un modèle"
 #: views/dialogs/create.objlibs.html:6
 msgid "Update object \"{{objlib[_langField('label')]}}\" information"
 msgstr ""
-"Mettre à jour les informations de l’objet « {{objlib[_langField(‘label’)]}} »"
+"Mettre à jour les informations de l'objet « {{objlib[_langField('label')]}} »"
 
 #: views/account.html:70
 msgid "Update password"
@@ -2304,7 +2304,7 @@ msgstr "Mettre à jour les informations d'un tag"
 msgid "Update threat \"{{threat[_langField('label')]}}\" information"
 msgstr ""
 "Mettre à jour les informations de la menace "
-"« {{threat[_langField(‘label’)]}} »"
+"« {{threat[_langField('label')]}} »"
 
 #: views/dialogs/create.users.admin.html:6
 msgid "Update user information"
@@ -2314,7 +2314,7 @@ msgstr "Mettre à jour les informations d'un utilisateur"
 msgid "Update vulnerability \"{{vuln[_langField('label')]}}\" information"
 msgstr ""
 "Mettre à jour les informations de la vulnérabilité "
-"« {{vuln[_langField(‘label’)]}} »"
+"« {{vuln[_langField('label')]}} »"
 
 #: views/logs.admin.html:33
 msgid "User"
@@ -2370,7 +2370,7 @@ msgstr "Vous ne pouvez pas vous supprimer vous-même"
 
 #: views/_gettext_caveats.html:10 views/_gettext_caveats.html:24
 msgid "You cannot add a specific object to a generic parent"
-msgstr "Vous ne pouvez pas ajouter d’objet spécifique à un parent générique"
+msgstr "Vous ne pouvez pas ajouter d'objet spécifique à un parent générique"
 
 #: views/_gettext_caveats.html:23
 msgid "You cannot add yourself as a component"
@@ -2398,7 +2398,7 @@ msgstr "Vous devez entrer une adresse e-mail"
 
 #: views/dialogs/create.users.admin.html:21
 msgid "You must enter the user's first name"
-msgstr "Vous devez entrer le prénom de l’utilisateur"
+msgstr "Vous devez entrer le prénom de l'utilisateur"
 
 #: views/dialogs/create.users.admin.html:29
 msgid "You must enter the user's last name"
