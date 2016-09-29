@@ -1744,7 +1744,7 @@ msgstr "La catégorie \"{{ label }}\" a été supprimée."
 
 #: src/BackofficeClientMgmtCtrl.js:47
 msgid "The client \"{{clientName}}\" has been created successfully."
-msgstr "Le client « clientName » a été créé avec succès"
+msgstr "Le client « {{clientName}} » a été créé avec succès"
 
 #: src/BackofficeClientMgmtCtrl.js:72
 msgid ""
