@@ -25,7 +25,7 @@
                     <label translate>Server</label>
                     <md-icon>storage</md-icon>
                     <md-select ng-disabled="client.id" ng-model="client.server_id" name="server_id" required>
-                        <md-option ng-repeat="server in servers" value="{{server.id}}">{{ server.label }} [ {{server.fqdn}} ]</md-option>
+                        <md-option ng-repeat="server in servers" ng-value="server.id">{{ server.label }} [ {{server.fqdn}} ]</md-option>
                     </md-select>
 
                     <div ng-messages="clientForm.server_id.$error">
@@ -165,7 +165,7 @@
                     <label translate>Model</label>
                     <md-icon>widgets</md-icon>
                     <md-select ng-model="client.model_id" name="model_id" ng-disabled="client.id" required>
-                        <md-option ng-repeat="model in models" value="{{model.id}}">{{ model[_langField('label')] }}</md-option>
+                        <md-option ng-repeat="model in models" ng-value="model.id">{{ model[_langField('label')] }}</md-option>
                     </md-select>
 
                     <div ng-messages="clientForm.model_id.$error">

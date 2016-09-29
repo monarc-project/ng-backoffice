@@ -16,7 +16,7 @@
                     <label translate>Category</label>
                     <md-icon>class</md-icon>
                     <md-select name="category" ng-model="docModel.category" ng-disabled="docModel.id" ng-required="!docModel.id">
-                        <md-option ng-repeat="category in categories" value="{{ category.id }}">{{ category.label }}</md-option>
+                        <md-option ng-repeat="category in categories" ng-value="category.id">{{ category.label }}</md-option>
                     </md-select>
                     <div ng-messages="docModelForm.category.$error">
                         <div ng-message="required">{{ 'You must select a category' | translate }}</div>

@@ -27,8 +27,8 @@
                     <label translate>Mode</label>
                     <md-icon>class</md-icon>
                     <md-select ng-model="guide.isWithItems" name="isWithItems" required>
-                        <md-option value="0">{{ 'No items' | translate }}</md-option>
-                        <md-option value="1">{{ 'Contains items' | translate }}</md-option>
+                        <md-option ng-value="0">{{ 'No items' | translate }}</md-option>
+                        <md-option ng-value="1">{{ 'Contains items' | translate }}</md-option>
                     </md-select>
                     <div ng-messages="guideForm.isWithItems.$error">
                         <div ng-message="required">{{ 'You must select a mode' | translate }}</div>

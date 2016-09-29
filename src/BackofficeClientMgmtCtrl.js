@@ -37,6 +37,8 @@
                 controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', CreateClientDialogCtrl],
                 templateUrl: '/views/dialogs/create.clients.html',
                 targetEvent: ev,
+                scope: $scope,
+                preserveScope: true,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen
             })
@@ -60,6 +62,8 @@
                     templateUrl: '/views/dialogs/create.clients.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
+                    scope: $scope,
+                    preserveScope: true,
                     fullscreen: useFullScreen,
                     locals: {
                         'client': clientData
