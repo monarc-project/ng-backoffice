@@ -68,6 +68,8 @@
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
                 templateUrl: '/views/dialogs/create.categories.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -97,6 +99,8 @@
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
                     templateUrl: '/views/dialogs/create.categories.html',
                     targetEvent: ev,
+                    preserveScope: true,
+                    scope: $scope,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
                     locals: {
@@ -194,6 +198,8 @@
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'tag', CreateTagDialogCtrl],
                 templateUrl: '/views/anr/create.tags.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -223,6 +229,8 @@
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'tag', CreateTagDialogCtrl],
                     templateUrl: '/views/anr/create.tags.html',
                     targetEvent: ev,
+                    preserveScope: true,
+                    scope: $scope,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
                     locals: {
@@ -359,6 +367,8 @@
                 controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', 'risk', CreateRiskDialogCtrl],
                 templateUrl: '/views/anr/create.risks.html',
                 targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -411,6 +421,8 @@
                     controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', 'risk', CreateRiskDialogCtrl],
                     templateUrl: '/views/anr/create.risks.html',
                     targetEvent: ev,
+                    preserveScope: true,
+                    scope: $scope,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
                     locals: {
