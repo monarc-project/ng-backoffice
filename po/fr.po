@@ -2010,7 +2010,7 @@ msgstr ""
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:366
 msgid "The threat \"{{threatLabel}}\" has been updated successfully."
-msgstr "La mentale « {{threatLabel}} » a bien été mise à jour."
+msgstr "La menace « {{threatLabel}} » a bien été mise à jour."
 
 #: src/admin/BackofficeAdminUsersCtrl.js:70
 msgid "The user \"{{firstname}} {{lastname}}\" has been created successfully."

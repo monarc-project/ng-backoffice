@@ -106,7 +106,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
-                templateUrl: '/views/dialogs/create.assets.html',
+                templateUrl: '/views/anr/create.assets.html',
                 targetEvent: ev,
                 preserveScope: true,
                 scope: $scope,
@@ -151,7 +151,7 @@
             AssetService.getAsset(asset.id).then(function (assetData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
-                    templateUrl: '/views/dialogs/create.assets.html',
+                    templateUrl: '/views/anr/create.assets.html',
                     targetEvent: ev,
                     preserveScope: true,
                     scope: $scope,
@@ -293,7 +293,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
-                templateUrl: '/views/dialogs/create.threats.html',
+                templateUrl: '/views/anr/create.threats.html',
                 targetEvent: ev,
                 preserveScope: true,
                 scope: $scope,
@@ -338,7 +338,7 @@
             ThreatService.getThreat(threat.id).then(function (threatData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
-                    templateUrl: '/views/dialogs/create.threats.html',
+                    templateUrl: '/views/anr/create.threats.html',
                     targetEvent: ev,
                     preserveScope: true,
                     scope: $scope,
@@ -481,7 +481,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
-                templateUrl: '/views/dialogs/create.vulns.html',
+                templateUrl: '/views/anr/create.vulns.html',
                 targetEvent: ev,
                 preserveScope: true,
                 scope: $scope,
@@ -519,7 +519,7 @@
             VulnService.getVuln(vuln.id).then(function (vulnData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
-                    templateUrl: '/views/dialogs/create.vulns.html',
+                    templateUrl: '/views/anr/create.vulns.html',
                     targetEvent: ev,
                     preserveScope: true,
                     scope: $scope,
@@ -657,7 +657,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
-                templateUrl: '/views/dialogs/create.measures.html',
+                templateUrl: '/views/anr/create.measures.html',
                 targetEvent: ev,
                 preserveScope: true,
                 scope: $scope,
@@ -688,7 +688,7 @@
             MeasureService.getMeasure(measure.id).then(function (measureData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
-                    templateUrl: '/views/dialogs/create.measures.html',
+                    templateUrl: '/views/anr/create.measures.html',
                     targetEvent: ev,
                     preserveScope: true,
                     scope: $scope,
@@ -820,7 +820,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
-                templateUrl: '/views/dialogs/create.amvs.html',
+                templateUrl: '/views/anr/create.amvs.html',
                 targetEvent: ev,
                 preserveScope: true,
                 scope: $scope,
@@ -871,7 +871,7 @@
             AmvService.getAmv(amv.id).then(function (amvData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
-                    templateUrl: '/views/dialogs/create.amvs.html',
+                    templateUrl: '/views/anr/create.amvs.html',
                     targetEvent: ev,
                     preserveScope: true,
                     scope: $scope,

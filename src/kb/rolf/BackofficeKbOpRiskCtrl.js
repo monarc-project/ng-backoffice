@@ -192,7 +192,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'tag', CreateTagDialogCtrl],
-                templateUrl: '/views/dialogs/create.tags.html',
+                templateUrl: '/views/anr/create.tags.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
@@ -221,7 +221,7 @@
             TagService.getTag(tag.id).then(function (tagData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'tag', CreateTagDialogCtrl],
-                    templateUrl: '/views/dialogs/create.tags.html',
+                    templateUrl: '/views/anr/create.tags.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
@@ -357,7 +357,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', 'risk', CreateRiskDialogCtrl],
-                templateUrl: '/views/dialogs/create.risks.html',
+                templateUrl: '/views/anr/create.risks.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
@@ -409,7 +409,7 @@
             RiskService.getRisk(risk.id).then(function (riskData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', 'risk', CreateRiskDialogCtrl],
-                    templateUrl: '/views/dialogs/create.risks.html',
+                    templateUrl: '/views/anr/create.risks.html',
                     targetEvent: ev,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
