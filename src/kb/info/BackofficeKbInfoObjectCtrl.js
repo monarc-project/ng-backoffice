@@ -226,13 +226,16 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', ExportObjectDialog],
+                controller: ['$scope', '$mdDialog', 'mode', ExportObjectDialog],
                 templateUrl: '/views/dialogs/export.objlibs.html',
                 targetEvent: ev,
                 preserveScope: true,
                 scope: $scope,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
+                locals: {
+                    mode: 'object'
+                }
             })
                 .then(function (exports) {
                     $http.post('/api/objects-export', {id: $scope.object.id, password: exports.password}).then(function (data) {
@@ -370,7 +373,8 @@
 
     }
 
-    function ExportObjectDialog($scope, $mdDialog) {
+    function ExportObjectDialog($scope, $mdDialog, mode) {
+        $scope.mode = mode;
         $scope.export = {
             password: null
         };
