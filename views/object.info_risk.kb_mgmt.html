@@ -182,7 +182,8 @@
 </div>
 
 <script type="text/ng-template" id="objlibs.tree_item_template.html">
-    <a ui-sref="main.kb_mgmt.info_risk.object({objectId: node.id})"><md-icon>{{ node.children && node.children.length > 0 ? 'add': 'note' }}</md-icon> {{ node[_langField('name')] }}</a>
+    <a ng-if="mode == 'bdc'" ui-sref="main.kb_mgmt.info_risk.object({objectId: node.id})"><md-icon>{{ node.children && node.children.length > 0 ? 'add': 'note' }}</md-icon> {{ node[_langField('name')] }}</a>
+    <a ng-if="mode == 'anr'" ui-sref="main.kb_mgmt.models.details.object({objectId: node.id})"><md-icon>{{ node.children && node.children.length > 0 ? 'add': 'note' }}</md-icon> {{ node[_langField('name')] }}</a>
     <md-button class="md-icon-button" ng-click="moveComponent(node, 'up')" ng-disabled="$index==0"><md-icon>arrow_upward</md-icon></md-button>
     <md-button class="md-icon-button" ng-click="moveComponent(node, 'down')" ng-disabled="$index==composition.length-1"><md-icon>arrow_downward</md-icon></md-button>
     <md-button class="md-icon-button" ng-click="deleteCompositionItem($event, node)"><md-icon>delete</md-icon></md-button>
