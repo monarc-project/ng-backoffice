@@ -103,25 +103,48 @@
                     // Cancel
                 })
             } else if ($scope.mode == 'anr') {
-                var confirm = $mdDialog.confirm()
-                    .title(gettextCatalog.getString('Detach this object?'))
-                    .textContent(gettextCatalog.getString('The current object "{{ name }}" will be removed from the library. Are you sure?',
-                        {name: $scope.object.name1}))
-                    .ariaLabel(gettextCatalog.getString('Detach this object'))
-                    .targetEvent(ev)
-                    .ok(gettextCatalog.getString('Detach'))
-                    .cancel(gettextCatalog.getString('Cancel'));
+                if (true /* Object has Instances in ANR*/) {
+                    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-                $mdDialog.show(confirm).then(function () {
-                    AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
-                        toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
-                        if ($rootScope.hookUpdateObjlib) {
-                            $rootScope.hookUpdateObjlib();
-                        }
-                    });
-                }, function () {
-                    // Cancel
-                })
+                    $mdDialog.show({
+                        controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', DetachObjectDialog],
+                        templateUrl: '/views/anr/detach.objlibs.html',
+                        targetEvent: ev,
+                        preserveScope: true,
+                        scope: $scope,
+                        clickOutsideToClose: true,
+                        fullscreen: useFullScreen,
+                    })
+                        .then(function () {
+                            AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
+                                toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
+                                if ($rootScope.hookUpdateObjlib) {
+                                    $rootScope.hookUpdateObjlib();
+                                }
+                            });
+                        });
+                } else {
+                    var confirm = $mdDialog.confirm()
+                        .title(gettextCatalog.getString('Detach this object?'))
+                        .textContent(gettextCatalog.getString('The current object "{{ name }}" will be removed from the library. Are you sure?',
+                            {name: $scope.object.name1}))
+                        .ariaLabel(gettextCatalog.getString('Detach this object'))
+                        .targetEvent(ev)
+                        .ok(gettextCatalog.getString('Detach'))
+                        .cancel(gettextCatalog.getString('Cancel'));
+
+                    $mdDialog.show(confirm).then(function () {
+                        AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
+                            toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
+                            if ($rootScope.hookUpdateObjlib) {
+                                $rootScope.hookUpdateObjlib();
+                            }
+                        });
+                    }, function () {
+                        // Cancel
+                    })
+                }
+
             }
         }
 
@@ -331,6 +354,18 @@
         $scope.selectedObjectChange = function (item) {
             $scope.component.child = item;
         };
+    }
+
+
+    function DetachObjectDialog($scope, $mdDialog) {
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.detach = function() {
+            $mdDialog.hide();
+        };
+
     }
 
     function ExportObjectDialog($scope, $mdDialog) {
