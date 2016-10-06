@@ -1,7 +1,7 @@
 <div class="md-padding" ng-cloak layout="column" ng-controller="BackofficeKbInfoObjectCtrl">
     <div layout="row" layout-align="space-around center">
         <md-button class="md-icon-button" ng-href="#/backoffice/kb/info/objlibs"><md-icon>arrow_back</md-icon></md-button>
-        <div flex ng-if="object">
+        <div flex ng-if="object" ng-class="{'active-obj': mode == 'anr'}">
             <h2>{{ object[_langField('name')] }}</h2>
 
             <p>{{ object[_langField('label')] }}</p>
