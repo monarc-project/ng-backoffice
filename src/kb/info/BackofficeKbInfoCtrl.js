@@ -1111,10 +1111,6 @@
                             objlib.rolfTag = objlib.rolfTag.id;
                         }
 
-                        if (objlib.category) {
-                            objlib.category = objlib.category.id;
-                        }
-
                         if (isUpdate) {
                             ObjlibService.updateObjlib(objlib,
                                 function () {
