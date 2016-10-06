@@ -256,6 +256,8 @@
                 templateUrl: '/views/anr/create.objlibs.node.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
+                preserveScope: true,
+                scope: $scope,
                 fullscreen: useFullScreen,
                 locals: {
                     'myself': $scope.object
