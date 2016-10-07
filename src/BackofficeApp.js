@@ -258,6 +258,12 @@ angular
                 return field + ConfigService.getDefaultLanguageIndex();
             };
 
+            // Safari filtering method
+            $rootScope.isSafari = function () {
+                var ua = navigator.userAgent.toLowerCase();
+                return (ua.indexOf('safari') != -1 && ua.indexOf('chrome') < 0);
+            };
+
             // Method to update pagination labels globally when switching language in account settings
             $rootScope.updatePaginationLabels = function () {
                 $rootScope.paginationLabels = {

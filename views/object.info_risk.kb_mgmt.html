@@ -35,7 +35,7 @@
                     <md-tooltip md-direction="left">{{ 'Duplicate object' | translate }}</md-tooltip>
                 </md-button>
 
-                <md-button aria-label="{{ 'Export object' | translate }}" class="md-fab md-raised md-mini" ng-click="exportObject($event)">
+                <md-button aria-label="{{ 'Export object' | translate }}" class="md-fab md-raised md-mini" ng-disabled="isSafari();" ng-click="exportObject($event)">
                     <md-icon>save</md-icon>
                     <md-tooltip md-direction="left">{{ 'Export object' | translate }}</md-tooltip>
                 </md-button>
