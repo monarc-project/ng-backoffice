@@ -147,8 +147,9 @@
 
         $scope.editAsset = function (ev, asset) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
+            $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
             AssetService.getAsset(asset.id).then(function (assetData) {
+                $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
                     templateUrl: '/views/anr/create.assets.html',
@@ -334,8 +335,10 @@
 
         $scope.editThreat = function (ev, threat) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
+            $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
             ThreatService.getThreat(threat.id).then(function (threatData) {
+                console.log(threat.theme);
+                $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                     templateUrl: '/views/anr/create.threats.html',
@@ -349,6 +352,7 @@
                     }
                 })
                     .then(function (threat) {
+                        console.log("idsfsdfdsfci");
                         var themeBackup = threat.theme;
                         if (threat.theme) {
                             threat.theme = threat.theme.id;
@@ -366,6 +370,7 @@
                                     toastr.success(gettextCatalog.getString('The threat "{{threatLabel}}" has been updated successfully.',
                                         {threatLabel: threat.label1}), gettextCatalog.getString('Update successful'));
                                 }
+                                threat.theme = themeBackup;
                             },
 
                             function () {
@@ -442,7 +447,7 @@
                     $scope.updateVulns();
                 }
             });
-            
+
             TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns, $scope.vulns);
         };
 
@@ -515,8 +520,9 @@
 
         $scope.editVuln = function (ev, vuln) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
+            $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
             VulnService.getVuln(vuln.id).then(function (vulnData) {
+                $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
                     templateUrl: '/views/anr/create.vulns.html',
