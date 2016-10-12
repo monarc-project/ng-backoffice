@@ -162,7 +162,7 @@
 
                     <tbody>
                     <tr ng-repeat="risk in object.oprisks">
-                        <td>{{ risk.description }}</td>
+                        <td>{{ risk[_langField('description')] }}</td>
                         <td>{{ risk.prob }}</td>
                         <td>{{ risk.r }}</td>
                         <td>{{ risk.o }}</td>
