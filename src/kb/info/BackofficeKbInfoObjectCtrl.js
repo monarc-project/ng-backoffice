@@ -273,6 +273,7 @@
                         ObjlibService.createObjlibNode(objlib,
                             function () {
                                 $scope.updateObjlib();
+                                $scope.updateInstances();
                                 toastr.success(gettextCatalog.getString('The component has been created successfully.'), gettextCatalog.getString('Creation successful'));
                             }
                         );
@@ -294,6 +295,9 @@
             child: null,
             implicitPosition: 1
         };
+
+        $scope.objectSearchText = null;
+        $scope.componentPreviousSearchText = null;
 
         $scope.cancel = function() {
             $mdDialog.cancel();
