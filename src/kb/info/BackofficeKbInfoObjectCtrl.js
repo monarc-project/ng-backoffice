@@ -76,6 +76,7 @@
 
             $mdDialog.show(confirm).then(function () {
                 ObjlibService.deleteObjlibNode(item.component_link_id, function () {
+                    $scope.updateInstances();
                     $scope.updateObjlib();
                     toastr.success(gettextCatalog.getString('The object has been detached successfully'), gettextCatalog.getString('Component detached'));
                 });
