@@ -1489,7 +1489,7 @@
         // Asset
         $scope.queryAssetSearch = function (query) {
             var promise = $q.defer();
-            AssetService.getAssets({filter: query}).then(function (e) {
+            AssetService.getAssets({filter: query, type: 2, status: 1}).then(function (e) {
                 promise.resolve(e.assets);
             }, function (e) {
                 promise.reject(e);
