@@ -2689,8 +2689,8 @@ msgid ""
 "You may not detach this object because it is currently instanced. Please "
 "clear the existing dependencies before detaching it."
 msgstr ""
-"Vous ne pouvez pas détacher cet objet car il est actuellement instance. "
-"Veuillez supprimer les dépendances existantes avant de le détacher."
+"Vous ne pouvez pas détacher cet objet car il est encore utilisé."
+"Veuillez d'abord nettoyer les différentes dépendances avant de le détacher."
 
 #: views/dialogs/create.users.admin.html:39
 msgid "You must enter an e-mail address"
