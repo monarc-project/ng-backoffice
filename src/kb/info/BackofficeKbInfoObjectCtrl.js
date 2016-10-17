@@ -310,7 +310,7 @@
             }
 
             if ($scope.component.previous) {
-                $scope.component.previous = $scope.component.previous.component_link_id;
+                $scope.component.previous = $scope.component.previous.id;
             }
 
             $mdDialog.hide($scope.component);
