@@ -76,7 +76,9 @@
 
             $mdDialog.show(confirm).then(function () {
                 ObjlibService.deleteObjlibNode(item.component_link_id, function () {
-                    $scope.updateInstances();
+                    if($scope.mode != undefined && $scope.mode == "anr"){
+                        $scope.updateInstances();
+                    }
                     $scope.updateObjlib();
                     toastr.success(gettextCatalog.getString('The object has been detached successfully'), gettextCatalog.getString('Component detached'));
                 });
@@ -278,7 +280,9 @@
                         ObjlibService.createObjlibNode(objlib,
                             function () {
                                 $scope.updateObjlib();
-                                $scope.updateInstances();
+                                if($scope.mode != undefined && $scope.mode == "anr"){
+                                    $scope.updateInstances();
+                                }
                                 toastr.success(gettextCatalog.getString('The component has been created successfully.'), gettextCatalog.getString('Creation successful'));
                             }
                         );
@@ -294,7 +298,7 @@
     }
 
 
-    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself, $rootScope) {
+    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself, $rootScope, AnrService) {
         $scope.component = {
             position: null,
             child: null,
@@ -323,7 +327,7 @@
         $scope.queryObjectSearch = function (query) {
             var q = $q.defer();
 
-            ObjlibService.getObjlibs({filter: query, order: 'name1', anr: $scope.mode == 'anr' ? $rootScope.anr_id : null}).then(function (x) {
+            var handle_objects = function (x) {
                 if (x && x.objects) {
                     var objects_filtered = [];
 
@@ -332,14 +336,18 @@
                             objects_filtered.push(x.objects[i]);
                         }
                     }
-
                     q.resolve(objects_filtered);
                 } else {
                     q.reject();
                 }
-            }, function (x) {
-                q.reject(x);
-            });
+            };
+            if($scope.mode != 'anr'){
+                ObjlibService.getObjlibs({filter: query, order: 'name1'}).then(handle_objects, function (x) { q.reject(x); });
+            }
+            else{
+                ObjlibService.getObjectsOfAnr($rootScope.anr_id, {filter: query, order: 'name1'}, handle_objects, function(x) {q.reject(x);});
+            }
+
 
             return q.promise;
         };
