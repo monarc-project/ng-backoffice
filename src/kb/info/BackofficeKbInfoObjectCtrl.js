@@ -120,7 +120,7 @@
                             AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
                                 toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
                                 if ($rootScope.hookUpdateObjlib) {
-                                    $rootScope.hookUpdateObjlib();
+                                    $rootScope.hookUpdateObjlib(true);//true pour retouner sur la fiche du premier objet de la bibliothèque
                                 }
                             });
                         });
