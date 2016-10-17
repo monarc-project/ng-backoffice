@@ -260,7 +260,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', CreateComponentDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', '$rootScope', CreateComponentDialogCtrl],
                 templateUrl: '/views/anr/create.objlibs.node.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -294,7 +294,7 @@
     }
 
 
-    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself) {
+    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself, $rootScope) {
         $scope.component = {
             position: null,
             child: null,
@@ -323,7 +323,7 @@
         $scope.queryObjectSearch = function (query) {
             var q = $q.defer();
 
-            ObjlibService.getObjlibs({filter: query, order: 'name1'}).then(function (x) {
+            ObjlibService.getObjlibs({filter: query, order: 'name1', anr: $scope.mode == 'anr' ? $rootScope.anr_id : null}).then(function (x) {
                 if (x && x.objects) {
                     var objects_filtered = [];
 
