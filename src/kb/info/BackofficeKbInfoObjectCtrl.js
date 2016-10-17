@@ -240,7 +240,11 @@
             })
                 .then(function (exports) {
                     $http.post('/api/objects-export', {id: $scope.object.id, password: exports.password}).then(function (data) {
-                        DownloadService.downloadBlob(data.data, 'object.bin');
+                        var contentD = data.headers('Content-Disposition'),
+                            contentT = data.headers('Content-Type');
+                        contentD = contentD.substring(0,contentD.length-1).split('filename="');
+                        contentD = contentD[contentD.length-1];
+                        DownloadService.downloadBlob(data.data, contentD,contentT);
                         toastr.success(gettextCatalog.getString('The object has been exported successfully.'), gettextCatalog.getString('Export successful'));
                     })
                 });
