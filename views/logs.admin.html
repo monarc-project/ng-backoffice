@@ -26,9 +26,9 @@
         <table md-table md-progress="logs.promise">
             <thead md-head md-order="logs.query.order" md-on-reorder="updateLogs">
             <tr md-row>
-                <th md-column md-order-by="id"><span translate>ID</span></th>
                 <th md-column md-order-by="type"><span translate>Type</span></th>
                 <th md-column md-order-by="action"><span translate>Action</span></th>
+                <th md-column md-order-by="label"><span translate>Object</span></th>
                 <th md-column md-order-by="detail"><span translate>Details</span></th>
                 <th md-column md-order-by="user"><span translate>User</span></th>
                 <th md-column md-order-by="createdAt"><span translate>Date</span></th>
@@ -37,12 +37,16 @@
 
             <tbody md-body>
             <tr md-row ng-repeat="log in logs.items.historical">
-                <td md-cell>{{ log.id }}</td>
                 <td md-cell>{{ log.type }}</td>
                 <td md-cell>{{ log.action }}</td>
-                <td md-cell>{{ log.details }}</td>
+                <td md-cell>{{ log.label1 }}</td>
+                <td md-cell>
+                    <ul>
+                        <li ng-repeat="i in log.details">{{ i }}</li>
+                    </ul>
+                </td>
                 <td md-cell>{{ log.creator }}</td>
-                <td md-cell>{{ log.createdAt.date }}</td>
+                <td md-cell>{{ log.createdAt }}</td>
             </tr>
             </tbody>
         </table>
