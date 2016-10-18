@@ -900,6 +900,9 @@
 
         $scope.editAmv = function (ev, amv) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            if(amv == null){
+                return;
+            }
             if(amv.id!=undefined){
                 amv = amv.id;
             }
