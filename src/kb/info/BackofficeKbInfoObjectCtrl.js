@@ -55,10 +55,15 @@
 
         $scope.updateObjlib = function () {
             isObjectLoading = true;
-            ObjlibService.getObjlib($stateParams.objectId, {mode: $scope.mode}).then(function (object) {
+            ObjlibService.getObjlib($stateParams.objectId, {mode: $scope.mode, anr: $rootScope.anr_id}).then(function (object) {
                 $scope.object = object;
                 $scope.composition = object.children;
                 $timeout(function() { isObjectLoading = false; });
+            }, function(e){
+                //cas d'erreur possible : l'objet n'est pas lié à cette anr
+                if($rootScope.hookUpdateObjlib){
+                    $rootScope.hookUpdateObjlib(true);
+                }
             });
         };
 
