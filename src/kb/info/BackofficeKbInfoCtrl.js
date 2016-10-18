@@ -900,8 +900,11 @@
 
         $scope.editAmv = function (ev, amv) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            if(amv.id!=undefined){
+                amv = amv.id;
+            }
 
-            AmvService.getAmv(amv.id).then(function (amvData) {
+            AmvService.getAmv(amv).then(function (amvData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
                     templateUrl: '/views/anr/create.amvs.html',
@@ -949,6 +952,11 @@
                     });
             });
         };
+
+        if($stateParams.showid !== undefined){
+            $scope.editAmv(null,$stateParams.showid);
+        }
+
 
         $scope.deleteAmv = function (ev, item) {
             var confirm = $mdDialog.confirm()

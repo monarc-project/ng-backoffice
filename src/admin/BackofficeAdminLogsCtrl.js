@@ -3,14 +3,14 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeAdminLogsCtrl', [
-            '$scope', 'AdminLogsService', 'TableHelperService',
+            '$scope', 'AdminLogsService', 'TableHelperService', '$location',
             BackofficeAdminLogsCtrl
         ]);
 
     /**
      * Admin Logs Controller for the Backoffice module
      */
-    function BackofficeAdminLogsCtrl($scope, AdminLogsService, TableHelperService) {
+    function BackofficeAdminLogsCtrl($scope, AdminLogsService, TableHelperService, $location) {
         $scope.logs = TableHelperService.build('-createdAt', 20, 1, '');
 
         $scope.removeFilter = function () {
@@ -25,6 +25,10 @@
                 }
             );
         };
+
+        $scope.switchToAmv = function(id){
+            $location.path('/backoffice/kb/info/amvs/'+id);
+        }
 
         TableHelperService.watchSearch($scope, 'logs.query.filter', $scope.logs.query, $scope.updateLogs);
     }
