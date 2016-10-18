@@ -364,7 +364,6 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
             ThreatService.getThreat(threat.id).then(function (threatData) {
-                console.log(threat.theme);
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
@@ -379,7 +378,6 @@
                     }
                 })
                     .then(function (threat) {
-                        console.log("idsfsdfdsfci");
                         var themeBackup = threat.theme;
                         if (threat.theme) {
                             threat.theme = threat.theme.id;
