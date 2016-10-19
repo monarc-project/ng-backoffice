@@ -2,7 +2,10 @@
     <div layout="row" layout-align="space-around center">
         <md-button class="md-icon-button" ng-href="#/backoffice/kb/info/objlibs"><md-icon>arrow_back</md-icon></md-button>
         <div flex ng-if="object" ng-class="{'active-obj': mode == 'anr'}">
-            <h2>{{ object[_langField('name')] }}</h2>
+            <h2>
+                <md-icon ng-if="object && object.scope == 2" style="color: #F57C00">share</md-icon>
+                {{ object[_langField('name')] }}
+            </h2>
 
             <p>{{ object[_langField('label')] }}</p>
         </div>
