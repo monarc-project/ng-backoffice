@@ -50,7 +50,6 @@
     </div>
 
 
-
     <md-card ng-if="object">
         <md-tabs md-dynamic-height md-border-bottom md-selected="ToolsAnrService.currentTab">
             <md-tab label="{{ 'General information' | translate }}">
@@ -73,9 +72,48 @@
                         </li>
                     </ul>
 
-                    <p class="md-title" translate>Object replica(s) in models</p>
+                    <md-card ng-if="mode == 'bdc' && object.replicas.length > 0">
+                        <p class="md-title" translate>Object replica(s) in models</p>
+                        <table md-table>
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column><span translate>Active parent</span></th>
+                                    <th md-column><span translate>Actions</span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="node in object.replicas">
+                                    <td md-cell>{{ node[_langField('label')] }}</td>
+                                    <td md-cell>
+                                        <a aria-title="{{ node[_langField('name')] }}" ng-click="showInModel(node.id, object.id)"><md-icon>folder_open</md-icon><md-tooltip md-direction="left">{{ node[_langField('name')] }}</md-tooltip></a>
+                                         <!--"-->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-card>
 
-                    <p translate>This object has no replica(s) in models.</p>
+                    <md-card ng-if="mode == 'anr' && object.replicas.length > 0">
+                        <p class="md-title" translate>Object used in the risks analysis</p>
+                        <table md-table>
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column><span translate>Active parent</span></th>
+                                    <th md-column><span translate>Actions</span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="node in object.replicas">
+                                    <td md-cell>{{ node[_langField('name')] }}</td>
+                                    <td md-cell>
+                                        <a aria-title="{{ node[_langField('name')] }}" ui-sref="main.kb_mgmt.models.details.instance({instId: node.id})"><md-icon>folder_open</md-icon><md-tooltip md-direction="left">{{ node[_langField('name')] }}</md-tooltip></a>
+                                        <a aria-title="{{ 'Detach' | translate }}" ng-click="detachInstance($event,node)""><md-icon>content_cut</md-icon><md-tooltip md-direction="left">{{ 'Detach' | translate }}</md-tooltip></a>
+                                         <!--"-->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-card>
                 </div>
             </md-tab>
 

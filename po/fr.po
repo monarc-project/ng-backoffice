@@ -1472,14 +1472,21 @@ msgstr "Instance de l'objet"
 msgid "Object is not an object of this anr"
 msgstr "L'objet n'appartient pas à cette ANR"
 
-#: views/object.info_risk.kb_mgmt.html:76
+#: views/object.info_risk.kb_mgmt.html:77
 msgid "Object replica(s) in models"
 msgstr "Réplica(s) de l'objet dans les modèles"
+
+#: views/object.info_risk.kb_mgmt.html:82
+msgid "Object used in the risks analysis"
+msgstr "Cet objet est utilisé dans l'analyse de risques"
 
 #: ../ng_anr/views/anr.layout.html:72 views/info_risk.kb_mgmt.html:363
 #: views/info_risk.kb_mgmt.html:365
 msgid "Objects library"
 msgstr "Bibliothèque d'objets"
+
+msgid "See object in the library"
+msgstr "Voir l'objet dans la bibliothèque"
 
 #: ../ng_anr/views/anr.home.html:124 ../ng_anr/views/anr.instance.html:154
 #: ../ng_anr/views/oprisk_sheet.html:45 views/object.info_risk.kb_mgmt.html:143
