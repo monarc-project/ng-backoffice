@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
             '$scope', '$rootScope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettextCatalog',
-            'ObjlibService', 'DownloadService', 'AnrService',
+            'ObjlibService', 'DownloadService', 'AnrService', 'InstancesService', '$location',
             BackofficeKbInfoObjectCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO > Objects Library > Object details
      */
     function BackofficeKbInfoObjectCtrl($scope, $rootScope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
-                                        gettextCatalog, ObjlibService, DownloadService, AnrService) {
+                                        gettextCatalog, ObjlibService, DownloadService, AnrService, InstancesService, $location) {
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
@@ -90,6 +90,12 @@
             }, function () {
                 // Cancel
             })
+        }
+
+        $scope.detachInstance = function (ev, instance){
+            InstancesService.detach($scope, ev, instance.id, function(){
+                $scope.object.replicas.splice($scope.object.replicas.indexOf(instance), 1);
+            });
         }
 
         $scope.deleteObject = function (ev) {
@@ -300,6 +306,10 @@
                 $scope.updateObjlib();
             })
         };
+
+        $scope.showInModel = function(modelid, objectid){
+            $location.path('/backoffice/kb/models/'+modelid+'/object/'+objectid);
+        };
     }
 
 
@@ -408,6 +418,5 @@
         $scope.export = function() {
             $mdDialog.hide($scope.export);
         };
-
     }
 })();
