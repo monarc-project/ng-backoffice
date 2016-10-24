@@ -29,7 +29,7 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-shell": "^1.2.1",
     "ng-file-upload": "^12.0.4",
-    "ng-inline-edit": "^0.7.0",
+    "ng-inline-edit": "git+ssh://git@github.com:netlor/ng-inline-edit#master",
     "angular-ui-tree": "^2.22.1"
   },
   "devDependencies": {
