@@ -37,6 +37,14 @@
                 </div>
             </md-toolbar>
 
+            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New category' | translate }}"
+                       ng-click="createNewCategory($event)">
+                <md-tooltip md-direction="left">
+                    {{ 'New tag' | translate }}
+                </md-tooltip>
+                <md-icon>add</md-icon>
+            </md-button>
+
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="categories.selected" md-progress="categories.promise">
                     <thead md-head md-order="categories.query.order" md-on-reorder="updateCategories">
@@ -70,16 +78,6 @@
                                  md-total="{{categories.items.count}}" md-on-paginate="updateCategories"
                                  md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
 
-            <div layout="row" class="md-padding">
-                <span flex></span>
-                <md-button class="md-fab md-accent" aria-label="{{ 'New category' | translate }}"
-                           ng-click="createNewCategory($event)">
-                    <md-tooltip md-direction="left">
-                        {{ 'New category' | translate }}
-                    </md-tooltip>
-                    <md-icon>add</md-icon>
-                </md-button>
-            </div>
         </md-tab>
 
         <md-tab label="{{ 'Tags' | translate }}" md-on-select="selectTagsTab()" md-on-deselect="deselectTagsTab()">

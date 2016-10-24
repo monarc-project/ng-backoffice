@@ -1,75 +1,74 @@
 <div flex ng-controller="BackofficeKbModelsCtrl">
-    <md-toolbar class="md-table-toolbar md-default" ng-hide="models.selected.length || models.filter.show">
-        <div class="md-toolbar-tools">
-            <h2 class="md-title" translate>Models</h2>
-            <div flex></div>
-            <md-button class="md-icon-button" ng-click="models.filter.show = true">
+    <div style="position: relative;">
+        <md-toolbar class="md-table-toolbar md-default" ng-hide="models.selected.length || models.filter.show">
+            <div class="md-toolbar-tools">
+                <h2 class="md-title" translate>Models</h2>
+                <div flex></div>
+                <md-button class="md-icon-button" ng-click="models.filter.show = true">
+                    <md-icon>search</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-toolbar class="md-table-toolbar md-default" ng-show="models.filter.show && !models.selected.length">
+            <div class="md-toolbar-tools">
                 <md-icon>search</md-icon>
-            </md-button>
-        </div>
-    </md-toolbar>
+                <form flex name="models.filter.form">
+                    <input type="text" ng-model="models.query.filter" ng-model-options="models.filter.options" placeholder="{{ 'Search...' | translate }}">
+                </form>
+                <md-button class="md-icon-button" ng-click="removeModelsFilter()">
+                    <md-icon>close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
 
-    <md-toolbar class="md-table-toolbar md-default" ng-show="models.filter.show && !models.selected.length">
-        <div class="md-toolbar-tools">
-            <md-icon>search</md-icon>
-            <form flex name="models.filter.form">
-                <input type="text" ng-model="models.query.filter" ng-model-options="models.filter.options" placeholder="{{ 'Search...' | translate }}">
-            </form>
-            <md-button class="md-icon-button" ng-click="removeModelsFilter()">
-                <md-icon>close</md-icon>
-            </md-button>
-        </div>
-    </md-toolbar>
+        <md-toolbar class="md-table-toolbar alternate" ng-show="models.selected.length">
+            <div class="md-toolbar-tools" layout-align="space-between center">
+                <div>{{models.selected.length}} {{models.selected.length > 1 ? 'items' : 'item'}} selected</div>
+                <md-button class="md-icon-button" ng-click="deleteModelMass($event)">
+                    <md-icon>delete</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
 
-    <md-toolbar class="md-table-toolbar alternate" ng-show="models.selected.length">
-        <div class="md-toolbar-tools" layout-align="space-between center">
-            <div>{{models.selected.length}} {{models.selected.length > 1 ? 'items' : 'item'}} selected</div>
-            <md-button class="md-icon-button" ng-click="deleteModelMass($event)">
-                <md-icon>delete</md-icon>
-            </md-button>
-        </div>
-    </md-toolbar>
-
-    <md-table-container flex>
-        <table md-table md-row-select multiple ng-model="models.selected" md-progress="models.promise">
-            <thead md-head md-order="models.query.order" md-on-reorder="updateModels">
-            <tr md-row>
-                <th md-column md-order-by="label1"><span translate>Label</span></th>
-                <th md-column md-order-by="description1"><span translate>Description</span></th>
-                <th md-column md-order-by="is_generic"><span translate>Specific</span></th>
-                <th md-column md-order-by="is_regulator"><span translate>Regulator</span></th>
-                <th md-column md-order-by="show_rolf_brut"><span translate>Raw ROLF</span></th>
-                <th md-column><span translate>Actions</span></th>
-            </tr>
-            </thead>
-
-            <tbody md-body>
-            <tr md-row md-select="model" md-select-id="label" ng-repeat="model in models.items.models" ng-init="model.isGeneric = !model.isGeneric">
-                <td class="clickable-rows" ng-class="{'bold': model.isDefault}" md-cell ui-sref="main.kb_mgmt.models.details({modelId: model.id})">{{ model[_langField('label')] }}</td>
-                <td md-cell class="preserve-newlines">{{ model[_langField('description')] }}</td>
-                <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></div></td>
-                <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isRegulator" aria-label="Regulator"></md-checkbox></div></td>
-                <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.showRolfBrut" aria-label="Raw ROLF"></md-checkbox></div></td>
-                <td md-cell>
-                    <md-button class="md-icon-button" ui-sref="main.kb_mgmt.models.details({modelId: model.id})"><md-icon>open_in_new</md-icon></md-button>
-                    <md-button class="md-icon-button" ng-click="editModel($event, model)"><md-icon>edit</md-icon></md-button>
-                    <md-button class="md-icon-button" ng-click="deleteModel($event, model)"><md-icon>delete</md-icon></md-button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </md-table-container>
-
-    <md-table-pagination md-limit="models.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="models.query.page"
-                         md-total="{{models.items.count}}" md-on-paginate="updateModels" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-    <div layout="row" class="md-padding">
-        <span flex></span>
-        <md-button class="md-fab md-accent" aria-label="{{ 'New model' | translate }}" ng-click="createNewModel($event)">
+        <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New model' | translate }}" ng-click="createNewModel($event)">
             <md-tooltip md-direction="left">
                 {{ 'New model' | translate }}
             </md-tooltip>
             <md-icon>add</md-icon>
         </md-button>
+
+        <md-table-container flex>
+            <table md-table md-row-select multiple ng-model="models.selected" md-progress="models.promise">
+                <thead md-head md-order="models.query.order" md-on-reorder="updateModels">
+                <tr md-row>
+                    <th md-column md-order-by="label1"><span translate>Label</span></th>
+                    <th md-column md-order-by="description1"><span translate>Description</span></th>
+                    <th md-column md-order-by="is_generic"><span translate>Specific</span></th>
+                    <th md-column md-order-by="is_regulator"><span translate>Regulator</span></th>
+                    <th md-column md-order-by="show_rolf_brut"><span translate>Raw ROLF</span></th>
+                    <th md-column><span translate>Actions</span></th>
+                </tr>
+                </thead>
+
+                <tbody md-body>
+                <tr md-row md-select="model" md-select-id="label" ng-repeat="model in models.items.models" ng-init="model.isGeneric = !model.isGeneric">
+                    <td class="clickable-rows" ng-class="{'bold': model.isDefault}" md-cell ui-sref="main.kb_mgmt.models.details({modelId: model.id})">{{ model[_langField('label')] }}</td>
+                    <td md-cell class="preserve-newlines">{{ model[_langField('description')] }}</td>
+                    <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></div></td>
+                    <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isRegulator" aria-label="Regulator"></md-checkbox></div></td>
+                    <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.showRolfBrut" aria-label="Raw ROLF"></md-checkbox></div></td>
+                    <td md-cell>
+                        <md-button class="md-icon-button" ui-sref="main.kb_mgmt.models.details({modelId: model.id})"><md-icon>open_in_new</md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="editModel($event, model)"><md-icon>edit</md-icon></md-button>
+                        <md-button class="md-icon-button" ng-click="deleteModel($event, model)"><md-icon>delete</md-icon></md-button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="models.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="models.query.page"
+                             md-total="{{models.items.count}}" md-on-paginate="updateModels" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
     </div>
 </div>

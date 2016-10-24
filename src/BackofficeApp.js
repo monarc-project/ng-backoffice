@@ -98,8 +98,8 @@ angular
                     label: gettext('KB management')
                 },
             }).state('main.kb_mgmt.info_risk', {
-                url: '/info/:tab',
-                params: { tab: { dynamic: true, value: 'assets' }},
+                url: '/info/:tab/:showid',
+                params: { tab: { dynamic: true, value: 'assets' },showid: { dynamic: true, value: null }},
                 views: {
                     'main@main': {templateUrl: '/views/info_risk.kb_mgmt.html'}
                 },

@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
             '$scope', '$rootScope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettextCatalog',
-            'ObjlibService', 'DownloadService', 'AnrService',
+            'ObjlibService', 'DownloadService', 'AnrService', 'InstancesService', '$location',
             BackofficeKbInfoObjectCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO > Objects Library > Object details
      */
     function BackofficeKbInfoObjectCtrl($scope, $rootScope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
-                                        gettextCatalog, ObjlibService, DownloadService, AnrService) {
+                                        gettextCatalog, ObjlibService, DownloadService, AnrService, InstancesService, $location) {
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
@@ -55,10 +55,15 @@
 
         $scope.updateObjlib = function () {
             isObjectLoading = true;
-            ObjlibService.getObjlib($stateParams.objectId, {mode: $scope.mode}).then(function (object) {
+            ObjlibService.getObjlib($stateParams.objectId, {mode: $scope.mode, anr: $rootScope.anr_id}).then(function (object) {
                 $scope.object = object;
                 $scope.composition = object.children;
                 $timeout(function() { isObjectLoading = false; });
+            }, function(e){
+                //cas d'erreur possible : l'objet n'est pas lié à cette anr
+                if($rootScope.hookUpdateObjlib){
+                    $rootScope.hookUpdateObjlib(true);
+                }
             });
         };
 
@@ -76,12 +81,21 @@
 
             $mdDialog.show(confirm).then(function () {
                 ObjlibService.deleteObjlibNode(item.component_link_id, function () {
+                    if($scope.mode != undefined && $scope.mode == "anr"){
+                        $scope.updateInstances();
+                    }
                     $scope.updateObjlib();
                     toastr.success(gettextCatalog.getString('The object has been detached successfully'), gettextCatalog.getString('Component detached'));
                 });
             }, function () {
                 // Cancel
             })
+        }
+
+        $scope.detachInstance = function (ev, instance){
+            InstancesService.detach($scope, ev, instance.id, function(){
+                $scope.object.replicas.splice($scope.object.replicas.indexOf(instance), 1);
+            });
         }
 
         $scope.deleteObject = function (ev) {
@@ -119,7 +133,7 @@
                             AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
                                 toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
                                 if ($rootScope.hookUpdateObjlib) {
-                                    $rootScope.hookUpdateObjlib();
+                                    $rootScope.hookUpdateObjlib(true);//true pour retouner sur la fiche du premier objet de la bibliothèque
                                 }
                             });
                         });
@@ -239,7 +253,11 @@
             })
                 .then(function (exports) {
                     $http.post('/api/objects-export', {id: $scope.object.id, password: exports.password}).then(function (data) {
-                        DownloadService.downloadBlob(data.data, 'object.bin');
+                        var contentD = data.headers('Content-Disposition'),
+                            contentT = data.headers('Content-Type');
+                        contentD = contentD.substring(0,contentD.length-1).split('filename="');
+                        contentD = contentD[contentD.length-1];
+                        DownloadService.downloadBlob(data.data, contentD,contentT);
                         toastr.success(gettextCatalog.getString('The object has been exported successfully.'), gettextCatalog.getString('Export successful'));
                     })
                 });
@@ -255,7 +273,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', CreateComponentDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', '$rootScope', CreateComponentDialogCtrl],
                 templateUrl: '/views/anr/create.objlibs.node.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -273,6 +291,9 @@
                         ObjlibService.createObjlibNode(objlib,
                             function () {
                                 $scope.updateObjlib();
+                                if($scope.mode != undefined && $scope.mode == "anr"){
+                                    $scope.updateInstances();
+                                }
                                 toastr.success(gettextCatalog.getString('The component has been created successfully.'), gettextCatalog.getString('Creation successful'));
                             }
                         );
@@ -285,15 +306,22 @@
                 $scope.updateObjlib();
             })
         };
+
+        $scope.showInModel = function(modelid, objectid){
+            $location.path('/backoffice/kb/models/'+modelid+'/object/'+objectid);
+        };
     }
 
 
-    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself) {
+    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself, $rootScope, AnrService) {
         $scope.component = {
             position: null,
             child: null,
             implicitPosition: 1
         };
+
+        $scope.objectSearchText = null;
+        $scope.componentPreviousSearchText = null;
 
         $scope.cancel = function() {
             $mdDialog.cancel();
@@ -314,7 +342,7 @@
         $scope.queryObjectSearch = function (query) {
             var q = $q.defer();
 
-            ObjlibService.getObjlibs({filter: query, order: 'name1'}).then(function (x) {
+            var handle_objects = function (x) {
                 if (x && x.objects) {
                     var objects_filtered = [];
 
@@ -323,14 +351,18 @@
                             objects_filtered.push(x.objects[i]);
                         }
                     }
-
                     q.resolve(objects_filtered);
                 } else {
                     q.reject();
                 }
-            }, function (x) {
-                q.reject(x);
-            });
+            };
+            if($scope.mode != 'anr'){
+                ObjlibService.getObjlibs({filter: query, order: 'name1'}).then(handle_objects, function (x) { q.reject(x); });
+            }
+            else{
+                ObjlibService.getObjectsOfAnr($rootScope.anr_id, {filter: query, order: 'name1'}, handle_objects, function(x) {q.reject(x);});
+            }
+
 
             return q.promise;
         };
@@ -386,6 +418,5 @@
         $scope.export = function() {
             $mdDialog.hide($scope.export);
         };
-
     }
 })();

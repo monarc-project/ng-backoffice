@@ -5,7 +5,7 @@
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
-            '$timeout',
+            '$timeout', '$http', 'DownloadService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -14,7 +14,7 @@
      */
     function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
-                                  $state, $timeout) {
+                                  $state, $timeout, $http, DownloadService) {
         $scope.tab = $stateParams.tab;
         $scope.gettext = gettextCatalog.getString;
         TableHelperService.resetBookmarks();
@@ -147,8 +147,9 @@
 
         $scope.editAsset = function (ev, asset) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
+            $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
             AssetService.getAsset(asset.id).then(function (assetData) {
+                $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
                     templateUrl: '/views/anr/create.assets.html',
@@ -234,6 +235,33 @@
                 case 1: return gettextCatalog.getString('Primary');
                 case 2: return gettextCatalog.getString('Secondary');
             }
+        };
+
+        $scope.exportAsset = function (ev,item) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'mode', ExportAssetDialog],
+                templateUrl: '/views/dialogs/export.objlibs.html',
+                targetEvent: ev,
+                preserveScope: true,
+                scope: $scope,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                locals: {
+                    mode: 'asset'
+                }
+            })
+            .then(function (exports) {
+                $http.post('/api/asset/export', {id: item.id, password: exports.password}).then(function (data) {
+                    var contentD = data.headers('Content-Disposition'),
+                        contentT = data.headers('Content-Type');
+                    contentD = contentD.substring(0,contentD.length-1).split('filename="');
+                    contentD = contentD[contentD.length-1];
+                    DownloadService.downloadBlob(data.data, contentD,contentT);
+                    toastr.success(gettextCatalog.getString('The asset has been exported successfully.'), gettextCatalog.getString('Export successful'));
+                })
+            });
         };
 
         /*
@@ -334,8 +362,9 @@
 
         $scope.editThreat = function (ev, threat) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
+            $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
             ThreatService.getThreat(threat.id).then(function (threatData) {
+                $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                     templateUrl: '/views/anr/create.threats.html',
@@ -366,6 +395,7 @@
                                     toastr.success(gettextCatalog.getString('The threat "{{threatLabel}}" has been updated successfully.',
                                         {threatLabel: threat.label1}), gettextCatalog.getString('Update successful'));
                                 }
+                                threat.theme = themeBackup;
                             },
 
                             function () {
@@ -442,7 +472,7 @@
                     $scope.updateVulns();
                 }
             });
-            
+
             TableHelperService.watchSearch($scope, 'vulns.query.filter', $scope.vulns.query, $scope.updateVulns, $scope.vulns);
         };
 
@@ -515,8 +545,9 @@
 
         $scope.editVuln = function (ev, vuln) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
+            $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
             VulnService.getVuln(vuln.id).then(function (vulnData) {
+                $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
                     templateUrl: '/views/anr/create.vulns.html',
@@ -867,8 +898,14 @@
 
         $scope.editAmv = function (ev, amv) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            if(amv == null){
+                return;
+            }
+            if(amv.id!=undefined){
+                amv = amv.id;
+            }
 
-            AmvService.getAmv(amv.id).then(function (amvData) {
+            AmvService.getAmv(amv).then(function (amvData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
                     templateUrl: '/views/anr/create.amvs.html',
@@ -916,6 +953,11 @@
                     });
             });
         };
+
+        if($stateParams.showid !== undefined){
+            $scope.editAmv(null,$stateParams.showid);
+        }
+
 
         $scope.deleteAmv = function (ev, item) {
             var confirm = $mdDialog.confirm()
@@ -1483,7 +1525,7 @@
         // Asset
         $scope.queryAssetSearch = function (query) {
             var promise = $q.defer();
-            AssetService.getAssets({filter: query}).then(function (e) {
+            AssetService.getAssets({filter: query, type: 2, status: 1}).then(function (e) {
                 promise.resolve(e.assets);
             }, function (e) {
                 promise.reject(e);
@@ -1563,5 +1605,19 @@
         };
     }
 
+    function ExportAssetDialog($scope, $mdDialog, mode) {
+        $scope.mode = mode;
+        $scope.export = {
+            password: null
+        };
 
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.export = function() {
+            $mdDialog.hide($scope.export);
+        };
+
+    }
 })();
