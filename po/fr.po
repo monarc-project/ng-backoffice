@@ -1102,6 +1102,10 @@ msgstr "Risques de l'information"
 msgid "Inherited"
 msgstr "Hérité"
 
+
+msgid "Unknown"
+msgstr "Non renseigné"
+
 #: views/_gettext_caveats.html:19
 msgid "Instance not exist"
 msgstr "L'instance n'existe pas"
