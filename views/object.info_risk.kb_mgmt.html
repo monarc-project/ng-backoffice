@@ -1,6 +1,6 @@
 <div class="md-padding" ng-cloak layout="column" ng-controller="BackofficeKbInfoObjectCtrl">
     <div layout="row" layout-align="space-around center">
-        <md-button class="md-icon-button" ng-href="#/backoffice/kb/info/objlibs"><md-icon>arrow_back</md-icon></md-button>
+        <md-button class="md-icon-button" ui-sref="main.kb_mgmt.info_risk({tab: 'objlibs'})"><md-icon>arrow_back</md-icon></md-button>
         <div flex ng-if="object" ng-class="{'active-obj': mode == 'anr'}">
             <h2>
                 <md-icon ng-if="object && object.scope == 2" style="color: #F57C00">share</md-icon>
