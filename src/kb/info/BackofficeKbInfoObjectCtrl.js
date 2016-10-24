@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
             '$scope', '$rootScope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettextCatalog',
-            'ObjlibService', 'DownloadService', 'AnrService', 'InstancesService', '$location',
+            'ObjlibService', 'DownloadService', 'AnrService', 'InstanceService', '$location',
             BackofficeKbInfoObjectCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO > Objects Library > Object details
      */
     function BackofficeKbInfoObjectCtrl($scope, $rootScope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
-                                        gettextCatalog, ObjlibService, DownloadService, AnrService, InstancesService, $location) {
+                                        gettextCatalog, ObjlibService, DownloadService, AnrService, InstanceService, $location) {
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
@@ -93,7 +93,7 @@
         }
 
         $scope.detachInstance = function (ev, instance){
-            InstancesService.detach($scope, ev, instance.id, function(){
+            InstanceService.detach($scope, ev, instance.id, function(){
                 $scope.object.replicas.splice($scope.object.replicas.indexOf(instance), 1);
             });
         }
