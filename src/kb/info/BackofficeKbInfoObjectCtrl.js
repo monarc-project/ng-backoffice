@@ -124,8 +124,8 @@
                         controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', DetachObjectDialog],
                         templateUrl: '/views/anr/detach.objlibs.html',
                         targetEvent: ev,
-                        preserveScope: true,
-                        scope: $scope,
+                        preserveScope: false,
+                        scope: $scope.$dialogScope.$new(),
                         clickOutsideToClose: true,
                         fullscreen: useFullScreen,
                     })
@@ -172,8 +172,8 @@
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
                 templateUrl: '/views/anr/create.objlibs.html',
                 targetEvent: ev,
-                preserveScope: true,
-                scope: $scope,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -243,8 +243,8 @@
                 controller: ['$scope', '$mdDialog', 'mode', ExportObjectDialog],
                 templateUrl: '/views/dialogs/export.objlibs.html',
                 targetEvent: ev,
-                preserveScope: true,
-                scope: $scope,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
@@ -277,8 +277,8 @@
                 templateUrl: '/views/anr/create.objlibs.node.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                preserveScope: true,
-                scope: $scope,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
                 fullscreen: useFullScreen,
                 locals: {
                     'myself': $scope.object

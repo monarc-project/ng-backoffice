@@ -258,6 +258,11 @@ angular
                 return field + ConfigService.getDefaultLanguageIndex();
             };
 
+            // Setup dialog-specific scope based on the rootScope. This is mostly used to have access to _langField
+            // in dialog views as well without having to manually declare it every time. We clone the scope so that
+            // dialog have their distinct scope and avoid editing the parent one.
+            $rootScope.$dialogScope = $rootScope.$new();
+
             // Safari filtering method
             $rootScope.isSafari = function () {
                 var ua = navigator.userAgent.toLowerCase();
