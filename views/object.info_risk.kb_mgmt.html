@@ -88,7 +88,8 @@
                                 <tr md-row ng-repeat="node in object.replicas">
                                     <td md-cell>{{ node[_langField('label')] }}</td>
                                     <td md-cell>
-                                        <a aria-title="{{ node[_langField('name')] }}" ng-click="showInModel(node.id, object.id)"><md-icon>folder_open</md-icon><md-tooltip md-direction="left">{{ node[_langField('name')] }}</md-tooltip></a>
+                                        <!-- <a aria-title="{{ node[_langField('name')] }}" ng-click="showInModel(node.id, object.id)"><md-icon>folder_open</md-icon><md-tooltip md-direction="left">{{ node[_langField('name')] }}</md-tooltip></a> -->
+                                        <md-button class="md-icon-button" aria-title="{{ node[_langField('name')] }}" ui-sref="main.kb_mgmt.models.details.object({modelId: node.id, objectId: object.id})"><md-icon>folder_open</md-icon><md-tooltip md-direction="left">{{ node[_langField('name')] }}</md-tooltip></md-button>
                                          <!--"-->
                                     </td>
                                 </tr>
@@ -109,8 +110,8 @@
                                 <tr md-row ng-repeat="node in object.replicas">
                                     <td md-cell>{{ node[_langField('name')] }}</td>
                                     <td md-cell>
-                                        <a aria-title="{{ node[_langField('name')] }}" ui-sref="main.kb_mgmt.models.details.instance({instId: node.id})"><md-icon>folder_open</md-icon><md-tooltip md-direction="left">{{ node[_langField('name')] }}</md-tooltip></a>
-                                        <a aria-title="{{ 'Detach' | translate }}" ng-click="detachInstance($event,node)""><md-icon>content_cut</md-icon><md-tooltip md-direction="left">{{ 'Detach' | translate }}</md-tooltip></a>
+                                        <md-button class="md-icon-button" aria-title="{{ node[_langField('name')] }}" ui-sref="main.kb_mgmt.models.details.instance({instId: node.id})"><md-icon>folder_open</md-icon><md-tooltip md-direction="left">{{ node[_langField('name')] }}</md-tooltip></md-button>
+                                        <md-button class="md-icon-button" aria-title="{{ 'Detach' | translate }}" ng-click="detachInstance($event,node)""><md-icon>content_cut</md-icon><md-tooltip md-direction="left">{{ 'Detach' | translate }}</md-tooltip></md-button>
                                          <!--"-->
                                     </td>
                                 </tr>
