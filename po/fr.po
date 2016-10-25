@@ -2469,9 +2469,7 @@ msgstr "Nom du thème"
 msgid ""
 "There are no operational risks for this instance, so the operational risks "
 "table is empty."
-msgstr ""
-"Il n'y a pas de risques opérationnels pour cette instance, donc la table des "
-"risques opérationnels est vide."
+msgstr "Il n'y a pas de risques opérationnels pour cette instance."
 
 #: ../ng_anr/views/anr.home.html:116
 msgid "There are no operational risks for this risk analysis."
