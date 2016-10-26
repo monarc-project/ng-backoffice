@@ -58,6 +58,7 @@
             ObjlibService.getObjlib($stateParams.objectId, {mode: $scope.mode, anr: $rootScope.anr_id}).then(function (object) {
                 $scope.object = object;
                 $scope.composition = object.children;
+                $scope.oprisks = object.oprisks;
                 $timeout(function() { isObjectLoading = false; });
             }, function(e){
                 //cas d'erreur possible : l'objet n'est pas lié à cette anr

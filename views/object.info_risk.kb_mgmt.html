@@ -169,56 +169,7 @@
                     </tbody>
                 </table>
             </md-tab>
-
-            <md-tab label="{{ 'OP risks table' | translate }}" ng-if="object.asset.type == 1">
-                <md-card class="md-card-info" ng-if="mode == 'bdc'"><md-card-content>
-                    <p translate>Operational risks may not be pre-evaluated in the knowledge base.</p>
-                </md-card-content></md-card>
-
-                <p class="md-title md-padding" translate>{{ object.oprisks.length || 0 }} operational risk(s)</p>
-
-                <table class="md-html-table">
-                    <thead>
-                    <tr>
-                        <th rowspan="3" translate>Risk description</th>
-                        <th colspan="7" translate>NET</th>
-                        <th rowspan="3" translate>Observation</th>
-                        <th rowspan="3">T</th>
-                        <th rowspan="3" translate>Target risk</th>
-                    </tr>
-
-                    <tr>
-                        <th rowspan="2" translate>Prob.</th>
-                        <th colspan="5" translate>Impact</th>
-                        <th rowspan="2" translate>Calculated risk</th>
-                    </tr>
-
-                    <tr>
-                        <th>R</th>
-                        <th>O</th>
-                        <th>L</th>
-                        <th>F</th>
-                        <th>P</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr ng-repeat="risk in object.oprisks">
-                        <td>{{ risk[_langField('description')] }}</td>
-                        <td>{{ risk.prob }}</td>
-                        <td>{{ risk.r }}</td>
-                        <td>{{ risk.o }}</td>
-                        <td>{{ risk.l }}</td>
-                        <td>{{ risk.f }}</td>
-                        <td>{{ risk.p }}</td>
-                        <td>{{ risk.risk }}</td>
-                        <td>{{ risk.comment }}</td>
-                        <td>{{ risk.t }}</td>
-                        <td>{{ risk.target }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </md-tab>
+            <ng-include src="'views/anr/_table_risks_op.html'" ng-if="object.asset.type == 1"></ng-include>
         </md-tabs>
     </md-card>
 </div>
