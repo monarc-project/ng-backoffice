@@ -1883,7 +1883,7 @@ msgstr "Enregistrement réussi"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:476
 msgid "Scale type deleted"
-msgstr ""
+msgstr "Type d’échelle supprimée avec succès"
 
 #: ../ng_anr/views/create.objlibs.html:46 views/info_risk.kb_mgmt.html:425
 msgid "Scope"
@@ -2192,7 +2192,7 @@ msgstr "Le guide a bien été supprimé."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:476
 msgid "The impact scale type has been deleted successfully."
-msgstr ""
+msgstr "L’échelle de type d’impact a été supprimée avec succès."
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:135
 msgid "The instance details have been updated"
@@ -2812,6 +2812,14 @@ msgstr "Vous ne pouvez pas ajouter d'objet spécifique à un parent générique"
 #: views/_gettext_caveats.html:23
 msgid "You cannot add yourself as a component"
 msgstr "Vous ne pouvez pas vous ajouter vous-même comme composant"
+
+#: views/_gettext_caveats.html:31
+msgid "You cannot change the asset type of an existing object."
+msgstr "Vous ne pouvez pas modifier le type d’assez d’un objet existant."
+
+#: views/_gettext_caveats.html:30
+msgid "You cannot change the scope of an existing object."
+msgstr "Vous ne pouvez pas modifier la portée d’un objet existant."
 
 #: views/_gettext_caveats.html:26
 msgid ""
