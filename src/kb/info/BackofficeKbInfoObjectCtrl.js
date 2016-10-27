@@ -193,7 +193,7 @@
                             objlib.rolfTag = objlib.rolfTag.id;
                         }
 
-                        if (objlib.category) {
+                        if (objlib.category && objlib.category.id) {
                             objlib.category = objlib.category.id;
                         }
 
