@@ -1147,7 +1147,7 @@ msgstr "Générique"
 #: ../ng_anr/views/create.objlibs.html:50
 #: src/kb/info/BackofficeKbInfoCtrl.js:1039
 msgid "Global"
-msgstr "Global"
+msgstr "Globale"
 
 #: views/login.html:50
 msgid "Go back"
@@ -1296,7 +1296,7 @@ msgstr "Liste des liens AMVs"
 #: ../ng_anr/views/create.objlibs.html:49
 #: src/kb/info/BackofficeKbInfoCtrl.js:1038
 msgid "Local"
-msgstr "Local"
+msgstr "Locale"
 
 #: ../ng_anr/views/create.objlibs.categories.html:42
 #: ../ng_anr/views/create.objlibs.html:178
