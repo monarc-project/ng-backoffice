@@ -156,10 +156,10 @@ angular
                 ncyBreadcrumb: {
                     label: gettext('Operational risks')
                 }
-            }).state('main.kb_mgmt.doc_models', {
-                url: '/docs',
+            }).state('main.kb_mgmt.deliveries_models', {
+                url: '/deliveriesmodels',
                 views: {
-                    'main@main': {templateUrl: '/views/doc_models.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/deliveries_models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Document templates')
