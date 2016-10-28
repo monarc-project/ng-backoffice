@@ -129,6 +129,14 @@
             }, function() {
             });
         };
+
+        $scope.duplicateModel = function (item) {
+            ModelService.duplicateModel(item.id, function () {
+                $scope.updateModels();
+                toastr.success(gettextCatalog.getString('The model "{{name}}" has been duplicated sucessfully.',
+                    {name: item[$scope._langField('label')]}), gettextCatalog.getString('Duplication successful'));
+            });
+        }
     }
 
     function CreateModelDialogCtrl($scope, $mdDialog, ConfigService, model) {
