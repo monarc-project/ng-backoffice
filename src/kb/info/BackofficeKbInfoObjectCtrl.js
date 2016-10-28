@@ -274,7 +274,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', '$rootScope', CreateComponentDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', '$rootScope', 'AnrService', 'mode', CreateComponentDialogCtrl],
                 templateUrl: '/views/anr/create.objlibs.node.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -282,7 +282,8 @@
                 scope: $scope.$dialogScope.$new(),
                 fullscreen: useFullScreen,
                 locals: {
-                    'myself': $scope.object
+                    'myself': $scope.object,
+                    'mode': $scope.mode
                 }
             })
                 .then(function (objlib) {
@@ -314,7 +315,7 @@
     }
 
 
-    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself, $rootScope, AnrService) {
+    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself, $rootScope, AnrService, mode) {
         $scope.component = {
             position: null,
             child: null,
@@ -323,6 +324,8 @@
 
         $scope.objectSearchText = null;
         $scope.componentPreviousSearchText = null;
+
+        $scope.mode = mode;
 
         $scope.cancel = function() {
             $mdDialog.cancel();
