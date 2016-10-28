@@ -75,6 +75,13 @@
                         </li>
                     </ul>
 
+                    <md-card ng-if="object.parents.length > 0">
+                        <p class="md-title" translate>In the common library, this object is a direct component of :</p>
+                        <ul>
+                            <li ng-repeat="parent in object.parents">{{parent[_langField("name")]}} ({{parent[_langField("label")]}})</li>
+                        </ul>
+                    </md-card>
+
                     <md-card ng-if="mode == 'bdc' && object.replicas.length > 0">
                         <p class="md-title" translate>Object replica(s) in models</p>
                         <table md-table>

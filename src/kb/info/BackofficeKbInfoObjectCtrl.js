@@ -53,13 +53,17 @@
         }, true);
 
 
-        $scope.updateObjlib = function () {
+        $scope.updateObjlib = function (cb) {
             isObjectLoading = true;
             ObjlibService.getObjlib($stateParams.objectId, {mode: $scope.mode, anr: $rootScope.anr_id}).then(function (object) {
                 $scope.object = object;
                 $scope.composition = object.children;
                 $scope.oprisks = object.oprisks;
                 $timeout(function() { isObjectLoading = false; });
+
+                if (cb) {
+                    cb();
+                }
             }, function(e){
                 //cas d'erreur possible : l'objet n'est pas lié à cette anr
                 if($rootScope.hookUpdateObjlib){
@@ -118,17 +122,20 @@
                     // Cancel
                 })
             } else if ($scope.mode == 'anr') {
-                if (true /* Object has Instances in ANR*/) {
+                if ($scope.object.replicas.length > 0) {
                     var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
                     $mdDialog.show({
-                        controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', DetachObjectDialog],
+                        controller: ['$scope', '$mdDialog', 'AnrService', '$parentScope', DetachObjectDialog],
                         templateUrl: '/views/anr/detach.objlibs.html',
                         targetEvent: ev,
                         preserveScope: false,
                         scope: $scope.$dialogScope.$new(),
                         clickOutsideToClose: true,
                         fullscreen: useFullScreen,
+                        locals: {
+                            '$parentScope': $scope
+                        }
                     })
                         .then(function () {
                             AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
@@ -274,7 +281,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', '$rootScope', CreateComponentDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', '$rootScope', 'AnrService', 'mode', CreateComponentDialogCtrl],
                 templateUrl: '/views/anr/create.objlibs.node.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -282,7 +289,8 @@
                 scope: $scope.$dialogScope.$new(),
                 fullscreen: useFullScreen,
                 locals: {
-                    'myself': $scope.object
+                    'myself': $scope.object,
+                    'mode': $scope.mode
                 }
             })
                 .then(function (objlib) {
@@ -314,7 +322,7 @@
     }
 
 
-    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself, $rootScope, AnrService) {
+    function CreateComponentDialogCtrl($scope, $mdDialog, $q, ObjlibService, myself, $rootScope, AnrService, mode) {
         $scope.component = {
             position: null,
             child: null,
@@ -323,6 +331,8 @@
 
         $scope.objectSearchText = null;
         $scope.componentPreviousSearchText = null;
+
+        $scope.mode = mode;
 
         $scope.cancel = function() {
             $mdDialog.cancel();
@@ -395,7 +405,18 @@
     }
 
 
-    function DetachObjectDialog($scope, $mdDialog) {
+    function DetachObjectDialog($scope, $mdDialog, AnrService, $parentScope) {
+        $scope.object = $parentScope.object;
+
+        $scope.detachInstance = function (ev, id) {
+            AnrService.deleteInstance($parentScope.model.anr.id, id.id, function () {
+                $parentScope.updateInstances();
+                $parentScope.updateObjlib(function () {
+                    $scope.object = $parentScope.object;
+                });
+            });
+        };
+
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
