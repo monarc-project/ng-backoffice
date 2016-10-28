@@ -53,13 +53,17 @@
         }, true);
 
 
-        $scope.updateObjlib = function () {
+        $scope.updateObjlib = function (cb) {
             isObjectLoading = true;
             ObjlibService.getObjlib($stateParams.objectId, {mode: $scope.mode, anr: $rootScope.anr_id}).then(function (object) {
                 $scope.object = object;
                 $scope.composition = object.children;
                 $scope.oprisks = object.oprisks;
                 $timeout(function() { isObjectLoading = false; });
+
+                if (cb) {
+                    cb();
+                }
             }, function(e){
                 //cas d'erreur possible : l'objet n'est pas lié à cette anr
                 if($rootScope.hookUpdateObjlib){
@@ -118,17 +122,20 @@
                     // Cancel
                 })
             } else if ($scope.mode == 'anr') {
-                if (true /* Object has Instances in ANR*/) {
+                if ($scope.object.replicas.length > 0) {
                     var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
                     $mdDialog.show({
-                        controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', DetachObjectDialog],
+                        controller: ['$scope', '$mdDialog', 'AnrService', '$parentScope', DetachObjectDialog],
                         templateUrl: '/views/anr/detach.objlibs.html',
                         targetEvent: ev,
                         preserveScope: false,
                         scope: $scope.$dialogScope.$new(),
                         clickOutsideToClose: true,
                         fullscreen: useFullScreen,
+                        locals: {
+                            '$parentScope': $scope
+                        }
                     })
                         .then(function () {
                             AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
@@ -398,7 +405,18 @@
     }
 
 
-    function DetachObjectDialog($scope, $mdDialog) {
+    function DetachObjectDialog($scope, $mdDialog, AnrService, $parentScope) {
+        $scope.object = $parentScope.object;
+
+        $scope.detachInstance = function (ev, id) {
+            AnrService.deleteInstance($parentScope.model.anr.id, id.id, function () {
+                $parentScope.updateInstances();
+                $parentScope.updateObjlib(function () {
+                    $scope.object = $parentScope.object;
+                });
+            });
+        };
+
         $scope.cancel = function() {
             $mdDialog.cancel();
         };

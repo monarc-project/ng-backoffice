@@ -97,7 +97,7 @@
                         </table>
                     </md-card>
 
-                    <md-card ng-if="mode == 'anr' && object.replicas.length > 0">
+                    <div ng-if="mode == 'anr' && object.replicas.length > 0">
                         <p class="md-title" translate>Object used in the risks analysis</p>
                         <table md-table>
                             <thead md-head>
@@ -117,7 +117,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </md-card>
+                    </div>
                 </div>
             </md-tab>
 
