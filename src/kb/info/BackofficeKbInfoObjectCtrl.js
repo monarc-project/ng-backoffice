@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbInfoObjectCtrl', [
             '$scope', '$rootScope', '$timeout', '$state', 'toastr', '$mdMedia', '$mdDialog', '$stateParams', '$http', 'gettextCatalog',
-            'ObjlibService', 'DownloadService', 'AnrService', 'InstanceService', '$location',
+            'ObjlibService', 'DownloadService', 'AnrService', 'InstanceService', '$location', 'AnrObject',
             BackofficeKbInfoObjectCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > INFO > Objects Library > Object details
      */
     function BackofficeKbInfoObjectCtrl($scope, $rootScope, $timeout, $state, toastr, $mdMedia, $mdDialog, $stateParams, $http,
-                                        gettextCatalog, ObjlibService, DownloadService, AnrService, InstanceService, $location) {
+                                        gettextCatalog, ObjlibService, DownloadService, AnrService, InstanceService, $location, AnrObject) {
 
         if ($state.current.name == 'main.kb_mgmt.models.details.object') {
             $scope.mode = 'anr';
@@ -122,51 +122,56 @@
                     // Cancel
                 })
             } else if ($scope.mode == 'anr') {
-                if ($scope.object.replicas.length > 0) {
-                    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+                //parents is a promise
+                AnrObject.parents({anrid: $rootScope.anr_id, id: $scope.object.id}, function(parents){
+                    if ($scope.object.replicas.length > 0 || parents.length > 0) {
+                        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-                    $mdDialog.show({
-                        controller: ['$scope', '$mdDialog', 'AnrService', '$parentScope', DetachObjectDialog],
-                        templateUrl: '/views/anr/detach.objlibs.html',
-                        targetEvent: ev,
-                        preserveScope: false,
-                        scope: $scope.$dialogScope.$new(),
-                        clickOutsideToClose: true,
-                        fullscreen: useFullScreen,
-                        locals: {
-                            '$parentScope': $scope
-                        }
-                    })
-                        .then(function () {
+                        $mdDialog.show({
+                            controller: ['$scope', '$mdDialog', 'AnrService', 'ObjlibService', '$parentScope', 'parents', 'gettextCatalog', 'toastr', DetachObjectDialog],
+                            templateUrl: '/views/anr/detach.objlibs.html',
+                            targetEvent: ev,
+                            preserveScope: false,
+                            scope: $scope.$dialogScope.$new(),
+                            clickOutsideToClose: true,
+                            fullscreen: useFullScreen,
+                            locals: {
+                                '$parentScope': $scope,
+                                parents: parents,
+                                gettextCatalog: gettextCatalog,
+                                toastr: toastr
+                            }
+                        })
+                            .then(function () {
+                                AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
+                                    toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
+                                    if ($rootScope.hookUpdateObjlib) {
+                                        $rootScope.hookUpdateObjlib(true);//true pour retouner sur la fiche du premier objet de la bibliothèque
+                                    }
+                                });
+                            });
+                    } else {
+                        var confirm = $mdDialog.confirm()
+                            .title(gettextCatalog.getString('Detach this object?'))
+                            .textContent(gettextCatalog.getString('The current object "{{ name }}" will be removed from the library. Are you sure?',
+                                {name: $scope.object.name1}))
+                            .ariaLabel(gettextCatalog.getString('Detach this object'))
+                            .targetEvent(ev)
+                            .ok(gettextCatalog.getString('Detach'))
+                            .cancel(gettextCatalog.getString('Cancel'));
+
+                        $mdDialog.show(confirm).then(function () {
                             AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
                                 toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
                                 if ($rootScope.hookUpdateObjlib) {
-                                    $rootScope.hookUpdateObjlib(true);//true pour retouner sur la fiche du premier objet de la bibliothèque
+                                    $rootScope.hookUpdateObjlib();
                                 }
                             });
-                        });
-                } else {
-                    var confirm = $mdDialog.confirm()
-                        .title(gettextCatalog.getString('Detach this object?'))
-                        .textContent(gettextCatalog.getString('The current object "{{ name }}" will be removed from the library. Are you sure?',
-                            {name: $scope.object.name1}))
-                        .ariaLabel(gettextCatalog.getString('Detach this object'))
-                        .targetEvent(ev)
-                        .ok(gettextCatalog.getString('Detach'))
-                        .cancel(gettextCatalog.getString('Cancel'));
-
-                    $mdDialog.show(confirm).then(function () {
-                        AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
-                            toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
-                            if ($rootScope.hookUpdateObjlib) {
-                                $rootScope.hookUpdateObjlib();
-                            }
-                        });
-                    }, function () {
-                        // Cancel
-                    })
-                }
-
+                        }, function () {
+                            // Cancel
+                        })
+                    }
+                });
             }
         }
 
@@ -405,8 +410,10 @@
     }
 
 
-    function DetachObjectDialog($scope, $mdDialog, AnrService, $parentScope) {
+    function DetachObjectDialog($scope, $mdDialog, AnrService, ObjlibService, $parentScope, parents, gettextCatalog, toastr) {
         $scope.object = $parentScope.object;
+
+        $scope.parents = parents;
 
         $scope.detachInstance = function (ev, id) {
             AnrService.deleteInstance($parentScope.model.anr.id, id.id, function () {
@@ -416,6 +423,28 @@
                 });
             });
         };
+
+        $scope.detachObject = function (ev, linkid) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Detach this component?'))
+                .textContent(gettextCatalog.getString('The selected component will be detached from the current object.'))
+                .ariaLabel(gettextCatalog.getString('Detach this component'))
+                .targetEvent(ev)
+                .ok(gettextCatalog.getString('Detach'))
+                .cancel(gettextCatalog.getString('Cancel'));
+
+            $mdDialog.show(confirm).then(function () {
+                ObjlibService.deleteObjlibNode(linkid, function () {
+                    if($scope.mode != undefined && $scope.mode == "anr"){
+                        $scope.updateInstances();
+                    }
+                    $parentScope.updateObjlib();
+                    toastr.success(gettextCatalog.getString('The object has been detached successfully'), gettextCatalog.getString('Component detached'));
+                });
+            }, function () {
+                // Cancel
+            })
+        }
 
         $scope.cancel = function() {
             $mdDialog.cancel();
