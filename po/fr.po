@@ -1006,7 +1006,7 @@ msgstr "Erreur lors de l'envoi"
 
 #: ../ng_anr/views/anr.layout.html:104
 msgid "Evaluation scales"
-msgstr "Echelle d'évaluation"
+msgstr "Échelles d'évaluation"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:90
 msgid "Evaluation, acceptance and impact criterias setup"
