@@ -850,7 +850,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
                 templateUrl: '/views/anr/create.amvs.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -907,7 +907,7 @@
 
             AmvService.getAmv(amv).then(function (amvData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', '$q', 'amv', CreateAmvDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
                     templateUrl: '/views/anr/create.amvs.html',
                     targetEvent: ev,
                     preserveScope: false,
@@ -1503,12 +1503,23 @@
         };
     }
 
-    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ConfigService, $q, amv) {
+    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ConfigService, AmvService, $q, amv) {
         $scope.languages = ConfigService.getLanguages();
         $scope.defaultLang = ConfigService.getDefaultLanguageIndex();
 
+
+        $scope.queryAmvs = function (asset_id) {
+            AmvService.getAmvs({limit: 0, asset: asset_id, order: 'position'}).then(function (data) {
+                $scope.asset_amvs = data.amvs;
+            });
+        };
+
+
         if (amv != undefined && amv != null) {
             $scope.amv = amv;
+            if (amv.asset && amv.asset.id) {
+                $scope.queryAmvs(amv.asset.id);
+            }
         } else {
             $scope.amv = {
                 asset: null,
@@ -1537,6 +1548,7 @@
         $scope.selectedAssetItemChange = function (item) {
             if (item) {
                 $scope.amv.asset = item;
+                $scope.queryAmvs(item.id);
             }
         }
 
