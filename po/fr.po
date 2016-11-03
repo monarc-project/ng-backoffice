@@ -463,9 +463,9 @@ msgstr "Calcul du risque / Seuils - Risques opérationnels"
 #: src/kb/info/BackofficeKbInfoCtrl.js:777
 #: src/kb/info/BackofficeKbInfoCtrl.js:968
 #: src/kb/info/BackofficeKbInfoCtrl.js:989
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:115
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:161
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:434
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:142
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:164
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:437
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:85
 #: src/kb/models/BackofficeKbModelsCtrl.js:118
 #: src/kb/models/BackofficeKbModelsCtrl.js:99
@@ -483,7 +483,7 @@ msgstr "Calcul du risque / Seuils - Risques opérationnels"
 #: views/dialogs/create.models.html:50
 #: views/dialogs/create.servers.admin.html:51
 #: views/dialogs/create.users.admin.html:68
-#: views/dialogs/export.objlibs.html:40
+#: views/dialogs/export.objlibs.html:51
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -566,7 +566,7 @@ msgstr "Entreprise"
 msgid "Component"
 msgstr "Composant"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:442
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:445
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:93
 msgid "Component detached"
 msgstr "Composant détaché"
@@ -659,8 +659,8 @@ msgstr "Créer ce thème"
 #: src/kb/info/BackofficeKbInfoCtrl.js:535
 #: src/kb/info/BackofficeKbInfoCtrl.js:706
 #: src/kb/info/BackofficeKbInfoCtrl.js:889
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:230
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:311
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:233
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:314
 #: src/kb/models/BackofficeKbModelsCtrl.js:52
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:214
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:402
@@ -679,6 +679,10 @@ msgstr "Mot de passe actuel"
 #: ../ng_anr/views/_table_risks.html:61
 msgid "Current risk"
 msgstr "Risque actuel"
+
+#: views/dialogs/export.objlibs.html:25
+msgid "Custom password"
+msgstr "Mot de passe personnalisé"
 
 #: views/_gettext_caveats.html:15
 msgid "Data missing"
@@ -722,7 +726,7 @@ msgstr "Modèle par défaut"
 #: src/kb/info/BackofficeKbInfoCtrl.js:776
 #: src/kb/info/BackofficeKbInfoCtrl.js:967
 #: src/kb/info/BackofficeKbInfoCtrl.js:988
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:114
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:141
 #: src/kb/models/BackofficeKbModelsCtrl.js:117
 #: src/kb/models/BackofficeKbModelsCtrl.js:98
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:132
@@ -738,11 +742,11 @@ msgstr "Supprimer"
 msgid "Delete object"
 msgstr "Supprimer l'objet"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:112
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:139
 msgid "Delete this object"
 msgstr "Supprimer cet objet"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:109
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:136
 msgid "Delete this object?"
 msgstr "Supprimer cet objet ?"
 
@@ -815,8 +819,8 @@ msgstr "Description"
 #: ../ng_anr/views/anr.instance.html:52 ../ng_anr/views/anr.instance.html:87
 #: ../ng_anr/views/detach.objlibs.html:32
 #: ../ng_anr/views/detach.objlibs.html:53
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:160
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:433
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:163
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:436
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:84
 #: views/object.info_risk.kb_mgmt.html:121
 msgid "Detach"
@@ -826,21 +830,21 @@ msgstr "Détacher"
 msgid "Detach object from risk analysis"
 msgstr "Détacher l’objet de l’analyse de risques"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:431
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:434
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:82
 msgid "Detach this component"
 msgstr "Détacher ce composant"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:429
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:432
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:80
 msgid "Detach this component?"
 msgstr "Détacher ce composant ?"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:158
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:161
 msgid "Detach this object"
 msgstr "Détacher cet objet"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:155
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:158
 msgid "Detach this object?"
 msgstr "Détacher cet objet ?"
 
@@ -886,7 +890,7 @@ msgstr "Dupliquer"
 msgid "Duplicate object"
 msgstr "Dupliquer l'objet"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:281
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:284
 #: src/kb/models/BackofficeKbModelsCtrl.js:137
 msgid "Duplication successful"
 msgstr "Duplication réussie"
@@ -930,6 +934,10 @@ msgstr "Numéro d'employé"
 msgid "Enable raw ROLF values"
 msgstr "Activer les valeurs ROLF brutes"
 
+#: views/dialogs/export.objlibs.html:17
+msgid "Encryption"
+msgstr "Chiffrement"
+
 #: views/_gettext_caveats.html:14
 msgid "Entity not exist"
 msgstr "L'entité n'existe pas"
@@ -958,7 +966,7 @@ msgstr "Exemple (cause délibérée)"
 msgid "Expand all"
 msgstr "Tout déplier"
 
-#: views/dialogs/export.objlibs.html:43
+#: views/dialogs/export.objlibs.html:54
 msgid "Export"
 msgstr "Exporter"
 
@@ -976,6 +984,10 @@ msgstr "Exporter l’instance"
 msgid "Export object"
 msgstr "Exporter l'objet"
 
+#: views/dialogs/export.objlibs.html:36
+msgid "Export options"
+msgstr "Options d’export"
+
 #: ../ng_anr/views/anr.home.html:5 views/dialogs/export.objlibs.html:7
 msgid "Export risk analysis"
 msgstr "Exporter l’analyse de risques"
@@ -983,7 +995,7 @@ msgstr "Exporter l’analyse de risques"
 #: ../ng_anr/src/AnrLayoutCtrl.js:759
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:130
 #: src/kb/info/BackofficeKbInfoCtrl.js:262
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:274
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:277
 msgid "Export successful"
 msgstr "Export réussi"
 
@@ -991,7 +1003,7 @@ msgstr "Export réussi"
 msgid "Export to CSV"
 msgstr "Exporter en CSV"
 
-#: views/dialogs/export.objlibs.html:28
+#: views/dialogs/export.objlibs.html:39
 msgid "Export with assessments?"
 msgstr "Exporter avec les évaluations ?"
 
@@ -1420,7 +1432,7 @@ msgstr "Nouvelle vulnérabilité"
 msgid "New vulnerability"
 msgstr "Nouvelle vulnérabilité"
 
-#: views/dialogs/export.objlibs.html:31
+#: views/dialogs/export.objlibs.html:42
 msgid "No"
 msgstr "Non"
 
@@ -1577,7 +1589,7 @@ msgstr "Catégorie parent"
 msgid "Parent missing"
 msgstr "Parent manquant"
 
-#: views/dialogs/export.objlibs.html:23 views/login.html:17
+#: views/dialogs/export.objlibs.html:27 views/login.html:17
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -1602,22 +1614,6 @@ msgstr "Téléphone"
 #: ../ng_anr/views/add.objlib.html:14
 msgid "Pick an existing object from the knowledge base"
 msgstr "Choisissez un objet existant depuis la base de connaisances"
-
-#: views/dialogs/export.objlibs.html:20
-msgid "Please enter a password to protect your asset"
-msgstr "Veuillez entrer un mot de passe pour protéger le contenu de l’asset"
-
-#: views/dialogs/export.objlibs.html:18
-msgid "Please enter a password to protect your instance"
-msgstr "Veuillez entrer un mot de passe pour protéger votre instance"
-
-#: views/dialogs/export.objlibs.html:17
-msgid "Please enter a password to protect your object"
-msgstr "Veuillez entrer un mot de passe pour protéger votre objet"
-
-#: views/dialogs/export.objlibs.html:19
-msgid "Please enter a password to protect your risk analysis"
-msgstr "Veuillez entrer un mot de passe pour protéger votre analyse de risques"
 
 #: views/login.html:39
 msgid ""
@@ -1905,6 +1901,10 @@ msgstr "Afficher les impacts masqués"
 msgid "Show inactive only"
 msgstr "Afficher inactifs uniquement"
 
+#: views/dialogs/export.objlibs.html:32
+msgid "Simple encryption"
+msgstr "Chiffrement simple"
+
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:29 ../ng_anr/src/CreateObjlibDialogCtrl.js:60
 #: ../ng_anr/views/create.assets.html:47 ../ng_anr/views/create.objlibs.html:59
 #: ../ng_anr/views/create.threats.html:126 ../ng_anr/views/create.vulns.html:47
@@ -2065,17 +2065,17 @@ msgstr "Le client « {{name}} » a été supprimé."
 msgid "The code may not be empty"
 msgstr "Le code ne peut pas être vide"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:311
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:314
 msgid "The component has been created successfully."
 msgstr "Le composant a été créé avec succès."
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:110
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:137
 msgid ""
 "The current object \"{{ name }}\" will be permanently deleted. Are you sure?"
 msgstr ""
 "L'objet courant \"{{ name }}\" sera supprimé définitivement. Êtes-vous sûr ?"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:156
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:159
 msgid ""
 "The current object \"{{ name }}\" will be removed from the library. Are you "
 "sure?"
@@ -2206,25 +2206,25 @@ msgstr "L'objet « {{objlibLabel}} » a bien été mis à jour."
 msgid "The object has been added to the library."
 msgstr "L'objet a été ajouté à la bibliothèque."
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:230
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:233
 msgid "The object has been created successfully."
 msgstr "L'objet a été créé avec succès."
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:147
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:165
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:125
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:168
 msgid "The object has been detached from the library."
 msgstr "L'objet a bien été détaché de la bibliothèque."
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:442
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:445
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:93
 msgid "The object has been detached successfully"
 msgstr "L'objet a bien été détaché"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:274
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:277
 msgid "The object has been exported successfully."
 msgstr "L'objet a bien été exporté."
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:223
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:226
 msgid "The object has been updated successfully."
 msgstr "L'objet a été mis à jour avec succès."
 
@@ -2273,7 +2273,7 @@ msgstr "L’analyse de risques a bien été exportée."
 msgid "The risk sheet changes have been saved successfully"
 msgstr "Les changements de la fiche de risques ont bien été enregistrés."
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:430
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:433
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:81
 msgid "The selected component will be detached from the current object."
 msgstr "Le composant sélectionné va être détaché de l'object actuel."
@@ -2533,7 +2533,7 @@ msgstr "Echelle des menaces :"
 msgid "Thresholds"
 msgstr "Seuils"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:281
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:284
 msgid "Ths object has been duplicated successfully."
 msgstr "L'objet a bien été dupliqué."
 
@@ -2652,7 +2652,7 @@ msgstr "Mettre à jour les informations du serveur"
 #: src/kb/info/BackofficeKbInfoCtrl.js:574
 #: src/kb/info/BackofficeKbInfoCtrl.js:737
 #: src/kb/info/BackofficeKbInfoCtrl.js:946
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:223
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:226
 #: src/kb/models/BackofficeKbModelsCtrl.js:81
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:115
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:245
@@ -2722,7 +2722,7 @@ msgstr "Vuln"
 msgid "Wrap all"
 msgstr "Tout replier"
 
-#: views/dialogs/export.objlibs.html:30
+#: views/dialogs/export.objlibs.html:41
 msgid "Yes"
 msgstr "Oui"
 
@@ -2784,6 +2784,23 @@ msgid ""
 msgstr ""
 "Vous ne pouvez pas rendre cet objet spécifique car un de ses parents est "
 "générique."
+
+#: views/dialogs/export.objlibs.html:22
+msgid "You may enter a password to protect your asset"
+msgstr "Vous pouvez entrer un mot de passe pour protéger votre asset"
+
+#: views/dialogs/export.objlibs.html:20
+msgid "You may enter a password to protect your instance"
+msgstr "Vous pouvez entrer un mot de passe pour protéger votre instance"
+
+#: views/dialogs/export.objlibs.html:19
+msgid "You may enter a password to protect your object"
+msgstr "Vous pouvez entrer un mot de passe pour protéger votre objet"
+
+#: views/dialogs/export.objlibs.html:21
+msgid "You may enter a password to protect your risk analysis"
+msgstr ""
+"Vous pouvez entrer un mot de passe pour protéger votre analyse de risques"
 
 #: ../ng_anr/views/import.asset.html:15
 msgid "You may import an asset:"
@@ -2999,6 +3016,19 @@ msgstr "{{count}} menaces ont été supprimées."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:606 src/kb/info/BackofficeKbInfoCtrl.js:624
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnérabilités ont été supprimées."
+
+#~ msgid "Please enter a password to protect your asset"
+#~ msgstr "Veuillez entrer un mot de passe pour protéger le contenu de l’asset"
+
+#~ msgid "Please enter a password to protect your instance"
+#~ msgstr "Veuillez entrer un mot de passe pour protéger votre instance"
+
+#~ msgid "Please enter a password to protect your object"
+#~ msgstr "Veuillez entrer un mot de passe pour protéger votre objet"
+
+#~ msgid "Please enter a password to protect your risk analysis"
+#~ msgstr ""
+#~ "Veuillez entrer un mot de passe pour protéger votre analyse de risques"
 
 #~ msgid "{{ model.anr.risks.length || 0 }} risk(s)"
 #~ msgstr "{{ model.anr.risks.length || 0 }} risque(s)"
