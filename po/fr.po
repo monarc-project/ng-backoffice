@@ -2138,7 +2138,7 @@ msgstr "L’échelle de type d’impact a été supprimée avec succès."
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:107
 msgid "The instance details have been updated"
-msgstr "Les détails de l'instance ont bien été mises à jour."
+msgstr "Les détails de l'instance ont bien été mis à jour."
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:131
 msgid "The instance has been exported successfully."
