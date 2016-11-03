@@ -16,6 +16,11 @@ msgstr ""
 msgid "(Current instance)"
 msgstr "(instance courante)"
 
+#: ../ng_anr/views/anr.instance.html:16 ../ng_anr/views/anr.instance.html:21
+#: ../ng_anr/views/anr.instance.html:26
+msgid "(inherited)"
+msgstr "(hérité)"
+
 #: ../ng_anr/views/add.objlib.html:58
 msgid "- or -"
 msgstr "- ou -"
@@ -465,7 +470,7 @@ msgstr "Calcul du risque / Seuils - Risques opérationnels"
 #: src/kb/info/BackofficeKbInfoCtrl.js:989
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:142
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:164
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:444
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:446
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:85
 #: src/kb/models/BackofficeKbModelsCtrl.js:118
 #: src/kb/models/BackofficeKbModelsCtrl.js:99
@@ -477,7 +482,7 @@ msgstr "Calcul du risque / Seuils - Risques opérationnels"
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:489 views/dialogs/create.anr.html:39
 #: views/dialogs/create.categories.html:46
 #: views/dialogs/create.clients.html:217
-#: views/dialogs/create.deliverymodel.html:46
+#: views/dialogs/create.deliverymodel.html:53
 #: views/dialogs/create.guides.html:56
 #: views/dialogs/create.guides.items.html:68
 #: views/dialogs/create.models.html:50
@@ -566,7 +571,7 @@ msgstr "Entreprise"
 msgid "Component"
 msgstr "Composant"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:452
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:454
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:93
 msgid "Component detached"
 msgstr "Composant détaché"
@@ -806,7 +811,7 @@ msgstr "Refusé"
 #: ../ng_anr/views/create.vulns.html:35 ../ng_anr/views/import.asset.html:47
 #: views/analysis_guides.kb_mgmt.html:13
 #: views/deliveries_models.kb_mgmt.html:20 views/dialogs/create.anr.html:30
-#: views/dialogs/create.deliverymodel.html:27
+#: views/dialogs/create.deliverymodel.html:34
 #: views/dialogs/create.guides.html:47
 #: views/dialogs/create.guides.items.html:59
 #: views/dialogs/create.models.html:33 views/info_risk.kb_mgmt.html:125
@@ -820,7 +825,7 @@ msgstr "Description"
 #: ../ng_anr/views/detach.objlibs.html:32
 #: ../ng_anr/views/detach.objlibs.html:53
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:163
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:443
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:445
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:84
 #: views/object.info_risk.kb_mgmt.html:121
 msgid "Detach"
@@ -830,12 +835,12 @@ msgstr "Détacher"
 msgid "Detach object from risk analysis"
 msgstr "Détacher l’objet de l’analyse de risques"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:441
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:443
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:82
 msgid "Detach this component"
 msgstr "Détacher ce composant"
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:439
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:441
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:80
 msgid "Detach this component?"
 msgstr "Détacher ce composant ?"
@@ -869,7 +874,7 @@ msgstr "Modèle de document pour l'Analyse de risques"
 msgid "Document templates"
 msgstr "Modèles de documents"
 
-#: views/dialogs/create.deliverymodel.html:38
+#: views/dialogs/create.deliverymodel.html:45
 msgid "Drop your DOCX file in this zone, or click here to select a file"
 msgstr ""
 "Glissez votre fichier DOCX dans cette zone, ou cliquez ici pour sélectionner "
@@ -942,7 +947,7 @@ msgstr "Chiffrement"
 msgid "Entity not exist"
 msgstr "L'entité n'existe pas"
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:159
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:162
 msgid "Error while uploading"
 msgstr "Erreur lors de l'envoi"
 
@@ -993,7 +998,7 @@ msgid "Export risk analysis"
 msgstr "Exporter l’analyse de risques"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:760
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:130
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:131
 #: src/kb/info/BackofficeKbInfoCtrl.js:262
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:277
 msgid "Export successful"
@@ -1015,7 +1020,7 @@ msgstr "FQDN"
 msgid "Fax"
 msgstr "Fax"
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:166
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:169
 msgid "File error"
 msgstr "Erreur de fichier"
 
@@ -1138,8 +1143,7 @@ msgstr "Dans la bibliothèque commune, cet objet est un sous-élément de :"
 msgid "Information risks"
 msgstr "Risques de l'information"
 
-#: ../ng_anr/views/anr.instance.html:16 ../ng_anr/views/anr.instance.html:21
-#: ../ng_anr/views/anr.instance.html:26 ../ng_anr/views/create.objlibs.html:73
+#: ../ng_anr/views/create.objlibs.html:73
 #: ../ng_anr/views/create.objlibs.html:86
 #: ../ng_anr/views/create.objlibs.html:99
 msgid "Inherited"
@@ -1215,6 +1219,7 @@ msgstr "Libellés et descriptions"
 #: ../ng_anr/views/create.tags.html:16 ../ng_anr/views/create.threats.html:18
 #: ../ng_anr/views/create.vulns.html:18 views/account.html:80
 #: views/dialogs/create.anr.html:16 views/dialogs/create.categories.html:16
+#: views/dialogs/create.deliverymodel.html:27
 #: views/dialogs/create.guides.html:39
 #: views/dialogs/create.guides.items.html:51
 #: views/dialogs/create.models.html:16
@@ -1597,6 +1602,10 @@ msgstr "Mot de passe"
 msgid "Password forgotten?"
 msgstr "Mot de passe oublié ?"
 
+#: views/passwordforgotten.html:26
+msgid "Passwords mismatch."
+msgstr "Les mots de passe ne correspondent pas."
+
 #: views/dialogs/create.users.admin.html:51
 msgid "Permissions and roles"
 msgstr "Permissions et rôles"
@@ -1726,7 +1735,7 @@ msgstr "Régulateur"
 msgid "Reset filters"
 msgstr "Remettre à zéro les filtres"
 
-#: views/login.html:51 views/passwordforgotten.html:26
+#: views/login.html:51 views/passwordforgotten.html:29
 msgid "Reset password"
 msgstr "Réinitialiser le mot de passe"
 
@@ -1802,8 +1811,8 @@ msgstr "Lignes par page :"
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:152
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:158
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:154
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:161
 msgid "Save successful"
 msgstr "Enregistrement réussi"
 
@@ -2127,11 +2136,11 @@ msgstr "Le guide a bien été supprimé."
 msgid "The impact scale type has been deleted successfully."
 msgstr "L’échelle de type d’impact a été supprimée avec succès."
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:106
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:107
 msgid "The instance details have been updated"
 msgstr "Les détails de l'instance ont bien été mises à jour."
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:130
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:131
 msgid "The instance has been exported successfully."
 msgstr "L’instance a bien été exportée."
 
@@ -2215,7 +2224,7 @@ msgstr "L'objet a été créé avec succès."
 msgid "The object has been detached from the library."
 msgstr "L'objet a bien été détaché de la bibliothèque."
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:452
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:454
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:93
 msgid "The object has been detached successfully"
 msgstr "L'objet a bien été détaché"
@@ -2228,7 +2237,7 @@ msgstr "L'objet a bien été exporté."
 msgid "The object has been updated successfully."
 msgstr "L'objet a été mis à jour avec succès."
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:158
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:161
 msgid "The operational risk sheet changes have been saved successfully"
 msgstr ""
 "Les modifications de la fiche de risques opérationnels ont bien été "
@@ -2269,11 +2278,11 @@ msgstr "Les détails de l'analyse de risque ont bien été mises à jour."
 msgid "The risk analysis has been exported successfully."
 msgstr "L’analyse de risques a bien été exportée."
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:152
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:154
 msgid "The risk sheet changes have been saved successfully"
 msgstr "Les changements de la fiche de risques ont bien été enregistrés."
 
-#: src/kb/info/BackofficeKbInfoObjectCtrl.js:440
+#: src/kb/info/BackofficeKbInfoObjectCtrl.js:442
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:81
 msgid "The selected component will be detached from the current object."
 msgstr "Le composant sélectionné va être détaché de l'object actuel."
@@ -2290,7 +2299,7 @@ msgstr "Le serveur \"{{ label }}\" a été supprimé."
 msgid "The server \"{{label}}\" has been updated successfully."
 msgstr "Le serveur « {{label}} » a bien été mis à jour."
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:159
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:162
 msgid "The server returned the error code:"
 msgstr "Le serveur a renvoyé le code d'erreur : "
 
@@ -2639,7 +2648,7 @@ msgstr "Mettre à jour les informations du serveur"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:190 ../ng_anr/src/AnrKbMgmtCtrl.js:381
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:556 ../ng_anr/src/AnrKbMgmtCtrl.js:719
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:922 ../ng_anr/src/AnrLayoutCtrl.js:530
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:106
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:107
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:151
 #: src/BackofficeClientMgmtCtrl.js:77 src/admin/BackofficeAdminServerCtrl.js:75
 #: src/admin/BackofficeAdminUsersCtrl.js:95
@@ -2843,7 +2852,7 @@ msgstr "Vous devez sélectionner une ville"
 msgid "You must select a country"
 msgstr "Vous devez sélectionner un pays"
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:174
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:177
 msgid "You must select a file"
 msgstr "Vous devez sélectionner un fichier"
 
