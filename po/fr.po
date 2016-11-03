@@ -395,7 +395,7 @@ msgstr "Assets"
 
 #: ../ng_anr/views/create.amvs.html:148
 msgid "Audit order"
-msgstr "Ordre de l'audir"
+msgstr "Ordre de l'audit"
 
 #: ../ng_anr/views/create.instance.html:41
 #: ../ng_anr/views/create.instance.html:65
