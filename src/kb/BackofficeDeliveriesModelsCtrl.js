@@ -27,7 +27,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'DeliveriesModelsService', 'Upload', CreateDeliveryModelDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'ConfigService', 'DeliveriesModelsService', 'Upload', CreateDeliveryModelDialogCtrl],
                 templateUrl: '/views/dialogs/create.deliverymodel.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -44,7 +44,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'DeliveriesModelsService', 'Upload', 'deliverymodel', CreateDeliveryModelDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog','ConfigService', 'DeliveriesModelsService', 'Upload', 'deliverymodel', CreateDeliveryModelDialogCtrl],
                 templateUrl: '/views/dialogs/create.deliverymodel.html',
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -97,14 +97,17 @@
     }
 
 
-    function CreateDeliveryModelDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, DeliveriesModelsService, Upload, deliverymodel) {
+    function CreateDeliveryModelDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, ConfigService, DeliveriesModelsService, Upload, deliverymodel) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
+
         if (deliverymodel) {
-            deliverymodel.description = deliverymodel[$scope.$parent._langField('description')];
+            // deliverymodel.description = deliverymodel[$scope.$parent._langField('description')];
             $scope.deliveryModel = deliverymodel;
         } else {
             $scope.deliveryModel = {
                 category: null,
-                description: ''
+                // description: ''
             };
         }
 
@@ -149,7 +152,7 @@
                     url: $scope.deliveryModel.id ? '/api/deliveriesmodels/' + $scope.deliveryModel.id : '/api/deliveriesmodels',
                     method: $scope.deliveryModel.id ? 'PUT' : 'POST',
                     file: $scope.file,
-                    data: {category: $scope.deliveryModel.category, description: $scope.deliveryModel.description}
+                    data: $scope.deliveryModel
                 }).then(function (resp) {
                         $scope.uploadProgress = null;
                         if (resp.status == 200) {
