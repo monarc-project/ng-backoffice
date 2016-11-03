@@ -431,6 +431,8 @@
                     $parentScope.updateModel();
                     $parentScope.openDetachObjectDialog(ev, $scope.parents);
                 });
+            }, false, function () {
+                $parentScope.openDetachObjectDialog(ev, $scope.parents);
             });
         };
 
@@ -454,7 +456,7 @@
                     $parentScope.openDetachObjectDialog(ev, $scope.parents);
                 });
             }, function () {
-                // Cancel
+                $parentScope.openDetachObjectDialog(ev, $scope.parents);
             })
         }
 
