@@ -57,6 +57,7 @@
                     targetEvent: ev,
                     clickOutsideToClose: true,
                     fullscreen: useFullScreen,
+                    scope: $scope.$dialogScope.$new(),
                     locals: {
                         item: item
                     }
