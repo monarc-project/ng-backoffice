@@ -103,6 +103,33 @@
             });
         }
 
+        $scope.openDetachObjectDialog = function(ev, parents){
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'AnrService', 'ObjlibService', '$parentScope', 'parents', 'gettextCatalog', 'toastr', DetachObjectDialog],
+                templateUrl: '/views/anr/detach.objlibs.html',
+                targetEvent: ev,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                locals: {
+                    '$parentScope': $scope,
+                    parents: parents,
+                    gettextCatalog: gettextCatalog,
+                    toastr: toastr
+                }
+            })
+            .then(function () {
+                AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
+                    toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
+                    if ($rootScope.hookUpdateObjlib) {
+                        $rootScope.hookUpdateObjlib(true);//true pour retouner sur la fiche du premier objet de la bibliothèque
+                    }
+                });
+            });
+        };
+
         $scope.deleteObject = function (ev) {
             if ($scope.mode == 'bdc') {
                 var confirm = $mdDialog.confirm()
@@ -125,31 +152,7 @@
                 //parents is a promise
                 AnrObject.parents({anrid: $rootScope.anr_id, id: $scope.object.id}, function(parents){
                     if ($scope.object.replicas.length > 0 || parents.length > 0) {
-                        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
-                        $mdDialog.show({
-                            controller: ['$scope', '$mdDialog', 'AnrService', 'ObjlibService', '$parentScope', 'parents', 'gettextCatalog', 'toastr', DetachObjectDialog],
-                            templateUrl: '/views/anr/detach.objlibs.html',
-                            targetEvent: ev,
-                            preserveScope: false,
-                            scope: $scope.$dialogScope.$new(),
-                            clickOutsideToClose: true,
-                            fullscreen: useFullScreen,
-                            locals: {
-                                '$parentScope': $scope,
-                                parents: parents,
-                                gettextCatalog: gettextCatalog,
-                                toastr: toastr
-                            }
-                        })
-                            .then(function () {
-                                AnrService.removeObjectFromLibrary($rootScope.anr_id, $scope.object.id, function () {
-                                    toastr.success(gettextCatalog.getString('The object has been detached from the library.'));
-                                    if ($rootScope.hookUpdateObjlib) {
-                                        $rootScope.hookUpdateObjlib(true);//true pour retouner sur la fiche du premier objet de la bibliothèque
-                                    }
-                                });
-                            });
+                        $scope.openDetachObjectDialog(ev, parents);
                     } else {
                         var confirm = $mdDialog.confirm()
                             .title(gettextCatalog.getString('Detach this object?'))
@@ -424,7 +427,7 @@
             });
         };
 
-        $scope.detachObject = function (ev, linkid) {
+        $scope.detachObject = function (ev, node) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Detach this component?'))
                 .textContent(gettextCatalog.getString('The selected component will be detached from the current object.'))
@@ -434,12 +437,14 @@
                 .cancel(gettextCatalog.getString('Cancel'));
 
             $mdDialog.show(confirm).then(function () {
-                ObjlibService.deleteObjlibNode(linkid, function () {
+                ObjlibService.deleteObjlibNode(node.linkid, function () {
                     if($scope.mode != undefined && $scope.mode == "anr"){
                         $scope.updateInstances();
                     }
                     $parentScope.updateObjlib();
                     toastr.success(gettextCatalog.getString('The object has been detached successfully'), gettextCatalog.getString('Component detached'));
+                    $scope.parents.splice($scope.parents.indexOf(node), 1);
+                    $parentScope.openDetachObjectDialog(ev, $scope.parents);
                 });
             }, function () {
                 // Cancel
