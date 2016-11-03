@@ -106,7 +106,7 @@
         $scope.openDetachObjectDialog = function(ev, parents){
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AnrService', 'ObjlibService', '$parentScope', 'parents', 'gettextCatalog', 'toastr', DetachObjectDialog],
+                controller: ['$scope', '$mdDialog', 'AnrService', 'ObjlibService', 'InstanceService', '$parentScope', 'parents', 'gettextCatalog', 'toastr', DetachObjectDialog],
                 templateUrl: '/views/anr/detach.objlibs.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -327,6 +327,13 @@
         $scope.showInModel = function(modelid, objectid){
             $location.path('/backoffice/kb/models/'+modelid+'/object/'+objectid);
         };
+
+
+        $scope.$on('object-instancied', function(e, args){
+            if(args.oid == $scope.object.id){
+                $scope.updateObjlib();
+            }
+        });
     }
 
 
@@ -413,16 +420,16 @@
     }
 
 
-    function DetachObjectDialog($scope, $mdDialog, AnrService, ObjlibService, $parentScope, parents, gettextCatalog, toastr) {
+    function DetachObjectDialog($scope, $mdDialog, AnrService, ObjlibService, InstanceService, $parentScope, parents, gettextCatalog, toastr) {
         $scope.object = $parentScope.object;
 
         $scope.parents = parents;
 
-        $scope.detachInstance = function (ev, id) {
-            AnrService.deleteInstance($parentScope.model.anr.id, id.id, function () {
-                $parentScope.updateInstances();
-                $parentScope.updateObjlib(function () {
-                    $scope.object = $parentScope.object;
+        $scope.detachInstance = function (ev, instance) {
+            InstanceService.detach($parentScope, ev, instance.id, function(){
+                $parentScope.updateObjlib(function(){
+                    $parentScope.updateModel();
+                    $parentScope.openDetachObjectDialog(ev, $scope.parents);
                 });
             });
         };
