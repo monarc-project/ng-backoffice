@@ -63,7 +63,7 @@
         $scope.deleteDeliveryModel = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the document "{{ label }}"?',
-                    {label: item.description}))
+                    {label: item[$scope._langField('description')]}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettextCatalog.getString('Delete'))
