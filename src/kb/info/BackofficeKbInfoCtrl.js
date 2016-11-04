@@ -5,7 +5,7 @@
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
-            '$timeout', '$http', 'DownloadService',
+            '$timeout', '$http', 'DownloadService', '$rootScope',
             BackofficeKbInfoCtrl
         ]);
 
@@ -14,7 +14,7 @@
      */
     function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
-                                  $state, $timeout, $http, DownloadService) {
+                                  $state, $timeout, $http, DownloadService, $rootScope) {
         $scope.tab = $stateParams.tab;
         $scope.gettext = gettextCatalog.getString;
         TableHelperService.resetBookmarks();
@@ -1011,6 +1011,11 @@
         var objLibTabSelected = false;
         $scope.objlibs = TableHelperService.build('name1', 20, 1, '');
 
+        if ($rootScope.objlibs_query) {
+            $scope.objlibs.query = $rootScope.objlibs_query;
+            $scope.objlibs.previousQueryOrder = $scope.objlibs.query.order;
+        }
+
         $scope.objlib_category_filter = 0;
         $scope.objlib_asset_filter = 0;
         $scope.objlib_lockswitch = false;
@@ -1114,6 +1119,7 @@
             $scope.objlibs.promise.then(
                 function (data) {
                     $scope.objlibs.items = data;
+                    $rootScope.objlibs_query = $scope.objlibs.query;
                 }
             )
         };
