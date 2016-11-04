@@ -1069,6 +1069,15 @@
             AssetService.getAssets({order: '-code', limit: 0}).then(function (data) {
                 $scope.objlib_assets = data.assets;
             });
+            $scope.updateObjlibsTabCategoriesFilter();
+        };
+
+        $scope.deselectObjlibsTab = function () {
+            objLibTabSelected = false;
+            TableHelperService.unwatchSearch($scope.objlibs);
+        };
+
+        $scope.updateObjlibsTabCategoriesFilter = function () {
             ObjlibService.getObjlibsCats({limit: 0}).then(function (data) {
                 var buildItemRecurse = function (children, depth) {
                     var output = [];
@@ -1093,11 +1102,6 @@
 
                 $scope.objlib_categories = buildItemRecurse(data.categories, 0);
             });
-        };
-
-        $scope.deselectObjlibsTab = function () {
-            objLibTabSelected = false;
-            TableHelperService.unwatchSearch($scope.objlibs);
         };
 
         $scope.updateObjlibs = function () {
@@ -1167,6 +1171,7 @@
                             ObjlibService.updateObjlib(objlib,
                                 function () {
                                     $scope.updateObjlibs();
+                                    $scope.updateObjlibsTabCategoriesFilter();
                                     toastr.success(gettextCatalog.getString('The object "{{objlibLabel}}" has been updated successfully.',
                                         {objlibLabel: objlib.label1}), gettextCatalog.getString('Update successful'));
                                 },
@@ -1179,6 +1184,7 @@
                             ObjlibService.createObjlib(objlib,
                                 function () {
                                     $scope.updateObjlibs();
+                                    $scope.updateObjlibsTabCategoriesFilter();
                                     toastr.success(gettextCatalog.getString('The object "{{objlibLabel}}" has been created successfully.',
                                         {objlibLabel: objlib.label1}), gettextCatalog.getString('Creation successful'));
 
