@@ -1017,6 +1017,10 @@
         $scope.objlib_assets = [];
 
         $scope.$watchGroup(['objlib_category_filter', 'objlib_asset_filter', 'objlib_lockswitch'], function (newValue, oldValue) {
+            if ($scope.objlib_category_filter == 0) {
+                $scope.objlib_lockswitch = false;
+            }
+
             if (objLibTabSelected) {
                 // Refresh contents
                 $scope.updateObjlibs();

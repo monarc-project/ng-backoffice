@@ -389,15 +389,15 @@
                 <p class="md-padding-right" translate>Filter:</p>
 
                 <md-select ng-model="objlib_category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" flex>
-                    <md-option value="0">{{ 'All categories' | translate }}</md-option>
+                    <md-option ng-value="0">{{ 'All categories' | translate }}</md-option>
                     <md-option ng-repeat="cat in objlib_categories" ng-value="cat.id">{{ cat[_langField('label')] }}</md-option>
                 </md-select>
 
-                <md-switch aria-label="{{ 'Lock' | translate }}'" class="md-padding-left md-padding-right"
+                <md-switch aria-label="{{ 'Lock' | translate }}'" class="md-padding-left md-padding-right" ng-disabled="objlib_category_filter == 0"
                            ng-model="objlib_lockswitch" ng-true-value="true" ng-false-value="false">{{ 'Lock' | translate }}</md-switch>
 
                 <md-select ng-model="objlib_asset_filter" aria-label="{{ 'Asset' | translate }}" placeholder="{{ 'Asset' | translate }}" flex>
-                    <md-option value="0">{{ 'All assets' | translate }}</md-option>
+                    <md-option ng-value="0">{{ 'All assets' | translate }}</md-option>
                     <md-option ng-repeat="asset in objlib_assets" ng-value="asset.id">{{ asset.code }} - {{ asset[_langField('label')] }}</md-option>
                 </md-select>
 
