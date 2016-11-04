@@ -33,6 +33,7 @@
                 controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', CreateItemDialogCtrl],
                 templateUrl: '/views/dialogs/create.guides.items.html',
                 targetEvent: ev,
+                scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen
             })
