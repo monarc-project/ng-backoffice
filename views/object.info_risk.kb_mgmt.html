@@ -155,9 +155,9 @@
 
                     <tbody>
                     <tr ng-repeat="risk in object.risks">
-                        <td>{{risk[_langField('threatDescription')}}</td>
+                        <td>{{risk[_langField('threatDescription')]}}</td>
                         <td>{{risk.threatRate}}</td>
-                        <td>{{risk[_langField('vulnDescription')}}</td>
+                        <td>{{risk[_langField('vulnDescription')]}}</td>
                         <td>{{risk.vulnerabilityRate}}</td>
                         <td ng-disabled="!risk.c_risk_enabled" class="tbl-risk-calc"
                             ng-class="{'green': risk.c_risk > 0 && risk.c_risk < scales.thresholds.min, 'orange': risk.c_risk >= scales.thresholds.min && risk.c_risk < scales.thresholds.max, 'red': risk.c_risk >= scales.thresholds.max}">{{risk.c_risk_enabled ? risk.c_risk : ''}}</td>
