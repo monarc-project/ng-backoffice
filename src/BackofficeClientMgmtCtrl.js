@@ -48,6 +48,10 @@
                             $scope.updateClients();
                             toastr.success(gettextCatalog.getString('The client "{{clientName}}" has been created successfully.',
                                 {clientName: client.name}), gettextCatalog.getString('Creation successful'));
+                        },
+
+                        function () {
+                            $scope.editClient(ev, client);
                         }
                     );
                 });
@@ -56,7 +60,7 @@
         $scope.editClient = function (ev, client) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            ClientService.getClient(client.id).then(function (clientData) {
+            var showDialog = function (clientData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
                     templateUrl: '/views/dialogs/create.clients.html',
@@ -78,7 +82,15 @@
                             }
                         );
                     });
-            });
+            };
+
+            if (client.id) {
+                ClientService.getClient(client.id).then(function (clientData) {
+                    showDialog(clientData);
+                });
+            } else {
+                showDialog(client);
+            }
         };
 
         $scope.deleteClient = function (ev, item) {
