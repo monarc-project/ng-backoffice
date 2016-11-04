@@ -1106,7 +1106,7 @@
 
         $scope.updateObjlibs = function () {
             var query = angular.copy($scope.objlibs.query);
-            if ($scope.objlib_category_filter > 0) {
+            if ($scope.objlib_category_filter > 0 || $scope.objlib_category_filter == -1) {
                 query.category = $scope.objlib_category_filter;
             }
             if ($scope.objlib_asset_filter > 0) {
