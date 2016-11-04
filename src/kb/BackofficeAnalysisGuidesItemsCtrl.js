@@ -114,6 +114,7 @@
                 description2: '',
                 description3: '',
                 description4: '',
+                implicitPosition: 2,
             };
         }
 
