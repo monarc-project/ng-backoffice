@@ -111,7 +111,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     '$parentScope': $scope,
@@ -190,7 +190,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     mode: $scope.mode,
@@ -261,7 +261,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     mode: 'object'
@@ -292,7 +292,7 @@
                 controller: ['$scope', '$mdDialog', '$q', 'ObjlibService', 'myself', '$rootScope', 'AnrService', 'mode', CreateComponentDialogCtrl],
                 templateUrl: '/views/anr/create.objlibs.node.html',
                 targetEvent: ev,
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
                 fullscreen: useFullScreen,

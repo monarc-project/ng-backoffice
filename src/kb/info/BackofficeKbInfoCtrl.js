@@ -110,7 +110,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     'asset': asset
@@ -156,7 +156,7 @@
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'asset': assetData
@@ -246,7 +246,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     mode: 'asset'
@@ -325,7 +325,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     'threat': threat
@@ -371,7 +371,7 @@
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'threat': threatData
@@ -515,7 +515,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     'vuln': vuln
@@ -554,7 +554,7 @@
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'vuln': vulnData
@@ -692,7 +692,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     'measure': measure
@@ -723,7 +723,7 @@
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'measure': measureData
@@ -855,7 +855,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     'amv': amv
@@ -912,7 +912,7 @@
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'amv': amvData
@@ -1144,7 +1144,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     mode: 'bdc',

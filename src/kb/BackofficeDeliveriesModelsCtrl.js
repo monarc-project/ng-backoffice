@@ -30,7 +30,7 @@
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'ConfigService', 'DeliveriesModelsService', 'Upload', CreateDeliveryModelDialogCtrl],
                 templateUrl: '/views/dialogs/create.deliverymodel.html',
                 targetEvent: ev,
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen
             })
                 .then(function (deliveryModel) {
@@ -47,7 +47,7 @@
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog','ConfigService', 'DeliveriesModelsService', 'Upload', 'deliverymodel', CreateDeliveryModelDialogCtrl],
                 templateUrl: '/views/dialogs/create.deliverymodel.html',
                 targetEvent: ev,
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     deliverymodel: deliverymodel

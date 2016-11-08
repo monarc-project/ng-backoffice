@@ -70,7 +70,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     'category': category
@@ -101,7 +101,7 @@
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'category': categoryData
@@ -200,7 +200,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     'tag': tag
@@ -231,7 +231,7 @@
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'tag': tagData
@@ -369,7 +369,7 @@
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     'risk': risk
@@ -423,7 +423,7 @@
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'risk': riskData

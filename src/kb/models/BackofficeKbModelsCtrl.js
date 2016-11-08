@@ -38,7 +38,7 @@
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'model', CreateModelDialogCtrl],
                 templateUrl: '/views/dialogs/create.models.html',
                 targetEvent: ev,
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     model: model
@@ -67,7 +67,7 @@
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'model', CreateModelDialogCtrl],
                     templateUrl: '/views/dialogs/create.models.html',
                     targetEvent: ev,
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'model': modelData

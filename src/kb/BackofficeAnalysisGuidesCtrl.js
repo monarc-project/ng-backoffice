@@ -29,7 +29,7 @@
                 controller: ['$scope', 'ConfigService', '$mdDialog', 'GuideService', CreateGuideDialogCtrl],
                 templateUrl: '/views/dialogs/create.guides.html',
                 targetEvent: ev,
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen
             })
                 .then(function (guide) {
@@ -50,7 +50,7 @@
                 controller: ['$scope', 'ConfigService', '$mdDialog', 'GuideService', 'guide', CreateGuideDialogCtrl],
                 templateUrl: '/views/dialogs/create.guides.html',
                 targetEvent: ev,
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
                     guide: item

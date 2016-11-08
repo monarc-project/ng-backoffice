@@ -34,7 +34,7 @@
                 templateUrl: '/views/dialogs/create.guides.items.html',
                 targetEvent: ev,
                 scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen
             })
                 .then(function (item) {
@@ -56,7 +56,7 @@
                     controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'item', CreateItemDialogCtrl],
                     templateUrl: '/views/dialogs/create.guides.items.html',
                     targetEvent: ev,
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     scope: $scope.$dialogScope.$new(),
                     locals: {

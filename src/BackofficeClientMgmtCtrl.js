@@ -39,7 +39,7 @@
                 targetEvent: ev,
                 scope: $scope.$dialogScope.$new(),
                 preserveScope: false,
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen
             })
                 .then(function (client) {
@@ -65,7 +65,7 @@
                     controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
                     templateUrl: '/views/dialogs/create.clients.html',
                     targetEvent: ev,
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     scope: $scope.$dialogScope.$new(),
                     preserveScope: false,
                     fullscreen: useFullScreen,

@@ -60,7 +60,7 @@
                 controller: ['$scope', '$mdDialog', CreateUserDialogCtrl],
                 templateUrl: '/views/dialogs/create.users.admin.html',
                 targetEvent: ev,
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen
             })
                 .then(function (user) {
@@ -81,7 +81,7 @@
                     controller: ['$scope', '$mdDialog', 'user', CreateUserDialogCtrl],
                     templateUrl: '/views/dialogs/create.users.admin.html',
                     targetEvent: ev,
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'user': userData

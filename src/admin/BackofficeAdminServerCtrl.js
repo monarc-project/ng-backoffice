@@ -39,7 +39,7 @@
                 controller: ['$scope', '$mdDialog', CreateServerDialogCtrl],
                 templateUrl: '/views/dialogs/create.servers.admin.html',
                 targetEvent: ev,
-                clickOutsideToClose: true,
+                clickOutsideToClose: false,
                 fullscreen: useFullScreen
             })
                 .then(function (server) {
@@ -61,7 +61,7 @@
                     controller: ['$scope', '$mdDialog', 'server', CreateServerDialogCtrl],
                     templateUrl: '/views/dialogs/create.servers.admin.html',
                     targetEvent: ev,
-                    clickOutsideToClose: true,
+                    clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
                         'server': server
