@@ -95,7 +95,11 @@
         $scope.categories = GuideService.getCategories()
 
         if (guide) {
-            $scope.guide = guide;
+            $scope.guide = angular.copy(guide);
+
+            if ($scope.guide.type_id) {
+                $scope.guide.type = $scope.guide.type_id;
+            }
         } else {
             $scope.guide = {
                 type: null,
