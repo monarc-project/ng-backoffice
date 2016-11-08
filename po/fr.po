@@ -207,6 +207,10 @@ msgstr "Administration"
 msgid "All (unfiltered)"
 msgstr "Tous (non filtré)"
 
+#: views/_gettext_caveats.html:42
+msgid "All asset models must not be regulator"
+msgstr "Tous les modèles de l'asset ne doivent pas être régulateur"
+
 #: views/info_risk.kb_mgmt.html:401
 msgid "All assets"
 msgstr "Tous les actifs"
@@ -231,6 +235,14 @@ msgstr "Guide de l'analyse"
 #: views/index.backoffice.html:57
 msgid "Analysis guides"
 msgstr "Guides de l'analyse"
+
+#: views/_gettext_caveats.html:57
+msgid "Anr missing"
+msgstr "ANR manquante"
+
+#: views/_gettext_caveats.html:44
+msgid "Anr to export is required"
+msgstr "L'ANR a exporter est requise"
 
 #: src/admin/BackofficeAdminUsersCtrl.js:104
 msgid "Are you sure you want to delete \"{{ firstname }} {{ lastname }}\"?"
@@ -363,9 +375,25 @@ msgstr "Voulez-vous réellement détacher cette instance ?"
 msgid "Asset"
 msgstr "Actif"
 
+#: views/_gettext_caveats.html:39
+msgid "Asset can't be primary"
+msgstr "L'actif ne peut pas être primaire"
+
 #: ../ng_anr/views/import.asset.html:5
 msgid "Asset import center"
 msgstr "Centre d’import des actifs"
+
+#: views/_gettext_caveats.html:40
+msgid "Asset mode can't be null"
+msgstr "Le mode de l'actif ne peut être nul"
+
+#: views/_gettext_caveats.html:46
+msgid "Asset not found"
+msgstr "Actif introuvable"
+
+#: views/_gettext_caveats.html:54
+msgid "Asset to export is required"
+msgstr "L'actif à exporter est requis"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:495 views/info_risk.kb_mgmt.html:425
 #: views/op_risk.kb_mgmt.html:207
@@ -930,8 +958,12 @@ msgid "Encryption"
 msgstr "Chiffrement"
 
 #: views/_gettext_caveats.html:14
-msgid "Entity not exist"
+msgid "Entity does not exist"
 msgstr "L'entité n'existe pas"
+
+#: views/_gettext_caveats.html:43
+msgid "Entity does not exist for this ANR"
+msgstr "L'entité n'existe pas dans cette ANR"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:162
 msgid "Error while uploading"
@@ -1005,6 +1037,10 @@ msgstr "FQDN"
 #: views/dialogs/create.clients.html:121
 msgid "Fax"
 msgstr "Fax"
+
+#: views/_gettext_caveats.html:38
+msgid "Field previous missing"
+msgstr "Champ précédent manquant"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:169
 msgid "File error"
@@ -1139,9 +1175,17 @@ msgstr "Hérité"
 msgid "Instance"
 msgstr "Instance"
 
+#: views/_gettext_caveats.html:48
+msgid "Instance does not exist"
+msgstr "L'instance n'existe pas"
+
 #: views/_gettext_caveats.html:19
 msgid "Instance not exist"
 msgstr "L'instance n'existe pas"
+
+#: views/_gettext_caveats.html:51
+msgid "Instance to export is required"
+msgstr "L'instance à exporter est requise"
 
 #: ../ng_anr/views/create.instance.html:53
 #: ../ng_anr/views/create.objlibs.html:83
@@ -1320,6 +1364,10 @@ msgstr "Modèle"
 #: src/BackofficeApp.js:132
 msgid "Model details"
 msgstr "Détails du modèle"
+
+#: views/_gettext_caveats.html:37
+msgid "Model missing"
+msgstr "Modèle manquant"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:138
 msgid "Model validation"
@@ -1514,6 +1562,10 @@ msgstr "L'objet a bien été ajouté"
 msgid "Object details"
 msgstr "Détails de l'objet"
 
+#: views/_gettext_caveats.html:60
+msgid "Object does not exist"
+msgstr "L'objet n'existe pas"
+
 #: src/BackofficeApp.js:140
 msgid "Object information"
 msgstr "Informations de l'objet"
@@ -1522,7 +1574,7 @@ msgstr "Informations de l'objet"
 msgid "Object instance"
 msgstr "Instance de l'objet"
 
-#: views/_gettext_caveats.html:18
+#: views/_gettext_caveats.html:18 views/_gettext_caveats.html:47
 msgid "Object is not an object of this anr"
 msgstr "L'objet n'appartient pas à cette ANR"
 
@@ -1547,6 +1599,10 @@ msgstr "Observations"
 #: ../ng_anr/views/_risk_sheet.html:15
 msgid "Observations:"
 msgstr "Remarques :"
+
+#: views/_gettext_caveats.html:41
+msgid "One model must be common to asset, threat and vulnerability"
+msgstr "Un modèle doit être commun à l'actif, menace et vulnérabilité"
 
 #: views/models.kb_mgmt.html:62
 msgid "Open details"
@@ -1633,6 +1689,10 @@ msgstr "Veuillez entrer et confirmer votre nouveau mot de passe."
 #: views/items.analysis_guides.kb_mgmt.html:10
 msgid "Position"
 msgstr "Position"
+
+#: views/_gettext_caveats.html:53
+msgid "Position missing"
+msgstr "Position manquante"
 
 #: views/dialogs/create.clients.html:81 views/index.client_mgmt.html:40
 msgid "Postal code"
@@ -1741,6 +1801,10 @@ msgstr "Analyse de risques"
 #: src/kb/GuideService.js:73
 msgid "Risk analysis context"
 msgstr "Contexte de l'analyse de risques"
+
+#: views/_gettext_caveats.html:52
+msgid "Risk analysis does not exist"
+msgstr "L'analyse de risques n'existe pas"
 
 #: ../ng_anr/views/_table_risks_op.html:14
 msgid "Risk description"
@@ -2422,6 +2486,10 @@ msgstr "Cet actif n'a pas de parents."
 msgid "This asset is attached to the following parents"
 msgstr "Cet actif est attaché aux parents suivants"
 
+#: views/_gettext_caveats.html:55
+msgid "This component already exist for this object"
+msgstr "Ce composant existe déjà dans cet objet"
+
 #: views/dialogs/create.clients.html:132 views/dialogs/create.clients.html:154
 msgid "This does not look like an e-mail address"
 msgstr "Ceci ne ressemble pas à une adresse e-mail"
@@ -2437,6 +2505,10 @@ msgid ""
 msgstr ""
 "Cette instance et tous ses enfants seront supprimés de l'analyse de risques. "
 "Cette opération ne peut pas être annulée."
+
+#: views/_gettext_caveats.html:49
+msgid "This is not a root instance"
+msgstr "Ce n'est pas une instance racine"
 
 #: views/_gettext_caveats.html:29
 msgid "This name is already used"
@@ -2455,6 +2527,10 @@ msgid ""
 "This object is a direct child of the following object(s) in your analysis:"
 msgstr ""
 "Cet objet est un enfant direct des objets suivants dans votre analyse :"
+
+#: views/_gettext_caveats.html:56
+msgid "This object is not bound to the ANR"
+msgstr "Cet objet n'est pas lié à l'ANR"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1068 ../ng_anr/src/AnrKbMgmtCtrl.js:1087
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1271 ../ng_anr/src/AnrKbMgmtCtrl.js:1290
@@ -2495,6 +2571,10 @@ msgstr "Cette opération est irréversible."
 #: views/_gettext_caveats.html:36
 msgid "This proxy alias is already used"
 msgstr "Cet alias de proxy est déjà utilisé"
+
+#: views/_gettext_caveats.html:45
+msgid "This risk analysis does not exist"
+msgstr "Cette analyse de risques n'existe pas"
 
 #: views/_gettext_caveats.html:17
 msgid ""
@@ -2761,6 +2841,11 @@ msgstr ""
 msgid "You can't delete yourself"
 msgstr "Vous ne pouvez pas vous supprimer vous-même"
 
+#: views/_gettext_caveats.html:58
+msgid "You can't have a generic object based on a specific asset"
+msgstr ""
+"Vous ne pouvez pas avoir un objet générique basé sur un actif spécifique"
+
 #: views/_gettext_caveats.html:34
 msgid "You cannot add a specific object to a generic model"
 msgstr ""
@@ -2785,6 +2870,10 @@ msgstr "Vous ne pouvez pas modifier la portée d’un objet existant."
 #: views/_gettext_caveats.html:32
 msgid "You cannot create a cyclic dependency"
 msgstr "Cette opération entraînerait une dépendance cyclique"
+
+#: views/_gettext_caveats.html:59
+msgid "You cannot create an object that is both global and primary"
+msgstr "Vous ne pouvez pas créer un objet à la fois global et primaire"
 
 #: views/_gettext_caveats.html:26
 msgid ""
@@ -2830,6 +2919,10 @@ msgid ""
 msgstr ""
 "Vous ne pouvez pas détacher cet objet car il est encore utilisé.Veuillez "
 "d'abord nettoyer les différentes dépendances avant de le détacher."
+
+#: views/_gettext_caveats.html:50
+msgid "You may only move a root-level instance"
+msgstr "Vous ne pouvez que déplacer les instances de niveau racine"
 
 #: views/dialogs/create.users.admin.html:39
 msgid "You must enter an e-mail address"
@@ -3038,6 +3131,9 @@ msgstr "{{count}} menaces ont été supprimées."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:606 src/kb/info/BackofficeKbInfoCtrl.js:624
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnérabilités ont été supprimées."
+
+#~ msgid "Entity not exist"
+#~ msgstr "L'entité n'existe pas"
 
 #~ msgid "AMVs"
 #~ msgstr "AMVs"
