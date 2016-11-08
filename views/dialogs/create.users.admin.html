@@ -51,10 +51,10 @@
                     <label translate>Permissions and roles</label>
                     <md-icon>device_hub</md-icon>
                     <md-select ng-model="user.role" name="role" multiple="true" required>
-                        <md-option value="superadmin">{{ 'Super-admin' | translate }}</md-option>
+                        <md-option value="superadmin">{{ 'User admin' | translate }}</md-option>
                         <md-option value="dbadmin">{{ 'Database admin' | translate }}</md-option>
                         <md-option value="sysadmin">{{ 'System admin' | translate }}</md-option>
-                        <md-option value="accadmin">{{ 'Accounts admin' | translate }}</md-option>
+                        <md-option value="accadmin">{{ 'Customer admin' | translate }}</md-option>
                     </md-select>
                     <div ng-messages="userForm.role.$error" role="alert">
                         <div ng-message="required">{{ 'You must select one or more roles' | translate }}</div>
