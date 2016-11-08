@@ -1981,7 +1981,7 @@ msgstr "Cible"
 #: ../ng_anr/views/_table_risks.html:64 ../ng_anr/views/_table_risks_op.html:19
 #: views/object.info_risk.kb_mgmt.html:147
 msgid "Target risk"
-msgstr "Risque cible"
+msgstr "Risque résiduel"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:871 src/kb/info/BackofficeKbInfoCtrl.js:889
 msgid "The AMV link has been created successfully."
