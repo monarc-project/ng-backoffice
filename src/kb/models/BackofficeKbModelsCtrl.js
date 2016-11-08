@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbModelsCtrl', [
             '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
-            'ModelService',
+            'ModelService', '$timeout',
             BackofficeKbModelsCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > MODELS
      */
     function BackofficeKbModelsCtrl($scope, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
-                                    ModelService) {
+                                    ModelService, $timeout) {
         TableHelperService.resetBookmarks();
 
         $scope.models = TableHelperService.build('label1', 10, 1, '');
@@ -121,7 +121,7 @@
                     ModelService.deleteModel(value.id);
                 });
 
-                $scope.updateModels();
+                $timeout(function() { $scope.updateModels(); }, 500);
                 toastr.success(gettextCatalog.getString('{{count}} models have been deleted.',
                     {count: $scope.models.selected.length}), gettextCatalog.getString('Deletion successful'));
                 $scope.models.selected = [];
