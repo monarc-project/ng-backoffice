@@ -117,7 +117,7 @@ msgstr "Ajouter une nouvelle analyse de risques"
 
 #: ../ng_anr/views/create.assets.html:5
 msgid "Add a new asset"
-msgstr "Ajouter un nouvel asset"
+msgstr "Ajouter un nouvel actif"
 
 #: ../ng_anr/views/create.objlibs.categories.html:5
 #: views/dialogs/create.categories.html:5
@@ -225,7 +225,7 @@ msgstr "Tous (non filtré)"
 
 #: views/info_risk.kb_mgmt.html:400
 msgid "All assets"
-msgstr "Tous les assets"
+msgstr "Tous les actifs"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:491 views/info_risk.kb_mgmt.html:392
 #: views/op_risk.kb_mgmt.html:203
@@ -262,7 +262,7 @@ msgstr "Voulez-vous réellement supprimer \"{{ label }}\" ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:204 src/kb/info/BackofficeKbInfoCtrl.js:190
 msgid "Are you sure you want to delete asset \"{{ label }}\"?"
-msgstr "Voulez-vous réellement supprimer l'asset \"{{ label }}\" ?"
+msgstr "Voulez-vous réellement supprimer l'actif \"{{ label }}\" ?"
 
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:128
 msgid "Are you sure you want to delete category \"{{ label }}\"?"
@@ -305,7 +305,7 @@ msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:224 src/kb/info/BackofficeKbInfoCtrl.js:210
 msgid "Are you sure you want to delete the {{count}} selected asset(s)?"
-msgstr "Voulez-vous réellement supprimer les {{ count }} assets sélectionnés ?"
+msgstr "Voulez-vous réellement supprimer les {{ count }} actifs sélectionnés ?"
 
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:147
 msgid "Are you sure you want to delete the {{count}} selected category(s)?"
@@ -377,21 +377,21 @@ msgstr "Voulez-vous réellement détacher cette instance ?"
 #: ../ng_anr/views/create.amvs.html:26 ../ng_anr/views/create.objlibs.html:123
 #: views/info_risk.kb_mgmt.html:332 views/info_risk.kb_mgmt.html:399
 msgid "Asset"
-msgstr "Asset"
+msgstr "Actif"
 
 #: ../ng_anr/views/import.asset.html:5
 msgid "Asset import center"
-msgstr "Centre d’import des assets"
+msgstr "Centre d’import des actifs"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:495 views/info_risk.kb_mgmt.html:424
 #: views/op_risk.kb_mgmt.html:207
 msgid "Asset type"
-msgstr "Type d'asset"
+msgstr "Type d'actif"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:3 ../ng_anr/views/_anr.kbmgmt.html:6
 #: views/info_risk.kb_mgmt.html:3 views/info_risk.kb_mgmt.html:6
 msgid "Assets"
-msgstr "Assets"
+msgstr "Actifs"
 
 #: ../ng_anr/views/create.amvs.html:149
 msgid "Audit order"
@@ -412,7 +412,7 @@ msgid ""
 "Bad mode for this object or models attached to asset incoherent with this "
 "object"
 msgstr ""
-"Mauvais mode pour cet objet ou modèles attachés à l'asset incohérents avec "
+"Mauvais mode pour cet objet ou modèles attachés à l'actif incohérents avec "
 "cet objet"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:129 views/info_risk.kb_mgmt.html:123
@@ -859,7 +859,7 @@ msgstr "Détails"
 
 #: src/kb/DeliveriesModelsService.js:42
 msgid "Document model for Assets and models validation"
-msgstr "Modèle de document pour les Assets et la validation des modèles"
+msgstr "Modèle de document pour les Actifs et la validation des modèles"
 
 #: src/kb/DeliveriesModelsService.js:41
 msgid "Document model for Context validation"
@@ -977,7 +977,7 @@ msgstr "Exporter"
 
 #: views/dialogs/export.objlibs.html:8
 msgid "Export asset"
-msgstr "Exporter l’asset"
+msgstr "Exporter l’actif"
 
 #: ../ng_anr/views/anr.instance.html:45 ../ng_anr/views/anr.instance.html:47
 #: views/dialogs/export.objlibs.html:6
@@ -1107,7 +1107,7 @@ msgstr "Accueil"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:127
 msgid "Identification of assets, vulnerabilities and impacts assessment"
-msgstr "Identification des assets, vulnérabilités et évaluation des impacts"
+msgstr "Identification des actifs, vulnérabilités et évaluation des impacts"
 
 #: ../ng_anr/views/_table_risks.html:58 ../ng_anr/views/_table_risks_op.html:25
 #: ../ng_anr/views/_table_risks_op.html:29 ../ng_anr/views/anr.home.html:35
@@ -1125,7 +1125,7 @@ msgstr "Implémentation et surveillance"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:42 ../ng_anr/views/_anr.kbmgmt.html:44
 msgid "Import asset"
-msgstr "Importer un asset"
+msgstr "Importer un actif"
 
 #: ../ng_anr/views/import.asset.html:35
 msgid "Import files"
@@ -1133,7 +1133,7 @@ msgstr "Importer des fichiers"
 
 #: ../ng_anr/views/import.asset.html:73
 msgid "Import this asset"
-msgstr "Importer cet asset"
+msgstr "Importer cet actif"
 
 #: views/object.info_risk.kb_mgmt.html:79
 msgid "In the common library, this object is a direct component of :"
@@ -1369,7 +1369,7 @@ msgstr "Nouveau lien AMV"
 #: ../ng_anr/views/_anr.kbmgmt.html:35 ../ng_anr/views/_anr.kbmgmt.html:37
 #: views/info_risk.kb_mgmt.html:35 views/info_risk.kb_mgmt.html:37
 msgid "New asset"
-msgstr "Nouvel asset"
+msgstr "Nouvel actif"
 
 #: views/op_risk.kb_mgmt.html:40
 msgid "New category"
@@ -1451,7 +1451,7 @@ msgstr "Aucun tag ROLF correspondant à votre recherche n'a été trouvé."
 
 #: ../ng_anr/views/create.amvs.html:32 ../ng_anr/views/create.objlibs.html:129
 msgid "No asset matching your search was found"
-msgstr "Aucun asset correspondant à votre recherche n'a été trouvé."
+msgstr "Aucun actif correspondant à votre recherche n'a été trouvé."
 
 #: ../ng_anr/views/create.objlibs.html:207
 msgid "No category matching your search was found"
@@ -1950,7 +1950,7 @@ msgstr "Résumé de l'évaluation des tendances et des menaces"
 
 #: src/kb/GuideService.js:76
 msgid "Summary of assets / impacts"
-msgstr "Résumé des assets / impacts"
+msgstr "Résumé des actifs / impacts"
 
 #: views/dialogs/create.users.admin.html:54
 msgid "Super-admin"
@@ -1958,7 +1958,7 @@ msgstr "Super-admin"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:128
 msgid "Synthesis of assets / impacts"
-msgstr "Synthèse des assets / impacts"
+msgstr "Synthèse des actifs / impacts"
 
 #: views/dialogs/create.users.admin.html:56
 msgid "System admin"
@@ -2012,32 +2012,32 @@ msgid ""
 "The asset \"{{assetLabel}}\" has been created successfully, however without "
 "models, the element may not be specific."
 msgstr ""
-"L'asset « {{assetLabel}} » a été créé avec succès, cependant sans modèles, "
+"L'actif « {{actifLabel}} » a été créé avec succès, cependant sans modèles, "
 "l'élément ne peut pas être spécifique."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:152 src/kb/info/BackofficeKbInfoCtrl.js:136
 msgid "The asset \"{{assetLabel}}\" has been created successfully."
-msgstr "L'asset « {{assetLabel}} » a été créé avec succès."
+msgstr "L'actif « {{actifLabel}} » a été créé avec succès."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:186 src/kb/info/BackofficeKbInfoCtrl.js:172
 msgid ""
 "The asset \"{{assetLabel}}\" has been updated successfully, however without "
 "models, the element may not be specific."
 msgstr ""
-"L'asset « {{assetLabel}} » a été mis à jour avec succès, cependant sans "
+"L'actif « {{actifLabel}} » a été mis à jour avec succès, cependant sans "
 "modèles, l'élément ne peut pas être spécifique."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:189 src/kb/info/BackofficeKbInfoCtrl.js:175
 msgid "The asset \"{{assetLabel}}\" has been updated successfully."
-msgstr "L'asset « {{assetLabel}} » a été mis à jour avec succès."
+msgstr "L'actif « {{actifLabel}} » a été mis à jour avec succès."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:214 src/kb/info/BackofficeKbInfoCtrl.js:200
 msgid "The asset \"{{label}}\" has been deleted."
-msgstr "L'asset \"{{ label }}\" a été supprimé."
+msgstr "L'actif \"{{ label }}\" a été supprimé."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:262
 msgid "The asset has been exported successfully."
-msgstr "L’asset a été exporté avec succès"
+msgstr "L’actif a été exporté avec succès"
 
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:112
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:83
@@ -2436,11 +2436,11 @@ msgstr "Ce lien AMV est déjà utilisé"
 
 #: ../ng_anr/views/anr.instance.html:72
 msgid "This asset has no parents."
-msgstr "Cet asset n'a pas de parents."
+msgstr "Cet actif n'a pas de parents."
 
 #: ../ng_anr/views/anr.instance.html:70
 msgid "This asset is attached to the following parents"
-msgstr "Cet asset est attaché aux parents suivants"
+msgstr "Cet actif est attaché aux parents suivants"
 
 #: views/dialogs/create.clients.html:132 views/dialogs/create.clients.html:154
 msgid "This does not look like an e-mail address"
@@ -2520,7 +2520,7 @@ msgstr "Cet alias de proxy est déjà utilisé"
 msgid ""
 "This type of asset is used in a model that is no longer part of the list"
 msgstr ""
-"Ce type d'asset est utilisé dans un modèle qui ne fait plus partie de cette "
+"Ce type d'actif est utilisé dans un modèle qui ne fait plus partie de cette "
 "liste"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:339 ../ng_anr/views/_table_risks.html:60
@@ -2593,7 +2593,7 @@ msgstr "Mettre à jour les informations de l'ANR"
 #: ../ng_anr/views/create.assets.html:6
 msgid "Update asset \"{{asset[_langField('label')]}}\" information"
 msgstr ""
-"Mettre à jour les informations de l'asset « {{asset[_langField('label')]}} »"
+"Mettre à jour les informations de l'actif « {{actif[_langField('label')]}} »"
 
 #: ../ng_anr/views/create.objlibs.categories.html:6
 #: views/dialogs/create.categories.html:6
@@ -2808,7 +2808,7 @@ msgstr ""
 
 #: views/dialogs/export.objlibs.html:22
 msgid "You may enter a password to protect your asset"
-msgstr "Vous pouvez entrer un mot de passe pour protéger votre asset"
+msgstr "Vous pouvez entrer un mot de passe pour protéger votre actif"
 
 #: views/dialogs/export.objlibs.html:20
 msgid "You may enter a password to protect your instance"
@@ -2825,7 +2825,7 @@ msgstr ""
 
 #: ../ng_anr/views/import.asset.html:15
 msgid "You may import an asset:"
-msgstr "Vous pouvez importer un asset :"
+msgstr "Vous pouvez importer un actif :"
 
 #: ../ng_anr/views/detach.objlibs.html:15
 msgid ""
@@ -2894,7 +2894,7 @@ msgstr "Vous devez sélectionner une vulnérabilité"
 
 #: ../ng_anr/views/create.amvs.html:36 ../ng_anr/views/create.objlibs.html:133
 msgid "You must select an asset"
-msgstr "Vous devez sélectionner un asset"
+msgstr "Vous devez sélectionner un actif"
 
 #: views/dialogs/create.users.admin.html:60
 msgid "You must select one or more roles"
@@ -2966,7 +2966,7 @@ msgid ""
 "from a file (<b>warning:</b> You may only import an asset from a file if the "
 "source software version is compatible with yours),"
 msgstr ""
-"depuis un fichier (<b>attention :</b> Vous ne pouvez importer un asset que "
+"depuis un fichier (<b>attention :</b> Vous ne pouvez importer un actif que "
 "si la version logicielle source est compatible avec la votre),"
 
 #: ../ng_anr/views/create.amvs.html:151
@@ -2995,7 +2995,7 @@ msgstr "{{ oprisks.length || 0 }} risque(s) opérationnel(s)"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:237 src/kb/info/BackofficeKbInfoCtrl.js:223
 msgid "{{count}} assets have been deleted."
-msgstr "{{ count }} assets ont été supprimés."
+msgstr "{{ count }} actifs ont été supprimés."
 
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:159
 msgid "{{count}} categories have been deleted."
