@@ -38,6 +38,10 @@
                     phone: data.phone,
                     language: data.language
                 };
+
+                if (!$scope.user.language) {
+                    $scope.user.language = UserService.getUiLanguage();
+                }
             });
         };
 
