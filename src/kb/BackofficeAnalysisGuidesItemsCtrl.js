@@ -30,12 +30,15 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', CreateItemDialogCtrl],
+                controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'items', CreateItemDialogCtrl],
                 templateUrl: '/views/dialogs/create.guides.items.html',
                 targetEvent: ev,
                 scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: false,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    items: $scope.items
+                }
             })
                 .then(function (item) {
                     item.guide = $stateParams.guideId;
@@ -53,13 +56,14 @@
 
             GuideService.getItem(item.id).then(function (item) {
                 $mdDialog.show({
-                    controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'item', CreateItemDialogCtrl],
+                    controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'items', 'item', CreateItemDialogCtrl],
                     templateUrl: '/views/dialogs/create.guides.items.html',
                     targetEvent: ev,
                     clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     scope: $scope.$dialogScope.$new(),
                     locals: {
+                        items: $scope.items,
                         item: item
                     }
                 })
@@ -101,12 +105,28 @@
     }
 
 
-    function CreateItemDialogCtrl($scope, $q, ConfigService, GuideService, $mdDialog, item) {
+    function CreateItemDialogCtrl($scope, $q, ConfigService, GuideService, $mdDialog, items, item) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (item) {
             $scope.item = item;
+
+            // Determine the position
+            if (item.position == 1) {
+                $scope.item.implicitPosition = 1;
+            } else if (item.position == items.length) {
+                $scope.item.implicitPosition = 2;
+            } else {
+                $scope.item.implicitPosition = 3;
+
+                for (var i = 0; i < items.length; ++i) {
+                    if (items[i].position == $scope.item.position - 1) {
+                        $scope.item.previous = angular.copy(items[i]);
+                        break;
+                    }
+                }
+            }
         } else {
             $scope.item = {
                 type: null,
