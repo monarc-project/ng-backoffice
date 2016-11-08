@@ -24,7 +24,7 @@
 
         <md-toolbar class="md-table-toolbar alternate" ng-show="clients.selected.length">
             <div class="md-toolbar-tools" layout-align="space-between center" layout="row">
-                <div>{{clients.selected.length}} {{clients.selected.length > 1 ? ('clients' | translate) : ('client' | translate)}} selected</div>
+                <div>{{clients.selected.length}} <span translate ng-if="clients.selected.length == 1">client selected</span> <span translate ng-if="clients.selected.length != 1">clients selected</span></div>
                 <md-button class="md-icon-button" ng-click="deleteClientMass($event)">
                     <md-icon>delete</md-icon>
                 </md-button>
