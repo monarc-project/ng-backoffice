@@ -142,7 +142,7 @@
         $scope.queryItemSearch = function (query) {
             var q = $q.defer();
 
-            GuideService.getItems({filter: query}).then(function (x) {
+            GuideService.getItems({filter: query, order: 'position'}).then(function (x) {
                 q.resolve(x.items);
 
             }, function (x) {
