@@ -1536,6 +1536,9 @@
             if (amv.asset && amv.asset.id) {
                 $scope.queryAmvs(amv.asset.id);
             }
+            if (amv.previous && amv.previous.id) {
+                $scope.amv.previous = $scope.amv.previous.id;
+            }
         } else {
             $scope.amv = {
                 asset: null,
