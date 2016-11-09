@@ -1544,7 +1544,7 @@
                 measure1: null,
                 measure2: null,
                 measure3: null,
-                position: 1,
+                implicitPosition: 2,
                 status: 1
             };
         }
