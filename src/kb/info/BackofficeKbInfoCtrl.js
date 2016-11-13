@@ -1199,6 +1199,9 @@
                             );
                         }
                     }
+                }, function () {
+                    $scope.updateObjlibs();
+                    $scope.updateObjlibsTabCategoriesFilter();
                 });
         };
 
