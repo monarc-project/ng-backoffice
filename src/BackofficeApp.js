@@ -3,9 +3,9 @@ angular
         'LocalStorageModule', 'md.data.table', 'ncy-angular-breadcrumb', 'ngFileUpload', 'angularInlineEdit',
         'ui.tree', 'ngMessages', 'AnrModule'])
     .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', '$resourceProvider',
-        'localStorageServiceProvider', '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext',
+        'localStorageServiceProvider', '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext', '$mdAriaProvider',
         function ($mdThemingProvider, $stateProvider, $urlRouterProvider, $resourceProvider, localStorageServiceProvider,
-                  $httpProvider, $breadcrumbProvider, $provide, gettext) {
+                  $httpProvider, $breadcrumbProvider, $provide, gettext, $mdAriaProvider) {
             // Store the state provider to be allow controllers to inject their routes
             window.$stateProvider = $stateProvider;
 
@@ -19,6 +19,9 @@ angular
                 .accentPalette('amber');
 
             $urlRouterProvider.otherwise('/');
+
+            // Globally disables all ARIA warnings.
+            $mdAriaProvider.disableWarnings();
 
             localStorageServiceProvider
                 .setStorageType('localStorage');
