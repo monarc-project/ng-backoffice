@@ -178,13 +178,12 @@
         };
 
         $scope.create = function() {
-            if (!$scope.client.country || !$scope.client.city) {
-                toastr.error(gettextCatalog.getString("Please select a country and/or a city in the list."));
-                return;
+            if ($scope.client.country) {
+                $scope.client.country_id = $scope.client.country.id;
             }
-
-            $scope.client.country_id = $scope.client.country.id;
-            $scope.client.city_id = $scope.client.city.id;
+            if ($scope.client.city) {
+                $scope.client.city_id = $scope.client.city.id;
+            }
             $mdDialog.hide($scope.client);
         };
 

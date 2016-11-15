@@ -47,7 +47,7 @@
                     <div layout="row">
                         <md-icon style="margin-right: 10px;">language</md-icon>
 
-                        <md-autocomplete flex required
+                        <md-autocomplete flex
                                          md-require-match="true"
                                          md-no-cache="true"
                                          md-input-name="country"
@@ -88,7 +88,7 @@
                     <div layout="row">
                         <md-icon style="margin-right: 10px;">location_city</md-icon>
 
-                        <md-autocomplete flex required
+                        <md-autocomplete flex
                                          md-require-match="true"
                                          md-no-cache="true"
                                          md-input-name="city"
@@ -99,7 +99,7 @@
                                          md-min-length="2"
                                          md-floating-label="{{ 'City' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="searchCountryText" md-highlight-flags="^i">{{item.label}}</span>
+                                <span md-highlight-text="searchCityText" md-highlight-flags="^i">{{item.label}}</span>
                             </md-item-template>
                             <md-not-found>
                                 {{ 'No city matching your search was found' | translate }}
