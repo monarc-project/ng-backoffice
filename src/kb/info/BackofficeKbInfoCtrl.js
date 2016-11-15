@@ -1304,7 +1304,7 @@
             $scope.asset = {
                 mode: 0,
                 code: '',
-                type: 1,
+                type: 2,
                 label1: '',
                 label2: '',
                 label3: '',
