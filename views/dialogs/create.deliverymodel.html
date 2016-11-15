@@ -36,13 +36,15 @@
                     <textarea ng-model="deliveryModel['description'+language]"></textarea>
                 </md-input-container>
 
-                <md-input-container class="md-block">
-                    <div ngf-drop ngf-select ng-model="file" class="md-upload-dropbox md-padding md-whiteframe-3dp"
+                <md-input-container class="md-block" ng-repeat="i in range(1,4)" ng-if="languages[i]">
+                    <div class="md-subhead">{{ languages[i] }}</div>
+
+                    <div ngf-drop ngf-select ng-model="file[i]" class="md-upload-dropbox md-padding md-whiteframe-3dp"
                          ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="false"
                          accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                          ngf-pattern="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-                        <div ng-if="file.name">{{ file.name }}</div>
-                        <div ng-if="!file.name">{{ 'Drop your DOCX file in this zone, or click here to select a file' | translate }}</div>
+                        <div ng-if="file[i].name">{{ file[i].name }}</div>
+                        <div ng-if="!file[i].name">{{ 'Drop your DOCX file in this zone, or click here to select a file' | translate }}</div>
                     </div>
                 </md-input-container>
             </div>

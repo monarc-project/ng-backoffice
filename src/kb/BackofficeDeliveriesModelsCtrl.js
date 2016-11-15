@@ -102,8 +102,12 @@
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (deliverymodel) {
-            // deliverymodel.description = deliverymodel[$scope.$parent._langField('description')];
             $scope.deliveryModel = deliverymodel;
+            for (var i = 1; i <= 4; ++i) {
+                if ($scope.deliveryModel['description' + i] == null) {
+                    $scope.deliveryModel['description' + i] = undefined;
+                }
+            }
         } else {
             $scope.deliveryModel = {
                 category: null,
@@ -137,7 +141,16 @@
         }
 
 
+        $scope.range = function (min, max) {
+            var ret = [];
+            for (var i = min; i <= max; ++i) {
+                ret.push(i);
+            }
+            return ret;
+        }
+
         $scope.uploadProgress = null;
+        $scope.file = {};
 
         // Upload system
         $scope.cancel = function () {
@@ -145,8 +158,23 @@
         };
 
         $scope.create = function () {
-            if ($scope.file && !$scope.file.$error) {
+            var hasErrors = false;
+            var hasFiles = false;
+
+            for (var i = 1; i <= 4; ++i) {
+                if ($scope.file[i]) {
+                    hasFiles = true;
+                    if ($scope.file[i].$error) {
+                        hasErrors = true;
+                        break;
+                    }
+                }
+            }
+
+            if (hasFiles && !hasErrors) {
                 $scope.uploadProgress = 0;
+
+                console.log($scope.file);
 
                 Upload.upload({
                     url: $scope.deliveryModel.id ? '/api/deliveriesmodels/' + $scope.deliveryModel.id : '/api/deliveriesmodels',
@@ -160,12 +188,11 @@
                         }
                     }, function (resp) {
                         toastr.error(gettextCatalog.getString('The server returned the error code:') + ' ' + resp.status, gettextCatalog.getString('Error while uploading'))
-                    }
-                    , function (evt) {
+                    }, function (evt) {
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                         $scope.uploadProgress = progressPercentage;
                     })
-            } else if ($scope.file && $scope.file.$error) {
+            } else if (hasFiles && hasErrors) {
                 toastr.error($scope.file.$error, gettextCatalog.getString('File error'));
             } else if ($scope.deliveryModel.id > 0) {
                 DeliveriesModelsService.updateDeliveryModel($scope.deliveryModel, function () {
