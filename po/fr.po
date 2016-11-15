@@ -2725,7 +2725,7 @@ msgstr "Mettre à jour les informations de l'ANR"
 #: ../ng_anr/views/create.assets.html:6
 msgid "Update asset \"{{asset[_langField('label')]}}\" information"
 msgstr ""
-"Mettre à jour les informations de l'actif « {{actif[_langField('label')]}} »"
+"Mettre à jour les informations de l'actif « {{asset[_langField('label')]}} »"
 
 #: ../ng_anr/views/create.objlibs.categories.html:6
 #: views/dialogs/create.categories.html:6
