@@ -30,17 +30,20 @@
         };
 
 
-        $scope.createNewClient = function (ev) {
+        $scope.createNewClient = function (ev, client) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', CreateClientDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
                 templateUrl: '/views/dialogs/create.clients.html',
                 targetEvent: ev,
                 scope: $scope.$dialogScope.$new(),
                 preserveScope: false,
                 clickOutsideToClose: false,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    'client': client
+                }
             })
                 .then(function (client) {
                     ClientService.createClient(client,
@@ -51,7 +54,7 @@
                         },
 
                         function () {
-                            $scope.editClient(ev, client);
+                            $scope.createNewClient(ev, client);
                         }
                     );
                 });
