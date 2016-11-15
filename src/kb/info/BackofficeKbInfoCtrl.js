@@ -1635,6 +1635,10 @@
         };
 
         $scope.create = function() {
+            if ($scope.amv.implicitPosition == 3 && !$scope.amv.previous) {
+                $scope.amv.implicitPosition = 1;
+            }
+            
             $mdDialog.hide($scope.amv);
         };
     }
