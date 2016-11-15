@@ -36,9 +36,10 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Proxy alias</label>
                     <md-icon>redo</md-icon>
-                    <input ng-disabled="client.id" name="proxyAlias" required ng-model="client.proxyAlias">
+                    <input ng-disabled="client.id" name="proxyAlias" required ng-model="client.proxyAlias" ng-pattern="/^[a-zA-Z0-9_-]{3,}$/">
                     <div ng-messages="clientForm.proxyAlias.$error">
                         <div ng-message="required">{{ 'The proxy alias may not be empty' | translate }}</div>
+                        <div ng-message="pattern">{{ 'The proxy alias may only contain alphanumeric characters, underscores and dashes, and must be at least 3 characters long.' | translate }}</div>
                     </div>
                 </md-input-container>
 
