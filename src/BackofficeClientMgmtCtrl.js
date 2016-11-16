@@ -162,7 +162,7 @@
                 fax: '',
                 email: '',
                 employees_number: '',
-                contact_fullname: '',
+                contactFullname: '',
                 contact_email: '',
                 contact_phone: '',
                 model_id: null,
