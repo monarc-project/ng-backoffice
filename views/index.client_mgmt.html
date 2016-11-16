@@ -40,7 +40,7 @@
                     <th md-column md-order-by="postalcode"><span translate>Postal code</span></th>
                     <th md-column md-order-by="phone"><span translate>Phone</span></th>
                     <th md-column md-order-by="email"><span translate>Email</span></th>
-                    <th md-column md-order-by="contact_fullname"><span translate>Contact full name</span></th>
+                    <th md-column md-order-by="contactFullname"><span translate>Contact full name</span></th>
                     <th md-column><span translate>Actions</span></th>
                 </tr>
                 </thead>
@@ -52,7 +52,7 @@
                     <td md-cell>{{ client.postalcode }}</td>
                     <td md-cell>{{ client.phone }}</td>
                     <td md-cell>{{ client.email }}</td>
-                    <td md-cell>{{ client.contact_fullname }}</td>
+                    <td md-cell>{{ client.contactFullname }}</td>
                     <td md-cell>
                         <md-button class="md-icon-button" ng-click="deleteClient($event, client)"><md-icon>delete</md-icon></md-button>
                         <md-button class="md-icon-button" ng-click="editClient($event, client)"><md-icon>edit</md-icon></md-button>
