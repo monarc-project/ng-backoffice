@@ -131,8 +131,10 @@
         };
 
         $scope.duplicateModel = function (item) {
+            $scope.model_duplicating = true;
             ModelService.duplicateModel(item.id, function () {
                 $scope.updateModels();
+                $scope.model_duplicating = false;
                 toastr.success(gettextCatalog.getString('The model "{{name}}" has been duplicated sucessfully.',
                     {name: item[$scope._langField('label')]}), gettextCatalog.getString('Duplication successful'));
             });

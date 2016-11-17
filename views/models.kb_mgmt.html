@@ -38,6 +38,13 @@
             <md-icon>add</md-icon>
         </md-button>
 
+        <md-card ng-if="model_duplicating">
+            <md-card-content layout="row" layout-padding layout-align="center center">
+                <md-progress-circular></md-progress-circular>
+                <p translate>Duplicating model...</p>
+            </md-card-content>
+        </md-card>
+
         <md-table-container flex>
             <table md-table md-row-select multiple ng-model="models.selected" md-progress="models.promise">
                 <thead md-head md-order="models.query.order" md-on-reorder="updateModels">

@@ -62,7 +62,7 @@ msgstr "Action"
 #: views/info_risk.kb_mgmt.html:126 views/info_risk.kb_mgmt.html:198
 #: views/info_risk.kb_mgmt.html:267 views/info_risk.kb_mgmt.html:338
 #: views/info_risk.kb_mgmt.html:428 views/info_risk.kb_mgmt.html:52
-#: views/items.analysis_guides.kb_mgmt.html:12 views/models.kb_mgmt.html:50
+#: views/items.analysis_guides.kb_mgmt.html:12 views/models.kb_mgmt.html:57
 #: views/object.info_risk.kb_mgmt.html:113
 #: views/object.info_risk.kb_mgmt.html:91 views/op_risk.kb_mgmt.html:134
 #: views/op_risk.kb_mgmt.html:234 views/op_risk.kb_mgmt.html:54
@@ -775,7 +775,7 @@ msgstr "Modèle par défaut"
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:262
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:281
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:469
-#: src/kb/rolf/BackofficeKbOpRiskCtrl.js:488 views/models.kb_mgmt.html:65
+#: src/kb/rolf/BackofficeKbOpRiskCtrl.js:488 views/models.kb_mgmt.html:72
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -856,7 +856,7 @@ msgstr "Décroissant"
 #: views/dialogs/create.guides.items.html:59
 #: views/dialogs/create.models.html:33 views/info_risk.kb_mgmt.html:125
 #: views/info_risk.kb_mgmt.html:197 views/info_risk.kb_mgmt.html:51
-#: views/items.analysis_guides.kb_mgmt.html:11 views/models.kb_mgmt.html:46
+#: views/items.analysis_guides.kb_mgmt.html:11 views/models.kb_mgmt.html:53
 msgid "Description"
 msgstr "Description"
 
@@ -926,7 +926,7 @@ msgstr ""
 "Glissez votre fichier exporté dans cette zone, ou cliquez ici pour choisir "
 "un fichier"
 
-#: views/models.kb_mgmt.html:64
+#: views/models.kb_mgmt.html:71
 msgid "Duplicate"
 msgstr "Dupliquer"
 
@@ -935,8 +935,12 @@ msgstr "Dupliquer"
 msgid "Duplicate object"
 msgstr "Dupliquer l'objet"
 
+#: views/models.kb_mgmt.html:44
+msgid "Duplicating model..."
+msgstr "Duplication du modèle…"
+
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:285
-#: src/kb/models/BackofficeKbModelsCtrl.js:137
+#: src/kb/models/BackofficeKbModelsCtrl.js:139
 msgid "Duplication successful"
 msgstr "Duplication réussie"
 
@@ -944,7 +948,7 @@ msgstr "Duplication réussie"
 msgid "E-mail"
 msgstr "E-mail"
 
-#: views/models.kb_mgmt.html:63
+#: views/models.kb_mgmt.html:70
 msgid "Edit information"
 msgstr "Éditer les informations"
 
@@ -1042,7 +1046,7 @@ msgid "Export risk analysis"
 msgstr "Exporter l’analyse de risques"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:968
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:162
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:165
 #: src/kb/info/BackofficeKbInfoCtrl.js:262
 #: src/kb/info/BackofficeKbInfoObjectCtrl.js:278
 msgid "Export successful"
@@ -1265,7 +1269,7 @@ msgstr "Base de connaissances"
 #: views/dialogs/create.servers.admin.html:16 views/info_risk.kb_mgmt.html:121
 #: views/info_risk.kb_mgmt.html:194 views/info_risk.kb_mgmt.html:266
 #: views/info_risk.kb_mgmt.html:424 views/info_risk.kb_mgmt.html:47
-#: views/models.kb_mgmt.html:45 views/op_risk.kb_mgmt.html:133
+#: views/models.kb_mgmt.html:52 views/op_risk.kb_mgmt.html:133
 #: views/op_risk.kb_mgmt.html:233 views/op_risk.kb_mgmt.html:53
 #: views/servers.admin.html:14
 msgid "Label"
@@ -1640,7 +1644,7 @@ msgstr "Remarques :"
 msgid "One model must be common to asset, threat and vulnerability"
 msgstr "Un modèle doit être commun à l'actif, menace et vulnérabilité"
 
-#: views/models.kb_mgmt.html:62
+#: views/models.kb_mgmt.html:69
 msgid "Open details"
 msgstr "Ouvrir les détails"
 
@@ -1802,7 +1806,7 @@ msgstr "BRUT"
 msgid "ROLF Tag"
 msgstr "Tag ROLF"
 
-#: views/models.kb_mgmt.html:49
+#: views/models.kb_mgmt.html:56
 msgid "Raw ROLF"
 msgstr "ROLF brut"
 
@@ -1815,7 +1819,7 @@ msgstr "Réduit la vulnérabilité de"
 msgid "Reduction"
 msgstr "Réduction"
 
-#: views/dialogs/create.models.html:42 views/models.kb_mgmt.html:48
+#: views/dialogs/create.models.html:42 views/models.kb_mgmt.html:55
 msgid "Regulator"
 msgstr "Régulateur"
 
@@ -2024,7 +2028,7 @@ msgstr "Sens du tri"
 #: ../ng_anr/views/create.assets.html:47 ../ng_anr/views/create.objlibs.html:59
 #: ../ng_anr/views/create.threats.html:129 ../ng_anr/views/create.vulns.html:47
 #: src/kb/info/BackofficeKbInfoCtrl.js:29 views/dialogs/create.models.html:41
-#: views/models.kb_mgmt.html:47
+#: views/models.kb_mgmt.html:54
 msgid "Specific"
 msgstr "Spécifique"
 
@@ -2240,11 +2244,11 @@ msgstr "Le guide a bien été supprimé."
 msgid "The impact scale type has been deleted successfully."
 msgstr "L’échelle de type d’impact a été supprimée avec succès."
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:138
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:141
 msgid "The instance details have been updated"
 msgstr "Les détails de l'instance ont bien été mis à jour."
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:162
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:165
 msgid "The instance has been exported successfully."
 msgstr "L’instance a bien été exportée."
 
@@ -2295,7 +2299,7 @@ msgstr "Le modèle « {{modelLabel}} » a bien été créé."
 msgid "The model \"{{modelLabel}}\" has been updated successfully."
 msgstr "Le modèle « {{modelLabel}} » a bien été mis à jour."
 
-#: src/kb/models/BackofficeKbModelsCtrl.js:136
+#: src/kb/models/BackofficeKbModelsCtrl.js:138
 msgid "The model \"{{name}}\" has been duplicated sucessfully."
 msgstr "Le modèle \"{{name}}\" a été dupliqué avec succès."
 
@@ -2800,7 +2804,7 @@ msgstr "Mettre à jour les informations du serveur"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:190 ../ng_anr/src/AnrKbMgmtCtrl.js:381
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:556 ../ng_anr/src/AnrKbMgmtCtrl.js:719
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:922 ../ng_anr/src/AnrLayoutCtrl.js:717
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:138
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:141
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:151
 #: src/BackofficeClientMgmtCtrl.js:84 src/admin/BackofficeAdminServerCtrl.js:75
 #: src/admin/BackofficeAdminUsersCtrl.js:95
