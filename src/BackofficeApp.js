@@ -167,6 +167,14 @@ angular
                 ncyBreadcrumb: {
                     label: gettext('Document templates')
                 }
+            }).state('main.kb_mgmt.questions', {
+                url: '/questions',
+                views: {
+                    'main@main': {templateUrl: '/views/questions.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: gettext('Questions')
+                }
             }).state('main.kb_mgmt.analysis_guides', {
                 url: '/guides',
                 views: {
