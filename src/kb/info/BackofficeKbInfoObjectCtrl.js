@@ -59,6 +59,7 @@
                 $scope.object = object;
                 $scope.composition = object.children;
                 $scope.oprisks = object.oprisks;
+                $scope.oprisks_total = object.oprisks.length;
                 $timeout(function() { isObjectLoading = false; });
 
                 if (cb) {
