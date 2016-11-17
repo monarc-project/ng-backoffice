@@ -2115,24 +2115,24 @@ msgid ""
 "The asset \"{{assetLabel}}\" has been created successfully, however without "
 "models, the element may not be specific."
 msgstr ""
-"L'actif « {{actifLabel}} » a été créé avec succès, cependant sans modèles, "
+"L'actif « {{assetLabel}} » a été créé avec succès, cependant sans modèles, "
 "l'élément ne peut pas être spécifique."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:152 src/kb/info/BackofficeKbInfoCtrl.js:136
 msgid "The asset \"{{assetLabel}}\" has been created successfully."
-msgstr "L'actif « {{actifLabel}} » a été créé avec succès."
+msgstr "L'actif « {{assetLabel}} » a été créé avec succès."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:186 src/kb/info/BackofficeKbInfoCtrl.js:172
 msgid ""
 "The asset \"{{assetLabel}}\" has been updated successfully, however without "
 "models, the element may not be specific."
 msgstr ""
-"L'actif « {{actifLabel}} » a été mis à jour avec succès, cependant sans "
+"L'actif « {{assetLabel}} » a été mis à jour avec succès, cependant sans "
 "modèles, l'élément ne peut pas être spécifique."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:189 src/kb/info/BackofficeKbInfoCtrl.js:175
 msgid "The asset \"{{assetLabel}}\" has been updated successfully."
-msgstr "L'actif « {{actifLabel}} » a été mis à jour avec succès."
+msgstr "L'actif « {{assetLabel}} » a été mis à jour avec succès."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:214 src/kb/info/BackofficeKbInfoCtrl.js:200
 msgid "The asset \"{{label}}\" has been deleted."
