@@ -64,6 +64,10 @@
             self.ChoiceResource.update(params, success, error);
         };
 
+        var updateChoices = function (params, success, error) {
+            self.ChoiceResource.update({}, params, success, error);
+        };
+
         var deleteChoice = function (id, success, error) {
             self.ChoiceResource.delete({choiceId: id}, success, error);
         };
@@ -80,9 +84,7 @@
             createChoice: createChoice,
             deleteChoice: deleteChoice,
             updateChoice: updateChoice,
-
-            getCategories: function () { return categories; },
-            getCategoryLabel: function (id) { return categoriesLabels[id]; }
+            updateChoices: updateChoices,
         };
     }
 

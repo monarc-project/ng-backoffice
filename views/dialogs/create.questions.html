@@ -73,11 +73,29 @@
                     </div>
                 </md-input-container>
 
-                <md-subheader>{{ 'Choices' | translate }}</md-subheader>
-
-                <md-input-container ng-repeat="">
-                    <input type="text" ng-model="choice['label' + language]" />
+                <md-input-container ng-show="question.type == 2">
+                    <md-checkbox ng-model="question.multichoice" ng-true-value="1" ng-false-value="0">{{ 'Multiple choices' | translate }}</md-checkbox>
                 </md-input-container>
+
+                <md-subheader ng-if="question.type == 2">{{ 'Choices' | translate }}</md-subheader>
+
+                <div layout="column" ng-if="question.type == 2">
+                    <div layout="row" layout-align="center center" ng-repeat="(idx, choice) in choices">
+                        <md-input-container flex>
+                            <label translate>Choice {{idx+1}}</label>
+                            <input type="text" ng-model="choice['label' + language]" />
+                        </md-input-container>
+                        <md-button class="md-icon-button" ng-click="removeChoice(idx)">
+                            <md-icon>delete</md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" ng-click="addChoice(idx)">
+                            <md-icon>add</md-icon>
+                        </md-button>
+                    </div>
+
+
+                    <md-button ng-click="addChoice()"><md-icon>add</md-icon> {{ 'Add choice' }}</md-button>
+                </div>
 
             </div>
         </md-dialog-content>

@@ -22,6 +22,14 @@
         }
         $scope.updateQuestions();
 
+        $scope.getTypeStr = function (str) {
+            switch (str) {
+                case 1: return gettextCatalog.getString('Simple text');
+                case 2: return gettextCatalog.getString('Checkboxes');
+                default: return 'Unknown';
+            }
+        }
+
         $scope.createNewQuestion = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
@@ -33,11 +41,22 @@
                 fullscreen: useFullScreen
             })
                 .then(function (question) {
-                    QuestionService.createQuestion(question,
-                        function () {
-                            $scope.updateQuestions();
-                            toastr.success(gettextCatalog.getString('The question "{{label}}" has been created successfully.',
-                                {label: question[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
+                    QuestionService.createQuestion(question.q,
+                        function (data) {
+                            var finish = function () {
+                                $scope.updateQuestions();
+                                toastr.success(gettextCatalog.getString('The question "{{label}}" has been created successfully.',
+                                    {label: question.q[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
+                            };
+
+                            if (question.q.type == 2) {
+                                QuestionService.updateChoices({questionId: data.id, choice: question.c}, function () {
+                                    finish();
+                                });
+                            } else {
+                                finish();
+                            }
+
                         }
                     );
                 });
@@ -57,11 +76,22 @@
                 }
             })
                 .then(function (question) {
-                    QuestionService.updateQuestion(question,
+                    QuestionService.updateQuestion(question.q,
                         function () {
-                            $scope.updateQuestions();
-                            toastr.success(gettextCatalog.getString('The question "{{questionLabel}}" has been updated successfully.',
-                                {questionLabel: question.description1}), gettextCatalog.getString('Update successful'));
+                            var finish = function () {
+                                $scope.updateQuestions();
+                                toastr.success(gettextCatalog.getString('The question "{{label}}" has been updated successfully.',
+                                    {label: question.q[$scope._langField('label')]}), gettextCatalog.getString('Update successful'));
+                            };
+
+                            if (question.q.type == 2) {
+                                QuestionService.updateChoices({questionId: question.q.id, choice: question.c}, function () {
+                                    finish();
+                                });
+                            } else {
+                                finish();
+                            }
+
                         }
                     );
                 });
@@ -99,14 +129,33 @@
             if ($scope.question.type_id) {
                 $scope.question.type = $scope.question.type_id;
             }
+
+            $scope.choices = $scope.question.choices;
         } else {
             $scope.question = {
                 type: null,
                 label1: '',
                 label2: '',
                 label3: '',
-                label4: ''
+                label4: '',
+                multichoice: 0
             };
+
+            $scope.choices = [];
+        };
+
+        $scope.addChoice = function (idx) {
+            $scope.choices.splice((idx != undefined) ? idx : $scope.choices.length, 0, {
+                id: null,
+                label1:'',
+                label2:'',
+                label3:'',
+                label4:'',
+            });
+        };
+
+        $scope.removeChoice = function (idx) {
+            $scope.choices.splice(idx, 1);
         }
 
         $scope.cancel = function() {
@@ -114,7 +163,7 @@
         };
 
         $scope.create = function() {
-            $mdDialog.hide($scope.question);
+            $mdDialog.hide({q: $scope.question, c: $scope.choices});
         };
     }
 

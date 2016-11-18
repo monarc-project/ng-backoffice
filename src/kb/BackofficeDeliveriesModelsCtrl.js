@@ -174,8 +174,6 @@
             if (hasFiles && !hasErrors) {
                 $scope.uploadProgress = 0;
 
-                console.log($scope.file);
-
                 Upload.upload({
                     url: $scope.deliveryModel.id ? '/api/deliveriesmodels/' + $scope.deliveryModel.id : '/api/deliveriesmodels',
                     method: $scope.deliveryModel.id ? 'PUT' : 'POST',
