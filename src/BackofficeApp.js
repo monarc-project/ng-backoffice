@@ -277,6 +277,11 @@ angular
                 return out;
             };
 
+            $rootScope.getUrlAnrId = function () {
+                // Stub, used only in FO
+                return undefined;
+            };
+
             // Setup dialog-specific scope based on the rootScope. This is mostly used to have access to _langField
             // in dialog views as well without having to manually declare it every time. We clone the scope so that
             // dialog have their distinct scope and avoid editing the parent one.
