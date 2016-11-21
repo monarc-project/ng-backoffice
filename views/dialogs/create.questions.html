@@ -29,14 +29,14 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Location</label>
                     <md-icon>reorder</md-icon>
-                    <md-select ng-model="item.implicitPosition">
+                    <md-select ng-model="question.implicitPosition">
                         <md-option ng-value="1">{{ 'at the beginning' | translate }}</md-option>
                         <md-option ng-value="2">{{ 'in the end' | translate }}</md-option>
                         <md-option ng-value="3">{{ 'after...' | translate }}</md-option>
                     </md-select>
                 </md-input-container>
 
-                <div class="md-block" layout="column" flex style="margin-bottom: 8px" ng-show="item.implicitPosition == 3">
+                <div class="md-block" layout="column" flex style="margin-bottom: 8px" ng-show="question.implicitPosition == 3">
                     <div layout="row">
                         <md-icon style="margin-right: 8px;">class</md-icon>
                         <md-autocomplete

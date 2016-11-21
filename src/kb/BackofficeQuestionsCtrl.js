@@ -140,7 +140,8 @@
                 label2: '',
                 label3: '',
                 label4: '',
-                multichoice: 0
+                multichoice: 0,
+                implicitPosition: 2
             };
 
             $scope.choices = [];
