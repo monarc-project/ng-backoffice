@@ -42,15 +42,15 @@
                         <md-autocomplete
                                 flex
                                 md-no-cache="true"
-                                md-selected-item="item.previous"
+                                md-selected-item="question.previous"
                                 md-search-text="itemPreviousSearchText"
                                 md-selected-item-change="selectedPreviousItemChange(item)"
                                 md-items="previous in queryItemSearch(itemPreviousSearchText)"
-                                md-item-text="previous[_langField('description')]"
+                                md-item-text="previous[_langField('label')]"
                                 md-min-length="0"
                                 placeholder="{{ 'Previous item...' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="itemPreviousSearchText" md-highlight-flags="^i">{{ previous[_langField('description')] }}</span>
+                                <span md-highlight-text="itemPreviousSearchText" md-highlight-flags="^i">{{ previous[_langField('label')] }}</span>
                             </md-item-template>
 
                             <md-not-found>

@@ -34,9 +34,10 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', 'ConfigService', '$mdDialog', 'QuestionService', CreateQuestionDialogCtrl],
+                controller: ['$scope', 'ConfigService', '$mdDialog', '$q', 'QuestionService', CreateQuestionDialogCtrl],
                 templateUrl: '/views/dialogs/create.questions.html',
                 targetEvent: ev,
+                scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen
             })
@@ -66,11 +67,12 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', 'ConfigService', '$mdDialog', 'QuestionService', 'question', CreateQuestionDialogCtrl],
+                controller: ['$scope', 'ConfigService', '$mdDialog', '$q', 'QuestionService', 'question', CreateQuestionDialogCtrl],
                 templateUrl: '/views/dialogs/create.questions.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
+                scope: $scope.$dialogScope.$new(),
                 locals: {
                     question: item
                 }
@@ -119,7 +121,7 @@
     }
 
 
-    function CreateQuestionDialogCtrl($scope, ConfigService, $mdDialog, QuestionService, question) {
+    function CreateQuestionDialogCtrl($scope, ConfigService, $mdDialog, $q, QuestionService, question) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
@@ -156,7 +158,20 @@
 
         $scope.removeChoice = function (idx) {
             $scope.choices.splice(idx, 1);
-        }
+        };
+
+        $scope.queryItemSearch = function (query) {
+            var q = $q.defer();
+
+            QuestionService.getQuestions({filter: query, order: 'position'}).then(function (x) {
+                q.resolve(x.questions);
+
+            }, function (x) {
+                q.reject(x);
+            });
+
+            return q.promise;
+        };
 
         $scope.cancel = function() {
             $mdDialog.cancel();
