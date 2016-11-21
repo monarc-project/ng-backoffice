@@ -112,7 +112,7 @@ angular
             }).state('main.kb_mgmt.info_risk.object', {
                 url: '/object/:objectId',
                 views: {
-                    'main@main': {templateUrl: '/views/object.info_risk.kb_mgmt.html'}
+                    'main@main': {templateUrl: '/views/anr/object.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Object details')
@@ -137,7 +137,7 @@ angular
             }).state('main.kb_mgmt.models.details.object', {
                 url: '/object/:objectId',
                 views: {
-                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/object.info_risk.kb_mgmt.html'}
+                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr/object.html'}
                 },
                 ncyBreadcrumb: {
                     label: gettext('Object information')
