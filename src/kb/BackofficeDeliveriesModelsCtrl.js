@@ -124,10 +124,12 @@
                 for (var i = 0; i < all_categories.length; ++i) {
                     var found = false;
 
-                    for (var j = 0; j < existing_deliveriesmodels.deliveriesmodels.length; ++j) {
-                        if (existing_deliveriesmodels.deliveriesmodels[j].category == all_categories[i].id) {
-                            found = true;
-                            break;
+                    if (existing_deliveriesmodels.deliveriesmodels) {
+                        for (var j = 0; j < existing_deliveriesmodels.deliveriesmodels.length; ++j) {
+                            if (existing_deliveriesmodels.deliveriesmodels[j].category == all_categories[i].id) {
+                                found = true;
+                                break;
+                            }
                         }
                     }
 
