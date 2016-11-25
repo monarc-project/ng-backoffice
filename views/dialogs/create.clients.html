@@ -89,6 +89,7 @@
                         <md-icon style="margin-right: 10px;">location_city</md-icon>
 
                         <md-autocomplete flex
+                                         ng-disabled="!client.country"
                                          md-require-match="true"
                                          md-no-cache="true"
                                          md-input-name="city"
@@ -103,6 +104,7 @@
                             </md-item-template>
                             <md-not-found>
                                 {{ 'No city matching your search was found' | translate }}
+                                <md-button ng-click="createCity(searchCityText)">{{ 'Create' | translate }}</md-button>
                             </md-not-found>
 
                             <div ng-messages="clientForm.city.$error" ng-if="clientForm.city.$touched">
