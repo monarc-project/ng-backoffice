@@ -217,6 +217,22 @@
                 $scope.client.city = null;
             }
         };
+
+        $scope.createCity = function (city) {
+            if ($scope.client.country) {
+                CityService.createCity({country_id: $scope.client.country.id, label: city}, function (data) {
+                    $scope.client.city = {
+                        country_id: $scope.client.country.id,
+                        label: city,
+                        id: data.id
+                    };
+
+                    toastr.success(gettextCatalog.getString("The city {{label}} has been created", {label: city}));
+                })
+            } else {
+                toastr.error(gettextCatalog.getString("You must select a country first"));
+            }
+        }
     }
 
 })();

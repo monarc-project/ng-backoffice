@@ -80,14 +80,14 @@
         </h1>
         <span flex></span>
 
-        <md-menu ng-show="isAllowed('accadmin') || isAllowed('sysadmin') || isAllowed('superadmin')">
+        <md-menu ng-show="isAllowed('sysadmin') || isAllowed('superadmin')">
             <md-button class="md-icon-button" ng-click="openToolbarMenu($mdOpenMenu, $event)">
                 <md-tooltip>{{ "Administration" | translate }}</md-tooltip>
                 <md-icon md-menu-origin>settings</md-icon>
             </md-button>
 
             <md-menu-content width="4">
-                <md-menu-item ng-show="isAllowed('accadmin') || isAllowed('superadmin')">
+                <md-menu-item ng-show="isAllowed('superadmin')">
                     <md-button ui-sref="main.admin.users">
                         <md-icon>people</md-icon> {{ 'Manage users' | translate }}
                     </md-button>
