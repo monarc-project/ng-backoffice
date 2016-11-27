@@ -42,6 +42,9 @@
                 fullscreen: useFullScreen
             })
                 .then(function (question) {
+                    if(question.q && question.q.previous){
+                        question.q.previous = question.q.previous.id;//BE need integer instead of whole object
+                    }
                     QuestionService.createQuestion(question.q,
                         function (data) {
                             var finish = function () {
@@ -78,6 +81,9 @@
                 }
             })
                 .then(function (question) {
+                    if(question.q && question.q.previous){
+                        question.q.previous = question.q.previous.id;//BE need integer instead of whole object
+                    }
                     QuestionService.updateQuestion(question.q,
                         function () {
                             var finish = function () {
