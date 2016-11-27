@@ -1168,6 +1168,9 @@
                         }
 
                         if (isUpdate) {
+                            if( ! objlib.implicitPosition ){
+                                objlib.implicitPosition = 2;//à la fin
+                            }
                             ObjlibService.updateObjlib(objlib,
                                 function () {
                                     $scope.updateObjlibs();
@@ -1181,6 +1184,9 @@
                                 }
                             );
                         } else {
+                            if( ! objlib.implicitPosition ){
+                                objlib.implicitPosition = 2;//à la fin
+                            }
                             ObjlibService.createObjlib(objlib,
                                 function () {
                                     $scope.updateObjlibs();
@@ -1638,7 +1644,7 @@
             if ($scope.amv.implicitPosition == 3 && !$scope.amv.previous) {
                 $scope.amv.implicitPosition = 1;
             }
-            
+
             $mdDialog.hide($scope.amv);
         };
     }
