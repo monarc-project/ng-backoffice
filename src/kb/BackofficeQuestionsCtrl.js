@@ -34,12 +34,15 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', 'ConfigService', '$mdDialog', '$q', 'QuestionService', CreateQuestionDialogCtrl],
+                controller: ['$scope', 'ConfigService', '$mdDialog', '$q', 'QuestionService', 'questions', CreateQuestionDialogCtrl],
                 templateUrl: '/views/dialogs/create.questions.html',
                 targetEvent: ev,
                 scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: false,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    questions: $scope.questions,
+                }
             })
                 .then(function (question) {
                     if(question.q && question.q.previous){
@@ -70,13 +73,14 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', 'ConfigService', '$mdDialog', '$q', 'QuestionService', 'question', CreateQuestionDialogCtrl],
+                controller: ['$scope', 'ConfigService', '$mdDialog', '$q', 'QuestionService', 'questions', 'question', CreateQuestionDialogCtrl],
                 templateUrl: '/views/dialogs/create.questions.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 scope: $scope.$dialogScope.$new(),
                 locals: {
+                    questions: $scope.questions,
                     question: item
                 }
             })
@@ -127,12 +131,26 @@
     }
 
 
-    function CreateQuestionDialogCtrl($scope, ConfigService, $mdDialog, $q, QuestionService, question) {
+    function CreateQuestionDialogCtrl($scope, ConfigService, $mdDialog, $q, QuestionService, questions, question) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (question) {
             $scope.question = angular.copy(question);
+
+            // Determine position
+            for (var i = 0; i < questions.length; ++i) {
+                if ($scope.question.id == questions[i].id) {
+                    if (i == 0) {
+                        $scope.question.implicitPosition = 1;
+                    } else if (i == questions.length - 1) {
+                        $scope.question.implicitPosition = 2;
+                    } else {
+                        $scope.question.implicitPosition = 3;
+                        $scope.question.previous = questions[i - 1];
+                    }
+                }
+            }
 
             if ($scope.question.type_id) {
                 $scope.question.type = $scope.question.type_id;
