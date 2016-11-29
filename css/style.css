@@ -13,3 +13,13 @@ a {
 
 .md-main-content {
   background-color: #FAFAFA; }
+
+
+.md-html-table td, .md-html-table th {
+  border: 1px solid #DDDDDD;
+  padding: 8px;
+}
+
+.md-html-table td[disabled] {
+  background: #CCCCCC;
+}
