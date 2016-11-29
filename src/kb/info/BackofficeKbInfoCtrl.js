@@ -1534,7 +1534,7 @@
 
 
         $scope.queryAmvs = function (asset_id) {
-            AmvService.getAmvs({limit: 0, asset: asset_id, order: 'position'}).then(function (data) {
+            AmvService.getAmvs({limit: 0, asset: asset_id, order: 'position', amvid: $scope.amv.id}).then(function (data) {
                 $scope.asset_amvs = data.amvs;
             });
         };
