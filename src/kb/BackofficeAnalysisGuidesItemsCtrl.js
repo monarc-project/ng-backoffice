@@ -14,7 +14,7 @@
                                                GuideService) {
 
         $scope.updateItems = function () {
-            GuideService.getItems({order: 'position'}).then(function (data) {
+            GuideService.getItems({order: 'position', guide: $stateParams.guideId}).then(function (data) {
                 if (data.items) {
                     $scope.items = data.items;
                 }
