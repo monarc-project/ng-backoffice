@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeClientMgmtCtrl', [
-            '$scope', 'toastr', '$mdDialog', '$mdMedia', 'gettextCatalog', 'ClientService',
+            '$scope', 'toastr', '$mdDialog', '$mdMedia', '$timeout', 'gettextCatalog', 'ClientService',
             'TableHelperService',
             BackofficeClientMgmtCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > CM
      */
-    function BackofficeClientMgmtCtrl($scope, toastr, $mdDialog, $mdMedia, gettextCatalog, ClientService,
+    function BackofficeClientMgmtCtrl($scope, toastr, $mdDialog, $mdMedia, $timeout, gettextCatalog, ClientService,
                                       TableHelperService) {
         TableHelperService.resetBookmarks();
 
@@ -116,6 +116,8 @@
         };
 
         $scope.deleteClientMass = function (ev) {
+            var outpromise = null;
+
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected client(s)?',
                     {count: $scope.clients.selected.length}))
@@ -126,12 +128,20 @@
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.clients.selected, function (value, key) {
                     ClientService.deleteClient(value.id);
+
+                    if (outpromise) {
+                        $timeout.cancel(outpromise);
+                    }
+
+                    outpromise = $timeout(function () {
+                        $scope.updateClients();
+                        toastr.success(gettextCatalog.getString('{{count}} clients have been deleted.',
+                            {count: $scope.clients.selected.length}), gettextCatalog.getString('Deletion successful'));
+                        $scope.clients.selected = [];
+                    }, 350);
                 });
 
-                $scope.updateClients();
-                toastr.success(gettextCatalog.getString('{{count}} clients have been deleted.',
-                    {count: $scope.clients.selected.length}), gettextCatalog.getString('Deletion successful'));
-                $scope.clients.selected = [];
+
 
             }, function() {
             });
