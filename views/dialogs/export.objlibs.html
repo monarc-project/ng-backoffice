@@ -21,16 +21,16 @@
                 <p ng-if="mode == 'anr'" translate>You may enter a password to protect your risk analysis</p>
                 <p ng-if="mode == 'asset'" translate>You may enter a password to protect your asset</p>
 
-                <md-radio-group ng-model="export.simple_mode">
+                <md-radio-group ng-model="exportData.simple_mode">
                     <md-radio-button ng-value="false">{{ 'Custom password' | translate }}</md-radio-button>
 
                     <div layout="row" layout-align="center center">
                         <md-input-container class="md-block" ng-init="display.password_type = 'password'" flex>
                             <label translate>Password</label>
-                            <input type="{{ display.password_type }}" ng-disabled="export.simple_mode" ng-model="export.password">
+                            <input type="{{ display.password_type }}" ng-disabled="export.simple_mode" ng-model="exportData.password">
                         </md-input-container>
-                        <md-button class="md-icon-button" ng-disabled="export.simple_mode" ng-show="display.password_type == 'password'" ng-click="display.password_type = 'text'"><md-icon>visibility</md-icon></md-button>
-                        <md-button class="md-icon-button" ng-disabled="export.simple_mode" ng-show="display.password_type == 'text'" ng-click="display.password_type = 'password'"><md-icon>visibility_off</md-icon></md-button>
+                        <md-button class="md-icon-button" ng-disabled="exportData.simple_mode" ng-show="display.password_type == 'password'" ng-click="display.password_type = 'text'"><md-icon>visibility</md-icon></md-button>
+                        <md-button class="md-icon-button" ng-disabled="exportData.simple_mode" ng-show="display.password_type == 'text'" ng-click="display.password_type = 'password'"><md-icon>visibility_off</md-icon></md-button>
                     </div>
 
                     <md-radio-button ng-value="true">
@@ -42,7 +42,7 @@
 
                 <md-input-container class="md-block" flex ng-if="mode == 'anr' || mode == 'instance'">
                     <label translate>Export with assessments?</label>
-                    <md-select ng-model="export.assessments" style="min-width: 200px">
+                    <md-select ng-model="exportData.assessments" style="min-width: 200px">
                         <md-option ng-value="1">{{ 'Yes' | translate }}</md-option>
                         <md-option ng-value="0">{{ 'No' | translate }}</md-option>
                     </md-select>

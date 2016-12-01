@@ -1651,7 +1651,7 @@
 
     function ExportAssetDialog($scope, $mdDialog, mode) {
         $scope.mode = mode;
-        $scope.export = {
+        $scope.exportData = {
             password: null
         };
 
@@ -1660,7 +1660,7 @@
         };
 
         $scope.export = function() {
-            $mdDialog.hide($scope.export);
+            $mdDialog.hide($scope.exportData);
         };
 
     }
