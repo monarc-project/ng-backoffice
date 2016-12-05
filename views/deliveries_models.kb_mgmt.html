@@ -27,9 +27,16 @@
                     <td md-cell>{{ getCategoryLabel(deliverymodel.category) }}</td>
                     <td md-cell>{{ deliverymodel[_langField('description')] }}</td>
                     <td md-cell>
-                        <md-button class="md-icon-button" ng-click="downloadDeliveryModel($event, deliverymodel)">
-                            <md-icon>file_download</md-icon>
-                        </md-button>
+                        <md-menu>
+                            <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                                <md-icon>file_download</md-icon>
+                            </md-button>
+                            <md-menu-content>
+                                <md-menu-item ng-repeat="(idx, lang) in languages">
+                                    <md-button ng-click="downloadDeliveryModel(deliverymodel, idx)">{{ lang }}</md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
                         <md-button class="md-icon-button" ng-click="editDeliveryModel($event, deliverymodel)">
                             <md-icon>edit</md-icon>
                         </md-button>

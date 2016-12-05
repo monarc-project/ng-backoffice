@@ -4,6 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeDeliveriesModelsCtrl', [
             '$scope', '$mdDialog', '$mdMedia', '$http', 'DownloadService', 'toastr', 'gettextCatalog', 'DeliveriesModelsService',
+            'ConfigService', '$timeout',
             BackofficeDeliveriesModelsCtrl
         ]);
 
@@ -11,8 +12,13 @@
      * KB > Document Models Controller for the Backoffice module
      */
     function BackofficeDeliveriesModelsCtrl($scope, $mdDialog, $mdMedia, $http, DownloadService, toastr, gettextCatalog,
-                                     DeliveriesModelsService) {
+                                     DeliveriesModelsService, ConfigService, $timeout) {
         $scope.deliveriesmodels = [];
+
+        $timeout(function () {
+            $scope.languages = ConfigService.getLanguages();
+        }, 1000);
+
 
         $scope.updateDeliveriesModels = function () {
             DeliveriesModelsService.getDeliveriesModels().then(function (data) {
@@ -79,14 +85,18 @@
             });
         };
 
-        $scope.downloadDeliveryModel = function (ev, item) {
-            $http.get(item.path,{responseType: 'arraybuffer'}).then(function (data) {
-                var contentD = data.headers('Content-Disposition'),
-                    contentT = data.headers('Content-Type');
-                contentD = contentD.substring(0,contentD.length-1).split('filename="');
-                contentD = contentD[contentD.length-1];
-                DownloadService.downloadBlob(data.data, contentD,contentT);
-            })
+        $scope.downloadDeliveryModel = function (item, lang) {
+            if (item['path' + lang]) {
+                $http.get(item['path' + lang], {responseType: 'arraybuffer'}).then(function (data) {
+                    var contentD = data.headers('Content-Disposition'),
+                        contentT = data.headers('Content-Type');
+                    contentD = contentD.substring(0, contentD.length - 1).split('filename="');
+                    contentD = contentD[contentD.length - 1];
+                    DownloadService.downloadBlob(data.data, contentD, contentT);
+                });
+            } else {
+                toastr.warning(gettextCatalog.getString("There is no document template of this category for this language."));
+            }
 
         }
 

@@ -303,7 +303,7 @@ msgstr "Voulez-vous réellement supprimer le risque \"{{ label }}\" ?"
 msgid "Are you sure you want to delete tag \"{{ label }}\"?"
 msgstr "Voulez-vous réellement supprimer le tag \"{{ label }}\" ?"
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:65
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:71
 msgid "Are you sure you want to delete the document \"{{ label }}\"?"
 msgstr "Voulez-vous réellement supprimer le document « {{ label }} » ?"
 
@@ -509,7 +509,7 @@ msgstr "Calcul du risque / Seuils - Risques opérationnels"
 #: src/admin/BackofficeAdminUsersCtrl.js:109
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:78
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:89
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:70
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:76
 #: src/kb/BackofficeQuestionsCtrl.js:120
 #: src/kb/info/BackofficeKbInfoCtrl.js:1235
 #: src/kb/info/BackofficeKbInfoCtrl.js:1257
@@ -743,7 +743,7 @@ msgstr "Créer ce thème"
 #: src/admin/BackofficeAdminUsersCtrl.js:71
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:40
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:48
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:39
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:45
 #: src/kb/BackofficeQuestionsCtrl.js:56
 #: src/kb/info/BackofficeKbInfoCtrl.js:1195
 #: src/kb/info/BackofficeKbInfoCtrl.js:137
@@ -814,7 +814,7 @@ msgstr "Modèle par défaut"
 #: src/admin/BackofficeAdminUsersCtrl.js:108
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:77
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:88
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:69
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:75
 #: src/kb/BackofficeQuestionsCtrl.js:119
 #: src/kb/info/BackofficeKbInfoCtrl.js:1234
 #: src/kb/info/BackofficeKbInfoCtrl.js:1256
@@ -864,7 +864,7 @@ msgstr "Supprimer cet objet ?"
 #: src/admin/BackofficeAdminUsersCtrl.js:115
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:84
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:95
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:76
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:82
 #: src/kb/BackofficeQuestionsCtrl.js:126
 #: src/kb/info/BackofficeKbInfoCtrl.js:1241
 #: src/kb/info/BackofficeKbInfoCtrl.js:1268
@@ -1062,7 +1062,7 @@ msgstr "L'entité n'existe pas"
 msgid "Entity does not exist for this ANR"
 msgstr "L'entité n'existe pas dans cette ANR"
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:190
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:200
 msgid "Error while uploading"
 msgstr "Erreur lors de l'envoi"
 
@@ -1117,7 +1117,7 @@ msgstr "Options d’export"
 msgid "Export risk analysis"
 msgstr "Exporter l’analyse de risques"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1093 ../ng_anr/src/AnrObjectCtrl.js:278
+#: ../ng_anr/src/AnrLayoutCtrl.js:1094 ../ng_anr/src/AnrObjectCtrl.js:278
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:165
 #: src/kb/info/BackofficeKbInfoCtrl.js:262
 msgid "Export successful"
@@ -1143,7 +1143,7 @@ msgstr "Fax"
 msgid "Field previous missing"
 msgstr "Champ précédent manquant"
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:196
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:206
 msgid "File error"
 msgstr "Erreur de fichier"
 
@@ -1715,7 +1715,7 @@ msgstr "Objet"
 msgid "Object actions"
 msgstr "Actions"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:870
+#: ../ng_anr/src/AnrLayoutCtrl.js:871
 msgid "Object added successfully"
 msgstr "L'objet a bien été ajouté"
 
@@ -2081,7 +2081,7 @@ msgstr "Enregistrer les modifications"
 msgid "Save successful"
 msgstr "Enregistrement réussi"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:818
+#: ../ng_anr/src/AnrLayoutCtrl.js:819
 msgid "Scale type deleted"
 msgstr "Type d’échelle supprimée avec succès"
 
@@ -2375,15 +2375,15 @@ msgstr ""
 "L'objet courant « {{ name }} » va être supprimé de la bibliothèque. Êtes-"
 "vous sûr ?"
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:38
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:44
 msgid "The document \"{{deliveryModelLabel}}\" has been created successfully."
 msgstr "Le document « {{deliveryModelLabel}} » a bien été créé."
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:58
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:64
 msgid "The document \"{{deliveryModelLabel}}\" has been updated successfully."
 msgstr "Le document « {{deliveryModelLabel}} » a bien été mis à jour."
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:75
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:81
 msgid "The document \"{{label}}\" has been deleted."
 msgstr "Le document « {{label}} » a été supprimé."
 
@@ -2415,7 +2415,7 @@ msgstr "Le guide « {{guideLabel}} » a été mis à jour avec succès."
 msgid "The guide has been deleted."
 msgstr "Le guide a bien été supprimé."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:818
+#: ../ng_anr/src/AnrLayoutCtrl.js:819
 msgid "The impact scale type has been deleted successfully."
 msgstr "L’échelle de type d’impact a été supprimée avec succès."
 
@@ -2494,7 +2494,7 @@ msgstr "L'objet « {{objlibLabel}} » a bien été créé."
 msgid "The object \"{{objlibLabel}}\" has been updated successfully."
 msgstr "L'objet « {{objlibLabel}} » a bien été mis à jour."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:870
+#: ../ng_anr/src/AnrLayoutCtrl.js:871
 msgid "The object has been added to the library."
 msgstr "L'objet a été ajouté à la bibliothèque."
 
@@ -2571,11 +2571,11 @@ msgstr "Le risque « {{riskLabel}} » a bien été créé."
 msgid "The risk \"{{riskLabel}}\" has been updated successfully."
 msgstr "Le risque « {{riskLabel}} » a bien été mis à jour."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:841
+#: ../ng_anr/src/AnrLayoutCtrl.js:842
 msgid "The risk analysis details have been updated"
 msgstr "Les détails de l'analyse de risque ont bien été mises à jour."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1093
+#: ../ng_anr/src/AnrLayoutCtrl.js:1094
 msgid "The risk analysis has been exported successfully."
 msgstr "L’analyse de risques a bien été exportée."
 
@@ -2599,7 +2599,7 @@ msgstr "Le serveur \"{{ label }}\" a été supprimé."
 msgid "The server \"{{label}}\" has been updated successfully."
 msgstr "Le serveur « {{label}} » a bien été mis à jour."
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:190
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:200
 msgid "The server returned the error code:"
 msgstr "Le serveur a renvoyé le code d'erreur : "
 
@@ -2737,6 +2737,11 @@ msgstr ""
 "Il n’y a pas de risques pour cette instance, ou vos filtres n’ont retournés "
 "aucun résultat."
 
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:98
+msgid "There is no document template of this category for this language."
+msgstr ""
+"Il n’y a pas de modèle de document de cette catégorie pour cette langue."
+
 #: ../ng_anr/views/create.amvs.html:137
 msgid "Third measure"
 msgstr "Troisième mesure"
@@ -2811,7 +2816,7 @@ msgstr "Cet objet n'est pas lié à l'ANR"
 #: src/admin/BackofficeAdminUsersCtrl.js:106
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:75
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:86
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:67
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:73
 #: src/kb/BackofficeQuestionsCtrl.js:117
 #: src/kb/info/BackofficeKbInfoCtrl.js:1232
 #: src/kb/info/BackofficeKbInfoCtrl.js:1254
@@ -2858,11 +2863,11 @@ msgstr ""
 msgid "Threat"
 msgstr "Menace"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1398
+#: ../ng_anr/src/AnrLayoutCtrl.js:1399
 msgid "Threat assessment saved successfully"
 msgstr "Evaluation de la menace sauvegardée avec succès"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1405
+#: ../ng_anr/src/AnrLayoutCtrl.js:1406
 msgid "Threat evaluation summary saved successfully"
 msgstr "Synthèse de l’évaluation de la menace sauvegardée"
 
@@ -3029,14 +3034,14 @@ msgstr "Mettre à jour les informations du serveur"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:190 ../ng_anr/src/AnrKbMgmtCtrl.js:381
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:556 ../ng_anr/src/AnrKbMgmtCtrl.js:719
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:922 ../ng_anr/src/AnrLayoutCtrl.js:310
-#: ../ng_anr/src/AnrLayoutCtrl.js:841 ../ng_anr/src/AnrObjectCtrl.js:227
+#: ../ng_anr/src/AnrLayoutCtrl.js:842 ../ng_anr/src/AnrObjectCtrl.js:227
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:141
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:151
 #: src/BackofficeClientMgmtCtrl.js:84 src/admin/BackofficeAdminServerCtrl.js:75
 #: src/admin/BackofficeAdminUsersCtrl.js:95
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:64
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:75
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:59
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:65
 #: src/kb/BackofficeQuestionsCtrl.js:96
 #: src/kb/info/BackofficeKbInfoCtrl.js:1179
 #: src/kb/info/BackofficeKbInfoCtrl.js:176
@@ -3269,7 +3274,7 @@ msgstr "Vous devez sélectionner un pays"
 msgid "You must select a country first"
 msgstr "Vous devez d'abord sélectionner un pays"
 
-#: src/kb/BackofficeDeliveriesModelsCtrl.js:204
+#: src/kb/BackofficeDeliveriesModelsCtrl.js:214
 msgid "You must select a file"
 msgstr "Vous devez sélectionner un fichier"
 
