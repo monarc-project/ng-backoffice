@@ -15,7 +15,7 @@
                                     ModelService, $timeout) {
         TableHelperService.resetBookmarks();
 
-        $scope.models = TableHelperService.build('label1', 10, 1, '');
+        $scope.models = TableHelperService.build($scope._langField('label'), 10, 1, '');
 
         $scope.updateModels = function () {
             $scope.models.promise = ModelService.getModels($scope.models.query);
@@ -30,6 +30,8 @@
         };
 
         TableHelperService.watchSearch($scope, 'models.query.filter', $scope.models.query, $scope.updateModels);
+
+        TableHelperService.watchSearch($scope, 'models.query.status', $scope.models.query, $scope.updateModels);
 
         $scope.createNewModel = function (ev, model) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -49,7 +51,7 @@
                         function () {
                             $scope.updateModels();
                             toastr.success(gettextCatalog.getString('The model "{{modelLabel}}" has been created successfully.',
-                                {modelLabel: model.label1}), gettextCatalog.getString('Creation successful'));
+                                {modelLabel: model[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
                         },
 
                         function () {
@@ -78,7 +80,7 @@
                             function () {
                                 $scope.updateModels();
                                 toastr.success(gettextCatalog.getString('The model "{{modelLabel}}" has been updated successfully.',
-                                    {modelLabel: model.label1}), gettextCatalog.getString('Update successful'));
+                                    {modelLabel: model[$scope._langField('label')]}), gettextCatalog.getString('Update successful'));
                             },
 
                             function () {
@@ -89,10 +91,16 @@
             });
         };
 
+        $scope.toggleModelStatus = function (item) {
+            ModelService.patchModel(item.id, {'status': item.status ? 0 : 1}, function () {
+                $scope.updateModels();
+            });
+        };
+
         $scope.deleteModel = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete model "{{ label }}"?',
-                    {label: item.label1}))
+                    {label: item[$scope._langField('label')]}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettextCatalog.getString('Delete'))
@@ -102,7 +110,7 @@
                     function () {
                         $scope.updateModels();
                         toastr.success(gettextCatalog.getString('The model "{{label}}" has been deleted.',
-                            {label: item.label1}), gettextCatalog.getString('Deletion successful'));
+                            {label: item[$scope._langField('label')]}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });

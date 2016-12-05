@@ -7,6 +7,14 @@
                 <md-button class="md-icon-button" ng-click="models.filter.show = true">
                     <md-icon>search</md-icon>
                 </md-button>
+
+                <div style="font-size: 14px">
+                    <md-select aria-label="filter" ng-model="models.query.status">
+                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                    </md-select>
+                </div>
             </div>
         </md-toolbar>
 
@@ -49,7 +57,8 @@
             <table md-table md-row-select multiple ng-model="models.selected" md-progress="models.promise">
                 <thead md-head md-order="models.query.order" md-on-reorder="updateModels">
                 <tr md-row>
-                    <th md-column md-order-by="label1"><span translate>Label</span></th>
+                    <th md-column md-order-by="status"><span translate>Status</span></th>
+                    <th md-column md-order-by="{{ _langField('label') }}"><span translate>Label</span></th>
                     <th md-column md-order-by="description1"><span translate>Description</span></th>
                     <th md-column md-order-by="is_generic"><span translate>Specific</span></th>
                     <th md-column md-order-by="is_regulator"><span translate>Regulator</span></th>
@@ -60,6 +69,7 @@
 
                 <tbody md-body>
                 <tr md-row md-select="model" md-select-id="label" ng-repeat="model in models.items.models" ng-init="model.isGeneric = !model.isGeneric">
+                    <td md-cell><md-button class="md-icon-button" ng-click="toggleModelStatus(model)"><md-icon>{{ model.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                     <td class="clickable-rows" ng-class="{'bold': model.isDefault}" md-cell ui-sref="main.kb_mgmt.models.details({modelId: model.id})">{{ model[_langField('label')] }}</td>
                     <td md-cell class="preserve-newlines">{{ model[_langField('description')] }}</td>
                     <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></div></td>
