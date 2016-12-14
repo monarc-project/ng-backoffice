@@ -2,20 +2,11 @@
     <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex">
         <md-tab label="{{ 'Categories' | translate }}" md-on-select="selectCategoriesTab()" md-on-deselect="deselectCategoriesTab()">
             <md-toolbar class="md-table-toolbar md-default"
-                        ng-hide="categories.selected.length || categories.filter.show">
+                        ng-hide="categories.selected.length">
                 <div class="md-toolbar-tools">
                     <h2 class="md-title" translate>Categories</h2>
 
                     <div flex></div>
-                    <md-button class="md-icon-button" ng-click="categories.filter.show = true">
-                        <md-icon>search</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
-
-            <md-toolbar class="md-table-toolbar md-default"
-                        ng-show="categories.filter.show && !categories.selected.length">
-                <div class="md-toolbar-tools">
                     <md-icon>search</md-icon>
                     <form flex name="categories.filter.form">
                         <input type="text" ng-model="categories.query.filter"
@@ -82,20 +73,11 @@
 
         <md-tab label="{{ 'Tags' | translate }}" md-on-select="selectTagsTab()" md-on-deselect="deselectTagsTab()">
             <md-toolbar class="md-table-toolbar md-default"
-                        ng-hide="tags.selected.length || tags.filter.show">
+                        ng-hide="tags.selected.length">
                 <div class="md-toolbar-tools">
                     <h2 class="md-title" translate>Tags</h2>
 
                     <div flex></div>
-                    <md-button class="md-icon-button" ng-click="tags.filter.show = true">
-                        <md-icon>search</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
-
-            <md-toolbar class="md-table-toolbar md-default"
-                        ng-show="tags.filter.show && !tags.selected.length">
-                <div class="md-toolbar-tools">
                     <md-icon>search</md-icon>
                     <form flex name="tags.filter.form">
                         <input type="text" ng-model="tags.query.filter"
@@ -161,20 +143,11 @@
 
         <md-tab label="{{ 'Risks' | translate }}" md-on-select="selectRisksTab()" md-on-deselect="deselectRisksTab()">
             <md-toolbar class="md-table-toolbar md-default"
-                        ng-hide="risks.selected.length || risks.filter.show">
+                        ng-hide="risks.selected.length">
                 <div class="md-toolbar-tools">
                     <h2 class="md-title" translate>Risks</h2>
 
                     <div flex></div>
-                    <md-button class="md-icon-button" ng-click="risks.filter.show = true">
-                        <md-icon>search</md-icon>
-                    </md-button>
-                </div>
-            </md-toolbar>
-
-            <md-toolbar class="md-table-toolbar md-default"
-                        ng-show="risks.filter.show && !risks.selected.length">
-                <div class="md-toolbar-tools">
                     <md-icon>search</md-icon>
                     <form flex name="risks.filter.form">
                         <input type="text" ng-model="risks.query.filter"
