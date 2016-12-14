@@ -1281,7 +1281,7 @@ msgstr "Options d’export"
 msgid "Export risk analysis"
 msgstr "Exporter l’analyse de risques"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:279 ../ng_anr/src/AnrLayoutCtrl.js:1266
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:279 ../ng_anr/src/AnrLayoutCtrl.js:1271
 #: ../ng_anr/src/AnrObjectCtrl.js:278
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:163
 #: src/kb/info/BackofficeKbInfoCtrl.js:262
@@ -1936,7 +1936,7 @@ msgstr "Objet"
 msgid "Object actions"
 msgstr "Actions"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1042
+#: ../ng_anr/src/AnrLayoutCtrl.js:1047
 msgid "Object added successfully"
 msgstr "L'objet a bien été ajouté"
 
@@ -2347,7 +2347,7 @@ msgstr "Enregistrer les modifications"
 msgid "Save successful"
 msgstr "Enregistrement réussi"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:979
+#: ../ng_anr/src/AnrLayoutCtrl.js:984
 msgid "Scale type deleted"
 msgstr "Type d’échelle supprimée avec succès"
 
@@ -2452,7 +2452,7 @@ msgstr "Afficher inactifs uniquement"
 msgid "Simple text"
 msgstr "Texte simple"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1801
+#: ../ng_anr/src/AnrLayoutCtrl.js:1806
 msgid "Snapshot restored"
 msgstr "Snapshot restauré"
 
@@ -2715,7 +2715,7 @@ msgstr "Le guide « {{guideLabel}} » a été mis à jour avec succès."
 msgid "The guide has been deleted."
 msgstr "Le guide a bien été supprimé."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:979
+#: ../ng_anr/src/AnrLayoutCtrl.js:984
 msgid "The impact scale type has been deleted successfully."
 msgstr "L’échelle de type d’impact a été supprimée avec succès."
 
@@ -2798,7 +2798,7 @@ msgstr "L'objet « {{objlibLabel}} » a bien été créé."
 msgid "The object \"{{objlibLabel}}\" has been updated successfully."
 msgstr "L'objet « {{objlibLabel}} » a bien été mis à jour."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1042
+#: ../ng_anr/src/AnrLayoutCtrl.js:1047
 msgid "The object has been added to the library."
 msgstr "L'objet a été ajouté à la bibliothèque."
 
@@ -2864,7 +2864,7 @@ msgstr "La question a bien été supprimée."
 msgid "The recommandation has been attached to this risk."
 msgstr "La recommandation a bien été attachée au risque."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1384
+#: ../ng_anr/src/AnrLayoutCtrl.js:1389
 msgid "The recommendation has been created successfully"
 msgstr "La recommandation a bien été créée."
 
@@ -2872,7 +2872,7 @@ msgstr "La recommandation a bien été créée."
 msgid "The recommendation has been detached."
 msgstr "La recommandation a bien été détachée."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1407
+#: ../ng_anr/src/AnrLayoutCtrl.js:1412
 msgid "The recommendation has been updated successfully"
 msgstr "La recommandation a bien été mise à jour."
 
@@ -2891,11 +2891,11 @@ msgstr "Le risque « {{riskLabel}} » a bien été créé."
 msgid "The risk \"{{riskLabel}}\" has been updated successfully."
 msgstr "Le risque « {{riskLabel}} » a bien été mis à jour."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1013
+#: ../ng_anr/src/AnrLayoutCtrl.js:1018
 msgid "The risk analysis details have been updated"
 msgstr "Les détails de l'analyse de risque ont bien été mises à jour."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1266
+#: ../ng_anr/src/AnrLayoutCtrl.js:1271
 msgid "The risk analysis has been exported successfully."
 msgstr "L’analyse de risques a bien été exportée."
 
@@ -3079,8 +3079,8 @@ msgid "This asset is attached to the following parents"
 msgstr "Cet actif est attaché aux parents suivants"
 
 #: ../ng_anr/views/anr.layout.html:214 ../ng_anr/views/anr.layout.html:239
-msgid "This cannot be higher than 128"
-msgstr "Cette valeur ne peut pas dépasser 128"
+msgid "This cannot be higher than"
+msgstr "Cette valeur ne peut pas dépasser"
 
 #: ../ng_anr/views/anr.layout.html:203 ../ng_anr/views/anr.layout.html:228
 msgid "This cannot be higher than the orange threshold"
@@ -3206,11 +3206,11 @@ msgstr ""
 msgid "Threat"
 msgstr "Menace"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1741
+#: ../ng_anr/src/AnrLayoutCtrl.js:1746
 msgid "Threat assessment saved successfully"
 msgstr "Evaluation de la menace sauvegardée avec succès"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1753
+#: ../ng_anr/src/AnrLayoutCtrl.js:1758
 msgid "Threat evaluation summary saved successfully"
 msgstr "Synthèse de l’évaluation de la menace sauvegardée"
 
@@ -3272,7 +3272,7 @@ msgstr "Tendances"
 msgid "Trends assessment"
 msgstr "Evaluation des tendances"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1703
+#: ../ng_anr/src/AnrLayoutCtrl.js:1708
 msgid "Trends assessment saved successfully"
 msgstr "L’évaluation des tendances a bien été enregistrée."
 
@@ -3405,7 +3405,7 @@ msgstr "Mettre à jour les informations d’un risque spécifique"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1526 ../ng_anr/src/AnrKbMgmtCtrl.js:1733
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:193 ../ng_anr/src/AnrKbMgmtCtrl.js:413
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:591 ../ng_anr/src/AnrKbMgmtCtrl.js:754
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:963 ../ng_anr/src/AnrLayoutCtrl.js:1013
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:963 ../ng_anr/src/AnrLayoutCtrl.js:1018
 #: ../ng_anr/src/AnrLayoutCtrl.js:420 ../ng_anr/src/AnrObjectCtrl.js:227
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:139
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:155
@@ -3626,7 +3626,7 @@ msgstr ""
 msgid "You may import an asset:"
 msgstr "Vous pouvez importer un actif :"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:874
+#: ../ng_anr/src/AnrLayoutCtrl.js:879
 msgid "You may not change scales anymore"
 msgstr "Vous ne pouvez plus changer les échelles"
 
@@ -3870,6 +3870,9 @@ msgstr "{{count}} menaces ont été supprimées."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:641 src/kb/info/BackofficeKbInfoCtrl.js:624
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnérabilités ont été supprimées."
+
+#~ msgid "This cannot be higher than 128"
+#~ msgstr "Cette valeur ne peut pas dépasser 128"
 
 #~ msgid "{{ oprisks_total }} operational risk(s)"
 #~ msgstr "{{ oprisks_total }} risque(s) opérationnel(s)"
