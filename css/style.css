@@ -23,3 +23,13 @@ a {
 .md-html-table td[disabled] {
   background: #CCCCCC;
 }
+
+.md-html-table tbody tr {
+  transition: 0.25s background-color;
+}
+.md-html-table tbody tr:nth-child(even) {
+  background-color: rgba(1, 1, 1, 0.02);
+}
+.md-html-table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+}
