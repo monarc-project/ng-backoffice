@@ -4,7 +4,7 @@
             <div class="md-toolbar-tools">
                 <h2 class="md-title" translate>Models</h2>
                 <div flex></div>
-                <md-button class="md-icon-button" ng-click="models.filter.show = true">
+                <md-button class="md-icon-button md-primary" ng-click="models.filter.show = true">
                     <md-icon>search</md-icon>
                 </md-button>
 
@@ -24,7 +24,7 @@
                 <form flex name="models.filter.form">
                     <input type="text" ng-model="models.query.filter" ng-model-options="models.filter.options" placeholder="{{ 'Search...' | translate }}">
                 </form>
-                <md-button class="md-icon-button" ng-click="removeModelsFilter()">
+                <md-button class="md-icon-button md-primary" ng-click="removeModelsFilter()">
                     <md-icon>close</md-icon>
                 </md-button>
             </div>
@@ -33,7 +33,7 @@
         <md-toolbar class="md-table-toolbar alternate" ng-show="models.selected.length">
             <div class="md-toolbar-tools" layout-align="space-between center">
                 <div>{{models.selected.length}} {{models.selected.length > 1 ? 'items' : 'item'}} selected</div>
-                <md-button class="md-icon-button" ng-click="deleteModelMass($event)">
+                <md-button class="md-icon-button md-warn" ng-click="deleteModelMass($event)">
                     <md-icon>delete</md-icon>
                 </md-button>
             </div>
@@ -69,17 +69,17 @@
 
                 <tbody md-body>
                 <tr md-row md-select="model" md-select-id="label" ng-repeat="model in models.items.models" ng-init="model.isGeneric = !model.isGeneric">
-                    <td md-cell><md-button class="md-icon-button" ng-click="toggleModelStatus(model)"><md-icon>{{ model.status ? 'done' : 'clear' }}</md-icon></md-button></td>
+                    <td md-cell><md-button class="md-icon-button md-primary" ng-click="toggleModelStatus(model)"><md-icon>{{ model.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                     <td class="clickable-rows" ng-class="{'bold': model.isDefault}" md-cell ui-sref="main.kb_mgmt.models.details({modelId: model.id})">{{ model[_langField('label')] }}</td>
                     <td md-cell class="preserve-newlines">{{ model[_langField('description')] }}</td>
                     <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></div></td>
                     <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isRegulator" aria-label="Regulator"></md-checkbox></div></td>
                     <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.showRolfBrut" aria-label="Raw ROLF"></md-checkbox></div></td>
                     <td md-cell>
-                        <md-button class="md-icon-button" ui-sref="main.kb_mgmt.models.details({modelId: model.id})"><md-icon>open_in_new</md-icon> <md-tooltip>{{ 'Open details' | translate }}</md-tooltip></md-button>
-                        <md-button class="md-icon-button" ng-click="editModel($event, model)"><md-icon>edit</md-icon> <md-tooltip>{{ 'Edit information' | translate }}</md-tooltip></md-button>
-                        <md-button class="md-icon-button" ng-click="duplicateModel(model)"><md-icon>content_copy</md-icon> <md-tooltip>{{ 'Duplicate' | translate }}</md-tooltip></md-button>
-                        <md-button class="md-icon-button" ng-click="deleteModel($event, model)"><md-icon>delete</md-icon> <md-tooltip>{{ 'Delete' | translate }}</md-tooltip></md-button>
+                        <md-button class="md-icon-button md-primary" ui-sref="main.kb_mgmt.models.details({modelId: model.id})"><md-icon>open_in_new</md-icon> <md-tooltip>{{ 'Open details' | translate }}</md-tooltip></md-button>
+                        <md-button class="md-icon-button md-primary" ng-click="editModel($event, model)"><md-icon>edit</md-icon> <md-tooltip>{{ 'Edit information' | translate }}</md-tooltip></md-button>
+                        <md-button class="md-icon-button md-primary" ng-click="duplicateModel(model)"><md-icon>content_copy</md-icon> <md-tooltip>{{ 'Duplicate' | translate }}</md-tooltip></md-button>
+                        <md-button class="md-icon-button md-warn" ng-click="deleteModel($event, model)"><md-icon>delete</md-icon> <md-tooltip>{{ 'Delete' | translate }}</md-tooltip></md-button>
                     </td>
                 </tr>
                 </tbody>

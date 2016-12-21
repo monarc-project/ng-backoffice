@@ -28,7 +28,7 @@
                     <td md-cell>{{ deliverymodel[_langField('description')] }}</td>
                     <td md-cell>
                         <md-menu>
-                            <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                            <md-button class="md-icon-button md-primary" ng-click="$mdOpenMenu($event)">
                                 <md-icon>file_download</md-icon>
                             </md-button>
                             <md-menu-content>
@@ -37,10 +37,10 @@
                                 </md-menu-item>
                             </md-menu-content>
                         </md-menu>
-                        <md-button class="md-icon-button" ng-click="editDeliveryModel($event, deliverymodel)">
+                        <md-button class="md-icon-button md-primary" ng-click="editDeliveryModel($event, deliverymodel)">
                             <md-icon>edit</md-icon>
                         </md-button>
-                        <md-button class="md-icon-button" ng-click="deleteDeliveryModel($event, deliverymodel)">
+                        <md-button class="md-icon-button md-warn" ng-click="deleteDeliveryModel($event, deliverymodel)">
                             <md-icon>delete</md-icon>
                         </md-button>
                     </td>

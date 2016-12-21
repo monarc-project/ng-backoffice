@@ -26,10 +26,10 @@
                 <td md-cell>{{ server.ip_address }}</td>
                 <td md-cell><md-button class="md-icon-button" ng-click="toggleServerStatus(server)"><md-icon>{{ server.status ? 'done' : 'close' }}</md-icon></md-button></td>
                 <td md-cell>
-                    <md-button class="md-icon-button" ng-click="editServer($event, server)">
+                    <md-button class="md-icon-button md-primary" ng-click="editServer($event, server)">
                         <md-icon>edit</md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" ng-click="deleteServer($event, server)">
+                    <md-button class="md-icon-button md-warn" ng-click="deleteServer($event, server)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </td>
