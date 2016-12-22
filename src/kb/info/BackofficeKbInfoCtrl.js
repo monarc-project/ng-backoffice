@@ -131,10 +131,10 @@
                             if (asset.mode == 0 && asset.models && asset.models.length > 0) {
                                 // If we create a generic asset, but we still have specific models, we should warn
                                 toastr.warning(gettextCatalog.getString('The asset "{{assetLabel}}" has been created successfully, however without models, the element may not be specific.',
-                                    {assetLabel: asset.label1}));
+                                    {assetLabel: asset[$scope._langField('label')]}));
                             } else {
                                 toastr.success(gettextCatalog.getString('The asset "{{assetLabel}}" has been created successfully.',
-                                    {assetLabel: asset.label1}), gettextCatalog.getString('Creation successful'));
+                                    {assetLabel: asset[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
                             }
                         },
 
@@ -170,10 +170,10 @@
                                 if (asset.mode == 0 && asset.models && asset.models.length > 0) {
                                     // If we create a generic asset, but we still have specific models, we should warn
                                     toastr.warning(gettextCatalog.getString('The asset "{{assetLabel}}" has been updated successfully, however without models, the element may not be specific.',
-                                        {assetLabel: asset.label1}));
+                                        {assetLabel: asset[$scope._langField('label')]}));
                                 } else {
                                     toastr.success(gettextCatalog.getString('The asset "{{assetLabel}}" has been updated successfully.',
-                                        {assetLabel: asset.label1}), gettextCatalog.getString('Update successful'));
+                                        {assetLabel: asset[$scope._langField('label')]}), gettextCatalog.getString('Update successful'));
                                 }
                             },
 
@@ -188,7 +188,7 @@
         $scope.deleteAsset = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete asset "{{ label }}"?',
-                    {label: item.label1}))
+                    {label: item[$scope._langField('label')]}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettextCatalog.getString('Delete'))
@@ -198,7 +198,7 @@
                     function () {
                         $scope.updateAssets();
                         toastr.success(gettextCatalog.getString('The asset "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettextCatalog.getString('Deletion successful'));
+                                    {label: item[$scope._langField('label')]}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -333,9 +333,15 @@
             })
                 .then(function (threat) {
                     var themeBackup = threat.theme;
+                    var cont = threat.cont;
+                    threat.cont = undefined;
 
                     if (threat.theme) {
                         threat.theme = threat.theme.id;
+                    }
+
+                    if (cont) {
+                        $scope.createNewThreat(ev);
                     }
 
                     ThreatService.createThreat(threat,
@@ -345,10 +351,10 @@
                             if (threat.mode == 0 && threat.models && threat.models.length > 0) {
                                 // If we create a generic threat, but we still have specific models, we should warn
                                 toastr.warning(gettextCatalog.getString('The threat "{{threatLabel}}" has been created successfully, however without models, the element may not be specific.',
-                                    {threatLabel: threat.label1}));
+                                    {threatLabel: threat[$scope._langField('label')]}));
                             } else {
                                 toastr.success(gettextCatalog.getString('The threat "{{threatLabel}}" has been created successfully.',
-                                    {threatLabel: threat.label1}), gettextCatalog.getString('Creation successful'));
+                                    {threatLabel: threat[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
                             }
                         },
 
@@ -390,10 +396,10 @@
                                 if (threat.mode == 0 && threat.models && threat.models.length > 0) {
                                     // If we create a generic threat, but we still have specific models, we should warn
                                     toastr.warning(gettextCatalog.getString('The threat "{{threatLabel}}" has been updated successfully, however without models, the element may not be specific.',
-                                        {threatLabel: threat.label1}));
+                                        {threatLabel: threat[$scope._langField('label')]}));
                                 } else {
                                     toastr.success(gettextCatalog.getString('The threat "{{threatLabel}}" has been updated successfully.',
-                                        {threatLabel: threat.label1}), gettextCatalog.getString('Update successful'));
+                                        {threatLabel: threat[$scope._langField('label')]}), gettextCatalog.getString('Update successful'));
                                 }
                                 threat.theme = themeBackup;
                             },
@@ -522,6 +528,13 @@
                 }
             })
                 .then(function (vuln) {
+                    var cont = vuln.cont;
+                    vuln.cont = undefined;
+
+                    if (cont) {
+                        $scope.createNewVuln(ev);
+                    }
+
                     VulnService.createVuln(vuln,
                         function () {
                             $scope.updateVulns();
@@ -529,10 +542,10 @@
                             if (vuln.mode == 0 && vuln.models && vuln.models.length > 0) {
                                 // If we create a generic vulnerability, but we still have specific models, we should warn
                                 toastr.warning(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been created successfully, however without models, the element may not be specific.',
-                                    {vulnLabel: vuln.label1}));
+                                    {vulnLabel: vuln[$scope._langField('label')]}));
                             } else {
                                 toastr.success(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been created successfully.',
-                                    {vulnLabel: vuln.label1}), gettextCatalog.getString('Creation successful'));
+                                    {vulnLabel: vuln[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
                             }
                         },
 
@@ -568,10 +581,10 @@
                                 if (vuln.mode == 0 && vuln.models && vuln.models.length > 0) {
                                     // If we create a generic vulnerability, but we still have specific models, we should warn
                                     toastr.warning(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been updated successfully, however without models, the element may not be specific.',
-                                        {vulnLabel: vuln.label1}));
+                                        {vulnLabel: vuln[$scope._langField('label')]}));
                                 } else {
                                     toastr.success(gettextCatalog.getString('The vulnerability "{{vulnLabel}}" has been updated successfully.',
-                                        {vulnLabel: vuln.label1}), gettextCatalog.getString('Update successful'));
+                                        {vulnLabel: vuln[$scope._langField('label')]}), gettextCatalog.getString('Update successful'));
                                 }
                             },
 
@@ -586,7 +599,7 @@
         $scope.deleteVuln = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete vulnerability "{{ label }}"?',
-                    {label: item.label1}))
+                    {label: item[$scope._langField('label')]}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettextCatalog.getString('Delete'))
@@ -596,7 +609,7 @@
                     function () {
                         $scope.updateVulns();
                         toastr.success(gettextCatalog.getString('The vulnerability "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettextCatalog.getString('Deletion successful'));
+                                    {label: item[$scope._langField('label')]}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -699,6 +712,13 @@
                 }
             })
                 .then(function (measure) {
+                    var cont = measure.cont;
+                    measure.cont = undefined;
+
+                    if (cont) {
+                        $scope.createNewMeasure(ev);
+                    }
+
                     MeasureService.createMeasure(measure,
                         function () {
                             $scope.updateMeasures();
@@ -881,6 +901,13 @@
                     }
                     if (amv.vulnerability) {
                         amv.vulnerability = amv.vulnerability.id;
+                    }
+
+                    var cont = amv.cont;
+                    amv.cont = undefined;
+
+                    if (cont) {
+                        $scope.createNewAmv(ev);
                     }
 
                     AmvService.createAmv(amv,
@@ -1086,7 +1113,7 @@
                         var child = children[i];
 
                         for (var j = 0; j < depth; ++j) {
-                            child.label1 = " >> " + child.label1;
+                            child[$scope._langField('label')] = " >> " + child[$scope._langField('label')];
                         }
 
                         output.push(child);
@@ -1176,7 +1203,7 @@
                                     $scope.updateObjlibs();
                                     $scope.updateObjlibsTabCategoriesFilter();
                                     toastr.success(gettextCatalog.getString('The object "{{objlibLabel}}" has been updated successfully.',
-                                        {objlibLabel: objlib.label1}), gettextCatalog.getString('Update successful'));
+                                        {objlibLabel: objlib[$scope._langField('label')]}), gettextCatalog.getString('Update successful'));
                                 },
 
                                 function () {
@@ -1192,7 +1219,7 @@
                                     $scope.updateObjlibs();
                                     $scope.updateObjlibsTabCategoriesFilter();
                                     toastr.success(gettextCatalog.getString('The object "{{objlibLabel}}" has been created successfully.',
-                                        {objlibLabel: objlib.label1}), gettextCatalog.getString('Creation successful'));
+                                        {objlibLabel: objlib[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
 
                                     if (cont) {
                                         $scope.createNewObjlib(ev);
@@ -1228,7 +1255,7 @@
         $scope.deleteObjlib = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete object "{{ label }}"?',
-                    {label: item.label1}))
+                    {label: item[$scope._langField('label')]}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettextCatalog.getString('Delete'))
@@ -1238,7 +1265,7 @@
                     function () {
                         $scope.updateObjlibs();
                         toastr.success(gettextCatalog.getString('The object "{{label}}" has been deleted.',
-                                    {label: item.label1}), gettextCatalog.getString('Deletion successful'));
+                                    {label: item[$scope._langField('label')]}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -1455,6 +1482,10 @@
         $scope.create = function() {
             $mdDialog.hide($scope.threat);
         };
+        $scope.createAndContinue = function () {
+            $scope.threat.cont = true;
+            $mdDialog.hide($scope.threat);
+        }
     }
 
     function CreateVulnDialogCtrl($scope, $mdDialog, ModelService, ConfigService, vuln) {
@@ -1501,6 +1532,10 @@
         $scope.create = function() {
             $mdDialog.hide($scope.vuln);
         };
+        $scope.createAndContinue = function () {
+            $scope.vuln.cont = true;
+            $mdDialog.hide($scope.vuln);
+        }
     }
 
     function CreateMeasureDialogCtrl($scope, $mdDialog, ConfigService, measure) {
@@ -1526,6 +1561,10 @@
         $scope.create = function() {
             $mdDialog.hide($scope.measure);
         };
+        $scope.createAndContinue = function () {
+            $scope.measure.cont = true;
+            $mdDialog.hide($scope.measure);
+        }
     }
 
     function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ConfigService, AmvService, $q, amv) {
@@ -1647,12 +1686,17 @@
 
             $mdDialog.hide($scope.amv);
         };
+        $scope.createAndContinue = function () {
+            $scope.amv.cont = true;
+            $mdDialog.hide($scope.amv);
+        };
     }
 
     function ExportAssetDialog($scope, $mdDialog, mode) {
         $scope.mode = mode;
         $scope.exportData = {
-            password: null
+            password: null,
+            simple_mode: true,
         };
 
         $scope.cancel = function() {
