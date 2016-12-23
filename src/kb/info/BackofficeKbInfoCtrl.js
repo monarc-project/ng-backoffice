@@ -1690,7 +1690,7 @@
             if ($scope.amv.implicitPosition == 3 && !$scope.amv.previous) {
                 $scope.amv.implicitPosition = 1;
             }
-            
+
             $scope.amv.cont = true;
             $mdDialog.hide($scope.amv);
         };
