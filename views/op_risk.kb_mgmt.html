@@ -177,7 +177,7 @@
                     <md-option ng-repeat="cat in risk_categories" ng-value="cat.id">{{ cat[_langField('label')] }}</md-option>
                 </md-select>
 
-                <md-select ng-model="risk_tag_filter" aria-label="{{ 'Tag' | translate }}" placeholder="{{ 'Asset type' | translate }}" flex>
+                <md-select ng-model="risk_tag_filter" aria-label="{{ 'Tag' | translate }}" placeholder="{{ 'Tag' | translate }}" flex>
                     <md-option value="0">{{ 'All tags' | translate }}</md-option>
                     <md-option ng-repeat="tag in risk_tags" ng-value="tag.id">{{ tag.code }} ({{ tag[_langField('label')] }})</md-option>
                 </md-select>
