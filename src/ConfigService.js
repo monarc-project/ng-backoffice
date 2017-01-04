@@ -9,7 +9,7 @@
         self.config = {};
 
         var loadConfig = function (success) {
-            $http.get('/api/config').success(function (data) {
+            $http.get('/api/config').then(function (data) {
                 self.config = data;
 
                 if (success) {
