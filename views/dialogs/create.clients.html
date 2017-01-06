@@ -129,7 +129,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Email</label>
                     <md-icon>email</md-icon>
-                    <input ng-model="client.email" type="email" name="email">
+                    <input ng-model="client.email" type="email" name="email" ng-pattern="/^([\w-]+\.?)+(\+[\w-]+)?@([0-9a-zA-Z\-]{2,}\.)+[a-zA-Z]{2,7}$/">
 
                     <div ng-messages="clientForm.email.$error">
                         <div ng-message="email">{{ 'This does not look like an e-mail address' | translate }}</div>
@@ -151,7 +151,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Contact e-mail</label>
                     <md-icon>contact_mail</md-icon>
-                    <input ng-model="client.contact_email" type="email" name="contact_email">
+                    <input ng-model="client.contact_email" type="email" name="contact_email" ng-pattern="/^([\w-]+\.?)+(\+[\w-]+)?@([0-9a-zA-Z\-]{2,}\.)+[a-zA-Z]{2,7}$/">
 
                     <div ng-messages="clientForm.contact_email.$error">
                         <div ng-message="email">{{ 'This does not look like an e-mail address' | translate }}</div>
@@ -197,7 +197,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user email</label>
                     <md-icon>email</md-icon>
-                    <input ng-model="client.first_user_email" name="first_user_email" type="email" required ng-disabled="client.id">
+                    <input ng-model="client.first_user_email" name="first_user_email" type="email" required ng-disabled="client.id" ng-pattern="/^([\w-]+\.?)+(\+[\w-]+)?@([0-9a-zA-Z\-]{2,}\.)+[a-zA-Z]{2,7}$/">
                     <div ng-messages="clientForm.first_user_email.$error">
                         <div ng-message="required">{{ 'The first user email may not be empty' | translate }}</div>
                     </div>
