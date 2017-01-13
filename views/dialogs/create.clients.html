@@ -220,7 +220,7 @@
                 {{ 'Cancel' | translate }}
             </md-button>
             <md-button ng-click="create()" ng-disabled="clientForm.$error.required || clientForm.$error.email" type="submit" class="md-accent md-hue-3">
-                {{ (client.id ? 'Update' : 'Create') | translate }}
+                {{ (client.id ? 'Save' : 'Create') | translate }}
             </md-button>
         </md-dialog-actions>
     </form>
