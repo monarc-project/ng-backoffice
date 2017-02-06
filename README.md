@@ -1,5 +1,7 @@
 # MONARC Backoffice Angular Module
 
+*Disclaimer: This is a work in progress and software is still in alpha stage.*
+
 ## Installing
 In order to install the frontend part of the backoffice module, run the following commands in your MONARC skeleton root path:
 ```
