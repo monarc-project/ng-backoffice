@@ -3,7 +3,15 @@
         <md-tab label="{{ 'Assets' | translate }}" md-on-select="selectAssetsTab()" md-on-deselect="deselectAssetsTab()">
 
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!assets.selected.length">
-                <h2 class="md-title md-padding-right md-padding-left" translate>Assets</h2>
+                <h2 class="md-title md-padding-right md-padding-left">
+                    <span translate>Assets</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New asset' | translate }}" ng-click="createNewAsset($event)">
+                        <md-tooltip md-direction="left">
+                            {{ 'New asset' | translate }}
+                        </md-tooltip>
+                        <md-icon>add_to_photos</md-icon>
+                    </md-button>
+                </h2>
 
                 <form flex name="assets.filter.form">
                     <md-input-container class="md-block md-padding-left md-padding-right">
@@ -31,13 +39,6 @@
                     </md-button>
                 </div>
             </md-toolbar>
-
-            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New asset' | translate }}" ng-click="createNewAsset($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New asset' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="assets.selected" md-progress="assets.promise">
@@ -79,7 +80,15 @@
 
         <md-tab label="{{ 'Threats' | translate }}" md-on-select="selectThreatsTab()" md-on-deselect="deselectThreatsTab()">
             <div class="md-padding" ng-if="!threats.selected.length" layout="row" layout-align="start center">
-                <h2 class="md-title md-padding-right md-padding-left" translate>Threats</h2>
+                <h2 class="md-title md-padding-right md-padding-left">
+                    <span translate>Threats</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New threat' | translate }}" ng-click="createNewThreat($event)">
+                        <md-tooltip md-direction="left">
+                            {{ 'New threat' | translate }}
+                        </md-tooltip>
+                        <md-icon>add_to_photos</md-icon>
+                    </md-button>
+                </h2>
 
                 <form flex name="threats.filter.form">
                     <md-input-container class="md-block md-padding-left md-padding-right">
@@ -105,13 +114,6 @@
                     </md-button>
                 </div>
             </md-toolbar>
-
-            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New threat' | translate }}" ng-click="createNewThreat($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New threat' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="threats.selected" md-progress="threats.promise">
@@ -150,7 +152,15 @@
 
         <md-tab label="{{ 'Vulnerabilities' | translate }}" md-on-select="selectVulnsTab()" md-on-deselect="deselectVulnsTab()">
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!vulns.selected.length">
-                <h2 class="md-title md-padding-right md-padding-left" translate>Vulnerabilties</h2>
+                <h2 class="md-title md-padding-right md-padding-left">
+                    <span translate>Vulnerabilties</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New vulnerability' | translate }}" ng-click="createNewVuln($event)">
+                        <md-tooltip md-direction="left">
+                            {{ 'New vulnerability' | translate }}
+                        </md-tooltip>
+                        <md-icon>add_to_photos</md-icon>
+                    </md-button>
+                </h2>
 
                 <form flex name="vulns.filter.form">
                     <md-input-container class="md-block md-padding-left md-padding-right">
@@ -178,13 +188,6 @@
                     </md-button>
                 </div>
             </md-toolbar>
-
-            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New vulnerability' | translate }}" ng-click="createNewVuln($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New vuln' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="vulns.selected" md-progress="vulns.promise">
@@ -221,7 +224,15 @@
 
         <md-tab label="{{ '27002 measures' | translate }}" md-on-select="selectMeasuresTab()" md-on-deselect="deselectMeasuresTab()">
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!measures.selected.length">
-                <h2 class="md-title md-padding-right md-padding-left" translate>27002 measures</h2>
+                <h2 class="md-title md-padding-right md-padding-left">
+                    <span translate>27002 measures</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New measure' | translate }}" ng-click="createNewMeasure($event)">
+                        <md-tooltip md-direction="left">
+                            {{ 'New measure' | translate }}
+                        </md-tooltip>
+                        <md-icon>add_to_photos</md-icon>
+                    </md-button>
+                </h2>
 
                 <form flex name="measures.filter.form">
                     <md-input-container class="md-block md-padding-left md-padding-right">
@@ -249,13 +260,6 @@
                     </md-button>
                 </div>
             </md-toolbar>
-
-            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New measure' | translate }}" ng-click="createNewMeasure($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New measure' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="measures.selected" md-progress="measures.promise">
@@ -288,7 +292,15 @@
 
         <md-tab label="{{ 'Risks' | translate }}" md-on-select="selectAmvsTab()" md-on-deselect="deselectAmvsTab()">
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!amvs.selected.length">
-                <h2 class="md-title md-padding-right md-padding-left" translate>Risks</h2>
+                <h2 class="md-title md-padding-right md-padding-left">
+                    <span translate>Risks</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New AMV link' | translate }}" ng-click="createNewAmv($event)">
+                        <md-tooltip md-direction="left">
+                            {{ 'New AMV link' | translate }}
+                        </md-tooltip>
+                        <md-icon>add_to_photos</md-icon>
+                    </md-button>
+                </h2>
 
                 <form flex name="amvs.filter.form">
                     <md-input-container class="md-block md-padding-left md-padding-right">
@@ -316,13 +328,6 @@
                     </md-button>
                 </div>
             </md-toolbar>
-
-            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New AMV link' | translate }}" ng-click="createNewAmv($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New risk' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="amvs.selected" md-progress="amvs.promise">
@@ -362,8 +367,17 @@
         </md-tab>
 
         <md-tab label="{{ 'Objects library' | translate }}" md-on-select="selectObjlibsTab()" md-on-deselect="deselectObjlibsTab()">
-            <div class="md-table-toolbar md-default" ng-if="!objlibs.selected.length" layout="row" layout-align="start center">
-                <p class="md-title md-padding-left md-padding-right">{{ 'Objects library' | translate }}</p>
+            <div layout="row" layout-align="start center" class="md-padding" ng-if="!objlibs.selected.length">
+                <h2 class="md-title md-padding-right md-padding-left">
+                    <span translate>Objects library</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New object' | translate }}" ng-click="createNewObjlib($event)">
+                        <md-tooltip md-direction="left">
+                            {{ 'New object' | translate }}
+                        </md-tooltip>
+                        <md-icon>add_to_photos</md-icon>
+                    </md-button>
+                </h2>
+
                 <form flex name="objlibs.filter.form">
                     <md-input-container class="md-block">
                         <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
@@ -371,8 +385,22 @@
                     </md-input-container>
                 </form>
 
+                <md-select ng-model="objlibs.category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" flex>
+                    <md-option ng-value="0">{{ 'All categories' | translate }}</md-option>
+                    <md-option ng-value="-1">{{ 'Uncategorized' | translate }}</md-option>
+                    <md-option ng-repeat="cat in objlib_categories" ng-value="cat.id">{{ cat[_langField('label')] }}</md-option>
+                </md-select>
+
+                <md-switch aria-label="{{ 'Lock' | translate }}'" class="md-padding-left md-padding-right" ng-disabled="objlibs.category_filter == 0"
+                           ng-model="objlibs.lockswitch" ng-true-value="true" ng-false-value="false">{{ 'Lock' | translate }}</md-switch>
+
+                <md-select ng-model="objlibs.asset_filter" aria-label="{{ 'Asset' | translate }}" placeholder="{{ 'Asset' | translate }}" flex>
+                    <md-option ng-value="0">{{ 'All assets' | translate }}</md-option>
+                    <md-option ng-repeat="asset in objlib_assets" ng-value="asset.id">{{ asset.code }} - {{ asset[_langField('label')] }}</md-option>
+                </md-select>
+
                 <md-button class="md-icon-button md-primary" ng-click="removeObjlibsFilter()">
-                    <md-icon>close</md-icon>
+                    <md-icon>settings_backup_restore</md-icon>
                 </md-button>
             </div>
 
@@ -384,36 +412,6 @@
                     </md-button>
                 </div>
             </md-toolbar>
-
-            <div layout="row" class="md-padding-left" layout-align="space-around center">
-                <p class="md-padding-right" translate>Filter:</p>
-
-                <md-select ng-model="objlib_category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" flex>
-                    <md-option ng-value="0">{{ 'All categories' | translate }}</md-option>
-                    <md-option ng-value="-1">{{ 'Uncategorized' | translate }}</md-option>
-                    <md-option ng-repeat="cat in objlib_categories" ng-value="cat.id">{{ cat[_langField('label')] }}</md-option>
-                </md-select>
-
-                <md-switch aria-label="{{ 'Lock' | translate }}'" class="md-padding-left md-padding-right" ng-disabled="objlib_category_filter == 0"
-                           ng-model="objlib_lockswitch" ng-true-value="true" ng-false-value="false">{{ 'Lock' | translate }}</md-switch>
-
-                <md-select ng-model="objlib_asset_filter" aria-label="{{ 'Asset' | translate }}" placeholder="{{ 'Asset' | translate }}" flex>
-                    <md-option ng-value="0">{{ 'All assets' | translate }}</md-option>
-                    <md-option ng-repeat="asset in objlib_assets" ng-value="asset.id">{{ asset.code }} - {{ asset[_langField('label')] }}</md-option>
-                </md-select>
-
-                <md-button class="md-icon-button" ng-click="resetObjlibsFilters()">
-                    <md-tooltip>{{ 'Reset filters' | translate }}</md-tooltip>
-                    <md-icon>settings_backup_restore</md-icon>
-                </md-button>
-            </div>
-
-            <md-button class="md-fab md-accent md-fab-top-right table-fab-top-withactions" aria-label="{{ 'New object' | translate }}" ng-click="createNewObjlib($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New object' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="objlibs.selected" md-progress="objlibs.promise">

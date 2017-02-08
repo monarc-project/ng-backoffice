@@ -1,18 +1,18 @@
 <div flex ng-controller="BackofficeDeliveriesModelsCtrl">
     <div style="position: relative;">
-        <md-toolbar class="md-table-toolbar md-default">
-            <div class="md-toolbar-tools">
-                <h2 class="md-title" translate>Document templates</h2>
-            </div>
-        </md-toolbar>
+        <div layout="row" layout-align="start center" class="md-padding" ng-if="!tags.selected.length">
+            <h2 class="md-title md-padding-right md-padding-left">
+                <span translate>Document templates</span>
+                <md-button ng-if="deliveriesmodels.length < 3" class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New a document template' | translate }}" ng-click="createNewDeliveryModel($event)">
+                    <md-tooltip md-direction="left">
+                        {{ 'New a document template' | translate }}
+                    </md-tooltip>
+                    <md-icon>add_to_photos</md-icon>
+                </md-button>
+            </h2>
+        </div>
 
         <md-table-container flex>
-            <md-button ng-if="deliveriesmodels.length < 3" class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'Add a document template' | translate }}" ng-click="createNewDeliveryModel($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'Add a document template' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
             <table md-table>
                 <thead md-head>
                 <tr md-row>

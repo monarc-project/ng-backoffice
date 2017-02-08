@@ -27,6 +27,7 @@
         };
         $scope.removeModelsFilter = function () {
             TableHelperService.removeFilter($scope.models);
+            $scope.models.query.status = 'all';
         };
 
         TableHelperService.watchSearch($scope, 'models.query.filter', $scope.models.query, $scope.updateModels);

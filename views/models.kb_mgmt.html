@@ -1,34 +1,33 @@
 <div flex ng-controller="BackofficeKbModelsCtrl">
     <div style="position: relative;">
-        <md-toolbar class="md-table-toolbar md-default" ng-hide="models.selected.length || models.filter.show">
-            <div class="md-toolbar-tools">
-                <h2 class="md-title" translate>Models</h2>
-                <div flex></div>
-                <md-button class="md-icon-button md-primary" ng-click="models.filter.show = true">
-                    <md-icon>search</md-icon>
+        <div layout="row" layout-align="start center" class="md-padding" ng-if="!models.selected.length">
+            <h2 class="md-title md-padding-right md-padding-left">
+                <span translate>Models</span>
+                <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New model' | translate }}" ng-click="createNewModel($event)">
+                    <md-tooltip md-direction="left">
+                        {{ 'New model' | translate }}
+                    </md-tooltip>
+                    <md-icon>add_to_photos</md-icon>
                 </md-button>
+            </h2>
 
-                <div style="font-size: 14px">
-                    <md-select aria-label="filter" ng-model="models.query.status">
-                        <md-option value="all">{{ 'Show all' | translate }}</md-option>
-                        <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                        <md-option value="1">{{ 'Show active only' | translate }}</md-option>
-                    </md-select>
-                </div>
-            </div>
-        </md-toolbar>
+            <form flex name="models.filter.form">
+                <md-input-container class="md-block md-padding-left md-padding-right">
+                    <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                    <input ng-model="models.query.filter" ng-model-options="models.filter.options">
+                </md-input-container>
+            </form>
 
-        <md-toolbar class="md-table-toolbar md-default" ng-show="models.filter.show && !models.selected.length">
-            <div class="md-toolbar-tools">
-                <md-icon>search</md-icon>
-                <form flex name="models.filter.form">
-                    <input type="text" ng-model="models.query.filter" ng-model-options="models.filter.options" placeholder="{{ 'Search...' | translate }}">
-                </form>
-                <md-button class="md-icon-button md-primary" ng-click="removeModelsFilter()">
-                    <md-icon>close</md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
+            <md-select aria-label="filter" ng-model="models.query.status">
+                <md-option value="all">{{ 'Show all' | translate }}</md-option>
+                <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
+                <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+            </md-select>
+
+            <md-button class="md-icon-button md-primary" ng-click="removeModelsFilter()">
+                <md-icon>settings_backup_restore</md-icon>
+            </md-button>
+        </div>
 
         <md-toolbar class="md-table-toolbar alternate" ng-show="models.selected.length">
             <div class="md-toolbar-tools" layout-align="space-between center">
@@ -38,13 +37,6 @@
                 </md-button>
             </div>
         </md-toolbar>
-
-        <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New model' | translate }}" ng-click="createNewModel($event)">
-            <md-tooltip md-direction="left">
-                {{ 'New model' | translate }}
-            </md-tooltip>
-            <md-icon>add</md-icon>
-        </md-button>
 
         <md-card ng-if="model_duplicating">
             <md-card-content layout="row" layout-padding layout-align="center center">

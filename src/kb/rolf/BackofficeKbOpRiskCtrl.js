@@ -304,7 +304,7 @@
 
         var risksTabSelected = false;
 
-        $scope.$watchGroup(['risk_category_filter', 'risk_tag_filter'], function (newValue, oldValue) {
+        $scope.$watchGroup(['risks.category_filter', 'risks.tag_filter'], function (newValue, oldValue) {
             if (risksTabSelected) {
                 // Refresh contents
                 $scope.updateRisks();
@@ -313,11 +313,11 @@
 
         $scope.updateRisks = function () {
             var query = angular.copy($scope.risks.query);
-            if ($scope.risk_category_filter > 0) {
-                query.category = $scope.risk_category_filter;
+            if ($scope.risks.category_filter > 0) {
+                query.category = $scope.risks.category_filter;
             }
-            if ($scope.risk_tag_filter > 0) {
-                query.tag = $scope.risk_tag_filter;
+            if ($scope.risks.tag_filter > 0) {
+                query.tag = $scope.risks.tag_filter;
             }
 
             if ($scope.risks.previousQueryOrder != $scope.risks.query.order) {
@@ -334,11 +334,12 @@
         };
         $scope.removeRisksFilter = function () {
             TableHelperService.removeFilter($scope.risks);
+            $scope.resetRisksFilters();
         };
 
         $scope.resetRisksFilters = function () {
-            $scope.risk_category_filter = null;
-            $scope.risk_tag_filter = null;
+            $scope.risks.category_filter = null;
+            $scope.risks.tag_filter = null;
         }
 
         $scope.selectRisksTab = function () {

@@ -1,26 +1,27 @@
 <section layout="row" flex layout-fill ng-controller="BackofficeClientMgmtCtrl">
     <md-content flex>
-        <md-toolbar class="md-table-toolbar md-default" ng-hide="clients.selected.length || clients.filter.show">
-            <div class="md-toolbar-tools">
-                <h2 class="md-title" translate>Clients</h2>
-                <div flex></div>
-                <md-button class="md-icon-button md-primary" ng-click="clients.filter.show = true">
-                    <md-icon>search</md-icon>
+        <div layout="row" layout-align="start center" class="md-padding" ng-if="!clients.selected.length">
+            <h2 class="md-title md-padding-right md-padding-left">
+                <span translate>Clients</span>
+                <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New client' | translate }}" ng-click="createNewClient($event)">
+                    <md-tooltip md-direction="left">
+                        {{ 'New client' | translate }}
+                    </md-tooltip>
+                    <md-icon>add_to_photos</md-icon>
                 </md-button>
-            </div>
-        </md-toolbar>
+            </h2>
 
-        <md-toolbar class="md-table-toolbar md-default" ng-show="clients.filter.show && !clients.selected.length">
-            <div class="md-toolbar-tools">
-                <md-icon>search</md-icon>
-                <form flex name="clients.filter.form">
-                    <input type="text" ng-model="clients.query.filter" ng-model-options="clients.filter.options" placeholder="{{ 'Search...' | translate }}">
-                </form>
-                <md-button class="md-icon-button md-primary" ng-click="removeClientsFilter()">
-                    <md-icon>close</md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
+            <form flex name="clients.filter.form">
+                <md-input-container class="md-block md-padding-left md-padding-right">
+                    <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                    <input ng-model="clients.query.filter" ng-model-options="clients.filter.options">
+                </md-input-container>
+            </form>
+
+            <md-button class="md-icon-button md-primary" ng-click="removeClientsFilter()">
+                <md-icon>settings_backup_restore</md-icon>
+            </md-button>
+        </div>
 
         <md-toolbar class="md-table-toolbar alternate" ng-show="clients.selected.length">
             <div class="md-toolbar-tools" layout-align="space-between center" layout="row">
@@ -64,15 +65,5 @@
 
         <md-table-pagination md-limit="clients.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="clients.query.page"
                              md-total="{{clients.items.count}}" md-on-paginate="updateClients" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
-
-        <div layout="row" class="md-padding">
-            <span flex></span>
-            <md-button class="md-fab md-accent" aria-label="{{ 'New client' | translate }}" ng-click="createNewClient($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New client' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
-        </div>
     </md-content>
 </section>

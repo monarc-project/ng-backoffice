@@ -1043,14 +1043,14 @@
             $scope.objlibs.previousQueryOrder = $scope.objlibs.query.order;
         }
 
-        $scope.objlib_category_filter = 0;
-        $scope.objlib_asset_filter = 0;
-        $scope.objlib_lockswitch = false;
+        $scope.objlibs.category_filter = 0;
+        $scope.objlibs.asset_filter = 0;
+        $scope.objlibs.lockswitch = false;
         $scope.objlib_assets = [];
 
-        $scope.$watchGroup(['objlib_category_filter', 'objlib_asset_filter', 'objlib_lockswitch'], function (newValue, oldValue) {
-            if ($scope.objlib_category_filter == 0) {
-                $scope.objlib_lockswitch = false;
+        $scope.$watchGroup(['objlibs.category_filter', 'objlibs.asset_filter', 'objlibs.lockswitch'], function (newValue, oldValue) {
+            if ($scope.objlibs.category_filter == 0) {
+                $scope.objlibs.lockswitch = false;
             }
 
             if (objLibTabSelected) {
@@ -1078,13 +1078,13 @@
         }
 
         $scope.resetObjlibsFilters = function () {
-            $scope.objlib_category_filter = 0;
-            $scope.objlib_asset_filter = 0;
-            $scope.objlib_lockswitch = false;
+            $scope.objlibs.category_filter = 0;
+            $scope.objlibs.asset_filter = 0;
+            $scope.objlibs.lockswitch = false;
         };
 
         $scope.selectCategoryFilter = function (id) {
-            $scope.objlib_category_filter = id;
+            $scope.objlibs.category_filter = id;
         };
 
         $scope.selectObjlibsTab = function () {
@@ -1133,13 +1133,13 @@
 
         $scope.updateObjlibs = function () {
             var query = angular.copy($scope.objlibs.query);
-            if ($scope.objlib_category_filter > 0 || $scope.objlib_category_filter == -1) {
-                query.category = $scope.objlib_category_filter;
+            if ($scope.objlibs.category_filter > 0 || $scope.objlibs.category_filter == -1) {
+                query.category = $scope.objlibs.category_filter;
             }
-            if ($scope.objlib_asset_filter > 0) {
-                query.asset = $scope.objlib_asset_filter;
+            if ($scope.objlibs.asset_filter > 0) {
+                query.asset = $scope.objlibs.asset_filter;
             }
-            query.lock = $scope.objlib_lockswitch;
+            query.lock = $scope.objlibs.lockswitch;
 
             if ($scope.objlibs.previousQueryOrder != $scope.objlibs.query.order) {
                 $scope.objlibs.query.page = query.page = 1;
@@ -1157,6 +1157,7 @@
 
         $scope.removeObjlibsFilter = function () {
             TableHelperService.removeFilter($scope.objlibs);
+            $scope.resetObjlibsFilters();
         };
 
         $scope.createNewObjlib = function (ev, objlib) {

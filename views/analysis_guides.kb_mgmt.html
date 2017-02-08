@@ -1,11 +1,16 @@
 <div flex ng-controller="BackofficeAnalysisGuidesCtrl">
     <md-table-container flex>
-        <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New guide' | translate }}" ng-click="createNewGuide($event)">
-            <md-tooltip md-direction="left">
-                {{ 'New guide' | translate }}
-            </md-tooltip>
-            <md-icon>add</md-icon>
-        </md-button>
+        <div layout="row" layout-align="start center" class="md-padding" ng-if="!tags.selected.length">
+            <h2 class="md-title md-padding-right md-padding-left">
+                <span translate>Analysis guides</span>
+                <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New guide' | translate }}" ng-click="createNewGuide($event)">
+                    <md-tooltip md-direction="left">
+                        {{ 'New guide' | translate }}
+                    </md-tooltip>
+                    <md-icon>add_to_photos</md-icon>
+                </md-button>
+            </h2>
+        </div>
         <table md-table style="margin-top:20px;">
             <thead md-head>
             <tr md-row>

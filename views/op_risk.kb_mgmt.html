@@ -1,22 +1,25 @@
 <div flex ng-controller="BackofficeKbOpRiskCtrl">
     <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex">
         <md-tab label="{{ 'Categories' | translate }}" md-on-select="selectCategoriesTab()" md-on-deselect="deselectCategoriesTab()">
-            <md-toolbar class="md-table-toolbar md-default"
-                        ng-hide="categories.selected.length">
-                <div class="md-toolbar-tools">
-                    <h2 class="md-title" translate>Categories</h2>
-
-                    <div flex></div>
-                    <md-icon>search</md-icon>
-                    <form flex name="categories.filter.form">
-                        <input type="text" ng-model="categories.query.filter"
-                               ng-model-options="categories.filter.options" placeholder="{{ 'Search...' | translate }}">
-                    </form>
-                    <md-button class="md-icon-button md-primary" ng-click="removeCategoriesFilter()">
-                        <md-icon>close</md-icon>
+            <div layout="row" layout-align="start center" class="md-padding" ng-if="!categories.selected.length">
+                <h2 class="md-title md-padding-right md-padding-left">
+                    <span translate>Categories</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New category' | translate }}" ng-click="createNewCategory($event)">
+                        <md-icon>add_to_photos</md-icon>
                     </md-button>
-                </div>
-            </md-toolbar>
+                </h2>
+
+                <form flex name="categories.filter.form">
+                    <md-input-container class="md-block md-padding-left md-padding-right">
+                        <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                        <input ng-model="categories.query.filter" ng-model-options="categories.filter.options">
+                    </md-input-container>
+                </form>
+
+                <md-button class="md-icon-button md-primary" ng-click="removeCategoriesFilter()">
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
 
             <md-toolbar class="md-table-toolbar alternate" ng-show="categories.selected.length">
                 <div class="md-toolbar-tools" layout-align="space-between center">
@@ -27,14 +30,6 @@
                     </md-button>
                 </div>
             </md-toolbar>
-
-            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New category' | translate }}"
-                       ng-click="createNewCategory($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New tag' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="categories.selected" md-progress="categories.promise">
@@ -72,22 +67,25 @@
         </md-tab>
 
         <md-tab label="{{ 'Tags' | translate }}" md-on-select="selectTagsTab()" md-on-deselect="deselectTagsTab()">
-            <md-toolbar class="md-table-toolbar md-default"
-                        ng-hide="tags.selected.length">
-                <div class="md-toolbar-tools">
-                    <h2 class="md-title" translate>Tags</h2>
-
-                    <div flex></div>
-                    <md-icon>search</md-icon>
-                    <form flex name="tags.filter.form">
-                        <input type="text" ng-model="tags.query.filter"
-                               ng-model-options="tags.filter.options" placeholder="{{ 'Search...' | translate }}">
-                    </form>
-                    <md-button class="md-icon-button md-primary" ng-click="removeTagsFilter()">
-                        <md-icon>close</md-icon>
+            <div layout="row" layout-align="start center" class="md-padding" ng-if="!tags.selected.length">
+                <h2 class="md-title md-padding-right md-padding-left">
+                    <span translate>Tags</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New tag' | translate }}" ng-click="createNewTag($event)">
+                        <md-icon>add_to_photos</md-icon>
                     </md-button>
-                </div>
-            </md-toolbar>
+                </h2>
+
+                <form flex name="tags.filter.form">
+                    <md-input-container class="md-block md-padding-left md-padding-right">
+                        <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                        <input ng-model="tags.query.filter" ng-model-options="tags.filter.options">
+                    </md-input-container>
+                </form>
+
+                <md-button class="md-icon-button md-primary" ng-click="removeTagsFilter()">
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
 
             <md-toolbar class="md-table-toolbar alternate" ng-show="tags.selected.length">
                 <div class="md-toolbar-tools" layout-align="space-between center">
@@ -98,14 +96,6 @@
                     </md-button>
                 </div>
             </md-toolbar>
-
-            <md-button class="md-fab md-accent md-fab-top-right table-fab-top" aria-label="{{ 'New tag' | translate }}"
-                       ng-click="createNewTag($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New tag' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="tags.selected" md-progress="tags.promise">
@@ -142,22 +132,35 @@
         </md-tab>
 
         <md-tab label="{{ 'Risks' | translate }}" md-on-select="selectRisksTab()" md-on-deselect="deselectRisksTab()">
-            <md-toolbar class="md-table-toolbar md-default"
-                        ng-hide="risks.selected.length">
-                <div class="md-toolbar-tools">
-                    <h2 class="md-title" translate>Risks</h2>
-
-                    <div flex></div>
-                    <md-icon>search</md-icon>
-                    <form flex name="risks.filter.form">
-                        <input type="text" ng-model="risks.query.filter"
-                               ng-model-options="risks.filter.options" placeholder="{{ 'Search...' | translate }}">
-                    </form>
-                    <md-button class="md-icon-button md-primary" ng-click="removeRisksFilter()">
-                        <md-icon>close</md-icon>
+            <div layout="row" layout-align="start center" class="md-padding" ng-if="!risks.selected.length">
+                <h2 class="md-title md-padding-right md-padding-left">
+                    <span translate>Risks</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New risk' | translate }}" ng-click="createNewRisk($event)">
+                        <md-icon>add_to_photos</md-icon>
                     </md-button>
-                </div>
-            </md-toolbar>
+                </h2>
+
+                <form flex name="risks.filter.form">
+                    <md-input-container class="md-block md-padding-left md-padding-right">
+                        <label><md-icon>search</md-icon> {{ 'Search...' | translate }}</label>
+                        <input ng-model="risks.query.filter" ng-model-options="risks.filter.options">
+                    </md-input-container>
+                </form>
+
+                <md-select ng-model="risks.category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" class="md-padding-right" flex>
+                    <md-option value="0">{{ 'All categories' | translate }}</md-option>
+                    <md-option ng-repeat="cat in risk_categories" ng-value="cat.id">{{ cat[_langField('label')] }}</md-option>
+                </md-select>
+
+                <md-select ng-model="risks.tag_filter" aria-label="{{ 'Tag' | translate }}" placeholder="{{ 'Tag' | translate }}" flex>
+                    <md-option value="0">{{ 'All tags' | translate }}</md-option>
+                    <md-option ng-repeat="tag in risk_tags" ng-value="tag.id">{{ tag.code }} ({{ tag[_langField('label')] }})</md-option>
+                </md-select>
+
+                <md-button class="md-icon-button md-primary" ng-click="removeRisksFilter()">
+                    <md-icon>settings_backup_restore</md-icon>
+                </md-button>
+            </div>
 
             <md-toolbar class="md-table-toolbar alternate" ng-show="risks.selected.length">
                 <div class="md-toolbar-tools" layout-align="space-between center">
@@ -168,33 +171,6 @@
                     </md-button>
                 </div>
             </md-toolbar>
-
-            <div layout="row" class="md-padding-left" layout-align="space-around center">
-                <p class="md-padding-right" translate>Filter:</p>
-
-                <md-select ng-model="risk_category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" class="md-padding-right" flex>
-                    <md-option value="0">{{ 'All categories' | translate }}</md-option>
-                    <md-option ng-repeat="cat in risk_categories" ng-value="cat.id">{{ cat[_langField('label')] }}</md-option>
-                </md-select>
-
-                <md-select ng-model="risk_tag_filter" aria-label="{{ 'Tag' | translate }}" placeholder="{{ 'Tag' | translate }}" flex>
-                    <md-option value="0">{{ 'All tags' | translate }}</md-option>
-                    <md-option ng-repeat="tag in risk_tags" ng-value="tag.id">{{ tag.code }} ({{ tag[_langField('label')] }})</md-option>
-                </md-select>
-
-                <md-button class="md-icon-button" ng-click="resetRisksFilters()">
-                    <md-tooltip>{{ 'Reset filters' | translate }}</md-tooltip>
-                    <md-icon>settings_backup_restore</md-icon>
-                </md-button>
-            </div>
-
-            <md-button class="md-fab md-accent md-fab-top-right table-fab-top-withactions" aria-label="{{ 'New risk' | translate }}"
-                       ng-click="createNewRisk($event)">
-                <md-tooltip md-direction="left">
-                    {{ 'New risk' | translate }}
-                </md-tooltip>
-                <md-icon>add</md-icon>
-            </md-button>
 
             <md-table-container flex>
                 <table md-table md-row-select multiple ng-model="risks.selected" md-progress="risks.promise">
