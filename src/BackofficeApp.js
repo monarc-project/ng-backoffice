@@ -46,7 +46,7 @@ angular
                     "main": {templateUrl: "/views/index.backoffice.html"}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Home')
+                    label: '{{"Home"|translate}}'
                 }
             }).state('main.account', {
                 url: "/account",
@@ -54,13 +54,13 @@ angular
                     "main@main": {templateUrl: "/views/account.html"}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Account')
+                    label: '{{"Account"|translate}}'
                 }
             }).state('main.admin', {
                 url: "/admin",
                 views: {},
                 ncyBreadcrumb: {
-                    label: gettext('Administration')
+                    label: '{{"Administration"|translate}}'
                 }
             }).state('main.admin.users', {
                 url: "/users",
@@ -68,7 +68,7 @@ angular
                     "main@main": {templateUrl: "/views/users.admin.html"}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Users management')
+                    label: '{{"Users management"|translate}}'
                 }
             }).state('main.admin.servers', {
                 url: "/servers",
@@ -76,7 +76,7 @@ angular
                     "main@main": {templateUrl: "/views/servers.admin.html"}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Servers management')
+                    label: '{{"Servers management"|translate}}'
                 }
             }).state('main.admin.logs', {
                 url: "/logs",
@@ -84,7 +84,7 @@ angular
                     "main@main": {templateUrl: "/views/logs.admin.html"}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Actions history')
+                    label: '{{"Actions history"|translate}}'
                 }
             }).state('main.client_mgmt', {
                 url: "/client",
@@ -92,13 +92,13 @@ angular
                     "main": {templateUrl: "/views/index.client_mgmt.html"}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Client management')
+                    label: '{{"Client management"|translate}}'
                 }
             }).state('main.kb_mgmt', {
                 url: "/kb",
                 redirectTo: 'main.kb_mgmt.info_risk',
                 ncyBreadcrumb: {
-                    label: gettext('KB management')
+                    label: '{{"KB management"|translate}}'
                 },
             }).state('main.kb_mgmt.info_risk', {
                 url: '/info/:tab/:showid',
@@ -107,7 +107,7 @@ angular
                     'main@main': {templateUrl: '/views/info_risk.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Information risks')
+                    label: '{{"Information risks"|translate}}'
                 }
             }).state('main.kb_mgmt.info_risk.object', {
                 url: '/object/:objectId',
@@ -115,7 +115,7 @@ angular
                     'main@main': {templateUrl: '/views/anr/object.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Object details')
+                    label: '{{"Object details"|translate}}'
                 }
             }).state('main.kb_mgmt.models', {
                 url: '/models',
@@ -123,7 +123,7 @@ angular
                     'main@main': {templateUrl: '/views/models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Models')
+                    label: '{{"Models"|translate}}'
                 }
             }).state('main.kb_mgmt.models.details', {
                 url: '/:modelId',
@@ -132,7 +132,7 @@ angular
                     'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr/anr.home.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Model details')
+                    label: '{{"Model details"|translate}}'
                 }
             }).state('main.kb_mgmt.models.details.object', {
                 url: '/object/:objectId',
@@ -140,7 +140,7 @@ angular
                     'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr/object.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Object information')
+                    label: '{{"Object information"|translate}}'
                 }
             }).state('main.kb_mgmt.models.details.instance', {
                 url: '/inst/:instId',
@@ -148,7 +148,7 @@ angular
                     'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr/anr.instance.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Object instance')
+                    label: '{{"Object instance"|translate}}'
                 }
             }).state('main.kb_mgmt.op_risk', {
                 url: '/op/:tab',
@@ -157,7 +157,7 @@ angular
                     'main@main': {templateUrl: '/views/op_risk.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Operational risks')
+                    label: '{{"Operational risks"|translate}}'
                 }
             }).state('main.kb_mgmt.deliveries_models', {
                 url: '/deliveriesmodels',
@@ -165,7 +165,7 @@ angular
                     'main@main': {templateUrl: '/views/deliveries_models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Document templates')
+                    label: '{{"Document templates"|translate}}'
                 }
             }).state('main.kb_mgmt.questions', {
                 url: '/questions',
@@ -173,7 +173,7 @@ angular
                     'main@main': {templateUrl: '/views/questions.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Questions')
+                    label: '{{"Questions"|translate}}'
                 }
             }).state('main.kb_mgmt.analysis_guides', {
                 url: '/guides',
@@ -181,7 +181,7 @@ angular
                     'main@main': {templateUrl: '/views/analysis_guides.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Analysis guide')
+                    label: '{{"Analysis guide"|translate}}'
                 }
             }).state('main.kb_mgmt.analysis_guides.items', {
                 url: '/:guideId',
@@ -189,7 +189,7 @@ angular
                     'main@main': {templateUrl: '/views/items.analysis_guides.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: gettext('Guide contents')
+                    label: '{{"Guide contents"|translate}}'
                 }
             });
 
