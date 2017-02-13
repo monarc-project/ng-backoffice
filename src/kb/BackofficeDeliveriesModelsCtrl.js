@@ -186,12 +186,14 @@
             if (hasFiles && !hasErrors) {
                 $scope.uploadProgress = 0;
 
-                Upload.upload({
-                    url: $scope.deliveryModel.id ? '/api/deliveriesmodels/' + $scope.deliveryModel.id : '/api/deliveriesmodels',
-                    method: $scope.deliveryModel.id ? 'PUT' : 'POST',
-                    file: $scope.file,
-                    data: $scope.deliveryModel
-                }).then(function (resp) {
+                var performUpload = function () {
+
+                    Upload.upload({
+                        url: $scope.deliveryModel.id ? '/api/deliveriesmodels/' + $scope.deliveryModel.id : '/api/deliveriesmodels',
+                        method: 'POST',
+                        file: $scope.file,
+                        data: $scope.deliveryModel
+                    }).then(function (resp) {
                         $scope.uploadProgress = null;
                         if (resp.status == 200) {
                             $mdDialog.hide($scope.deliveryModel);
@@ -202,6 +204,18 @@
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                         $scope.uploadProgress = progressPercentage;
                     })
+                }
+
+                if ($scope.deliveryModel.id) {
+                    DeliveriesModelsService.deleteDeliveryModel($scope.deliveryModel.id, function () {
+                        $scope.deliveryModel.id = undefined;
+                        $scope.deliveryModel.anr = undefined;
+                        performUpload();
+                    });
+                } else {
+                    performUpload();
+                }
+
             } else if (hasFiles && hasErrors) {
                 toastr.error($scope.file.$error, gettextCatalog.getString('File error'));
             } else if ($scope.deliveryModel.id > 0) {
