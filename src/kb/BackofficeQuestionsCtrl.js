@@ -53,7 +53,7 @@
                             var finish = function () {
                                 $scope.updateQuestions();
                                 toastr.success(gettextCatalog.getString('The question "{{label}}" has been created successfully.',
-                                    {label: question.q[$scope._langField('label')]}), gettextCatalog.getString('Creation successful'));
+                                    {label: $scope._langField(question.q,'label')}), gettextCatalog.getString('Creation successful'));
                             };
 
                             if (question.q.type == 2) {
@@ -93,7 +93,7 @@
                             var finish = function () {
                                 $scope.updateQuestions();
                                 toastr.success(gettextCatalog.getString('The question "{{label}}" has been updated successfully.',
-                                    {label: question.q[$scope._langField('label')]}), gettextCatalog.getString('Update successful'));
+                                    {label: $scope._langField(question.q,'label')}), gettextCatalog.getString('Update successful'));
                             };
 
                             if (question.q.type == 2) {

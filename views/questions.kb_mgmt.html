@@ -23,7 +23,7 @@
             <tbody md-body>
             <tr md-row ng-repeat="question in questions">
                 <td md-cell>{{ getTypeStr(question.type) }}</td>
-                <td class="preserve-newlines" md-cell>{{ question[_langField('label')] }}</td>
+                <td class="preserve-newlines" md-cell>{{ _langField(question,'label') }}</td>
                 <td md-cell>
                     <md-button class="md-icon-button md-primary" ng-click="editQuestion($event, question)"><md-icon>edit</md-icon></md-button>
                     <md-button class="md-icon-button md-warn" ng-click="deleteQuestion($event, question)"><md-icon>delete</md-icon></md-button>

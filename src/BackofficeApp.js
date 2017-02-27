@@ -265,8 +265,21 @@ angular
                 $rootScope.updatePaginationLabels();
             });
 
-            $rootScope._langField = function (field) {
-                return field + ConfigService.getDefaultLanguageIndex();
+            $rootScope._langField = function (obj, field) {
+                if(!obj){
+                    return '';
+                }else{
+                    if(!field){
+                        return obj + ConfigService.getDefaultLanguageIndex();
+                    }else{
+                        var uiLang = UserService.getUiLanguage();
+                        if(!obj[field + uiLang] || obj[field + uiLang] == ''){
+                            return obj[field + ConfigService.getDefaultLanguageIndex()];
+                        }else{
+                            return obj[field + uiLang];
+                        }
+                    }
+                }
             };
 
             $rootScope.range = function (x,y) {

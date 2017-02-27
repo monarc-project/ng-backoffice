@@ -57,11 +57,11 @@
                     <tbody md-body>
                     <tr md-row md-select="asset" md-select-id="id" ng-repeat="asset in assets.items.assets">
                         <td md-cell><md-button class="md-icon-button md-primary" ng-click="toggleAssetStatus(asset)"><md-icon>{{ asset.status ? 'done' : 'clear' }}</md-icon></md-button></td>
-                        <td md-cell>{{ asset[_langField('label')] }}</td>
+                        <td md-cell>{{ _langField(asset,'label') }}</td>
                         <td md-cell>{{ asset.code }}</td>
                         <td md-cell>{{ assetTypeStr(asset.type) }}</td>
                         <td md-cell>{{ specificityStr(asset.mode) }}</td>
-                        <td md-cell>{{ asset[_langField('description')] }}</td>
+                        <td md-cell>{{ _langField(asset,'description') }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button md-primary" ng-click="editAsset($event, asset)"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button md-warn" ng-click="deleteAsset($event, asset)"><md-icon>delete</md-icon></md-button>
@@ -131,11 +131,11 @@
                     <tbody md-body>
                     <tr md-row md-select="threat" md-select-id="id" ng-repeat="threat in threats.items.threats">
                         <td md-cell><md-button class="md-icon-button md-primary" ng-click="toggleThreatStatus(threat)"><md-icon>{{ threat.status ? 'done' : 'clear' }}</md-icon></md-button></td>
-                        <td md-cell>{{ threat[_langField('label')] }}</td>
+                        <td md-cell>{{ _langField(threat,'label') }}</td>
                         <td md-cell>{{ threat.code }}</td>
                         <td md-cell>{{ threat.c ? 'C' : '' }}{{ threat.i ? 'I' : '' }}{{ threat.d ? 'D' : '' }}</td>
                         <td md-cell>{{ specificityStr(threat.mode) }}</td>
-                        <td md-cell>{{ threat[_langField('description')] }}</td>
+                        <td md-cell>{{ _langField(threat,'description') }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button md-primary" ng-click="editThreat($event, threat)"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button md-warn" ng-click="deleteThreat($event, threat)"><md-icon>delete</md-icon></md-button>
@@ -204,10 +204,10 @@
                     <tbody md-body>
                     <tr md-row md-select="vuln" md-select-id="id" ng-repeat="vuln in vulns.items.vulnerabilities">
                         <td md-cell><md-button class="md-icon-button md-primary" ng-click="toggleVulnStatus(vuln)"><md-icon>{{ vuln.status ? 'done' : 'clear' }}</md-icon></md-button></td>
-                        <td md-cell>{{ vuln[_langField('label')] }}</td>
+                        <td md-cell>{{ _langField(vuln,'label') }}</td>
                         <td md-cell>{{ vuln.code }}</td>
                         <td md-cell>{{ specificityStr(vuln.mode) }}</td>
-                        <td md-cell>{{ vuln[_langField('description')] }}</td>
+                        <td md-cell>{{ _langField(vuln,'description') }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button md-primary" ng-click="editVuln($event, vuln)"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button md-warn" ng-click="deleteVuln($event, vuln)"><md-icon>delete</md-icon></md-button>
@@ -275,7 +275,7 @@
                     <tr md-row md-select="measure" md-select-id="id" ng-repeat="measure in measures.items.measures">
                         <td md-cell><md-button class="md-icon-button md-primary" ng-click="toggleMeasureStatus(measure)"><md-icon>{{ measure.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                         <td md-cell>{{ measure.code }}</td>
-                        <td md-cell>{{ measure[_langField('description')] }}</td>
+                        <td md-cell>{{ _langField(measure,'description') }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button md-primary" ng-click="editMeasure($event, measure)"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button md-warn" ng-click="deleteMeasure($event, measure)"><md-icon>delete</md-icon></md-button>
@@ -346,12 +346,12 @@
                     <tbody md-body>
                     <tr md-row md-select="amv" md-select-id="id" ng-repeat="amv in amvs.items.amvs">
                         <td md-cell><md-button class="md-icon-button md-primary" ng-click="toggleAmvStatus(amv)"><md-icon>{{ amv.status ? 'done' : 'clear' }}</md-icon></md-button></td>
-                        <td md-cell>{{ amv.asset.code }} - {{ amv.asset[_langField('label')] }}</td>
-                        <td md-cell>{{ amv.threat.code }} - {{ amv.threat[_langField('label')] }}</td>
-                        <td md-cell>{{ amv.vulnerability.code }} - {{ amv.vulnerability[_langField('label')] }}</td>
-                        <td md-cell>{{ amv.measure1.code }} - {{ amv.measure1[_langField('description')] }}</td>
-                        <td md-cell>{{ amv.measure2.code }} - {{ amv.measure2[_langField('description')] }}</td>
-                        <td md-cell>{{ amv.measure3.code }} - {{ amv.measure3[_langField('description')] }}</td>
+                        <td md-cell>{{ amv.asset.code }} - {{ _langField(amv.asset,'label') }}</td>
+                        <td md-cell>{{ amv.threat.code }} - {{ _langField(amv.threat,'label') }}</td>
+                        <td md-cell>{{ amv.vulnerability.code }} - {{ _langField(amv.vulnerability,'label') }}</td>
+                        <td md-cell>{{ amv.measure1.code }} - {{ _langField(amv.measure1,'description') }}</td>
+                        <td md-cell>{{ amv.measure2.code }} - {{ _langField(amv.measure2,'description') }}</td>
+                        <td md-cell>{{ amv.measure3.code }} - {{ _langField(amv.measure3,'description') }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button md-primary" ng-click="editAmv($event, amv)"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button md-warn" ng-click="deleteAmv($event, amv)"><md-icon>delete</md-icon></md-button>
@@ -387,7 +387,7 @@
                 <md-select ng-model="objlibs.category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" flex>
                     <md-option ng-value="0">{{ 'All categories' | translate }}</md-option>
                     <md-option ng-value="-1">{{ 'Uncategorized' | translate }}</md-option>
-                    <md-option ng-repeat="cat in objlib_categories" ng-value="cat.id">{{ cat[_langField('label')] }}</md-option>
+                    <md-option ng-repeat="cat in objlib_categories" ng-value="cat.id">{{ _langField(cat,'label') }}</md-option>
                 </md-select>
 
                 <md-switch aria-label="{{ 'Lock' | translate }}'" class="md-padding-left md-padding-right" ng-disabled="objlibs.category_filter == 0"
@@ -395,7 +395,7 @@
 
                 <md-select ng-model="objlibs.asset_filter" aria-label="{{ 'Asset' | translate }}" placeholder="{{ 'Asset' | translate }}" flex>
                     <md-option ng-value="0">{{ 'All assets' | translate }}</md-option>
-                    <md-option ng-repeat="asset in objlib_assets" ng-value="asset.id">{{ asset.code }} - {{ asset[_langField('label')] }}</md-option>
+                    <md-option ng-repeat="asset in objlib_assets" ng-value="asset.id">{{ asset.code }} - {{ _langField(asset,'label') }}</md-option>
                 </md-select>
 
                 <md-button class="md-icon-button md-primary" ng-click="removeObjlibsFilter()">
@@ -428,10 +428,10 @@
 
                     <tbody md-body>
                     <tr md-row md-select="objlib" md-select-id="id" ng-repeat="objlib in objlibs.items.objects">
-                        <td md-cell class="clickable-rows" ng-click="selectCategoryFilter(objlib.category.id)">{{ objlib.category[_langField('label')] }}</td>
-                        <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.id})">{{ objlib[_langField('name')] }}</td>
-                        <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.id})">{{ objlib[_langField('label')] }}</td>
-                        <td md-cell>{{ objlib.asset.code }} - {{ objlib.asset[_langField('label')] }}</td>
+                        <td md-cell class="clickable-rows" ng-click="selectCategoryFilter(objlib.category.id)">{{ _langField(objlib.category,'label') }}</td>
+                        <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.id})">{{ _langField(objlib,'name') }}</td>
+                        <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.id})">{{ _langField(objlib,'label') }}</td>
+                        <td md-cell>{{ objlib.asset.code }} - {{ _langField(objlib.asset,'label') }}</td>
                         <td md-cell>{{ objlibScopeStr(objlib.scope) }}</td>
                         <td md-cell>{{ specificityStr(objlib.mode) }}</td>
                         <td md-cell>

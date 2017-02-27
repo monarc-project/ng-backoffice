@@ -46,11 +46,11 @@
                                 md-search-text="itemPreviousSearchText"
                                 md-selected-item-change="selectedPreviousItemChange(item)"
                                 md-items="previous in queryItemSearch(itemPreviousSearchText)"
-                                md-item-text="previous[_langField('label')]"
+                                md-item-text="_langField(previous,'label')"
                                 md-min-length="0"
                                 placeholder="{{ 'Previous item...' | translate }}">
                             <md-item-template>
-                                <span md-highlight-text="itemPreviousSearchText" md-highlight-flags="^i">{{ previous[_langField('label')] }}</span>
+                                <span md-highlight-text="itemPreviousSearchText" md-highlight-flags="^i">{{ _langField(previous,'label') }}</span>
                             </md-item-template>
 
                             <md-not-found>

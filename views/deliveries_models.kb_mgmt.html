@@ -25,7 +25,7 @@
                 <tbody md-body>
                 <tr md-row ng-repeat="deliverymodel in deliveriesmodels">
                     <td md-cell>{{ getCategoryLabel(deliverymodel.category) }}</td>
-                    <td md-cell>{{ deliverymodel[_langField('description')] }}</td>
+                    <td md-cell>{{ _langField(deliverymodel,'description') }}</td>
                     <td md-cell>
                         <md-menu>
                             <md-button class="md-icon-button md-primary" ng-click="$mdOpenMenu($event)">
