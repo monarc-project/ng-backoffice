@@ -2,7 +2,6 @@
   "name": "ng_backoffice",
   "version": "1.0.0",
   "description": "MONARC Backoffice AngularJS Module",
-  "main": "index.js",
   "private": true,
   "repository": {
     "type": "git",
