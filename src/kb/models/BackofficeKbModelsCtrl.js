@@ -51,7 +51,7 @@
                     ModelService.createModel(model,
                         function () {
                             $scope.updateModels();
-                            toastr.success(gettextCatalog.getString('The model "{{modelLabel}}" has been created successfully.',
+                            toastr.success(gettextCatalog.getString('The model has been created successfully.',
                                 {modelLabel: $scope._langField(model,'label')}), gettextCatalog.getString('Creation successful'));
                         },
 
@@ -80,8 +80,8 @@
                         ModelService.updateModel(model,
                             function () {
                                 $scope.updateModels();
-                                toastr.success(gettextCatalog.getString('The model "{{modelLabel}}" has been updated successfully.',
-                                    {modelLabel: $scope._langField(model,'label')}), gettextCatalog.getString('Update successful'));
+                                toastr.success(gettextCatalog.getString('The model has been edited successfully.',
+                                    {modelLabel: $scope._langField(model,'label')}), gettextCatalog.getString('Edition successful'));
                             },
 
                             function () {
@@ -100,7 +100,7 @@
 
         $scope.deleteModel = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete model "{{ label }}"?',
+                .title(gettextCatalog.getString('Are you sure you want to delete model?',
                     {label: $scope._langField(item,'label')}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
@@ -110,7 +110,7 @@
                 ModelService.deleteModel(item.id,
                     function () {
                         $scope.updateModels();
-                        toastr.success(gettextCatalog.getString('The model "{{label}}" has been deleted.',
+                        toastr.success(gettextCatalog.getString('The model has been deleted.',
                             {label: $scope._langField(item,'label')}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
@@ -144,7 +144,7 @@
             ModelService.duplicateModel(item.id, function () {
                 $scope.updateModels();
                 $scope.model_duplicating = false;
-                toastr.success(gettextCatalog.getString('The model "{{name}}" has been duplicated sucessfully.',
+                toastr.success(gettextCatalog.getString('The model has been duplicated sucessfully.',
                     {name: $scope._langField(item,'label')}), gettextCatalog.getString('Duplication successful'));
             });
         }

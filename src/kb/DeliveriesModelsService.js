@@ -38,9 +38,9 @@
         };
 
         const categoriesLabels = {
-            1: gettextCatalog.getString("Document model for Context validation"),
-            2: gettextCatalog.getString("Document model for Assets and models validation"),
-            3: gettextCatalog.getString("Document model for Risk analysis")
+            1: gettextCatalog.getString("Deliverable template for context validation"),
+            2: gettextCatalog.getString("Deliverable template for model validation"),
+            3: gettextCatalog.getString("Deliverable template for final report")
         }
 
         const categories = [

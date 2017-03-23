@@ -49,7 +49,7 @@
                     ClientService.createClient(client,
                         function () {
                             $scope.updateClients();
-                            toastr.success(gettextCatalog.getString('The client "{{clientName}}" has been created successfully.',
+                            toastr.success(gettextCatalog.getString('The client has been created successfully.',
                                 {clientName: client.name}), gettextCatalog.getString('Creation successful'));
                         },
 
@@ -80,8 +80,8 @@
                         ClientService.updateClient(client,
                             function () {
                                 $scope.updateClients();
-                                toastr.success(gettextCatalog.getString('The client "{{clientName}}" information has been updated successfully.',
-                                    {clientName: client.name}), gettextCatalog.getString('Update successful'));
+                                toastr.success(gettextCatalog.getString('The client has been edited successfully.',
+                                    {clientName: client.name}), gettextCatalog.getString('Edition successful'));
                             }
                         );
                     });
@@ -98,7 +98,7 @@
 
         $scope.deleteClient = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete "{{ name }}"?',  {name: item.name}))
+                .title(gettextCatalog.getString('Are you sure you want to delete client?',  {name: item.name}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettextCatalog.getString('Delete'))
@@ -107,7 +107,7 @@
                 ClientService.deleteClient(item.id,
                     function () {
                         $scope.updateClients();
-                        toastr.success(gettextCatalog.getString('The client "{{name}}" has been deleted.',
+                        toastr.success(gettextCatalog.getString('The client has been deleted.',
                                     {name: item.name}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
@@ -237,7 +237,7 @@
                         id: data.id
                     };
 
-                    toastr.success(gettextCatalog.getString("The city {{label}} has been created", {label: city}));
+                    toastr.success(gettextCatalog.getString("The city has been created", {label: city}));
                 })
             } else {
                 toastr.error(gettextCatalog.getString("You must select a country first"));

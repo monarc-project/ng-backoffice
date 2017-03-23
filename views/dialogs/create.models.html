@@ -2,8 +2,8 @@
     <form name="modelForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2 ng-if="!model.id" translate>Add a new model</h2>
-                <h2 ng-if="model.id" translate>Update model information</h2>
+                <h2 ng-if="!model.id" translate>Add a model</h2>
+                <h2 ng-if="model.id" translate>Edit model</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
@@ -40,7 +40,7 @@
                     <md-checkbox ng-model="model.isScalesUpdatable" class="md-primary md-align-top-left">{{ 'Editable impact scale' | translate }}</md-checkbox>
                     <md-checkbox ng-model="model.isGeneric" ng-disabled="model.isRegulator" class="md-primary md-align-top-left">{{ 'Specific' | translate }}</md-checkbox>
                     <md-checkbox ng-model="model.isRegulator" class="md-primary md-align-top-left">{{ 'Regulator' | translate }}</md-checkbox>
-                    <md-checkbox ng-model="model.showRolfBrut" class="md-primary md-align-top-left">{{ 'Enable raw ROLF values' | translate }}</md-checkbox>
+                    <md-checkbox ng-model="model.showRolfBrut" class="md-primary md-align-top-left">{{ 'Enable inherent risk' | translate }}</md-checkbox>
                 </div>
             </div>
         </md-dialog-content>

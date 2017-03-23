@@ -2,8 +2,8 @@
     <form name="deliveryModelForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2 ng-if="!deliveryModel.id" translate>Add a new document template</h2>
-                <h2 ng-if="deliveryModel.id" translate>Update document template information</h2>
+                <h2 ng-if="!deliveryModel.id" translate>Add a deliverable template</h2>
+                <h2 ng-if="deliveryModel.id" translate>Edit deliverable template</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
@@ -38,7 +38,7 @@
 
                 <md-card ng-if="deliveryModel.id" class="md-card-info">
                     <md-card-content>
-                        <p translate>If you save this model, previous models will be lost.</p>
+                        <p translate>If you save this template, previous templates will be lost.</p>
                     </md-card-content>
                 </md-card>
 

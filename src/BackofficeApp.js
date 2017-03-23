@@ -165,7 +165,7 @@ angular
                     'main@main': {templateUrl: '/views/deliveries_models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: '{{"Document templates"|translate}}'
+                    label: '{{"Deliverable templates"|translate}}'
                 }
             }).state('main.kb_mgmt.questions', {
                 url: '/questions',
@@ -173,7 +173,7 @@ angular
                     'main@main': {templateUrl: '/views/questions.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: '{{"Questions"|translate}}'
+                    label: '{{"Questions of trends assessment"|translate}}'
                 }
             }).state('main.kb_mgmt.analysis_guides', {
                 url: '/guides',
@@ -181,7 +181,7 @@ angular
                     'main@main': {templateUrl: '/views/analysis_guides.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
-                    label: '{{"Analysis guide"|translate}}'
+                    label: '{{"Helpful informations"|translate}}'
                 }
             }).state('main.kb_mgmt.analysis_guides.items', {
                 url: '/:guideId',

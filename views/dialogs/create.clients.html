@@ -2,8 +2,8 @@
     <form name="clientForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2 ng-if="!client.id" translate>Add a new client</h2>
-                <h2 ng-if="client.id" translate>Update client information ({{ client.proxyAlias }})</h2>
+                <h2 ng-if="!client.id" translate>Add a client</h2>
+                <h2 ng-if="client.id" translate>Edit client</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
@@ -127,7 +127,7 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
-                    <label translate>Email</label>
+                    <label translate>E-mail</label>
                     <md-icon>email</md-icon>
                     <input ng-model="client.email" type="email" name="email" ng-pattern="/^([\w-]+\.?)+(\+[\w-]+)?@([0-9a-zA-Z\-]{2,}\.)+[a-zA-Z]{2,7}$/">
 

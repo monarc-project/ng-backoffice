@@ -41,7 +41,7 @@
             })
                 .then(function (deliveryModel) {
                     $scope.updateDeliveriesModels();
-                    toastr.success(gettextCatalog.getString('The document "{{deliveryModelLabel}}" has been created successfully.',
+                    toastr.success(gettextCatalog.getString('The document has been created successfully.',
                         {deliveryModelLabel: $scope._langField(deliveryModel,'description')}), gettextCatalog.getString('Creation successful'));
                 });
         };
@@ -61,14 +61,14 @@
             })
                 .then(function (deliveryModel) {
                     $scope.updateDeliveriesModels();
-                    toastr.success(gettextCatalog.getString('The document "{{deliveryModelLabel}}" has been updated successfully.',
-                        {deliveryModelLabel: $scope._langField(deliveryModel,'description')}), gettextCatalog.getString('Update successful'));
+                    toastr.success(gettextCatalog.getString('The document has been edited successfully.',
+                        {deliveryModelLabel: $scope._langField(deliveryModel,'description')}), gettextCatalog.getString('Edition successful'));
                 });
         };
 
         $scope.deleteDeliveryModel = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete the document "{{ label }}"?',
+                .title(gettextCatalog.getString('Are you sure you want to delete document?',
                     {label: $scope._langField(item,'description')}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
@@ -78,7 +78,7 @@
                 DeliveriesModelsService.deleteDeliveryModel(item.id,
                     function () {
                         $scope.updateDeliveriesModels();
-                        toastr.success(gettextCatalog.getString('The document "{{label}}" has been deleted.',
+                        toastr.success(gettextCatalog.getString('The document has been deleted.',
                             {label: $scope._langField(item,'description')}), gettextCatalog.getString('Deletion successful'));
                     }
                 );

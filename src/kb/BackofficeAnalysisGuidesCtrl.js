@@ -36,7 +36,7 @@
                     GuideService.createGuide(guide,
                         function () {
                             $scope.updateGuides();
-                            toastr.success(gettextCatalog.getString('The guide "{{guideLabel}}" has been created successfully.',
+                            toastr.success(gettextCatalog.getString('The guide has been created successfully.',
                                 {guideLabel: guide.description1}), gettextCatalog.getString('Creation successful'));
                         }
                     );
@@ -60,8 +60,8 @@
                     GuideService.updateGuide(guide,
                         function () {
                             $scope.updateGuides();
-                            toastr.success(gettextCatalog.getString('The guide "{{guideLabel}}" has been updated successfully.',
-                                {guideLabel: guide.description1}), gettextCatalog.getString('Update successful'));
+                            toastr.success(gettextCatalog.getString('The guide has been edited successfully.',
+                                {guideLabel: guide.description1}), gettextCatalog.getString('Edition successful'));
                         }
                     );
                 });

@@ -46,7 +46,7 @@
                     AdminServerService.createServer(server,
                         function () {
                             $scope.updateServers();
-                            toastr.success(gettextCatalog.getString('The server "{{label}}" has been created successfully.',
+                            toastr.success(gettextCatalog.getString('The server has been created successfully.',
                                 {label: server.label}), gettextCatalog.getString('Creation successful'));
                         }
                     );
@@ -71,8 +71,8 @@
                         AdminServerService.updateServer(server,
                             function () {
                                 $scope.updateServers();
-                                toastr.success(gettextCatalog.getString('The server "{{label}}" has been updated successfully.',
-                                    {label: server.label}), gettextCatalog.getString('Update successful'));
+                                toastr.success(gettextCatalog.getString('The server has been edited successfully.',
+                                    {label: server.label}), gettextCatalog.getString('Edition successful'));
                             }
                         );
                     });
@@ -92,7 +92,7 @@
 
         $scope.deleteServer = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete "{{label}}"?', { label: item.label }))
+                .title(gettextCatalog.getString('Are you sure you want to delete server?', { label: item.label }))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettextCatalog.getString('Delete'))
@@ -102,7 +102,7 @@
                     function () {
                         $scope.updateServers();
 
-                        toastr.success(gettextCatalog.getString('The server "{{label}}" has been deleted.',
+                        toastr.success(gettextCatalog.getString('The server has been deleted.',
                             {label: item.label}), gettextCatalog.getString('Deletion successful'));
                     }
                 );

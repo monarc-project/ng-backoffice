@@ -1,13 +1,13 @@
 <div flex ng-controller="BackofficeKbInfoCtrl">
     <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex">
-        <md-tab label="{{ 'Assets' | translate }}" md-on-select="selectAssetsTab()" md-on-deselect="deselectAssetsTab()">
+        <md-tab label="{{ 'Asset types' | translate }}" md-on-select="selectAssetsTab()" md-on-deselect="deselectAssetsTab()">
 
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!assets.selected.length">
                 <h2 class="md-title md-padding-right md-padding-left">
-                    <span translate>Assets</span>
-                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New asset' | translate }}" ng-click="createNewAsset($event)">
+                    <span translate>Asset types</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'Add an asset' | translate }}" ng-click="createNewAsset($event)">
                         <md-tooltip md-direction="left">
-                            {{ 'New asset' | translate }}
+                            {{ 'Add an asset' | translate }}
                         </md-tooltip>
                         <md-icon>add_to_photos</md-icon>
                     </md-button>
@@ -81,9 +81,9 @@
             <div class="md-padding" ng-if="!threats.selected.length" layout="row" layout-align="start center">
                 <h2 class="md-title md-padding-right md-padding-left">
                     <span translate>Threats</span>
-                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New threat' | translate }}" ng-click="createNewThreat($event)">
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'Add a threat' | translate }}" ng-click="createNewThreat($event)">
                         <md-tooltip md-direction="left">
-                            {{ 'New threat' | translate }}
+                            {{ 'Add a threat' | translate }}
                         </md-tooltip>
                         <md-icon>add_to_photos</md-icon>
                     </md-button>
@@ -121,7 +121,7 @@
                         <th md-column md-order-by="status"><span translate>Status</span></th>
                         <th md-column md-order-by="{{ _langField('label') }}"><span translate>Label</span></th>
                         <th md-column md-order-by="code"><span translate>Code</span></th>
-                        <th md-column><span translate>CID</span></th>
+                        <th md-column><span translate>CIA</span></th>
                         <th md-column md-order-by="mode"><span translate>Mode</span></th>
                         <th md-column md-order-by="{{ _langField('description') }}"><span translate>Description</span></th>
                         <th md-column class="actions-column"><span translate>Actions</span></th>
@@ -133,7 +133,7 @@
                         <td md-cell><md-button class="md-icon-button md-primary" ng-click="toggleThreatStatus(threat)"><md-icon>{{ threat.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                         <td md-cell>{{ _langField(threat,'label') }}</td>
                         <td md-cell>{{ threat.code }}</td>
-                        <td md-cell>{{ threat.c ? 'C' : '' }}{{ threat.i ? 'I' : '' }}{{ threat.d ? 'D' : '' }}</td>
+                        <td md-cell>{{ threat.c ? 'C' : '' }}{{ threat.i ? 'I' : '' }}{{ threat.d ? ('A' | translate) : '' }}</td>
                         <td md-cell>{{ specificityStr(threat.mode) }}</td>
                         <td md-cell>{{ _langField(threat,'description') }}</td>
                         <td md-cell>
@@ -153,9 +153,9 @@
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!vulns.selected.length">
                 <h2 class="md-title md-padding-right md-padding-left">
                     <span translate>Vulnerabilties</span>
-                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New vulnerability' | translate }}" ng-click="createNewVuln($event)">
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'Add a vulnerability' | translate }}" ng-click="createNewVuln($event)">
                         <md-tooltip md-direction="left">
-                            {{ 'New vulnerability' | translate }}
+                            {{ 'Add a vulnerability' | translate }}
                         </md-tooltip>
                         <md-icon>add_to_photos</md-icon>
                     </md-button>
@@ -221,13 +221,13 @@
                                  md-total="{{vulns.items.count}}" md-on-paginate="updateVulns" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
         </md-tab>
 
-        <md-tab label="{{ '27002 measures' | translate }}" md-on-select="selectMeasuresTab()" md-on-deselect="deselectMeasuresTab()">
+        <md-tab label="{{ '27002 controls' | translate }}" md-on-select="selectMeasuresTab()" md-on-deselect="deselectMeasuresTab()">
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!measures.selected.length">
                 <h2 class="md-title md-padding-right md-padding-left">
-                    <span translate>27002 measures</span>
-                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New measure' | translate }}" ng-click="createNewMeasure($event)">
+                    <span translate>27002 controls</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'Add a control' | translate }}" ng-click="createNewMeasure($event)">
                         <md-tooltip md-direction="left">
-                            {{ 'New measure' | translate }}
+                            {{ 'Add a control' | translate }}
                         </md-tooltip>
                         <md-icon>add_to_photos</md-icon>
                     </md-button>
@@ -292,10 +292,10 @@
         <md-tab label="{{ 'Risks' | translate }}" md-on-select="selectAmvsTab()" md-on-deselect="deselectAmvsTab()">
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!amvs.selected.length">
                 <h2 class="md-title md-padding-right md-padding-left">
-                    <span translate>Risks</span>
-                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New AMV link' | translate }}" ng-click="createNewAmv($event)">
+                    <span translate>Information risks</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'Add a risk' | translate }}" ng-click="createNewAmv($event)">
                         <md-tooltip md-direction="left">
-                            {{ 'New AMV link' | translate }}
+                            {{ 'Add a risk' | translate }}
                         </md-tooltip>
                         <md-icon>add_to_photos</md-icon>
                     </md-button>
@@ -336,9 +336,9 @@
                         <th md-column md-order-by="asset"><span translate>Asset</span></th>
                         <th md-column md-order-by="threat"><span translate>Threat</span></th>
                         <th md-column md-order-by="vulnerability"><span translate>Vulnerability</span></th>
-                        <th md-column md-order-by="measure1"><span translate>Measure 1</span></th>
-                        <th md-column md-order-by="measure2"><span translate>Measure 2</span></th>
-                        <th md-column md-order-by="measure3"><span translate>Measure 3</span></th>
+                        <th md-column md-order-by="measure1"><span translate>Control 1</span></th>
+                        <th md-column md-order-by="measure2"><span translate>Control 2</span></th>
+                        <th md-column md-order-by="measure3"><span translate>Control 3</span></th>
                         <th md-column class="actions-column"><span translate>Actions</span></th>
                     </tr>
                     </thead>
@@ -365,13 +365,13 @@
                                  md-total="{{amvs.items.count}}" md-on-paginate="updateAmvs" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
         </md-tab>
 
-        <md-tab label="{{ 'Objects library' | translate }}" md-on-select="selectObjlibsTab()" md-on-deselect="deselectObjlibsTab()">
+        <md-tab label="{{ 'Assets library' | translate }}" md-on-select="selectObjlibsTab()" md-on-deselect="deselectObjlibsTab()">
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!objlibs.selected.length">
                 <h2 class="md-title md-padding-right md-padding-left">
-                    <span translate>Objects library</span>
-                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New object' | translate }}" ng-click="createNewObjlib($event)">
+                    <span translate>Assets library</span>
+                    <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'Add an asset' | translate }}" ng-click="createNewObjlib($event)">
                         <md-tooltip md-direction="left">
-                            {{ 'New object' | translate }}
+                            {{ 'Add an asset' | translate }}
                         </md-tooltip>
                         <md-icon>add_to_photos</md-icon>
                     </md-button>

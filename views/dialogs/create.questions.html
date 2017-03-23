@@ -2,8 +2,8 @@
     <form name="questionForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2 ng-if="!model.id" translate>Add a new question</h2>
-                <h2 ng-if="model.id" translate>Update question information</h2>
+                <h2 ng-if="!model.id" translate>Add a question</h2>
+                <h2 ng-if="model.id" translate>Edit question</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
@@ -94,7 +94,7 @@
                     </div>
 
 
-                    <md-button ng-click="addChoice()"><md-icon>add</md-icon> {{ 'Add choice' }}</md-button>
+                    <md-button ng-click="addChoice()"><md-icon>add</md-icon> {{ 'Add a choice' }}</md-button>
                 </div>
 
             </div>

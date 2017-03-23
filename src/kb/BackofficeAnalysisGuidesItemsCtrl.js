@@ -72,7 +72,7 @@
                         GuideService.updateItem(item,
                             function () {
                                 $scope.updateItems();
-                                toastr.success(gettextCatalog.getString('The item has been updated successfully.'), gettextCatalog.getString('Update successful'));
+                                toastr.success(gettextCatalog.getString('The item has been edited successfully.'), gettextCatalog.getString('Edition successful'));
                             }
                         );
                     });
@@ -81,7 +81,7 @@
 
         $scope.deleteItem = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete item "{{ label }}"?',
+                .title(gettextCatalog.getString('Are you sure you want to delete item?',
                     {label: item.description1}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
@@ -91,7 +91,7 @@
                 GuideService.deleteItem(item.id,
                     function () {
                         $scope.updateItems();
-                        toastr.success(gettextCatalog.getString('The item "{{label}}" has been deleted.',
+                        toastr.success(gettextCatalog.getString('The item has been deleted.',
                                     {label: item.description1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );

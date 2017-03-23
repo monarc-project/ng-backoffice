@@ -80,7 +80,7 @@
                     CategoryService.createCategory(category,
                         function () {
                             $scope.updateCategories();
-                            toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been created successfully.',
+                            toastr.success(gettextCatalog.getString('The category has been created successfully.',
                                 {categoryLabel: category.label1}), gettextCatalog.getString('Creation successful'));
                         },
 
@@ -111,8 +111,8 @@
                         CategoryService.updateCategory(category,
                             function () {
                                 $scope.updateCategories();
-                                toastr.success(gettextCatalog.getString('The category "{{categoryLabel}}" has been updated successfully.',
-                                    {categoryLabel: category.label1}), gettextCatalog.getString('Update successful'));
+                                toastr.success(gettextCatalog.getString('The category has been edited successfully.',
+                                    {categoryLabel: category.label1}), gettextCatalog.getString('Edition successful'));
                             },
 
                             function () {
@@ -125,7 +125,7 @@
 
         $scope.deleteCategory = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete category "{{ label }}"?',
+                .title(gettextCatalog.getString('Are you sure you want to delete category?',
                     {label: item.label1}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
@@ -135,7 +135,7 @@
                 CategoryService.deleteCategory(item.id,
                     function () {
                         $scope.updateCategories();
-                        toastr.success(gettextCatalog.getString('The category "{{label}}" has been deleted.',
+                        toastr.success(gettextCatalog.getString('The category has been deleted.',
                             {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
@@ -210,7 +210,7 @@
                     TagService.createTag(tag,
                         function () {
                             $scope.updateTags();
-                            toastr.success(gettextCatalog.getString('The tag "{{tagLabel}}" has been created successfully.',
+                            toastr.success(gettextCatalog.getString('The tag has been created successfully.',
                                 {tagLabel: tag.label1}), gettextCatalog.getString('Creation successful'));
                         },
 
@@ -241,8 +241,8 @@
                         TagService.updateTag(tag,
                             function () {
                                 $scope.updateTags();
-                                toastr.success(gettextCatalog.getString('The tag "{{tagLabel}}" has been updated successfully.',
-                                    {tagLabel: tag.label1}), gettextCatalog.getString('Update successful'));
+                                toastr.success(gettextCatalog.getString('The tag has been edited successfully.',
+                                    {tagLabel: tag.label1}), gettextCatalog.getString('Edition successful'));
                             },
 
                             function () {
@@ -255,7 +255,7 @@
 
         $scope.deleteTag = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete tag "{{ label }}"?',
+                .title(gettextCatalog.getString('Are you sure you want to delete tag?',
                     {label: item.label1}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
@@ -265,7 +265,7 @@
                 TagService.deleteTag(item.id,
                     function () {
                         $scope.updateTags();
-                        toastr.success(gettextCatalog.getString('The tag "{{label}}" has been deleted.',
+                        toastr.success(gettextCatalog.getString('The tag has been deleted.',
                             {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
@@ -399,7 +399,7 @@
                     RiskService.createRisk(risk,
                         function () {
                             $scope.updateRisks();
-                            toastr.success(gettextCatalog.getString('The risk "{{riskLabel}}" has been created successfully.',
+                            toastr.success(gettextCatalog.getString('The risk has been created successfully.',
                                 {riskLabel: risk.label1}), gettextCatalog.getString('Creation successful'));
 
                             if (cont) {
@@ -449,8 +449,8 @@
                         RiskService.updateRisk(risk,
                             function () {
                                 $scope.updateRisks();
-                                toastr.success(gettextCatalog.getString('The risk "{{riskLabel}}" has been updated successfully.',
-                                    {riskLabel: risk.label1}), gettextCatalog.getString('Update successful'));
+                                toastr.success(gettextCatalog.getString('The risk has been edited successfully.',
+                                    {riskLabel: risk.label1}), gettextCatalog.getString('Edition successful'));
                             },
 
                             function () {
@@ -463,7 +463,7 @@
 
         $scope.deleteRisk = function (ev, item) {
             var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete risk "{{ label }}"?',
+                .title(gettextCatalog.getString('Are you sure you want to delete risk?',
                     {label: item.label1}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
@@ -473,7 +473,7 @@
                 RiskService.deleteRisk(item.id,
                     function () {
                         $scope.updateRisks();
-                        toastr.success(gettextCatalog.getString('The risk "{{label}}" has been deleted.',
+                        toastr.success(gettextCatalog.getString('The risk has been deleted.',
                             {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
