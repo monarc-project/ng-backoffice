@@ -7,7 +7,7 @@
     function ClientService($resource) {
         var self = this;
 
-        self.ClientResource = $resource('/api/clients/:clientId', { clientId: '@id' }, {
+        self.ClientResource = $resource('api/clients/:clientId', { clientId: '@id' }, {
             'update': {
                 method: 'PUT'
             },
@@ -52,7 +52,7 @@
     function AdminServerGetService($resource) {
         var self = this;
 
-        self.ServerResource = $resource('/api/admin/serversget/:serverId', { serverId: '@id' },
+        self.ServerResource = $resource('api/admin/serversget/:serverId', { serverId: '@id' },
             {
                 'query': {
                     isArray: false

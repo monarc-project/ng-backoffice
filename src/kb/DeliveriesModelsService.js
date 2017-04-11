@@ -7,7 +7,7 @@
     function DeliveriesModelsService($resource, gettextCatalog) {
         var self = this;
 
-        self.DeliveryModelResource = $resource('/api/deliveriesmodels/:deliveryModelId', { deliveryModelId: '@id' },
+        self.DeliveryModelResource = $resource('api/deliveriesmodels/:deliveryModelId', { deliveryModelId: '@id' },
             {
                 'update': {
                     method: 'PUT'

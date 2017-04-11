@@ -7,7 +7,7 @@
     function AdminServerService($resource) {
         var self = this;
 
-        self.ServerResource = $resource('/api/admin/servers/:serverId', { serverId: '@id' },
+        self.ServerResource = $resource('api/admin/servers/:serverId', { serverId: '@id' },
             {
                 'update': {
                     method: 'PUT'

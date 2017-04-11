@@ -7,7 +7,7 @@
     function AdminLogsService($resource) {
         var self = this;
 
-        self.LogResource = $resource('/api/admin/historical/:logId', {logId: '@id'},
+        self.LogResource = $resource('api/admin/historical/:logId', {logId: '@id'},
             {
                 'update': {
                     method: 'PUT'

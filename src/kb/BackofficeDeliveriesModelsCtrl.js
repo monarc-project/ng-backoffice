@@ -189,7 +189,7 @@
                 var performUpload = function () {
 
                     Upload.upload({
-                        url: $scope.deliveryModel.id ? '/api/deliveriesmodels/' + $scope.deliveryModel.id : '/api/deliveriesmodels',
+                        url: $scope.deliveryModel.id ? 'api/deliveriesmodels/' + $scope.deliveryModel.id : 'api/deliveriesmodels',
                         method: 'POST',
                         file: $scope.file,
                         data: $scope.deliveryModel

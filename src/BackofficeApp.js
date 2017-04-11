@@ -33,17 +33,17 @@ angular
             $stateProvider.state('login', {
                 url: "/",
                 views: {
-                    "main": {templateUrl: "/views/login.html"}
+                    "main": {templateUrl: "views/login.html"}
                 }
             }).state('passwordforgotten', {
                 url: "/passwordforgotten/:token",
                 views: {
-                    "main": {templateUrl: "/views/passwordforgotten.html"}
+                    "main": {templateUrl: "views/passwordforgotten.html"}
                 }
             }).state('main', {
                 url: "/backoffice",
                 views: {
-                    "main": {templateUrl: "/views/index.backoffice.html"}
+                    "main": {templateUrl: "views/index.backoffice.html"}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Home"|translate}}'
@@ -51,7 +51,7 @@ angular
             }).state('main.account', {
                 url: "/account",
                 views: {
-                    "main@main": {templateUrl: "/views/account.html"}
+                    "main@main": {templateUrl: "views/account.html"}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Account"|translate}}'
@@ -65,7 +65,7 @@ angular
             }).state('main.admin.users', {
                 url: "/users",
                 views: {
-                    "main@main": {templateUrl: "/views/users.admin.html"}
+                    "main@main": {templateUrl: "views/users.admin.html"}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Users management"|translate}}'
@@ -73,7 +73,7 @@ angular
             }).state('main.admin.servers', {
                 url: "/servers",
                 views: {
-                    "main@main": {templateUrl: "/views/servers.admin.html"}
+                    "main@main": {templateUrl: "views/servers.admin.html"}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Servers management"|translate}}'
@@ -81,7 +81,7 @@ angular
             }).state('main.admin.logs', {
                 url: "/logs",
                 views: {
-                    "main@main": {templateUrl: "/views/logs.admin.html"}
+                    "main@main": {templateUrl: "views/logs.admin.html"}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Actions history"|translate}}'
@@ -89,7 +89,7 @@ angular
             }).state('main.client_mgmt', {
                 url: "/client",
                 views: {
-                    "main": {templateUrl: "/views/index.client_mgmt.html"}
+                    "main": {templateUrl: "views/index.client_mgmt.html"}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Client management"|translate}}'
@@ -104,7 +104,7 @@ angular
                 url: '/info/:tab/:showid',
                 params: { tab: { dynamic: true, value: 'assets' },showid: { dynamic: true, value: null }},
                 views: {
-                    'main@main': {templateUrl: '/views/info_risk.kb_mgmt.html'}
+                    'main@main': {templateUrl: 'views/info_risk.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Information risks"|translate}}'
@@ -112,7 +112,7 @@ angular
             }).state('main.kb_mgmt.info_risk.object', {
                 url: '/object/:objectId',
                 views: {
-                    'main@main': {templateUrl: '/views/anr/object.html'}
+                    'main@main': {templateUrl: 'views/anr/object.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Object details"|translate}}'
@@ -120,7 +120,7 @@ angular
             }).state('main.kb_mgmt.models', {
                 url: '/models',
                 views: {
-                    'main@main': {templateUrl: '/views/models.kb_mgmt.html'}
+                    'main@main': {templateUrl: 'views/models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Models"|translate}}'
@@ -128,8 +128,8 @@ angular
             }).state('main.kb_mgmt.models.details', {
                 url: '/:modelId',
                 views: {
-                    'main@main': {templateUrl: '/views/anr/anr.layout.html'},
-                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr/anr.home.html'}
+                    'main@main': {templateUrl: 'views/anr/anr.layout.html'},
+                    'anr@main.kb_mgmt.models.details': {templateUrl: 'views/anr/anr.home.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Model details"|translate}}'
@@ -137,7 +137,7 @@ angular
             }).state('main.kb_mgmt.models.details.object', {
                 url: '/object/:objectId',
                 views: {
-                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr/object.html'}
+                    'anr@main.kb_mgmt.models.details': {templateUrl: 'views/anr/object.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Object information"|translate}}'
@@ -145,7 +145,7 @@ angular
             }).state('main.kb_mgmt.models.details.instance', {
                 url: '/inst/:instId',
                 views: {
-                    'anr@main.kb_mgmt.models.details': {templateUrl: '/views/anr/anr.instance.html'}
+                    'anr@main.kb_mgmt.models.details': {templateUrl: 'views/anr/anr.instance.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Object instance"|translate}}'
@@ -154,7 +154,7 @@ angular
                 url: '/op/:tab',
                 params: { tab: { dynamic: true, value: 'categories' }},
                 views: {
-                    'main@main': {templateUrl: '/views/op_risk.kb_mgmt.html'}
+                    'main@main': {templateUrl: 'views/op_risk.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Operational risks"|translate}}'
@@ -162,7 +162,7 @@ angular
             }).state('main.kb_mgmt.deliveries_models', {
                 url: '/deliveriesmodels',
                 views: {
-                    'main@main': {templateUrl: '/views/deliveries_models.kb_mgmt.html'}
+                    'main@main': {templateUrl: 'views/deliveries_models.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Deliverable templates"|translate}}'
@@ -170,7 +170,7 @@ angular
             }).state('main.kb_mgmt.questions', {
                 url: '/questions',
                 views: {
-                    'main@main': {templateUrl: '/views/questions.kb_mgmt.html'}
+                    'main@main': {templateUrl: 'views/questions.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Questions of trends assessment"|translate}}'
@@ -178,7 +178,7 @@ angular
             }).state('main.kb_mgmt.analysis_guides', {
                 url: '/guides',
                 views: {
-                    'main@main': {templateUrl: '/views/analysis_guides.kb_mgmt.html'}
+                    'main@main': {templateUrl: 'views/analysis_guides.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Helpful informations"|translate}}'
@@ -186,7 +186,7 @@ angular
             }).state('main.kb_mgmt.analysis_guides.items', {
                 url: '/:guideId',
                 views: {
-                    'main@main': {templateUrl: '/views/items.analysis_guides.kb_mgmt.html'}
+                    'main@main': {templateUrl: 'views/items.analysis_guides.kb_mgmt.html'}
                 },
                 ncyBreadcrumb: {
                     label: '{{"Guide contents"|translate}}'
@@ -223,7 +223,7 @@ angular
                             for (var i = 0; i < response.data.errors.length; ++i) {
                                 ErrorService.notifyError(response.data.errors[i].message);
                             }
-                        } else if (response.status >= 400 && response.config.url != '/auth') {
+                        } else if (response.status >= 400 && response.config.url.indexOf('/auth') < 0) {
                             var message = response.status;
                             var url = response.config.url;
 

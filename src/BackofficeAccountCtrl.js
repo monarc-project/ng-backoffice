@@ -54,7 +54,7 @@
         }
 
         $scope.updatePassword = function () {
-            $http.put('/api/user/password/' + UserService.getUserId(), $scope.password).then(function (data) {
+            $http.put('api/user/password/' + UserService.getUserId(), $scope.password).then(function (data) {
                 if (data.data.status == 'ok') {
                     toastr.success(gettextCatalog.getString('Your password has been updated successfully'));
                 }

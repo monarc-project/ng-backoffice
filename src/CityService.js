@@ -7,7 +7,7 @@
     function CityService($resource) {
         var self = this;
 
-        self.CityResource = $resource('/api/cities/:cityId', { cityId: '@id' }, {
+        self.CityResource = $resource('api/cities/:cityId', { cityId: '@id' }, {
             'update': {
                 method: 'PUT'
             },
@@ -36,7 +36,7 @@
             self.CityResource.delete({cityId: id}, success, error);
         };
 
-        self.CountryResource = $resource('/api/countries/:countryId', { countryId: '@id' }, {
+        self.CountryResource = $resource('api/countries/:countryId', { countryId: '@id' }, {
             'update': {
                 method: 'PUT'
             },
