@@ -39,7 +39,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'model', CreateModelDialogCtrl],
-                templateUrl: '/views/dialogs/create.models.html',
+                templateUrl: 'views/dialogs/create.models.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
@@ -68,7 +68,7 @@
             ModelService.getModel(model.id).then(function (modelData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'model', CreateModelDialogCtrl],
-                    templateUrl: '/views/dialogs/create.models.html',
+                    templateUrl: 'views/dialogs/create.models.html',
                     targetEvent: ev,
                     clickOutsideToClose: false,
                     fullscreen: useFullScreen,

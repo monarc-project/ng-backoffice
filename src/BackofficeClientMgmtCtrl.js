@@ -35,7 +35,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
-                templateUrl: '/views/dialogs/create.clients.html',
+                templateUrl: 'views/dialogs/create.clients.html',
                 targetEvent: ev,
                 scope: $scope.$dialogScope.$new(),
                 preserveScope: false,
@@ -66,7 +66,7 @@
             var showDialog = function (clientData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
-                    templateUrl: '/views/dialogs/create.clients.html',
+                    templateUrl: 'views/dialogs/create.clients.html',
                     targetEvent: ev,
                     clickOutsideToClose: false,
                     scope: $scope.$dialogScope.$new(),

@@ -58,7 +58,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', CreateUserDialogCtrl],
-                templateUrl: '/views/dialogs/create.users.admin.html',
+                templateUrl: 'views/dialogs/create.users.admin.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen
@@ -79,7 +79,7 @@
             AdminUsersService.getUser(user.id).then(function (userData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'user', CreateUserDialogCtrl],
-                    templateUrl: '/views/dialogs/create.users.admin.html',
+                    templateUrl: 'views/dialogs/create.users.admin.html',
                     targetEvent: ev,
                     clickOutsideToClose: false,
                     fullscreen: useFullScreen,

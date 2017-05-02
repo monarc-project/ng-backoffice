@@ -66,7 +66,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
-                templateUrl: '/views/dialogs/create.categories.html',
+                templateUrl: 'views/dialogs/create.categories.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
@@ -97,7 +97,7 @@
             CategoryService.getCategory(category.id).then(function (categoryData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
-                    templateUrl: '/views/dialogs/create.categories.html',
+                    templateUrl: 'views/dialogs/create.categories.html',
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
@@ -196,7 +196,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'tag', CreateTagDialogCtrl],
-                templateUrl: '/views/anr/create.tags.html',
+                templateUrl: 'views/anr/create.tags.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
@@ -227,7 +227,7 @@
             TagService.getTag(tag.id).then(function (tagData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'tag', CreateTagDialogCtrl],
-                    templateUrl: '/views/anr/create.tags.html',
+                    templateUrl: 'views/anr/create.tags.html',
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
@@ -366,7 +366,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', 'risk', CreateRiskDialogCtrl],
-                templateUrl: '/views/anr/create.risks.html',
+                templateUrl: 'views/anr/create.risks.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
@@ -420,7 +420,7 @@
             RiskService.getRisk(risk.id).then(function (riskData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', 'risk', CreateRiskDialogCtrl],
-                    templateUrl: '/views/anr/create.risks.html',
+                    templateUrl: 'views/anr/create.risks.html',
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),

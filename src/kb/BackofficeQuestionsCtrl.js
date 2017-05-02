@@ -35,7 +35,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', 'ConfigService', '$mdDialog', '$q', 'QuestionService', 'questions', CreateQuestionDialogCtrl],
-                templateUrl: '/views/dialogs/create.questions.html',
+                templateUrl: 'views/dialogs/create.questions.html',
                 targetEvent: ev,
                 scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: false,
@@ -74,7 +74,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', 'ConfigService', '$mdDialog', '$q', 'QuestionService', 'questions', 'question', CreateQuestionDialogCtrl],
-                templateUrl: '/views/dialogs/create.questions.html',
+                templateUrl: 'views/dialogs/create.questions.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,

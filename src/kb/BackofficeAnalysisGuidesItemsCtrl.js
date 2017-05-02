@@ -31,7 +31,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'items', CreateItemDialogCtrl],
-                templateUrl: '/views/dialogs/create.guides.items.html',
+                templateUrl: 'views/dialogs/create.guides.items.html',
                 targetEvent: ev,
                 scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: false,
@@ -57,7 +57,7 @@
             GuideService.getItem(item.id).then(function (item) {
                 $mdDialog.show({
                     controller: ['$scope', '$q', 'ConfigService', 'GuideService', '$mdDialog', 'items', 'item', CreateItemDialogCtrl],
-                    templateUrl: '/views/dialogs/create.guides.items.html',
+                    templateUrl: 'views/dialogs/create.guides.items.html',
                     targetEvent: ev,
                     clickOutsideToClose: false,
                     fullscreen: useFullScreen,
