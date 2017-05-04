@@ -223,7 +223,7 @@ angular
                             for (var i = 0; i < response.data.errors.length; ++i) {
                                 ErrorService.notifyError(response.data.errors[i].message);
                             }
-                        } else if (response.status >= 400 && response.config.url.indexOf('/auth') < 0) {
+                        } else if (response.status >= 400 && response.config.url.indexOf('auth') < 0) {
                             var message = response.status;
                             var url = response.config.url;
 
