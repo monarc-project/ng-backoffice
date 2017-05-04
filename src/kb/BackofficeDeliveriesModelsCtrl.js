@@ -34,7 +34,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'ConfigService', 'DeliveriesModelsService', 'Upload', CreateDeliveryModelDialogCtrl],
-                templateUrl: '/views/dialogs/create.deliverymodel.html',
+                templateUrl: 'views/dialogs/create.deliverymodel.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen
@@ -51,7 +51,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog','ConfigService', 'DeliveriesModelsService', 'Upload', 'deliverymodel', CreateDeliveryModelDialogCtrl],
-                templateUrl: '/views/dialogs/create.deliverymodel.html',
+                templateUrl: 'views/dialogs/create.deliverymodel.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,

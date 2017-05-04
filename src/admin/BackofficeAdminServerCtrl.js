@@ -37,7 +37,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', CreateServerDialogCtrl],
-                templateUrl: '/views/dialogs/create.servers.admin.html',
+                templateUrl: 'views/dialogs/create.servers.admin.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen
@@ -59,7 +59,7 @@
             AdminServerService.getServer(server.id).then(function (server) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'server', CreateServerDialogCtrl],
-                    templateUrl: '/views/dialogs/create.servers.admin.html',
+                    templateUrl: 'views/dialogs/create.servers.admin.html',
                     targetEvent: ev,
                     clickOutsideToClose: false,
                     fullscreen: useFullScreen,

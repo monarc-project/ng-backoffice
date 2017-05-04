@@ -106,7 +106,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
-                templateUrl: '/views/anr/create.assets.html',
+                templateUrl: 'views/anr/create.assets.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
@@ -152,7 +152,7 @@
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
-                    templateUrl: '/views/anr/create.assets.html',
+                    templateUrl: 'views/anr/create.assets.html',
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
@@ -294,7 +294,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
-                templateUrl: '/views/anr/create.threats.html',
+                templateUrl: 'views/anr/create.threats.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
@@ -346,7 +346,7 @@
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
-                    templateUrl: '/views/anr/create.threats.html',
+                    templateUrl: 'views/anr/create.threats.html',
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
@@ -490,7 +490,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
-                templateUrl: '/views/anr/create.vulns.html',
+                templateUrl: 'views/anr/create.vulns.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
@@ -536,7 +536,7 @@
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
-                    templateUrl: '/views/anr/create.vulns.html',
+                    templateUrl: 'views/anr/create.vulns.html',
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
@@ -674,7 +674,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
-                templateUrl: '/views/anr/create.measures.html',
+                templateUrl: 'views/anr/create.measures.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
@@ -712,7 +712,7 @@
             MeasureService.getMeasure(measure.id).then(function (measureData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
-                    templateUrl: '/views/anr/create.measures.html',
+                    templateUrl: 'views/anr/create.measures.html',
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
@@ -844,7 +844,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
-                templateUrl: '/views/anr/create.amvs.html',
+                templateUrl: 'views/anr/create.amvs.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
@@ -908,7 +908,7 @@
             AmvService.getAmv(amv).then(function (amvData) {
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
-                    templateUrl: '/views/anr/create.amvs.html',
+                    templateUrl: 'views/anr/create.amvs.html',
                     targetEvent: ev,
                     preserveScope: false,
                     scope: $scope.$dialogScope.$new(),
@@ -1141,7 +1141,7 @@
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
                 controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'AssetService', 'ObjlibService', 'ConfigService', 'TagService', '$q', 'mode', 'objLibDialog', 'objlib', CreateObjlibDialogCtrl],
-                templateUrl: '/views/anr/create.objlibs.html',
+                templateUrl: 'views/anr/create.objlibs.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),

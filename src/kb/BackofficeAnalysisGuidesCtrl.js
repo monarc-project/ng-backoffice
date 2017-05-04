@@ -27,7 +27,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', 'ConfigService', '$mdDialog', 'GuideService', CreateGuideDialogCtrl],
-                templateUrl: '/views/dialogs/create.guides.html',
+                templateUrl: 'views/dialogs/create.guides.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen
@@ -48,7 +48,7 @@
 
             $mdDialog.show({
                 controller: ['$scope', 'ConfigService', '$mdDialog', 'GuideService', 'guide', CreateGuideDialogCtrl],
-                templateUrl: '/views/dialogs/create.guides.html',
+                templateUrl: 'views/dialogs/create.guides.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
