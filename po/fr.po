@@ -1862,6 +1862,10 @@ msgstr "Mode"
 msgid "Model"
 msgstr "Modèle"
 
+#: src/BackofficeApp.js:135:
+msgid "Model details"
+msgstr "Détails du modèle"
+
 #: ../ng_anr/views/_gettext_caveats.html:37
 msgid "Model missing"
 msgstr "Modèle manquant"
@@ -2451,6 +2455,14 @@ msgstr "Sélectionnez un actif"
 #: views/dialogs/create.clients.html:25
 msgid "Server"
 msgstr "Serveur"
+
+#: views/servers.admin.html:4
+msgid "Servers"
+msgstr "Serveurs"
+
+#: src/BackofficeApp.js:79
+msgid "Servers management"
+msgstr "Gestion des serveurs"
 
 #: ../ng_anr/views/_oprisk_sheet.html:107 ../ng_anr/views/_risk_sheet.html:123
 #: ../ng_anr/views/_table_risks.html:40 ../ng_anr/views/_table_risks_op.html:35
@@ -3403,6 +3415,10 @@ msgstr "Administrateur d'utilisateurs"
 msgid "Users"
 msgstr "Utilisateurs"
 
+#: src/BackofficeApp.js:45
+msgid "Users management"
+msgstr "Gestion des utilisateurs"
+
 #: ../ng_anr/views/validate.recommandation.html:36
 msgid "Validate"
 msgstr "Valider"
@@ -3824,6 +3840,10 @@ msgstr "{{count}} menaces ont été supprimées."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:621 src/kb/info/BackofficeKbInfoCtrl.js:610
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnérabilités ont été supprimées."
+
+
+
+
 
 #~ msgid "Asset does not exist"
 #~ msgstr "L'actif n'existe pas"
@@ -5075,8 +5095,7 @@ msgstr "{{count}} vulnérabilités ont été supprimées."
 #~ msgid "Guide contents"
 #~ msgstr "Contenu du guide"
 
-#~ msgid "Model details"
-#~ msgstr "Détails du modèle"
+
 
 #~ msgid "Object details"
 #~ msgstr "Détails de l'objet"
@@ -5084,11 +5103,7 @@ msgstr "{{count}} vulnérabilités ont été supprimées."
 #~ msgid "Please select a country and/or a city in the list."
 #~ msgstr "Veuillez sélectionner un pays et/ou une ville dans la liste."
 
-#~ msgid "Servers management"
-#~ msgstr "Gestion des serveurs"
 
-#~ msgid "Users management"
-#~ msgstr "Gestion des utilisateurs"
 
 #~ msgid "Risk threshold (on max ROLFP)"
 #~ msgstr "Seuil de risque (sur le ROLFP max)"
