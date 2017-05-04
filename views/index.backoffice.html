@@ -13,11 +13,7 @@
         </md-button>
     </div>
     <md-list>
-        <md-list-item ui-sref="main.client_mgmt" ui-sref-active="active" ng-show="isAllowed('accadmin')">
-            <md-icon>people</md-icon>
-            <p>{{ 'Client management' | translate }}</p>
-        </md-list-item>
-
+        
         <md-list-item ui-sref="main.kb_mgmt" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
             <md-icon>local_library</md-icon>
             <p>{{ 'KB management' | translate }}</p>
@@ -87,6 +83,14 @@
             </md-button>
 
             <md-menu-content width="4">
+
+                <md-menu-item ng-show="isAllowed('accadmin')">
+                    <md-button ui-sref="main.client_mgmt">
+                        <md-icon>assignment_ind</i></md-icon> {{ 'Client management' | translate }}
+                    </md-button>
+                </md-menu-item>
+
+
                 <md-menu-item ng-show="isAllowed('superadmin')">
                     <md-button ui-sref="main.admin.users">
                         <md-icon>people</md-icon> {{ 'Manage users' | translate }}

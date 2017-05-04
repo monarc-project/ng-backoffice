@@ -60,7 +60,7 @@ angular
                 url: "/admin",
                 views: {},
                 ncyBreadcrumb: {
-                    label: '{{"Administration"|translate}}'
+   		    label: '{{"Administration"|translate}}'
                 }
             }).state('main.admin.users', {
                 url: "/users",
@@ -132,7 +132,7 @@ angular
                     'anr@main.kb_mgmt.models.details': {templateUrl: 'views/anr/anr.home.html'}
                 },
                 ncyBreadcrumb: {
-                    label: '{{"Model details"|translate}}'
+                    skip: true
                 }
             }).state('main.kb_mgmt.models.details.object', {
                 url: '/object/:objectId',
@@ -140,7 +140,7 @@ angular
                     'anr@main.kb_mgmt.models.details': {templateUrl: 'views/anr/object.html'}
                 },
                 ncyBreadcrumb: {
-                    label: '{{"Object information"|translate}}'
+		    skip: true
                 }
             }).state('main.kb_mgmt.models.details.instance', {
                 url: '/inst/:instId',
@@ -148,7 +148,7 @@ angular
                     'anr@main.kb_mgmt.models.details': {templateUrl: 'views/anr/anr.instance.html'}
                 },
                 ncyBreadcrumb: {
-                    label: '{{"Object instance"|translate}}'
+                    skip: true
                 }
             }).state('main.kb_mgmt.op_risk', {
                 url: '/op/:tab',
