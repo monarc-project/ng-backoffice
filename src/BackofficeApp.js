@@ -4,8 +4,9 @@ angular
         'ui.tree', 'ngMessages', 'AnrModule'])
     .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', '$resourceProvider',
         'localStorageServiceProvider', '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext', '$mdAriaProvider',
+        '$locationProvider',
         function ($mdThemingProvider, $stateProvider, $urlRouterProvider, $resourceProvider, localStorageServiceProvider,
-                  $httpProvider, $breadcrumbProvider, $provide, gettext, $mdAriaProvider) {
+                  $httpProvider, $breadcrumbProvider, $provide, gettext, $mdAriaProvider, $locationProvider) {
             // Store the state provider to be allow controllers to inject their routes
             window.$stateProvider = $stateProvider;
 
@@ -29,6 +30,8 @@ angular
             $breadcrumbProvider.setOptions({
                 template: '<div><span ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract"><a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a><span ng-switch-when="false"> <md-icon>chevron_right</md-icon> </span><span ng-switch-when="true">{{step.ncyBreadcrumbLabel}}</span></span></div>'
             });
+
+            $locationProvider.hashPrefix('');
 
             $stateProvider.state('login', {
                 url: "/",
