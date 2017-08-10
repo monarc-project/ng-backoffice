@@ -358,7 +358,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', 'risk', CreateRiskDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'TagService', 'risk', CreateRiskDialogCtrl],
                 templateUrl: 'views/anr/create.risks.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -406,7 +406,7 @@
 
             RiskService.getRisk(risk.id).then(function (riskData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'CategoryService', 'TagService', 'risk', CreateRiskDialogCtrl],
+                    controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'TagService', 'risk', CreateRiskDialogCtrl],
                     templateUrl: 'views/anr/create.risks.html',
                     targetEvent: ev,
                     preserveScope: false,
@@ -537,7 +537,7 @@
         };
     }
 
-    function CreateRiskDialogCtrl($scope, $mdDialog, $q, ConfigService, CategoryService, TagService, risk) {
+    function CreateRiskDialogCtrl($scope, $mdDialog, $q, ConfigService, TagService, risk) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
