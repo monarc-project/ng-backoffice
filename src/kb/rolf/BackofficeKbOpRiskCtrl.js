@@ -51,16 +51,6 @@
             TableHelperService.removeFilter($scope.categories);
         };
 
-        $scope.selectCategoriesTab = function () {
-            $state.transitionTo('main.kb_mgmt.op_risk', {'tab': 'categories'});
-            TableHelperService.watchSearch($scope, 'categories.query.filter', $scope.categories.query, $scope.updateCategories, $scope.categories);
-        };
-
-        $scope.deselectCategoriesTab = function () {
-            TableHelperService.unwatchSearch($scope.categories);
-        };
-
-
         $scope.createNewCategory = function (ev, category) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
