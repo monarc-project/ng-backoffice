@@ -147,11 +147,6 @@
                     </md-input-container>
                 </form>
 
-                <md-select ng-model="risks.category_filter" aria-label="{{ 'Category' | translate }}" placeholder="{{ 'Category' | translate }}" class="md-padding-right" flex>
-                    <md-option value="0">{{ 'All categories' | translate }}</md-option>
-                    <md-option ng-repeat="cat in risk_categories" ng-value="cat.id">{{ _langField(cat,'label') }}</md-option>
-                </md-select>
-
                 <md-select ng-model="risks.tag_filter" aria-label="{{ 'Tag' | translate }}" placeholder="{{ 'Tag' | translate }}" flex>
                     <md-option value="0">{{ 'All tags' | translate }}</md-option>
                     <md-option ng-repeat="tag in risk_tags" ng-value="tag.id">{{ tag.code }} ({{ _langField(tag,'label') }})</md-option>
@@ -176,7 +171,6 @@
                 <table md-table md-row-select multiple ng-model="risks.selected" md-progress="risks.promise">
                     <thead md-head md-order="risks.query.order" md-on-reorder="updateRisks">
                     <tr md-row>
-                        <th md-column><span translate>Categories</span></th>
                         <th md-column><span translate>Tags</span></th>
                         <th md-column md-order-by="code"><span translate>Code</span></th>
                         <th md-column md-order-by="label1"><span translate>Label</span></th>
@@ -187,7 +181,6 @@
                     <tbody md-body>
                     <tr md-row md-select="risk" md-select-id="id"
                         ng-repeat="risk in risks.items.risks">
-                        <td md-cell><md-chips readonly="true" ng-model="risk.categories"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
                         <td md-cell><md-chips readonly="true" ng-model="risk.tags"><md-chip-template>{{$chip.code}}</md-chip-template></md-chips></td>
                         <td md-cell>{{ risk.code }}</td>
                         <td md-cell>{{ _langField(risk,'label') }}</td>

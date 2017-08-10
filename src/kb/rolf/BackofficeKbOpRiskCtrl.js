@@ -304,7 +304,7 @@
 
         var risksTabSelected = false;
 
-        $scope.$watchGroup(['risks.category_filter', 'risks.tag_filter'], function (newValue, oldValue) {
+        $scope.$watchGroup(['risks.tag_filter'], function (newValue, oldValue) {
             if (risksTabSelected) {
                 // Refresh contents
                 $scope.updateRisks();
@@ -313,9 +313,6 @@
 
         $scope.updateRisks = function () {
             var query = angular.copy($scope.risks.query);
-            if ($scope.risks.category_filter > 0) {
-                query.category = $scope.risks.category_filter;
-            }
             if ($scope.risks.tag_filter > 0) {
                 query.tag = $scope.risks.tag_filter;
             }
@@ -347,10 +344,6 @@
             risksTabSelected = true;
             TableHelperService.watchSearch($scope, 'risks.query.filter', $scope.risks.query, $scope.updateRisks, $scope.risks);
 
-            CategoryService.getCategories({limit: 0, order: '-label1'}).then(function (cats) {
-                $scope.risk_categories = cats.categories;
-            });
-
             TagService.getTags({limit: 0, order: '-label1'}).then(function (tags) {
                 $scope.risk_tags = tags.tags;
             })
@@ -379,18 +372,12 @@
                 .then(function (risk) {
                     var riskBackup = angular.copy(risk);
 
-                    var riskCatIds = [];
                     var riskTagIds = [];
-
-                    for (var i = 0; i < risk.categories.length; ++i) {
-                        riskCatIds.push(risk.categories[i].id);
-                    }
 
                     for (var i = 0; i < risk.tags.length; ++i) {
                         riskTagIds.push(risk.tags[i].id);
                     }
 
-                    risk.categories = riskCatIds;
                     risk.tags = riskTagIds;
 
                     var cont = risk.cont;
@@ -432,18 +419,12 @@
                 })
                     .then(function (risk) {
                         var riskBackup = angular.copy(risk);
-                        var riskCatIds = [];
                         var riskTagIds = [];
-
-                        for (var i = 0; i < risk.categories.length; ++i) {
-                            riskCatIds.push(risk.categories[i].id);
-                        }
 
                         for (var i = 0; i < risk.tags.length; ++i) {
                             riskTagIds.push(risk.tags[i].id);
                         }
 
-                        risk.categories = riskCatIds;
                         risk.tags = riskTagIds;
 
                         RiskService.updateRisk(risk,
@@ -559,37 +540,6 @@
     function CreateRiskDialogCtrl($scope, $mdDialog, $q, ConfigService, CategoryService, TagService, risk) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
-
-
-        $scope.categorySearchText = null;
-        $scope.categorySelectedItem = null;
-        $scope.queryCategorySearch = function (query) {
-            var promise = $q.defer();
-            CategoryService.getCategories({filter: query}).then(function (e) {
-                // Filter out values already selected
-                var filtered = [];
-                for (var j = 0; j < e.categories.length; ++j) {
-                    var found = false;
-
-                    for (var i = 0; i < $scope.risk.categories.length; ++i) {
-                        if ($scope.risk.categories[i].id == e.categories[j].id) {
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (!found) {
-                        filtered.push(e.categories[j]);
-                    }
-                }
-
-                promise.resolve(filtered);
-            }, function (e) {
-                promise.reject(e);
-            });
-
-            return promise.promise;
-        };
 
         $scope.tagSearchText = null;
         $scope.tagSelectedItem = null;
