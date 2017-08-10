@@ -21,9 +21,8 @@
          */
         $scope.selectTab = function (tab) {
             switch (tab) {
-                case 'categories': $scope.currentTabIndex = 0; break;
-                case 'tags': $scope.currentTabIndex = 1; break;
-                case 'risks': $scope.currentTabIndex = 2; break;
+                case 'tags': $scope.currentTabIndex = 0; break;
+                case 'risks': $scope.currentTabIndex = 1; break;
             }
         }
         $scope.selectTab($scope.tab);
@@ -34,125 +33,6 @@
             $scope.selectTab(tabName);
         });
 
-        /**
-         * CATEGORIES
-         */
-        $scope.categories = TableHelperService.build('label1', 10, 1, '');
-
-        $scope.updateCategories = function () {
-            $scope.categories.promise = CategoryService.getCategories($scope.categories.query);
-            $scope.categories.promise.then(
-                function (data) {
-                    $scope.categories.items = data;
-                }
-            )
-        };
-        $scope.removeCategoriesFilter = function () {
-            TableHelperService.removeFilter($scope.categories);
-        };
-
-        $scope.createNewCategory = function (ev, category) {
-            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
-            $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
-                templateUrl: 'views/dialogs/create.categories.html',
-                targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: false,
-                fullscreen: useFullScreen,
-                locals: {
-                    'category': category
-                }
-            })
-                .then(function (category) {
-                    CategoryService.createCategory(category,
-                        function () {
-                            $scope.updateCategories();
-                            toastr.success(gettextCatalog.getString('The category has been created successfully.',
-                                {categoryLabel: category.label1}), gettextCatalog.getString('Creation successful'));
-                        },
-
-                        function () {
-                            $scope.createNewCategory(ev, category);
-                        }
-                    );
-                });
-        };
-
-        $scope.editCategory = function (ev, category) {
-            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
-            CategoryService.getCategory(category.id).then(function (categoryData) {
-                $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
-                    templateUrl: 'views/dialogs/create.categories.html',
-                    targetEvent: ev,
-                    preserveScope: false,
-                    scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: false,
-                    fullscreen: useFullScreen,
-                    locals: {
-                        'category': categoryData
-                    }
-                })
-                    .then(function (category) {
-                        CategoryService.updateCategory(category,
-                            function () {
-                                $scope.updateCategories();
-                                toastr.success(gettextCatalog.getString('The category has been edited successfully.',
-                                    {categoryLabel: category.label1}), gettextCatalog.getString('Edition successful'));
-                            },
-
-                            function () {
-                                $scope.editCategory(ev, category);
-                            }
-                        );
-                    });
-            });
-        };
-
-        $scope.deleteCategory = function (ev, item) {
-            var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete category?',
-                    {label: item.label1}))
-                .textContent(gettextCatalog.getString('This operation is irreversible.'))
-                .targetEvent(ev)
-                .ok(gettextCatalog.getString('Delete'))
-                .cancel(gettextCatalog.getString('Cancel'));
-            $mdDialog.show(confirm).then(function() {
-                CategoryService.deleteCategory(item.id,
-                    function () {
-                        $scope.updateCategories();
-                        toastr.success(gettextCatalog.getString('The category has been deleted.',
-                            {label: item.label1}), gettextCatalog.getString('Deletion successful'));
-                    }
-                );
-            });
-        };
-
-        $scope.deleteCategoryMass = function (ev) {
-            var confirm = $mdDialog.confirm()
-                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected category(s)?',
-                    {count: $scope.categories.selected.length}))
-                .textContent(gettextCatalog.getString('This operation is irreversible.'))
-                .targetEvent(ev)
-                .ok(gettextCatalog.getString('Delete'))
-                .cancel(gettextCatalog.getString('Cancel'));
-            $mdDialog.show(confirm).then(function() {
-                angular.forEach($scope.categories.selected, function (value, key) {
-                    CategoryService.deleteCategory(value.id);
-                });
-
-                $scope.updateCategories();
-                toastr.success(gettextCatalog.getString('{{count}} categories have been deleted.',
-                    {count: $scope.categories.selected.length}), gettextCatalog.getString('Deletion successful'));
-                $scope.categories.selected = [];
-
-            }, function() {
-            });
-        };
 
 
         /**
@@ -574,7 +454,6 @@
                 description2: '',
                 description3: '',
                 description4: '',
-                categories: [],
                 tags: [],
             };
         }
