@@ -33,6 +33,11 @@
             $scope.selectTab(tabName);
         });
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 836185a2f4c69b2a51465b99df4a903bfc313719
         /**
          * TAGS
          */
@@ -382,6 +387,10 @@
     function CreateRiskDialogCtrl($scope, $mdDialog, $q, ConfigService, TagService, risk) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 836185a2f4c69b2a51465b99df4a903bfc313719
         $scope.tagSearchText = null;
         $scope.tagSelectedItem = null;
         $scope.queryTagSearch = function (query) {
