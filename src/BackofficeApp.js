@@ -45,6 +45,7 @@ angular
                 }
             }).state('main', {
                 url: "/backoffice",
+                redirectTo: 'main.kb_mgmt.info_risk',
                 views: {
                     "main": {templateUrl: "views/index.backoffice.html"}
                 },
@@ -155,7 +156,7 @@ angular
                 }
             }).state('main.kb_mgmt.op_risk', {
                 url: '/op/:tab',
-                params: { tab: { dynamic: true, value: 'categories' }},
+                params: { tab: { dynamic: true, value: 'tags' }},
                 views: {
                     'main@main': {templateUrl: 'views/op_risk.kb_mgmt.html'}
                 },
