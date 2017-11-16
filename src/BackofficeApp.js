@@ -72,7 +72,7 @@ angular
                     "main@main": {templateUrl: "views/users.admin.html"}
                 },
                 ncyBreadcrumb: {
-                    label: '{{"Users management"|translate}}'
+                    label: '{{"Manage users"|translate}}'
                 }
             }).state('main.admin.servers', {
                 url: "/servers",
@@ -80,7 +80,7 @@ angular
                     "main@main": {templateUrl: "views/servers.admin.html"}
                 },
                 ncyBreadcrumb: {
-                    label: '{{"Servers management"|translate}}'
+                    label: '{{"Manage servers"|translate}}'
                 }
             }).state('main.admin.logs', {
                 url: "/logs",
