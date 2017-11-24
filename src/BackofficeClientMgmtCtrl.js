@@ -34,7 +34,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
+                controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
                 templateUrl: 'views/dialogs/create.clients.html',
                 targetEvent: ev,
                 scope: $scope.$dialogScope.$new(),
@@ -65,7 +65,7 @@
 
             var showDialog = function (clientData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'CityService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
+                    controller: ['$scope', '$mdDialog', '$q', 'toastr', 'gettextCatalog', 'ModelService', 'AdminServerGetService', 'client', CreateClientDialogCtrl],
                     templateUrl: 'views/dialogs/create.clients.html',
                     targetEvent: ev,
                     clickOutsideToClose: false,
@@ -141,8 +141,6 @@
                     }, 350);
                 });
 
-
-
             }, function() {
             });
         };
@@ -151,7 +149,7 @@
     }
 
 
-    function CreateClientDialogCtrl($scope, $mdDialog, $q, toastr, gettextCatalog, ModelService, CityService, AdminServerGetService, client) {
+    function CreateClientDialogCtrl($scope, $mdDialog, $q, toastr, gettextCatalog, ModelService, AdminServerGetService, client) {
         ModelService.getModels().then(function (x) {
             $scope.models = x.models;
         });
@@ -166,20 +164,8 @@
             $scope.client = {
                 name: '',
                 proxyAlias: '',
-                address: '',
-                postalcode: '',
-                phone: '',
-                fax: '',
-                email: '',
-                employees_number: '',
-                contactFullname: '',
                 contact_email: '',
-                contact_phone: '',
-                model_id: null,
-                country_id: null,
-                city_id: null,
-                country: null,
-                city: null
+                model_id: null
             };
         }
 
@@ -188,61 +174,8 @@
         };
 
         $scope.create = function() {
-            if ($scope.client.country) {
-                $scope.client.country_id = $scope.client.country.id;
-            }
-            if ($scope.client.city) {
-                $scope.client.city_id = $scope.client.city.id;
-            }
             $mdDialog.hide($scope.client);
         };
-
-        $scope.queryCountrySearch = function (query) {
-            var q = $q.defer();
-
-            CityService.getCountries({filter: query}).then(function (x) {
-                q.resolve(x.countries);
-            }, function (x) {
-                q.reject(x);
-            });
-
-            return q.promise;
-        };
-
-        $scope.queryCitySearch = function (query) {
-            var q = $q.defer();
-
-            CityService.getCities({filter: query, country_id: $scope.client.country.id}).then(function (x) {
-                q.resolve(x.cities);
-            }, function (x) {
-                q.reject(x);
-            });
-
-            return q.promise;
-        };
-
-        $scope.selectedCountryItemChange = function (item) {
-            $scope.client.country = item;
-            if (item) {
-                $scope.client.city = null;
-            }
-        };
-
-        $scope.createCity = function (city) {
-            if ($scope.client.country) {
-                CityService.createCity({country_id: $scope.client.country.id, label: city}, function (data) {
-                    $scope.client.city = {
-                        country_id: $scope.client.country.id,
-                        label: city,
-                        id: data.id
-                    };
-
-                    toastr.success(gettextCatalog.getString("The city has been created", {label: city}));
-                })
-            } else {
-                toastr.error(gettextCatalog.getString("You must select a country first"));
-            }
-        }
     }
 
 })();

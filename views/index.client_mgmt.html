@@ -37,11 +37,9 @@
                 <thead md-head md-order="clients.query.order" md-on-reorder="updateClients">
                 <tr md-row>
                     <th md-column md-order-by="name"><span translate>Company</span></th>
-                    <th md-column md-order-by="address"><span translate>Address</span></th>
-                    <th md-column md-order-by="postalcode"><span translate>Postal code</span></th>
-                    <th md-column md-order-by="phone"><span translate>Phone</span></th>
-                    <th md-column md-order-by="email"><span translate>E-mail</span></th>
-                    <th md-column md-order-by="contactFullname"><span translate>Contact full name</span></th>
+                    <th md-column md-order-by="first_user_email"><span translate>E-mail</span></th>
+                    <th md-column md-order-by="proxyAlias"><span translate>Proxy alias</span></th>
+                    <th md-column md-order-by="createdAt"><span translate>Date</span></th>
                     <th md-column><span translate>Actions</span></th>
                 </tr>
                 </thead>
@@ -49,11 +47,9 @@
                 <tbody md-body>
                 <tr md-row md-select="client" md-select-id="id" ng-repeat="client in clients.items.clients">
                     <td md-cell>{{ client.name }}</td>
-                    <td md-cell>{{ client.address }}</td>
-                    <td md-cell>{{ client.postalcode }}</td>
-                    <td md-cell>{{ client.phone }}</td>
-                    <td md-cell>{{ client.email }}</td>
-                    <td md-cell>{{ client.contactFullname }}</td>
+                    <td md-cell>{{ client.first_user_email }}</td>
+                    <td md-cell>{{ client.proxyAlias }}</td>
+                    <td md-cell>{{ client.createdAt.date | date:'yyyy-MM-dd HH:mm'}}</td>
                     <td md-cell>
                         <md-button class="md-icon-button md-warn" ng-click="deleteClient($event, client)"><md-icon>delete</md-icon></md-button>
                         <md-button class="md-icon-button md-primary" ng-click="editClient($event, client)"><md-icon>edit</md-icon></md-button>
