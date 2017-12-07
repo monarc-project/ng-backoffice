@@ -64,7 +64,7 @@
                     <td md-cell><md-button class="md-icon-button md-primary" ng-click="toggleModelStatus(model)"><md-icon>{{ model.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                     <td class="clickable-rows" ng-class="{'bold': model.isDefault}" md-cell ui-sref="main.kb_mgmt.models.details({modelId: model.id})">{{ _langField(model,'label') }}</td>
                     <td md-cell class="preserve-newlines">{{ _langField(model,'description') }}</td>
-                    <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-true-value="1" ng-false-value="0" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></div></td>
+                    <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></div></td>
                     <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-true-value="1" ng-false-value="0" ng-model="model.isRegulator" aria-label="Regulator"></md-checkbox></div></td>
                     <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-true-value="1" ng-false-value="0" ng-model="model.showRolfBrut" aria-label="Raw ROLF"></md-checkbox></div></td>
                     <td md-cell>
