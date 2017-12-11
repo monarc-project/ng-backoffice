@@ -53,7 +53,7 @@
                     <th md-column md-order-by="{{ _langField('label') }}"><span translate>Label</span></th>
                     <th md-column md-order-by="description1"><span translate>Description</span></th>
                     <th md-column md-order-by="is_generic" ><span translate>Specific</span></th>
-                    <th md-column md-order-by="is_regulator"><span translate>Regulator</span></th>
+                    <th md-column md-order-by="is_scales_updatable"><span translate>Editable impact scale</span></th>
                     <th md-column md-order-by="show_rolf_brut"><span translate>Inherent risk</span></th>
                     <th md-column><span translate>Actions</span></th>
                 </tr>
@@ -65,7 +65,7 @@
                     <td class="clickable-rows" ng-class="{'bold': model.isDefault}" md-cell ui-sref="main.kb_mgmt.models.details({modelId: model.id})">{{ _langField(model,'label') }}</td>
                     <td md-cell class="preserve-newlines">{{ _langField(model,'description') }}</td>
                     <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-model="model.isGeneric" aria-label="Generic"></md-checkbox></div></td>
-                    <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-true-value="1" ng-false-value="0" ng-model="model.isRegulator" aria-label="Regulator"></md-checkbox></div></td>
+                    <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-true-value="1" ng-false-value="0" ng-model="model.isScalesUpdatable" aria-label="Scales"></md-checkbox></div></td>
                     <td md-cell><div layout="column" layout-align="center center"><md-checkbox ng-disabled="true" ng-true-value="1" ng-false-value="0" ng-model="model.showRolfBrut" aria-label="Raw ROLF"></md-checkbox></div></td>
                     <td md-cell>
                         <md-button class="md-icon-button md-primary" ui-sref="main.kb_mgmt.models.details({modelId: model.id})"><md-icon>open_in_new</md-icon> <md-tooltip>{{ 'Open details' | translate }}</md-tooltip></md-button>

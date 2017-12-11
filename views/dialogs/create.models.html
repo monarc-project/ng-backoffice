@@ -14,6 +14,7 @@
             <div class="md-dialog-content">
                 <md-input-container class="md-block" flex>
                     <label translate>Language</label>
+
                     <md-icon>language</md-icon>
                     <md-select ng-model="language" ng-change="switchLanguage()">
                         <md-option ng-repeat="(lang_idx, lang) in languages" value="{{ lang_idx }}">{{ lang }}</md-option>
@@ -34,12 +35,11 @@
                     <md-icon>subject</md-icon>
                     <textarea ng-model="model['description' + language]" rows="4"></textarea>
                 </md-input-container>
-
+                
+                <md-subheader>{{ 'Options' | translate }}</md-subheader>
                 <div layout="column">
-                    <md-checkbox ng-model="model.isDefault" ng-true-value="1" ng-false-value="0" class="md-primary md-align-top-left">{{ 'Default model' | translate }}</md-checkbox>
+                    <md-checkbox ng-model="model.isGeneric"  class="md-primary md-align-top-left">{{ 'Specific' | translate }}</md-checkbox>
                     <md-checkbox ng-model="model.isScalesUpdatable" ng-true-value="1" ng-false-value="0" class="md-primary md-align-top-left">{{ 'Editable impact scale' | translate }}</md-checkbox>
-                    <md-checkbox ng-model="model.isGeneric" ng-disabled="model.isRegulator" class="md-primary md-align-top-left">{{ 'Specific' | translate }}</md-checkbox>
-                    <md-checkbox ng-model="model.isRegulator" ng-true-value="1" ng-false-value="0" class="md-primary md-align-top-left">{{ 'Regulator' | translate }}</md-checkbox>
                     <md-checkbox ng-model="model.showRolfBrut" ng-true-value="1" ng-false-value="0" class="md-primary md-align-top-left">{{ 'Enable inherent risk' | translate }}</md-checkbox>
                 </div>
             </div>
