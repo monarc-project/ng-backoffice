@@ -38,7 +38,11 @@
 
             UserService.authenticate($scope.user.email, $scope.user.password).then(
                 function () {
-                    $state.transitionTo('main');
+                    if (UserService.isAllowed('dbadmin')) {
+                        $state.transitionTo('main');
+                    } else {
+                        $state.transitionTo('main.account');
+                    }
                 },
 
                 function () {
