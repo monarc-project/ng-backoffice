@@ -21,7 +21,7 @@
             <md-select aria-label="filter" ng-model="models.query.status">
                 <md-option value="all">{{ 'Show all' | translate }}</md-option>
                 <md-option value="0">{{ 'Show inactive only' | translate }}</md-option>
-                <md-option value="1">{{ 'Show active only' | translate }}</md-option>
+                <md-option value="1" selected>{{ 'Show active only' | translate }}</md-option>
             </md-select>
 
             <md-button class="md-icon-button md-primary" ng-click="removeModelsFilter()">
