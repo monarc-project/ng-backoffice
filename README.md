@@ -1,21 +1,28 @@
-# MONARC Backoffice Angular Module
+## MONARC Backoffice Angular Module
 
-*Disclaimer: This is a work in progress and software is still in alpha stage.*
-
-## Installing
-In order to install the frontend part of the backoffice module, run the following commands in your MONARC skeleton root path:
-```
-npm install --save git+ssh://gogs@rhea.netlor.fr:2222/monarc/ng_backoffice.git
-```
 
 This module has a dependency with the MONARC Backoffice Zend Module and may not work without it.
 
-## Updating
+### Updating
 Simply run ```npm install``` to update the existing modules to the latest versions.
 
-License
--------
 
-This software is licensed under [GNU Affero General Public License version 3](http://www.gnu.org/licenses/agpl-3.0.html)
+## License
 
-Copyright (C) 2016-2017 SMILE gie securitymadein.lu
+This software is licensed under
+[GNU Affero General Public License version 3](http://www.gnu.org/licenses/agpl-3.0.html)
+
+- Copyright (C) 2016-2018 Jérôme Lombardi - https://github.com/jerolomb
+- Copyright (C) 2016-2018 Juan Rocha - https://github.com/jfrocha
+- Copyright (C) 2016-2018 SMILE gie securitymadein.lu
+- Copyright (C) 2017-2018 Cédric Bonhomme - https://github.com/cedricbonhomme
+- Copyright (C) 2016-2017 Guillaume Lesniak
+- Copyright (C) 2016-2017 Thomas Metois
+- Copyright (C) 2016-2017 Jérôme De Almeida
+
+For more information, [the list of authors and contributors](AUTHORS) is available.
+
+Disclaimer: This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Affero General Public License for more details.
