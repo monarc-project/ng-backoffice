@@ -23,7 +23,7 @@
                 </thead>
 
                 <tbody md-body>
-                <tr md-row ng-repeat="deliverymodel in deliveriesmodels">
+                <tr md-row ng-repeat="deliverymodel in deliveriesmodels | orderBy:'category'">
                     <td md-cell>{{ getCategoryLabel(deliverymodel.category) }}</td>
                     <td md-cell>{{ _langField(deliverymodel,'description') }}</td>
                     <td md-cell>
