@@ -83,8 +83,8 @@ msgstr "Action"
 #: ../ng_anr/views/_object.composition.html:47
 #: ../ng_anr/views/_object.composition.html:69
 #: ../ng_anr/views/anr.risksplan.html:19
-#: ../ng_anr/views/anr.risksplan.sheet.html:16
-#: ../ng_anr/views/anr.risksplan.sheet.html:39
+#: ../ng_anr/views/anr.risksplan.sheet.html:19
+#: ../ng_anr/views/anr.risksplan.sheet.html:42
 #: ../ng_anr/views/detach.objlibs.html:24
 #: ../ng_anr/views/detach.objlibs.html:44 ../ng_anr/views/import.object.html:63
 #: ../ng_anr/views/interviews.html:48 ../ng_anr/views/snapshots.html:33
@@ -414,8 +414,8 @@ msgstr "Ascending"
 #: ../ng_anr/views/_anr.kbmgmt.html:330 ../ng_anr/views/_oprisk_sheet.html:40
 #: ../ng_anr/views/_risk_sheet.html:47 ../ng_anr/views/_table_risks.html:54
 #: ../ng_anr/views/_table_risks.html:88 ../ng_anr/views/_table_risks_op.html:61
-#: ../ng_anr/views/anr.risksplan.sheet.html:33
-#: ../ng_anr/views/anr.risksplan.sheet.html:9
+#: ../ng_anr/views/anr.risksplan.sheet.html:12
+#: ../ng_anr/views/anr.risksplan.sheet.html:36
 #: ../ng_anr/views/import.object.html:62 ../ng_anr/views/object.html:67
 #: ../ng_anr/views/risks.evalcontext.html:24 views/info_risk.kb_mgmt.html:336
 #: views/info_risk.kb_mgmt.html:396
@@ -913,8 +913,8 @@ msgstr "Current password"
 #: ../ng_anr/views/_oprisk_sheet.html:20 ../ng_anr/views/_risk_sheet.html:17
 #: ../ng_anr/views/_table_risks.html:92 ../ng_anr/views/_table_risks_op.html:72
 #: ../ng_anr/views/_table_risks_op.html:76
-#: ../ng_anr/views/anr.risksplan.sheet.html:13
-#: ../ng_anr/views/anr.risksplan.sheet.html:36
+#: ../ng_anr/views/anr.risksplan.sheet.html:16
+#: ../ng_anr/views/anr.risksplan.sheet.html:39
 #: ../ng_anr/views/risks.evalcontext.html:26
 msgid "Current risk"
 msgstr "Current risk"
@@ -1361,8 +1361,8 @@ msgstr "Evaluation scales"
 #: ../ng_anr/views/_oprisk_sheet.html:55 ../ng_anr/views/_risk_sheet.html:73
 #: ../ng_anr/views/_table_risks.html:103
 #: ../ng_anr/views/_table_risks_op.html:77
-#: ../ng_anr/views/anr.risksplan.sheet.html:12
-#: ../ng_anr/views/anr.risksplan.sheet.html:35
+#: ../ng_anr/views/anr.risksplan.sheet.html:15
+#: ../ng_anr/views/anr.risksplan.sheet.html:38
 #: ../ng_anr/views/risks.evalcontext.html:25
 msgid "Existing controls"
 msgstr "Existing controls"
@@ -1380,7 +1380,7 @@ msgstr "Expand all"
 #: ../ng_anr/views/_table_risks_op.html:42
 #: ../ng_anr/views/anr.risksplan.history.html:5
 #: ../ng_anr/views/anr.risksplan.html:6
-#: ../ng_anr/views/anr.risksplan.sheet.html:3
+#: ../ng_anr/views/anr.risksplan.sheet.html:6
 #: ../ng_anr/views/export.objlibs.html:59
 #: ../ng_anr/views/risks.evalcontext.html:16
 msgid "Export"
@@ -1570,6 +1570,10 @@ msgstr "Implementation history"
 msgid "Implementation of the risk treatment plan"
 msgstr "Implementation of the risk treatment plan"
 
+#: src/kb/DeliveriesModelsService.js:44
+msgid "Implementation plan"
+msgstr "Implementation plan"
+
 #: ../ng_anr/views/import.object.html:47
 msgid "Import a file"
 msgstr "Import a file"
@@ -1678,10 +1682,15 @@ msgstr "KB management"
 msgid "Keywords"
 msgstr "Keywords"
 
+#: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:58
 #: ../ng_anr/views/_oprisk_sheet.html:98 ../ng_anr/views/_risk_sheet.html:114
 #: ../ng_anr/views/_table_risks.html:32 ../ng_anr/views/_table_risks_op.html:28
 msgid "Kind of treatment"
 msgstr "Kind of treatment"
+
+#: ../ng_anr/views/anr.risksplan.history.html:35
+msgid "Kind of treatment:"
+msgstr "Kind of treatment:"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1050 ../ng_anr/views/anr.layout.html:34
 #: ../ng_anr/views/anr.layout.html:53 src/kb/info/BackofficeKbInfoCtrl.js:1037
@@ -1869,8 +1878,8 @@ msgstr "New column name"
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:60
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:130
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:93
-#: ../ng_anr/views/anr.risksplan.sheet.html:14
-#: ../ng_anr/views/anr.risksplan.sheet.html:37
+#: ../ng_anr/views/anr.risksplan.sheet.html:17
+#: ../ng_anr/views/anr.risksplan.sheet.html:40
 msgid "New controls"
 msgstr "New controls"
 
@@ -2221,8 +2230,8 @@ msgstr "Reset positions"
 #: ../ng_anr/views/_oprisk_sheet.html:30 ../ng_anr/views/_risk_sheet.html:32
 #: ../ng_anr/views/_table_risks.html:63 ../ng_anr/views/_table_risks.html:94
 #: ../ng_anr/views/_table_risks_op.html:66
-#: ../ng_anr/views/anr.risksplan.sheet.html:15
-#: ../ng_anr/views/anr.risksplan.sheet.html:38
+#: ../ng_anr/views/anr.risksplan.sheet.html:18
+#: ../ng_anr/views/anr.risksplan.sheet.html:41
 #: ../ng_anr/views/risks.evalcontext.html:27
 msgid "Residual risk"
 msgstr "Residual risk"
@@ -2279,7 +2288,7 @@ msgstr "Risk before"
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:127
 #: ../ng_anr/views/_oprisk_sheet.html:44
 #: ../ng_anr/views/_table_risks_op.html:62
-#: ../ng_anr/views/anr.risksplan.sheet.html:34
+#: ../ng_anr/views/anr.risksplan.sheet.html:37
 msgid "Risk description"
 msgstr "Risk description"
 
@@ -3229,7 +3238,7 @@ msgstr ""
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:89
 #: ../ng_anr/views/_anr.kbmgmt.html:331 ../ng_anr/views/_risk_sheet.html:51
 #: ../ng_anr/views/_table_risks.html:58 ../ng_anr/views/_table_risks.html:90
-#: ../ng_anr/views/anr.risksplan.sheet.html:10
+#: ../ng_anr/views/anr.risksplan.sheet.html:13
 #: ../ng_anr/views/create.amvs.html:54 ../ng_anr/views/create.specrisk.html:27
 #: ../ng_anr/views/object.html:68 views/info_risk.kb_mgmt.html:337
 msgid "Threat"
@@ -3272,11 +3281,6 @@ msgstr "Tools"
 #: ../ng_anr/views/_table_risks.html:93 ../ng_anr/views/_table_risks_op.html:65
 msgid "Treatment"
 msgstr "Treatment"
-
-#: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:58
-#: ../ng_anr/views/anr.risksplan.history.html:35
-msgid "Treatment type:"
-msgstr "Treatment type:"
 
 #: ../ng_anr/views/trends.evalcontext.html:89
 msgid "Trend"
@@ -3411,7 +3415,7 @@ msgstr "Vulnerabilities scale:"
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:90
 #: ../ng_anr/views/_anr.kbmgmt.html:332 ../ng_anr/views/_risk_sheet.html:62
 #: ../ng_anr/views/_table_risks.html:60 ../ng_anr/views/_table_risks.html:91
-#: ../ng_anr/views/anr.risksplan.sheet.html:11
+#: ../ng_anr/views/anr.risksplan.sheet.html:14
 #: ../ng_anr/views/create.amvs.html:79 ../ng_anr/views/create.specrisk.html:50
 #: ../ng_anr/views/object.html:69 views/info_risk.kb_mgmt.html:338
 msgid "Vulnerability"
@@ -3619,7 +3623,7 @@ msgstr "You must select one or more roles"
 msgid "You must type in a password"
 msgstr "You must type in a password"
 
-#: src/BackofficeLoginCtrl.js:46
+#: src/BackofficeLoginCtrl.js:50
 msgid "Your e-mail address or password is invalid, please try again."
 msgstr "Your e-mail address or password is invalid, please try again."
 
@@ -3745,6 +3749,9 @@ msgstr "{{count}} threats have been deleted."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:621 src/kb/info/BackofficeKbInfoCtrl.js:610
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnerabilities have been deleted."
+
+#~ msgid "Treatment type:"
+#~ msgstr "Treatment type:"
 
 #~ msgid "Are you sure you want to delete category?"
 #~ msgstr "Are you sure you want to delete category?"
