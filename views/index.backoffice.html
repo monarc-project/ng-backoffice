@@ -67,7 +67,7 @@
         <p class="md-caption txtcenter"><a href="http://monarc.lu" target="_blank">MONARC</a></p>
     </md-list>
 </md-sidenav>
-<md-content layout="column" class="md-main-content" flex>
+<md-content layout="column" class="md-main-content" flex ng-controller="BackofficeAccountCtrl">
     <md-toolbar layout="row" layout-align="start center">
         <h1 class="md-toolbar-tools">
             <md-button class="md-icon-button" ng-click="openLeftSidenav();" ng-hide="sidenavIsOpen">
@@ -113,6 +113,22 @@
                     </md-button>
                 </md-menu-item>
             </md-menu-content>
+        </md-menu>
+
+        <md-menu >
+            <md-button class="md-icon-button" ng-click="openToolbarMenu($mdOpenMenu, $event)">
+                <md-tooltip md-theme="light">{{ "Interface language" | translate }}</md-tooltip>
+                <md-icon>language</md-icon>
+            </md-button>
+
+            <md-menu-content width="1" ng-model="user.language" flex aria-label="{{ 'Language' | translate }}">
+                <md-menu-item ng-repeat="(lang_idx, lang) in languages">
+                    <md-button ng-click="changeLanguage(lang_idx)">
+                        {{ lang }}
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+            </md-button>
         </md-menu>
 
         <md-button class="md-icon-button" ui-sref="main.account">

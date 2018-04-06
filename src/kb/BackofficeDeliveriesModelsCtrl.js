@@ -121,6 +121,7 @@
         } else {
             $scope.deliveryModel = {
                 category: null,
+                editable: 1
                 // description: ''
             };
         }
