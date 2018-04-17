@@ -42,6 +42,7 @@ module.exports = function (grunt) {
                     'node_modules/angular-messages/angular-messages.min.js',
                     'node_modules/angular-toastr/dist/angular-toastr.tpls.min.js',
                     'node_modules/angular-resizable/angular-resizable.min.js',
+                    'node_modules/ng-country-flags/dist/js/ng-countryflags.js',
                 ],
                 dest: '../../public/js/angular-common-libs.js',
                 nonull: true
@@ -53,7 +54,8 @@ module.exports = function (grunt) {
                     'node_modules/angular-material-data-table/dist/md-data-table.min.css',
                     'node_modules/ng-inline-edit/dist/ng-inline-edit.min.css',
                     'node_modules/angular-ui-tree/dist/angular-ui-tree.min.css',
-                    'node_modules/angular-toastr/dist/angular-toastr.min.css'
+                    'node_modules/angular-toastr/dist/angular-toastr.min.css',
+                    'node_modules/ng-country-flags/dist/css/flag-icon.css',
                 ],
                 dest: '../../public/css/angular-common-libs.css',
                 nonull: true
