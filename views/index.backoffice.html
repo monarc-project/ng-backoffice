@@ -115,6 +115,11 @@
             </md-menu-content>
         </md-menu>
 
+        <md-button class="md-icon-button" ui-sref="main.account">
+            <md-tooltip>{{ "Account" | translate }}</md-tooltip>
+            <md-icon>person</md-icon>
+        </md-button>
+
         <md-menu>
             <md-button class="md-icon-button" ng-click="openToolbarMenu($mdOpenMenu, $event)">
                 <md-tooltip md-theme="light">{{ "Interface language" | translate }}</md-tooltip>
@@ -131,11 +136,6 @@
             </md-menu-content>
             </md-button>
         </md-menu>
-
-        <md-button class="md-icon-button" ui-sref="main.account">
-            <md-tooltip>{{ "Account" | translate }}</md-tooltip>
-            <md-icon>person</md-icon>
-        </md-button>
 
         <md-button class="md-icon-button" ng-click="logout()" ng-hide="isLoggingOut">
             <md-tooltip>{{ "Logout" | translate }}</md-tooltip>
