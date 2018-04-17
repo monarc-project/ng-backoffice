@@ -22,6 +22,7 @@
         var ensureLanguagesLoaded = function () {
             if (ConfigService.isLoaded()) {
                 $scope.languages = ConfigService.getLanguages();
+                $scope.lang_selected = $scope.languages[UserService.getUiLanguage()].substring(0, 2).toLowerCase();
             } else {
                 setTimeout(ensureLanguagesLoaded, 500);
             }
