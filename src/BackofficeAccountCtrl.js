@@ -22,7 +22,12 @@
         var ensureLanguagesLoaded = function () {
             if (ConfigService.isLoaded()) {
                 $scope.languages = ConfigService.getLanguages();
-                $scope.lang_selected = $scope.languages[UserService.getUiLanguage()].substring(0, 2).toLowerCase();
+                $scope.languagesNames = {};
+                angular.copy($scope.languages, $scope.languagesNames);
+                for (lang in $scope.languages) {
+                     $scope.languagesNames[lang] = ISO6391.getName($scope.languages[lang] == 'gb' ? 'en' : $scope.languages[lang]);
+                }
+                $scope.lang_selected = $scope.languages[UserService.getUiLanguage()];
             } else {
                 setTimeout(ensureLanguagesLoaded, 500);
             }
@@ -65,8 +70,8 @@
         $scope.changeLanguage = function (lang_id) {
             UserService.setUiLanguage(lang_id);
             $scope.user.language = lang_id;
-            gettextCatalog.setCurrentLanguage($scope.languages[lang_id].substring(0, 2).toLowerCase());
-            $scope.lang_selected = $scope.languages[lang_id].substring(0, 2).toLowerCase();
+            gettextCatalog.setCurrentLanguage($scope.languages[lang_id]);
+            $scope.lang_selected = $scope.languages[lang_id];
             $scope.updatePaginationLabels();
             $scope.updateProfile();
         }
