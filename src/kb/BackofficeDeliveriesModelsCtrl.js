@@ -109,6 +109,11 @@
 
     function CreateDeliveryModelDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, ConfigService, DeliveriesModelsService, Upload, deliverymodel) {
         $scope.languages = ConfigService.getLanguages();
+        $scope.languagesNames = {};
+        angular.copy($scope.languages, $scope.languagesNames);
+        for (lang in $scope.languages) {
+             $scope.languagesNames[lang] = ISO6391.getName($scope.languages[lang] == 'gb' ? 'en' : $scope.languages[lang]);
+        }
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (deliverymodel) {
@@ -121,6 +126,7 @@
         } else {
             $scope.deliveryModel = {
                 category: null,
+                editable: 1
                 // description: ''
             };
         }
@@ -176,8 +182,15 @@
             for (var i = 1; i <= 4; ++i) {
                 if ($scope.file[i]) {
                     hasFiles = true;
+
                     if ($scope.file[i].$error) {
                         hasErrors = true;
+                        break;
+                    }
+
+                    if ($scope.deliveryModel['description' + i] == undefined) {
+                        hasErrors = true;
+                        toastr.error($scope.file.$error, gettextCatalog.getString('Missing description for ') + $scope.languages[i]);
                         break;
                     }
                 }
