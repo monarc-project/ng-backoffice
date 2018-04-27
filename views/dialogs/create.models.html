@@ -12,12 +12,15 @@
         </md-toolbar>
         <md-dialog-content>
             <div class="md-dialog-content">
-                <md-input-container class="md-block" flex>
+                <md-input-container class="md-block" flex ng-controller="BackofficeAccountCtrl">
                     <label translate>Language</label>
 
                     <md-icon>language</md-icon>
                     <md-select ng-model="language" ng-change="switchLanguage()">
-                        <md-option ng-repeat="(lang_idx, lang) in languages" value="{{ lang_idx }}">{{ lang }}</md-option>
+                        <md-option ng-repeat="(lang_idx, lang) in languages" value="{{ lang_idx }}">
+                          <countryflag country="{{ countriesCode[lang_idx] }}"></countryflag>
+                          {{ languagesNames[lang_idx] }}
+                        </md-option>
                     </md-select>
                 </md-input-container>
 
@@ -35,7 +38,7 @@
                     <md-icon>subject</md-icon>
                     <textarea ng-model="model['description' + language]" rows="4"></textarea>
                 </md-input-container>
-                
+
                 <md-subheader>{{ 'Options' | translate }}</md-subheader>
                 <div layout="column">
                     <md-checkbox ng-model="model.isGeneric"  class="md-primary md-align-top-left">{{ 'Specific' | translate }}</md-checkbox>

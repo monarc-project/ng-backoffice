@@ -33,7 +33,10 @@
                             </md-button>
                             <md-menu-content>
                                 <md-menu-item ng-repeat="(idx, lang) in languages">
-                                    <md-button ng-click="downloadDeliveryModel(deliverymodel, idx)">{{ languagesNames[idx] }}</md-button>
+                                    <md-button ng-click="downloadDeliveryModel(deliverymodel, idx)">
+                                      <countryflag country="{{ countriesCode[idx] }}"></countryflag>
+                                      {{ languagesNames[idx] }}
+                                    </md-button>
                                 </md-menu-item>
                             </md-menu-content>
                         </md-menu>
