@@ -92,7 +92,7 @@
     function CreateGuideDialogCtrl($scope, ConfigService, $mdDialog, GuideService, guide) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
-        $scope.categories = GuideService.getCategories()
+        $scope.categories = GuideService.getCategories();
 
         if (guide) {
             $scope.guide = angular.copy(guide);

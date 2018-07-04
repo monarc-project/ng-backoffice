@@ -1,8 +1,14 @@
-<div flex ng-controller="BackofficeAnalysisGuidesItemsCtrl">
-    <div layout="row" layout-align="start center">
-        <md-button class="md-icon-button" ui-sref="main.kb_mgmt.analysis_guides"><md-icon>arrow_back</md-icon></md-button>
-        <p class="md-subheader">{{ getGuideLabel(guide.type) }}</p>
-    </div>
+<div flex ng-controller="BackofficeAnalysisGuidesItemsCtrl" class="md-padding-left md-padding-right">
+  <h3 layout="row" layout-align="start center"><md-button class="md-primary md-light-theme" ui-sref="main.kb_mgmt.analysis_guides"><md-icon>arrow_back</md-icon> {{ 'Back to the list' | translate }}</md-button></h3>
+  <span class="md-subhead md-padding-left" translate>Guide items</span>
+  <md-button class="md-icon-button md-primary md-button ng-scope md-light-theme" aria-label="{{ 'New guide item' | translate }}" ng-click="createNewItem($event)">
+      <md-tooltip md-direction="left">
+        {{ 'New guide item' | translate }}
+      </md-tooltip>
+      <md-icon>add_to_photos</md-icon>
+  </md-button>
+
+
     <md-table-container flex>
         <table md-table>
             <thead md-head>
@@ -18,10 +24,10 @@
                 <td md-cell>{{ item.position }}</td>
                 <td md-cell>{{ _langField(item,'description') }}</td>
                 <td md-cell>
-                    <md-button class="md-icon-button" ng-click="editItem($event, item)">
+                    <md-button class="md-icon-button md-primary" ng-click="editItem($event, item)">
                         <md-icon>edit</md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" ng-click="deleteItem($event, item)">
+                    <md-button class="md-icon-button md-warn" ng-click="deleteItem($event, item)">
                         <md-icon>delete</md-icon>
                     </md-button>
                 </td>
@@ -30,13 +36,4 @@
         </table>
     </md-table-container>
 
-    <div layout="row" class="md-padding">
-        <span flex></span>
-        <md-button class="md-fab md-accent" aria-label="{{ 'New item' | translate }}" ng-click="createNewItem($event)">
-            <md-tooltip md-direction="left">
-                {{ 'New item' | translate }}
-            </md-tooltip>
-            <md-icon>add</md-icon>
-        </md-button>
-    </div>
 </div>
