@@ -36,8 +36,9 @@
                 case 'threats': $scope.currentTabIndex = 1; break;
                 case 'vulns': $scope.currentTabIndex = 2; break;
                 case 'measures': $scope.currentTabIndex = 3; break;
-                case 'amvs': $scope.currentTabIndex = 4; break;
-                case 'objlibs': $scope.currentTabIndex = 5; break;
+                case 'categories': $scope.currentTabIndex = 4; break;
+                case 'amvs': $scope.currentTabIndex = 5; break;
+                case 'objlibs': $scope.currentTabIndex = 6; break;
             }
         }
         $scope.selectTab($scope.tab);
@@ -781,6 +782,238 @@
                 });
 
                 $scope.measures.selected = [];
+
+            });
+        };
+
+        // /*
+        //  * CATEGORIES TAB
+        //  */
+        //
+
+        $scope.categories = TableHelperService.build('label1', 20, 1, '');
+        $scope.categories.activeFilter = 1;
+        var categoriesFilterWatch;
+
+        $scope.selectCategoriesTab = function () {
+            $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'categories'});
+            var initCategoriesFilter = true;
+            initCategoriesFilter = $scope.$watch('categories.activeFilter', function() {
+                if (initCategoriesFilter) {
+                    initCategoriesFilter = false;
+                } else {
+                    $scope.updateCategories();
+                }
+            });
+
+            TableHelperService.watchSearch($scope, 'categories.query.filter', $scope.categories.query, $scope.updateCategories, $scope.categories);
+        };
+
+        $scope.deselectCategoriesTab = function () {
+            TableHelperService.unwatchSearch($scope.categories);
+        };
+
+
+        $scope.updateCategories = function () {
+            var query = angular.copy($scope.categories.query);
+            query.status = $scope.categories.activeFilter;
+
+            if ($scope.categories.previousQueryOrder != $scope.categories.query.order) {
+                $scope.categories.query.page = query.page = 1;
+                $scope.categories.previousQueryOrder = $scope.categories.query.order;
+            }
+            $scope.categories.promise = ClientCategoryService.getCategories(query);
+            $scope.categories.promise.then(
+                function (data) {
+                    $scope.categories.items = data;
+                }
+            )
+
+
+        };
+        $scope.removeCategoriesFilter = function () {
+            TableHelperService.removeFilter($scope.vulns);
+        };
+
+        //the new status of the category is also assigned to the measure
+        $scope.toggleCategoryStatus = function (category) {
+
+           MeasureService.getMeasures({anr: $scope.model.anr.id}).then(function (data) {
+               $scope.measures_cat = data['measures'];
+               for (measure in $scope.measures_cat){
+                 if( $scope.measures_cat[measure].category !=null ) {
+                   if( $scope.measures_cat[measure].category.id==category.id ) {
+                         MeasureService.patchMeasure($scope.measures_cat[measure].id, {status: category.status}, function () {
+                             $scope.measures_cat[measure].status = !category.status;
+                          })
+
+                    }
+                  }
+                }
+
+           })
+
+
+            ClientCategoryService.patchCategory(category.id, {status: !category.status}, function () {
+                category.status = !category.status;
+            });
+
+        }
+
+
+        $scope.createNewCategory = function (ev, category) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
+                templateUrl: 'views/anr/create.categories.html',
+                targetEvent: ev,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
+                clickOutsideToClose: false,
+                fullscreen: useFullScreen,
+                locals: {
+                    'category': category
+                }
+            })
+                .then(function (category) {
+                    var cont = category.cont;
+                    category.cont = undefined;
+                    if (cont) {
+                        $scope.createNewCategory(ev);
+                    }
+
+                    ClientCategoryService.createCategory(category,
+                        function () {
+                            $scope.updateCategories();
+                            toastr.success(gettextCatalog.getString('The category has been created successfully.',
+                                {categoryLabel: $scope._langField(category,'label')}), gettextCatalog.getString('Creation successful'));
+                        },
+
+                        function (err) {
+                            $scope.createNewCategory(ev, category);
+                        }
+                    );
+                });
+        };
+
+        $scope.editCategory = function (ev, category) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            ClientCategoryService.getCategory(category.id).then(function (categoryData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'ConfigService', 'category', CreateCategoryDialogCtrl],
+                    templateUrl: 'views/anr/create.categories.html',
+                    targetEvent: ev,
+                    preserveScope: false,
+                    scope: $scope.$dialogScope.$new(),
+                    clickOutsideToClose: false,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'category': category
+                    }
+                })
+                    .then(function (category) {
+                        ClientCategoryService.updateCategory(category,
+                            function () {
+                                $scope.updateCategories();
+                                toastr.success(gettextCatalog.getString('The category has been edited successfully.',
+                                    {categoryLabel: $scope._langField(category,'label')}), gettextCatalog.getString('Edition successful'));
+                            },
+
+                            function () {
+                                $scope.editCategory(ev, category);
+                            }
+                        );
+                    });
+            });
+
+        };
+        $scope.deleteCategory = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete category?',
+                    {label: $scope._langField(item,'label')}))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
+                .targetEvent(ev)
+                .theme('light')
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+
+              // once we  delete a category the measure linked to this category have their category-id changed to null
+              MeasureService.getMeasures().then(function (data) {
+                  $scope.measures_cat = data['measures'];
+                  for (measure in $scope.measures_cat){
+                    if( $scope.measures_cat[measure].category !=null ) {
+                      if($scope.measures_cat[measure].category.id == item.id) {
+                         $scope.measures_cat[measure].category =null;
+
+                         MeasureService.updateMeasure($scope.measures_cat[measure],
+                             function () {
+
+                                 var query = angular.copy($scope.categories.query);
+                              }
+                         );
+                         }
+                       }
+                  }
+                  ClientCategoryService.deleteCategory(item.id,
+                      function () {
+                          $scope.updateCategories();
+                          toastr.success(gettextCatalog.getString('The category has been deleted.',
+                              {label: $scope._langField(item,'label')}), gettextCatalog.getString('Deletion successful'));
+                      }
+                  );
+              })
+            });
+
+
+        };
+
+        $scope.deleteCategoryMass = function (ev, item) {
+            var outpromise = null;
+            var count = $scope.categories.selected.length;
+
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the {{count}} selected categories?',
+                    {count: count}))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
+                .targetEvent(ev)
+                .theme('light')
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                var ids = [];
+                for (var i = 0; i < $scope.categories.selected.length; ++i) {
+                    ids.push($scope.categories.selected[i].id);
+                }
+                MeasureService.getMeasures().then(function (data) {
+                    $scope.measures_cat = data['measures'];
+                    for (measure in $scope.measures_cat){
+                      for (var i = 0; i < ids.length; ++i) {
+                     if( $scope.measures_cat[measure].category !=null ) {
+                        if($scope.measures_cat[measure].category.id == ids[i]) {
+                           $scope.measures_cat[measure].category =null;
+
+                           MeasureService.updateMeasure($scope.measures_cat[measure],
+                             function () {
+                                 var query = angular.copy($scope.categories.query);
+                              }
+                           );
+                           }
+                         }
+                    }
+                    }
+                    ClientCategoryService.deleteMassCategory(ids, function () {
+                        $scope.updateCategories();
+                        toastr.success(gettextCatalog.getString('{{count}} categories have been deleted.',
+                            {count: count}), gettextCatalog.getString('Deletion successful'));
+                    });
+
+                    $scope.categories.selected = [];
+                })
+
 
             });
         };
@@ -1542,6 +1775,38 @@
             $scope.measure.cont = true;
             $mdDialog.hide($scope.measure);
         }
+    }
+
+    function CreateCategoryDialogCtrl($scope, $mdDialog,  ConfigService, category) {
+
+      $scope.languages = ConfigService.getLanguages();
+      $scope.language = ConfigService.getDefaultLanguageIndex();
+
+
+        if (category != undefined && category != null) {
+            $scope.category = category;
+        } else {
+            $scope.category = {
+                reference: '',
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: '',
+            };
+        }
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.category);
+        };
+        $scope.createAndContinue = function() {
+            $scope.category.cont = true;
+            $mdDialog.hide($scope.category);
+        };
+
     }
 
     function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ConfigService, AmvService, $q, amv) {
