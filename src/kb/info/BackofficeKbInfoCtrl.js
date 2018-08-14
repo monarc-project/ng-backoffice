@@ -838,7 +838,7 @@
         //the new status of the category is also assigned to the measure
         $scope.toggleCategoryStatus = function (category) {
 
-           MeasureService.getMeasures({anr: $scope.model.anr.id}).then(function (data) {
+           MeasureService.getMeasures({status : "all"}).then(function (data) {
                $scope.measures_cat = data['measures'];
                for (measure in $scope.measures_cat){
                  if( $scope.measures_cat[measure].category !=null ) {
