@@ -3975,8 +3975,8 @@ msgstr "{{count}} Sicherheitsrisiken wurden gelöscht."
 #~ msgid "Add categories..."
 #~ msgstr "Kategorien hinzufügen…"
 
-#~ msgid "Categories"
-#~ msgstr "Kategorien"
+msgid "Categories"
+msgstr "Kategorien"
 
 #~ msgid "New category"
 #~ msgstr "Neue Kategorie"

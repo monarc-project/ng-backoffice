@@ -3989,8 +3989,8 @@ msgstr "{{count}} vulnérabilités ont été supprimées."
 #~ msgid "Add categories..."
 #~ msgstr "Ajouter des catégories..."
 
-#~ msgid "Categories"
-#~ msgstr "Catégories"
+msgid "Categories"
+msgstr "Catégories"
 
 #~ msgid "Delete question"
 #~ msgstr "Supprimer une question"
