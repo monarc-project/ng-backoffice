@@ -620,7 +620,7 @@
         /*
          * 27002 MEASURES TAB
          */
-        $scope.measures = TableHelperService.build('description1', 20, 1, '');
+        $scope.measures = TableHelperService.build('label1', 20, 1, '');
         $scope.measures.activeFilter = 1;
         var measuresFilterWatch;
 
@@ -697,7 +697,7 @@
                         function () {
                             $scope.updateMeasures();
                             toastr.success(gettextCatalog.getString('The control has been created successfully.',
-                                {measureLabel: measure.description1}), gettextCatalog.getString('Creation successful'));
+                                {measureLabel: measure.label1}), gettextCatalog.getString('Creation successful'));
                         },
 
                         function (err) {
@@ -742,7 +742,7 @@
         $scope.deleteMeasure = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete control?',
-                    {label: item.description1}))
+                    {label: item.label1}))
                 .textContent(gettextCatalog.getString('This operation is irreversible.'))
                 .targetEvent(ev)
                 .ok(gettextCatalog.getString('Delete'))
@@ -752,7 +752,7 @@
                     function () {
                         $scope.updateMeasures();
                         toastr.success(gettextCatalog.getString('The control has been deleted.',
-                                    {label: item.description1}), gettextCatalog.getString('Deletion successful'));
+                                    {label: item.label1}), gettextCatalog.getString('Deletion successful'));
                     }
                 );
             });
@@ -1757,10 +1757,10 @@
         } else {
             $scope.measure = {
                 code: '',
-                description1: '',
-                description2: '',
-                description3: '',
-                description4: '',
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: '',
             };
         }
 
