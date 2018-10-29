@@ -5,7 +5,7 @@
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
-            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService',
+            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService'
             BackofficeKbInfoCtrl
         ]);
 
@@ -14,7 +14,7 @@
      */
     function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
-                                  $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService) {
+                                  $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, ReferentialService) {
         $scope.tab = $stateParams.tab;
         $scope.gettext = gettextCatalog.getString;
         TableHelperService.resetBookmarks();
@@ -618,8 +618,9 @@
         };
 
         /*
-         * 27002 MEASURES TAB
+         * REFERENTIALS TAB
          */
+
         $scope.measures = TableHelperService.build('label1', 20, 1, '');
         $scope.measures.activeFilter = 1;
         var measuresFilterWatch;
@@ -668,13 +669,51 @@
                 measure.status = !measure.status;
             });
         }
+        $scope.referentials = ReferentialService.getreferentials().then(function (e) {
+            promise.resolve(e.referentials);
+        }, function (e) {
+            promise.reject();
+        });
 
 
-        $scope.createNewMeasure = function (ev, measure) {
+
+        /*{
+          'ISO27002' : {
+            id : '1',
+            label : 'ISO27002'
+          },
+          'PCI_DSS' : {
+            id : '2',
+            label : 'PCI DSS'
+          },
+          'NIST' : {
+            id : '3',
+            label : 'NIST'
+          }
+        }*/
+        $scope.selectReferential = function (referentialId) {
+
+        }
+        $scope.createNewReferential = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ConfigService', 'measure', CreateMeasureDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ConfigService', CreateReferentialDialogCtrl],
+                templateUrl: 'views/anr/create.referentials.html',
+                targetEvent: ev,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
+                clickOutsideToClose: false,
+                fullscreen: useFullScreen,
+                locals: {
+                }
+            })
+        };
+
+        $scope.createNewMeasure = function (ev, measure) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ConfigService', '$q','measure', CreateMeasureDialogCtrl],
                 templateUrl: 'views/anr/create.measures.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -1601,7 +1640,7 @@
 
             $scope.threat.c = ($scope.threat.c == 1);
             $scope.threat.i = ($scope.threat.i == 1);
-            $scope.threat.d = ($scope.threat.d == 1);
+            $scope.threat.a = ($scope.threat.a == 1);
 
         } else {
             $scope.threat = {
@@ -1609,7 +1648,7 @@
                 code: '',
                 c: false,
                 i: false,
-                d: false,
+                a: false,
                 label1: '',
                 label2: '',
                 label3: '',
@@ -1745,12 +1784,36 @@
         }
     }
 
-    function CreateMeasureDialogCtrl($scope, $mdDialog, SOACategoryService, ConfigService, measure) {
+    function CreateReferentialDialogCtrl($scope, $mdDialog, ConfigService) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
-        SOACategoryService.getCategories().then(function (data) {
-           $scope.categories = data['categories'];
-        });
+
+            $scope.referential = {
+                code: '',
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: '',
+            };
+
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.referential);
+        };
+        $scope.createAndContinue = function () {
+            $scope.referential.cont = true;
+            $mdDialog.hide($scope.referential);
+        }
+    }
+
+    function CreateMeasureDialogCtrl($scope, $mdDialog, SOACategoryService, ConfigService, $q, measure) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
+        $scope.categorySearchText = '';
 
         if (measure != undefined && measure != null) {
             $scope.measure = measure;
@@ -1761,7 +1824,49 @@
                 label2: '',
                 label3: '',
                 label4: '',
+                category: '',
             };
+        }
+
+        $scope.queryCategorySearch = function (query) {
+            var promise = $q.defer();
+            SOACategoryService.getCategories({filter: query}).then(function (data) {
+                promise.resolve(data['categories']);
+            }, function () {
+                promise.reject();
+            });
+            return promise.promise;
+        };
+
+        $scope.selectedCategoryItemChange = function (item) {
+            $scope.measure.category = item;
+        }
+
+        $scope.createCategory = function (label) {
+            SOACategoryService.createCategory({label1: label}, function (data) {
+                SOACategoryService.getCategory(data.id).then(function (category) {
+                    $scope.measure.category = category;
+                })
+            });
+        };
+
+        $scope.updateCategory = function (category) {
+            $scope.category_edit_lock = true;
+            SOACategoryService.updateCategory(category, function () {
+                  SOACategoryService.getCategory(category.id).then(function (category) {
+                    $scope.measure.category = category;
+                    $scope.category_edit_lock = false;
+                    $scope.category_edit = null;
+                });
+            });
+        }
+
+        $scope.deleteCategory = function (category) {
+            SOACategoryService.deleteCategory(category.id, function () {
+                $scope.measure.category = null;
+                $scope.category_edit = null;
+                $scope.categorySearchText = null;
+            });
         }
 
         $scope.cancel = function() {
