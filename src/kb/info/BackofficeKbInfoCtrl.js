@@ -652,15 +652,11 @@
                 $scope.measures.previousQueryOrder = $scope.measures.query.order;
             }
 
-            $scope.measures.promise = ReferentialService.getReferentials(query);
+            $scope.measures.promise = MeasureService.getMeasures({referential_uniqid: referentialId});
             $scope.measures.promise.then(
                 function (data) {
                   console.log(data);
-                    data['referentials'].forEach (function(ref){
-                      if (ref.uniqid == referentialId ) {
-                        $scope.measures.items = ref['measures'];
-                      }
-                    });
+                  $scope.measures.items = data.measures;    
                 }
             )
         };
