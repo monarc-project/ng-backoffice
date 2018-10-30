@@ -5,7 +5,7 @@
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
-            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', //'ReferentialService',
+            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -14,7 +14,7 @@
      */
     function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
-                                  $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, /*ReferentialService*/) {
+                                  $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, ReferentialService) {
         $scope.tab = $stateParams.tab;
         $scope.gettext = gettextCatalog.getString;
         TableHelperService.resetBookmarks();
@@ -652,9 +652,10 @@
                 $scope.measures.previousQueryOrder = $scope.measures.query.order;
             }
 
-            $scope.measures.promise = MeasureService.getMeasures(query);
+            $scope.measures.promise = ReferentialService.getReferentials(query);
             $scope.measures.promise.then(
                 function (data) {
+                  console.log(data);
                     data['referentials'].forEach (function(ref){
                       if (ref.uniqid == referentialId ) {
                         $scope.measures.items = ref['measures'];
@@ -675,7 +676,7 @@
             });
         }
 
-        MeasureService.getMeasures().then(function (e) {
+        ReferentialService.getReferentials().then(function (e) {
             $scope.referentials = e['referentials'];
         });
 
