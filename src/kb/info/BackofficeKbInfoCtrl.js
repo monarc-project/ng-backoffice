@@ -5,7 +5,7 @@
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
-            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService'
+            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService',
             BackofficeKbInfoCtrl
         ]);
 
