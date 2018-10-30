@@ -223,7 +223,7 @@
 
         <md-tab label="{{ 'Referentials' | translate }}" md-on-select="selectMeasuresTab()" md-on-deselect="deselectMeasuresTab()">
             <md-tabs md-dynamic-height="true" md-border-bottom="true">
-                <md-tab ng-repeat="ref in referentials" label="{{ref.label}}" md-on-select="selectReferential(ref.id)">
+                <md-tab ng-repeat="ref in referentials" label="{{ _langField(ref,'label')}}" md-on-select="selectReferential(ref.uniqid)">
                   <div layout="row" layout-align="start center" class="md-padding" ng-if="!measures.selected.length">
                       <h2 class="md-title md-padding-right md-padding-left">
                           <span translate>Controls</span>
@@ -272,7 +272,7 @@
                           </thead>
 
                           <tbody md-body>
-                          <tr md-row md-select="measure" md-select-id="id" ng-repeat="measure in measures.items.measures">
+                          <tr md-row md-select="measure" md-select-id="id" ng-repeat="measure in measures.items">
                               <td md-cell>{{ measure.code }}</td>
                               <td md-cell>{{ _langField(measure,'label') }}</td>
                               <td md-cell>{{ _langField(measure.category,'label') }}</td>

@@ -5,7 +5,7 @@
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
-            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService',
+            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', //'ReferentialService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -14,7 +14,7 @@
      */
     function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
-                                  $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, ReferentialService) {
+                                  $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, /*ReferentialService*/) {
         $scope.tab = $stateParams.tab;
         $scope.gettext = gettextCatalog.getString;
         TableHelperService.resetBookmarks();
@@ -643,7 +643,7 @@
             TableHelperService.unwatchSearch($scope.measures);
         };
 
-        $scope.updateMeasures = function () {
+        $scope.updateMeasures = function (referentialId) {
             var query = angular.copy($scope.measures.query);
             query.status = $scope.measures.activeFilter;
 
@@ -655,12 +655,17 @@
             $scope.measures.promise = MeasureService.getMeasures(query);
             $scope.measures.promise.then(
                 function (data) {
-                    $scope.measures.items = data;
+                    data['referentials'].forEach (function(ref){
+                      if (ref.uniqid == referentialId ) {
+                        $scope.measures.items = ref['measures'];
+                      }
+                    });
                 }
             )
         };
+
         $scope.removeMeasuresFilter = function () {
-            TableHelperService.removeFilter($scope.vulns);
+            TableHelperService.removeFilter($scope.measures);
         };
 
 
@@ -669,30 +674,13 @@
                 measure.status = !measure.status;
             });
         }
-        $scope.referentials = ReferentialService.getreferentials().then(function (e) {
-            promise.resolve(e.referentials);
-        }, function (e) {
-            promise.reject();
+
+        MeasureService.getMeasures().then(function (e) {
+            $scope.referentials = e['referentials'];
         });
 
-
-
-        /*{
-          'ISO27002' : {
-            id : '1',
-            label : 'ISO27002'
-          },
-          'PCI_DSS' : {
-            id : '2',
-            label : 'PCI DSS'
-          },
-          'NIST' : {
-            id : '3',
-            label : 'NIST'
-          }
-        }*/
         $scope.selectReferential = function (referentialId) {
-
+          $scope.updateMeasures(referentialId);
         }
         $scope.createNewReferential = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
