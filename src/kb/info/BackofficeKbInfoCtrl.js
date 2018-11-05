@@ -648,15 +648,14 @@
         });
 
         $scope.selectReferential = function (referentialId) {
-
-          ReferentialService.getReferential(referentialId).then(function (e) {
-              $scope.measures.items = e['measures'];
-          });
+            $scope.referential_uniqid = referentialId;
+            $scope.updateMeasures();
         }
 
         $scope.updateMeasures = function () {
             var query = angular.copy($scope.measures.query);
             query.status = $scope.measures.activeFilter;
+            query.referential = $scope.referential_uniqid;
 
             if ($scope.measures.previousQueryOrder != $scope.measures.query.order) {
                 $scope.measures.query.page = query.page = 1;
