@@ -2008,7 +2008,7 @@
         // Measures
         $scope.queryMeasureSearch = function (query) {
             var promise = $q.defer();
-            MeasureService.getMeasures({filter: query}).then(function (e) {
+            MeasureService.getMeasures({filter: query, order: 'code'}).then(function (e) {
               var filtered = [];
               for (var j = 0; j < e.measures.length; ++j) {
                   var found = false;
