@@ -665,7 +665,7 @@
             $scope.measures.promise = MeasureService.getMeasures(query);
             $scope.measures.promise.then(
                 function (data) {
-                  $scope.measures.items = data.measures;
+                  $scope.measures.items = data;
                 }
             )
         };
