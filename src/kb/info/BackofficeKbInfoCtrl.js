@@ -697,7 +697,7 @@
         $scope.createNewMeasure = function (ev, measure) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ConfigService', '$q','measure', CreateMeasureDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ConfigService', '$q', 'measure', CreateMeasureDialogCtrl],
                 templateUrl: 'views/anr/create.measures.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -735,7 +735,7 @@
 
             MeasureService.getMeasure(measure.id).then(function (measureData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'SOACategoryService','ConfigService', 'measure', CreateMeasureDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'SOACategoryService','ConfigService', '$q', 'measure', CreateMeasureDialogCtrl],
                     templateUrl: 'views/anr/create.measures.html',
                     targetEvent: ev,
                     preserveScope: false,
