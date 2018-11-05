@@ -637,8 +637,13 @@
             $scope.referentials = e['referentials'];
         });
 
+
+
         $scope.selectReferential = function (referentialId) {
             $scope.referential_uniqid = referentialId;
+            ReferentialService.getReferential(referentialId).then(function (data) {
+                $scope.referential = data;
+            });
             var initMeasuresFilter = true;
             initMeasuresFilter = $scope.$watch('measures.activeFilter', function() {
                 if (initMeasuresFilter) {
@@ -649,6 +654,7 @@
             });
             TableHelperService.watchSearch($scope, 'measures.query.filter', $scope.measures.query, $scope.updateMeasures, $scope.measures);
         };
+
 
         $scope.updateMeasures = function () {
             var query = angular.copy($scope.measures.query);
@@ -697,7 +703,7 @@
         $scope.createNewMeasure = function (ev, measure) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ConfigService', '$q', 'measure', CreateMeasureDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ReferentialService', 'ConfigService', '$q', 'measure', 'referential', CreateMeasureDialogCtrl],
                 templateUrl: 'views/anr/create.measures.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -705,7 +711,8 @@
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
-                    'measure': measure
+                    'measure': measure,
+                    'referential' : $scope.referential
                 }
             })
                 .then(function (measure) {
@@ -735,7 +742,7 @@
 
             MeasureService.getMeasure(measure.id).then(function (measureData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'SOACategoryService','ConfigService', '$q', 'measure', CreateMeasureDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ReferentialService', 'ConfigService', '$q', 'measure', CreateMeasureDialogCtrl],
                     templateUrl: 'views/anr/create.measures.html',
                     targetEvent: ev,
                     preserveScope: false,
@@ -1794,7 +1801,7 @@
         }
     }
 
-    function CreateMeasureDialogCtrl($scope, $mdDialog, SOACategoryService, ConfigService, $q, measure) {
+    function CreateMeasureDialogCtrl($scope, $mdDialog, SOACategoryService, ReferentialService, ConfigService, $q, measure, referential) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.categorySearchText = '';
@@ -1803,6 +1810,7 @@
             $scope.measure = measure;
         } else {
             $scope.measure = {
+                referential: referential,
                 code: '',
                 label1: '',
                 label2: '',
@@ -1811,6 +1819,16 @@
                 category: '',
             };
         }
+
+        $scope.queryReferentialSearch = function (query) {
+            var promise = $q.defer();
+            ReferentialService.getReferentials({filter: query}).then(function (data) {
+                promise.resolve(data['referentials']);
+            }, function () {
+                promise.reject();
+            });
+            return promise.promise;
+        };
 
         $scope.queryCategorySearch = function (query) {
             var promise = $q.defer();
