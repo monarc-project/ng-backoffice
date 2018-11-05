@@ -643,7 +643,18 @@
             TableHelperService.unwatchSearch($scope.measures);
         };
 
-        $scope.updateMeasures = function (referentialId) {
+        ReferentialService.getReferentials().then(function (e) {
+            $scope.referentials = e['referentials'];
+        });
+
+        $scope.selectReferential = function (referentialId) {
+
+          ReferentialService.getReferential(referentialId).then(function (e) {
+              $scope.measures.items = e['measures'];
+          });
+        }
+
+        $scope.updateMeasures = function () {
             var query = angular.copy($scope.measures.query);
             query.status = $scope.measures.activeFilter;
 
@@ -652,11 +663,10 @@
                 $scope.measures.previousQueryOrder = $scope.measures.query.order;
             }
 
-            $scope.measures.promise = MeasureService.getMeasures({referential_uniqid: referentialId});
+            $scope.measures.promise = MeasureService.getMeasures(query);
             $scope.measures.promise.then(
                 function (data) {
-                  console.log(data);
-                  $scope.measures.items = data.measures;    
+                  $scope.measures.items = data.measures;
                 }
             )
         };
@@ -672,13 +682,7 @@
             });
         }
 
-        ReferentialService.getReferentials().then(function (e) {
-            $scope.referentials = e['referentials'];
-        });
 
-        $scope.selectReferential = function (referentialId) {
-          $scope.updateMeasures(referentialId);
-        }
         $scope.createNewReferential = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
@@ -1919,14 +1923,15 @@
             if (amv.previous && amv.previous.id) {
                 $scope.amv.previous = $scope.amv.previous.id;
             }
+            if (amv.measures.length == undefined) {
+              $scope.amv.measures = [];
+            }
         } else {
             $scope.amv = {
                 asset: null,
                 threat: null,
                 vulnerability: null,
-                measure1: null,
-                measure2: null,
-                measure3: null,
+                measures: [],
                 implicitPosition: 2,
                 status: 1
             };
@@ -1991,7 +1996,23 @@
         $scope.queryMeasureSearch = function (query) {
             var promise = $q.defer();
             MeasureService.getMeasures({filter: query}).then(function (e) {
-                promise.resolve(e.measures);
+              var filtered = [];
+              for (var j = 0; j < e.measures.length; ++j) {
+                  var found = false;
+                  for (var i = 0; i < $scope.amv.measures.length; ++i) {
+
+                      if ($scope.amv.measures[i].id == e.measures[j].id) {
+                          found = true;
+                          break;
+                      }
+                  }
+
+                  if (!found) {
+                      filtered.push(e.measures[j]);
+                  }
+              }
+
+              promise.resolve(filtered);
             }, function (e) {
                 promise.reject(e);
             });
@@ -1999,11 +2020,6 @@
             return promise.promise;
         };
 
-        $scope.selectedMeasureItemChange = function (idx, item) {
-            if (item) {
-                $scope.amv['measure' + idx] = item;
-            }
-        }
         // Category
         $scope.queryCategorysSearch = function (query) {
             var promise = $q.defer();
