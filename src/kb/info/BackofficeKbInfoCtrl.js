@@ -621,22 +621,12 @@
          * REFERENTIALS TAB
          */
 
-        $scope.measures = TableHelperService.build('label1', 20, 1, '');
+        $scope.measures = TableHelperService.build('category', 20, 1, '');
         $scope.measures.activeFilter = 1;
         var measuresFilterWatch;
 
         $scope.selectMeasuresTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'measures'});
-            var initMeasuresFilter = true;
-            initMeasuresFilter = $scope.$watch('measures.activeFilter', function() {
-                if (initMeasuresFilter) {
-                    initMeasuresFilter = false;
-                } else {
-                    $scope.updateMeasures();
-                }
-            });
-
-            TableHelperService.watchSearch($scope, 'measures.query.filter', $scope.measures.query, $scope.updateMeasures, $scope.measures);
         };
 
         $scope.deselectMeasuresTab = function () {
@@ -649,8 +639,16 @@
 
         $scope.selectReferential = function (referentialId) {
             $scope.referential_uniqid = referentialId;
-            $scope.updateMeasures();
-        }
+            var initMeasuresFilter = true;
+            initMeasuresFilter = $scope.$watch('measures.activeFilter', function() {
+                if (initMeasuresFilter) {
+                    initMeasuresFilter = false;
+                } else {
+                    $scope.updateMeasures();
+                }
+            });
+            TableHelperService.watchSearch($scope, 'measures.query.filter', $scope.measures.query, $scope.updateMeasures, $scope.measures);
+        };
 
         $scope.updateMeasures = function () {
             var query = angular.copy($scope.measures.query);
@@ -674,13 +672,11 @@
             TableHelperService.removeFilter($scope.measures);
         };
 
-
         $scope.toggleMeasureStatus = function (measure) {
             MeasureService.patchMeasure(measure.id, {status: !measure.status}, function () {
                 measure.status = !measure.status;
             });
         }
-
 
         $scope.createNewReferential = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
