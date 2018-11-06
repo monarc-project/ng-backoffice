@@ -1820,19 +1820,9 @@
             };
         }
 
-        $scope.queryReferentialSearch = function (query) {
-            var promise = $q.defer();
-            ReferentialService.getReferentials({filter: query}).then(function (data) {
-                promise.resolve(data['referentials']);
-            }, function () {
-                promise.reject();
-            });
-            return promise.promise;
-        };
-
         $scope.queryCategorySearch = function (query) {
             var promise = $q.defer();
-            SOACategoryService.getCategories({filter: query}).then(function (data) {
+            SOACategoryService.getCategories({filter: query, referential: referential.uniqid}).then(function (data) {
                 promise.resolve(data['categories']);
             }, function () {
                 promise.reject();
