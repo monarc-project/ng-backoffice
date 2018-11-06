@@ -402,6 +402,12 @@
                     <md-option value="1">{{ 'Show active only' | translate }}</md-option>
                 </md-select>
 
+                <md-select ng-model="referentialSelected">
+                  <md-option ng-repeat="ref in referentials.items.referentials" value="{{ref.uniqid }}">
+                    {{ _langField(ref,'label') }}
+                  </md-option>
+                </md-select>
+
                 <md-button class="md-icon-button md-primary" ng-click="removeAmvsFilter()">
                     <md-icon>settings_backup_restore</md-icon>
                 </md-button>

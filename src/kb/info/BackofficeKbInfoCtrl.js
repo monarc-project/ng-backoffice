@@ -620,7 +620,6 @@
         /*
          * REFERENTIALS TAB
          */
-        $scope.updatingReferentials = true;
         $scope.measures = TableHelperService.build('category', 20, 1, '');
         $scope.measures.activeFilter = 1;
         $scope.referentials = [];
@@ -629,11 +628,14 @@
 
         $scope.selectMeasuresTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'measures'});
+            ReferentialService.getReferentials({order: 'id'}).then(function (data) {
+                $scope.referentials.items = data;
+                $scope.updatingReferentials = true;
+
+            });
         };
 
-        ReferentialService.getReferentials({order: 'id'}).then(function (data) {
-            $scope.referentials.items = data;
-        });
+
 
         $scope.deselectMeasuresTab = function () {
             TableHelperService.unwatchSearch($scope.measures);
@@ -1139,8 +1141,13 @@
         $scope.amvs.activeFilter = 1;
         var amvsFilterWatch;
 
+
         $scope.selectAmvsTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'amvs'});
+            ReferentialService.getReferentials({order: 'id'}).then(function (data) {
+                $scope.referentials.items = data;
+                $scope.referentialSelected = data['referentials'][0].uniqid;
+            });
             var initAmvsFilter = true;
             initAmvsFilter = $scope.$watch('amvs.activeFilter', function() {
                 if (initAmvsFilter) {
