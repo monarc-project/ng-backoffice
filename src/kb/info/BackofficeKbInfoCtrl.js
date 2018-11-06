@@ -772,7 +772,7 @@
 
             MeasureService.getMeasure(measure.id).then(function (measureData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ReferentialService', 'ConfigService', '$q', 'measure', CreateMeasureDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ReferentialService', 'ConfigService', '$q', 'measure', 'referential', CreateMeasureDialogCtrl],
                     templateUrl: 'views/anr/create.measures.html',
                     targetEvent: ev,
                     preserveScope: false,
@@ -780,7 +780,8 @@
                     clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
-                        'measure': measureData
+                        'measure': measureData,
+                        'referential' : $scope.referential
                     }
                 })
                     .then(function (measure) {
