@@ -1140,12 +1140,13 @@
         $scope.amvs = TableHelperService.build('status', 20, 1, '');
         $scope.amvs.activeFilter = 1;
         var amvsFilterWatch;
+        $scope.referentialsFilter = [];
 
 
         $scope.selectAmvsTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'amvs'});
             ReferentialService.getReferentials({order: 'id'}).then(function (data) {
-                $scope.referentials.items = data;
+                $scope.referentialsFilter.items = data;
                 $scope.referentialSelected = data['referentials'][0].uniqid;
             });
             var initAmvsFilter = true;

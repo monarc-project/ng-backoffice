@@ -403,7 +403,7 @@
                 </md-select>
 
                 <md-select ng-model="referentialSelected">
-                  <md-option ng-repeat="ref in referentials.items.referentials" value="{{ref.uniqid }}">
+                  <md-option ng-repeat="ref in referentialsFilter.items.referentials" value="{{ref.uniqid }}">
                     {{ _langField(ref,'label') }}
                   </md-option>
                 </md-select>
