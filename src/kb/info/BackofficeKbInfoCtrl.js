@@ -623,21 +623,21 @@
 
         $scope.measures = TableHelperService.build('category', 20, 1, '');
         $scope.measures.activeFilter = 1;
+        $scope.referentials = [];
+
         var measuresFilterWatch;
 
         $scope.selectMeasuresTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'measures'});
         };
 
+        ReferentialService.getReferentials({order: 'id'}).then(function (data) {
+            $scope.referentials.items = data;
+        });
+
         $scope.deselectMeasuresTab = function () {
             TableHelperService.unwatchSearch($scope.measures);
         };
-
-        ReferentialService.getReferentials().then(function (e) {
-            $scope.referentials = e['referentials'];
-        });
-
-
 
         $scope.selectReferential = function (referentialId) {
             $scope.referential_uniqid = referentialId;
@@ -684,11 +684,20 @@
             });
         }
 
-        $scope.createNewReferential = function (ev) {
+        $scope.updateReferentials = function () {
+            $scope.referentials.promise = ReferentialService.getReferentials({order: 'id'});
+            $scope.referentials.promise.then(
+                function (data) {
+                    $scope.referentials.items = data;
+                }
+            )
+        };
+
+        $scope.createNewReferential = function (ev, referential) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ConfigService', CreateReferentialDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ReferentialService', 'ConfigService', 'referential', CreateReferentialDialogCtrl],
                 templateUrl: 'views/anr/create.referentials.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -696,8 +705,29 @@
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
+                  'referential' : referential
                 }
             })
+                .then(function (referential) {
+                    var cont = referential.cont;
+                    referential.cont = undefined;
+
+                    if (cont) {
+                        $scope.createNewReferential(ev);
+                    }
+
+                    ReferentialService.createReferential(referential,
+                        function () {
+                          $scope.updateReferentials();
+                          toastr.success(gettextCatalog.getString('The referential has been created successfully.',
+                                  {referntialLabel: $scope._langField(referential,'label')}), gettextCatalog.getString('Creation successful'));
+                        },
+
+                        function () {
+                            $scope.createNewReferential(ev, referential);
+                        }
+                    );
+                });
         };
 
         $scope.createNewMeasure = function (ev, measure) {
@@ -1775,12 +1805,11 @@
         }
     }
 
-    function CreateReferentialDialogCtrl($scope, $mdDialog, ConfigService) {
+    function CreateReferentialDialogCtrl($scope, $mdDialog, ReferentialService, ConfigService, referential) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
             $scope.referential = {
-                code: '',
                 label1: '',
                 label2: '',
                 label3: '',
