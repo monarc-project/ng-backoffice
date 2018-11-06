@@ -1822,7 +1822,7 @@
 
         $scope.queryCategorySearch = function (query) {
             var promise = $q.defer();
-            SOACategoryService.getCategories({filter: query, referential: referential.uniqid}).then(function (data) {
+            SOACategoryService.getCategories({filter: query, referential: referential}).then(function (data) {
                 promise.resolve(data['categories']);
             }, function () {
                 promise.reject();
@@ -1835,7 +1835,7 @@
         }
 
         $scope.createCategory = function (label) {
-            SOACategoryService.createCategory({label1: label}, function (data) {
+            SOACategoryService.createCategory({label1: label, referential: referential}, function (data) {
                 SOACategoryService.getCategory(data.id).then(function (category) {
                     $scope.measure.category = category;
                 })
