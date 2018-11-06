@@ -1,5 +1,5 @@
 <div flex ng-controller="BackofficeKbInfoCtrl">
-    <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex">
+    <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex" id="md-tabs">
         <md-tab label="{{ 'Asset types' | translate }}" md-on-select="selectAssetsTab()" md-on-deselect="deselectAssetsTab()">
 
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!assets.selected.length">
@@ -222,7 +222,7 @@
         </md-tab>
 
         <md-tab label="{{ 'Referentials' | translate }}" md-on-select="selectMeasuresTab()" md-on-deselect="deselectMeasuresTab()">
-            <md-tabs md-dynamic-height="true" md-border-bottom="true">
+            <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndexReferential">
                 <md-tab ng-repeat="ref in referentials.items.referentials" label="{{ _langField(ref,'label')}}" md-on-select="selectReferential(ref.uniqid)" md-on-deselect="deselectReferentialsTab()">
                   <div layout="row" layout-align="start center" class="md-padding" ng-if="!measures.selected.length">
                       <h2 class="md-title md-padding-right md-padding-left">

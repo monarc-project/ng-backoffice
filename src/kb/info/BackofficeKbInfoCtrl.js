@@ -704,6 +704,9 @@
                 scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
+                onRemoving: function (event, removePromise) {
+                    $scope.currentTabIndexReferential= 0;
+                },
                 locals: {
                   'referential' : referential
                 }
