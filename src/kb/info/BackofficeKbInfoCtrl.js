@@ -620,7 +620,7 @@
         /*
          * REFERENTIALS TAB
          */
-
+        $scope.updatingReferentials = true;
         $scope.measures = TableHelperService.build('category', 20, 1, '');
         $scope.measures.activeFilter = 1;
         $scope.referentials = [];
@@ -656,24 +656,6 @@
         };
 
 
-        $scope.updateMeasures = function () {
-            var query = angular.copy($scope.measures.query);
-            query.status = $scope.measures.activeFilter;
-            query.referential = $scope.referential_uniqid;
-
-            if ($scope.measures.previousQueryOrder != $scope.measures.query.order) {
-                $scope.measures.query.page = query.page = 1;
-                $scope.measures.previousQueryOrder = $scope.measures.query.order;
-            }
-
-            $scope.measures.promise = MeasureService.getMeasures(query);
-            $scope.measures.promise.then(
-                function (data) {
-                  $scope.measures.items = data;
-                }
-            )
-        };
-
         $scope.removeMeasuresFilter = function () {
             TableHelperService.removeFilter($scope.measures);
         };
@@ -685,10 +667,12 @@
         }
 
         $scope.updateReferentials = function () {
+            $scope.updatingReferentials = false;
             $scope.referentials.promise = ReferentialService.getReferentials({order: 'id'});
             $scope.referentials.promise.then(
                 function (data) {
                     $scope.referentials.items = data;
+                    $scope.updatingReferentials = true;
                 }
             )
         };
@@ -704,9 +688,6 @@
                 scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
-                onRemoving: function (event, removePromise) {
-                    $scope.currentTabIndexReferential= 0;
-                },
                 locals: {
                   'referential' : referential
                 }
@@ -731,6 +712,75 @@
                         }
                     );
                 });
+        };
+
+        $scope.editReferential = function (ev, referential) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            ReferentialService.getReferential(referential).then(function (referentialData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'ReferentialService', 'ConfigService', 'referential', CreateReferentialDialogCtrl],
+                    templateUrl: 'views/anr/create.referentials.html',
+                    targetEvent: ev,
+                    preserveScope: false,
+                    scope: $scope.$dialogScope.$new(),
+                    clickOutsideToClose: false,
+                    fullscreen: useFullScreen,
+                    locals: {
+                        'referential': referentialData
+                    }
+                })
+                    .then(function (referential) {
+                        ReferentialService.updateReferential(referential,
+                            function () {
+                                $scope.updateReferentials();
+                                toastr.success(gettextCatalog.getString('The referential has been edited successfully.',
+                                    {referentialLabel: referential.label1}), gettextCatalog.getString('Edition successful'));
+                            },
+
+                            function () {
+                                $scope.editReferential(ev, referential);
+                            }
+                        );
+                    });
+            });
+        };
+
+        $scope.deleteReferential = function (ev, item) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete referential?',
+                    {label: item.label1}))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
+                .targetEvent(ev)
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                ReferentialService.deleteReferential(item,
+                    function () {
+                        $scope.updateReferentials();
+                        toastr.success(gettextCatalog.getString('The referential has been deleted.',
+                                    {label: item.label1}), gettextCatalog.getString('Deletion successful'));
+                    }
+                );
+            });
+        };
+
+        $scope.updateMeasures = function () {
+            var query = angular.copy($scope.measures.query);
+            query.status = $scope.measures.activeFilter;
+            query.referential = $scope.referential_uniqid;
+
+            if ($scope.measures.previousQueryOrder != $scope.measures.query.order) {
+                $scope.measures.query.page = query.page = 1;
+                $scope.measures.previousQueryOrder = $scope.measures.query.order;
+            }
+
+            $scope.measures.promise = MeasureService.getMeasures(query);
+            $scope.measures.promise.then(
+                function (data) {
+                  $scope.measures.items = data;
+                }
+            )
         };
 
         $scope.createNewMeasure = function (ev, measure) {
@@ -1813,13 +1863,16 @@
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
-            $scope.referential = {
-                label1: '',
-                label2: '',
-                label3: '',
-                label4: '',
-            };
-
+        if (referential != undefined && referential != null) {
+            $scope.referential = referential;
+        } else {
+          $scope.referential = {
+              label1: '',
+              label2: '',
+              label3: '',
+              label4: '',
+          };
+        }
 
         $scope.cancel = function() {
             $mdDialog.cancel();

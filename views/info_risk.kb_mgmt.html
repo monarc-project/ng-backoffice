@@ -1,5 +1,5 @@
 <div flex ng-controller="BackofficeKbInfoCtrl">
-    <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex" id="md-tabs">
+    <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndex">
         <md-tab label="{{ 'Asset types' | translate }}" md-on-select="selectAssetsTab()" md-on-deselect="deselectAssetsTab()">
 
             <div layout="row" layout-align="start center" class="md-padding" ng-if="!assets.selected.length">
@@ -222,7 +222,7 @@
         </md-tab>
 
         <md-tab label="{{ 'Referentials' | translate }}" md-on-select="selectMeasuresTab()" md-on-deselect="deselectMeasuresTab()">
-            <md-tabs md-dynamic-height="true" md-border-bottom="true" md-selected="currentTabIndexReferential">
+            <md-tabs md-dynamic-height="true" md-border-bottom="true" ng-if="updatingReferentials">
                 <md-tab ng-repeat="ref in referentials.items.referentials" label="{{ _langField(ref,'label')}}" md-on-select="selectReferential(ref.uniqid)" md-on-deselect="deselectReferentialsTab()">
                   <div layout="row" layout-align="start center" class="md-padding" ng-if="!measures.selected.length">
                       <h2 class="md-title md-padding-right md-padding-left">
@@ -249,6 +249,18 @@
 
                       <md-button class="md-icon-button md-primary" ng-click="removemeasuresFilter()">
                           <md-icon>settings_backup_restore</md-icon>
+                      </md-button>
+                      <md-button class="md-icon-button md-primary" ng-click="editReferential($event, ref.uniqid)">
+                        <md-tooltip md-direction="left">
+                            {{ 'Edit referential' | translate }}
+                        </md-tooltip>
+                        <md-icon>edit</md-icon>
+                      </md-button>
+                      <md-button class="md-icon-button md-warn" ng-click="deleteReferential($event, ref.uniqid)">
+                        <md-tooltip md-direction="left">
+                            {{ 'Delete referential' | translate }}
+                        </md-tooltip>
+                        <md-icon>delete</md-icon>
                       </md-button>
                   </div>
                   <md-toolbar class="md-table-toolbar alternate" ng-if="measures.selected.length">
