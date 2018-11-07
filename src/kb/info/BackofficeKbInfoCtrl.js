@@ -623,11 +623,11 @@
         $scope.measures = TableHelperService.build('category', 20, 1, '');
         $scope.measures.activeFilter = 1;
         $scope.referentials = [];
-
         var measuresFilterWatch;
 
         $scope.selectMeasuresTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'measures'});
+            $scope.updatingReferentials = false;
             ReferentialService.getReferentials({order: 'id'}).then(function (data) {
                 $scope.referentials.items = data;
                 $scope.updatingReferentials = true;
