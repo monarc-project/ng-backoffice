@@ -442,7 +442,7 @@
                         <td md-cell>{{ amv.threat.code }} - {{ _langField(amv.threat,'label') }}</td>
                         <td md-cell>{{ amv.vulnerability.code }} - {{ _langField(amv.vulnerability,'label') }}</td>
                         <td md-cell>
-                          <p ng-repeat="measure in amv.measures">
+                          <p ng-repeat="measure in amv.measures" ng-if="measure.referential.uniqid == referentials_filter.selected">
                             {{ measure.code }} - {{ _langField(measure,'label') }}
                           </p>
                         </td>

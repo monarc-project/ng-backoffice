@@ -1169,6 +1169,7 @@
             query.status = $scope.amvs.activeFilter;
             query.referential = $scope.referentials_filter.selected;
 
+
             if ($scope.amvs.previousQueryOrder != $scope.amvs.query.order) {
                 $scope.amvs.query.page = query.page = 1;
                 $scope.amvs.previousQueryOrder = $scope.amvs.query.order;
@@ -1198,7 +1199,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ReferentialService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
                 templateUrl: 'views/anr/create.amvs.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -1262,7 +1263,7 @@
 
             AmvService.getAmv(amv).then(function (amvData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ReferentialService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
                     templateUrl: 'views/anr/create.amvs.html',
                     targetEvent: ev,
                     preserveScope: false,
@@ -2000,17 +2001,15 @@
 
     }
 
-    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ConfigService, AmvService, $q, amv) {
+    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ReferentialService, ConfigService, AmvService, $q, amv) {
         $scope.languages = ConfigService.getLanguages();
         $scope.defaultLang = ConfigService.getDefaultLanguageIndex();
-
 
         $scope.queryAmvs = function (asset_id) {
             AmvService.getAmvs({limit: 0, asset: asset_id, order: 'position', amvid: $scope.amv.id}).then(function (data) {
                 $scope.asset_amvs = data.amvs;
             });
         };
-
 
         if (amv != undefined && amv != null) {
             $scope.amv = amv;
@@ -2028,6 +2027,7 @@
                 asset: null,
                 threat: null,
                 vulnerability: null,
+                referential : null,
                 measures: [],
                 implicitPosition: 2,
                 status: 1
@@ -2089,10 +2089,33 @@
             }
         }
 
+        // Referentials
+
+        $scope.queryReferentialsSearch = function (query) {
+            var promise = $q.defer();
+            ReferentialService.getReferentials({order: 'id'}).then(function (e) {
+                promise.resolve(e.referentials);
+            }, function (e) {
+                promise.reject(e);
+            });
+
+            return promise.promise;
+        };
+
+        $scope.selectedReferentialItemChange = function (item) {
+            if (item) {
+                $scope.amv.referential = item;
+                var mesuresFilteredbyReferential = $scope.amv.measures.filter(function (measure) {
+                    return (measure.referential.uniqid == item.uniqid);
+                });
+                $scope.amv.measuresFiltered = mesuresFilteredbyReferential;
+            }
+        }
+
         // Measures
         $scope.queryMeasureSearch = function (query) {
             var promise = $q.defer();
-            MeasureService.getMeasures({filter: query, order: 'code'}).then(function (e) {
+            MeasureService.getMeasures({filter: query, referential: $scope.amv.referential.uniqid, order: 'code'}).then(function (e) {
               var filtered = [];
               for (var j = 0; j < e.measures.length; ++j) {
                   var found = false;
