@@ -1149,15 +1149,13 @@
                 $scope.referentials_filter.selected = data['referentials'][0].uniqid;
             });
             var initAmvsFilter = true;
-            initAmvsFilter = $scope.$watchGroup(['amvs.activeFilter', 'referentials_filter.selected'], function(newValue, oldValue) {
+            initAmvsFilter = $scope.$watchGroup(['amvs.activeFilter', 'referentials_filter.selected', 'amvs.query.filter'], function(newValue, oldValue) {
                 if (initAmvsFilter) {
                     initAmvsFilter = false;
                 } else {
                     $scope.updateAmvs();
                 }
             });
-
-            TableHelperService.watchSearch($scope, 'amvs.query.filter', $scope.amvs.query, $scope.updateAmvs, $scope.amvs);
         };
 
         $scope.deselectAmvsTab = function () {
