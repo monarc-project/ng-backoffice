@@ -1199,7 +1199,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ReferentialService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ReferentialService', 'ConfigService', 'AmvService', '$q', 'amv', 'referentials', CreateAmvDialogCtrl],
                 templateUrl: 'views/anr/create.amvs.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -1207,21 +1207,13 @@
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
-                    'amv': amv
+                    'amv': amv,
+                    'referentials': $scope.referentials_filter.items['referentials']
                 }
             })
                 .then(function (amv) {
                     var amvBackup = angular.copy(amv);
 
-                    if (amv.measure1) {
-                        amv.measure1 = amv.measure1.id;
-                    }
-                    if (amv.measure2) {
-                        amv.measure2 = amv.measure2.id;
-                    }
-                    if (amv.measure3) {
-                        amv.measure3 = amv.measure3.id;
-                    }
                     if (amv.threat) {
                         amv.threat = amv.threat.id;
                     }
@@ -1263,7 +1255,7 @@
 
             AmvService.getAmv(amv).then(function (amvData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ReferentialService', 'ConfigService', 'AmvService', '$q', 'amv', CreateAmvDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ReferentialService', 'ConfigService', 'AmvService', '$q', 'amv', 'referentials', CreateAmvDialogCtrl],
                     templateUrl: 'views/anr/create.amvs.html',
                     targetEvent: ev,
                     preserveScope: false,
@@ -1271,20 +1263,12 @@
                     clickOutsideToClose: false,
                     fullscreen: useFullScreen,
                     locals: {
-                        'amv': amvData
+                        'amv': amvData,
+                        'referentials' : $scope.referentials_filter.items['referentials']
                     }
                 })
                     .then(function (amv) {
                         var amvBackup = angular.copy(amv);
-                        if (amv.measure1) {
-                            amv.measure1 = amv.measure1.id;
-                        }
-                        if (amv.measure2) {
-                            amv.measure2 = amv.measure2.id;
-                        }
-                        if (amv.measure3) {
-                            amv.measure3 = amv.measure3.id;
-                        }
                         if (amv.threat) {
                             amv.threat = amv.threat.id;
                         }
@@ -2001,7 +1985,7 @@
 
     }
 
-    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ReferentialService, ConfigService, AmvService, $q, amv) {
+    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ReferentialService, ConfigService, AmvService, $q, amv, referentials) {
         $scope.languages = ConfigService.getLanguages();
         $scope.defaultLang = ConfigService.getDefaultLanguageIndex();
 
@@ -2013,6 +1997,7 @@
 
         if (amv != undefined && amv != null) {
             $scope.amv = amv;
+
             if (amv.asset && amv.asset.id) {
                 $scope.queryAmvs(amv.asset.id);
             }
@@ -2021,6 +2006,17 @@
             }
             if (amv.measures.length == undefined) {
               $scope.amv.measures = [];
+              referentials.forEach(function (ref){
+                $scope.amv.measures[ref.uniqid] = [];
+              })
+            } else {
+              var measuresBackup = $scope.amv.measures;
+              $scope.amv.measures = [];
+              referentials.forEach(function (ref){
+                $scope.amv.measures[ref.uniqid] = measuresBackup.filter(function (measure) {
+                    return (measure.referential.uniqid == ref.uniqid);
+                })
+              })
             }
         } else {
             $scope.amv = {
@@ -2032,6 +2028,9 @@
                 implicitPosition: 2,
                 status: 1
             };
+            referentials.forEach(function (ref){
+              $scope.amv.measures[ref.uniqid] = [];
+            })
         }
 
         // Asset
@@ -2105,10 +2104,6 @@
         $scope.selectedReferentialItemChange = function (item) {
             if (item) {
                 $scope.amv.referential = item;
-                var mesuresFilteredbyReferential = $scope.amv.measures.filter(function (measure) {
-                    return (measure.referential.uniqid == item.uniqid);
-                });
-                $scope.amv.measuresFiltered = mesuresFilteredbyReferential;
             }
         }
 
@@ -2119,9 +2114,9 @@
               var filtered = [];
               for (var j = 0; j < e.measures.length; ++j) {
                   var found = false;
-                  for (var i = 0; i < $scope.amv.measures.length; ++i) {
+                  for (var i = 0; i < $scope.amv.measures[$scope.amv.referential.uniqid].length; ++i) {
 
-                      if ($scope.amv.measures[i].id == e.measures[j].id) {
+                      if ($scope.amv.measures[$scope.amv.referential.uniqid][i].id == e.measures[j].id) {
                           found = true;
                           break;
                       }
@@ -2140,34 +2135,23 @@
             return promise.promise;
         };
 
-        // Category
-        $scope.queryCategorysSearch = function (query) {
-            var promise = $q.defer();
-            SOACategoryService.getCategory({filter: query}).then(function (e) {
-                promise.resolve(e.categories);
-            }, function (e) {
-                promise.reject(e);
-            });
-
-            return promise.promise;
-        };
-
-
-        $scope.selectedCategoryItemChange = function (idx, item) {
-            if (item) {
-              // $scope.amv.category = item;
-
-                $scope.amv['category' + idx] = item;
-            }
-        }
-
-        ////
-
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
 
         $scope.create = function() {
+
+            referentials.forEach(function (ref){
+              var promise = $q.defer();
+              if ($scope.amv.measures[ref.uniqid] != undefined) {
+                $scope.amv.measures[ref.uniqid].forEach (function (measure) {
+                  promise.resolve($scope.amv.measures.push(measure.id));
+                })
+              }
+              return promise.promise;
+
+            })
+
             if ($scope.amv.implicitPosition == 3 && !$scope.amv.previous) {
                 $scope.amv.implicitPosition = 1;
             }
@@ -2175,6 +2159,17 @@
             $mdDialog.hide($scope.amv);
         };
         $scope.createAndContinue = function () {
+
+            referentials.forEach(function (ref){
+              var promise = $q.defer();
+              if ($scope.amv.measures[ref.uniqid] != undefined) {
+                $scope.amv.measures[ref.uniqid].forEach (function (measure) {
+                  promise.resolve($scope.amv.measures.push(measure.id));
+                })
+              }
+              return promise.promise;
+            })
+
             if ($scope.amv.implicitPosition == 3 && !$scope.amv.previous) {
                 $scope.amv.implicitPosition = 1;
             }
