@@ -748,6 +748,25 @@
             });
         };
 
+        $scope.matchReferential = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', '$q','referentials', 'referentialSelected', MatchReferentialDialogCtrl],
+                templateUrl: 'views/anr/match.referentials.html',
+                targetEvent: ev,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
+                clickOutsideToClose: false,
+                fullscreen: useFullScreen,
+                locals: {
+                    'referentials': $scope.referentials.items,
+                    'referentialSelected' : $scope.referential
+                }
+            })
+                .then(function (matchMeasures) {
+                });
+        };
+
         $scope.deleteReferential = function (ev, item) {
             var confirm = $mdDialog.confirm()
                 .title(gettextCatalog.getString('Are you sure you want to delete referential?',
@@ -1876,6 +1895,58 @@
             $scope.referential.cont = true;
             $mdDialog.hide($scope.referential);
         }
+    }
+    function MatchReferentialDialogCtrl($scope, $mdDialog, ReferentialService, MeasureService, ConfigService, $q, referentials, referentialSelected) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
+        $scope.referentialsList = referentials;
+        $scope.referentialSelected = referentialSelected;
+        $scope.matchMeasures = [];
+        $scope.referentialsList.referentials.forEach(function (ref){
+          var promise = $q.defer();
+          if (ref.uniqid !== $scope.referentialSelected.uniqid ) {
+            $scope.matchMeasures[ref.uniqid] = [];
+            $scope.referentialSelected['measures'].forEach(function (measure){
+              promise.resolve($scope.matchMeasures[ref.uniqid][measure.id] = []);
+            });
+            return promise.promise;
+          }
+        });
+
+        $scope.queryMeasureSearch = function (query, referential, measureId ) {
+            var promise = $q.defer();
+            MeasureService.getMeasures({filter: query, referential: referential, order: 'code'}).then(function (e) {
+              var filtered = [];
+              for (var j = 0; j < e.measures.length; ++j) {
+                  var found = false;
+                  for (var i = 0; i < $scope.matchMeasures[referential][measureId].length; ++i) {
+
+                      if ($scope.matchMeasures[referential][measureId][i].id == e.measures[j].id) {
+                          found = true;
+                          break;
+                      }
+                  }
+
+                  if (!found) {
+                      filtered.push(e.measures[j]);
+                  }
+              }
+
+              promise.resolve(filtered);
+            }, function (e) {
+                promise.reject(e);
+            });
+
+            return promise.promise;
+        };
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.matchMeasures);
+        };
     }
 
     function CreateMeasureDialogCtrl($scope, $mdDialog, SOACategoryService, ReferentialService, ConfigService, $q, measure, referential) {
