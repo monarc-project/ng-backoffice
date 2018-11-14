@@ -751,7 +751,7 @@
         $scope.matchReferential = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', '$q','referentials', 'referentialSelected', MatchReferentialDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', '$q', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
                 templateUrl: 'views/anr/match.referentials.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -1901,17 +1901,40 @@
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.referentialsList = referentials;
         $scope.referentialSelected = referentialSelected;
-        $scope.matchMeasures = [];
-        $scope.referentialsList.referentials.forEach(function (ref){
+        $scope.measuresRefSelected = [];
+
+        $scope.getMesuresRefSelected = function (ref) {
           var promise = $q.defer();
-          if (ref.uniqid !== $scope.referentialSelected.uniqid ) {
-            $scope.matchMeasures[ref.uniqid] = [];
-            $scope.referentialSelected['measures'].forEach(function (measure){
-              promise.resolve($scope.matchMeasures[ref.uniqid][measure.id] = []);
-            });
-            return promise.promise;
-          }
+          MeasureService.getMeasures({referential: ref}).then(function(e) {
+              promise.resolve(e.measures);
+          });
+          return promise.promise;
+        };
+
+
+        $scope.getMesuresRefSelected(referentialSelected.uniqid).then(function(data){
+          $scope.measuresRefSelected = data;
+          $scope.matchMeasures = [];
+          $scope.referentialsList.referentials.forEach(function (ref){
+            var promise = $q.defer();
+            if (ref.uniqid !== $scope.referentialSelected.uniqid ) {
+              $scope.matchMeasures[ref.uniqid] = [];
+              $scope.measuresRefSelected.forEach(function (measure){
+                if (Array.isArray(measure.measuresLinked)) {
+                  measure.measuresLinked.forEach(function (measureLinked){
+                    if (ref.measures.filter(ml => ml.id == measureLinked.id).length > 0) {
+                      promise.resolve($scope.matchMeasures[ref.uniqid][measure.id] = measure.measuresLinked);
+                    }
+                  })
+                } else {
+                  promise.resolve($scope.matchMeasures[ref.uniqid][measure.id] = []);
+                }
+              });
+              return promise.promise;
+            }
+          });
         });
+
 
         $scope.queryMeasureSearch = function (query, referential, measureId ) {
             var promise = $q.defer();
