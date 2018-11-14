@@ -1920,21 +1920,21 @@
             if (ref.uniqid !== $scope.referentialSelected.uniqid ) {
               $scope.matchMeasures[ref.uniqid] = [];
               $scope.measuresRefSelected.forEach(function (measure){
+                $scope.matchMeasures[ref.uniqid][measure.id] = [];
                 if (Array.isArray(measure.measuresLinked)) {
                   measure.measuresLinked.forEach(function (measureLinked){
-                    if (ref.measures.filter(ml => ml.id == measureLinked.id).length > 0) {
-                      promise.resolve($scope.matchMeasures[ref.uniqid][measure.id] = measure.measuresLinked);
+                    var measureFound = ref.measures.filter(ml => ml.id == measureLinked.id);
+                    if (measureFound.length > 0) {
+                      $scope.matchMeasures[ref.uniqid][measure.id].push(measureLinked);
                     }
                   })
-                } else {
-                  promise.resolve($scope.matchMeasures[ref.uniqid][measure.id] = []);
                 }
+                promise.resolve($scope.matchMeasures[ref.uniqid][measure.id]);
               });
               return promise.promise;
             }
           });
         });
-
 
         $scope.queryMeasureSearch = function (query, referential, measureId ) {
             var promise = $q.defer();
