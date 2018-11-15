@@ -5,7 +5,7 @@
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
-            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService',
+            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService', 'MeasureMeasureService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -14,7 +14,9 @@
      */
     function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
-                                  $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, ReferentialService) {
+                                  $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, ReferentialService,
+                                  MeasureMeasureService) {
+
         $scope.tab = $stateParams.tab;
         $scope.gettext = gettextCatalog.getString;
         TableHelperService.resetBookmarks();
@@ -751,7 +753,7 @@
         $scope.matchReferential = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', '$q', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', 'MeasureMeasureService', '$q', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
                 templateUrl: 'views/anr/match.referentials.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -1896,7 +1898,7 @@
             $mdDialog.hide($scope.referential);
         }
     }
-    function MatchReferentialDialogCtrl($scope, $mdDialog, ReferentialService, MeasureService, ConfigService, $q, referentials, referentialSelected) {
+    function MatchReferentialDialogCtrl($scope, $mdDialog, ReferentialService, MeasureService, ConfigService, MeasureMeasureService, $q, referentials, referentialSelected) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.referentialsList = referentials;
@@ -1961,6 +1963,22 @@
             });
 
             return promise.promise;
+        };
+
+        MeasureMeasureService.getMeasuresMeasures().then(function(e) {
+            var test = e;
+            console.log(test);
+        });
+
+        $scope.addMeasureLinked = function(fatherId,childId) {
+            MeasureMeasureService.getMeasuresMeasures().then(function(e) {
+                var test = e;
+                console.log(test);
+            });
+        };
+
+        $scope.deleteMeasureLinked = function(fatherId,childId) {
+
         };
 
         $scope.cancel = function() {
