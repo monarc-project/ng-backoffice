@@ -648,6 +648,9 @@
             ReferentialService.getReferential(referentialId).then(function (data) {
                 $scope.referential = data;
             });
+            MeasureService.getMeasures({referential:referentialId, order:'code'}).then(function (data) {
+                $scope.measuresRefSelected = data;
+            });
             var initMeasuresFilter = true;
             initMeasuresFilter = $scope.$watch('measures.activeFilter', function() {
                 if (initMeasuresFilter) {
@@ -753,20 +756,20 @@
         $scope.matchReferential = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', 'MeasureMeasureService', '$q', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', 'MeasureMeasureService', '$q', 'measures', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
                 templateUrl: 'views/anr/match.referentials.html',
                 targetEvent: ev,
                 preserveScope: false,
                 scope: $scope.$dialogScope.$new(),
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
+                onRemoving : function(){$scope.selectReferential($scope.referential.uniqid)},
                 locals: {
+                    'measures' : $scope.measuresRefSelected,
                     'referentials': $scope.referentials.items,
                     'referentialSelected' : $scope.referential
                 }
             })
-                .then(function (matchMeasures) {
-                });
         };
 
         $scope.deleteReferential = function (ev, item) {
@@ -1898,44 +1901,32 @@
             $mdDialog.hide($scope.referential);
         }
     }
-    function MatchReferentialDialogCtrl($scope, $mdDialog, ReferentialService, MeasureService, ConfigService, MeasureMeasureService, $q, referentials, referentialSelected) {
+    function MatchReferentialDialogCtrl($scope, $mdDialog, ReferentialService, MeasureService, ConfigService, MeasureMeasureService, $q, measures, referentials, referentialSelected) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
+        $scope.measuresRefSelected = measures.measures;
         $scope.referentialsList = referentials;
         $scope.referentialSelected = referentialSelected;
-        $scope.measuresRefSelected = [];
+        $scope.matchMeasures = [];
 
-        $scope.getMesuresRefSelected = function (ref) {
+        $scope.referentialsList.referentials.forEach(function (ref){
           var promise = $q.defer();
-          MeasureService.getMeasures({referential: ref}).then(function(e) {
-              promise.resolve(e.measures);
-          });
-          return promise.promise;
-        };
-
-
-        $scope.getMesuresRefSelected(referentialSelected.uniqid).then(function(data){
-          $scope.measuresRefSelected = data;
-          $scope.matchMeasures = [];
-          $scope.referentialsList.referentials.forEach(function (ref){
-            var promise = $q.defer();
-            if (ref.uniqid !== $scope.referentialSelected.uniqid ) {
-              $scope.matchMeasures[ref.uniqid] = [];
-              $scope.measuresRefSelected.forEach(function (measure){
-                $scope.matchMeasures[ref.uniqid][measure.id] = [];
-                if (Array.isArray(measure.measuresLinked)) {
-                  measure.measuresLinked.forEach(function (measureLinked){
-                    var measureFound = ref.measures.filter(ml => ml.id == measureLinked.id);
-                    if (measureFound.length > 0) {
-                      $scope.matchMeasures[ref.uniqid][measure.id].push(measureLinked);
-                    }
-                  })
-                }
-                promise.resolve($scope.matchMeasures[ref.uniqid][measure.id]);
-              });
-              return promise.promise;
-            }
-          });
+          if (ref.uniqid !== $scope.referentialSelected.uniqid ) {
+            $scope.matchMeasures[ref.uniqid] = [];
+            $scope.measuresRefSelected.forEach(function (measure){
+              $scope.matchMeasures[ref.uniqid][measure.id] = [];
+              if (Array.isArray(measure.measuresLinked)) {
+                measure.measuresLinked.forEach(function (measureLinked){
+                  var measureFound = ref.measures.filter(ml => ml.id == measureLinked.id);
+                  if (measureFound.length > 0) {
+                    $scope.matchMeasures[ref.uniqid][measure.id].push(measureLinked);
+                  }
+                })
+              }
+              promise.resolve($scope.matchMeasures[ref.uniqid][measure.id]);
+            });
+            return promise.promise;
+          }
         });
 
         $scope.queryMeasureSearch = function (query, referential, measureId ) {
@@ -1965,20 +1956,20 @@
             return promise.promise;
         };
 
-        MeasureMeasureService.getMeasuresMeasures().then(function(e) {
-            var test = e;
-            console.log(test);
-        });
-
         $scope.addMeasureLinked = function(fatherId,childId) {
-            MeasureMeasureService.getMeasuresMeasures().then(function(e) {
-                var test = e;
-                console.log(test);
-            });
+          var measuremeasure  = {
+              father: fatherId,
+              child: childId,
+          };
+          MeasureMeasureService.createMeasureMeasure(measuremeasure);
         };
 
         $scope.deleteMeasureLinked = function(fatherId,childId) {
-
+          MeasureMeasureService.getMeasuresMeasures({fatherId:fatherId, childId: childId}).then(function(e) {
+            if (e.MeasureMeasure.length > 0) {
+              MeasureMeasureService.deleteMeasureMeasure(e.MeasureMeasure[0].id);
+            }
+          });
         };
 
         $scope.cancel = function() {
