@@ -274,18 +274,6 @@
                       <md-button class="md-icon-button md-primary" ng-click="removemeasuresFilter()">
                           <md-icon>settings_backup_restore</md-icon>
                       </md-button>
-                      <!--<md-button class="md-icon-button md-primary" ng-click="editReferential($event, ref.uniqid)">
-                        <md-tooltip md-direction="left">
-                            {{ 'Edit referential' | translate }}
-                        </md-tooltip>
-                        <md-icon>edit</md-icon>
-                      </md-button>
-                      <md-button class="md-icon-button md-warn" ng-click="deleteReferential($event, ref.uniqid)">
-                        <md-tooltip md-direction="left">
-                            {{ 'Delete referential' | translate }}
-                        </md-tooltip>
-                        <md-icon>delete</md-icon>
-                      </md-button>-->
                   </div>
                   <md-toolbar class="md-table-toolbar alternate" ng-if="measures.selected.length">
                       <div class="md-toolbar-tools md-toolbar-pad" layout-align="space-between center">
@@ -324,14 +312,7 @@
                   <md-table-pagination md-limit="measures.query.limit" md-limit-options="[20, 30, 50, 100]" md-page="measures.query.page"
                                        md-total="{{measures.items.count}}" md-on-paginate="updateMeasures" md-page-select md-label="{{paginationLabels}}"></md-table-pagination>
                 </md-tab>
-                <!--<md-tab md-on-select="createNewReferential($event)">
-                  <md-tooltip md-direction="left">
-                      {{ 'Add a referential' | translate }}
-                  </md-tooltip>
-                  <md-icon class="md-icon-button md-primary">add_to_photos</md-icon>
-                </md-tab>-->
             </md-tabs>
-
         </md-tab>
 
         <md-tab label="{{ 'Categories' | translate }}" md-on-select="selectCategoriesTab()" md-on-deselect="deselectCategoriesTab()">
