@@ -812,7 +812,7 @@
         $scope.createNewMeasure = function (ev, measure) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ReferentialService', 'ConfigService', '$q', 'measure', 'referential', CreateMeasureDialogCtrl],
+                controller: ['$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'SOACategoryService', 'MeasureService', 'ReferentialService', 'ConfigService', '$q', 'measure', 'referential', CreateMeasureDialogCtrl],
                 templateUrl: 'views/anr/create.measures.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -851,7 +851,7 @@
 
             MeasureService.getMeasure(measure.id).then(function (measureData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'SOACategoryService', 'ReferentialService', 'ConfigService', '$q', 'measure', 'referential', CreateMeasureDialogCtrl],
+                    controller: ['$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'SOACategoryService', 'MeasureService', 'ReferentialService', 'ConfigService', '$q', 'measure', 'referential', CreateMeasureDialogCtrl],
                     templateUrl: 'views/anr/create.measures.html',
                     targetEvent: ev,
                     preserveScope: false,
@@ -1908,6 +1908,7 @@
         $scope.referentialsList = referentials;
         $scope.referentialSelected = referentialSelected;
         $scope.matchMeasures = [];
+        $scope.matchRef_filter = '';
 
         $scope.referentialsList.referentials.forEach(function (ref){
           var promise = $q.defer();
@@ -1981,7 +1982,7 @@
         };
     }
 
-    function CreateMeasureDialogCtrl($scope, $mdDialog, SOACategoryService, ReferentialService, ConfigService, $q, measure, referential) {
+    function CreateMeasureDialogCtrl($scope, toastr, $mdMedia, $mdDialog, gettextCatalog, SOACategoryService, MeasureService, ReferentialService, ConfigService, $q, measure, referential) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.categorySearchText = '';
@@ -2014,32 +2015,108 @@
             $scope.measure.category = item;
         }
 
-        $scope.createCategory = function (label) {
-            SOACategoryService.createCategory({label1: label, referential: referential}, function (data) {
-                SOACategoryService.getCategory(data.id).then(function (category) {
-                    $scope.measure.category = category;
+        $scope.createNewCategory = function (ev, referential, category) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'ConfigService','referential', 'category',  CreateCategoryDialogCtrl],
+                templateUrl: 'views/anr/create.categories.html',
+                targetEvent: ev,
+                multiple: true,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
+                clickOutsideToClose: false,
+                fullscreen: useFullScreen,
+                locals: {
+                    'referential': referential,
+                    'category': category
+                }
+            })
+                .then(function (category) {
+                    var cont = category.cont;
+                    category.cont = undefined;
+                    if (cont) {
+                        $scope.createNewCategory(ev);
+                    }
+
+                    SOACategoryService.createCategory(category,
+                        function (status) {
+                          category.id = status.id;
+                          $scope.selectedCategoryItemChange(category);
+                            toastr.success(gettextCatalog.getString('The category has been created successfully.',
+                                {categoryLabel: $scope._langField(category,'label')}), gettextCatalog.getString('Creation successful'));
+                        },
+
+                        function (err) {
+                            $scope.createNewCategory(ev, category);
+                        }
+                    );
+                });
+        };
+
+        $scope.editCategory = function (ev, referential, category) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            SOACategoryService.getCategory(category.id).then(function (categoryData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'ConfigService','referential', 'category', CreateCategoryDialogCtrl],
+                    templateUrl: 'views/anr/create.categories.html',
+                    targetEvent: ev,
+                    preserveScope: false,
+                    multiple: true,
+                    scope: $scope.$dialogScope.$new(),
+                    clickOutsideToClose: false,
+                    fullscreen: useFullScreen,
+                    locals: {
+                      'referential': referential,
+                      'category': category
+                    }
                 })
+                    .then(function (category) {
+                        SOACategoryService.updateCategory(category,
+                            function () {
+                                $scope.selectedCategoryItemChange(category);
+                                toastr.success(gettextCatalog.getString('The category has been edited successfully.',
+                                    {categoryLabel: $scope._langField(category,'label')}), gettextCatalog.getString('Edition successful'));
+                            },
+
+                            function () {
+                                $scope.editCategory(ev, category);
+                            }
+                        );
+                    });
             });
         };
 
-        $scope.updateCategory = function (category) {
-            $scope.category_edit_lock = true;
-            SOACategoryService.updateCategory(category, function () {
-                  SOACategoryService.getCategory(category.id).then(function (category) {
-                    $scope.measure.category = category;
-                    $scope.category_edit_lock = false;
-                    $scope.category_edit = null;
-                });
+        $scope.deleteCategory = function (ev, category) {
+            var confirm = $mdDialog.confirm()
+                .multiple(true)
+                .title(gettextCatalog.getString('Are you sure you want to delete category?',
+                    {label: $scope._langField(category,'label')}))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
+                .targetEvent(ev)
+                .theme('light')
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+              // once we  delete a category the measure linked to this category have their category-id changed to null
+              MeasureService.getMeasures({category: category.id}).then(function (data) {
+                  data.measures.forEach( function(measure){
+                    measure.category = null;
+                     MeasureService.updateMeasure(measure,
+                         function () {
+                           SOACategoryService.deleteCategory(category.id,
+                               function () {
+                                 $scope.selectedCategoryItemChange();
+                                  toastr.success(gettextCatalog.getString('The category has been deleted.',
+                                  {label: $scope._langField(category,'label')}), gettextCatalog.getString('Deletion successful'));
+                               }
+                           );
+                          }
+                     );
+                  })
+              })
             });
-        }
-
-        $scope.deleteCategory = function (category) {
-            SOACategoryService.deleteCategory(category.id, function () {
-                $scope.measure.category = null;
-                $scope.category_edit = null;
-                $scope.categorySearchText = null;
-            });
-        }
+        };
 
         $scope.cancel = function() {
             $mdDialog.cancel();
@@ -2054,17 +2131,19 @@
         }
     }
 
-    function CreateCategoryDialogCtrl($scope, $mdDialog,  ConfigService, category) {
+    function CreateCategoryDialogCtrl($scope, $mdDialog,  ConfigService, referential, category) {
 
       $scope.languages = ConfigService.getLanguages();
       $scope.language = ConfigService.getDefaultLanguageIndex();
 
-
         if (category != undefined && category != null) {
             $scope.category = category;
+            delete $scope.category.measures;
+            $scope.category.referential = referential;
         } else {
             $scope.category = {
-                reference: '',
+                code: '',
+                referential: referential,
                 label1: '',
                 label2: '',
                 label3: '',
