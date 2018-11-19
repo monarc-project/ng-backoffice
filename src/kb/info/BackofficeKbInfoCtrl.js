@@ -1646,6 +1646,7 @@
     function CreateReferentialDialogCtrl($scope, $mdDialog, ReferentialService, ConfigService, referential) {
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
+        var defaultLang = angular.copy($scope.language);
 
         if (referential != undefined && referential != null) {
             $scope.referential = referential;
@@ -1663,9 +1664,19 @@
         };
 
         $scope.create = function() {
+            for (var i = 1; i <=4; i++) {
+              if ($scope.referential['label' + i] == '' && i != defaultLang) {
+                $scope.referential['label' + i] = $scope.referential['label' + defaultLang];
+              }
+            }
             $mdDialog.hide($scope.referential);
         };
         $scope.createAndContinue = function () {
+            for (var i = 1; i <=4; i++) {
+              if ($scope.referential['label' + i] == '' && i != defaultLang) {
+                $scope.referential['label' + i] = $scope.referential['label' + defaultLang];
+              }
+            }
             $scope.referential.cont = true;
             $mdDialog.hide($scope.referential);
         }
