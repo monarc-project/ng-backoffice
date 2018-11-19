@@ -296,7 +296,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
+                controller: ['$scope', 'toastr', '$mdMedia',  '$mdDialog', 'gettextCatalog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                 templateUrl: 'views/anr/create.threats.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -348,7 +348,7 @@
             ThreatService.getThreat(threat.id).then(function (threatData) {
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
+                    controller: ['$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                     templateUrl: 'views/anr/create.threats.html',
                     targetEvent: ev,
                     preserveScope: false,
@@ -1473,7 +1473,7 @@
         };
     }
 
-    function CreateThreatDialogCtrl($scope, $mdDialog, $q, ModelService, ThreatService, ConfigService, threat) {
+    function CreateThreatDialogCtrl($scope, toastr, $mdMedia, $mdDialog, gettextCatalog, $q, ModelService, ThreatService, ConfigService, threat) {
         ModelService.getModels({isGeneric:0}).then(function (data) {
             $scope.models = data.models;
         });
@@ -1516,28 +1516,14 @@
                 description2: '',
                 description3: '',
                 description4: '',
-                descAccidental1: '',
-                descAccidental2: '',
-                descAccidental3: '',
-                descAccidental4: '',
-                exAccidental1: '',
-                exAccidental2: '',
-                exAccidental3: '',
-                exAccidental4: '',
-                descDeliberate1: '',
-                descDeliberate2: '',
-                descDeliberate3: '',
-                descDeliberate4: '',
-                exDeliberate1: '',
-                exDeliberate2: '',
-                exDeliberate3: '',
-                exDeliberate4: '',
-                typeConsequences1: '',
-                typeConsequences2: '',
-                typeConsequences3: '',
-                typeConsequences4: '',
             };
         }
+
+        $scope.$watch('language', function() {
+          if ($scope.threat.theme) {
+            $scope.themeSearchText = $scope.threat.theme['label' + $scope.language];
+          }
+        });
 
         $scope.queryThemeSearch = function (query) {
             var promise = $q.defer();
@@ -1553,32 +1539,96 @@
             $scope.threat.theme = item;
         }
 
-        $scope.createTheme = function (label) {
-            ThreatService.createTheme({label1: label}, function (data) {
-                ThreatService.getTheme(data.id).then(function (theme) {
-                    $scope.threat.theme = theme;
+        $scope.createNewTheme = function (ev, theme) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', 'ConfigService', 'theme', CreateThemeDialogCtrl],
+                templateUrl: 'views/anr/create.themes.html',
+                targetEvent: ev,
+                multiple: true,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
+                clickOutsideToClose: false,
+                fullscreen: useFullScreen,
+                locals: {
+                    'theme': theme
+                }
+            })
+                .then(function (theme) {
+                    var cont = theme.cont;
+                    theme.cont = undefined;
+                    if (cont) {
+                        $scope.createNewTheme(ev);
+                    }
+
+                    ThreatService.createTheme(theme,
+                        function (status) {
+                        theme.id = status.id;
+                        $scope.selectedThemeItemChange(theme);
+                        toastr.success(gettextCatalog.getString('The theme has been created successfully.',
+                            {themeLabel: $scope._langField(theme,'label')}), gettextCatalog.getString('Creation successful'));
+                        },
+                        function (err) {
+                            $scope.createNewTheme(ev, theme);
+                        }
+                    );
+                });
+        };
+
+        $scope.editTheme = function (ev, theme) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            ThreatService.getTheme(theme.id).then(function (themeData) {
+                $mdDialog.show({
+                    controller: ['$scope', '$mdDialog', 'ConfigService','theme', CreateThemeDialogCtrl],
+                    templateUrl: 'views/anr/create.themes.html',
+                    targetEvent: ev,
+                    preserveScope: false,
+                    multiple: true,
+                    scope: $scope.$dialogScope.$new(),
+                    clickOutsideToClose: false,
+                    fullscreen: useFullScreen,
+                    locals: {
+                      'theme': theme
+                    }
                 })
+                    .then(function (theme) {
+                        ThreatService.updateTheme(theme,
+                            function () {
+                                $scope.themeSearchText = theme['label' + $scope.language];
+                                $scope.selectedThemeItemChange(theme);
+                                toastr.success(gettextCatalog.getString('The theme has been edited successfully.',
+                                    {themeLabel: $scope._langField(theme,'label')}), gettextCatalog.getString('Edition successful'));
+                            },
+
+                            function () {
+                                $scope.editTheme(ev, theme);
+                            }
+                        );
+                    });
             });
         };
 
-        $scope.updateTheme = function (theme) {
-            $scope.theme_edit_lock = true;
-            ThreatService.updateTheme(theme, function () {
-                ThreatService.getTheme(theme.id).then(function (theme) {
-                    $scope.threat.theme = theme;
-                    $scope.theme_edit_lock = false;
-                    $scope.theme_edit = null;
-                });
+        $scope.deleteTheme= function (ev, theme) {
+            var confirm = $mdDialog.confirm()
+                .multiple(true)
+                .title(gettextCatalog.getString('Are you sure you want to delete theme?',
+                    {label: $scope._langField(theme,'label')}))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
+                .targetEvent(ev)
+                .theme('light')
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                  ThreatService.deleteTheme(theme.id,
+                      function () {
+                        $scope.selectedThemeItemChange();
+                         toastr.success(gettextCatalog.getString('The theme has been deleted.',
+                         {label: $scope._langField(theme,'label')}), gettextCatalog.getString('Deletion successful'));
+                      }
+                  );
             });
-        }
-
-        $scope.deleteTheme = function (theme) {
-            ThreatService.deleteTheme(theme.id, function () {
-                $scope.threat.theme = null;
-                $scope.theme_edit = null;
-                $scope.themeSearchText = null;
-            });
-        }
+        };
 
         $scope.cancel = function() {
             $mdDialog.cancel();
@@ -1591,6 +1641,36 @@
             $scope.threat.cont = true;
             $mdDialog.hide($scope.threat);
         }
+    }
+
+    function CreateThemeDialogCtrl($scope, $mdDialog,  ConfigService, theme) {
+
+      $scope.languages = ConfigService.getLanguages();
+      $scope.language = ConfigService.getDefaultLanguageIndex();
+
+        if (theme != undefined && theme != null) {
+            $scope.theme = theme;
+        } else {
+            $scope.theme = {
+                label1: '',
+                label2: '',
+                label3: '',
+                label4: '',
+            };
+        }
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        $scope.create = function() {
+            $mdDialog.hide($scope.theme);
+        };
+        $scope.createAndContinue = function() {
+            $scope.category.cont = true;
+            $mdDialog.hide($scope.theme);
+        };
+
     }
 
     function CreateVulnDialogCtrl($scope, $mdDialog, ModelService, ConfigService, vuln) {
@@ -1782,6 +1862,12 @@
             };
         }
 
+        $scope.$watch('language', function() {
+          if ($scope.measure.category) {
+            $scope.categorySearchText = $scope.measure.category['label' + $scope.language];
+          }
+        });
+
         $scope.queryCategorySearch = function (query) {
             var promise = $q.defer();
             SOACategoryService.getCategories({filter: query, referential: referential.uniqid}).then(function (data) {
@@ -1855,6 +1941,7 @@
                     .then(function (category) {
                         SOACategoryService.updateCategory(category,
                             function () {
+                                $scope.categorySearchText = category['label' + $scope.language];
                                 $scope.selectedCategoryItemChange(category);
                                 toastr.success(gettextCatalog.getString('The category has been edited successfully.',
                                     {categoryLabel: $scope._langField(category,'label')}), gettextCatalog.getString('Edition successful'));
