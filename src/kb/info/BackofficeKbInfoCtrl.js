@@ -1650,6 +1650,7 @@
 
         if (referential != undefined && referential != null) {
             $scope.referential = referential;
+            delete $scope.referential.measures;
         } else {
           $scope.referential = {
               label1: '',
