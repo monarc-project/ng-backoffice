@@ -630,7 +630,7 @@
         $scope.selectMeasuresTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'measures'});
             $scope.updatingReferentials = false;
-            ReferentialService.getReferentials({order: 'id'}).then(function (data) {
+            ReferentialService.getReferentials({order: 'uniqid'}).then(function (data) {
                 $scope.referentials.items = data;
                 $scope.updatingReferentials = true;
 
@@ -675,7 +675,7 @@
 
         $scope.updateReferentials = function () {
             $scope.updatingReferentials = false;
-            $scope.referentials.promise = ReferentialService.getReferentials({order: 'id'});
+            $scope.referentials.promise = ReferentialService.getReferentials({order: 'uniqid'});
             $scope.referentials.promise.then(
                 function (data) {
                     $scope.referentials.items = data;
