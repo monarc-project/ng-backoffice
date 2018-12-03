@@ -668,7 +668,7 @@
         };
 
         $scope.toggleMeasureStatus = function (measure) {
-            MeasureService.patchMeasure(measure.id, {status: !measure.status}, function () {
+            MeasureService.patchMeasure(measure.uniqid, {status: !measure.status}, function () {
                 measure.status = !measure.status;
             });
         }
@@ -849,7 +849,7 @@
         $scope.editMeasure = function (ev, measure) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            MeasureService.getMeasure(measure.id).then(function (measureData) {
+            MeasureService.getMeasure(measure.uniqid).then(function (measureData) {
                 $mdDialog.show({
                     controller: ['$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'SOACategoryService', 'MeasureService', 'ReferentialService', 'ConfigService', '$q', 'measure', 'referential', CreateMeasureDialogCtrl],
                     templateUrl: 'views/anr/create.measures.html',
@@ -888,7 +888,7 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                MeasureService.deleteMeasure(item.id,
+                MeasureService.deleteMeasure(item.uniqid,
                     function () {
                         $scope.updateMeasures();
                         toastr.success(gettextCatalog.getString('The control has been deleted.',
@@ -912,7 +912,7 @@
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.measures.selected.length; ++i) {
-                    ids.push($scope.measures.selected[i].id);
+                    ids.push($scope.measures.selected[i].uniqid);
                 }
 
                 MeasureService.deleteMassMeasure(ids, function () {
@@ -1776,30 +1776,31 @@
           if (ref.uniqid !== $scope.referentialSelected.uniqid ) {
             $scope.matchMeasures[ref.uniqid] = [];
             $scope.measuresRefSelected.forEach(function (measure){
-              $scope.matchMeasures[ref.uniqid][measure.id] = [];
+              $scope.matchMeasures[ref.uniqid][measure.uniqid] = [];
               if (Array.isArray(measure.measuresLinked)) {
                 measure.measuresLinked.forEach(function (measureLinked){
-                  var measureFound = ref.measures.filter(ml => ml.id == measureLinked.id);
+                  var measureFound = ref.measures.filter(ml => ml.uniqid == measureLinked.uniqid);
                   if (measureFound.length > 0) {
-                    $scope.matchMeasures[ref.uniqid][measure.id].push(measureLinked);
+                    $scope.matchMeasures[ref.uniqid][measure.uniqid].push(measureLinked);
                   }
                 })
               }
-              promise.resolve($scope.matchMeasures[ref.uniqid][measure.id]);
+              promise.resolve($scope.matchMeasures[ref.uniqid][measure.uniqid]);
             });
             return promise.promise;
           }
         });
 
-        $scope.queryMeasureSearch = function (query, referential, measureId ) {
+        $scope.queryMeasureSearch = function (query, referential, measureUniqid ) {
             var promise = $q.defer();
             MeasureService.getMeasures({filter: query, referential: referential, order: 'code'}).then(function (e) {
               var filtered = [];
               for (var j = 0; j < e.measures.length; ++j) {
                   var found = false;
-                  for (var i = 0; i < $scope.matchMeasures[referential][measureId].length; ++i) {
+                  console.log($scope.matchMeasures);
+                  for (var i = 0; i < $scope.matchMeasures[referential][measureUniqid].length; ++i) {
 
-                      if ($scope.matchMeasures[referential][measureId][i].id == e.measures[j].id) {
+                      if ($scope.matchMeasures[referential][measureUniqid][i].uniqid == e.measures[j].uniqid) {
                           found = true;
                           break;
                       }
@@ -1829,7 +1830,7 @@
         $scope.deleteMeasureLinked = function(fatherId,childId) {
           MeasureMeasureService.getMeasuresMeasures({fatherId:fatherId, childId: childId}).then(function(e) {
             if (e.MeasureMeasure.length > 0) {
-              MeasureMeasureService.deleteMeasureMeasure(e.MeasureMeasure[0].id);
+              MeasureMeasureService.deleteMeasureMeasure(e.MeasureMeasure[0].uniqid);
             }
           });
         };
@@ -2174,7 +2175,7 @@
                   var found = false;
                   for (var i = 0; i < $scope.amv.measures[$scope.amv.referential.uniqid].length; ++i) {
 
-                      if ($scope.amv.measures[$scope.amv.referential.uniqid][i].id == e.measures[j].id) {
+                      if ($scope.amv.measures[$scope.amv.referential.uniqid][i].uniqid == e.measures[j].uniqid) {
                           found = true;
                           break;
                       }
@@ -2203,7 +2204,7 @@
               var promise = $q.defer();
               if ($scope.amv.measures[ref.uniqid] != undefined) {
                 $scope.amv.measures[ref.uniqid].forEach (function (measure) {
-                  promise.resolve($scope.amv.measures.push(measure.id));
+                  promise.resolve($scope.amv.measures.push(measure.uniqid));
                 })
               }
               return promise.promise;
@@ -2222,7 +2223,7 @@
               var promise = $q.defer();
               if ($scope.amv.measures[ref.uniqid] != undefined) {
                 $scope.amv.measures[ref.uniqid].forEach (function (measure) {
-                  promise.resolve($scope.amv.measures.push(measure.id));
+                  promise.resolve($scope.amv.measures.push(measure.uniqid));
                 })
               }
               return promise.promise;
