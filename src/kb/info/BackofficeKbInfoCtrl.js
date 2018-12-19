@@ -1601,7 +1601,7 @@
 
             $scope.threat.c = ($scope.threat.c == 1);
             $scope.threat.i = ($scope.threat.i == 1);
-            $scope.threat.d = ($scope.threat.d == 1);
+            $scope.threat.a = ($scope.threat.a == 1);
 
         } else {
             $scope.threat = {
@@ -1609,7 +1609,7 @@
                 code: '',
                 c: false,
                 i: false,
-                d: false,
+                a: false,
                 label1: '',
                 label2: '',
                 label3: '',

@@ -133,7 +133,7 @@
                         <td md-cell><md-button class="md-icon-button md-primary" ng-click="toggleThreatStatus(threat)"><md-icon>{{ threat.status ? 'done' : 'clear' }}</md-icon></md-button></td>
                         <td md-cell>{{ _langField(threat,'label') }}</td>
                         <td md-cell>{{ threat.code }}</td>
-                        <td md-cell>{{ threat.c ? 'C' : '' }}{{ threat.i ? 'I' : '' }}{{ threat.d ? ('A' | translate) : '' }}</td>
+                        <td md-cell>{{ threat.c ? 'C' : '' }}{{ threat.i ? 'I' : '' }}{{ threat.a ? ('A' | translate) : '' }}</td>
                         <td md-cell>{{ specificityStr(threat.mode) }}</td>
                         <td md-cell>{{ _langField(threat,'description') }}</td>
                         <td md-cell>
