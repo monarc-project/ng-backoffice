@@ -633,7 +633,7 @@
         $scope.selectMeasuresTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'measures'});
             $scope.updatingReferentials = false;
-            ReferentialService.getReferentials({order: 'uniqid'}).then(function (data) {
+            ReferentialService.getReferentials({order: 'createdAt'}).then(function (data) {
                 $scope.referentials.items = data;
                 $scope.updatingReferentials = true;
 
@@ -683,7 +683,7 @@
 
         $scope.updateReferentials = function () {
             $scope.updatingReferentials = false;
-            $scope.referentials.promise = ReferentialService.getReferentials({order: 'uniqid'});
+            $scope.referentials.promise = ReferentialService.getReferentials({order: 'createdAt'});
             $scope.referentials.promise.then(
                 function (data) {
                     $scope.referentials.items = data;
@@ -945,7 +945,7 @@
 
         $scope.selectAmvsTab = function () {
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'amvs'});
-            ReferentialService.getReferentials({order: 'uniqid'}).then(function (data) {
+            ReferentialService.getReferentials({order: 'createdAt'}).then(function (data) {
                 $scope.referentials_filter.items = data;
                 $scope.referentials_filter.selected = data['referentials'][0].uniqid;
             });
@@ -2165,7 +2165,7 @@
 
         $scope.queryReferentialsSearch = function (query) {
             var promise = $q.defer();
-            ReferentialService.getReferentials({order: 'uniqid'}).then(function (e) {
+            ReferentialService.getReferentials({order: 'createdAt'}).then(function (e) {
                 promise.resolve(e.referentials);
             }, function (e) {
                 promise.reject(e);
