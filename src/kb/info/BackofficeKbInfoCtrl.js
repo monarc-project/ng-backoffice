@@ -1932,7 +1932,7 @@
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.categorySearchText = '';
-        $scope.RefSelected = referential.uniqid;
+        $scope.RefSelected = referential;
         if (measure != undefined && measure != null) {
             $scope.measure = measure;
         } else {
@@ -2409,6 +2409,12 @@
               'required' : true,
               'type' : '1,2',
               'example' : gettextCatalog.getString('\n1: primary asset\n2: secondary asset')
+            },
+            'mode' : {
+              'field' : 'mode',
+              'required' : true,
+              'type' : '0,1',
+              'example' : gettextCatalog.getString('\n1: generic\n2: specific')
             }
         },
         'Threats' : {
@@ -2448,6 +2454,12 @@
               'type' : 'Boolean',
               'example' : '0,1,false,true'
             },
+            'mode' : {
+              'field' : 'mode',
+              'required' : true,
+              'type' : '0,1',
+              'example' : gettextCatalog.getString('\n0: generic\n1: specific')
+            },
             'theme' : {
               'field' : 'theme',
               'required' : true,
@@ -2473,6 +2485,12 @@
               'required' : false,
               'type' : 'text',
               'example' : gettextCatalog.getString('IT charter Conditions of use General terms and conditions')
+            },
+            'mode' : {
+              'field' : 'mode',
+              'required' : true,
+              'type' : '0,1',
+              'example' : gettextCatalog.getString('\n0: generic\n1: specific')
             }
         },
         'Controls' :  {
