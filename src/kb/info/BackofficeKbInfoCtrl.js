@@ -2345,6 +2345,8 @@
       $scope.guideVisible = false;
       $scope.languages = ConfigService.getLanguages();
       $scope.language = ConfigService.getDefaultLanguageIndex();
+      var defaultLang = angular.copy($scope.language);
+
       switch (tab) {
         case 'Asset types':
           var getService = AssetService.getAssets();
@@ -2393,7 +2395,7 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label',
+              'field' : 'label' + defaultLang,
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('Network')
@@ -2425,7 +2427,7 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label',
+              'field' : 'label' + defaultLang,
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('Fire')
@@ -2475,7 +2477,7 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label',
+              'field' : 'label' + defaultLang,
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('No IT charter specifying the rules of use')
@@ -2501,7 +2503,7 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label',
+              'field' : 'label' + defaultLang,
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('')
@@ -2521,10 +2523,10 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label',
+              'field' : 'label' + defaultLang,
               'required' : true,
               'type' : 'text',
-              'example' : gettextCatalog.getString('')
+              'example' : gettextCatalog.getString('label + language number (See footerpage): Ex. label1, label2,...')
             }
         },
         'Tags' :  {
@@ -2535,7 +2537,7 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label',
+              'field' : 'label' + defaultLang,
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('')
@@ -2549,10 +2551,10 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label',
+              'field' : 'label' + defaultLang,
               'required' : true,
               'type' : 'text',
-              'example' : gettextCatalog.getString('')
+              'example' : gettextCatalog.getString('label + language number (See footerpage): Ex. label1, label2,...')
             },
             'description' : {
               'field' : 'description',
@@ -2601,9 +2603,15 @@
           var themesData = {};
           if ($scope.extItemToCreate && $scope.extItemToCreate.length > 0) {
              for (let i = 0; i < $scope.extItemToCreate.length; i++) {
-                themesData[i] = {
-                ['label' + $scope.language] : $scope.extItemToCreate[i]
-                };
+               themesData[i] = {
+                 label1: '',
+                 label2: '',
+                 label3: '',
+                 label4: '',
+               };
+               for (var j = 1; j <= 4; j++) {
+                 themesData[i]['label' + j] = $scope.extItemToCreate[i];
+               }
              }
 
              ThreatService.createTheme(themesData, function(){
@@ -2636,7 +2644,9 @@
                  label3: '',
                  label4: '',
                };
-               categoryData[i]['label' + $scope.language] = $scope.extItemToCreate[i];
+               for (var j = 1; j <= 4; j++) {
+                 categoryData[i]['label' + j] = $scope.extItemToCreate[i];
+               }
             }
             SOACategoryService.createCategory(categoryData, function(){
                SOACategoryService.getCategories().then(function (e) {
@@ -2700,10 +2710,21 @@
               var uniqueLabels = new Set(file.data.map(item => item[externalItem]));
             }
 
-            for (let label of uniqueLabels)
-              if(label && !$scope.actualExternalItems.find(ei=> ei['label' + $scope.language].toLowerCase() === label.toLowerCase().trim())){
-                $scope.extItemToCreate.push(label);
+            for (let label of uniqueLabels){
+              var found = false;
+              if (label) {
+                $scope.actualExternalItems.filter(function(ei){
+                  for (var i = 1; i <=4; i++) {
+                    if (ei['label' + i].toLowerCase() === label.toLowerCase().trim()){
+                      found = true;
+                    }
+                  }
+                });
+                if (!found) {
+                  $scope.extItemToCreate.push(label);
+                }
               }
+            }
           }
 
           var codes = items.map(item => item.code.toLowerCase());
@@ -2721,6 +2742,7 @@
                 file.data[i].error += gettextCatalog.getString('code is already in use\n');
                 $scope.check = true;
             }
+
 
             for (var j = 0; j < requiredFields.length; j++) {
               if (!file.data[i][requiredFields[j]]) {
@@ -2769,29 +2791,17 @@
           default:
         }
         var cia = ['c','i','a'];
-        var itemFields= [];
+        var itemFields= ['label1','label2','label3','label4','description1','description2','description3','description4'];
         for(var index in $scope.items[tab]) {
             itemFields.push($scope.items[tab][index]['field']);
         }
 
         await $scope.importData.forEach(function(postData){
           var postDataKeys = Object.keys(postData);
-
           for (let pdk of postDataKeys){
             if(!itemFields.includes(pdk.toLowerCase())){
               delete postData[pdk];
             }
-          }
-          if (postData['label']) {
-            postData['label' + $scope.language] = postData['label'];
-            delete postData['label'];
-          }
-          if (postData['description']) {
-            postData['description' + $scope.language] = postData['description'];
-            delete postData['description'];
-          }
-          if (postData['theme']) {
-            postData.theme = $scope.getThemes.find(t => t['label' + $scope.language].toLowerCase() === postData.theme.toLowerCase()).id;
           }
 
           if (tab == 'Threats') {
@@ -2802,13 +2812,32 @@
                 postData[cia[i]] = true;
               }
             }
+            if (postData['theme']) {
+              $scope.getThemes.filter(function(theme){
+                for (var i = 1; i <=4; i++) {
+                  if (theme['label' + i].toLowerCase() === postData.theme.toLowerCase().trim()){
+                    $scope.idTheme =  theme.id;
+                  }
+                }
+              });
+              postData.theme = $scope.idTheme;
+            }
           }
           if (tab == 'Controls') {
             postData.referential = referential;
+
+            if (postData['category']) {
+              $scope.getCategories.filter(function(category){
+                for (var i = 1; i <=4; i++) {
+                  if (category['label' + i].toLowerCase() === postData.category.toLowerCase().trim()){
+                    $scope.idCategory =  category.id;
+                  }
+                }
+              });
+              postData.category = $scope.idCategory;
+            }
           }
-          if (postData['category']) {
-            postData.category = $scope.getCategories.find(c => c['label' + $scope.language].toLowerCase() === postData.category.toLowerCase()).id;
-          }
+
           if (postData['tags']) {
             var tag = postData.tags.toString().split("/");
             var tagsId = [];
