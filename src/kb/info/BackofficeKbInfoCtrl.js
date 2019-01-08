@@ -1189,7 +1189,7 @@
          * OBJECTS LIBRARY TAB
          */
         var objLibTabSelected = false;
-        $scope.objlibs = TableHelperService.build('name1', 20, 1, '');
+        $scope.objlibs = TableHelperService.build('name' + $scope.userLanguage, 20, 1, '');
 
         if ($rootScope.objlibs_query) {
             $scope.objlibs.query = $rootScope.objlibs_query;
