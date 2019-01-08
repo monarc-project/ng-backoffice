@@ -2733,6 +2733,10 @@
             }
           }
 
+          if (tab == 'Controls') {
+             items = items.filter(item => item.referential.uniqid == referential)
+          }
+
           var codes = items.map(item => item.code.toLowerCase());
           var requiredFields = [];
           for(var index in $scope.items[tab]) {
