@@ -42,7 +42,7 @@
           })
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
-            'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'ObjlibService', '$state',
+            'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'TagService', 'RiskService', 'ObjlibService', '$state',
             '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService', 'MeasureMeasureService',
             BackofficeKbInfoCtrl
         ]);
@@ -51,7 +51,7 @@
      * BO > KB > INFO
      */
     function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
-                                  AssetService, ThreatService, VulnService, AmvService, MeasureService, ObjlibService,
+                                  AssetService, ThreatService, VulnService, AmvService, MeasureService, TagService, RiskService, ObjlibService,
                                   $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, ReferentialService,
                                   MeasureMeasureService) {
 
