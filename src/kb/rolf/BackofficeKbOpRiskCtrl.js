@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbOpRiskCtrl', [
             '$scope', '$timeout', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
-            'TagService', 'RiskService', '$stateParams', '$state',
+            'TagService', 'RiskService', 'UserService', '$stateParams', '$state',
             BackofficeKbOpRiskCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > OPERATIONAL RISKS (ROLF)
      */
     function BackofficeKbOpRiskCtrl($scope, $timeout, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
-                                    TagService, RiskService, $stateParams, $state) {
+                                    TagService, RiskService, UserService, $stateParams, $state) {
         $scope.tab = $stateParams.tab;
         TableHelperService.resetBookmarks();
 
@@ -33,10 +33,13 @@
             $scope.selectTab(tabName);
         });
 
+        $scope.userLanguage = UserService.getUiLanguage();
+
+
         /**
          * TAGS
          */
-        $scope.tags = TableHelperService.build('code', 20, 1, '');
+        $scope.tags = TableHelperService.build('label' + $scope.userLanguage, 20, 1, '');
 
         $scope.updateTags = function () {
             $scope.tags.promise = TagService.getTags($scope.tags.query);
