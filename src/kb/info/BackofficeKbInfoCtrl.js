@@ -150,8 +150,8 @@
                 controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
                 templateUrl: 'views/anr/create.assets.html',
                 targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
@@ -339,8 +339,8 @@
                 controller: ['$scope', 'toastr', '$mdMedia',  '$mdDialog', 'gettextCatalog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
                 templateUrl: 'views/anr/create.threats.html',
                 targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
@@ -536,8 +536,8 @@
                 controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
                 templateUrl: 'views/anr/create.vulns.html',
                 targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
@@ -861,8 +861,8 @@
                 controller: ['$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'SOACategoryService', 'MeasureService', 'ReferentialService', 'ConfigService', '$q', 'measure', 'referential', CreateMeasureDialogCtrl],
                 templateUrl: 'views/anr/create.measures.html',
                 targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
@@ -1470,7 +1470,6 @@
               scope: $scope.$dialogScope.$new(),
               preserveScope: false,
               clickOutsideToClose: false,
-              //multiple: true,
               fullscreen: useFullScreen,
               locals: {
                   'tab': tab,
@@ -1479,7 +1478,62 @@
                   'referential' : $scope.RefSelected,
                   'tags' : $scope.listTags
               }
-          });
+          })
+            .then(function(importData){
+              switch (tab) {
+
+                case 'Asset types':
+                  AssetService.createAsset(importData, function (result){
+                    $scope.$parent.updateAssets();
+                    successCreateObject(result)
+                  });
+                  break;
+                case 'Threats':
+                  ThreatService.createThreat(importData, function (result){
+                    $scope.$parent.updateThreats();
+                    successCreateObject(result)
+                  });
+                  break;
+                case 'Vulnerabilties':
+                  VulnService.createVuln(importData, function (result){
+                    $scope.$parent.updateVulns();
+                    successCreateObject(result)
+                  });
+                  break;
+                case 'Controls':
+                  MeasureService.createMeasure(importData, function (result){
+                    $scope.$parent.updateMeasures();
+                    successCreateObject(result)
+                  });
+                  break;
+                case 'Categories':
+                  SOACategoryService.createCategory(importData, function (result){
+                    successCreateObject(result)
+                  });
+                  break;
+                case 'Tags':
+                  TagService.createTag(importData, function (result){
+                    $scope.$parent.updateTags();
+                    successCreateObject(result)
+                  });
+                  break;
+                case 'Operational Risks':
+                  RiskService.createRisk(importData, function (result){
+                    $scope.$parent.updateRisks();
+                    successCreateObject(result)
+                  });
+                  break;
+
+                default:
+              }
+
+              function successCreateObject(result){
+
+                toastr.success(gettextCatalog.getString((result.id.length ? result.id.length : 1) + ' ' + tab + ' ' + 'have been created successfully.'),
+                               gettextCatalog.getString('Creation successful'));
+
+              };
+            })
         }
     }
 
@@ -2864,56 +2918,7 @@
           }
         });
 
-        switch (tab) {
-
-          case 'Asset types':
-            AssetService.createAsset($scope.importData, function (result){
-              successCreateObject(result)
-            });
-            break;
-          case 'Threats':
-            ThreatService.createThreat($scope.importData, function (result){
-              successCreateObject(result)
-            });
-            break;
-          case 'Vulnerabilties':
-            VulnService.createVuln($scope.importData, function (result){
-              successCreateObject(result)
-            });
-            break;
-          case 'Controls':
-            MeasureService.createMeasure($scope.importData, function (result){
-              successCreateObject(result)
-            });
-            break;
-          case 'Categories':
-            SOACategoryService.createCategory($scope.importData, function (result){
-              successCreateObject(result)
-            });
-            break;
-          case 'Tags':
-            TagService.createTag($scope.importData, function (result){
-              successCreateObject(result)
-            });
-            break;
-          case 'Operational Risks':
-            RiskService.createRisk($scope.importData, function (result){
-              successCreateObject(result)
-            });
-            break;
-
-          default:
-        }
-
-        function successCreateObject(result){
-
-          toastr.success(gettextCatalog.getString((result.id.length ? result.id.length : 1) + ' ' + tab + ' ' + 'have been created successfully.'),
-                         gettextCatalog.getString('Creation successful'));
-          $mdDialog.cancel();
-
-        };
-
-
+        $mdDialog.hide($scope.importData);
 
       };
 

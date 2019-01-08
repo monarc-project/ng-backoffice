@@ -66,8 +66,8 @@
                 controller: ['$scope', '$mdDialog', 'ConfigService', 'tag', CreateTagDialogCtrl],
                 templateUrl: 'views/anr/create.tags.html',
                 targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
@@ -228,8 +228,8 @@
                 controller: ['$scope', '$mdDialog', '$q', 'ConfigService', 'TagService', 'risk', CreateRiskDialogCtrl],
                 templateUrl: 'views/anr/create.risks.html',
                 targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
+                preserveScope: true,
+                scope: $scope,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
