@@ -43,7 +43,7 @@
         .controller('BackofficeKbInfoCtrl', [
             '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'TagService', 'RiskService', 'ObjlibService', '$state',
-            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService', 'MeasureMeasureService',
+            '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService', 'MeasureMeasureService', 'UserService',
             BackofficeKbInfoCtrl
         ]);
 
@@ -53,7 +53,7 @@
     function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                   AssetService, ThreatService, VulnService, AmvService, MeasureService, TagService, RiskService, ObjlibService,
                                   $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, ReferentialService,
-                                  MeasureMeasureService) {
+                                  MeasureMeasureService, UserService) {
 
         $scope.tab = $stateParams.tab;
         $scope.gettext = gettextCatalog.getString;
@@ -89,10 +89,12 @@
             $scope.selectTab(tabName);
         });
 
+        $scope.userLanguage = UserService.getUiLanguage();
+
         /*
          * ASSETS TYPE TAB
          */
-        $scope.assets = TableHelperService.build('label1', 20, 1, '');
+        $scope.assets = TableHelperService.build('label' + $scope.userLanguage, 20, 1, '');
         $scope.assets.activeFilter = 1;
         var assetsFilterWatch;
 
@@ -282,7 +284,7 @@
         /*
          * THREATS TAB
          */
-        $scope.threats = TableHelperService.build('label1', 20, 1, '');
+        $scope.threats = TableHelperService.build('label' + $scope.userLanguage, 20, 1, '');
         $scope.threats.activeFilter = 1;
         var threatsFilterWatch;
 
@@ -479,7 +481,7 @@
         /*
          * VULNS TAB
          */
-        $scope.vulns = TableHelperService.build('label1', 20, 1, '');
+        $scope.vulns = TableHelperService.build('label' + $scope.userLanguage, 20, 1, '');
         $scope.vulns.activeFilter = 1;
         var vulnsFilterWatch;
 
@@ -663,7 +665,7 @@
         /*
          * REFERENTIALS TAB
          */
-        $scope.measures = TableHelperService.build('category', 20, 1, '');
+        $scope.measures = TableHelperService.build('code', 20, 1, '');
         $scope.measures.activeFilter = 1;
         $scope.referentials = [];
         var measuresFilterWatch;
