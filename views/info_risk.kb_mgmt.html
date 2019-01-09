@@ -296,7 +296,7 @@
                           </thead>
 
                           <tbody md-body>
-                          <tr md-row md-select="measure" md-select-id="id" ng-repeat="measure in measures.items.measures">
+                          <tr md-row md-select="measure" md-select-id="uniqid" ng-repeat="measure in measures.items.measures">
                               <td md-cell>{{ measure.code }}</td>
                               <td md-cell>{{ _langField(measure,'label') }}</td>
                               <td md-cell>{{ _langField(measure.category,'label') }}</td>
