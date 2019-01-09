@@ -135,9 +135,10 @@
             $mdDialog.show(confirm).then(function() {
                 TagService.deleteTag(item.id,
                     function () {
-                        $scope.updateTags();
                         toastr.success(gettextCatalog.getString('The tag has been deleted.',
                             {label: item.label1}), gettextCatalog.getString('Deletion successful'));
+                        $scope.updateTags();
+                        $scope.tags.selected = $scope.tags.selected.filter(tagSelected => tagSelected.id != item.id);
                     }
                 );
             });
@@ -323,9 +324,10 @@
             $mdDialog.show(confirm).then(function() {
                 RiskService.deleteRisk(item.id,
                     function () {
-                        $scope.updateRisks();
                         toastr.success(gettextCatalog.getString('The risk has been deleted.',
                             {label: item.label1}), gettextCatalog.getString('Deletion successful'));
+                        $scope.updateRisks();
+                        $scope.risks.selected = $scope.risks.selected.filter(riskSelected => riskSelected.id != item.id);
                     }
                 );
             });
