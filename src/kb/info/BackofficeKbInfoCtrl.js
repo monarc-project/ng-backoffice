@@ -2406,7 +2406,7 @@
       $scope.guideVisible = false;
       $scope.languages = ConfigService.getLanguages();
       $scope.language = ConfigService.getDefaultLanguageIndex();
-      var defaultLang = angular.copy($scope.language);
+      $scope.defaultLang = angular.copy($scope.language);
 
       switch (tab) {
         case 'Asset types':
@@ -2428,6 +2428,7 @@
           var items = 'measures';
           var externalItem = 'category';
           $scope.actualExternalItems = categories;
+          console.log($scope.actualExternalItems);
           var extItemLabel = gettextCatalog.getString('categories');
         break;
         case 'Categories':
@@ -2456,13 +2457,14 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label' + defaultLang,
+              'field' : 'label' + $scope.defaultLang,
+              'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('Network')
             },
             'description' : {
-              'field' : 'description',
+              'field' : 'description1\ndescription2\ndescription3\ndescription4',
               'required' : false,
               'type' : 'text',
               'example' : gettextCatalog.getString('Any network hardware (router, switch, firewall, etc.)')
@@ -2488,13 +2490,14 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label' + defaultLang,
+              'field' : 'label' + $scope.defaultLang,
+              'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('Fire')
             },
             'description' : {
-              'field' : 'description',
+              'field' : 'description1\ndescription2\ndescription3\ndescription4',
               'required' : false,
               'type' : 'text',
               'example' : gettextCatalog.getString('Any situation that could facilitate the conflagration of premises or equipment.')
@@ -2538,13 +2541,14 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label' + defaultLang,
+              'field' : 'label' + $scope.defaultLang,
+              'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('No IT charter specifying the rules of use')
             },
             'description' : {
-              'field' : 'description',
+              'field' : 'description1\ndescription2\ndescription3\ndescription4',
               'required' : false,
               'type' : 'text',
               'example' : gettextCatalog.getString('IT charter Conditions of use General terms and conditions')
@@ -2564,7 +2568,8 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label' + defaultLang,
+              'field' : 'label' + $scope.defaultLang,
+              'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('')
@@ -2584,7 +2589,8 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label' + defaultLang,
+              'field' : 'label' + $scope.defaultLang,
+              'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('label + language number (See footerpage): Ex. label1, label2,...')
@@ -2598,7 +2604,8 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label' + defaultLang,
+              'field' : 'label' + $scope.defaultLang,
+              'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('')
@@ -2612,13 +2619,14 @@
               'example' : 'C16, 123, CAZ, C-12'
             },
             'label' : {
-              'field' : 'label' + defaultLang,
+              'field' : 'label' + $scope.defaultLang,
+              'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
               'example' : gettextCatalog.getString('label + language number (See footerpage): Ex. label1, label2,...')
             },
             'description' : {
-              'field' : 'description',
+              'field' : 'description1\ndescription2\ndescription3\ndescription4',
               'required' : false,
               'type' : 'text',
               'example' : gettextCatalog.getString('')
