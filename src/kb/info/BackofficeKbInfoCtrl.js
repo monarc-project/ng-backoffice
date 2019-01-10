@@ -880,7 +880,7 @@
                 .then(function (measure) {
                     var cont = measure.cont;
                     measure.cont = undefined;
-
+                    measure.referential = $scope.referential.uniqid;
                     if (cont) {
                         $scope.createNewMeasure(ev);
                     }
