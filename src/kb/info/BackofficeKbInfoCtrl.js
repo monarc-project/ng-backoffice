@@ -2161,6 +2161,7 @@
 
       $scope.languages = ConfigService.getLanguages();
       $scope.language = ConfigService.getDefaultLanguageIndex();
+      $scope.RefSelected = referential;
 
         if (category != undefined && category != null) {
             $scope.category = category;
@@ -2917,6 +2918,10 @@
               });
               postData.category = $scope.idCategory;
             }
+          }
+
+          if (tab == 'Categories') {
+            postData.referential = referential;
           }
 
           if (postData['tags']) {
