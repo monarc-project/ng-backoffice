@@ -2114,26 +2114,13 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-              // once we  delete a category the measure linked to this category have their category-id changed to null
-              MeasureService.getMeasures({category: category.id}).then(function (data) {
-                if (data.count > 0) {
-                   SOACategoryService.deleteCategory(category.id,
-                       function () {
-                         $scope.selectedCategoryItemChange();
-                          toastr.success(gettextCatalog.getString('The category has been deleted.',
-                          {label: $scope._langField(category,'label')}), gettextCatalog.getString('Deletion successful'));
-                       }
-                   );
-                } else {
-                  SOACategoryService.deleteCategory(category.id,
-                      function () {
-                        $scope.selectedCategoryItemChange();
-                         toastr.success(gettextCatalog.getString('The category has been deleted.',
-                         {label: $scope._langField(category,'label')}), gettextCatalog.getString('Deletion successful'));
-                      }
-                  );
-                }
-              })
+                SOACategoryService.deleteCategory(category.id,
+                    function () {
+                      $scope.selectedCategoryItemChange();
+                       toastr.success(gettextCatalog.getString('The category has been deleted.',
+                       {label: $scope._langField(category,'label')}), gettextCatalog.getString('Deletion successful'));
+                    }
+                );
             });
         };
 
