@@ -2169,7 +2169,6 @@
             $scope.category.referential = referential;
         } else {
             $scope.category = {
-                code: '',
                 referential: referential,
                 label1: '',
                 label2: '',
