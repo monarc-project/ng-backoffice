@@ -2554,7 +2554,7 @@
               'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
-              'example' : gettextCatalog.getString('')
+              'example' : gettextCatalog.getString('Access control policy')
             },
             'category' : {
               'field' : 'category',
@@ -2564,19 +2564,13 @@
             }
         },
         'Categories' :  {
-            'code' : {
-              'field' : 'code',
-              'required' : true,
-              'type' : 'text',
-              'example' : 'C16, 123, CAZ, C-12'
-            },
             'label' : {
               'field' : 'label' + $scope.defaultLang,
               'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
-              'example' : gettextCatalog.getString('label + language number (See footerpage): Ex. label1, label2,...')
-            }
+              'example' : gettextCatalog.getString('Operations security')
+            },
         },
         'Tags' :  {
             'code' : {
@@ -2590,7 +2584,7 @@
               'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
-              'example' : gettextCatalog.getString('')
+              'example' : gettextCatalog.getString('Governance')
             }
         },
         'Operational Risks' :  {
@@ -2605,13 +2599,13 @@
               'fieldBis' : 'label1\nlabel2\nlabel3\nlabel4',
               'required' : true,
               'type' : 'text',
-              'example' : gettextCatalog.getString('label + language number (See footerpage): Ex. label1, label2,...')
+              'example' : gettextCatalog.getString('The applicable legal and regulatory requirements are not determined, understood and consistently met')
             },
             'description' : {
               'field' : 'description1\ndescription2\ndescription3\ndescription4',
               'required' : false,
               'type' : 'text',
-              'example' : gettextCatalog.getString('')
+              'example' : gettextCatalog.getString('Product Compliance Customer agreement')
             },
             'tags' : {
               'field' : 'tags',
@@ -2688,7 +2682,6 @@
           if ($scope.extItemToCreate && $scope.extItemToCreate.length > 0) {
             for (let i = 0; i < $scope.extItemToCreate.length; i++) {
                categoryData[i] = {
-                 code: 'Temp' + Math.floor(Math.random() * 1000), //Ramdon code
                  referential: referential,
                  label1: '',
                  label2: '',
@@ -2927,8 +2920,32 @@
           $scope.guideVisible = !$scope.guideVisible;
       };
 
+      $scope.downloadExempleFile = function(){
+
+        var fields = [];
+        for(var index in $scope.items[tab]) {
+          if ($scope.items[tab][index]['field']) {
+            if ($scope.items[tab][index]['field'].match(/\n/)) {
+              var temp = $scope.items[tab][index]['field'].replace(/\n/g,',');
+              fields.push(temp);
+            }else if ($scope.items[tab][index]['fieldBis']) {
+              var temp = $scope.items[tab][index]['fieldBis'].replace(/\n/g,',');
+              fields.push(temp);
+            }else {
+              fields.push($scope.items[tab][index]['field']);
+            }
+          }
+        }
+        data = encodeURI('data:text/csv;charset=UTF-8,\uFEFF' + fields.join());
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', 'ExampleFile.csv');
+        document.body.appendChild(link);
+        link.click();
+      }
+
       $scope.cancel = function() {
-      $mdDialog.cancel();
+        $mdDialog.cancel();
       };
     }
 })();
