@@ -2406,15 +2406,14 @@
           var getService = VulnService.getVulns();
           var items = 'vulnerabilities'; break;
         case 'Controls':
-          var getService = MeasureService.getMeasures();
+          var getService = MeasureService.getMeasures({referential: referential});
           var items = 'measures';
           var externalItem = 'category';
           $scope.actualExternalItems = categories;
-          console.log($scope.actualExternalItems);
           var extItemLabel = gettextCatalog.getString('categories');
         break;
         case 'Categories':
-          var getService = SOACategoryService.getCategories();
+          var getService = SOACategoryService.getCategories({referential: referential});
           var items = 'categories';
         break;
         case 'Tags':
@@ -2693,14 +2692,14 @@
                }
             }
             SOACategoryService.createCategory(categoryData, function(){
-               SOACategoryService.getCategories().then(function (e) {
+               SOACategoryService.getCategories({referential: referential}).then(function (e) {
                    promise.resolve(e.categories);
                }, function (e) {
                    promise.reject();
                });
             });
           }else {
-            SOACategoryService.getCategories().then(function (e) {
+            SOACategoryService.getCategories({referential: referential}).then(function (e) {
                 promise.resolve(e.categories);
             }, function (e) {
                 promise.reject();
@@ -2775,10 +2774,6 @@
                 }
               }
             }
-          }
-
-          if (tab == 'Controls') {
-             items = items.filter(item => item.referential.uniqid == referential)
           }
 
           var codes = items.map(item => item.code.toLowerCase());
