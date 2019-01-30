@@ -15,26 +15,35 @@
             				reader.onload = function(onLoadEvent) {
               					scope.$apply(function() {
                             var data = onLoadEvent.target.result;
-                            var workbook = XLSX.read(data, {
-                              type: 'binary'
-                            });
+                            if (isJson) {
+                              fn(scope, {$fileContent:JSON.parse(data)});
+                            }else{
+                              var workbook = XLSX.read(data, {
+                                type: 'binary'
+                              });
 
-                            workbook.SheetNames.forEach(function(sheetName) {
-                                if (workbook.Sheets[sheetName].hasOwnProperty('!ref')) {
-                                  var csv = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
-                                  var chartset = jschardet.detect(csv);
+                              workbook.SheetNames.forEach(function(sheetName) {
+                                  if (workbook.Sheets[sheetName].hasOwnProperty('!ref')) {
+                                    var csv = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+                                    var chartset = jschardet.detect(csv);
 
-                                    if (chartset.encoding == 'UTF-8') {
-                                      fn(scope, {$fileContent:decodeURIComponent(escape(csv))});
-                                    }else {
-                                      fn(scope, {$fileContent:csv});
-                                    }
-                                }
-                            });
+                                      if (chartset.encoding == 'UTF-8') {
+                                        fn(scope, {$fileContent:decodeURIComponent(escape(csv))});
+                                      }else {
+                                        fn(scope, {$fileContent:csv});
+                                      }
+                                  }
+                              });
+                            }
               					});
             				};
-
-                    reader.readAsBinaryString((onChangeEvent.srcElement || onChangeEvent.target).files[0]);
+                    var isJson = false;
+                    if (onChangeEvent.target.files[0].type == "application/json") {
+                      reader.readAsText((onChangeEvent.srcElement || onChangeEvent.target).files[0]);
+                      isJson = true;
+                    }else {
+                      reader.readAsBinaryString((onChangeEvent.srcElement || onChangeEvent.target).files[0]);
+                    }
                     onChangeEvent.srcElement.value = null;
           			});
           		}
@@ -2620,19 +2629,34 @@
 
       $scope.parseFile = function (fileContent) {
         $scope.check = false;
-        Papa.parse(fileContent, {
-                          header: true,
-                          skipEmptyLines: true,
-                          trimHeaders : true,
-                          beforeFirstChunk: function( chunk ) {
-                            var rows = chunk.split( /\r\n|\r|\n/ );
-                            rows[0] = rows[0].toLowerCase();
-                            return rows.join( '\n' );
-                          },
-                          complete: function(importData) {
-                                    $scope.importData = $scope.checkFile(importData);
-                          }
-                  });
+        if (typeof fileContent === 'object') {
+          if (Array.isArray(fileContent)) {
+            var fileContentJson = {data : fileContent };
+            $scope.importData = $scope.checkFile(fileContentJson);
+          }else {
+            var alert = $mdDialog.alert()
+                .multiple(true)
+                .title(gettextCatalog.getString('Error File'))
+                .textContent(gettextCatalog.getString('Wrong JSON Schema'))
+                .theme('light')
+                .ok(gettextCatalog.getString('Close'))
+            $mdDialog.show(alert);
+          }
+        } else {
+            Papa.parse(fileContent, {
+                              header: true,
+                              skipEmptyLines: true,
+                              trimHeaders : true,
+                              beforeFirstChunk: function( chunk ) {
+                                var rows = chunk.split( /\r\n|\r|\n/ );
+                                rows[0] = rows[0].toLowerCase();
+                                return rows.join( '\n' );
+                              },
+                              complete: function(importData) {
+                                        $scope.importData = $scope.checkFile(importData);
+                              }
+                      });
+        }
       };
 
       $scope.getItems = function (){
@@ -2813,8 +2837,8 @@
                 .multiple(true)
                 .title(gettextCatalog.getString('New {{extItemLabel}}',
                         {extItemLabel: extItemLabel}))
-                .textContent(gettextCatalog.getString('Do you want to create {{count}} new {{extItemLabel}} ?\n\r\n\r',
-                              {count: $scope.extItemToCreate.length, extItemLabel: extItemLabel}) +
+                .textContent(gettextCatalog.getString('Do you want to create {{count}} new {{extItemLabel}} ?',
+                              {count: $scope.extItemToCreate.length, extItemLabel: extItemLabel}) + '\n\r\n\r' +
                                $scope.extItemToCreate.toString().replace(/,/g,'\n\r'))
                 .theme('light')
                 .ok(gettextCatalog.getString('Create & Import'))
