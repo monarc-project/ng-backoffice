@@ -2020,7 +2020,7 @@
         $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.categorySearchText = '';
-        $scope.RefSelected = referential;
+        $scope.RefSelected = referential.uuid;
         if (measure != undefined && measure != null) {
             $scope.measure = measure;
         } else {
