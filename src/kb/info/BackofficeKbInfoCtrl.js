@@ -2795,7 +2795,7 @@
               file.data.forEach(function(list){
                 var tag = list['tags'].toString().split("/");
                 tag.forEach(function(t){
-                  tags.push(t);
+                  tags.push(t.trim());
                 })
               });
               var uniqueLabels = new Set(tags);
@@ -2808,13 +2808,13 @@
               if (label) {
                 $scope.actualExternalItems.filter(function(ei){
                   for (var i = 1; i <=4; i++) {
-                    if (ei['label' + i].toLowerCase() === label.toLowerCase().trim()){
+                    if (ei['label' + i].toLowerCase().trim() === label.toLowerCase().trim()){
                       found = true;
                     }
                   }
                 });
                 if (!found) {
-                  $scope.extItemToCreate.push(label);
+                  $scope.extItemToCreate.push(label.trim());
                 }
               }
             }
@@ -2920,7 +2920,7 @@
             if (postData['theme']) {
               $scope.getThemes.filter(function(theme){
                 for (var i = 1; i <=4; i++) {
-                  if (theme['label' + i] && theme['label' + i].toLowerCase() === postData.theme.toLowerCase().trim()){
+                  if (theme['label' + i] && theme['label' + i].toLowerCase().trim() === postData.theme.toLowerCase().trim()){
                     $scope.idTheme =  theme.id;
                   }
                 }
@@ -2934,7 +2934,7 @@
             if (postData['category']) {
               $scope.getCategories.filter(function(category){
                 for (var i = 1; i <=4; i++) {
-                  if (category['label' + i] && category['label' + i].toLowerCase() === postData.category.toLowerCase().trim()){
+                  if (category['label' + i] && category['label' + i].toLowerCase().trim() === postData.category.toLowerCase().trim()){
                     $scope.idCategory =  category.id;
                   }
                 }
@@ -2953,7 +2953,7 @@
             tag.forEach(function(tag){
               $scope.getTags.filter(function(tags){
                 for (var i = 1; i <=4; i++) {
-                  if (tags['label' + i] && tags['label' + i].toLowerCase() === tag.toLowerCase().trim()){
+                  if (tags['label' + i] && tags['label' + i].toLowerCase().trim() === tag.toLowerCase().trim()){
                     tagsId.push(tags.id);
                   }
                 }
