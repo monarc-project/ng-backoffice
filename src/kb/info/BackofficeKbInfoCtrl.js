@@ -2883,11 +2883,13 @@
       $scope.uploadFile = async function () {
 
         var itemsToImport = $scope.importData.length;
+        var itemFields= [];
         switch (tab) {
           case 'Threats':
             $scope.getThemes = await $scope.createThemes();
             break;
           case 'Controls':
+            itemFields.push('uuid');
             $scope.getCategories = await $scope.createCategories();
             break;
           case 'Operational risks':
@@ -2896,7 +2898,6 @@
           default:
         }
         var cia = ['c','i','a'];
-        var itemFields= ['label1','label2','label3','label4','description1','description2','description3','description4'];
         for(var index in $scope.items[tab]) {
             itemFields.push($scope.items[tab][index]['field']);
         }
@@ -2930,7 +2931,6 @@
           }
           if (tab == 'Controls') {
             postData.referential = referential;
-
             if (postData['category']) {
               $scope.getCategories.filter(function(category){
                 for (var i = 1; i <=4; i++) {
