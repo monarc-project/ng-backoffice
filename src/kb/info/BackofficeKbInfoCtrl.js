@@ -2883,7 +2883,7 @@
       $scope.uploadFile = async function () {
 
         var itemsToImport = $scope.importData.length;
-        var itemFields= [];
+        var itemFields= ['label1','label2','label3','label4','description1','description2','description3','description4'];
         switch (tab) {
           case 'Threats':
             $scope.getThemes = await $scope.createThemes();
