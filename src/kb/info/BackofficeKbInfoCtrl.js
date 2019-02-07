@@ -829,22 +829,24 @@
         $scope.matchReferential = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             ReferentialService.getReferentials({order: 'createdAt'}).then(function (data) {
-                $scope.matchReferentials = data;
-                $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', 'MeasureMeasureService', '$q', 'measures', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
-                    templateUrl: 'views/anr/match.referentials.html',
-                    targetEvent: ev,
-                    preserveScope: false,
-                    scope: $scope.$dialogScope.$new(),
-                    clickOutsideToClose: false,
-                    fullscreen: useFullScreen,
-                    onRemoving : function(){$scope.selectReferential($scope.referential.uuid)},
-                    locals: {
-                        'measures' : $scope.measuresRefSelected,
-                        'referentials': $scope.matchReferentials,
-                        'referentialSelected' : $scope.referential
-                    }
-                })
+                var matchReferentials = data;
+                MeasureService.getMeasures({referential: $scope.referential_uuid, order:'code'}).then(function (data) {
+                    var measuresRefSelected = data;
+                    $mdDialog.show({
+                        controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', 'MeasureMeasureService', '$q', 'measures', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
+                        templateUrl: 'views/anr/match.referentials.html',
+                        targetEvent: ev,
+                        preserveScope: false,
+                        scope: $scope.$dialogScope.$new(),
+                        clickOutsideToClose: false,
+                        fullscreen: useFullScreen,
+                        locals: {
+                            'measures' : measuresRefSelected,
+                            'referentials': matchReferentials,
+                            'referentialSelected' : $scope.referential
+                        }
+                    })
+                });
             });
         };
 
@@ -1500,7 +1502,7 @@
           var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
           $mdDialog.show({
               controller: ['$scope', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService',
-                          'SOACategoryService', 'TagService', 'RiskService', 'toastr', 'gettextCatalog', '$q', 'tab', 'themes', 'categories', 'referential' ,'tags',  ImportFileDialogCtrl],
+                          'SOACategoryService', 'TagService', 'RiskService', 'MeasureMeasureService', 'toastr', 'gettextCatalog', '$q', 'tab', 'themes', 'categories', 'referential' ,'tags',  ImportFileDialogCtrl],
               templateUrl: 'views/anr/import.file.html',
               targetEvent: ev,
               scope: $scope.$dialogScope.$new(),
@@ -1559,15 +1561,18 @@
                     successCreateObject(result)
                   });
                   break;
+                case 'Matches':
+                   MeasureMeasureService.createMeasureMeasure(importData, function (result){
+                     successCreateObject(result)
+                   });
+                  break;
 
                 default:
               }
 
               function successCreateObject(result){
-
-                toastr.success(gettextCatalog.getString((result.id.length ? result.id.length : 1) + ' ' + tab + ' ' + 'have been created successfully.'),
+                toastr.success(gettextCatalog.getString((Array.isArray(result.id) ? result.id.length : 1) + ' ' + tab + ' ' + 'have been created successfully.'),
                                gettextCatalog.getString('Creation successful'));
-
               };
             })
         }
@@ -2004,6 +2009,33 @@
           });
         };
 
+        $scope.exportMatchRefs = function(){
+            var csv = '';
+            MeasureMeasureService.getMeasuresMeasures().then(function(data) {
+              var measuresLinked = data.MeasureMeasure;
+              keys = ['father','child'];
+              var csv = 'control,match\n';
+              var uuids = $scope.measuresRefSelected.map(item => item.uuid);
+              var measuresLinkedRefSelected = measuresLinked.filter(measure => uuids.includes(measure.father.uuid));
+              measuresLinkedRefSelected.forEach(function(item) {
+                  ctr = 0;
+                  keys.forEach(function(key) {
+                      if (ctr > 0) csv += ',';
+                      csv += item[key].uuid;
+                      ctr++;
+                  });
+                  csv += '\n';
+              });
+
+              data = encodeURI('data:text/csv;charset=UTF-8,\uFEFF' + csv);
+              link = document.createElement('a');
+              link.setAttribute('href', data);
+              link.setAttribute('download', 'matchReferentials.csv');
+              document.body.appendChild(link);
+              link.click();
+            })
+        };
+
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
@@ -2409,7 +2441,7 @@
     }
 
     function ImportFileDialogCtrl($scope, $mdDialog, ConfigService, AssetService, ThreatService, VulnService, MeasureService, SOACategoryService,
-                                  TagService, RiskService, toastr, gettextCatalog, $q, tab, themes, categories, referential, tags) {
+                                  TagService, RiskService, MeasureMeasureService, toastr, gettextCatalog, $q, tab, themes, categories, referential, tags) {
 
       $scope.tab = tab;
       $scope.guideVisible = false;
@@ -2452,6 +2484,13 @@
           $scope.actualExternalItems = tags;
           var extItemLabel = gettextCatalog.getString('tags');
           var items = 'risks';
+        break;
+        case 'Matches':
+          var getService = MeasureMeasureService.getMeasuresMeasures();
+          var items = 'MeasureMeasure';
+          MeasureService.getMeasures().then(function (data) {
+            $scope.allMeasures = data.measures;
+          });
         break;
         default:
       }
@@ -2584,7 +2623,7 @@
             },
             'category' : {
               'field' : 'category',
-              'required' : false,
+              'required' : true,
               'type' : 'text',
               'example' : $scope.actualExternalItems
             }
@@ -2638,6 +2677,20 @@
               'required' : false,
               'type' : 'text',
               'example' : gettextCatalog.getString('Separed by /') + $scope.actualExternalItems
+            }
+        },
+        'Matches' :  {
+            'control' : {
+              'field' : 'control',
+              'required' : true,
+              'type' : 'uuid',
+              'example' : ''
+            },
+            'match' : {
+              'field' : 'match',
+              'required' : true,
+              'type' : 'uuid',
+              'example' : ''
             }
         }
       };
@@ -2789,93 +2842,138 @@
         $scope.extItemToCreate = [];
         $scope.getItems().then(async function(items){
 
-          if (externalItem) {
-            if (externalItem == 'tags') {
-              var tags = [];
-              file.data.forEach(function(list){
-                var tag = list['tags'].toString().split("/");
-                tag.forEach(function(t){
-                  tags.push(t.trim());
-                })
-              });
-              var uniqueLabels = new Set(tags);
-            }else{
-              var uniqueLabels = new Set(file.data.map(item => item[externalItem].trim()));
-            }
+        var requiredFields = [];
 
-            for (let label of uniqueLabels){
-              var found = false;
-              if (label) {
-                $scope.actualExternalItems.filter(function(ei){
-                  for (var i = 1; i <=4; i++) {
-                    if (ei['label' + i].toLowerCase().trim() === label.toLowerCase().trim()){
-                      found = true;
-                    }
+        for(var index in $scope.items[tab]) {
+          if ($scope.items[tab][index]['required']) {
+            requiredFields.push($scope.items[tab][index]['field']);
+          }
+        }
+
+        if (!file.meta || file.meta.fields.some(rf=> requiredFields.includes(rf)) && file.data.length > 0) {
+            if (externalItem) {
+              if (externalItem == 'tags') {
+                var tags = [];
+                file.data.forEach(function(list){
+                  if (list['tags']) {
+                    var tag = list['tags'].toString().split("/");
+                    tag.forEach(function(t){
+                      tags.push(t.trim());
+                    })
                   }
                 });
-                if (!found) {
-                  $scope.extItemToCreate.push(label.trim());
+                var uniqueLabels = new Set(tags);
+              }else{
+                var uniqueLabels = new Set(file.data.map(item => item[externalItem].trim()));
+              }
+
+              for (let label of uniqueLabels){
+                var found = false;
+                if (label) {
+                  $scope.actualExternalItems.filter(function(ei){
+                    for (var i = 1; i <=4; i++) {
+                      if (ei['label' + i].toLowerCase().trim() === label.toLowerCase().trim()){
+                        found = true;
+                      }
+                    }
+                  });
+                  if (!found) {
+                    $scope.extItemToCreate.push(label.trim());
+                  }
                 }
               }
             }
-          }
 
-          var codes = items.map(item => item.code.toLowerCase());
-          var requiredFields = [];
-          for(var index in $scope.items[tab]) {
-            if ($scope.items[tab][index]['required']) {
-              requiredFields.push($scope.items[tab][index]['field']);
-            }
-          }
-          if (!file.meta || file.meta.fields.some(rf=> requiredFields.includes(rf)) && file.data.length > 0) {
-              for (var i = 0; i < file.data.length; i++) {
-                file.data[i].error = '';
-                file.data[i].alert = false;
+            for (var i = 0; i < file.data.length; i++) {
+              file.data[i].error = '';
+              file.data[i].alert = false;
 
+              if (requiredFields.includes('code')) {
+                var codes = items.map(item => item.code.toLowerCase());
                 if (file.data[i]['code'] && codes.includes(file.data[i]['code'].toLowerCase().trim())) {
                     file.data[i].error += gettextCatalog.getString('code is already in use') + "\n";;
                     $scope.check = true;
+                }else {
+                  codes.push(file.data[i]['code'].toLowerCase());
                 }
+              }
 
+              if (requiredFields.includes('match') && file.data[i]['control'] && file.data[i]['match']) {
+                var matches = items.map(item => item.father.uuid.toLowerCase() + item.child.uuid.toLowerCase());
+                var uuids = $scope.allMeasures.map(item => item.uuid);
 
-                for (var j = 0; j < requiredFields.length; j++) {
-                  if (!file.data[i][requiredFields[j]]) {
-                    file.data[i].error += requiredFields[j] + " " + gettextCatalog.getString('is mandatory') + "\n";;
+                if (!uuids.includes(file.data[i]['control'].toLowerCase().trim())) {
+                  file.data[i]['control'] = '-';
+                  file.data[i].error += gettextCatalog.getString('control does not exist') + "\n";
+                  $scope.check = true;
+                }
+                if (!uuids.includes(file.data[i]['match'].toLowerCase().trim())) {
+                  file.data[i]['match'] = '-';
+                  file.data[i].error += gettextCatalog.getString('match does not exist') + "\n";
+                  $scope.check = true;
+                }
+                if (matches.includes(file.data[i]['control'].toLowerCase().trim() + file.data[i]['match'].toLowerCase().trim())) {
+                    var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
+                    file.data[i]['father'] = file.data[i]['control'];
+                    file.data[i]['control'] = measure[0].referential['label' + $scope.defaultLang] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.defaultLang];
+
+                    var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
+                    file.data[i]['child'] = file.data[i]['match'];
+                    file.data[i]['match'] = measure[0].referential['label' + $scope.defaultLang] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.defaultLang];
+                    file.data[i].error += gettextCatalog.getString('this matching is already in use') + "\n";
                     $scope.check = true;
+                }else {
+                  var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
+                  if (measure.length > 0) {
+                    file.data[i]['father'] = file.data[i]['control'];
+                    file.data[i]['control'] = measure[0].referential['label' + $scope.defaultLang] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.defaultLang];
+                  }
+
+                  var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
+                  if (measure.length > 0) {
+                    file.data[i]['child'] = file.data[i]['match'];
+                    file.data[i]['match'] = measure[0].referential['label' + $scope.defaultLang] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.defaultLang];
                   }
                 }
-                if (!$scope.check && $scope.extItemToCreate.length > 0 && $scope.extItemToCreate.includes(file.data[i][externalItem])) {
-                    file.data[i].alert = true;
-                }
+              }
 
-                codes.push(file.data[i]['code'].toLowerCase());
+              for (var j = 0; j < requiredFields.length; j++) {
+                if (!file.data[i][requiredFields[j]]) {
+                  file.data[i].error += requiredFields[j] + " " + gettextCatalog.getString('is mandatory') + "\n";;
+                  $scope.check = true;
+                }
               }
-              if (!$scope.check && $scope.extItemToCreate.length > 0) {
-                var confirm = $mdDialog.confirm()
-                    .multiple(true)
-                    .title(gettextCatalog.getString('New {{extItemLabel}}',
-                            {extItemLabel: extItemLabel}))
-                    .textContent(gettextCatalog.getString('Do you want to create {{count}} new {{extItemLabel}} ?',
-                                  {count: $scope.extItemToCreate.length, extItemLabel: extItemLabel}) + '\n\r\n\r' +
-                                   $scope.extItemToCreate.toString().replace(/,/g,'\n\r'))
-                    .theme('light')
-                    .ok(gettextCatalog.getString('Create & Import'))
-                    .cancel(gettextCatalog.getString('Cancel'));
-                $mdDialog.show(confirm).then(function() {
-                  $scope.uploadFile();
-                });
+              if (!$scope.check && $scope.extItemToCreate.length > 0 && $scope.extItemToCreate.includes(file.data[i][externalItem])) {
+                  file.data[i].alert = true;
               }
-            } else {
-              var alert = $mdDialog.alert()
-                  .multiple(true)
-                  .title(gettextCatalog.getString('File error'))
-                  .textContent(gettextCatalog.getString('Wrong schema'))
-                  .theme('light')
-                  .ok(gettextCatalog.getString('Cancel'))
-              $mdDialog.show(alert);
-              $scope.importData = [];
-              $scope.check = true;
+
             }
+            if (!$scope.check && $scope.extItemToCreate.length > 0) {
+              var confirm = $mdDialog.confirm()
+                  .multiple(true)
+                  .title(gettextCatalog.getString('New {{extItemLabel}}',
+                          {extItemLabel: extItemLabel}))
+                  .textContent(gettextCatalog.getString('Do you want to create {{count}} new {{extItemLabel}} ?',
+                                {count: $scope.extItemToCreate.length, extItemLabel: extItemLabel}) + '\n\r\n\r' +
+                                 $scope.extItemToCreate.toString().replace(/,/g,'\n\r'))
+                  .theme('light')
+                  .ok(gettextCatalog.getString('Create & Import'))
+                  .cancel(gettextCatalog.getString('Cancel'));
+              $mdDialog.show(confirm).then(function() {
+                $scope.uploadFile();
+              });
+            }
+          } else {
+            var alert = $mdDialog.alert()
+                .multiple(true)
+                .title(gettextCatalog.getString('File error'))
+                .textContent(gettextCatalog.getString('Wrong schema'))
+                .theme('light')
+                .ok(gettextCatalog.getString('Cancel'))
+            $mdDialog.show(alert);
+            $scope.importData = [];
+            $scope.check = true;
+          }
         });
         return file.data;
       };
@@ -2894,6 +2992,9 @@
             break;
           case 'Operational risks':
             $scope.getTags = await $scope.createTags();
+            break;
+          case 'Matches':
+            itemFields.push('father','child');
             break;
           default:
         }
@@ -2966,6 +3067,22 @@
         $mdDialog.hide($scope.importData);
 
       };
+
+      $scope.downloadExempleFile = function(){
+
+        var fields = [];
+        for(var index in $scope.items[tab]) {
+          if ($scope.items[tab][index]['field']) {
+            fields.push($scope.items[tab][index]['field']);
+          }
+        }
+        data = encodeURI('data:text/csv;charset=UTF-8,\uFEFF' + fields.join());
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', 'ExampleFile.csv');
+        document.body.appendChild(link);
+        link.click();
+      }
 
       $scope.toggleGuide = function () {
           $scope.guideVisible = !$scope.guideVisible;
