@@ -2911,24 +2911,24 @@
                 if (matches.includes(file.data[i]['control'].toLowerCase().trim() + file.data[i]['match'].toLowerCase().trim())) {
                     var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
                     file.data[i]['father'] = file.data[i]['control'];
-                    file.data[i]['control'] = measure[0].referential['label' + $scope.defaultLang] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.defaultLang];
+                    file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
 
                     var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
                     file.data[i]['child'] = file.data[i]['match'];
-                    file.data[i]['match'] = measure[0].referential['label' + $scope.defaultLang] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.defaultLang];
+                    file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
                     file.data[i].error += gettextCatalog.getString('this matching is already in use') + "\n";
                     $scope.check = true;
                 }else {
                   var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
                   if (measure.length > 0) {
                     file.data[i]['father'] = file.data[i]['control'];
-                    file.data[i]['control'] = measure[0].referential['label' + $scope.defaultLang] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.defaultLang];
+                    file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
                   }
 
                   var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
                   if (measure.length > 0) {
                     file.data[i]['child'] = file.data[i]['match'];
-                    file.data[i]['match'] = measure[0].referential['label' + $scope.defaultLang] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.defaultLang];
+                    file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
                   }
                 }
               }
