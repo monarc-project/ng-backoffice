@@ -2276,6 +2276,7 @@
     function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ReferentialService, ConfigService, AmvService, $q, amv, referentials) {
         $scope.languages = ConfigService.getLanguages();
         $scope.defaultLang = ConfigService.getDefaultLanguageIndex();
+        $scope.amvReferentials = referentials;
 
         $scope.queryAmvs = function (asset_id) {
             AmvService.getAmvs({limit: 0, asset: asset_id, order: 'position', amvid: $scope.amv.id}).then(function (data) {
@@ -2378,21 +2379,8 @@
 
         // Referentials
 
-        $scope.queryReferentialsSearch = function (query) {
-            var promise = $q.defer();
-            ReferentialService.getReferentials({order: 'createdAt'}).then(function (e) {
-                promise.resolve(e.referentials);
-            }, function (e) {
-                promise.reject(e);
-            });
-
-            return promise.promise;
-        };
-
-        $scope.selectedReferentialItemChange = function (item) {
-            if (item) {
-                $scope.amv.referential = item;
-            }
+        $scope.selectAmvReferential = function (referential) {
+            $scope.amv.referential = referential;
         }
 
         // Measures
@@ -2443,7 +2431,7 @@
             if ($scope.amv.implicitPosition == 3 && !$scope.amv.previous) {
                 $scope.amv.implicitPosition = 1;
             }
-
+            delete $scope.amv.referential;
             $mdDialog.hide($scope.amv);
         };
         $scope.createAndContinue = function () {
