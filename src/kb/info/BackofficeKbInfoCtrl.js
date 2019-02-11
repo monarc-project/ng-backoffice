@@ -1069,6 +1069,32 @@
             })
         }
 
+        $scope.updateMeasuresAMV = function (ev){
+          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+          $mdDialog.show({
+              controller: ['$scope', '$mdDialog', 'referentials', updateMeasuresAMVDialogCtrl],
+              templateUrl: 'views/anr/updateMeasures.amvs.html',
+              targetEvent: ev,
+              preserveScope: false,
+              scope: $scope.$dialogScope.$new(),
+              clickOutsideToClose: false,
+              fullscreen: useFullScreen,
+              locals: {
+                  'referentials': $scope.referentials_filter.items['referentials'],
+              }
+          })
+
+              .then(function (params) {
+                AmvService.patchAmvs(params,
+                  function () {
+                    $scope.updateAmvs();
+                    toastr.success(gettextCatalog.getString('The risks have been edited successfully.'),
+                      gettextCatalog.getString('Edition successful'));
+                    $rootScope.$broadcast('amvUpdated');
+                });
+              });
+        }
 
         $scope.createNewAmv = function (ev, amv) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -2223,6 +2249,27 @@
             $scope.category.cont = true;
             $mdDialog.hide($scope.category);
         };
+
+    }
+
+    function updateMeasuresAMVDialogCtrl($scope, $mdDialog, referentials) {
+
+        $scope.referentials = referentials;
+        $scope.fromReferential = [];
+        $scope.toReferential = [];
+
+        $scope.update = function (){
+          var params = {
+            fromReferential: $scope.fromReferential,
+            toReferential: $scope.toReferential
+          };
+          $mdDialog.hide(params);
+        }
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+
 
     }
 
