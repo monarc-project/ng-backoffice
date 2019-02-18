@@ -1022,10 +1022,13 @@
             $state.transitionTo('main.kb_mgmt.info_risk', {'tab': 'amvs'});
             ReferentialService.getReferentials({order: 'createdAt'}).then(function (data) {
                 $scope.referentials_filter.items = data;
-                $scope.referentials_filter.selected = data['referentials'][0].uuid;
+                if (data['referentials'][0]) {
+                  $scope.referentials_filter.selected = data['referentials'][0].uuid;
+                }
+                $scope.updateAmvs()
             });
             var initAmvsFilter = true;
-            initAmvsFilter = $scope.$watchGroup(['amvs.activeFilter', 'referentials_filter.selected', 'amvs.query.filter'], function(newValue, oldValue) {
+            initAmvsFilter = $scope.$watchGroup(['amvs.activeFilter', 'amvs.query.filter'], function(newValue, oldValue) {
                 if (initAmvsFilter) {
                     initAmvsFilter = false;
                 } else {
@@ -1042,8 +1045,6 @@
         $scope.updateAmvs = function () {
             var query = angular.copy($scope.amvs.query);
             query.status = $scope.amvs.activeFilter;
-            query.referential = $scope.referentials_filter.selected;
-
 
             if ($scope.amvs.previousQueryOrder != $scope.amvs.query.order) {
                 $scope.amvs.query.page = query.page = 1;
