@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-03-05 11:39+0100\n"
+"PO-Revision-Date: 2019-03-05 11:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -332,7 +332,7 @@ msgstr "Administratie"
 
 #: ../ng_anr/views/anr.dashboard.html:150
 msgid "All"
-msgstr "Op"
+msgstr "Alle"
 
 #: ../ng_anr/views/_table_risks.html:34 ../ng_anr/views/_table_risks_op.html:33
 msgid "All (unfiltered)"
@@ -968,7 +968,7 @@ msgstr "Vertrouwelijkheid:&nbsp;"
 
 #: views/account.html:58 views/passwordforgotten.html:23
 msgid "Confirm new password"
-msgstr "Het nieuwe wachtwoord bevestigen:"
+msgstr "Het nieuwe wachtwoord bevestigen"
 
 #: ../ng_anr/views/interviews.html:59 ../ng_anr/views/snapshots.html:55
 #: ../ng_anr/views/snapshots.html:63 ../ng_anr/views/trends.evalcontext.html:25
@@ -1140,7 +1140,7 @@ msgstr "Klantenbeheerder"
 #: ../ng_anr/views/_gettext_caveats.html:89 ../ng_anr/views/anr.layout.html:31
 #: ../ng_anr/views/anr.layout.html:56
 msgid "Dashboard"
-msgstr "boordtabel"
+msgstr "Boordtabel"
 
 #: ../ng_anr/views/_gettext_caveats.html:15
 msgid "Data missing"
@@ -1286,31 +1286,31 @@ msgstr "Het specifieke operationele risico verwijderen"
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:367
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:391
 msgid "Deletion successful"
-msgstr "verwijdering geslaagd"
+msgstr "Verwijdering geslaagd"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:5
 msgid "Deliverable"
-msgstr "deliverable"
+msgstr "Deliverable"
 
 #: src/kb/DeliveriesModelsService.js:41
 msgid "Deliverable template for context validation"
-msgstr "model van deliverable voor de contextvalidering"
+msgstr "Model van deliverable voor de contextvalidering"
 
 #: src/kb/DeliveriesModelsService.js:43
 msgid "Deliverable template for final report"
-msgstr "model van deliverable voor het eindrapport"
+msgstr "Model van deliverable voor het eindrapport"
 
 #: src/kb/DeliveriesModelsService.js:42
 msgid "Deliverable template for model validation"
-msgstr "model van deliverable voor de validering van de modellering"
+msgstr "Model van deliverable voor de validering van de modellering"
 
 #: views/deliveries_models.kb_mgmt.html:5 views/index.backoffice.html:46
 msgid "Deliverable templates"
-msgstr "modellen voor deliverables"
+msgstr "Modellen voor deliverables"
 
 #: ../ng_anr/views/anr.layout.html:109
 msgid "Deliverable:"
-msgstr "deliverable"
+msgstr "Deliverable:"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:135 ../ng_anr/src/AnrSoaSheetCtrl.js:262
 #: ../ng_anr/views/_oprisk_sheet.html:108 ../ng_anr/views/_risk_sheet.html:126
@@ -1790,7 +1790,7 @@ msgstr "Finaal"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:816
 msgid "Final report"
-msgstr "eindrapport"
+msgstr "Eindrapport"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:3058 src/kb/info/BackofficeKbInfoCtrl.js:2576
 msgid "Fire"
@@ -2330,7 +2330,7 @@ msgstr "Ontbrekend model"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:806
 msgid "Model validation"
-msgstr "validering van het model"
+msgstr "Validering van het model"
 
 #: ../ng_anr/views/create.assets.html:84
 #: ../ng_anr/views/create.threats.html:127 ../ng_anr/views/create.vulns.html:75
@@ -2632,7 +2632,7 @@ msgstr "De wachtwoorden zijn niet identiek."
 
 #: views/dialogs/create.users.admin.html:45
 msgid "Permissions and roles"
-msgstr "permissies en rollen"
+msgstr "Permissies en rollen"
 
 #: views/account.html:8
 msgid "Personal information"
@@ -3291,7 +3291,7 @@ msgstr "Het actief werd met succes gewijzigd."
 #: ../ng_anr/src/AnrObjectCtrl.js:332
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:190
 msgid "The asset has been exported successfully."
-msgstr "Het actief werd met succes geëxporteerd"
+msgstr "Het actief werd met succes geëxporteerd."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2794 ../ng_anr/src/AnrLayoutCtrl.js:2851
 msgid "The asset has been imported successfully"
@@ -3539,7 +3539,7 @@ msgstr "De vraag werd met succes gecreëerd."
 
 #: src/kb/BackofficeQuestionsCtrl.js:125
 msgid "The question has been deleted."
-msgstr "De vraag werd met succes verwijderd"
+msgstr "De vraag werd met succes verwijderd."
 
 #: src/kb/BackofficeQuestionsCtrl.js:95
 msgid "The question has been edited successfully."
@@ -3823,7 +3823,7 @@ msgid ""
 "There are no risks for this instance, or your filters returned no results."
 msgstr ""
 "Er zijn geen risico’s voor dit actief, of uw filters hebben geen resultaat "
-"opgeleverd"
+"opgeleverd."
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:98
 msgid "There is no document template of this category for this language."
@@ -4126,7 +4126,7 @@ msgid ""
 "Value for probability is not valid, Value for qualification is not valid"
 msgstr ""
 "De waarschijnlijkheidswaarde van de bedreiging is niet geldig. De "
-"kwalificatiewaarde van de kwetsbaarheid is niet geldig. "
+"kwalificatiewaarde van de kwetsbaarheid is niet geldig."
 
 #: ../ng_anr/views/_gettext_caveats.html:34
 msgid "Value for qualification is not valid"
@@ -4479,7 +4479,7 @@ msgstr "is verplicht"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:3381 src/kb/info/BackofficeKbInfoCtrl.js:2944
 msgid "match does not exist"
-msgstr "Er bestaat geen overeenkomst"
+msgstr "er bestaat geen overeenkomst"
 
 #: ../ng_anr/views/_table_risks.html:166
 #: ../ng_anr/views/_table_risks_op.html:186 src/BackofficeApp.js:318
@@ -4505,7 +4505,7 @@ msgstr "om het te creëren."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1255 src/kb/info/BackofficeKbInfoCtrl.js:1240
 msgid "{{ count }} risks have been deleted."
-msgstr "{{ count }} risico’s werden verwijderd"
+msgstr "{{ count }} risico’s werden verwijderd."
 
 #: ../ng_anr/views/object.html:58
 msgid "{{ object.risks.length }} information risks"
@@ -4521,7 +4521,7 @@ msgstr "{{ object_details.risks.length }} risico’s van de informatie"
 
 #: ../ng_anr/views/_table_risks_op.html:5
 msgid "{{ oprisks_total }} operational risks"
-msgstr "{{ oprisks_total }} operationele risico’s "
+msgstr "{{ oprisks_total }} operationele risico’s"
 
 #: ../ng_anr/views/_table_risks.html:9
 msgid "{{ risks_total }} information risks"
