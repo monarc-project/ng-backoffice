@@ -283,7 +283,7 @@
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.assets.selected.length; ++i) {
-                    ids.push($scope.assets.selected[i].id);
+                    ids.push($scope.assets.selected[i].uuid);
                 }
 
                 AssetService.deleteMassAsset(ids, function () {
@@ -352,7 +352,7 @@
 
 
         $scope.toggleThreatStatus = function (threat) {
-            ThreatService.patchThreat(threat.id, {status: !threat.status}, function () {
+            ThreatService.patchThreat(threat.uuid, {status: !threat.status}, function () {
                 threat.status = !threat.status;
             });
         };
@@ -410,7 +410,7 @@
         $scope.editThreat = function (ev, threat) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
-            ThreatService.getThreat(threat.id).then(function (threatData) {
+            ThreatService.getThreat(threat.uuid).then(function (threatData) {
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
@@ -463,12 +463,12 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                ThreatService.deleteThreat(item.id,
+                ThreatService.deleteThreat(item.uuid,
                     function () {
                         toastr.success(gettextCatalog.getString('The threat has been deleted.',
                                     {label: $scope._langField(item,'label')}), gettextCatalog.getString('Deletion successful'));
                         $scope.updateThreats();
-                        $scope.threats.selected = $scope.threats.selected.filter(threatSelected => threatSelected.id != item.id);
+                        $scope.threats.selected = $scope.threats.selected.filter(threatSelected => threatSelected.uuid != item.uuid);
                     }
                 );
             });
@@ -488,7 +488,7 @@
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.threats.selected.length; ++i) {
-                    ids.push($scope.threats.selected[i].id);
+                    ids.push($scope.threats.selected[i].uuid);
                 }
 
                 ThreatService.deleteMassThreat(ids, function () {
