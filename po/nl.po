@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-03-05 11:49+0100\n"
+"PO-Revision-Date: 2019-03-13 12:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2270,7 +2270,7 @@ msgstr "De gebruikers beheren"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:266 ../ng_anr/views/anr.soa.html:100
 msgid "Managed"
-msgstr "Herhaalbaar"
+msgstr "Beheerst"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:828
 msgid "Management of the implementation of the risk treatment plan"
@@ -2578,7 +2578,7 @@ msgstr "Operationele beveiliging"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:272 ../ng_anr/views/anr.soa.html:103
 msgid "Optimized"
-msgstr "Geoptimaliseerd"
+msgstr "Optimaliserend"
 
 #: ../ng_anr/views/snapshots.html:17
 #: ../ng_anr/views/validate.recommandation.html:26
@@ -2742,7 +2742,7 @@ msgstr "Kwalificatie"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:270 ../ng_anr/views/anr.soa.html:102
 msgid "Quantitatively Managed"
-msgstr "Geoptimaliseerd"
+msgstr "Kwantitatief beheerst"
 
 #: ../ng_anr/views/trends.evalcontext.html:20
 msgid "Question"
