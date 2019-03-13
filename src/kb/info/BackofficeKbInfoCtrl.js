@@ -162,7 +162,7 @@
         };
 
         $scope.toggleAssetStatus = function (asset) {
-            AssetService.patchAsset(asset.id, {status: !asset.status}, function () {
+            AssetService.patchAsset(asset.uuid, {status: !asset.status}, function () {
                 asset.status = !asset.status;
             });
         };
@@ -214,7 +214,7 @@
         $scope.editAsset = function (ev, asset) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
-            AssetService.getAsset(asset.id).then(function (assetData) {
+            AssetService.getAsset(asset.uuid).then(function (assetData) {
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
