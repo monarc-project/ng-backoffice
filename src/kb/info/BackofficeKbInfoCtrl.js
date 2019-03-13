@@ -260,12 +260,12 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AssetService.deleteAsset(item.id,
+                AssetService.deleteAsset(item.uuid,
                     function () {
                         toastr.success(gettextCatalog.getString('The asset type has been deleted.',
                                     {label: $scope._langField(item,'label')}), gettextCatalog.getString('Deletion successful'));
                         $scope.updateAssets();
-                        $scope.assets.selected = $scope.assets.selected.filter(assetSelected => assetSelected.id != item.id);
+                        $scope.assets.selected = $scope.assets.selected.filter(assetSelected => assetSelected.uuid != item.uuid);
                     }
                 );
             });
