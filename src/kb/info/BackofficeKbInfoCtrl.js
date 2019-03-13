@@ -602,7 +602,7 @@
         $scope.editVuln = function (ev, vuln) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
-            VulnService.getVuln(vuln.id).then(function (vulnData) {
+            VulnService.getVuln(vuln.uuid).then(function (vulnData) {
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
@@ -648,12 +648,12 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                VulnService.deleteVuln(item.id,
+                VulnService.deleteVuln(item.uuid,
                     function () {
                         toastr.success(gettextCatalog.getString('The vulnerability has been deleted.',
                                     {label: $scope._langField(item,'label')}), gettextCatalog.getString('Deletion successful'));
                         $scope.updateVulns();
-                        $scope.vulns.selected = $scope.vulns.selected.filter(vulSelected => vulSelected.id != item.id);
+                        $scope.vulns.selected = $scope.vulns.selected.filter(vulSelected => vulSelected.uuid != item.uuid);
                     }
                 );
             });
@@ -673,7 +673,7 @@
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.vulns.selected.length; ++i) {
-                    ids.push($scope.vulns.selected[i].id);
+                    ids.push($scope.vulns.selected[i].uuid);
                 }
 
                 VulnService.deleteMassVuln(ids, function () {
