@@ -1065,7 +1065,7 @@
 
 
         $scope.toggleAmvStatus = function (amv) {
-            AmvService.patchAmv(amv.id, {status: !amv.status}, function () {
+            AmvService.patchAmv(amv.uuid, {status: !amv.status}, function () {
                 amv.status = !amv.status;
             })
         }
@@ -1117,13 +1117,13 @@
                     var amvBackup = angular.copy(amv);
 
                     if (amv.threat) {
-                        amv.threat = amv.threat.id;
+                        amv.threat = amv.threat.uuid;
                     }
                     if (amv.asset) {
-                        amv.asset = amv.asset.id;
+                        amv.asset = amv.asset.uuid;
                     }
                     if (amv.vulnerability) {
-                        amv.vulnerability = amv.vulnerability.id;
+                        amv.vulnerability = amv.vulnerability.uuid;
                     }
 
                     var cont = amv.cont;
@@ -1151,8 +1151,8 @@
             if(amv == null){
                 return;
             }
-            if(amv.id!=undefined){
-                amv = amv.id;
+            if(amv.uuid!=undefined){
+                amv = amv.uuid;
             }
 
             AmvService.getAmv(amv).then(function (amvData) {
@@ -1172,13 +1172,13 @@
                     .then(function (amv) {
                         var amvBackup = angular.copy(amv);
                         if (amv.threat) {
-                            amv.threat = amv.threat.id;
+                            amv.threat = amv.threat.uuid;
                         }
                         if (amv.asset) {
-                            amv.asset = amv.asset.id;
+                            amv.asset = amv.asset.uuid;
                         }
                         if (amv.vulnerability) {
-                            amv.vulnerability = amv.vulnerability.id;
+                            amv.vulnerability = amv.vulnerability.uuid;
                         }
 
 
@@ -1209,11 +1209,11 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AmvService.deleteAmv(item.id,
+                AmvService.deleteAmv(item.uuid,
                     function () {
                         toastr.success(gettextCatalog.getString('The risk has been deleted.'), gettextCatalog.getString('Deletion successful'));
                         $scope.updateAmvs();
-                        $scope.amvs.selected = $scope.amvs.selected.filter(amvSelected => amvSelected.id != item.id);
+                        $scope.amvs.selected = $scope.amvs.selected.filter(amvSelected => amvSelected.uuid != item.uuid);
                     }
                 );
             });
@@ -1233,7 +1233,7 @@
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.amvs.selected.length; ++i) {
-                    ids.push($scope.amvs.selected[i].id);
+                    ids.push($scope.amvs.selected[i].uuid);
                 }
 
                 AmvService.deleteMassAmv(ids, function () {
@@ -2280,7 +2280,7 @@
         $scope.amvReferentials = referentials;
 
         $scope.queryAmvs = function (asset_id) {
-            AmvService.getAmvs({limit: 0, asset: asset_id, order: 'position', amvid: $scope.amv.id}).then(function (data) {
+            AmvService.getAmvs({limit: 0, asset: asset_id, order: 'position', amvid: $scope.amv.uuid}).then(function (data) {
                 $scope.asset_amvs = data.amvs;
             });
         };
