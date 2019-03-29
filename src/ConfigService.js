@@ -9,6 +9,7 @@
         self.config = {
             languages: null,
             defaultLanguageIndex: null,
+            mospApiUrl: null,
         };
 
         var loadConfig = function (success) {
@@ -21,6 +22,12 @@
                 }
                 if (data.data.defaultLanguageIndex) {
                     self.config.defaultLanguageIndex = data.data.defaultLanguageIndex;
+                }
+
+                if (data.data.mospApiUrl !== undefined) {
+                    self.config.mospApiUrl = data.data.mospApiUrl;
+                } else {
+                    self.config.mospApiUrl = 'https://objects.monarc.lu/api/v1/';
                 }
 
                 if (success) {
@@ -51,11 +58,21 @@
             }
         };
 
+        var getMospApiUrl = function () {
+           if (self.config.mospApiUrl) {
+               return self.config.mospApiUrl;
+           } else {
+               // Fallback in case of error
+               return 'https://objects.monarc.lu/api/v1/';
+           }
+       };
+
         return {
             loadConfig: loadConfig,
             isLoaded: isLoaded,
             getLanguages: getLanguages,
-            getDefaultLanguageIndex: getDefaultLanguageIndex
+            getDefaultLanguageIndex: getDefaultLanguageIndex,
+            getMospApiUrl: getMospApiUrl
         };
     }
 

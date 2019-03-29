@@ -259,6 +259,7 @@ angular
             ConfigService.loadConfig(function () {
                 var languages = ConfigService.getLanguages();
                 var uiLang = UserService.getUiLanguage();
+                $rootScope.mospApiUrl = ConfigService.getMospApiUrl();
 
                 if (uiLang === undefined || uiLang === null) {
                     gettextCatalog.setCurrentLanguage('en');
