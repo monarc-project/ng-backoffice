@@ -700,12 +700,10 @@
             $scope.updatingReferentials = false;
             ReferentialService.getReferentials({order: 'createdAt'}).then(function (data) {
                 $scope.referentials.items = data;
+                $rootScope.referentials_uuid = $scope.referentials.items.referentials.map(function(referential){return referential.uuid});
                 $scope.updatingReferentials = true;
-
             });
         };
-
-
 
         $scope.deselectMeasuresTab = function () {
             TableHelperService.unwatchSearch($scope.measures);
@@ -731,9 +729,9 @@
         };
 
         $scope.deselectReferentialsTab = function () {
-             TableHelperService.removeFilter($scope.measures);
-             $scope.measures.selected = [];
-         };
+            TableHelperService.removeFilter($scope.measures);
+            $scope.measures.selected = [];
+        };
 
         $scope.removeMeasuresFilter = function () {
             TableHelperService.removeFilter($scope.measures);
@@ -751,6 +749,7 @@
             $scope.referentials.promise.then(
                 function (data) {
                     $scope.referentials.items = data;
+                    $rootScope.referentials_uuid = $scope.referentials.items.referentials.map(function(referential){return referential.uuid});
                     $scope.updatingReferentials = true;
                 }
             )
