@@ -781,7 +781,7 @@
                             SOACategoryService.createCategory(categories, function(){
                                 SOACategoryService.getCategories({order: $scope._langField('label'), referential: referential.uuid}).then(function (data) {
                                     measures.map(function(measure) {
-                                        measure.category = data.categories.find( c => c['label'+lang].toLowerCase().trim() === measure.category.toLowerCase().trim() ).id;
+                                        measure.category = data.categories.find( c => c['label1'].toLowerCase().trim() === measure.category.toLowerCase().trim() ).id;
                                     })
                                     MeasureService.createMeasure(measures, function (result){
                                         $scope.refTabSelected = $scope.referentials.items.count + 1;
@@ -2007,9 +2007,11 @@
             $scope.categories = [];
             measures.map(function(measure) {
                 var category = {};
-                measure['label'+defaultLang] = measure.label;
+                for (var i = 1; i <=4; i++) {
+                    measure['label' + i] = measure.label;
+                    category['label' + i] = measure.category;
+                }
                 measure['referential'] = ref_temp.json_object.uuid;
-                category['label'+defaultLang] = measure.category;
                 category['referential'] = ref_temp.json_object.uuid;
                 $scope.categories.push(category);
             })
@@ -2018,7 +2020,7 @@
                 referential: $scope.referential,
                 categories: $scope.categories,
                 measures: measures,
-                lang: defaultLang
+                lang: $scope.language
             }
 
             $mdDialog.hide(result);
