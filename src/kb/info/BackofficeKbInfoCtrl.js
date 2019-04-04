@@ -2030,8 +2030,7 @@
             result = {
                 referential: $scope.referential,
                 categories: $scope.categories,
-                measures: measures,
-                lang: $scope.language
+                measures: measures
             }
 
             $mdDialog.hide(result);
