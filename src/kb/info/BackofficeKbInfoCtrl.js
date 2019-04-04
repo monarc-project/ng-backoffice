@@ -774,7 +774,6 @@
                     var referential = result.referential;
                     var categories = result.categories;
                     var measures = result.measures;
-                    var lang = result.lang;
 
                     ReferentialService.createReferential(referential,
                         function () {
@@ -1986,9 +1985,21 @@
                     '{"name":"organization","op":"has","val":{"name":"id","op":"eq","val": "' + $scope.organization.id + '"}}]}';
             $http.jsonp($rootScope.mospApiUrl + mosp_query_referentials)
             .then(function(json) {
-                $scope.mosp_referentials = json.data.data.objects;
+                // filter from the results the referentials already in the analysis
+                $scope.mosp_referentials = json.data.data.objects.filter(referential => !$scope.referentials_uuid.includes(referential.json_object.uuid))
             });
         }
+
+        /**
+         * Returns a filtered list of referentials from MOSP with all the
+         * referentials matching with 'searchText' as name.
+         *
+         * @param  searchText  the name of the referential to search for
+         * @return             the list of available referentials to import
+         */
+         $scope.getMatches = function(searchText) {
+             return $scope.mosp_referentials.filter(r => r['name'].toLowerCase().includes(searchText.toLowerCase()));
+         };
 
         $scope.cancel = function() {
             $mdDialog.cancel();
