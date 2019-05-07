@@ -550,7 +550,7 @@
         };
 
         $scope.toggleVulnStatus = function (vuln) {
-            VulnService.patchVuln(vuln.id, {status: !vuln.status}, function () {
+            VulnService.patchVuln(vuln.uuid, {status: !vuln.status}, function () {
                 vuln.status = !vuln.status;
             });
         }
@@ -1380,7 +1380,7 @@
         $scope.createNewObjlib = function (ev, objlib) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            var isUpdate = (objlib && objlib.id);
+            var isUpdate = (objlib && objlib.uuid);
 
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
@@ -1405,7 +1405,7 @@
                         var objlibBackup = angular.copy(objlib);
 
                         if (objlib.asset) {
-                            objlib.asset = objlib.asset.id;
+                            objlib.asset = objlib.asset.uuid;
                         }
 
                         if (objlib.rolfTag) {
@@ -1457,11 +1457,11 @@
         };
 
         $scope.editObjlib = function (ev, objlib, dontFetch) {
-            if (objlib && objlib.id) {
+            if (objlib && objlib.uuid) {
                 if (dontFetch) {
                     $scope.createNewObjlib(ev, objlib);
                 } else {
-                    ObjlibService.getObjlib(objlib.id).then(function (objlibData) {
+                    ObjlibService.getObjlib(objlib.uuid).then(function (objlibData) {
                         $scope.createNewObjlib(ev, objlibData);
                     });
                 }
@@ -1479,7 +1479,7 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                ObjlibService.deleteObjlib(item.id,
+                ObjlibService.deleteObjlib(item.uuid,
                     function () {
                         $scope.updateObjlibs();
                         toastr.success(gettextCatalog.getString('The asset has been deleted.',
@@ -1502,7 +1502,7 @@
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.objlibs.selected, function (value, key) {
-                    ObjlibService.deleteObjlib(value.id,
+                    ObjlibService.deleteObjlib(value.uuid,
                         function () {
                             if (outpromise) {
                                 $timeout.cancel(outpromise);
@@ -1598,7 +1598,7 @@
               }
 
               function successCreateObject(result){
-                toastr.success(gettextCatalog.getString((Array.isArray(result.id) ? result.id.length : 1) + ' ' + tab + ' ' + 'have been created successfully.'),
+                toastr.success(gettextCatalog.getString((Array.isArray(result.uuid) ? result.id.length : 1) + ' ' + tab + ' ' + 'have been created successfully.'),
                                gettextCatalog.getString('Creation successful'));
               };
             })
@@ -2288,11 +2288,11 @@
         if (amv != undefined && amv != null) {
             $scope.amv = amv;
 
-            if (amv.asset && amv.asset.id) {
-                $scope.queryAmvs(amv.asset.id);
+            if (amv.asset && amv.asset.uuid) {
+                $scope.queryAmvs(amv.asset.uuid);
             }
-            if (amv.previous && amv.previous.id) {
-                $scope.amv.previous = $scope.amv.previous.id;
+            if (amv.previous && amv.previous.uuid) {
+                $scope.amv.previous = $scope.amv.previous.uuid;
             }
             if (amv.measures.length == undefined) {
               $scope.amv.measures = [];
@@ -2338,7 +2338,7 @@
         $scope.selectedAssetItemChange = function (item) {
             if (item) {
                 $scope.amv.asset = item;
-                $scope.queryAmvs(item.id);
+                $scope.queryAmvs(item.uuid);
             }
         }
 
