@@ -1260,7 +1260,7 @@
         }
 
         $scope.objlibs.category_filter = 0;
-        $scope.objlibs.asset_filter = 0;
+        $scope.objlibs.asset_filter = null;
         $scope.objlibs.lockswitch = false;
         $scope.objlib_assets = [];
 
@@ -1295,7 +1295,7 @@
 
         $scope.resetObjlibsFilters = function () {
             $scope.objlibs.category_filter = 0;
-            $scope.objlibs.asset_filter = 0;
+            $scope.objlibs.asset_filter = null;
             $scope.objlibs.lockswitch = false;
         };
 
@@ -1353,7 +1353,7 @@
             if ($scope.objlibs.category_filter > 0 || $scope.objlibs.category_filter == -1) {
                 query.category = $scope.objlibs.category_filter;
             }
-            if ($scope.objlibs.asset_filter > 0) {
+            if ($scope.objlibs.asset_filter !=null) {
                 query.asset = $scope.objlibs.asset_filter;
             }
             query.lock = $scope.objlibs.lockswitch;
