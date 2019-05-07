@@ -48,6 +48,7 @@ module.exports = function (grunt) {
                     'node_modules/xlsx/dist/xlsx.core.min.js',
                     'node_modules/papaparse/papaparse.min.js',
                     'node_modules/jschardet/dist/jschardet.min.js',
+                    'node_modules/angular-loading-bar/build/loading-bar.min.js',
                 ],
                 dest: '../../public/js/angular-common-libs.js',
                 nonull: true
@@ -61,6 +62,7 @@ module.exports = function (grunt) {
                     'node_modules/angular-ui-tree/dist/angular-ui-tree.min.css',
                     'node_modules/angular-toastr/dist/angular-toastr.min.css',
                     'node_modules/ng-country-flags/dist/css/flag-icon.css',
+                    'node_modules/angular-loading-bar/build/loading-bar.css',
                 ],
                 dest: '../../public/css/angular-common-libs.css',
                 nonull: true
