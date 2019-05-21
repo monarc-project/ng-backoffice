@@ -640,9 +640,22 @@
             $scope.vulns.promise.then(
                 function (data) {
                     $scope.vulns.items = data;
+
+                    // we want to know the UUIDs of all the vulnerabilites already
+                    // imported in the analysis
+                    query.limit = -1;
+                    query.filter = "";
+                    query.status = "all";
+                    $scope.vulns.promise = VulnService.getVulns(query);
+                    $scope.vulns.promise.then(
+                        function (data) {
+                            $rootScope.vulnerabilities_uuid = data.vulnerabilities.map(function(vulnerability){return vulnerability.uuid});
+                        }
+                    )
                 }
             )
         };
+
         $scope.removeVulnsFilter = function () {
             TableHelperService.removeFilter($scope.vulns);
         };
@@ -652,6 +665,42 @@
                 vuln.status = !vuln.status;
             });
         }
+
+        $scope.importNewVulnerability = function (ev, vulnerability) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+            $mdDialog.show({
+                controller: ['$rootScope', '$scope', '$http', '$mdDialog', '$q', 'ConfigService', 'vulnerability', ImportVulnerabilityDialogCtrl],
+                templateUrl: 'views/anr/import.vulnerability.html',
+                targetEvent: ev,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
+                clickOutsideToClose: false,
+                fullscreen: useFullScreen,
+                locals: {
+                  'vulnerability' : vulnerability
+                }
+            })
+                .then(function (vuln) {
+                    VulnService.createVuln(vuln,
+                        function () {
+                            $scope.updateVulns();
+
+                            if (vuln.mode == 0 && vuln.models && vuln.models.length > 0) {
+                                // If we create a generic vulnerability, but we still have specific models, we should warn
+                                toastr.warning(gettextCatalog.getString('The vulnerability has been created successfully, however without models, the element may not be specific.',
+                                    {vulnLabel: $scope._langField(vuln,'label')}));
+                            } else {
+                                toastr.success(gettextCatalog.getString('The vulnerability has been created successfully.',
+                                    {vulnLabel: $scope._langField(vuln,'label')}), gettextCatalog.getString('Creation successful'));
+                            }
+                        },
+                        function () {
+                            $scope.importNewVulnerability(ev, vuln);
+                        }
+                    );
+                });
+        };
 
         $scope.createNewVuln = function (ev, vuln) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -2111,6 +2160,7 @@
 
     }
 
+
     function CreateVulnDialogCtrl($scope, $mdDialog, ModelService, ConfigService, vuln) {
         ModelService.getModels({isGeneric:0}).then(function (data) {
             $scope.models = data.models;
@@ -2160,6 +2210,64 @@
             $mdDialog.hide($scope.vuln);
         }
     }
+
+
+    function ImportVulnerabilityDialogCtrl($rootScope, $scope, $http, $mdDialog, $q, ConfigService, vulnerability) {
+        $scope.languages = ConfigService.getLanguages();
+        $scope.language = ConfigService.getDefaultLanguageIndex();
+
+        var mosp_query_organizations = 'organization';
+        $http.jsonp($rootScope.mospApiUrl + mosp_query_organizations)
+        .then(function(json) {
+            $scope.organizations = json.data.data.objects;
+        });
+
+        $scope.selectOrganization = function() {
+            // Retrieve the vulnerabilities from the selected organization
+            // from MOSP via its API
+            var mosp_query_vulnerabilities = 'json_object?q={"filters":[{"name":"schema","op":"has","val":{"name":"name","op":"eq","val": "Vulnerabilities"}},' +
+                    '{"name":"organization","op":"has","val":{"name":"id","op":"eq","val": "' + $scope.organization.id + '"}}]}&results_per_page=3000';
+            $http.jsonp($rootScope.mospApiUrl + mosp_query_vulnerabilities)
+            .then(function(json) {
+                // filter from the results the referentials already in the analysis
+                if ($scope.languages[$scope.language].toUpperCase() != 'EN') {
+                    $scope.mosp_vulnerabilities = json.data.data.objects.filter(
+                        vulnerability => !$rootScope.vulnerabilities_uuid.includes(vulnerability.json_object.uuid) &&
+                        vulnerability.json_object.language == $scope.languages[$scope.language].toUpperCase()
+                    );
+                } else {
+                    $scope.mosp_vulnerabilities = json.data.data.objects.filter(
+                        vulnerability => !$rootScope.vulnerabilities_uuid.includes(vulnerability.json_object.uuid)
+                    );
+                }
+            });
+        }
+
+        /**
+         * Returns a filtered list of referentials from MOSP with all the
+         * vulnerabilites matching with 'searchText' as name.
+         *
+         * @param  searchText  the name of the vulnerability to search for
+         * @return             the list of available vulnerabilites to import
+         */
+         $scope.getMatches = function(searchText) {
+             return $scope.mosp_vulnerabilities.filter(r => r['name'].toLowerCase().includes(searchText.toLowerCase()));
+         };
+
+         $scope.cancel = function() {
+             $mdDialog.cancel();
+         };
+
+         $scope.import = function() {
+             var vuln = $scope.vulnerability.json_object;
+             for (var i = 1; i <=4; i++) {
+                 vuln['label'+i] = vuln.label;
+                 vuln['description'+i] = vuln.description;
+             }
+             $mdDialog.hide(vuln);
+         };
+    }
+
 
     function ImportReferentialDialogCtrl($rootScope, $scope, $http, $mdDialog, $q, ReferentialService, SOACategoryService, MeasureService, ConfigService, referential) {
         $scope.languages = ConfigService.getLanguages();
