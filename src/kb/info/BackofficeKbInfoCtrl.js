@@ -162,7 +162,7 @@
         };
 
         $scope.toggleAssetStatus = function (asset) {
-            AssetService.patchAsset(asset.id, {status: !asset.status}, function () {
+            AssetService.patchAsset(asset.uuid, {status: !asset.status}, function () {
                 asset.status = !asset.status;
             });
         };
@@ -214,7 +214,7 @@
         $scope.editAsset = function (ev, asset) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
-            AssetService.getAsset(asset.id).then(function (assetData) {
+            AssetService.getAsset(asset.uuid).then(function (assetData) {
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'asset', CreateAssetDialogCtrl],
@@ -260,12 +260,12 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AssetService.deleteAsset(item.id,
+                AssetService.deleteAsset(item.uuid,
                     function () {
                         toastr.success(gettextCatalog.getString('The asset type has been deleted.',
                                     {label: $scope._langField(item,'label')}), gettextCatalog.getString('Deletion successful'));
                         $scope.updateAssets();
-                        $scope.assets.selected = $scope.assets.selected.filter(assetSelected => assetSelected.id != item.id);
+                        $scope.assets.selected = $scope.assets.selected.filter(assetSelected => assetSelected.uuid != item.uuid);
                     }
                 );
             });
@@ -283,7 +283,7 @@
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.assets.selected.length; ++i) {
-                    ids.push($scope.assets.selected[i].id);
+                    ids.push($scope.assets.selected[i].uuid);
                 }
 
                 AssetService.deleteMassAsset(ids, function () {
@@ -352,7 +352,7 @@
 
 
         $scope.toggleThreatStatus = function (threat) {
-            ThreatService.patchThreat(threat.id, {status: !threat.status}, function () {
+            ThreatService.patchThreat(threat.uuid, {status: !threat.status}, function () {
                 threat.status = !threat.status;
             });
         };
@@ -410,7 +410,7 @@
         $scope.editThreat = function (ev, threat) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
-            ThreatService.getThreat(threat.id).then(function (threatData) {
+            ThreatService.getThreat(threat.uuid).then(function (threatData) {
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', '$q', 'ModelService', 'ThreatService', 'ConfigService', 'threat', CreateThreatDialogCtrl],
@@ -463,12 +463,12 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                ThreatService.deleteThreat(item.id,
+                ThreatService.deleteThreat(item.uuid,
                     function () {
                         toastr.success(gettextCatalog.getString('The threat has been deleted.',
                                     {label: $scope._langField(item,'label')}), gettextCatalog.getString('Deletion successful'));
                         $scope.updateThreats();
-                        $scope.threats.selected = $scope.threats.selected.filter(threatSelected => threatSelected.id != item.id);
+                        $scope.threats.selected = $scope.threats.selected.filter(threatSelected => threatSelected.uuid != item.uuid);
                     }
                 );
             });
@@ -488,7 +488,7 @@
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.threats.selected.length; ++i) {
-                    ids.push($scope.threats.selected[i].id);
+                    ids.push($scope.threats.selected[i].uuid);
                 }
 
                 ThreatService.deleteMassThreat(ids, function () {
@@ -550,7 +550,7 @@
         };
 
         $scope.toggleVulnStatus = function (vuln) {
-            VulnService.patchVuln(vuln.id, {status: !vuln.status}, function () {
+            VulnService.patchVuln(vuln.uuid, {status: !vuln.status}, function () {
                 vuln.status = !vuln.status;
             });
         }
@@ -602,7 +602,7 @@
         $scope.editVuln = function (ev, vuln) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $scope.controls = [];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
-            VulnService.getVuln(vuln.id).then(function (vulnData) {
+            VulnService.getVuln(vuln.uuid).then(function (vulnData) {
                 $scope.controls = [{}];//hack pour le bug référencé dans les forums de Material quand on ouvre deux fois d'affilée la modal
                 $mdDialog.show({
                     controller: ['$scope', '$mdDialog', 'ModelService', 'ConfigService', 'vuln', CreateVulnDialogCtrl],
@@ -648,12 +648,12 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                VulnService.deleteVuln(item.id,
+                VulnService.deleteVuln(item.uuid,
                     function () {
                         toastr.success(gettextCatalog.getString('The vulnerability has been deleted.',
                                     {label: $scope._langField(item,'label')}), gettextCatalog.getString('Deletion successful'));
                         $scope.updateVulns();
-                        $scope.vulns.selected = $scope.vulns.selected.filter(vulSelected => vulSelected.id != item.id);
+                        $scope.vulns.selected = $scope.vulns.selected.filter(vulSelected => vulSelected.uuid != item.uuid);
                     }
                 );
             });
@@ -673,7 +673,7 @@
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.vulns.selected.length; ++i) {
-                    ids.push($scope.vulns.selected[i].id);
+                    ids.push($scope.vulns.selected[i].uuid);
                 }
 
                 VulnService.deleteMassVuln(ids, function () {
@@ -1111,7 +1111,7 @@
 
 
         $scope.toggleAmvStatus = function (amv) {
-            AmvService.patchAmv(amv.id, {status: !amv.status}, function () {
+            AmvService.patchAmv(amv.uuid, {status: !amv.status}, function () {
                 amv.status = !amv.status;
             })
         }
@@ -1163,13 +1163,13 @@
                     var amvBackup = angular.copy(amv);
 
                     if (amv.threat) {
-                        amv.threat = amv.threat.id;
+                        amv.threat = amv.threat.uuid;
                     }
                     if (amv.asset) {
-                        amv.asset = amv.asset.id;
+                        amv.asset = amv.asset.uuid;
                     }
                     if (amv.vulnerability) {
-                        amv.vulnerability = amv.vulnerability.id;
+                        amv.vulnerability = amv.vulnerability.uuid;
                     }
 
                     var cont = amv.cont;
@@ -1197,8 +1197,8 @@
             if(amv == null){
                 return;
             }
-            if(amv.id!=undefined){
-                amv = amv.id;
+            if(amv.uuid!=undefined){
+                amv = amv.uuid;
             }
 
             AmvService.getAmv(amv).then(function (amvData) {
@@ -1218,13 +1218,13 @@
                     .then(function (amv) {
                         var amvBackup = angular.copy(amv);
                         if (amv.threat) {
-                            amv.threat = amv.threat.id;
+                            amv.threat = amv.threat.uuid;
                         }
                         if (amv.asset) {
-                            amv.asset = amv.asset.id;
+                            amv.asset = amv.asset.uuid;
                         }
                         if (amv.vulnerability) {
-                            amv.vulnerability = amv.vulnerability.id;
+                            amv.vulnerability = amv.vulnerability.uuid;
                         }
 
 
@@ -1255,11 +1255,11 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                AmvService.deleteAmv(item.id,
+                AmvService.deleteAmv(item.uuid,
                     function () {
                         toastr.success(gettextCatalog.getString('The risk has been deleted.'), gettextCatalog.getString('Deletion successful'));
                         $scope.updateAmvs();
-                        $scope.amvs.selected = $scope.amvs.selected.filter(amvSelected => amvSelected.id != item.id);
+                        $scope.amvs.selected = $scope.amvs.selected.filter(amvSelected => amvSelected.uuid != item.uuid);
                     }
                 );
             });
@@ -1279,7 +1279,7 @@
             $mdDialog.show(confirm).then(function() {
                 var ids = [];
                 for (var i = 0; i < $scope.amvs.selected.length; ++i) {
-                    ids.push($scope.amvs.selected[i].id);
+                    ids.push($scope.amvs.selected[i].uuid);
                 }
 
                 AmvService.deleteMassAmv(ids, function () {
@@ -1306,7 +1306,7 @@
         }
 
         $scope.objlibs.category_filter = 0;
-        $scope.objlibs.asset_filter = 0;
+        $scope.objlibs.asset_filter = null;
         $scope.objlibs.lockswitch = false;
         $scope.objlib_assets = [];
 
@@ -1341,7 +1341,7 @@
 
         $scope.resetObjlibsFilters = function () {
             $scope.objlibs.category_filter = 0;
-            $scope.objlibs.asset_filter = 0;
+            $scope.objlibs.asset_filter = null;
             $scope.objlibs.lockswitch = false;
         };
 
@@ -1399,7 +1399,7 @@
             if ($scope.objlibs.category_filter > 0 || $scope.objlibs.category_filter == -1) {
                 query.category = $scope.objlibs.category_filter;
             }
-            if ($scope.objlibs.asset_filter > 0) {
+            if ($scope.objlibs.asset_filter !=null) {
                 query.asset = $scope.objlibs.asset_filter;
             }
             query.lock = $scope.objlibs.lockswitch;
@@ -1426,7 +1426,7 @@
         $scope.createNewObjlib = function (ev, objlib) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
-            var isUpdate = (objlib && objlib.id);
+            var isUpdate = (objlib && objlib.uuid);
 
             $scope.objLibDialog = $mdDialog;
             $scope.objLibDialog.show({
@@ -1451,7 +1451,7 @@
                         var objlibBackup = angular.copy(objlib);
 
                         if (objlib.asset) {
-                            objlib.asset = objlib.asset.id;
+                            objlib.asset = objlib.asset.uuid;
                         }
 
                         if (objlib.rolfTag) {
@@ -1503,11 +1503,11 @@
         };
 
         $scope.editObjlib = function (ev, objlib, dontFetch) {
-            if (objlib && objlib.id) {
+            if (objlib && objlib.uuid) {
                 if (dontFetch) {
                     $scope.createNewObjlib(ev, objlib);
                 } else {
-                    ObjlibService.getObjlib(objlib.id).then(function (objlibData) {
+                    ObjlibService.getObjlib(objlib.uuid).then(function (objlibData) {
                         $scope.createNewObjlib(ev, objlibData);
                     });
                 }
@@ -1525,7 +1525,7 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                ObjlibService.deleteObjlib(item.id,
+                ObjlibService.deleteObjlib(item.uuid,
                     function () {
                         $scope.updateObjlibs();
                         toastr.success(gettextCatalog.getString('The asset has been deleted.',
@@ -1548,7 +1548,7 @@
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
                 angular.forEach($scope.objlibs.selected, function (value, key) {
-                    ObjlibService.deleteObjlib(value.id,
+                    ObjlibService.deleteObjlib(value.uuid,
                         function () {
                             if (outpromise) {
                                 $timeout.cancel(outpromise);
@@ -1644,7 +1644,7 @@
               }
 
               function successCreateObject(result){
-                toastr.success(gettextCatalog.getString((Array.isArray(result.id) ? result.id.length : 1) + ' ' + tab + ' ' + 'have been created successfully.'),
+                toastr.success(gettextCatalog.getString((Array.isArray(result.uuid) ? result.id.length : 1) + ' ' + tab + ' ' + 'have been created successfully.'),
                                gettextCatalog.getString('Creation successful'));
               };
             })
@@ -2396,7 +2396,7 @@
         $scope.amvReferentials = referentials;
 
         $scope.queryAmvs = function (asset_id) {
-            AmvService.getAmvs({limit: 0, asset: asset_id, order: 'position', amvid: $scope.amv.id}).then(function (data) {
+            AmvService.getAmvs({limit: 0, asset: asset_id, order: 'position', amvid: $scope.amv.uuid}).then(function (data) {
                 $scope.asset_amvs = data.amvs;
             });
         };
@@ -2404,11 +2404,11 @@
         if (amv != undefined && amv != null) {
             $scope.amv = amv;
 
-            if (amv.asset && amv.asset.id) {
-                $scope.queryAmvs(amv.asset.id);
+            if (amv.asset && amv.asset.uuid) {
+                $scope.queryAmvs(amv.asset.uuid);
             }
-            if (amv.previous && amv.previous.id) {
-                $scope.amv.previous = $scope.amv.previous.id;
+            if (amv.previous && amv.previous.uuid) {
+                $scope.amv.previous = $scope.amv.previous.uuid;
             }
             if (amv.measures.length == undefined) {
               $scope.amv.measures = [];
@@ -2454,7 +2454,7 @@
         $scope.selectedAssetItemChange = function (item) {
             if (item) {
                 $scope.amv.asset = item;
-                $scope.queryAmvs(item.id);
+                $scope.queryAmvs(item.uuid);
             }
         }
 

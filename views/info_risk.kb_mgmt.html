@@ -441,7 +441,7 @@
 
                 <md-select ng-model="objlibs.asset_filter" aria-label="{{ 'Asset' | translate }}" placeholder="{{ 'Asset' | translate }}" flex>
                     <md-option ng-value="0">{{ 'All assets' | translate }}</md-option>
-                    <md-option ng-repeat="asset in objlib_assets" ng-value="asset.id">{{ asset.code }} - {{ _langField(asset,'label') }}</md-option>
+                    <md-option ng-repeat="asset in objlib_assets" ng-value="asset.uuid">{{ asset.code }} - {{ _langField(asset,'label') }}</md-option>
                 </md-select>
 
                 <md-button class="md-icon-button md-primary" ng-click="removeObjlibsFilter()">
