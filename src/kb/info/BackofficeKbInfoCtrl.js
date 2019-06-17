@@ -155,18 +155,6 @@
                     $scope.assets.items = data;
                 }
             )
-
-            // we want to know the UUIDs of all the assets already
-            // imported in the analysis
-            query.limit = -1;
-            query.filter = "";
-            query.status = "all";
-            $scope.assets.promise = AssetService.getAssets(query);
-            $scope.assets.promise.then(
-                function (data) {
-                    $rootScope.assets_uuid = data.assets.map(function(asset){return asset.uuid});
-                }
-            )
         };
 
         $scope.removeAssetsFilter = function () {
@@ -223,41 +211,6 @@
                 });
         };
 
-        $scope.importNewAsset = function (ev, asset) {
-            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
-            $mdDialog.show({
-                controller: ['$rootScope', '$scope', '$http', '$mdDialog', '$q', 'ConfigService', 'AssetService', 'asset', ImportAssetDialogCtrl],
-                templateUrl: 'views/anr/import.asset.html',
-                targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: false,
-                fullscreen: useFullScreen,
-                locals: {
-                  'asset' : asset,
-                }
-            })
-                .then(function (asset) {
-                    AssetService.createAsset(asset,
-                        function () {
-                            $scope.updateAssets();
-
-                            if (asset.mode == 0 && asset.models && asset.models.length > 0) {
-                                // If we create a generic asset, but we still have specific models, we should warn
-                                toastr.warning(gettextCatalog.getString('The asset type has been created successfully, however without models, the element may not be specific.',
-                                    {assetLabel: $scope._langField(asset,'label')}));
-                            } else {
-                                toastr.success(gettextCatalog.getString('The asset type has been created successfully.',
-                                    {assetLabel: $scope._langField(asset,'label')}), gettextCatalog.getString('Creation successful'));
-                            }
-                        },
-                        function () {
-                            $scope.importNewAsset(ev, asset);
-                        }
-                    );
-                });
-        };
 
         $scope.editAsset = function (ev, asset) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -394,17 +347,6 @@
                 }
             )
 
-            // we want to know the UUIDs of all the threats already
-            // imported in the analysis
-            query.limit = -1;
-            query.filter = "";
-            query.status = "all";
-            $scope.threats.promise = ThreatService.getThreats(query);
-            $scope.threats.promise.then(
-                function (data) {
-                    $rootScope.threats_uuid = data.threats.map(function(threat){return threat.uuid});
-                }
-            )
         };
         $scope.removeThreatsFilter = function () {
             TableHelperService.removeFilter($scope.threats);
@@ -462,44 +404,6 @@
                         function () {
                             threat.theme = themeBackup;
                             $scope.createNewThreat(ev, threat);
-                        }
-                    );
-                });
-        };
-
-        $scope.importNewThreat = function (ev, threat) {
-            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
-            $mdDialog.show({
-                controller: ['$rootScope', '$scope', '$http', '$mdDialog', '$q', 'ConfigService', 'ThreatService', 'threat', ImportThreatDialogCtrl],
-                templateUrl: 'views/anr/import.threat.html',
-                targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: false,
-                fullscreen: useFullScreen,
-                locals: {
-                  'threat' : threat,
-                }
-            })
-                .then(function (threat) {
-                    ThreatService.createThreat(threat,
-                        function () {
-                            $scope.updateThreats();
-
-                            if (threat.mode == 0 && threat.models && threat.models.length > 0) {
-                                // If we create a generic threat, but we still have specific models, we should warn
-                                toastr.warning(gettextCatalog.getString('The threat has been created successfully, however without models, the element may not be specific.',
-                                    {threatLabel: $scope._langField(threat,'label')}));
-                            } else {
-                                toastr.success(gettextCatalog.getString('The threat has been created successfully.',
-                                    {threatLabel: $scope._langField(threat,'label')}), gettextCatalog.getString('Creation successful'));
-                            }
-                        },
-
-                        function () {
-                            threat.theme = themeBackup;
-                            $scope.importNewThreat(ev, threat);
                         }
                     );
                 });
@@ -640,18 +544,6 @@
             $scope.vulns.promise.then(
                 function (data) {
                     $scope.vulns.items = data;
-
-                    // we want to know the UUIDs of all the vulnerabilites already
-                    // imported in the analysis
-                    query.limit = -1;
-                    query.filter = "";
-                    query.status = "all";
-                    $scope.vulns.promise = VulnService.getVulns(query);
-                    $scope.vulns.promise.then(
-                        function (data) {
-                            $rootScope.vulnerabilities_uuid = data.vulnerabilities.map(function(vulnerability){return vulnerability.uuid});
-                        }
-                    )
                 }
             )
         };
@@ -665,42 +557,6 @@
                 vuln.status = !vuln.status;
             });
         }
-
-        $scope.importNewVulnerability = function (ev, vulnerability) {
-            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
-            $mdDialog.show({
-                controller: ['$rootScope', '$scope', '$http', '$mdDialog', '$q', 'ConfigService', 'vulnerability', ImportVulnerabilityDialogCtrl],
-                templateUrl: 'views/anr/import.vulnerability.html',
-                targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: false,
-                fullscreen: useFullScreen,
-                locals: {
-                  'vulnerability' : vulnerability
-                }
-            })
-                .then(function (vuln) {
-                    VulnService.createVuln(vuln,
-                        function () {
-                            $scope.updateVulns();
-
-                            if (vuln.mode == 0 && vuln.models && vuln.models.length > 0) {
-                                // If we create a generic vulnerability, but we still have specific models, we should warn
-                                toastr.warning(gettextCatalog.getString('The vulnerability has been created successfully, however without models, the element may not be specific.',
-                                    {vulnLabel: $scope._langField(vuln,'label')}));
-                            } else {
-                                toastr.success(gettextCatalog.getString('The vulnerability has been created successfully.',
-                                    {vulnLabel: $scope._langField(vuln,'label')}), gettextCatalog.getString('Creation successful'));
-                            }
-                        },
-                        function () {
-                            $scope.importNewVulnerability(ev, vuln);
-                        }
-                    );
-                });
-        };
 
         $scope.createNewVuln = function (ev, vuln) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -847,7 +703,6 @@
             $scope.updatingReferentials = false;
             ReferentialService.getReferentials({order: 'createdAt'}).then(function (data) {
                 $scope.referentials.items = data;
-                $rootScope.referentials_uuid = $scope.referentials.items.referentials.map(function(referential){return referential.uuid});
                 $scope.updatingReferentials = true;
             });
         };
@@ -896,57 +751,9 @@
             $scope.referentials.promise.then(
                 function (data) {
                     $scope.referentials.items = data;
-                    $rootScope.referentials_uuid = $scope.referentials.items.referentials.map(function(referential){return referential.uuid});
                     $scope.updatingReferentials = true;
                 }
             )
-        };
-
-        $scope.importNewReferential = function (ev, referential) {
-            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-
-            $mdDialog.show({
-                controller: ['$rootScope', '$scope', '$http', '$mdDialog', '$q', 'ReferentialService', 'SOACategoryService', 'MeasureService', 'ConfigService', 'referential', ImportReferentialDialogCtrl],
-                templateUrl: 'views/anr/import.referentials.html',
-                targetEvent: ev,
-                preserveScope: false,
-                scope: $scope.$dialogScope.$new(),
-                clickOutsideToClose: false,
-                fullscreen: useFullScreen,
-                locals: {
-                  'referential' : referential
-                }
-            })
-                .then(function (result) {
-                    var referential = result.referential;
-                    var categories = result.categories;
-                    var measures = result.measures;
-
-                    ReferentialService.createReferential(referential,
-                        function () {
-                            SOACategoryService.createCategory(categories, function(){
-                                SOACategoryService.getCategories({order: $scope._langField('label'), referential: referential.uuid}).then(function (data) {
-                                    measures.map(function(measure) {
-                                        measure.category = data.categories.find( c => c['label1'].toLowerCase().trim() === measure.category.toLowerCase().trim() ).id;
-                                    })
-                                    MeasureService.createMeasure(measures, function (result){
-                                        $scope.refTabSelected = $scope.referentials.items.count + 1;
-                                        $scope.updateReferentials();
-                                        toastr.success(gettextCatalog.getString('The referential has been imported successfully.',
-                                            {referntialLabel: $scope._langField(referential,'label')}), gettextCatalog.getString('Creation successful'));
-                                        // $scope.$parent.updateMeasures();
-                                        //successCreateObject(result)
-                                        $rootScope.$broadcast('referentialsUpdated');
-                                        $rootScope.$broadcast('controlsUpdated');
-                                    });
-                                });
-                            })
-                        },
-                        function () {
-                            $scope.importNewReferential(ev, referential);
-                        }
-                    );
-                });
         };
 
         $scope.createNewReferential = function (ev, referential) {
@@ -1860,51 +1667,6 @@
         };
     }
 
-    function ImportAssetDialogCtrl($rootScope, $scope, $http, $mdDialog, $q, ConfigService, AssetService, asset) {
-        $scope.languages = ConfigService.getLanguages();
-        $scope.language = ConfigService.getDefaultLanguageIndex();
-
-        var mosp_query_organizations = 'organization';
-        $http.jsonp($rootScope.mospApiUrl + mosp_query_organizations)
-        .then(function(json) {
-            $scope.organizations = json.data.data.objects;
-        });
-
-        $scope.selectOrganization = function() {
-            // Retrieve the assets from the selected organization
-            // from MOSP via its API
-            var mosp_query_threats = 'json_object?q={"filters":[{"name":"schema","op":"has","val":{"name":"name","op":"eq","val": "Assets"}},' +
-                    '{"name":"organization","op":"has","val":{"name":"id","op":"eq","val": "' + $scope.organization.id + '"}}]}&results_per_page=3000';
-            $http.jsonp($rootScope.mospApiUrl + mosp_query_threats)
-            .then(function(json) {
-                // filter from the results the threats already in the analysis
-                $scope.mosp_assets = json.data.data.objects.filter(
-                    asset => !$rootScope.assets_uuid.includes(asset.json_object.uuid) &&
-                    asset.json_object.language == $scope.languages[$scope.language].toUpperCase()
-                );
-            });
-        }
-
-        $scope.getMatches = function(searchText) {
-            // filter on the name and and the theme
-            return $scope.mosp_assets.filter(r => r['name'].toLowerCase().includes(searchText.toLowerCase()));
-        };
-
-        $scope.cancel = function() {
-            $mdDialog.cancel();
-        };
-
-        $scope.import = function() {
-            var asset = $scope.asset.json_object;
-            for (var i = 1; i <=4; i++) {
-                asset['label'+i] = asset.label;
-                asset['description'+i] = asset.description;
-            }
-            asset['type'] = asset['type'] == 'Primary' ? 1 : 2;
-            $mdDialog.hide(asset);
-        };
-    }
-
     function CreateThreatDialogCtrl($scope, toastr, $mdMedia, $mdDialog, gettextCatalog, $q, ModelService, ThreatService, ConfigService, threat) {
         ModelService.getModels({isGeneric:0}).then(function (data) {
             $scope.models = data.models;
@@ -2079,57 +1841,6 @@
         }
     }
 
-    function ImportThreatDialogCtrl($rootScope, $scope, $http, $mdDialog, $q, ConfigService, ThreatService, threat) {
-        $scope.languages = ConfigService.getLanguages();
-        $scope.language = ConfigService.getDefaultLanguageIndex();
-
-        var mosp_query_organizations = 'organization';
-        $http.jsonp($rootScope.mospApiUrl + mosp_query_organizations)
-        .then(function(json) {
-            $scope.organizations = json.data.data.objects;
-        });
-
-        $scope.selectOrganization = function() {
-            // Retrieve the threats from the selected organization
-            // from MOSP via its API
-            var mosp_query_threats = 'json_object?q={"filters":[{"name":"schema","op":"has","val":{"name":"name","op":"eq","val": "Threats"}},' +
-                    '{"name":"organization","op":"has","val":{"name":"id","op":"eq","val": "' + $scope.organization.id + '"}}]}&results_per_page=3000';
-            $http.jsonp($rootScope.mospApiUrl + mosp_query_threats)
-            .then(function(json) {
-                // filter from the results the threats already in the analysis
-                $scope.mosp_threats = json.data.data.objects.filter(
-                    threat => !$rootScope.threats_uuid.includes(threat.json_object.uuid) &&
-                    threat.json_object.language == $scope.languages[$scope.language].toUpperCase()
-                );
-            });
-        }
-
-        ThreatService.getThemes().then(function (data) {
-            $scope.listThemes = data['themes'];
-        });
-
-        $scope.getMatches = function(searchText) {
-            // filter on the name and and the theme
-            return $scope.mosp_threats.filter(r => r['name'].toLowerCase().includes(searchText.toLowerCase()) ||
-                    r['json_object']['theme'].toLowerCase().includes(searchText.toLowerCase()));
-        };
-
-        $scope.cancel = function() {
-            $mdDialog.cancel();
-        };
-
-        $scope.import = function() {
-            var threat = $scope.threat.json_object;
-            theme_id = $scope.listThemes.find(c => c['label' + $scope.language].toLowerCase().trim() === threat.theme.toLowerCase().trim() ).id;
-            threat['theme'] = theme_id;
-            for (var i = 1; i <=4; i++) {
-                threat['label'+i] = threat.label;
-                threat['description'+i] = threat.description;
-            }
-            $mdDialog.hide(threat);
-        };
-    }
-
     function CreateThemeDialogCtrl($scope, $mdDialog,  ConfigService, theme) {
 
       $scope.languages = ConfigService.getLanguages();
@@ -2209,134 +1920,6 @@
             $scope.vuln.cont = true;
             $mdDialog.hide($scope.vuln);
         }
-    }
-
-
-    function ImportVulnerabilityDialogCtrl($rootScope, $scope, $http, $mdDialog, $q, ConfigService, vulnerability) {
-        $scope.languages = ConfigService.getLanguages();
-        $scope.language = ConfigService.getDefaultLanguageIndex();
-
-        var mosp_query_organizations = 'organization';
-        $http.jsonp($rootScope.mospApiUrl + mosp_query_organizations)
-        .then(function(json) {
-            $scope.organizations = json.data.data.objects;
-        });
-
-        $scope.selectOrganization = function() {
-            // Retrieve the vulnerabilities from the selected organization
-            // from MOSP via its API
-            var mosp_query_vulnerabilities = 'json_object?q={"filters":[{"name":"schema","op":"has","val":{"name":"name","op":"eq","val": "Vulnerabilities"}},' +
-                    '{"name":"organization","op":"has","val":{"name":"id","op":"eq","val": "' + $scope.organization.id + '"}}]}&results_per_page=3000';
-            $http.jsonp($rootScope.mospApiUrl + mosp_query_vulnerabilities)
-            .then(function(json) {
-                // filter from the results the referentials already in the analysis
-                if ($scope.languages[$scope.language].toUpperCase() != 'EN') {
-                    $scope.mosp_vulnerabilities = json.data.data.objects.filter(
-                        vulnerability => !$rootScope.vulnerabilities_uuid.includes(vulnerability.json_object.uuid) &&
-                        vulnerability.json_object.language == $scope.languages[$scope.language].toUpperCase()
-                    );
-                } else {
-                    $scope.mosp_vulnerabilities = json.data.data.objects.filter(
-                        vulnerability => !$rootScope.vulnerabilities_uuid.includes(vulnerability.json_object.uuid)
-                    );
-                }
-            });
-        }
-
-        /**
-         * Returns a filtered list of referentials from MOSP with all the
-         * vulnerabilites matching with 'searchText' as name.
-         *
-         * @param  searchText  the name of the vulnerability to search for
-         * @return             the list of available vulnerabilites to import
-         */
-         $scope.getMatches = function(searchText) {
-             return $scope.mosp_vulnerabilities.filter(r => r['name'].toLowerCase().includes(searchText.toLowerCase()));
-         };
-
-         $scope.cancel = function() {
-             $mdDialog.cancel();
-         };
-
-         $scope.import = function() {
-             var vuln = $scope.vulnerability.json_object;
-             for (var i = 1; i <=4; i++) {
-                 vuln['label'+i] = vuln.label;
-                 vuln['description'+i] = vuln.description;
-             }
-             $mdDialog.hide(vuln);
-         };
-    }
-
-
-    function ImportReferentialDialogCtrl($rootScope, $scope, $http, $mdDialog, $q, ReferentialService, SOACategoryService, MeasureService, ConfigService, referential) {
-        $scope.languages = ConfigService.getLanguages();
-        $scope.language = ConfigService.getDefaultLanguageIndex();
-        var defaultLang = angular.copy($scope.language);
-
-        var mosp_query_organizations = 'organization';
-        $http.jsonp($rootScope.mospApiUrl + mosp_query_organizations)
-        .then(function(json) {
-            $scope.organizations = json.data.data.objects;
-        });
-
-        $scope.selectOrganization = function() {
-            // Retrieve the security referentials from the selected organization
-            // from MOSP via its API
-            var mosp_query_referentials = 'json_object?q={"filters":[{"name":"schema","op":"has","val":{"name":"name","op":"eq","val": "Security referentials"}},' +
-                    '{"name":"organization","op":"has","val":{"name":"id","op":"eq","val": "' + $scope.organization.id + '"}}]}';
-            $http.jsonp($rootScope.mospApiUrl + mosp_query_referentials)
-            .then(function(json) {
-                // filter from the results the referentials already in the analysis
-                $scope.mosp_referentials = json.data.data.objects.filter(referential => !$scope.referentials_uuid.includes(referential.json_object.uuid))
-            });
-        }
-
-        /**
-         * Returns a filtered list of referentials from MOSP with all the
-         * referentials matching with 'searchText' as name.
-         *
-         * @param  searchText  the name of the referential to search for
-         * @return             the list of available referentials to import
-         */
-         $scope.getMatches = function(searchText) {
-             return $scope.mosp_referentials.filter(r => r['name'].toLowerCase().includes(searchText.toLowerCase()));
-         };
-
-        $scope.cancel = function() {
-            $mdDialog.cancel();
-        };
-
-        $scope.import = function() {
-            var ref_temp = $scope.mosp_referentials.find(r => r['id'] === $scope.referential.id);
-
-            $scope.referential['uuid'] = ref_temp.json_object.uuid;
-            for (var i = 1; i <=4; i++) {
-                $scope.referential['label' + i] = ref_temp['name'];
-            }
-
-            var measures = ref_temp.json_object.measures
-
-            $scope.categories = [];
-            measures.map(function(measure) {
-                var category = {};
-                for (var i = 1; i <=4; i++) {
-                    measure['label' + i] = measure.label;
-                    category['label' + i] = measure.category;
-                }
-                measure['referential'] = ref_temp.json_object.uuid;
-                category['referential'] = ref_temp.json_object.uuid;
-                $scope.categories.push(category);
-            })
-
-            result = {
-                referential: $scope.referential,
-                categories: $scope.categories,
-                measures: measures
-            }
-
-            $mdDialog.hide(result);
-        };
     }
 
     function CreateReferentialDialogCtrl($scope, $mdDialog, ReferentialService, ConfigService, referential) {
