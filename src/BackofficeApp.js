@@ -144,7 +144,7 @@ angular
                     'anr@main.kb_mgmt.models.details': {templateUrl: 'views/anr/object.html'}
                 },
                 ncyBreadcrumb: {
-		    skip: true
+                    skip: true
                 }
             }).state('main.kb_mgmt.models.details.instance', {
                 url: '/inst/:instId',
