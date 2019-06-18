@@ -36,7 +36,7 @@ msgstr "(inherited)"
 msgid "* Mandatory field"
 msgstr "* Mandatory field"
 
-#: ../ng_anr/views/create.amvs.html:111 ../ng_anr/views/create.risks.html:106
+#: ../ng_anr/views/create.amvs.html:119 ../ng_anr/views/create.risks.html:106
 msgid "+ Add controls from referential"
 msgstr "+ Add controls from referential"
 
@@ -48,8 +48,8 @@ msgstr "+ Add tags"
 msgid "- or -"
 msgstr "- or -"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:2606
-#: src/kb/info/BackofficeKbInfoCtrl.js:2639
+#: src/kb/info/BackofficeKbInfoCtrl.js:2607
+#: src/kb/info/BackofficeKbInfoCtrl.js:2640
 msgid ""
 "0: generic\n"
 "1: specific"
@@ -57,7 +57,7 @@ msgstr ""
 "0: generic\n"
 "1: specific"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:2561
+#: src/kb/info/BackofficeKbInfoCtrl.js:2562
 msgid ""
 "1: generic\n"
 "2: specific"
@@ -65,7 +65,7 @@ msgstr ""
 "1: generic\n"
 "2: specific"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3044 src/kb/info/BackofficeKbInfoCtrl.js:2555
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3567 src/kb/info/BackofficeKbInfoCtrl.js:2556
 msgid ""
 "1: primary asset\n"
 "2: secondary asset"
@@ -111,15 +111,15 @@ msgstr ""
 "                      <li>For level of compliance, you can choose import "
 "mode calculation. (Average or worse level)</li>"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:85 ../ng_anr/views/_risk_sheet.html:12
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:107 ../ng_anr/views/_table_risks.html:99
-#: ../ng_anr/views/anr.soa.sheet.html:35 ../ng_anr/views/anr.soa.sheet.html:43
-#: ../ng_anr/views/create.threats.html:120
+#: ../ng_anr/views/anr.soa.sheet.html:31 ../ng_anr/views/anr.soa.sheet.html:39
+#: ../ng_anr/views/create.threats.html:131
 #: ../ng_anr/views/trends.evalcontext.html:84
 msgid "A"
 msgstr "A"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:77 ../ng_anr/views/_table_risks.html:57
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:49 ../ng_anr/views/_table_risks.html:57
 msgid "A Impact"
 msgstr "A Impact"
 
@@ -135,13 +135,13 @@ msgstr "Acceptance thresholds of information risks"
 msgid "Acceptance thresholds of operational risks"
 msgstr "Acceptance thresholds of operational risks"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:149 ../ng_anr/src/AnrSoaSheetCtrl.js:276
-#: ../ng_anr/views/_oprisk_sheet.html:109 ../ng_anr/views/_risk_sheet.html:127
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:121 ../ng_anr/src/AnrSoaSheetCtrl.js:248
+#: ../ng_anr/views/_oprisk_sheet.html:107 ../ng_anr/views/_risk_sheet.html:124
 #: ../ng_anr/views/_table_risks.html:38 ../ng_anr/views/_table_risks_op.html:37
 msgid "Accepted"
 msgstr "Accepted"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3122 src/kb/info/BackofficeKbInfoCtrl.js:2654
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3645 src/kb/info/BackofficeKbInfoCtrl.js:2655
 msgid "Access control policy"
 msgstr "Access control policy"
 
@@ -153,12 +153,12 @@ msgstr "Account"
 msgid "Action"
 msgstr "Action"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:223 ../ng_anr/views/_anr.kbmgmt.html:122
+#: ../ng_anr/src/AnrSoaCtrl.js:234 ../ng_anr/views/_anr.kbmgmt.html:122
 #: ../ng_anr/views/_anr.kbmgmt.html:193 ../ng_anr/views/_anr.kbmgmt.html:286
 #: ../ng_anr/views/_anr.kbmgmt.html:373 ../ng_anr/views/_anr.kbmgmt.html:442
 #: ../ng_anr/views/_anr.kbmgmt.html:52 ../ng_anr/views/_anr.kbmgmt.html:533
 #: ../ng_anr/views/_object.composition.html:47
-#: ../ng_anr/views/_object.composition.html:69
+#: ../ng_anr/views/_object.composition.html:69 ../ng_anr/views/anr.home.html:19
 #: ../ng_anr/views/anr.risksplan.html:19
 #: ../ng_anr/views/anr.risksplan.sheet.html:19
 #: ../ng_anr/views/anr.risksplan.sheet.html:43 ../ng_anr/views/anr.soa.html:50
@@ -280,7 +280,7 @@ msgstr "Add a specific operational risk"
 msgid "Add a tag"
 msgstr "Add a tag"
 
-#: ../ng_anr/views/create.themes.html:5 ../ng_anr/views/create.threats.html:85
+#: ../ng_anr/views/create.themes.html:5 ../ng_anr/views/create.threats.html:96
 msgid "Add a theme"
 msgstr "Add a theme"
 
@@ -333,7 +333,7 @@ msgstr "Address"
 msgid "Administration"
 msgstr "Administration"
 
-#: ../ng_anr/views/anr.dashboard.html:150
+#: ../ng_anr/views/anr.dashboard.html:162
 msgid "All"
 msgstr "All"
 
@@ -345,7 +345,7 @@ msgstr "All (unfiltered)"
 msgid "All asset models must not be regulator"
 msgstr "All asset models must not be regulator"
 
-#: ../ng_anr/views/anr.dashboard.html:17 ../ng_anr/views/anr.dashboard.html:63
+#: ../ng_anr/views/anr.dashboard.html:29 ../ng_anr/views/anr.dashboard.html:75
 #: views/info_risk.kb_mgmt.html:437
 msgid "All assets"
 msgstr "All assets"
@@ -370,11 +370,11 @@ msgstr "An error occurred while fetching {{ thing }}: {{status}}"
 msgid "Analysis guides"
 msgstr "Analysis guides"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3038 src/kb/info/BackofficeKbInfoCtrl.js:2549
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3561 src/kb/info/BackofficeKbInfoCtrl.js:2550
 msgid "Any network hardware (router, switch, firewall, etc.)"
 msgstr "Any network hardware (router, switch, firewall, etc.)"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3064 src/kb/info/BackofficeKbInfoCtrl.js:2582
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3587 src/kb/info/BackofficeKbInfoCtrl.js:2583
 msgid ""
 "Any situation that could facilitate the conflagration of premises or "
 "equipment."
@@ -386,15 +386,15 @@ msgstr ""
 msgid "Are you sure you want to copy the recommendation?"
 msgstr "Are you sure you want to copy the recommendation?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:248 src/kb/info/BackofficeKbInfoCtrl.js:256
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:287 src/kb/info/BackofficeKbInfoCtrl.js:257
 msgid "Are you sure you want to delete asset type?"
 msgstr "Are you sure you want to delete asset type?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1455 src/kb/info/BackofficeKbInfoCtrl.js:1475
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1639 src/kb/info/BackofficeKbInfoCtrl.js:1475
 msgid "Are you sure you want to delete asset?"
 msgstr "Are you sure you want to delete asset?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2501 src/kb/info/BackofficeKbInfoCtrl.js:2191
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2941 src/kb/info/BackofficeKbInfoCtrl.js:2192
 msgid "Are you sure you want to delete category?"
 msgstr "Are you sure you want to delete category?"
 
@@ -402,7 +402,7 @@ msgstr "Are you sure you want to delete category?"
 msgid "Are you sure you want to delete client?"
 msgstr "Are you sure you want to delete client?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:971 src/kb/info/BackofficeKbInfoCtrl.js:966
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1143 src/kb/info/BackofficeKbInfoCtrl.js:966
 msgid "Are you sure you want to delete control?"
 msgstr "Are you sure you want to delete control?"
 
@@ -422,11 +422,11 @@ msgstr "Are you sure you want to delete model?"
 msgid "Are you sure you want to delete recommendation?"
 msgstr "Are you sure you want to delete recommendation?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:850 src/kb/info/BackofficeKbInfoCtrl.js:855
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1022 src/kb/info/BackofficeKbInfoCtrl.js:855
 msgid "Are you sure you want to delete referential?"
 msgstr "Are you sure you want to delete referential?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1860
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2077
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:357
 msgid "Are you sure you want to delete risk?"
 msgstr "Are you sure you want to delete risk?"
@@ -435,16 +435,16 @@ msgstr "Are you sure you want to delete risk?"
 msgid "Are you sure you want to delete server?"
 msgstr "Are you sure you want to delete server?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1620
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1804
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:129
 msgid "Are you sure you want to delete tag?"
 msgstr "Are you sure you want to delete tag?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:271 src/kb/info/BackofficeKbInfoCtrl.js:277
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:310 src/kb/info/BackofficeKbInfoCtrl.js:278
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
 msgstr "Are you sure you want to delete the {{count}} selected asset type(s)?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1478 src/kb/info/BackofficeKbInfoCtrl.js:1497
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1662 src/kb/info/BackofficeKbInfoCtrl.js:1497
 msgid "Are you sure you want to delete the {{count}} selected asset(s)?"
 msgstr "Are you sure you want to delete the {{count}} selected asset(s)?"
 
@@ -452,7 +452,7 @@ msgstr "Are you sure you want to delete the {{count}} selected asset(s)?"
 msgid "Are you sure you want to delete the {{count}} selected client(s)?"
 msgstr "Are you sure you want to delete the {{count}} selected client(s)?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:996 src/kb/info/BackofficeKbInfoCtrl.js:989
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1168 src/kb/info/BackofficeKbInfoCtrl.js:989
 msgid "Are you sure you want to delete the {{count}} selected controls?"
 msgstr "Are you sure you want to delete the {{count}} selected controls?"
 
@@ -460,26 +460,26 @@ msgstr "Are you sure you want to delete the {{count}} selected controls?"
 msgid "Are you sure you want to delete the {{count}} selected model(s)?"
 msgstr "Are you sure you want to delete the {{count}} selected model(s)?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1241 ../ng_anr/src/AnrKbMgmtCtrl.js:1881
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1425 ../ng_anr/src/AnrKbMgmtCtrl.js:2098
 #: src/kb/info/BackofficeKbInfoCtrl.js:1227
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:377
 msgid "Are you sure you want to delete the {{count}} selected risk(s)?"
 msgstr "Are you sure you want to delete the {{count}} selected risk(s)?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1643
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1827
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:149
 msgid "Are you sure you want to delete the {{count}} selected tag(s)?"
 msgstr "Are you sure you want to delete the {{count}} selected tag(s)?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:477 src/kb/info/BackofficeKbInfoCtrl.js:482
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:557 src/kb/info/BackofficeKbInfoCtrl.js:484
 msgid "Are you sure you want to delete the {{count}} selected threat(s)?"
 msgstr "Are you sure you want to delete the {{count}} selected threat(s)?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:661 src/kb/info/BackofficeKbInfoCtrl.js:667
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:783 src/kb/info/BackofficeKbInfoCtrl.js:670
 msgid "Are you sure you want to delete the {{count}} selected vulnerabilites?"
 msgstr "Are you sure you want to delete the {{count}} selected vulnerabilites?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2152 src/kb/info/BackofficeKbInfoCtrl.js:1813
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2414 src/kb/info/BackofficeKbInfoCtrl.js:1813
 msgid "Are you sure you want to delete theme?"
 msgstr "Are you sure you want to delete theme?"
 
@@ -491,11 +491,11 @@ msgstr "Are you sure you want to delete this guide?"
 msgid "Are you sure you want to delete this question?"
 msgstr "Are you sure you want to delete this question?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1218 src/kb/info/BackofficeKbInfoCtrl.js:1206
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1402 src/kb/info/BackofficeKbInfoCtrl.js:1206
 msgid "Are you sure you want to delete this risk?"
 msgstr "Are you sure you want to delete this risk?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:453 src/kb/info/BackofficeKbInfoCtrl.js:459
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:533 src/kb/info/BackofficeKbInfoCtrl.js:461
 msgid "Are you sure you want to delete threat?"
 msgstr "Are you sure you want to delete threat?"
 
@@ -503,7 +503,7 @@ msgstr "Are you sure you want to delete threat?"
 msgid "Are you sure you want to delete user?"
 msgstr "Are you sure you want to delete user?"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:637 src/kb/info/BackofficeKbInfoCtrl.js:644
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:759 src/kb/info/BackofficeKbInfoCtrl.js:647
 msgid "Are you sure you want to delete vulnerability?"
 msgstr "Are you sure you want to delete vulnerability?"
 
@@ -523,29 +523,29 @@ msgstr "Are you sure you want to detach recommendation ?"
 msgid "Ascending"
 msgstr "Ascending"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2311
+#: ../ng_anr/src/AnrLayoutCtrl.js:2390
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:55
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:130
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:92
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:164 ../ng_anr/src/AnrSoaSheetCtrl.js:74
-#: ../ng_anr/views/_anr.kbmgmt.html:369 ../ng_anr/views/_oprisk_sheet.html:40
-#: ../ng_anr/views/_risk_sheet.html:47 ../ng_anr/views/_table_risks.html:54
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:136 ../ng_anr/src/AnrSoaSheetCtrl.js:46
+#: ../ng_anr/views/_anr.kbmgmt.html:369 ../ng_anr/views/_oprisk_sheet.html:38
+#: ../ng_anr/views/_risk_sheet.html:44 ../ng_anr/views/_table_risks.html:54
 #: ../ng_anr/views/_table_risks.html:88 ../ng_anr/views/_table_risks_op.html:52
 #: ../ng_anr/views/_table_risks_op.html:87
 #: ../ng_anr/views/anr.risksplan.sheet.html:12
 #: ../ng_anr/views/anr.risksplan.sheet.html:37
-#: ../ng_anr/views/anr.soa.sheet.html:24 ../ng_anr/views/anr.soa.sheet.html:96
-#: ../ng_anr/views/object.html:67 ../ng_anr/views/risks.evalcontext.html:24
-#: views/info_risk.kb_mgmt.html:376 views/info_risk.kb_mgmt.html:436
+#: ../ng_anr/views/anr.soa.sheet.html:20 ../ng_anr/views/anr.soa.sheet.html:92
+#: ../ng_anr/views/import.asset.html:35 ../ng_anr/views/object.html:67
+#: ../ng_anr/views/risks.evalcontext.html:24 views/info_risk.kb_mgmt.html:376
+#: views/info_risk.kb_mgmt.html:436
 msgid "Asset"
 msgstr "Asset"
 
-#: ../ng_anr/views/anr.home.html:19 ../ng_anr/views/anr.instance.html:16
-#: ../ng_anr/views/object.html:22
+#: ../ng_anr/views/anr.instance.html:16 ../ng_anr/views/object.html:22
 msgid "Asset actions"
 msgstr "Asset actions"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1562
+#: ../ng_anr/src/AnrLayoutCtrl.js:1642
 msgid "Asset added successfully"
 msgstr "Asset added successfully"
 
@@ -577,7 +577,7 @@ msgstr "Asset replica(s) in models"
 msgid "Asset to export is required"
 msgstr "Asset to export is required"
 
-#: ../ng_anr/views/create.amvs.html:27 ../ng_anr/views/create.objlibs.html:131
+#: ../ng_anr/views/create.amvs.html:35 ../ng_anr/views/create.objlibs.html:131
 #: ../ng_anr/views/import.object.html:66 views/info_risk.kb_mgmt.html:462
 msgid "Asset type"
 msgstr "Asset type"
@@ -613,7 +613,7 @@ msgid "Asset's model must not be regulator"
 msgstr "Asset's model must not be regulator"
 
 #: ../ng_anr/views/anr.risksplan.history.html:32
-#: ../ng_anr/views/create.amvs.html:41
+#: ../ng_anr/views/create.amvs.html:49
 #: ../ng_anr/views/validate.recommandation.html:17
 msgid "Asset:"
 msgstr "Asset:"
@@ -631,11 +631,11 @@ msgstr "Attach"
 msgid "Attach a control to the recommendation"
 msgstr "Attach a control to the recommendation"
 
-#: ../ng_anr/views/_oprisk_sheet.html:86 ../ng_anr/views/_risk_sheet.html:104
+#: ../ng_anr/views/_oprisk_sheet.html:84 ../ng_anr/views/_risk_sheet.html:101
 msgid "Attach this recommendation"
 msgstr "Attach this recommendation"
 
-#: ../ng_anr/views/_table_risks.html:53 ../ng_anr/views/create.amvs.html:130
+#: ../ng_anr/views/_table_risks.html:53 ../ng_anr/views/create.amvs.html:138
 msgid "Audit order"
 msgstr "Audit order"
 
@@ -664,7 +664,7 @@ msgstr "BP"
 msgid "BR"
 msgstr "BR"
 
-#: ../ng_anr/views/_oprisk_sheet.html:2 ../ng_anr/views/_risk_sheet.html:2
+#: ../ng_anr/views/_oprisk_sheet.html:135 ../ng_anr/views/_risk_sheet.html:164
 #: ../ng_anr/views/anr.risksplan.history.html:2
 #: ../ng_anr/views/anr.risksplan.sheet.html:2
 #: ../ng_anr/views/anr.soa.sheet.html:2 ../ng_anr/views/import.object.html:85
@@ -676,11 +676,11 @@ msgstr "Back to the list"
 msgid "Bad mode for this asset or models attached to asset type incoherent"
 msgstr "Bad mode for this asset or models attached to asset type incoherent"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:247 ../ng_anr/views/anr.soa.html:88
+#: ../ng_anr/src/AnrSoaCtrl.js:258 ../ng_anr/views/anr.soa.html:88
 msgid "Best practices"
 msgstr "Best practices"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:245 ../ng_anr/views/anr.soa.html:82
+#: ../ng_anr/src/AnrSoaCtrl.js:256 ../ng_anr/views/anr.soa.html:82
 msgid "Business requirements"
 msgstr "Business requirements"
 
@@ -699,7 +699,7 @@ msgstr "By duplicating"
 msgid "By merging"
 msgstr "By merging"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:75 ../ng_anr/views/_table_risks.html:55
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:47 ../ng_anr/views/_table_risks.html:55
 msgid "C Impact"
 msgstr "C Impact"
 
@@ -711,28 +711,28 @@ msgstr "CIA"
 msgid "CO"
 msgstr "CO"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1002 ../ng_anr/src/AnrKbMgmtCtrl.js:1223
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1247 ../ng_anr/src/AnrKbMgmtCtrl.js:1461
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1484 ../ng_anr/src/AnrKbMgmtCtrl.js:1626
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1649 ../ng_anr/src/AnrKbMgmtCtrl.js:1866
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1887 ../ng_anr/src/AnrKbMgmtCtrl.js:2158
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2507 ../ng_anr/src/AnrKbMgmtCtrl.js:254
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:277 ../ng_anr/src/AnrKbMgmtCtrl.js:3207
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3430 ../ng_anr/src/AnrKbMgmtCtrl.js:3441
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:459 ../ng_anr/src/AnrKbMgmtCtrl.js:483
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:57 ../ng_anr/src/AnrKbMgmtCtrl.js:643
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:667 ../ng_anr/src/AnrKbMgmtCtrl.js:856
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:977 ../ng_anr/src/AnrObjectCtrl.js:161
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1028 ../ng_anr/src/AnrKbMgmtCtrl.js:1149
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1174 ../ng_anr/src/AnrKbMgmtCtrl.js:1407
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1431 ../ng_anr/src/AnrKbMgmtCtrl.js:1645
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1668 ../ng_anr/src/AnrKbMgmtCtrl.js:1810
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1833 ../ng_anr/src/AnrKbMgmtCtrl.js:2083
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2104 ../ng_anr/src/AnrKbMgmtCtrl.js:2420
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:293 ../ng_anr/src/AnrKbMgmtCtrl.js:2947
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:316 ../ng_anr/src/AnrKbMgmtCtrl.js:3730
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3953 ../ng_anr/src/AnrKbMgmtCtrl.js:3964
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:539 ../ng_anr/src/AnrKbMgmtCtrl.js:563
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:57 ../ng_anr/src/AnrKbMgmtCtrl.js:765
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:789 ../ng_anr/src/AnrObjectCtrl.js:161
 #: ../ng_anr/src/AnrObjectCtrl.js:201 ../ng_anr/src/AnrObjectCtrl.js:526
-#: ../ng_anr/src/AnrObjectCtrl.js:92 ../ng_anr/src/AnrObjectInstanceCtrl.js:286
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:308
+#: ../ng_anr/src/AnrObjectCtrl.js:92 ../ng_anr/src/AnrObjectInstanceCtrl.js:287
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:309
 #: ../ng_anr/src/InstanceService.js:10
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:106
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:128
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:154
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:195
-#: ../ng_anr/views/add.objlib.html:70 ../ng_anr/views/create.amvs.html:148
-#: ../ng_anr/views/create.assets.html:100
+#: ../ng_anr/views/add.objlib.html:70 ../ng_anr/views/create.amvs.html:156
+#: ../ng_anr/views/create.assets.html:111
 #: ../ng_anr/views/create.categories.html:48
 #: ../ng_anr/views/create.instance.html:73
 #: ../ng_anr/views/create.measures.html:107
@@ -741,18 +741,23 @@ msgstr "CO"
 #: ../ng_anr/views/create.objlibs.node.html:79
 #: ../ng_anr/views/create.recommandation-measure.html:36
 #: ../ng_anr/views/create.recommandation.html:44
-#: ../ng_anr/views/create.referentials.html:39
+#: ../ng_anr/views/create.referentials.html:47
 #: ../ng_anr/views/create.risks.html:125
 #: ../ng_anr/views/create.specrisk.html:67
 #: ../ng_anr/views/create.specriskop.html:75
 #: ../ng_anr/views/create.tags.html:57 ../ng_anr/views/create.themes.html:40
-#: ../ng_anr/views/create.threats.html:141 ../ng_anr/views/create.vulns.html:91
-#: ../ng_anr/views/deliverable.evalcontext.html:70
+#: ../ng_anr/views/create.threats.html:152
+#: ../ng_anr/views/create.vulns.html:102
+#: ../ng_anr/views/deliverable.evalcontext.html:72
 #: ../ng_anr/views/detach.objlibs.html:63
 #: ../ng_anr/views/edit.evalcontext.html:38
-#: ../ng_anr/views/export.objlibs.html:75 ../ng_anr/views/import.file.html:123
+#: ../ng_anr/views/export.objlibs.html:75 ../ng_anr/views/import.amv.html:59
+#: ../ng_anr/views/import.asset.html:59 ../ng_anr/views/import.file.html:123
 #: ../ng_anr/views/import.instance.html:53
-#: ../ng_anr/views/import.object.html:137 ../ng_anr/views/import.soa.html:62
+#: ../ng_anr/views/import.object.html:137
+#: ../ng_anr/views/import.referentials.html:59
+#: ../ng_anr/views/import.soa.html:62 ../ng_anr/views/import.threat.html:59
+#: ../ng_anr/views/import.vulnerability.html:59
 #: ../ng_anr/views/interviews.html:71 ../ng_anr/views/snapshots.html:74
 #: ../ng_anr/views/updateMeasures.amvs.html:35
 #: ../ng_anr/views/validate.recommandation.html:34
@@ -768,17 +773,17 @@ msgstr "CO"
 #: src/kb/info/BackofficeKbInfoCtrl.js:1480
 #: src/kb/info/BackofficeKbInfoCtrl.js:1502
 #: src/kb/info/BackofficeKbInfoCtrl.js:1819
-#: src/kb/info/BackofficeKbInfoCtrl.js:2197
-#: src/kb/info/BackofficeKbInfoCtrl.js:261
-#: src/kb/info/BackofficeKbInfoCtrl.js:2742
-#: src/kb/info/BackofficeKbInfoCtrl.js:282
-#: src/kb/info/BackofficeKbInfoCtrl.js:2993
-#: src/kb/info/BackofficeKbInfoCtrl.js:3004
-#: src/kb/info/BackofficeKbInfoCtrl.js:464
-#: src/kb/info/BackofficeKbInfoCtrl.js:487
+#: src/kb/info/BackofficeKbInfoCtrl.js:2198
+#: src/kb/info/BackofficeKbInfoCtrl.js:262
+#: src/kb/info/BackofficeKbInfoCtrl.js:2743
+#: src/kb/info/BackofficeKbInfoCtrl.js:283
+#: src/kb/info/BackofficeKbInfoCtrl.js:2994
+#: src/kb/info/BackofficeKbInfoCtrl.js:3005
+#: src/kb/info/BackofficeKbInfoCtrl.js:466
+#: src/kb/info/BackofficeKbInfoCtrl.js:489
 #: src/kb/info/BackofficeKbInfoCtrl.js:57
-#: src/kb/info/BackofficeKbInfoCtrl.js:649
-#: src/kb/info/BackofficeKbInfoCtrl.js:672
+#: src/kb/info/BackofficeKbInfoCtrl.js:652
+#: src/kb/info/BackofficeKbInfoCtrl.js:675
 #: src/kb/info/BackofficeKbInfoCtrl.js:860
 #: src/kb/info/BackofficeKbInfoCtrl.js:971
 #: src/kb/info/BackofficeKbInfoCtrl.js:994
@@ -798,11 +803,11 @@ msgstr "CO"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: ../ng_anr/views/anr.dashboard.html:169
+#: ../ng_anr/views/anr.dashboard.html:181
 msgid "Cartography"
 msgstr "Cartography"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:217 ../ng_anr/views/_anr.kbmgmt.html:285
+#: ../ng_anr/src/AnrSoaCtrl.js:228 ../ng_anr/views/_anr.kbmgmt.html:285
 #: ../ng_anr/views/add.objlib.html:18 ../ng_anr/views/anr.soa.html:44
 #: ../ng_anr/views/create.measures.html:72
 #: ../ng_anr/views/create.objlibs.html:151
@@ -818,9 +823,9 @@ msgstr "Category"
 msgid "Change password"
 msgstr "Change password"
 
-#: ../ng_anr/views/anr.dashboard.html:116
-#: ../ng_anr/views/anr.dashboard.html:155 ../ng_anr/views/anr.dashboard.html:23
-#: ../ng_anr/views/anr.dashboard.html:69
+#: ../ng_anr/views/anr.dashboard.html:128
+#: ../ng_anr/views/anr.dashboard.html:167 ../ng_anr/views/anr.dashboard.html:35
+#: ../ng_anr/views/anr.dashboard.html:81
 msgid "Chart type"
 msgstr "Chart type"
 
@@ -840,7 +845,7 @@ msgstr "Choice {{idx+1}}"
 msgid "Choices"
 msgstr "Choices"
 
-#: ../ng_anr/views/deliverable.evalcontext.html:38
+#: ../ng_anr/views/deliverable.evalcontext.html:40
 msgid "Classification"
 msgstr "Classification"
 
@@ -857,7 +862,7 @@ msgstr "Click here to type..."
 msgid "Client management"
 msgstr "Client management"
 
-#: ../ng_anr/views/deliverable.evalcontext.html:48
+#: ../ng_anr/views/deliverable.evalcontext.html:50
 msgid "Client manager(s)"
 msgstr "Client manager(s)"
 
@@ -883,10 +888,13 @@ msgstr "Clients"
 #: ../ng_anr/views/deliverable.evalcontext.html:8
 #: ../ng_anr/views/detach.objlibs.html:7
 #: ../ng_anr/views/edit.evalcontext.html:8
-#: ../ng_anr/views/export.objlibs.html:11 ../ng_anr/views/import.file.html:8
+#: ../ng_anr/views/export.objlibs.html:11 ../ng_anr/views/import.amv.html:8
+#: ../ng_anr/views/import.asset.html:8 ../ng_anr/views/import.file.html:8
 #: ../ng_anr/views/import.instance.html:8 ../ng_anr/views/import.object.html:8
-#: ../ng_anr/views/import.soa.html:8 ../ng_anr/views/interviews.html:7
-#: ../ng_anr/views/match.referentials.html:8
+#: ../ng_anr/views/import.referentials.html:8 ../ng_anr/views/import.soa.html:8
+#: ../ng_anr/views/import.threat.html:8
+#: ../ng_anr/views/import.vulnerability.html:8
+#: ../ng_anr/views/interviews.html:7 ../ng_anr/views/match.referentials.html:8
 #: ../ng_anr/views/risks.evalcontext.html:8 ../ng_anr/views/snapshots.html:7
 #: ../ng_anr/views/trends.evalcontext.html:8
 #: ../ng_anr/views/updateMeasures.amvs.html:8
@@ -901,15 +909,15 @@ msgstr "Clients"
 msgid "Close dialog"
 msgstr "Close dialog"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2308 ../ng_anr/src/AnrSoaCtrl.js:218
+#: ../ng_anr/src/AnrLayoutCtrl.js:2387 ../ng_anr/src/AnrSoaCtrl.js:229
 #: ../ng_anr/views/_anr.kbmgmt.html:119 ../ng_anr/views/_anr.kbmgmt.html:191
 #: ../ng_anr/views/_anr.kbmgmt.html:283 ../ng_anr/views/_anr.kbmgmt.html:440
 #: ../ng_anr/views/_anr.kbmgmt.html:49 ../ng_anr/views/_anr.kbmgmt.html:529
-#: ../ng_anr/views/anr.soa.html:45 ../ng_anr/views/create.assets.html:63
+#: ../ng_anr/views/anr.soa.html:45 ../ng_anr/views/create.assets.html:74
 #: ../ng_anr/views/create.measures.html:50 ../ng_anr/views/create.risks.html:50
 #: ../ng_anr/views/create.specriskop.html:53
-#: ../ng_anr/views/create.tags.html:44 ../ng_anr/views/create.threats.html:109
-#: ../ng_anr/views/create.vulns.html:63 views/dialogs/create.categories.html:36
+#: ../ng_anr/views/create.tags.html:44 ../ng_anr/views/create.threats.html:120
+#: ../ng_anr/views/create.vulns.html:74 views/dialogs/create.categories.html:36
 #: views/info_risk.kb_mgmt.html:123 views/info_risk.kb_mgmt.html:197
 #: views/info_risk.kb_mgmt.html:291 views/info_risk.kb_mgmt.html:49
 #: views/op_risk.kb_mgmt.html:123 views/op_risk.kb_mgmt.html:38
@@ -938,7 +946,7 @@ msgstr "Comments"
 msgid "Company"
 msgstr "Company"
 
-#: ../ng_anr/views/anr.dashboard.html:186
+#: ../ng_anr/views/anr.dashboard.html:217
 msgid "Compliance"
 msgstr "Compliance"
 
@@ -984,23 +992,23 @@ msgstr "Contains items"
 msgid "Contents"
 msgstr "Contents"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:792
+#: ../ng_anr/src/AnrLayoutCtrl.js:868
 msgid "Context Establishment"
 msgstr "Context Establishment"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:804
+#: ../ng_anr/src/AnrLayoutCtrl.js:880
 msgid "Context modeling"
 msgstr "Context modeling"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:793
+#: ../ng_anr/src/AnrLayoutCtrl.js:869
 msgid "Context validation"
 msgstr "Context validation"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:243 ../ng_anr/views/anr.soa.html:76
+#: ../ng_anr/src/AnrSoaCtrl.js:254 ../ng_anr/views/anr.soa.html:76
 msgid "Contractual obligations"
 msgstr "Contractual obligations"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:219 ../ng_anr/views/anr.soa.html:46
+#: ../ng_anr/src/AnrSoaCtrl.js:230 ../ng_anr/views/anr.soa.html:46
 #: ../ng_anr/views/create.recommandation-measure.html:23
 msgid "Control"
 msgstr "Control"
@@ -1010,7 +1018,7 @@ msgid "Control attached to recommendation"
 msgstr "Control attached to recommendation"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:245 ../ng_anr/views/_anr.kbmgmt.html:372
-#: ../ng_anr/views/_anr.kbmgmt.html:532 ../ng_anr/views/create.amvs.html:94
+#: ../ng_anr/views/_anr.kbmgmt.html:532 ../ng_anr/views/create.amvs.html:102
 #: ../ng_anr/views/create.risks.html:89 views/info_risk.kb_mgmt.html:253
 #: views/info_risk.kb_mgmt.html:379 views/op_risk.kb_mgmt.html:126
 msgid "Controls"
@@ -1025,7 +1033,7 @@ msgstr "Copy"
 msgid "Create"
 msgstr "Create"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3429 src/kb/info/BackofficeKbInfoCtrl.js:2992
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3952 src/kb/info/BackofficeKbInfoCtrl.js:2993
 msgid "Create & Import"
 msgstr "Create & Import"
 
@@ -1054,23 +1062,27 @@ msgstr "Create an asset"
 msgid "Create an interview"
 msgstr "Create an interview"
 
-#: ../ng_anr/views/create.amvs.html:154 ../ng_anr/views/create.assets.html:106
+#: ../ng_anr/views/create.amvs.html:162 ../ng_anr/views/create.assets.html:117
 #: ../ng_anr/views/create.categories.html:54
 #: ../ng_anr/views/create.measures.html:113
 #: ../ng_anr/views/create.objlibs.html:233
-#: ../ng_anr/views/create.referentials.html:45
+#: ../ng_anr/views/create.referentials.html:53
 #: ../ng_anr/views/create.risks.html:131 ../ng_anr/views/create.themes.html:46
-#: ../ng_anr/views/create.threats.html:147 ../ng_anr/views/create.vulns.html:97
+#: ../ng_anr/views/create.threats.html:158
+#: ../ng_anr/views/create.vulns.html:108
 msgid "Create and continue"
 msgstr "Create and continue"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1147 ../ng_anr/src/AnrKbMgmtCtrl.js:1420
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1576 ../ng_anr/src/AnrKbMgmtCtrl.js:1801
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:197 ../ng_anr/src/AnrKbMgmtCtrl.js:1982
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2111 ../ng_anr/src/AnrKbMgmtCtrl.js:2457
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:392 ../ng_anr/src/AnrKbMgmtCtrl.js:584
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:779 ../ng_anr/src/AnrKbMgmtCtrl.js:920
-#: ../ng_anr/src/AnrObjectCtrl.js:280 ../ng_anr/src/AnrObjectCtrl.js:383
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1092 ../ng_anr/src/AnrKbMgmtCtrl.js:1331
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1604 ../ng_anr/src/AnrKbMgmtCtrl.js:1760
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1986 ../ng_anr/src/AnrKbMgmtCtrl.js:2025
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:207 ../ng_anr/src/AnrKbMgmtCtrl.js:2199
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2373 ../ng_anr/src/AnrKbMgmtCtrl.js:240
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2897 ../ng_anr/src/AnrKbMgmtCtrl.js:443
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:477 ../ng_anr/src/AnrKbMgmtCtrl.js:667
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:706 ../ng_anr/src/AnrKbMgmtCtrl.js:910
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:951 ../ng_anr/src/AnrObjectCtrl.js:280
+#: ../ng_anr/src/AnrObjectCtrl.js:383
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:131
 #: src/BackofficeClientMgmtCtrl.js:53 src/admin/BackofficeAdminServerCtrl.js:50
 #: src/admin/BackofficeAdminUsersCtrl.js:71
@@ -1083,9 +1095,9 @@ msgstr "Create and continue"
 #: src/kb/info/BackofficeKbInfoCtrl.js:1602
 #: src/kb/info/BackofficeKbInfoCtrl.js:1767
 #: src/kb/info/BackofficeKbInfoCtrl.js:203
-#: src/kb/info/BackofficeKbInfoCtrl.js:2143
-#: src/kb/info/BackofficeKbInfoCtrl.js:398
-#: src/kb/info/BackofficeKbInfoCtrl.js:591
+#: src/kb/info/BackofficeKbInfoCtrl.js:2144
+#: src/kb/info/BackofficeKbInfoCtrl.js:400
+#: src/kb/info/BackofficeKbInfoCtrl.js:594
 #: src/kb/info/BackofficeKbInfoCtrl.js:787
 #: src/kb/info/BackofficeKbInfoCtrl.js:921
 #: src/kb/models/BackofficeKbModelsCtrl.js:55
@@ -1098,31 +1110,31 @@ msgstr "Creation successful"
 msgid "Current password"
 msgstr "Current password"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2313
+#: ../ng_anr/src/AnrLayoutCtrl.js:2392
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:133
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:96
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:83 ../ng_anr/src/AnrSoaSheetCtrl.js:84
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:85 ../ng_anr/views/_oprisk_sheet.html:20
-#: ../ng_anr/views/_risk_sheet.html:17 ../ng_anr/views/_table_risks.html:92
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:55 ../ng_anr/src/AnrSoaSheetCtrl.js:56
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_oprisk_sheet.html:18
+#: ../ng_anr/views/_risk_sheet.html:14 ../ng_anr/views/_table_risks.html:92
 #: ../ng_anr/views/_table_risks_op.html:102
 #: ../ng_anr/views/_table_risks_op.html:98
 #: ../ng_anr/views/anr.risksplan.sheet.html:16
 #: ../ng_anr/views/anr.risksplan.sheet.html:40
-#: ../ng_anr/views/anr.soa.sheet.html:107
-#: ../ng_anr/views/anr.soa.sheet.html:111 ../ng_anr/views/anr.soa.sheet.html:28
+#: ../ng_anr/views/anr.soa.sheet.html:103
+#: ../ng_anr/views/anr.soa.sheet.html:107 ../ng_anr/views/anr.soa.sheet.html:24
 #: ../ng_anr/views/risks.evalcontext.html:26
 msgid "Current risk"
 msgstr "Current risk"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:173
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:145
 msgid "Current risk (Inherent risk)"
 msgstr "Current risk (Inherent risk)"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:181
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:153
 msgid "Current risk (Net risk)"
 msgstr "Current risk (Net risk)"
 
-#: ../ng_anr/views/anr.dashboard.html:11
+#: ../ng_anr/views/anr.dashboard.html:196 ../ng_anr/views/anr.dashboard.html:23
 msgid "Current risks"
 msgstr "Current risks"
 
@@ -1166,26 +1178,26 @@ msgstr "Deadline"
 msgid "Deadline:"
 msgstr "Deadline:"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:279 ../ng_anr/views/anr.soa.html:110
+#: ../ng_anr/src/AnrSoaCtrl.js:290 ../ng_anr/views/anr.soa.html:110
 msgid "Defined"
 msgstr "Defined"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:798
+#: ../ng_anr/src/AnrLayoutCtrl.js:874
 msgid "Definition of the risk evaluation criteria"
 msgstr "Definition of the risk evaluation criteria"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1001 ../ng_anr/src/AnrKbMgmtCtrl.js:1222
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1246 ../ng_anr/src/AnrKbMgmtCtrl.js:1460
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1483 ../ng_anr/src/AnrKbMgmtCtrl.js:1625
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1648 ../ng_anr/src/AnrKbMgmtCtrl.js:1865
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1886 ../ng_anr/src/AnrKbMgmtCtrl.js:2157
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2506 ../ng_anr/src/AnrKbMgmtCtrl.js:253
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:276 ../ng_anr/src/AnrKbMgmtCtrl.js:458
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:482 ../ng_anr/src/AnrKbMgmtCtrl.js:642
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:666 ../ng_anr/src/AnrKbMgmtCtrl.js:855
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:976 ../ng_anr/src/AnrObjectCtrl.js:160
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:285
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:307
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1027 ../ng_anr/src/AnrKbMgmtCtrl.js:1148
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1173 ../ng_anr/src/AnrKbMgmtCtrl.js:1406
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1430 ../ng_anr/src/AnrKbMgmtCtrl.js:1644
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1667 ../ng_anr/src/AnrKbMgmtCtrl.js:1809
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1832 ../ng_anr/src/AnrKbMgmtCtrl.js:2082
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2103 ../ng_anr/src/AnrKbMgmtCtrl.js:2419
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:292 ../ng_anr/src/AnrKbMgmtCtrl.js:2946
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:315 ../ng_anr/src/AnrKbMgmtCtrl.js:538
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:562 ../ng_anr/src/AnrKbMgmtCtrl.js:764
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:788 ../ng_anr/src/AnrObjectCtrl.js:160
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:286
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:308
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:153
 #: ../ng_anr/views/create.objlibs.categories.html:66
 #: ../ng_anr/views/create.recommandation.html:47
@@ -1202,13 +1214,13 @@ msgstr "Definition of the risk evaluation criteria"
 #: src/kb/info/BackofficeKbInfoCtrl.js:1479
 #: src/kb/info/BackofficeKbInfoCtrl.js:1501
 #: src/kb/info/BackofficeKbInfoCtrl.js:1818
-#: src/kb/info/BackofficeKbInfoCtrl.js:2196
-#: src/kb/info/BackofficeKbInfoCtrl.js:260
-#: src/kb/info/BackofficeKbInfoCtrl.js:281
-#: src/kb/info/BackofficeKbInfoCtrl.js:463
-#: src/kb/info/BackofficeKbInfoCtrl.js:486
-#: src/kb/info/BackofficeKbInfoCtrl.js:648
-#: src/kb/info/BackofficeKbInfoCtrl.js:671
+#: src/kb/info/BackofficeKbInfoCtrl.js:2197
+#: src/kb/info/BackofficeKbInfoCtrl.js:261
+#: src/kb/info/BackofficeKbInfoCtrl.js:282
+#: src/kb/info/BackofficeKbInfoCtrl.js:465
+#: src/kb/info/BackofficeKbInfoCtrl.js:488
+#: src/kb/info/BackofficeKbInfoCtrl.js:651
+#: src/kb/info/BackofficeKbInfoCtrl.js:674
 #: src/kb/info/BackofficeKbInfoCtrl.js:859
 #: src/kb/info/BackofficeKbInfoCtrl.js:970
 #: src/kb/info/BackofficeKbInfoCtrl.js:993
@@ -1235,24 +1247,24 @@ msgstr "Delete referential"
 msgid "Delete risk analysis"
 msgstr "Delete risk analysis"
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:281
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:282
 msgid "Delete specific information risk"
 msgstr "Delete specific information risk"
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:303
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:304
 msgid "Delete specific operational risk"
 msgstr "Delete specific operational risk"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1010 ../ng_anr/src/AnrKbMgmtCtrl.js:1228
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1256 ../ng_anr/src/AnrKbMgmtCtrl.js:1467
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1495 ../ng_anr/src/AnrKbMgmtCtrl.js:1631
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1658 ../ng_anr/src/AnrKbMgmtCtrl.js:1871
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1896 ../ng_anr/src/AnrKbMgmtCtrl.js:2164
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2513 ../ng_anr/src/AnrKbMgmtCtrl.js:259
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:286 ../ng_anr/src/AnrKbMgmtCtrl.js:464
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:492 ../ng_anr/src/AnrKbMgmtCtrl.js:648
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:676 ../ng_anr/src/AnrKbMgmtCtrl.js:862
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:982
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1034 ../ng_anr/src/AnrKbMgmtCtrl.js:1154
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1182 ../ng_anr/src/AnrKbMgmtCtrl.js:1412
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1440 ../ng_anr/src/AnrKbMgmtCtrl.js:1651
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1679 ../ng_anr/src/AnrKbMgmtCtrl.js:1815
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1842 ../ng_anr/src/AnrKbMgmtCtrl.js:2088
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2113 ../ng_anr/src/AnrKbMgmtCtrl.js:2426
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2953 ../ng_anr/src/AnrKbMgmtCtrl.js:298
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:325 ../ng_anr/src/AnrKbMgmtCtrl.js:544
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:572 ../ng_anr/src/AnrKbMgmtCtrl.js:770
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:798
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:316
 #: src/BackofficeClientMgmtCtrl.js:111 src/BackofficeClientMgmtCtrl.js:139
 #: src/admin/BackofficeAdminServerCtrl.js:106
@@ -1267,13 +1279,13 @@ msgstr "Delete specific operational risk"
 #: src/kb/info/BackofficeKbInfoCtrl.js:1486
 #: src/kb/info/BackofficeKbInfoCtrl.js:1513
 #: src/kb/info/BackofficeKbInfoCtrl.js:1825
-#: src/kb/info/BackofficeKbInfoCtrl.js:2203
-#: src/kb/info/BackofficeKbInfoCtrl.js:266
-#: src/kb/info/BackofficeKbInfoCtrl.js:291
-#: src/kb/info/BackofficeKbInfoCtrl.js:469
-#: src/kb/info/BackofficeKbInfoCtrl.js:497
-#: src/kb/info/BackofficeKbInfoCtrl.js:654
-#: src/kb/info/BackofficeKbInfoCtrl.js:682
+#: src/kb/info/BackofficeKbInfoCtrl.js:2204
+#: src/kb/info/BackofficeKbInfoCtrl.js:267
+#: src/kb/info/BackofficeKbInfoCtrl.js:292
+#: src/kb/info/BackofficeKbInfoCtrl.js:471
+#: src/kb/info/BackofficeKbInfoCtrl.js:499
+#: src/kb/info/BackofficeKbInfoCtrl.js:657
+#: src/kb/info/BackofficeKbInfoCtrl.js:685
 #: src/kb/info/BackofficeKbInfoCtrl.js:866
 #: src/kb/info/BackofficeKbInfoCtrl.js:976
 #: src/kb/models/BackofficeKbModelsCtrl.js:114
@@ -1313,8 +1325,8 @@ msgstr "Deliverable templates"
 msgid "Deliverable:"
 msgstr "Deliverable:"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:146 ../ng_anr/src/AnrSoaSheetCtrl.js:273
-#: ../ng_anr/views/_oprisk_sheet.html:108 ../ng_anr/views/_risk_sheet.html:126
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:118 ../ng_anr/src/AnrSoaSheetCtrl.js:245
+#: ../ng_anr/views/_oprisk_sheet.html:106 ../ng_anr/views/_risk_sheet.html:123
 #: ../ng_anr/views/_table_risks.html:37 ../ng_anr/views/_table_risks_op.html:36
 msgid "Denied"
 msgstr "Denied"
@@ -1329,11 +1341,11 @@ msgstr "Descending"
 
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:57 ../ng_anr/views/_anr.kbmgmt.html:121
 #: ../ng_anr/views/_anr.kbmgmt.html:192 ../ng_anr/views/_anr.kbmgmt.html:51
-#: ../ng_anr/views/_anr.kbmgmt.html:531 ../ng_anr/views/create.assets.html:46
+#: ../ng_anr/views/_anr.kbmgmt.html:531 ../ng_anr/views/create.assets.html:57
 #: ../ng_anr/views/create.recommandation.html:36
 #: ../ng_anr/views/create.risks.html:44
 #: ../ng_anr/views/create.specriskop.html:65
-#: ../ng_anr/views/create.threats.html:46 ../ng_anr/views/create.vulns.html:46
+#: ../ng_anr/views/create.threats.html:57 ../ng_anr/views/create.vulns.html:57
 #: views/analysis_guides.kb_mgmt.html:18
 #: views/deliveries_models.kb_mgmt.html:20 views/dialogs/create.anr.html:33
 #: views/dialogs/create.deliverymodel.html:37
@@ -1377,41 +1389,41 @@ msgstr "Detach component"
 msgid "Details"
 msgstr "Details"
 
-#: ../ng_anr/views/anr.dashboard.html:118
-#: ../ng_anr/views/anr.dashboard.html:157 ../ng_anr/views/anr.dashboard.html:25
-#: ../ng_anr/views/anr.dashboard.html:71
+#: ../ng_anr/views/anr.dashboard.html:130
+#: ../ng_anr/views/anr.dashboard.html:169 ../ng_anr/views/anr.dashboard.html:37
+#: ../ng_anr/views/anr.dashboard.html:83
 msgid "Discrete Bar Chart"
 msgstr "Discrete Bar Chart"
 
-#: ../ng_anr/views/anr.dashboard.html:189
+#: ../ng_anr/views/anr.dashboard.html:220
 msgid "Display compliance of"
 msgstr "Display compliance of"
 
-#: ../ng_anr/views/anr.dashboard.html:14
+#: ../ng_anr/views/anr.dashboard.html:26
 msgid "Display current risks by"
 msgstr "Display current risks by"
 
-#: ../ng_anr/views/anr.dashboard.html:60
+#: ../ng_anr/views/anr.dashboard.html:72
 msgid "Display residual risks by"
 msgstr "Display residual risks by"
 
-#: ../ng_anr/views/anr.dashboard.html:107
+#: ../ng_anr/views/anr.dashboard.html:119
 msgid "Display threats by"
 msgstr "Display threats by"
 
-#: ../ng_anr/views/anr.dashboard.html:133
+#: ../ng_anr/views/anr.dashboard.html:145
 msgid "Display vulnerabilities by"
 msgstr "Display vulnerabilities by"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3425 src/kb/info/BackofficeKbInfoCtrl.js:2988
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3948 src/kb/info/BackofficeKbInfoCtrl.js:2989
 msgid "Do you want to create {{count}} new {{extItemLabel}} ?"
 msgstr "Do you want to create {{count}} new {{extItemLabel}} ?"
 
-#: ../ng_anr/views/deliverable.evalcontext.html:43
+#: ../ng_anr/views/deliverable.evalcontext.html:45
 msgid "Document name"
 msgstr "Document name"
 
-#: ../ng_anr/views/anr.dashboard.html:26 ../ng_anr/views/anr.dashboard.html:72
+#: ../ng_anr/views/anr.dashboard.html:38 ../ng_anr/views/anr.dashboard.html:84
 msgid "Donut Chart"
 msgstr "Donut Chart"
 
@@ -1570,15 +1582,15 @@ msgstr "Edit vulnerability"
 msgid "Editable impact scale"
 msgstr "Editable impact scale"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1100 ../ng_anr/src/AnrKbMgmtCtrl.js:1199
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1404 ../ng_anr/src/AnrKbMgmtCtrl.js:1607
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1763 ../ng_anr/src/AnrKbMgmtCtrl.js:1846
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2138 ../ng_anr/src/AnrKbMgmtCtrl.js:234
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2487 ../ng_anr/src/AnrKbMgmtCtrl.js:437
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:623 ../ng_anr/src/AnrKbMgmtCtrl.js:812
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:956 ../ng_anr/src/AnrLayoutCtrl.js:1532
-#: ../ng_anr/src/AnrLayoutCtrl.js:590 ../ng_anr/src/AnrObjectCtrl.js:273
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:152
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1128 ../ng_anr/src/AnrKbMgmtCtrl.js:1284
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1383 ../ng_anr/src/AnrKbMgmtCtrl.js:1588
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1791 ../ng_anr/src/AnrKbMgmtCtrl.js:1948
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2063 ../ng_anr/src/AnrKbMgmtCtrl.js:2400
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:273 ../ng_anr/src/AnrKbMgmtCtrl.js:2927
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:517 ../ng_anr/src/AnrKbMgmtCtrl.js:745
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:984 ../ng_anr/src/AnrLayoutCtrl.js:1609
+#: ../ng_anr/src/AnrLayoutCtrl.js:666 ../ng_anr/src/AnrObjectCtrl.js:273
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:153
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:183
 #: src/BackofficeClientMgmtCtrl.js:84 src/admin/BackofficeAdminServerCtrl.js:75
 #: src/admin/BackofficeAdminUsersCtrl.js:95
@@ -1590,10 +1602,10 @@ msgstr "Editable impact scale"
 #: src/kb/info/BackofficeKbInfoCtrl.js:1188
 #: src/kb/info/BackofficeKbInfoCtrl.js:1424
 #: src/kb/info/BackofficeKbInfoCtrl.js:1799
-#: src/kb/info/BackofficeKbInfoCtrl.js:2177
-#: src/kb/info/BackofficeKbInfoCtrl.js:242
-#: src/kb/info/BackofficeKbInfoCtrl.js:443
-#: src/kb/info/BackofficeKbInfoCtrl.js:630
+#: src/kb/info/BackofficeKbInfoCtrl.js:2178
+#: src/kb/info/BackofficeKbInfoCtrl.js:243
+#: src/kb/info/BackofficeKbInfoCtrl.js:445
+#: src/kb/info/BackofficeKbInfoCtrl.js:633
 #: src/kb/info/BackofficeKbInfoCtrl.js:818
 #: src/kb/info/BackofficeKbInfoCtrl.js:953
 #: src/kb/models/BackofficeKbModelsCtrl.js:84
@@ -1623,15 +1635,15 @@ msgstr "Entity does not exist for this risk analysis"
 msgid "Error while uploading"
 msgstr "Error while uploading"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:817
+#: ../ng_anr/src/AnrLayoutCtrl.js:893
 msgid "Estimation, evaluation and risk treatment"
 msgstr "Estimation, evaluation and risk treatment"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:814
+#: ../ng_anr/src/AnrLayoutCtrl.js:890
 msgid "Evaluation and treatment of risks"
 msgstr "Evaluation and treatment of risks"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:796
+#: ../ng_anr/src/AnrLayoutCtrl.js:872
 msgid "Evaluation of Trends and Threat, and synthesis"
 msgstr "Evaluation of Trends and Threat, and synthesis"
 
@@ -1639,7 +1651,7 @@ msgstr "Evaluation of Trends and Threat, and synthesis"
 msgid "Evaluation scales"
 msgstr "Evaluation scales"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:222 ../ng_anr/views/anr.soa.html:49
+#: ../ng_anr/src/AnrSoaCtrl.js:233 ../ng_anr/views/anr.soa.html:49
 #: ../ng_anr/views/import.soa.html:44
 msgid "Evidences"
 msgstr "Evidences"
@@ -1652,21 +1664,21 @@ msgstr "Example File"
 msgid "Example: <i class=\"preserve-newlines\">{{item.example}}</i>"
 msgstr "Example: <i class=\"preserve-newlines\">{{item.example}}</i>"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:239 ../ng_anr/views/anr.soa.html:64
+#: ../ng_anr/src/AnrSoaCtrl.js:250 ../ng_anr/views/anr.soa.html:64
 msgid "Excluded"
 msgstr "Excluded"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2312
+#: ../ng_anr/src/AnrLayoutCtrl.js:2391
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:60
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:132
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:95
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:182 ../ng_anr/src/AnrSoaSheetCtrl.js:81
-#: ../ng_anr/views/_oprisk_sheet.html:55 ../ng_anr/views/_risk_sheet.html:73
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:154 ../ng_anr/src/AnrSoaSheetCtrl.js:53
+#: ../ng_anr/views/_oprisk_sheet.html:53 ../ng_anr/views/_risk_sheet.html:70
 #: ../ng_anr/views/_table_risks.html:103
 #: ../ng_anr/views/_table_risks_op.html:103
 #: ../ng_anr/views/anr.risksplan.sheet.html:15
 #: ../ng_anr/views/anr.risksplan.sheet.html:39
-#: ../ng_anr/views/anr.soa.sheet.html:112 ../ng_anr/views/anr.soa.sheet.html:39
+#: ../ng_anr/views/anr.soa.sheet.html:108 ../ng_anr/views/anr.soa.sheet.html:35
 #: ../ng_anr/views/export.objlibs.html:58
 #: ../ng_anr/views/risks.evalcontext.html:25
 msgid "Existing controls"
@@ -1682,21 +1694,22 @@ msgstr "Expand all"
 
 #: ../ng_anr/views/_table_risks.html:45 ../ng_anr/views/_table_risks.html:46
 #: ../ng_anr/views/_table_risks_op.html:44
-#: ../ng_anr/views/_table_risks_op.html:45
+#: ../ng_anr/views/_table_risks_op.html:45 ../ng_anr/views/anr.dashboard.html:9
 #: ../ng_anr/views/anr.risksplan.history.html:5
 #: ../ng_anr/views/anr.risksplan.html:6
 #: ../ng_anr/views/anr.risksplan.sheet.html:6 ../ng_anr/views/anr.soa.html:24
-#: ../ng_anr/views/anr.soa.sheet.html:17 ../ng_anr/views/anr.soa.sheet.html:89
+#: ../ng_anr/views/anr.soa.sheet.html:13 ../ng_anr/views/anr.soa.sheet.html:85
 #: ../ng_anr/views/export.objlibs.html:78
 #: ../ng_anr/views/risks.evalcontext.html:16
 msgid "Export"
 msgstr "Export"
 
-#: ../ng_anr/views/anr.dashboard.html:123
-#: ../ng_anr/views/anr.dashboard.html:162
-#: ../ng_anr/views/anr.dashboard.html:179
-#: ../ng_anr/views/anr.dashboard.html:197 ../ng_anr/views/anr.dashboard.html:30
-#: ../ng_anr/views/anr.dashboard.html:76
+#: ../ng_anr/views/anr.dashboard.html:135
+#: ../ng_anr/views/anr.dashboard.html:174
+#: ../ng_anr/views/anr.dashboard.html:197
+#: ../ng_anr/views/anr.dashboard.html:206
+#: ../ng_anr/views/anr.dashboard.html:228 ../ng_anr/views/anr.dashboard.html:42
+#: ../ng_anr/views/anr.dashboard.html:88
 msgid "Export (PNG)"
 msgstr "Export (PNG)"
 
@@ -1721,14 +1734,10 @@ msgstr "Export options"
 msgid "Export risk analysis"
 msgstr "Export risk analysis"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1862 ../ng_anr/src/AnrObjectCtrl.js:332
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:190
+#: ../ng_anr/src/AnrLayoutCtrl.js:1941 ../ng_anr/src/AnrObjectCtrl.js:332
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:191
 msgid "Export successful"
 msgstr "Export successful"
-
-#: ../ng_anr/views/anr.dashboard.html:5
-msgid "Export the whole dashboard"
-msgstr "Export the whole dashboard"
 
 #: ../ng_anr/views/anr.home.html:35
 msgid "Export the whole risk analysis"
@@ -1738,11 +1747,11 @@ msgstr "Export the whole risk analysis"
 msgid "Export with assessments?"
 msgstr "Export with assessments?"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:171
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:143
 msgid "F (Inherent risk)"
 msgstr "F (Inherent risk)"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:179
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:151
 msgid "F (Net risk)"
 msgstr "F (Net risk)"
 
@@ -1758,11 +1767,11 @@ msgstr "Field previous missing"
 msgid "File Schema (csv, xlsx, ods)"
 msgstr "File Schema (csv, xlsx, ods)"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3204 ../ng_anr/src/AnrKbMgmtCtrl.js:3438
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3727 ../ng_anr/src/AnrKbMgmtCtrl.js:3961
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:54
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:233
-#: src/kb/info/BackofficeKbInfoCtrl.js:2739
-#: src/kb/info/BackofficeKbInfoCtrl.js:3001
+#: src/kb/info/BackofficeKbInfoCtrl.js:2740
+#: src/kb/info/BackofficeKbInfoCtrl.js:3002
 #: src/kb/info/BackofficeKbInfoCtrl.js:54
 msgid "File error"
 msgstr "File error"
@@ -1787,11 +1796,11 @@ msgstr "Filter table"
 msgid "Final"
 msgstr "Final"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:815
+#: ../ng_anr/src/AnrLayoutCtrl.js:891
 msgid "Final report"
 msgstr "Final report"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3058 src/kb/info/BackofficeKbInfoCtrl.js:2576
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3581 src/kb/info/BackofficeKbInfoCtrl.js:2577
 msgid "Fire"
 msgstr "Fire"
 
@@ -1820,11 +1829,11 @@ msgstr "Force deletion"
 msgid "Force probability in the analysis"
 msgstr "Force probability in the analysis"
 
-#: ../ng_anr/views/create.assets.html:92 ../ng_anr/views/create.vulns.html:83
+#: ../ng_anr/views/create.assets.html:103 ../ng_anr/views/create.vulns.html:94
 msgid "Force risks to follow movement"
 msgstr "Force risks to follow movement"
 
-#: ../ng_anr/views/create.threats.html:134
+#: ../ng_anr/views/create.threats.html:145
 msgid "Force risks to follow trends"
 msgstr "Force risks to follow trends"
 
@@ -1836,33 +1845,33 @@ msgstr "From referential"
 msgid "From referential matched"
 msgstr "From referential matched"
 
-#: ../ng_anr/views/create.assets.html:51 ../ng_anr/views/create.objlibs.html:51
-#: ../ng_anr/views/create.threats.html:51 ../ng_anr/views/create.vulns.html:51
+#: ../ng_anr/views/create.assets.html:62 ../ng_anr/views/create.objlibs.html:51
+#: ../ng_anr/views/create.threats.html:62 ../ng_anr/views/create.vulns.html:62
 msgid "General information"
 msgstr "General information"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:866
+#: ../ng_anr/src/AnrLayoutCtrl.js:942
 msgid "Generation successful"
 msgstr "Generation successful"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:90 ../ng_anr/src/CreateObjlibDialogCtrl.js:70
-#: ../ng_anr/views/create.assets.html:57 ../ng_anr/views/create.objlibs.html:66
-#: ../ng_anr/views/create.threats.html:102 ../ng_anr/views/create.vulns.html:57
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:88 ../ng_anr/src/CreateObjlibDialogCtrl.js:70
+#: ../ng_anr/views/create.assets.html:68 ../ng_anr/views/create.objlibs.html:66
+#: ../ng_anr/views/create.threats.html:113 ../ng_anr/views/create.vulns.html:68
 #: src/kb/info/BackofficeKbInfoCtrl.js:90
 msgid "Generic"
 msgstr "Generic"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1304 ../ng_anr/views/create.objlibs.html:58
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1488 ../ng_anr/views/create.objlibs.html:58
 #: src/kb/info/BackofficeKbInfoCtrl.js:1291
 msgid "Global"
 msgstr "Global"
 
-#: ../ng_anr/views/anr.dashboard.html:200 ../ng_anr/views/anr.dashboard.html:34
-#: ../ng_anr/views/anr.dashboard.html:80 views/login.html:50
+#: ../ng_anr/views/anr.dashboard.html:231 ../ng_anr/views/anr.dashboard.html:46
+#: ../ng_anr/views/anr.dashboard.html:92 views/login.html:50
 msgid "Go back"
 msgstr "Go back"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3150 src/kb/info/BackofficeKbInfoCtrl.js:2684
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3673 src/kb/info/BackofficeKbInfoCtrl.js:2685
 msgid "Governance"
 msgstr "Governance"
 
@@ -1878,20 +1887,20 @@ msgstr "Helpful informations"
 msgid "Home"
 msgstr "Home"
 
-#: ../ng_anr/views/anr.dashboard.html:119
-#: ../ng_anr/views/anr.dashboard.html:158
+#: ../ng_anr/views/anr.dashboard.html:131
+#: ../ng_anr/views/anr.dashboard.html:170
 msgid "Horizontal Bar Chart"
 msgstr "Horizontal Bar Chart"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:76 ../ng_anr/views/_table_risks.html:56
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:48 ../ng_anr/views/_table_risks.html:56
 msgid "I Impact"
 msgstr "I Impact"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3108 src/kb/info/BackofficeKbInfoCtrl.js:2633
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3631 src/kb/info/BackofficeKbInfoCtrl.js:2634
 msgid "IT charter Conditions of use General terms and conditions"
 msgstr "IT charter Conditions of use General terms and conditions"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:807
+#: ../ng_anr/src/AnrLayoutCtrl.js:883
 msgid "Identification of assets, vulnerabilities and impacts appreciation"
 msgstr "Identification of assets, vulnerabilities and impacts appreciation"
 
@@ -1899,7 +1908,7 @@ msgstr "Identification of assets, vulnerabilities and impacts appreciation"
 msgid "If you save this template, previous templates will be lost."
 msgstr "If you save this template, previous templates will be lost."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2310 ../ng_anr/src/AnrRisksPlanCtrl.js:58
+#: ../ng_anr/src/AnrLayoutCtrl.js:2389 ../ng_anr/src/AnrRisksPlanCtrl.js:58
 #: ../ng_anr/views/anr.risksplan.html:14
 #: ../ng_anr/views/risks.evalcontext.html:23
 msgid "Imp."
@@ -1910,8 +1919,8 @@ msgstr "Imp."
 #: ../ng_anr/views/_table_risks.html:89
 #: ../ng_anr/views/_table_risks_op.html:101
 #: ../ng_anr/views/_table_risks_op.html:97
-#: ../ng_anr/views/anr.soa.sheet.html:106
-#: ../ng_anr/views/anr.soa.sheet.html:110 ../ng_anr/views/anr.soa.sheet.html:25
+#: ../ng_anr/views/anr.soa.sheet.html:102
+#: ../ng_anr/views/anr.soa.sheet.html:106 ../ng_anr/views/anr.soa.sheet.html:21
 msgid "Impact"
 msgstr "Impact"
 
@@ -1924,11 +1933,11 @@ msgstr "Impacted criteria"
 msgid "Impacts scale:"
 msgstr "Impacts scale:"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:825
+#: ../ng_anr/src/AnrLayoutCtrl.js:901
 msgid "Implementation Plan"
 msgstr "Implementation Plan"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:824
+#: ../ng_anr/src/AnrLayoutCtrl.js:900
 msgid "Implementation and monitoring"
 msgstr "Implementation and monitoring"
 
@@ -1941,7 +1950,7 @@ msgstr "Implementation comment"
 msgid "Implementation history"
 msgstr "Implementation history"
 
-#: ../ng_anr/views/_oprisk_sheet.html:94 ../ng_anr/views/_risk_sheet.html:112
+#: ../ng_anr/views/_oprisk_sheet.html:92 ../ng_anr/views/_risk_sheet.html:109
 #: ../ng_anr/views/anr.risksplan.html:2
 msgid "Implementation of the risk treatment plan"
 msgstr "Implementation of the risk treatment plan"
@@ -1950,7 +1959,10 @@ msgstr "Implementation of the risk treatment plan"
 msgid "Implementation plan"
 msgstr "Implementation plan"
 
-#: ../ng_anr/views/import.soa.html:65
+#: ../ng_anr/views/import.amv.html:62 ../ng_anr/views/import.asset.html:62
+#: ../ng_anr/views/import.referentials.html:62
+#: ../ng_anr/views/import.soa.html:65 ../ng_anr/views/import.threat.html:62
+#: ../ng_anr/views/import.vulnerability.html:62
 msgid "Import"
 msgstr "Import"
 
@@ -1967,17 +1979,37 @@ msgstr "Import Options"
 msgid "Import a file"
 msgstr "Import a file"
 
+#: ../ng_anr/views/import.referentials.html:5
+msgid "Import a referential from MOSP"
+msgstr "Import a referential from MOSP"
+
 #: ../ng_anr/views/anr.home.html:30
 msgid "Import a risk analysis"
 msgstr "Import a risk analysis"
+
+#: ../ng_anr/views/import.amv.html:5
+msgid "Import a risk from MOSP"
+msgstr "Import a risk from MOSP"
 
 #: ../ng_anr/views/import.soa.html:5
 msgid "Import a statement of applicability (SOA)"
 msgstr "Import a statement of applicability (SOA)"
 
+#: ../ng_anr/views/import.threat.html:5
+msgid "Import a threat from MOSP"
+msgstr "Import a threat from MOSP"
+
+#: ../ng_anr/views/import.vulnerability.html:5
+msgid "Import a vulnerability from MOSP"
+msgstr "Import a vulnerability from MOSP"
+
 #: ../ng_anr/views/create.objlibs.html:17
 msgid "Import an asset"
 msgstr "Import an asset"
+
+#: ../ng_anr/views/import.asset.html:5
+msgid "Import an asset from MOSP"
+msgstr "Import an asset from MOSP"
 
 #: ../ng_anr/views/anr.instance.html:27
 msgid "Import analysis"
@@ -1995,15 +2027,21 @@ msgstr "Import file"
 msgid "Import from MONARC library"
 msgstr "Import from MONARC library"
 
-#: ../ng_anr/views/create.assets.html:17 ../ng_anr/views/create.assets.html:20
+#: ../ng_anr/views/create.amvs.html:17 ../ng_anr/views/create.assets.html:22
+#: ../ng_anr/views/create.referentials.html:17
+#: ../ng_anr/views/create.threats.html:22 ../ng_anr/views/create.vulns.html:22
+msgid "Import from MOSP"
+msgstr "Import from MOSP"
+
+#: ../ng_anr/views/create.assets.html:18 ../ng_anr/views/create.assets.html:28
 #: ../ng_anr/views/create.categories.html:17
 #: ../ng_anr/views/create.categories.html:20
 #: ../ng_anr/views/create.measures.html:17
 #: ../ng_anr/views/create.measures.html:20 ../ng_anr/views/create.risks.html:17
 #: ../ng_anr/views/create.risks.html:20 ../ng_anr/views/create.tags.html:17
-#: ../ng_anr/views/create.tags.html:20 ../ng_anr/views/create.threats.html:17
-#: ../ng_anr/views/create.threats.html:20 ../ng_anr/views/create.vulns.html:17
-#: ../ng_anr/views/create.vulns.html:20 ../ng_anr/views/import.object.html:28
+#: ../ng_anr/views/create.tags.html:20 ../ng_anr/views/create.threats.html:18
+#: ../ng_anr/views/create.threats.html:28 ../ng_anr/views/create.vulns.html:18
+#: ../ng_anr/views/create.vulns.html:28 ../ng_anr/views/import.object.html:28
 msgid "Import from file"
 msgstr "Import from file"
 
@@ -2016,7 +2054,7 @@ msgstr "Import from other referential"
 msgid "Import method:"
 msgstr "Import method:"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:206
+#: ../ng_anr/src/AnrSoaCtrl.js:217
 msgid "Import successful"
 msgstr "Import successful"
 
@@ -2042,14 +2080,14 @@ msgstr "In progress ({{rec.counterTreated}})"
 msgid "In the library, this asset is a direct component of :"
 msgstr "In the library, this asset is a direct component of :"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:220 ../ng_anr/views/anr.soa.html:47
+#: ../ng_anr/src/AnrSoaCtrl.js:231 ../ng_anr/views/anr.soa.html:47
 #: ../ng_anr/views/import.soa.html:40
 msgid "Inclusion/Exclusion"
 msgstr "Inclusion/Exclusion"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:311 ../ng_anr/views/_anr.kbmgmt.html:314
-#: ../ng_anr/views/anr.dashboard.html:174 ../ng_anr/views/anr.home.html:49
-#: ../ng_anr/views/anr.instance.html:86 ../ng_anr/views/anr.soa.sheet.html:14
+#: ../ng_anr/views/anr.dashboard.html:186 ../ng_anr/views/anr.home.html:49
+#: ../ng_anr/views/anr.instance.html:86 ../ng_anr/views/anr.soa.sheet.html:10
 #: views/index.backoffice.html:25 views/info_risk.kb_mgmt.html:321
 msgid "Information risks"
 msgstr "Information risks"
@@ -2060,7 +2098,7 @@ msgstr "Inherent probability"
 
 #: ../ng_anr/views/_table_risks_op.html:55
 #: ../ng_anr/views/_table_risks_op.html:89
-#: ../ng_anr/views/anr.soa.sheet.html:98 views/models.kb_mgmt.html:57
+#: ../ng_anr/views/anr.soa.sheet.html:94 views/models.kb_mgmt.html:57
 msgid "Inherent risk"
 msgstr "Inherent risk"
 
@@ -2070,7 +2108,7 @@ msgstr "Inherent risk"
 msgid "Inherited"
 msgstr "Inherited"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:275 ../ng_anr/views/anr.soa.html:108
+#: ../ng_anr/src/AnrSoaCtrl.js:286 ../ng_anr/views/anr.soa.html:108
 msgid "Initial"
 msgstr "Initial"
 
@@ -2112,7 +2150,7 @@ msgid "Keywords"
 msgstr "Keywords"
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:59
-#: ../ng_anr/views/_oprisk_sheet.html:101 ../ng_anr/views/_risk_sheet.html:119
+#: ../ng_anr/views/_oprisk_sheet.html:99 ../ng_anr/views/_risk_sheet.html:116
 #: ../ng_anr/views/_table_risks.html:32 ../ng_anr/views/_table_risks_op.html:31
 msgid "Kind of treatment"
 msgstr "Kind of treatment"
@@ -2121,16 +2159,16 @@ msgstr "Kind of treatment"
 msgid "Kind of treatment:"
 msgstr "Kind of treatment:"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1293 ../ng_anr/views/anr.layout.html:37
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1477 ../ng_anr/views/anr.layout.html:37
 #: ../ng_anr/views/anr.layout.html:63 src/kb/info/BackofficeKbInfoCtrl.js:1280
 msgid "Knowledge base"
 msgstr "Knowledge base"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:170
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:142
 msgid "L (Inherent risk)"
 msgstr "L (Inherent risk)"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:178
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:150
 msgid "L (Net risk)"
 msgstr "L (Net risk)"
 
@@ -2142,17 +2180,17 @@ msgstr "LR"
 #: ../ng_anr/views/_anr.kbmgmt.html:284 ../ng_anr/views/_anr.kbmgmt.html:441
 #: ../ng_anr/views/_anr.kbmgmt.html:48 ../ng_anr/views/_anr.kbmgmt.html:530
 #: ../ng_anr/views/_table_risks.html:100 ../ng_anr/views/_table_risks.html:102
-#: ../ng_anr/views/anr.soa.sheet.html:36 ../ng_anr/views/anr.soa.sheet.html:38
-#: ../ng_anr/views/create.assets.html:37
+#: ../ng_anr/views/anr.soa.sheet.html:32 ../ng_anr/views/anr.soa.sheet.html:34
+#: ../ng_anr/views/create.assets.html:48
 #: ../ng_anr/views/create.categories.html:35
 #: ../ng_anr/views/create.measures.html:41
 #: ../ng_anr/views/create.objlibs.categories.html:24
 #: ../ng_anr/views/create.objlibs.html:43
-#: ../ng_anr/views/create.referentials.html:27
+#: ../ng_anr/views/create.referentials.html:35
 #: ../ng_anr/views/create.risks.html:35
 #: ../ng_anr/views/create.specriskop.html:59
 #: ../ng_anr/views/create.tags.html:35 ../ng_anr/views/create.themes.html:27
-#: ../ng_anr/views/create.threats.html:37 ../ng_anr/views/create.vulns.html:37
+#: ../ng_anr/views/create.threats.html:48 ../ng_anr/views/create.vulns.html:48
 #: views/dialogs/create.categories.html:27 views/dialogs/create.models.html:28
 #: views/dialogs/create.questions.html:27
 #: views/dialogs/create.servers.admin.html:16 views/info_risk.kb_mgmt.html:122
@@ -2164,20 +2202,24 @@ msgstr "LR"
 msgid "Label"
 msgstr "Label"
 
-#: ../ng_anr/views/create.assets.html:23 ../ng_anr/views/create.objlibs.html:20
-#: ../ng_anr/views/create.threats.html:23 ../ng_anr/views/create.vulns.html:23
+#: ../ng_anr/views/create.assets.html:34 ../ng_anr/views/create.objlibs.html:20
+#: ../ng_anr/views/create.threats.html:34 ../ng_anr/views/create.vulns.html:34
 msgid "Labels and descriptions"
 msgstr "Labels and descriptions"
 
-#: ../ng_anr/views/create.assets.html:26
+#: ../ng_anr/views/create.assets.html:37
 #: ../ng_anr/views/create.categories.html:24
 #: ../ng_anr/views/create.measures.html:24
 #: ../ng_anr/views/create.objlibs.categories.html:16
 #: ../ng_anr/views/create.objlibs.html:23
-#: ../ng_anr/views/create.referentials.html:16
+#: ../ng_anr/views/create.referentials.html:24
 #: ../ng_anr/views/create.risks.html:24 ../ng_anr/views/create.tags.html:24
-#: ../ng_anr/views/create.themes.html:16 ../ng_anr/views/create.threats.html:26
-#: ../ng_anr/views/create.vulns.html:26 ../ng_anr/views/import.file.html:25
+#: ../ng_anr/views/create.themes.html:16 ../ng_anr/views/create.threats.html:37
+#: ../ng_anr/views/create.vulns.html:37 ../ng_anr/views/import.amv.html:15
+#: ../ng_anr/views/import.asset.html:15 ../ng_anr/views/import.file.html:25
+#: ../ng_anr/views/import.referentials.html:15
+#: ../ng_anr/views/import.threat.html:15
+#: ../ng_anr/views/import.vulnerability.html:15
 #: views/dialogs/create.anr.html:16 views/dialogs/create.categories.html:16
 #: views/dialogs/create.deliverymodel.html:27
 #: views/dialogs/create.guides.html:39
@@ -2192,16 +2234,16 @@ msgstr "Language"
 msgid "Last name"
 msgstr "Last name"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:241 ../ng_anr/views/anr.soa.html:70
+#: ../ng_anr/src/AnrSoaCtrl.js:252 ../ng_anr/views/anr.soa.html:70
 msgid "Legal requirements"
 msgstr "Legal requirements"
 
 #: ../ng_anr/views/__external_translate.html:4
-#: ../ng_anr/views/anr.dashboard.html:16 ../ng_anr/views/anr.dashboard.html:62
+#: ../ng_anr/views/anr.dashboard.html:28 ../ng_anr/views/anr.dashboard.html:74
 msgid "Level"
 msgstr "Level"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:224 ../ng_anr/views/anr.soa.html:51
+#: ../ng_anr/src/AnrSoaCtrl.js:235 ../ng_anr/views/anr.soa.html:51
 #: ../ng_anr/views/import.soa.html:48
 msgid "Level of compliance"
 msgstr "Level of compliance"
@@ -2223,7 +2265,7 @@ msgstr "List of available snapshots"
 msgid "List of common MONARC assets"
 msgstr "List of common MONARC assets"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1303 ../ng_anr/views/create.objlibs.html:57
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1487 ../ng_anr/views/create.objlibs.html:57
 #: src/kb/info/BackofficeKbInfoCtrl.js:1290
 msgid "Local"
 msgstr "Local"
@@ -2251,7 +2293,7 @@ msgstr "Logout"
 msgid "Lvl."
 msgstr "Lvl."
 
-#: ../ng_anr/views/_oprisk_sheet.html:15 ../ng_anr/views/_table_risks.html:62
+#: ../ng_anr/views/_oprisk_sheet.html:13 ../ng_anr/views/_table_risks.html:62
 msgid "MAX risk"
 msgstr "MAX risk"
 
@@ -2263,11 +2305,11 @@ msgstr "Manage servers"
 msgid "Manage users"
 msgstr "Manage users"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:277 ../ng_anr/views/anr.soa.html:109
+#: ../ng_anr/src/AnrSoaCtrl.js:288 ../ng_anr/views/anr.soa.html:109
 msgid "Managed"
 msgstr "Managed"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:827
+#: ../ng_anr/src/AnrLayoutCtrl.js:903
 msgid "Management of the implementation of the risk treatment plan"
 msgstr "Management of the implementation of the risk treatment plan"
 
@@ -2280,6 +2322,12 @@ msgstr "Manager"
 #: ../ng_anr/views/anr.risksplan.history.html:28
 msgid "Manager:"
 msgstr "Manager:"
+
+#: ../ng_anr/views/create.amvs.html:21 ../ng_anr/views/create.assets.html:32
+#: ../ng_anr/views/create.referentials.html:21
+#: ../ng_anr/views/create.threats.html:32 ../ng_anr/views/create.vulns.html:32
+msgid "Manual creation"
+msgstr "Manual creation"
 
 #: views/info_risk.kb_mgmt.html:240
 msgid "Match referential"
@@ -2294,8 +2342,8 @@ msgstr "Match referentials"
 msgid "Max"
 msgstr "Max"
 
-#: ../ng_anr/views/anr.dashboard.html:111
-#: ../ng_anr/views/anr.dashboard.html:137
+#: ../ng_anr/views/anr.dashboard.html:123
+#: ../ng_anr/views/anr.dashboard.html:149
 msgid "Max. associated risk level"
 msgstr "Max. associated risk level"
 
@@ -2307,8 +2355,8 @@ msgstr "Method steps"
 msgid "Missing description for"
 msgstr "Missing description for"
 
-#: ../ng_anr/views/create.assets.html:54 ../ng_anr/views/create.objlibs.html:63
-#: ../ng_anr/views/create.threats.html:99 ../ng_anr/views/create.vulns.html:54
+#: ../ng_anr/views/create.assets.html:65 ../ng_anr/views/create.objlibs.html:63
+#: ../ng_anr/views/create.threats.html:110 ../ng_anr/views/create.vulns.html:65
 #: views/dialogs/create.guides.html:27 views/info_risk.kb_mgmt.html:125
 #: views/info_risk.kb_mgmt.html:198 views/info_risk.kb_mgmt.html:464
 #: views/info_risk.kb_mgmt.html:51
@@ -2323,12 +2371,12 @@ msgstr "Model"
 msgid "Model missing"
 msgstr "Model missing"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:805
+#: ../ng_anr/src/AnrLayoutCtrl.js:881
 msgid "Model validation"
 msgstr "Model validation"
 
-#: ../ng_anr/views/create.assets.html:84
-#: ../ng_anr/views/create.threats.html:127 ../ng_anr/views/create.vulns.html:75
+#: ../ng_anr/views/create.assets.html:95
+#: ../ng_anr/views/create.threats.html:138 ../ng_anr/views/create.vulns.html:86
 #: views/index.backoffice.html:39 views/models.kb_mgmt.html:5
 msgid "Models"
 msgstr "Models"
@@ -2352,11 +2400,11 @@ msgstr "Net probability"
 
 #: ../ng_anr/views/_table_risks_op.html:57
 #: ../ng_anr/views/_table_risks_op.html:90
-#: ../ng_anr/views/anr.soa.sheet.html:99
+#: ../ng_anr/views/anr.soa.sheet.html:95
 msgid "Net risk"
 msgstr "Net risk"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3032 src/kb/info/BackofficeKbInfoCtrl.js:2543
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3555 src/kb/info/BackofficeKbInfoCtrl.js:2544
 msgid "Network"
 msgstr "Network"
 
@@ -2413,10 +2461,11 @@ msgstr "New tag"
 msgid "New user"
 msgstr "New user"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3423 src/kb/info/BackofficeKbInfoCtrl.js:2986
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3946 src/kb/info/BackofficeKbInfoCtrl.js:2987
 msgid "New {{extItemLabel}}"
 msgstr "New {{extItemLabel}}"
 
+#: ../ng_anr/views/_oprisk_sheet.html:138 ../ng_anr/views/_risk_sheet.html:167
 #: ../ng_anr/views/trends.evalcontext.html:128
 msgid "Next"
 msgstr "Next"
@@ -2425,15 +2474,16 @@ msgstr "Next"
 msgid "No"
 msgstr "No"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3102 src/kb/info/BackofficeKbInfoCtrl.js:2627
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3625 src/kb/info/BackofficeKbInfoCtrl.js:2628
 msgid "No IT charter specifying the rules of use"
 msgstr "No IT charter specifying the rules of use"
 
 #: ../ng_anr/views/add.objlib.html:46 ../ng_anr/views/create.objlibs.html:215
+#: ../ng_anr/views/import.asset.html:50
 msgid "No asset matching your search was found"
 msgstr "No asset matching your search was found"
 
-#: ../ng_anr/views/create.amvs.html:33 ../ng_anr/views/create.objlibs.html:137
+#: ../ng_anr/views/create.amvs.html:41 ../ng_anr/views/create.objlibs.html:137
 msgid "No asset type matching your search was found"
 msgstr "No asset type matching your search was found"
 
@@ -2467,17 +2517,26 @@ msgstr "No operational risk matching your search was found"
 msgid "No operational risk tag matching your search was found"
 msgstr "No operational risk tag matching your search was found"
 
-#: ../ng_anr/views/_oprisk_sheet.html:82
+#: ../ng_anr/views/_oprisk_sheet.html:80
 #: ../ng_anr/views/_risk_rec_create_form.html:25
-#: ../ng_anr/views/_risk_sheet.html:99
+#: ../ng_anr/views/_risk_sheet.html:96
 msgid "No recommendation matching your search was found"
 msgstr "No recommendation matching your search was found"
 
-#: ../ng_anr/views/create.threats.html:73
+#: ../ng_anr/views/import.referentials.html:50
+msgid "No referential matching your search was found"
+msgstr "No referential matching your search was found"
+
+#: ../ng_anr/views/import.amv.html:50
+msgid "No risk matching your search was found"
+msgstr "No risk matching your search was found"
+
+#: ../ng_anr/views/create.threats.html:84
 msgid "No theme matching your search was found. Click on"
 msgstr "No theme matching your search was found. Click on"
 
-#: ../ng_anr/views/create.amvs.html:60 ../ng_anr/views/create.specrisk.html:33
+#: ../ng_anr/views/create.amvs.html:68 ../ng_anr/views/create.specrisk.html:33
+#: ../ng_anr/views/import.threat.html:50
 msgid "No threat matching your search was found"
 msgstr "No threat matching your search was found"
 
@@ -2485,7 +2544,8 @@ msgstr "No threat matching your search was found"
 msgid "No threats are listed in your analysis."
 msgstr "No threats are listed in your analysis."
 
-#: ../ng_anr/views/create.amvs.html:85 ../ng_anr/views/create.specrisk.html:56
+#: ../ng_anr/views/create.amvs.html:93 ../ng_anr/views/create.specrisk.html:56
+#: ../ng_anr/views/import.vulnerability.html:50
 msgid "No vulnerability matching your search was found"
 msgstr "No vulnerability matching your search was found"
 
@@ -2497,26 +2557,26 @@ msgstr "Non-existent"
 msgid "Not set"
 msgstr "Not set"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:155 ../ng_anr/src/AnrSoaSheetCtrl.js:282
-#: ../ng_anr/views/_oprisk_sheet.html:106 ../ng_anr/views/_risk_sheet.html:124
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:127 ../ng_anr/src/AnrSoaSheetCtrl.js:254
+#: ../ng_anr/views/_oprisk_sheet.html:104 ../ng_anr/views/_risk_sheet.html:121
 #: ../ng_anr/views/_table_risks.html:35 ../ng_anr/views/_table_risks_op.html:34
 msgid "Not treated"
 msgstr "Not treated"
 
-#: ../ng_anr/views/anr.dashboard.html:109
-#: ../ng_anr/views/anr.dashboard.html:135
+#: ../ng_anr/views/anr.dashboard.html:121
+#: ../ng_anr/views/anr.dashboard.html:147
 msgid "Number"
 msgstr "Number"
 
-#: ../ng_anr/views/anr.dashboard.html:142
+#: ../ng_anr/views/anr.dashboard.html:154
 msgid "Number of vulnerabilities to display"
 msgstr "Number of vulnerabilities to display"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:169
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:141
 msgid "O (Inherent risk)"
 msgstr "O (Inherent risk)"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:177
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:149
 msgid "O (Net risk)"
 msgstr "O (Net risk)"
 
@@ -2556,18 +2616,18 @@ msgid "Operational risk Tag"
 msgstr "Operational risk Tag"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:470 ../ng_anr/views/_anr.kbmgmt.html:473
-#: ../ng_anr/views/anr.dashboard.html:175 ../ng_anr/views/anr.home.html:52
-#: ../ng_anr/views/anr.instance.html:89 ../ng_anr/views/anr.soa.sheet.html:86
+#: ../ng_anr/views/anr.dashboard.html:187 ../ng_anr/views/anr.home.html:52
+#: ../ng_anr/views/anr.instance.html:89 ../ng_anr/views/anr.soa.sheet.html:82
 #: views/index.backoffice.html:32 views/op_risk.kb_mgmt.html:68
 #: views/op_risk.kb_mgmt.html:71
 msgid "Operational risks"
 msgstr "Operational risks"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3136 src/kb/info/BackofficeKbInfoCtrl.js:2669
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3659 src/kb/info/BackofficeKbInfoCtrl.js:2670
 msgid "Operations security"
 msgstr "Operations security"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:283 ../ng_anr/views/anr.soa.html:112
+#: ../ng_anr/src/AnrSoaCtrl.js:294 ../ng_anr/views/anr.soa.html:112
 msgid "Optimized"
 msgstr "Optimized"
 
@@ -2580,24 +2640,31 @@ msgstr "Optional comment"
 msgid "Options"
 msgstr "Options"
 
+#: ../ng_anr/views/import.amv.html:27 ../ng_anr/views/import.asset.html:27
+#: ../ng_anr/views/import.referentials.html:27
+#: ../ng_anr/views/import.threat.html:27
+#: ../ng_anr/views/import.vulnerability.html:27
+msgid "Organization"
+msgstr "Organization"
+
 #: ../ng_anr/views/_gettext_caveats.html:27
 msgid "Original password incorrect"
 msgstr "Original password incorrect"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:172
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:144
 msgid "P (Inherent risk)"
 msgstr "P (Inherent risk)"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:180
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:152
 msgid "P (Net risk)"
 msgstr "P (Net risk)"
 
 #: ../ng_anr/views/_table_risks.html:148
-#: ../ng_anr/views/_table_risks_op.html:168 src/BackofficeApp.js:316
+#: ../ng_anr/views/_table_risks_op.html:168 src/BackofficeApp.js:317
 msgid "Page:"
 msgstr "Page:"
 
-#: ../ng_anr/views/anr.dashboard.html:18 ../ng_anr/views/anr.dashboard.html:64
+#: ../ng_anr/views/anr.dashboard.html:30 ../ng_anr/views/anr.dashboard.html:76
 msgid "Parent asset"
 msgstr "Parent asset"
 
@@ -2629,7 +2696,7 @@ msgstr "Permissions and roles"
 msgid "Personal information"
 msgstr "Personal information"
 
-#: ../ng_anr/views/anr.dashboard.html:207
+#: ../ng_anr/views/anr.dashboard.html:238
 msgid "Perspective"
 msgstr "Perspective"
 
@@ -2658,6 +2725,7 @@ msgstr "Position"
 msgid "Position missing"
 msgstr "Position missing"
 
+#: ../ng_anr/views/_oprisk_sheet.html:132 ../ng_anr/views/_risk_sheet.html:161
 #: ../ng_anr/views/trends.evalcontext.html:116
 msgid "Previous"
 msgstr "Previous"
@@ -2679,8 +2747,8 @@ msgstr "Previous component..."
 msgid "Previous item..."
 msgstr "Previous item..."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:295 ../ng_anr/views/create.assets.html:75
-#: src/kb/info/BackofficeKbInfoCtrl.js:302
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:334 ../ng_anr/views/create.assets.html:86
+#: src/kb/info/BackofficeKbInfoCtrl.js:303
 msgid "Primary"
 msgstr "Primary"
 
@@ -2688,29 +2756,29 @@ msgstr "Primary"
 msgid "Priority recommendation"
 msgstr "Priority recommendation"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:79 ../ng_anr/views/_oprisk_sheet.html:9
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:51 ../ng_anr/views/_oprisk_sheet.html:7
 #: ../ng_anr/views/_table_risks_op.html:100
 #: ../ng_anr/views/_table_risks_op.html:96
+#: ../ng_anr/views/anr.soa.sheet.html:101
 #: ../ng_anr/views/anr.soa.sheet.html:105
-#: ../ng_anr/views/anr.soa.sheet.html:109
 msgid "Prob."
 msgstr "Prob."
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:167
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:139
 msgid "Prob.(Inherent risk)"
 msgstr "Prob.(Inherent risk)"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:175
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:147
 msgid "Prob.(Net risk)"
 msgstr "Prob.(Net risk)"
 
 #: ../ng_anr/views/_anr.evalscales.html:183
-#: ../ng_anr/views/anr.dashboard.html:110
+#: ../ng_anr/views/anr.dashboard.html:122
 #: ../ng_anr/views/trends.evalcontext.html:100
 msgid "Probability"
 msgstr "Probability"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3170 src/kb/info/BackofficeKbInfoCtrl.js:2705
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3693 src/kb/info/BackofficeKbInfoCtrl.js:2706
 msgid "Product Compliance Customer agreement"
 msgstr "Product Compliance Customer agreement"
 
@@ -2722,16 +2790,16 @@ msgstr "Profile updated"
 msgid "Proxy alias"
 msgstr "Proxy alias"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:82 ../ng_anr/views/_table_risks.html:104
-#: ../ng_anr/views/anr.soa.sheet.html:40
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:54 ../ng_anr/views/_table_risks.html:104
+#: ../ng_anr/views/anr.soa.sheet.html:36
 msgid "Qualif."
 msgstr "Qualif."
 
-#: ../ng_anr/views/anr.dashboard.html:136
+#: ../ng_anr/views/anr.dashboard.html:148
 msgid "Qualification"
 msgstr "Qualification"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:281 ../ng_anr/views/anr.soa.html:111
+#: ../ng_anr/src/AnrSoaCtrl.js:292 ../ng_anr/views/anr.soa.html:111
 msgid "Quantitatively Managed"
 msgstr "Quantitatively Managed"
 
@@ -2739,7 +2807,7 @@ msgstr "Quantitatively Managed"
 msgid "Question"
 msgstr "Question"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2505
+#: ../ng_anr/src/AnrLayoutCtrl.js:2584
 msgid "Question deleted"
 msgstr "Question deleted"
 
@@ -2747,11 +2815,11 @@ msgstr "Question deleted"
 msgid "Questions of trends assessment"
 msgstr "Questions of trends assessment"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:168
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:140
 msgid "R (Inherent risk)"
 msgstr "R (Inherent risk)"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:176
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:148
 msgid "R (Net risk)"
 msgstr "R (Net risk)"
 
@@ -2767,7 +2835,7 @@ msgstr "R: Risk, I: Impact, T: Threat, V: Vulnerability"
 msgid "RRA"
 msgstr "RRA"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2309 ../ng_anr/src/AnrRisksPlanCtrl.js:56
+#: ../ng_anr/src/AnrLayoutCtrl.js:2388 ../ng_anr/src/AnrRisksPlanCtrl.js:56
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:50
 #: ../ng_anr/views/anr.risksplan.history.html:11
 #: ../ng_anr/views/anr.risksplan.html:13
@@ -2783,18 +2851,19 @@ msgstr ""
 "Recommendation which requires a dedicated action to solve a vulnerability or "
 "a missing best practice"
 
-#: ../ng_anr/views/_oprisk_sheet.html:62 ../ng_anr/views/_risk_sheet.html:78
+#: ../ng_anr/views/_oprisk_sheet.html:60 ../ng_anr/views/_risk_sheet.html:75
 #: ../ng_anr/views/export.objlibs.html:59
 msgid "Recommendations"
 msgstr "Recommendations"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:143 ../ng_anr/src/AnrSoaSheetCtrl.js:270
-#: ../ng_anr/views/_oprisk_sheet.html:107 ../ng_anr/views/_risk_sheet.html:125
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:115 ../ng_anr/src/AnrSoaSheetCtrl.js:242
+#: ../ng_anr/views/_oprisk_sheet.html:105 ../ng_anr/views/_risk_sheet.html:122
 #: ../ng_anr/views/_table_risks.html:36 ../ng_anr/views/_table_risks_op.html:35
 msgid "Reduction"
 msgstr "Reduction"
 
 #: ../ng_anr/views/create.measures.html:35
+#: ../ng_anr/views/import.referentials.html:35
 msgid "Referential"
 msgstr "Referential"
 
@@ -2810,7 +2879,7 @@ msgstr "Referentials"
 msgid "Remarks"
 msgstr "Remarks"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:221 ../ng_anr/views/anr.soa.html:48
+#: ../ng_anr/src/AnrSoaCtrl.js:232 ../ng_anr/views/anr.soa.html:48
 msgid "Remarks/Justification"
 msgstr "Remarks/Justification"
 
@@ -2826,22 +2895,22 @@ msgstr "Reset password"
 msgid "Reset positions"
 msgstr "Reset positions"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2314
+#: ../ng_anr/src/AnrLayoutCtrl.js:2393
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:135
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:98
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:184 ../ng_anr/src/AnrSoaSheetCtrl.js:87
-#: ../ng_anr/views/_oprisk_sheet.html:30 ../ng_anr/views/_risk_sheet.html:32
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:156 ../ng_anr/src/AnrSoaSheetCtrl.js:59
+#: ../ng_anr/views/_oprisk_sheet.html:28 ../ng_anr/views/_risk_sheet.html:29
 #: ../ng_anr/views/_table_risks.html:63 ../ng_anr/views/_table_risks.html:94
 #: ../ng_anr/views/_table_risks_op.html:58
 #: ../ng_anr/views/_table_risks_op.html:92
 #: ../ng_anr/views/anr.risksplan.sheet.html:18
 #: ../ng_anr/views/anr.risksplan.sheet.html:42
-#: ../ng_anr/views/anr.soa.sheet.html:101 ../ng_anr/views/anr.soa.sheet.html:30
+#: ../ng_anr/views/anr.soa.sheet.html:26 ../ng_anr/views/anr.soa.sheet.html:97
 #: ../ng_anr/views/risks.evalcontext.html:27
 msgid "Residual risk"
 msgstr "Residual risk"
 
-#: ../ng_anr/views/anr.dashboard.html:57
+#: ../ng_anr/views/anr.dashboard.html:205 ../ng_anr/views/anr.dashboard.html:69
 msgid "Residual risks"
 msgstr "Residual risks"
 
@@ -2849,7 +2918,7 @@ msgstr "Residual risks"
 msgid "Restore"
 msgstr "Restore"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:249 ../ng_anr/views/anr.soa.html:94
+#: ../ng_anr/src/AnrSoaCtrl.js:260 ../ng_anr/views/anr.soa.html:94
 msgid "Results of risk assessment"
 msgstr "Results of risk assessment"
 
@@ -2858,7 +2927,8 @@ msgid "Return to risk analysis"
 msgstr "Return to risk analysis"
 
 #: ../ng_anr/views/anr.risksplan.history.html:12
-#: ../ng_anr/views/create.specriskop.html:36 views/logs.admin.html:31
+#: ../ng_anr/views/create.specriskop.html:36 ../ng_anr/views/import.amv.html:35
+#: views/logs.admin.html:31
 msgid "Risk"
 msgstr "Risk"
 
@@ -2871,7 +2941,7 @@ msgstr "Risk after"
 msgid "Risk already link to this recommendation"
 msgstr "Risk already link to this recommendation"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1295 ../ng_anr/views/_anr.riskanalysis.html:6
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1479 ../ng_anr/views/_anr.riskanalysis.html:6
 #: ../ng_anr/views/anr.layout.html:28 ../ng_anr/views/anr.layout.html:51
 #: src/kb/info/BackofficeKbInfoCtrl.js:1282
 msgid "Risk analysis"
@@ -2900,10 +2970,10 @@ msgstr "Risk before"
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:58
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:131
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:165 ../ng_anr/views/_oprisk_sheet.html:44
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:137 ../ng_anr/views/_oprisk_sheet.html:42
 #: ../ng_anr/views/_table_risks_op.html:88
 #: ../ng_anr/views/anr.risksplan.sheet.html:38
-#: ../ng_anr/views/anr.soa.sheet.html:97 ../ng_anr/views/import.object.html:117
+#: ../ng_anr/views/anr.soa.sheet.html:93 ../ng_anr/views/import.object.html:117
 msgid "Risk description"
 msgstr "Risk description"
 
@@ -2920,13 +2990,9 @@ msgstr "Risk integrity violation"
 msgid "Risk management context"
 msgstr "Risk management context"
 
-#: ../ng_anr/views/_oprisk_sheet.html:48
+#: ../ng_anr/views/_oprisk_sheet.html:46
 msgid "Risk probability"
 msgstr "Risk probability"
-
-#: ../ng_anr/views/_risk_sheet.html:3
-msgid "Risk sheet"
-msgstr "Risk sheet"
 
 #: ../ng_anr/views/_table_risks.html:15
 msgid "Risk threshold (on max CIA)"
@@ -2936,20 +3002,24 @@ msgstr "Risk threshold (on max CIA)"
 msgid "Risk threshold (on max NET risk)"
 msgstr "Risk threshold (on max NET risk)"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:818
+#: ../ng_anr/src/AnrLayoutCtrl.js:894
 msgid "Risk treatment plan management"
 msgstr "Risk treatment plan management"
 
-#: ../ng_anr/views/anr.dashboard.html:7 ../ng_anr/views/anr.layout.html:69
+#: ../ng_anr/views/anr.dashboard.html:19 ../ng_anr/views/anr.layout.html:69
 #: views/info_risk.kb_mgmt.html:318
 msgid "Risks"
 msgstr "Risks"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:795
+#: ../ng_anr/src/AnrLayoutCtrl.js:871
 msgid "Risks analysis context"
 msgstr "Risks analysis context"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:797
+#: ../ng_anr/views/deliverable.evalcontext.html:31
+msgid "Risks by control"
+msgstr "Risks by control"
+
+#: ../ng_anr/src/AnrLayoutCtrl.js:873
 msgid "Risks management organisation"
 msgstr "Risks management organisation"
 
@@ -2958,12 +3028,11 @@ msgid "Root (none)"
 msgstr "Root (none)"
 
 #: ../ng_anr/views/_table_risks.html:158
-#: ../ng_anr/views/_table_risks_op.html:178 src/BackofficeApp.js:317
+#: ../ng_anr/views/_table_risks_op.html:178 src/BackofficeApp.js:318
 msgid "Rows per page:"
 msgstr "Rows per page:"
 
-#: ../ng_anr/views/_oprisk_sheet.html:132 ../ng_anr/views/_risk_sheet.html:161
-#: ../ng_anr/views/deliverable.evalcontext.html:73
+#: ../ng_anr/views/deliverable.evalcontext.html:75
 #: ../ng_anr/views/edit.evalcontext.html:41
 #: ../ng_anr/views/trends.evalcontext.html:122
 #: ../ng_anr/views/trends.evalcontext.html:161
@@ -2975,11 +3044,7 @@ msgstr "Save"
 msgid "Save changes"
 msgstr "Save changes"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:551 ../ng_anr/src/AnrLayoutCtrl.js:559
-msgid "Save successful"
-msgstr "Save successful"
-
-#: ../ng_anr/src/AnrLayoutCtrl.js:1497
+#: ../ng_anr/src/AnrLayoutCtrl.js:1573
 msgid "Scale type deleted"
 msgstr "Scale type deleted"
 
@@ -2987,9 +3052,9 @@ msgstr "Scale type deleted"
 msgid "Scope"
 msgstr "Scope"
 
-#: ../ng_anr/views/_oprisk_sheet.html:76
+#: ../ng_anr/views/_oprisk_sheet.html:74
 #: ../ng_anr/views/_risk_rec_create_form.html:19
-#: ../ng_anr/views/_risk_sheet.html:92
+#: ../ng_anr/views/_risk_sheet.html:89
 msgid "Search a recommendation"
 msgstr "Search a recommendation"
 
@@ -3017,12 +3082,12 @@ msgstr "Search an asset..."
 msgid "Search..."
 msgstr "Search..."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:296 ../ng_anr/views/create.assets.html:76
-#: src/kb/info/BackofficeKbInfoCtrl.js:303
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:335 ../ng_anr/views/create.assets.html:87
+#: src/kb/info/BackofficeKbInfoCtrl.js:304
 msgid "Secondary"
 msgstr "Secondary"
 
-#: ../ng_anr/views/deliverable.evalcontext.html:53
+#: ../ng_anr/views/deliverable.evalcontext.html:55
 msgid "Security consultant(s)"
 msgstr "Security consultant(s)"
 
@@ -3030,7 +3095,7 @@ msgstr "Security consultant(s)"
 msgid "Security controls:"
 msgstr "Security controls:"
 
-#: ../ng_anr/views/_oprisk_sheet.html:116 ../ng_anr/views/_risk_sheet.html:145
+#: ../ng_anr/views/_oprisk_sheet.html:114 ../ng_anr/views/_risk_sheet.html:142
 msgid "Security referentials"
 msgstr "Security referentials"
 
@@ -3048,7 +3113,7 @@ msgstr "Select a referential"
 msgid "Select an asset"
 msgstr "Select an asset"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3176 src/kb/info/BackofficeKbInfoCtrl.js:2711
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3699 src/kb/info/BackofficeKbInfoCtrl.js:2712
 msgid "Separed by /"
 msgstr "Separed by /"
 
@@ -3060,8 +3125,8 @@ msgstr "Server"
 msgid "Servers"
 msgstr "Servers"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:152 ../ng_anr/src/AnrSoaSheetCtrl.js:279
-#: ../ng_anr/views/_oprisk_sheet.html:110 ../ng_anr/views/_risk_sheet.html:128
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:124 ../ng_anr/src/AnrSoaSheetCtrl.js:251
+#: ../ng_anr/views/_oprisk_sheet.html:108 ../ng_anr/views/_risk_sheet.html:125
 #: ../ng_anr/views/_table_risks.html:39 ../ng_anr/views/_table_risks_op.html:38
 msgid "Shared"
 msgstr "Shared"
@@ -3112,7 +3177,7 @@ msgstr "Show inherent operational risks"
 msgid "Simple text"
 msgstr "Simple text"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2633
+#: ../ng_anr/src/AnrLayoutCtrl.js:2712
 msgid "Snapshot restored"
 msgstr "Snapshot restored"
 
@@ -3120,7 +3185,7 @@ msgstr "Snapshot restored"
 msgid "Snapshots"
 msgstr "Snapshots"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2784 ../ng_anr/src/AnrLayoutCtrl.js:2873
+#: ../ng_anr/src/AnrLayoutCtrl.js:2866 ../ng_anr/src/AnrLayoutCtrl.js:2955
 msgid "Some files could not be imported"
 msgstr "Some files could not be imported"
 
@@ -3146,16 +3211,16 @@ msgstr "Sort direction"
 msgid "Source"
 msgstr "Source"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:91 ../ng_anr/src/CreateObjlibDialogCtrl.js:71
-#: ../ng_anr/views/create.assets.html:58 ../ng_anr/views/create.objlibs.html:67
-#: ../ng_anr/views/create.threats.html:103 ../ng_anr/views/create.vulns.html:58
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:89 ../ng_anr/src/CreateObjlibDialogCtrl.js:71
+#: ../ng_anr/views/create.assets.html:69 ../ng_anr/views/create.objlibs.html:67
+#: ../ng_anr/views/create.threats.html:114 ../ng_anr/views/create.vulns.html:69
 #: src/kb/info/BackofficeKbInfoCtrl.js:91 views/dialogs/create.models.html:44
 #: views/models.kb_mgmt.html:55
 msgid "Specific"
 msgstr "Specific"
 
-#: ../ng_anr/views/create.assets.html:81
-#: ../ng_anr/views/create.threats.html:124 ../ng_anr/views/create.vulns.html:72
+#: ../ng_anr/views/create.assets.html:92
+#: ../ng_anr/views/create.threats.html:135 ../ng_anr/views/create.vulns.html:83
 msgid "Specific models links"
 msgstr "Specific models links"
 
@@ -3190,11 +3255,11 @@ msgstr "Summary assessment of trends and threats"
 msgid "Summary of assets / impacts"
 msgstr "Summary of assets / impacts"
 
-#: ../ng_anr/views/deliverable.evalcontext.html:58
+#: ../ng_anr/views/deliverable.evalcontext.html:60
 msgid "Summary of risk evaluation:"
 msgstr "Summary of risk evaluation:"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:808
+#: ../ng_anr/src/AnrLayoutCtrl.js:884
 msgid "Synthesis of assets / impacts"
 msgstr "Synthesis of assets / impacts"
 
@@ -3233,11 +3298,11 @@ msgstr "The IP address may not be empty"
 msgid "The IP address must be of this form : xxx.xxx.xxx.xxx"
 msgstr "The IP address must be of this form : xxx.xxx.xxx.xxx"
 
-#: ../ng_anr/src/AnrSoaCtrl.js:205
+#: ../ng_anr/src/AnrSoaCtrl.js:216
 msgid "The SOA has been imported successfully."
 msgstr "The SOA has been imported successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3164 src/kb/info/BackofficeKbInfoCtrl.js:2699
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3687 src/kb/info/BackofficeKbInfoCtrl.js:2700
 msgid ""
 "The applicable legal and regulatory requirements are not determined, "
 "understood and consistently met"
@@ -3245,16 +3310,16 @@ msgstr ""
 "The applicable legal and regulatory requirements are not determined, "
 "understood and consistently met"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1562
+#: ../ng_anr/src/AnrLayoutCtrl.js:1642
 msgid "The asset has been added to the library."
 msgstr "The asset has been added to the library."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1419 ../ng_anr/src/AnrObjectCtrl.js:280
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1603 ../ng_anr/src/AnrObjectCtrl.js:280
 #: src/kb/info/BackofficeKbInfoCtrl.js:1439
 msgid "The asset has been created successfully."
 msgstr "The asset has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1466 src/kb/info/BackofficeKbInfoCtrl.js:1485
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1650 src/kb/info/BackofficeKbInfoCtrl.js:1485
 msgid "The asset has been deleted."
 msgstr "The asset has been deleted."
 
@@ -3270,21 +3335,21 @@ msgstr "The asset has been detached successfully"
 msgid "The asset has been duplicated successfully."
 msgstr "The asset has been duplicated successfully."
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:152
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:153
 msgid "The asset has been edited"
 msgstr "The asset has been edited"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1403 ../ng_anr/src/AnrObjectCtrl.js:273
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1587 ../ng_anr/src/AnrObjectCtrl.js:273
 #: src/kb/info/BackofficeKbInfoCtrl.js:1423
 msgid "The asset has been edited successfully."
 msgstr "The asset has been edited successfully."
 
 #: ../ng_anr/src/AnrObjectCtrl.js:332
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:190
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:191
 msgid "The asset has been exported successfully."
 msgstr "The asset has been exported successfully."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2786 ../ng_anr/src/AnrLayoutCtrl.js:2843
+#: ../ng_anr/src/AnrLayoutCtrl.js:2868 ../ng_anr/src/AnrLayoutCtrl.js:2925
 msgid "The asset has been imported successfully"
 msgstr "The asset has been imported successfully"
 
@@ -3293,7 +3358,8 @@ msgstr "The asset has been imported successfully"
 msgid "The asset has been successfully deleted"
 msgstr "The asset has been successfully deleted"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:193 src/kb/info/BackofficeKbInfoCtrl.js:199
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:203 ../ng_anr/src/AnrKbMgmtCtrl.js:237
+#: src/kb/info/BackofficeKbInfoCtrl.js:199
 msgid ""
 "The asset type has been created successfully, however without models, the "
 "element may not be specific."
@@ -3301,15 +3367,16 @@ msgstr ""
 "The asset type has been created successfully, however without models, the "
 "element may not be specific."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:196 src/kb/info/BackofficeKbInfoCtrl.js:202
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:206 ../ng_anr/src/AnrKbMgmtCtrl.js:239
+#: src/kb/info/BackofficeKbInfoCtrl.js:202
 msgid "The asset type has been created successfully."
 msgstr "The asset type has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:258 src/kb/info/BackofficeKbInfoCtrl.js:265
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:297 src/kb/info/BackofficeKbInfoCtrl.js:266
 msgid "The asset type has been deleted."
 msgstr "The asset type has been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:230 src/kb/info/BackofficeKbInfoCtrl.js:238
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:269 src/kb/info/BackofficeKbInfoCtrl.js:239
 msgid ""
 "The asset type has been edited successfully, however without models, the "
 "element may not be specific."
@@ -3317,25 +3384,25 @@ msgstr ""
 "The asset type has been edited successfully, however without models, the "
 "element may not be specific."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:233 src/kb/info/BackofficeKbInfoCtrl.js:241
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:272 src/kb/info/BackofficeKbInfoCtrl.js:242
 msgid "The asset type has been edited successfully."
 msgstr "The asset type has been edited successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2456
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2896
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:130
-#: src/kb/info/BackofficeKbInfoCtrl.js:2142
+#: src/kb/info/BackofficeKbInfoCtrl.js:2143
 msgid "The category has been created successfully."
 msgstr "The category has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2512
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2952
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:315
-#: src/kb/info/BackofficeKbInfoCtrl.js:2202
+#: src/kb/info/BackofficeKbInfoCtrl.js:2203
 msgid "The category has been deleted."
 msgstr "The category has been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2486
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2926
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:182
-#: src/kb/info/BackofficeKbInfoCtrl.js:2176
+#: src/kb/info/BackofficeKbInfoCtrl.js:2177
 msgid "The category has been edited successfully."
 msgstr "The category has been edited successfully."
 
@@ -3355,10 +3422,10 @@ msgstr "The client has been deleted."
 msgid "The client has been edited successfully."
 msgstr "The client has been edited successfully."
 
-#: ../ng_anr/views/create.assets.html:67
+#: ../ng_anr/views/create.assets.html:78
 #: ../ng_anr/views/create.measures.html:54 ../ng_anr/views/create.risks.html:55
-#: ../ng_anr/views/create.tags.html:49 ../ng_anr/views/create.threats.html:113
-#: ../ng_anr/views/create.vulns.html:67 views/dialogs/create.categories.html:41
+#: ../ng_anr/views/create.tags.html:49 ../ng_anr/views/create.threats.html:124
+#: ../ng_anr/views/create.vulns.html:78 views/dialogs/create.categories.html:41
 msgid "The code may not be empty"
 msgstr "The code may not be empty"
 
@@ -3366,11 +3433,11 @@ msgstr "The code may not be empty"
 msgid "The component has been created successfully."
 msgstr "The component has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:919 src/kb/info/BackofficeKbInfoCtrl.js:920
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1091 src/kb/info/BackofficeKbInfoCtrl.js:920
 msgid "The control has been created successfully."
 msgstr "The control has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:981 src/kb/info/BackofficeKbInfoCtrl.js:975
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1153 src/kb/info/BackofficeKbInfoCtrl.js:975
 msgid "The control has been deleted."
 msgstr "The control has been deleted."
 
@@ -3378,7 +3445,7 @@ msgstr "The control has been deleted."
 msgid "The control has been detached."
 msgstr "The control has been detached."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:955 src/kb/info/BackofficeKbInfoCtrl.js:952
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1127 src/kb/info/BackofficeKbInfoCtrl.js:952
 msgid "The control has been edited successfully."
 msgstr "The control has been edited successfully."
 
@@ -3390,7 +3457,7 @@ msgstr "The current asset will be permanently deleted. Are you sure?"
 msgid "The current asset will be removed from the library. Are you sure?"
 msgstr "The current asset will be removed from the library. Are you sure?"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:866
+#: ../ng_anr/src/AnrLayoutCtrl.js:942
 msgid "The deliverable has been generated successfully."
 msgstr "The deliverable has been generated successfully."
 
@@ -3430,7 +3497,7 @@ msgstr "The guide has been deleted."
 msgid "The guide has been edited successfully."
 msgstr "The guide has been edited successfully."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1497
+#: ../ng_anr/src/AnrLayoutCtrl.js:1573
 msgid "The impact scale type has been deleted successfully."
 msgstr "The impact scale type has been deleted successfully."
 
@@ -3438,7 +3505,7 @@ msgstr "The impact scale type has been deleted successfully."
 msgid "The input does not appear to be an integer"
 msgstr "The input does not appear to be an integer"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2875
+#: ../ng_anr/src/AnrLayoutCtrl.js:2957
 msgid "The instance has been imported successfully"
 msgstr "The instance has been imported successfully"
 
@@ -3454,15 +3521,15 @@ msgstr "The item has been deleted."
 msgid "The item has been edited successfully."
 msgstr "The item has been edited successfully."
 
-#: ../ng_anr/views/create.assets.html:41
+#: ../ng_anr/views/create.assets.html:52
 #: ../ng_anr/views/create.categories.html:39
 #: ../ng_anr/views/create.measures.html:45
 #: ../ng_anr/views/create.objlibs.categories.html:28
 #: ../ng_anr/views/create.objlibs.html:47
-#: ../ng_anr/views/create.referentials.html:31
+#: ../ng_anr/views/create.referentials.html:39
 #: ../ng_anr/views/create.risks.html:39 ../ng_anr/views/create.tags.html:39
-#: ../ng_anr/views/create.themes.html:31 ../ng_anr/views/create.threats.html:41
-#: ../ng_anr/views/create.vulns.html:41 views/dialogs/create.categories.html:31
+#: ../ng_anr/views/create.themes.html:31 ../ng_anr/views/create.threats.html:52
+#: ../ng_anr/views/create.vulns.html:52 views/dialogs/create.categories.html:31
 #: views/dialogs/create.models.html:32
 #: views/dialogs/create.servers.admin.html:20
 msgid "The label may not be empty"
@@ -3495,10 +3562,6 @@ msgstr "The model has been edited successfully."
 #: ../ng_anr/views/create.objlibs.html:38 views/dialogs/create.clients.html:20
 msgid "The name may not be empty"
 msgstr "The name may not be empty"
-
-#: ../ng_anr/src/AnrLayoutCtrl.js:559
-msgid "The operational risk sheet changes have been saved successfully"
-msgstr "The operational risk sheet changes have been saved successfully"
 
 #: src/BackofficeLoginCtrl.js:27
 msgid ""
@@ -3554,7 +3617,7 @@ msgstr "The recommendation has been deleted successfully"
 msgid "The recommendation has been detached."
 msgstr "The recommendation has been detached."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:640
+#: ../ng_anr/src/AnrLayoutCtrl.js:716
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:68
 msgid "The recommendation has been edited successfully"
 msgstr "The recommendation has been edited successfully"
@@ -3563,23 +3626,27 @@ msgstr "The recommendation has been edited successfully"
 msgid "The recommendation has been successfully validated."
 msgstr "The recommendation has been successfully validated."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:778 src/kb/info/BackofficeKbInfoCtrl.js:786
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:950 src/kb/info/BackofficeKbInfoCtrl.js:786
 msgid "The referential has been created successfully."
 msgstr "The referential has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:861 src/kb/info/BackofficeKbInfoCtrl.js:865
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1033 src/kb/info/BackofficeKbInfoCtrl.js:865
 msgid "The referential has been deleted."
 msgstr "The referential has been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:811 src/kb/info/BackofficeKbInfoCtrl.js:817
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:983 src/kb/info/BackofficeKbInfoCtrl.js:817
 msgid "The referential has been edited successfully."
 msgstr "The referential has been edited successfully."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1862
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:909
+msgid "The referential has been imported successfully."
+msgstr ""
+
+#: ../ng_anr/src/AnrLayoutCtrl.js:1941
 msgid "The risk analysis has been exported successfully."
 msgstr "The risk analysis has been exported successfully."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1532
+#: ../ng_anr/src/AnrLayoutCtrl.js:1609
 msgid "The risk analysis have been edited."
 msgstr "The risk analysis have been edited."
 
@@ -3589,29 +3656,25 @@ msgid ""
 msgstr ""
 "The risk analysis model used does not allow you to change the scales values."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1146 ../ng_anr/src/AnrKbMgmtCtrl.js:1800
-#: src/kb/info/BackofficeKbInfoCtrl.js:1139
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1330 ../ng_anr/src/AnrKbMgmtCtrl.js:1985
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2024 src/kb/info/BackofficeKbInfoCtrl.js:1139
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:298
 msgid "The risk has been created successfully."
 msgstr "The risk has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1227 ../ng_anr/src/AnrKbMgmtCtrl.js:1870
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1411 ../ng_anr/src/AnrKbMgmtCtrl.js:2087
 #: src/kb/info/BackofficeKbInfoCtrl.js:1214
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:366
 msgid "The risk has been deleted."
 msgstr "The risk has been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1198 ../ng_anr/src/AnrKbMgmtCtrl.js:1845
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1382 ../ng_anr/src/AnrKbMgmtCtrl.js:2062
 #: src/kb/info/BackofficeKbInfoCtrl.js:1188
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:343
 msgid "The risk has been edited successfully."
 msgstr "The risk has been edited successfully."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:551
-msgid "The risk sheet changes have been saved successfully"
-msgstr "The risk sheet changes have been saved successfully"
-
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1099 ../ng_anr/src/AnrKbMgmtCtrl.js:1762
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1283 ../ng_anr/src/AnrKbMgmtCtrl.js:1947
 #: src/kb/info/BackofficeKbInfoCtrl.js:1093
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:258
 msgid "The risks have been edited successfully."
@@ -3621,7 +3684,7 @@ msgstr "The risks have been edited successfully."
 msgid "The selected component will be detached from the current asset."
 msgstr "The selected component will be detached from the current asset."
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:282
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:283
 msgid ""
 "The selected specific information risk will be permanently deleted. Are you "
 "sure?"
@@ -3629,7 +3692,7 @@ msgstr ""
 "The selected specific information risk will be permanently deleted. Are you "
 "sure?"
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:304
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:305
 msgid ""
 "The selected specific operational risk will be permanently deleted. Are you "
 "sure?"
@@ -3653,53 +3716,54 @@ msgstr "The server has been edited successfully."
 msgid "The server returned the error code:"
 msgstr "The server returned the error code:"
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:290
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:291
 msgid "The specific information risk has been successfully deleted"
 msgstr "The specific information risk has been successfully deleted"
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:245
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:246
 msgid "The specific operational risk has been successfully created"
 msgstr "The specific operational risk has been successfully created"
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:312
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:313
 msgid "The specific operational risk has been successfully deleted"
 msgstr "The specific operational risk has been successfully deleted"
 
-#: ../ng_anr/src/AnrObjectInstanceCtrl.js:270
+#: ../ng_anr/src/AnrObjectInstanceCtrl.js:271
 msgid "The specific risk has been successfully created"
 msgstr "The specific risk has been successfully created"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1575 src/kb/rolf/BackofficeKbOpRiskCtrl.js:84
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1759 src/kb/rolf/BackofficeKbOpRiskCtrl.js:84
 msgid "The tag has been created successfully."
 msgstr "The tag has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1630
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1814
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:138
 msgid "The tag has been deleted."
 msgstr "The tag has been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1606
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1790
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:115
 msgid "The tag has been edited successfully."
 msgstr "The tag has been edited successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2110 src/kb/info/BackofficeKbInfoCtrl.js:1766
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2372 src/kb/info/BackofficeKbInfoCtrl.js:1766
 msgid "The theme has been created successfully."
 msgstr "The theme has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2163 src/kb/info/BackofficeKbInfoCtrl.js:1824
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2425 src/kb/info/BackofficeKbInfoCtrl.js:1824
 msgid "The theme has been deleted."
 msgstr "The theme has been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2137 src/kb/info/BackofficeKbInfoCtrl.js:1798
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2399 src/kb/info/BackofficeKbInfoCtrl.js:1798
 msgid "The theme has been edited successfully."
 msgstr "The theme has been edited successfully."
 
-#: ../ng_anr/views/create.threats.html:79
+#: ../ng_anr/views/create.threats.html:90
 msgid "The theme may not be empty"
 msgstr "The theme may not be empty"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:388 src/kb/info/BackofficeKbInfoCtrl.js:394
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:439 ../ng_anr/src/AnrKbMgmtCtrl.js:474
+#: src/kb/info/BackofficeKbInfoCtrl.js:396
 msgid ""
 "The threat has been created successfully, however without models, the "
 "element may not be specific."
@@ -3707,15 +3771,16 @@ msgstr ""
 "The threat has been created successfully, however without models, the "
 "element may not be specific."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:391 src/kb/info/BackofficeKbInfoCtrl.js:397
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:442 ../ng_anr/src/AnrKbMgmtCtrl.js:476
+#: src/kb/info/BackofficeKbInfoCtrl.js:399
 msgid "The threat has been created successfully."
 msgstr "The threat has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:463 src/kb/info/BackofficeKbInfoCtrl.js:468
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:543 src/kb/info/BackofficeKbInfoCtrl.js:470
 msgid "The threat has been deleted."
 msgstr "The threat has been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:433 src/kb/info/BackofficeKbInfoCtrl.js:439
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:513 src/kb/info/BackofficeKbInfoCtrl.js:441
 msgid ""
 "The threat has been edited successfully, however without models, the element "
 "may not be specific."
@@ -3723,7 +3788,7 @@ msgstr ""
 "The threat has been edited successfully, however without models, the element "
 "may not be specific."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:436 src/kb/info/BackofficeKbInfoCtrl.js:442
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:516 src/kb/info/BackofficeKbInfoCtrl.js:444
 msgid "The threat has been edited successfully."
 msgstr "The threat has been edited successfully."
 
@@ -3743,7 +3808,8 @@ msgstr "The user has been deleted."
 msgid "The user has been edited successfully."
 msgstr "The user has been edited successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:580 src/kb/info/BackofficeKbInfoCtrl.js:587
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:664 ../ng_anr/src/AnrKbMgmtCtrl.js:702
+#: src/kb/info/BackofficeKbInfoCtrl.js:590
 msgid ""
 "The vulnerability has been created successfully, however without models, the "
 "element may not be specific."
@@ -3751,15 +3817,16 @@ msgstr ""
 "The vulnerability has been created successfully, however without models, the "
 "element may not be specific."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:583 src/kb/info/BackofficeKbInfoCtrl.js:590
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:666 ../ng_anr/src/AnrKbMgmtCtrl.js:705
+#: src/kb/info/BackofficeKbInfoCtrl.js:593
 msgid "The vulnerability has been created successfully."
 msgstr "The vulnerability has been created successfully."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:647 src/kb/info/BackofficeKbInfoCtrl.js:653
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:769 src/kb/info/BackofficeKbInfoCtrl.js:656
 msgid "The vulnerability has been deleted."
 msgstr "The vulnerability has been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:619 src/kb/info/BackofficeKbInfoCtrl.js:626
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:741 src/kb/info/BackofficeKbInfoCtrl.js:629
 msgid ""
 "The vulnerability has been edited successfully, however without models, the "
 "element may not be specific."
@@ -3767,11 +3834,11 @@ msgstr ""
 "The vulnerability has been edited successfully, however without models, the "
 "element may not be specific."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:622 src/kb/info/BackofficeKbInfoCtrl.js:629
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:744 src/kb/info/BackofficeKbInfoCtrl.js:632
 msgid "The vulnerability has been edited successfully."
 msgstr "The vulnerability has been edited successfully."
 
-#: ../ng_anr/views/create.threats.html:67
+#: ../ng_anr/views/create.threats.html:78
 msgid "Theme"
 msgstr "Theme"
 
@@ -3798,10 +3865,6 @@ msgid ""
 msgstr ""
 "There are no operational risks for this risk analysis, or the filters gave "
 "no results."
-
-#: ../ng_anr/views/anr.soa.sheet.html:9
-msgid "There are no risks for this control."
-msgstr "There are no risks for this control."
 
 #: ../ng_anr/views/_table_risks.html:82
 msgid ""
@@ -3869,16 +3932,16 @@ msgstr "This is not a root instance"
 msgid "This name is already used"
 msgstr "This name is already used"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1219 ../ng_anr/src/AnrKbMgmtCtrl.js:1243
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1457 ../ng_anr/src/AnrKbMgmtCtrl.js:1480
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1622 ../ng_anr/src/AnrKbMgmtCtrl.js:1645
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1862 ../ng_anr/src/AnrKbMgmtCtrl.js:1883
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2154 ../ng_anr/src/AnrKbMgmtCtrl.js:250
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2503 ../ng_anr/src/AnrKbMgmtCtrl.js:273
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:455 ../ng_anr/src/AnrKbMgmtCtrl.js:479
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:639 ../ng_anr/src/AnrKbMgmtCtrl.js:663
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:852 ../ng_anr/src/AnrKbMgmtCtrl.js:973
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:998
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1024 ../ng_anr/src/AnrKbMgmtCtrl.js:1145
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1170 ../ng_anr/src/AnrKbMgmtCtrl.js:1403
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1427 ../ng_anr/src/AnrKbMgmtCtrl.js:1641
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1664 ../ng_anr/src/AnrKbMgmtCtrl.js:1806
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1829 ../ng_anr/src/AnrKbMgmtCtrl.js:2079
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2100 ../ng_anr/src/AnrKbMgmtCtrl.js:2416
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:289 ../ng_anr/src/AnrKbMgmtCtrl.js:2943
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:312 ../ng_anr/src/AnrKbMgmtCtrl.js:535
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:559 ../ng_anr/src/AnrKbMgmtCtrl.js:761
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:785
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:102
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:150
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:191
@@ -3894,13 +3957,13 @@ msgstr "This name is already used"
 #: src/kb/info/BackofficeKbInfoCtrl.js:1477
 #: src/kb/info/BackofficeKbInfoCtrl.js:1499
 #: src/kb/info/BackofficeKbInfoCtrl.js:1815
-#: src/kb/info/BackofficeKbInfoCtrl.js:2193
-#: src/kb/info/BackofficeKbInfoCtrl.js:258
-#: src/kb/info/BackofficeKbInfoCtrl.js:279
-#: src/kb/info/BackofficeKbInfoCtrl.js:461
-#: src/kb/info/BackofficeKbInfoCtrl.js:484
-#: src/kb/info/BackofficeKbInfoCtrl.js:646
-#: src/kb/info/BackofficeKbInfoCtrl.js:669
+#: src/kb/info/BackofficeKbInfoCtrl.js:2194
+#: src/kb/info/BackofficeKbInfoCtrl.js:259
+#: src/kb/info/BackofficeKbInfoCtrl.js:280
+#: src/kb/info/BackofficeKbInfoCtrl.js:463
+#: src/kb/info/BackofficeKbInfoCtrl.js:486
+#: src/kb/info/BackofficeKbInfoCtrl.js:649
+#: src/kb/info/BackofficeKbInfoCtrl.js:672
 #: src/kb/info/BackofficeKbInfoCtrl.js:857
 #: src/kb/info/BackofficeKbInfoCtrl.js:968
 #: src/kb/info/BackofficeKbInfoCtrl.js:991
@@ -3937,26 +4000,26 @@ msgstr ""
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:56
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:93
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:78 ../ng_anr/views/_anr.kbmgmt.html:370
-#: ../ng_anr/views/_risk_sheet.html:51 ../ng_anr/views/_table_risks.html:58
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:50 ../ng_anr/views/_anr.kbmgmt.html:370
+#: ../ng_anr/views/_risk_sheet.html:48 ../ng_anr/views/_table_risks.html:58
 #: ../ng_anr/views/_table_risks.html:90
 #: ../ng_anr/views/anr.risksplan.sheet.html:13
-#: ../ng_anr/views/anr.soa.sheet.html:26 ../ng_anr/views/create.amvs.html:54
+#: ../ng_anr/views/anr.soa.sheet.html:22 ../ng_anr/views/create.amvs.html:62
 #: ../ng_anr/views/create.specrisk.html:27
-#: ../ng_anr/views/import.object.html:101 ../ng_anr/views/object.html:68
-#: views/info_risk.kb_mgmt.html:377
+#: ../ng_anr/views/import.object.html:101 ../ng_anr/views/import.threat.html:35
+#: ../ng_anr/views/object.html:68 views/info_risk.kb_mgmt.html:377
 msgid "Threat"
 msgstr "Threat"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2570
+#: ../ng_anr/src/AnrLayoutCtrl.js:2649
 msgid "Threat assessment saved successfully"
 msgstr "Threat assessment saved successfully"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2582
+#: ../ng_anr/src/AnrLayoutCtrl.js:2661
 msgid "Threat evaluation summary saved successfully"
 msgstr "Threat evaluation summary saved successfully"
 
-#: ../ng_anr/views/_risk_sheet.html:55 ../ng_anr/views/_table_risks.html:59
+#: ../ng_anr/views/_risk_sheet.html:52 ../ng_anr/views/_table_risks.html:59
 msgid "Threat probability"
 msgstr "Threat probability"
 
@@ -3966,7 +4029,7 @@ msgid "Threat:"
 msgstr "Threat:"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:76 ../ng_anr/views/_anr.kbmgmt.html:79
-#: ../ng_anr/views/anr.dashboard.html:104 views/info_risk.kb_mgmt.html:80
+#: ../ng_anr/views/anr.dashboard.html:116 views/info_risk.kb_mgmt.html:80
 #: views/info_risk.kb_mgmt.html:83
 msgid "Threats"
 msgstr "Threats"
@@ -3983,9 +4046,9 @@ msgstr "Threats assessment"
 msgid "Tools"
 msgstr "Tools"
 
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:183 ../ng_anr/src/AnrSoaSheetCtrl.js:86
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:155 ../ng_anr/src/AnrSoaSheetCtrl.js:58
 #: ../ng_anr/views/_table_risks.html:93 ../ng_anr/views/_table_risks_op.html:91
-#: ../ng_anr/views/anr.soa.sheet.html:100 ../ng_anr/views/anr.soa.sheet.html:29
+#: ../ng_anr/views/anr.soa.sheet.html:25 ../ng_anr/views/anr.soa.sheet.html:96
 msgid "Treatment"
 msgstr "Treatment"
 
@@ -3997,7 +4060,7 @@ msgstr "Trend"
 msgid "Trends assessment"
 msgstr "Trends assessment"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2483
+#: ../ng_anr/src/AnrLayoutCtrl.js:2562
 msgid "Trends assessment saved successfully"
 msgstr "Trends assessment saved successfully"
 
@@ -4005,13 +4068,13 @@ msgstr "Trends assessment saved successfully"
 msgid "TxV"
 msgstr "TxV"
 
-#: ../ng_anr/views/_anr.kbmgmt.html:50 ../ng_anr/views/create.assets.html:72
+#: ../ng_anr/views/_anr.kbmgmt.html:50 ../ng_anr/views/create.assets.html:83
 #: views/dialogs/create.questions.html:68 views/info_risk.kb_mgmt.html:50
 #: views/logs.admin.html:29 views/questions.kb_mgmt.html:17
 msgid "Type"
 msgstr "Type"
 
-#: ../ng_anr/views/anr.dashboard.html:172
+#: ../ng_anr/views/anr.dashboard.html:184
 msgid "Type of risks"
 msgstr "Type of risks"
 
@@ -4120,11 +4183,11 @@ msgid ""
 msgstr ""
 "Value for qualification is not valid, Value for reduction amount is not valid"
 
-#: ../ng_anr/views/deliverable.evalcontext.html:33
+#: ../ng_anr/views/deliverable.evalcontext.html:35
 msgid "Version"
 msgstr "Version"
 
-#: ../ng_anr/views/_anr.kbmgmt.html:146 ../ng_anr/views/anr.dashboard.html:130
+#: ../ng_anr/views/_anr.kbmgmt.html:146 ../ng_anr/views/anr.dashboard.html:142
 #: views/info_risk.kb_mgmt.html:152
 msgid "Vulnerabilities"
 msgstr "Vulnerabilities"
@@ -4136,22 +4199,23 @@ msgstr "Vulnerabilities scale:"
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:57
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:94
-#: ../ng_anr/src/AnrSoaSheetCtrl.js:80 ../ng_anr/views/_anr.kbmgmt.html:371
-#: ../ng_anr/views/_risk_sheet.html:62 ../ng_anr/views/_table_risks.html:60
+#: ../ng_anr/src/AnrSoaSheetCtrl.js:52 ../ng_anr/views/_anr.kbmgmt.html:371
+#: ../ng_anr/views/_risk_sheet.html:59 ../ng_anr/views/_table_risks.html:60
 #: ../ng_anr/views/_table_risks.html:91
 #: ../ng_anr/views/anr.risksplan.sheet.html:14
-#: ../ng_anr/views/anr.soa.sheet.html:27 ../ng_anr/views/create.amvs.html:79
+#: ../ng_anr/views/anr.soa.sheet.html:23 ../ng_anr/views/create.amvs.html:87
 #: ../ng_anr/views/create.specrisk.html:50
-#: ../ng_anr/views/import.object.html:102 ../ng_anr/views/object.html:69
+#: ../ng_anr/views/import.object.html:102
+#: ../ng_anr/views/import.vulnerability.html:35 ../ng_anr/views/object.html:69
 #: views/info_risk.kb_mgmt.html:378
 msgid "Vulnerability"
 msgstr "Vulnerability"
 
-#: ../ng_anr/views/_risk_sheet.html:66 ../ng_anr/views/_table_risks.html:61
+#: ../ng_anr/views/_risk_sheet.html:63 ../ng_anr/views/_table_risks.html:61
 msgid "Vulnerability qualification"
 msgstr "Vulnerability qualification"
 
-#: ../ng_anr/views/_risk_sheet.html:134
+#: ../ng_anr/views/_risk_sheet.html:131
 msgid "Vulnerability reduction"
 msgstr "Vulnerability reduction"
 
@@ -4176,9 +4240,9 @@ msgstr "Worse level"
 msgid "Wrap all"
 msgstr "Wrap all"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3205 ../ng_anr/src/AnrKbMgmtCtrl.js:3439
-#: src/kb/info/BackofficeKbInfoCtrl.js:2740
-#: src/kb/info/BackofficeKbInfoCtrl.js:3002
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3728 ../ng_anr/src/AnrKbMgmtCtrl.js:3962
+#: src/kb/info/BackofficeKbInfoCtrl.js:2741
+#: src/kb/info/BackofficeKbInfoCtrl.js:3003
 msgid "Wrong schema"
 msgstr "Wrong schema"
 
@@ -4277,7 +4341,7 @@ msgstr "You may enter a password to protect your asset"
 msgid "You may enter a password to protect your risk analysis"
 msgstr "You may enter a password to protect your risk analysis"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:1371
+#: ../ng_anr/src/AnrLayoutCtrl.js:1447
 msgid "You may not change scales anymore"
 msgstr "You may not change scales anymore"
 
@@ -4342,7 +4406,7 @@ msgstr "You must select a server"
 msgid "You must select a template"
 msgstr "You must select a template"
 
-#: ../ng_anr/views/create.amvs.html:64 ../ng_anr/views/create.specrisk.html:36
+#: ../ng_anr/views/create.amvs.html:72 ../ng_anr/views/create.specrisk.html:36
 msgid "You must select a threat"
 msgstr "You must select a threat"
 
@@ -4350,11 +4414,11 @@ msgstr "You must select a threat"
 msgid "You must select a type"
 msgstr "You must select a type"
 
-#: ../ng_anr/views/create.amvs.html:89 ../ng_anr/views/create.specrisk.html:60
+#: ../ng_anr/views/create.amvs.html:97 ../ng_anr/views/create.specrisk.html:60
 msgid "You must select a vulnerability"
 msgstr "You must select a vulnerability"
 
-#: ../ng_anr/views/create.amvs.html:37 ../ng_anr/views/create.objlibs.html:141
+#: ../ng_anr/views/create.amvs.html:45 ../ng_anr/views/create.objlibs.html:141
 msgid "You must select an asset type"
 msgstr "You must select an asset type"
 
@@ -4399,7 +4463,7 @@ msgstr "Your password reset code is invalid. Please try again."
 msgid "Your profile has been updated successfully"
 msgstr "Your profile has been updated successfully"
 
-#: ../ng_anr/views/create.amvs.html:134
+#: ../ng_anr/views/create.amvs.html:142
 #: ../ng_anr/views/create.objlibs.categories.html:47
 #: ../ng_anr/views/create.objlibs.html:193
 #: ../ng_anr/views/create.objlibs.node.html:46
@@ -4408,7 +4472,7 @@ msgstr "Your profile has been updated successfully"
 msgid "after..."
 msgstr "after..."
 
-#: ../ng_anr/views/create.amvs.html:132
+#: ../ng_anr/views/create.amvs.html:140
 #: ../ng_anr/views/create.objlibs.categories.html:45
 #: ../ng_anr/views/create.objlibs.html:191
 #: ../ng_anr/views/create.objlibs.node.html:44
@@ -4417,7 +4481,7 @@ msgstr "after..."
 msgid "at the beginning"
 msgstr "at the beginning"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2995 src/kb/info/BackofficeKbInfoCtrl.js:2504
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3518 src/kb/info/BackofficeKbInfoCtrl.js:2505
 msgid "categories"
 msgstr "categories"
 
@@ -4429,19 +4493,19 @@ msgstr "client selected"
 msgid "clients selected"
 msgstr "clients selected"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3363 src/kb/info/BackofficeKbInfoCtrl.js:2926
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3886 src/kb/info/BackofficeKbInfoCtrl.js:2927
 msgid "code is already in use"
 msgstr "code is already in use"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3376 src/kb/info/BackofficeKbInfoCtrl.js:2939
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3899 src/kb/info/BackofficeKbInfoCtrl.js:2940
 msgid "control does not exist"
 msgstr "control does not exist"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1981 src/kb/info/BackofficeKbInfoCtrl.js:1601
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2198 src/kb/info/BackofficeKbInfoCtrl.js:1601
 msgid "have been created successfully."
 msgstr "have been created successfully."
 
-#: ../ng_anr/views/create.amvs.html:133
+#: ../ng_anr/views/create.amvs.html:141
 #: ../ng_anr/views/create.objlibs.categories.html:46
 #: ../ng_anr/views/create.objlibs.html:192
 #: ../ng_anr/views/create.objlibs.node.html:45
@@ -4450,37 +4514,37 @@ msgstr "have been created successfully."
 msgid "in the end"
 msgstr "in the end"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3411 src/kb/info/BackofficeKbInfoCtrl.js:2974
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3934 src/kb/info/BackofficeKbInfoCtrl.js:2975
 msgid "is mandatory"
 msgstr "is mandatory"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3381 src/kb/info/BackofficeKbInfoCtrl.js:2944
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3904 src/kb/info/BackofficeKbInfoCtrl.js:2945
 msgid "match does not exist"
 msgstr "match does not exist"
 
 #: ../ng_anr/views/_table_risks.html:166
-#: ../ng_anr/views/_table_risks_op.html:186 src/BackofficeApp.js:318
+#: ../ng_anr/views/_table_risks_op.html:186 src/BackofficeApp.js:319
 msgid "of"
 msgstr "of"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3008 src/kb/info/BackofficeKbInfoCtrl.js:2517
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3531 src/kb/info/BackofficeKbInfoCtrl.js:2518
 msgid "tags"
 msgstr "tags"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:2985 src/kb/info/BackofficeKbInfoCtrl.js:2494
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3508 src/kb/info/BackofficeKbInfoCtrl.js:2495
 msgid "themes"
 msgstr "themes"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:3392 src/kb/info/BackofficeKbInfoCtrl.js:2955
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:3915 src/kb/info/BackofficeKbInfoCtrl.js:2956
 msgid "this matching is already in use"
 msgstr "this matching is already in use"
 
 #: ../ng_anr/views/create.measures.html:83
-#: ../ng_anr/views/create.threats.html:75
+#: ../ng_anr/views/create.threats.html:86
 msgid "to create it."
 msgstr "to create it."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1255 src/kb/info/BackofficeKbInfoCtrl.js:1240
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1439 src/kb/info/BackofficeKbInfoCtrl.js:1240
 msgid "{{ count }} risks have been deleted."
 msgstr "{{ count }} risks have been deleted."
 
@@ -4504,12 +4568,12 @@ msgstr "{{ oprisks_total }} operational risks"
 msgid "{{ risks_total }} information risks"
 msgstr "{{ risks_total }} information risks"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1494 ../ng_anr/src/AnrKbMgmtCtrl.js:285
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1678 ../ng_anr/src/AnrKbMgmtCtrl.js:324
 #: src/kb/info/BackofficeKbInfoCtrl.js:1512
 msgid "{{count}} assets have been deleted."
 msgstr "{{count}} assets have been deleted."
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:290
+#: src/kb/info/BackofficeKbInfoCtrl.js:291
 msgid "{{count}} assets type have been deleted."
 msgstr "{{count}} assets type have been deleted."
 
@@ -4517,7 +4581,7 @@ msgstr "{{count}} assets type have been deleted."
 msgid "{{count}} clients have been deleted."
 msgstr "{{count}} clients have been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1009 src/kb/info/BackofficeKbInfoCtrl.js:1003
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1181 src/kb/info/BackofficeKbInfoCtrl.js:1003
 msgid "{{count}} controls have been deleted."
 msgstr "{{count}} controls have been deleted."
 
@@ -4525,21 +4589,21 @@ msgstr "{{count}} controls have been deleted."
 msgid "{{count}} models have been deleted."
 msgstr "{{count}} models have been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1895
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:2112
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:390
 msgid "{{count}} risks have been deleted."
 msgstr "{{count}} risks have been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:1657
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:1841
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:162
 msgid "{{count}} tags have been deleted."
 msgstr "{{count}} tags have been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:491 src/kb/info/BackofficeKbInfoCtrl.js:496
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:571 src/kb/info/BackofficeKbInfoCtrl.js:498
 msgid "{{count}} threats have been deleted."
 msgstr "{{count}} threats have been deleted."
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:675 src/kb/info/BackofficeKbInfoCtrl.js:681
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:797 src/kb/info/BackofficeKbInfoCtrl.js:684
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnerabilities have been deleted."
 
@@ -4557,6 +4621,24 @@ msgstr ""
 "                                          :'Multiple tags must be separated "
 "by a slash (/) \\n\\r\\ Ex: Tag1/Tag2/Tag3  \\n\\r\\n\\r List of tags: '}}"
 
+#~ msgid "Export the whole dashboard"
+#~ msgstr "Export the whole dashboard"
+
+#~ msgid "Risk sheet"
+#~ msgstr "Risk sheet"
+
+#~ msgid "Save successful"
+#~ msgstr "Save successful"
+
+#~ msgid "The operational risk sheet changes have been saved successfully"
+#~ msgstr "The operational risk sheet changes have been saved successfully"
+
+#~ msgid "The risk sheet changes have been saved successfully"
+#~ msgstr "The risk sheet changes have been saved successfully"
+
+#~ msgid "There are no risks for this control."
+#~ msgstr "There are no risks for this control."
+
 #~ msgid "Add tags..."
 #~ msgstr "Add tags..."
 
@@ -4572,9 +4654,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Information about the risks in your current risk analysis will show up "
 #~ "here."
-
-#~ msgid "No referential matching your search was found"
-#~ msgstr "No referential matching your search was found"
 
 #~ msgid "Return"
 #~ msgstr "Return"
