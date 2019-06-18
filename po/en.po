@@ -3640,7 +3640,7 @@ msgstr "The referential has been edited successfully."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:909
 msgid "The referential has been imported successfully."
-msgstr ""
+msgstr "The referential has been imported successfully."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1941
 msgid "The risk analysis has been exported successfully."
