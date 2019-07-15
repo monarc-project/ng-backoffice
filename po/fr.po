@@ -1138,7 +1138,7 @@ msgstr "Risque actuel"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:145
 msgid "Current risk (Inherent risk)"
-msgstr "Risque actuel (brut)"
+msgstr "Risque actuel (inhérent)"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:153
 msgid "Current risk (Net risk)"
@@ -1629,7 +1629,7 @@ msgstr "Modification réussie"
 
 #: views/dialogs/create.models.html:46
 msgid "Enable inherent risk"
-msgstr "Activer le risque brut"
+msgstr "Activer le risque inhérent"
 
 #: ../ng_anr/views/export.objlibs.html:17
 msgid "Encryption"
@@ -1761,7 +1761,7 @@ msgstr "Exporter avec les évaluations ?"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:143
 msgid "F (Inherent risk)"
-msgstr "F (Risque brut)"
+msgstr "F (Risque inhérent)"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:151
 msgid "F (Net risk)"
@@ -2109,13 +2109,13 @@ msgstr "Risques de l'information"
 
 #: ../ng_anr/views/_table_risks_op.html:54
 msgid "Inherent probability"
-msgstr "Probabilité brute"
+msgstr "Probabilité inhérente"
 
 #: ../ng_anr/views/_table_risks_op.html:55
 #: ../ng_anr/views/_table_risks_op.html:89
 #: ../ng_anr/views/anr.soa.sheet.html:94 views/models.kb_mgmt.html:57
 msgid "Inherent risk"
-msgstr "Risque brut"
+msgstr "Risque inhérent"
 
 #: ../ng_anr/views/create.objlibs.html:107
 #: ../ng_anr/views/create.objlibs.html:81
@@ -2181,7 +2181,7 @@ msgstr "Base de connaissances"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:142
 msgid "L (Inherent risk)"
-msgstr "L (Risque brut)"
+msgstr "L (Risque inhérent)"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:150
 msgid "L (Net risk)"
@@ -2596,7 +2596,7 @@ msgstr "Nombre de vulnérabilités affichées"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:141
 msgid "O (Inherent risk)"
-msgstr "O (Risque brut)"
+msgstr "O (Risque inhérent)"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:149
 msgid "O (Net risk)"
@@ -2677,7 +2677,7 @@ msgstr "Mot de passe original incorrect"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:144
 msgid "P (Inherent risk)"
-msgstr "P (Risque brut)"
+msgstr "P (Risque inhérent)"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:152
 msgid "P (Net risk)"
@@ -2790,7 +2790,7 @@ msgstr "Prob."
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:139
 msgid "Prob.(Inherent risk)"
-msgstr "Prob. (Risque brut)"
+msgstr "Prob. (Risque inhérent)"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:147
 msgid "Prob.(Net risk)"
@@ -2841,7 +2841,7 @@ msgstr "Questions de l'évaluation de tendances"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:140
 msgid "R (Inherent risk)"
-msgstr "R (Risque brut)"
+msgstr "R (Risque inhérent)"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:148
 msgid "R (Net risk)"
@@ -3196,7 +3196,7 @@ msgstr "Afficher inactifs uniquement"
 
 #: ../ng_anr/views/_table_risks_op.html:6
 msgid "Show inherent operational risks"
-msgstr "Afficher les risques opérationnels bruts"
+msgstr "Afficher les risques opérationnels inhérents"
 
 #: src/kb/BackofficeQuestionsCtrl.js:27 views/dialogs/create.questions.html:71
 msgid "Simple text"
