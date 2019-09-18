@@ -38,11 +38,13 @@
         };
 
         const categoriesLabels = {
-            1: gettextCatalog.getString("Deliverable template for context validation"),
-            2: gettextCatalog.getString("Deliverable template for model validation"),
-            3: gettextCatalog.getString("Deliverable template for final report"),
-            4: gettextCatalog.getString("Implementation plan"),
-            5: gettextCatalog.getString("Deliverable template for Statement of applicability")
+            1: "Deliverable template for context validation", // NOTE: add translations in ng_anr/views/_gettext_caveats.html
+            2: "Deliverable template for model validation",
+            3: "Deliverable template for final report",
+            4: "Deliverable template for Implementation plan",
+            5: "Deliverable template for Statement of applicability",
+            6: "Deliverable template for record of processing activities",
+            7: "Deliverable template for all record of processing activities"
         }
 
         const categories = [
@@ -65,6 +67,14 @@
             {
                 id: 5,
                 label: categoriesLabels[5]
+            },
+            {
+                id: 6,
+                label: categoriesLabels[6]
+            },
+            {
+                id: 7,
+                label: categoriesLabels[7]
             }
         ];
 
