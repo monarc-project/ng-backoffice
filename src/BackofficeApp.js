@@ -305,12 +305,6 @@ angular
             // dialog have their distinct scope and avoid editing the parent one.
             $rootScope.$dialogScope = $rootScope.$new();
 
-            // Safari filtering method
-            $rootScope.isSafari = function () {
-                var ua = navigator.userAgent.toLowerCase();
-                return (ua.indexOf('safari') != -1 && ua.indexOf('chrome') < 0);
-            };
-
             // Method to update pagination labels globally when switching language in account settings
             $rootScope.updatePaginationLabels = function () {
                 $rootScope.paginationLabels = {
