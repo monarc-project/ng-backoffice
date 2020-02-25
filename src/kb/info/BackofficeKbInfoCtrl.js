@@ -1533,7 +1533,7 @@
         $scope.importFile = function (ev,tab) {
           var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
           $mdDialog.show({
-              controller: ['$scope', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService',
+              controller: ['$scope', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'AmvService',
                           'SOACategoryService', 'TagService', 'RiskService', 'MeasureMeasureService', 'toastr', 'gettextCatalog', '$q', 'tab', 'themes', 'categories', 'referential' ,'tags',  ImportFileDialogCtrl],
               templateUrl: 'views/anr/import.file.html',
               targetEvent: ev,
@@ -2291,6 +2291,10 @@
             });
         };
 
+        ThreatService.getThemes().then(function (data) {
+           $scope.listThemes = data['themes'];
+        });
+
         if (amv != undefined && amv != null) {
             $scope.amv = amv;
 
@@ -2478,10 +2482,11 @@
         };
     }
 
-    function ImportFileDialogCtrl($scope, $mdDialog, ConfigService, AssetService, ThreatService, VulnService, MeasureService, SOACategoryService,
+    function ImportFileDialogCtrl($scope, $mdDialog, ConfigService, AssetService, ThreatService, VulnService, MeasureService, AmvService, SOACategoryService,
                                   TagService, RiskService, MeasureMeasureService, toastr, gettextCatalog, $q, tab, themes, categories, referential, tags) {
 
       $scope.tab = tab;
+      console.log(themes);
       $scope.guideVisible = false;
       $scope.languages = ConfigService.getLanguages();
       $scope.language = ConfigService.getDefaultLanguageIndex();
@@ -2508,6 +2513,11 @@
           var externalItem = 'category';
           $scope.actualExternalItems = categories;
           var extItemLabel = gettextCatalog.getString('categories');
+        break;
+        case 'Information risks':
+          var getService = AmvService.getAmvs();
+          var items = 'amvs';
+          $scope.actualExternalItems = themes;
         break;
         case 'Categories':
           var getService = SOACategoryService.getCategories({referential: referential});
@@ -2664,6 +2674,90 @@
               'required' : true,
               'type' : 'text',
               'example' : $scope.actualExternalItems
+            }
+        },
+        'Information risks' :  {
+            'asset_code' : {
+              'field' : 'asset code',
+              'required' : true,
+              'type' : 'text',
+              'example' : 'C16, 123, CAZ, C-12'
+            },
+            'asset_label' : {
+              'field' : 'asset label' + $scope.defaultLang,
+              'fieldBis' : 'asset label1\nasset label2\nasset label3\nasset label4',
+              'required' : true,
+              'type' : 'text',
+              'example' : gettextCatalog.getString('Network')
+            },
+            'asset_description' : {
+              'field' : 'asset description1\nasset description2\nasset description3\nasset description4',
+              'required' : false,
+              'type' : 'text',
+              'example' : gettextCatalog.getString('Any network hardware (router, switch, firewall, etc.)')
+            },
+            'threat_code' : {
+              'field' : 'threat code',
+              'required' : true,
+              'type' : 'text',
+              'example' : 'C16, 123, CAZ, C-12'
+            },
+            'threat_label' : {
+              'field' : 'threat label' + $scope.defaultLang,
+              'fieldBis' : 'threat label1\nthreat label2\nthreat label3\nthreat label4',
+              'required' : true,
+              'type' : 'text',
+              'example' : gettextCatalog.getString('Fire')
+            },
+            'threat_description' : {
+              'field' : 'threat description1\nthreat description2\nthreat description3\nthreat description4',
+              'required' : false,
+              'type' : 'text',
+              'example' : gettextCatalog.getString('Any situation that could facilitate the conflagration of premises or equipment.')
+            },
+            'threat_c' : {
+              'field' : 'threat c',
+              'required' : false,
+              'type' : 'Boolean',
+              'example' : '0,1,false,true'
+            },
+            'threat_i' : {
+              'field' : 'threat i',
+              'required' : false,
+              'type' : 'Boolean',
+              'example' : '0,1,false,true'
+            },
+            'threat_a' : {
+              'field' : 'threat a',
+              'required' : false,
+              'type' : 'Boolean',
+              'example' : '0,1,false,true'
+            },
+            'threat_theme' : {
+              'field' : 'threat theme label' + $scope.defaultLang,
+              'fieldBis' : 'threat theme label1\nthreat theme label2\nthreat theme label3\nthreat theme label4',
+              'required' : true,
+              'type' : 'text',
+              'example' : $scope.actualExternalItems
+            },
+            'vulnerability_code' : {
+              'field' : 'vulnerability code',
+              'required' : true,
+              'type' : 'text',
+              'example' : 'C16, 123, CAZ, C-12'
+            },
+            'vulnerability_label' : {
+              'field' : 'vulnerability label' + $scope.defaultLang,
+              'fieldBis' : 'vulnerability label1\nvulnerability label2\nvulnerability label3\nvulnerability label4',
+              'required' : true,
+              'type' : 'text',
+              'example' : gettextCatalog.getString('No IT charter specifying the rules of use')
+            },
+            'vulnerability_description' : {
+              'field' : 'vulnerability description1\nvulnerability description2\nvulnerability description3\nvulnerability description4',
+              'required' : false,
+              'type' : 'text',
+              'example' : gettextCatalog.getString('IT charter Conditions of use General terms and conditions')
             }
         },
         'Categories' :  {
@@ -2922,96 +3016,157 @@
               }
             }
 
-            for (var i = 0; i < file.data.length; i++) {
-              file.data[i].error = '';
-              file.data[i].alert = false;
+            if (tab=="Information risks" ) {
 
-              if (requiredFields.includes('code')) {
-                var codes = items.map(item => item.code.toLowerCase());
-                if (file.data[i]['code'] && codes.includes(file.data[i]['code'].toLowerCase().trim())) {
-                    file.data[i].error += gettextCatalog.getString('code is already in use') + "\n";;
-                    $scope.check = true;
-                }else {
-                  codes.push(file.data[i]['code'].toLowerCase());
+                const amvItems = ['asset', 'threat', 'vulnerability'];
+
+                async function getAllAmvItems (){
+                  var [assets,threats,vulnerabilities] = await Promise.all([
+                    AssetService.getAssets().then(function (data) {
+                        return data.assets.map(asset => ({code: asset.code, uuid: asset.uuid}));
+                    }),
+                    ThreatService.getThreats().then(function (data) {
+                        return data.threats.map(threat => ({code: threat.code, uuid: threat.uuid}));
+                    }),
+                    VulnService.getVulns().then(function (data) {
+                        return data.vulnerabilities.map(vulnerability => ({code: vulnerability.code, uuid: vulnerability.uuid}));
+                    })
+                  ]);
+
+                  return [assets,threats,vulnerabilities];
                 }
-              }
 
-              if (requiredFields.includes('match') && file.data[i]['control'] && file.data[i]['match']) {
-                var matches = items.map(item => item.father.uuid.toLowerCase() + item.child.uuid.toLowerCase());
-                var uuids = $scope.allMeasures.map(item => item.uuid);
+                getAllAmvItems().then(function(values){
+                  file.data.reduce((acc, current,index,data) => {
+                    const duplicate = acc.find(item => item['asset code'] === current['asset code'] &&
+                                               item['threat code'] === current['threat code'] &&
+                                               item['vulnerability code'] === current['vulnerability code']
+                                             );
+                    if (!duplicate) {
+                      data[index].error = '';
+                      data[index]['asset uuid'] = data[index]['threat uuid'] = data[index]['vulnerability uuid'] = null;
+                      for (var j = 0; j < requiredFields.length; j++) {
+                        if (!data[index][requiredFields[j]]) {
+                          data[index].error += requiredFields[j] + " " + gettextCatalog.getString('is mandatory') + "\n";
+                          $scope.check = true;
+                        }
+                      }
+                      amvItems.forEach(function(amvItem,i){
+                        let itemFound = values[i].find(item => item.code.toLowerCase() === data[index][amvItem + ' code'].toLowerCase().trim());
+                        if (itemFound !== undefined) {
+                          data[index][amvItem + ' uuid'] = itemFound.uuid;
+                        }
+                      });
 
-                if (!uuids.includes(file.data[i]['control'].toLowerCase().trim())) {
-                  file.data[i]['control'] = '-';
-                  file.data[i].error += gettextCatalog.getString('control does not exist') + "\n";
-                  $scope.check = true;
-                }
-                if (!uuids.includes(file.data[i]['match'].toLowerCase().trim())) {
-                  file.data[i]['match'] = '-';
-                  file.data[i].error += gettextCatalog.getString('match does not exist') + "\n";
-                  $scope.check = true;
-                }
-                if (matches.includes(file.data[i]['control'].toLowerCase().trim() + file.data[i]['match'].toLowerCase().trim())) {
-                    var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
-                    file.data[i]['father'] = file.data[i]['control'];
-                    file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                      let amvFound = items.find(amv => amv.asset.uuid === data[index]['asset uuid'] &&
+                                                       amv.threat.uuid === data[index]['threat uuid'] &&
+                                                       amv.vulnerability.uuid === data[index]['vulnerability uuid']);
+                      if (amvFound !== undefined) {
+                        data[index].error = gettextCatalog.getString('This risk is already on the knowledge base');
+                        $scope.check = true;
+                      }
 
-                    var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
-                    file.data[i]['child'] = file.data[i]['match'];
-                    file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
-                    file.data[i].error += gettextCatalog.getString('this matching is already in use') + "\n";
-                    $scope.check = true;
-                }else {
-                  var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
-                  if (measure.length > 0) {
-                    file.data[i]['father'] = file.data[i]['control'];
-                    file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                      return acc.concat([current]);
+                    } else {
+                      data[index].error = gettextCatalog.getString('This risk is already on the import list');
+                      $scope.check = true;
+                      return acc;
+                    }
+                  }, []);
+                });
+
+              }else{
+                for (var i = 0; i < file.data.length; i++) {
+                  file.data[i].error = '';
+                  file.data[i].alert = false;
+
+                  if (requiredFields.includes('code')) {
+                    var codes = items.map(item => item.code.toLowerCase());
+                    if (file.data[i]['code'] && codes.includes(file.data[i]['code'].toLowerCase().trim())) {
+                        file.data[i].error += gettextCatalog.getString('code is already in use') + "\n";;
+                        $scope.check = true;
+                    }else {
+                      codes.push(file.data[i]['code'].toLowerCase());
+                    }
                   }
 
-                  var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
-                  if (measure.length > 0) {
-                    file.data[i]['child'] = file.data[i]['match'];
-                    file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                  if (requiredFields.includes('match') && file.data[i]['control'] && file.data[i]['match']) {
+                    var matches = items.map(item => item.father.uuid.toLowerCase() + item.child.uuid.toLowerCase());
+                    var uuids = $scope.allMeasures.map(item => item.uuid);
+
+                    if (!uuids.includes(file.data[i]['control'].toLowerCase().trim())) {
+                      file.data[i]['control'] = '-';
+                      file.data[i].error += gettextCatalog.getString('control does not exist') + "\n";
+                      $scope.check = true;
+                    }
+                    if (!uuids.includes(file.data[i]['match'].toLowerCase().trim())) {
+                      file.data[i]['match'] = '-';
+                      file.data[i].error += gettextCatalog.getString('match does not exist') + "\n";
+                      $scope.check = true;
+                    }
+                    if (matches.includes(file.data[i]['control'].toLowerCase().trim() + file.data[i]['match'].toLowerCase().trim())) {
+                        var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
+                        file.data[i]['father'] = file.data[i]['control'];
+                        file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+
+                        var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
+                        file.data[i]['child'] = file.data[i]['match'];
+                        file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                        file.data[i].error += gettextCatalog.getString('this matching is already in use') + "\n";
+                        $scope.check = true;
+                    }else {
+                      var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
+                      if (measure.length > 0) {
+                        file.data[i]['father'] = file.data[i]['control'];
+                        file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                      }
+
+                      var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
+                      if (measure.length > 0) {
+                        file.data[i]['child'] = file.data[i]['match'];
+                        file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                      }
+                    }
                   }
+
+                  for (var j = 0; j < requiredFields.length; j++) {
+                    if (!file.data[i][requiredFields[j]]) {
+                      file.data[i].error += requiredFields[j] + " " + gettextCatalog.getString('is mandatory') + "\n";;
+                      $scope.check = true;
+                    }
+                  }
+                  if (!$scope.check && $scope.extItemToCreate.length > 0 && $scope.extItemToCreate.includes(file.data[i][externalItem])) {
+                      file.data[i].alert = true;
+                  }
+
                 }
               }
-
-              for (var j = 0; j < requiredFields.length; j++) {
-                if (!file.data[i][requiredFields[j]]) {
-                  file.data[i].error += requiredFields[j] + " " + gettextCatalog.getString('is mandatory') + "\n";;
-                  $scope.check = true;
-                }
+              if (!$scope.check && $scope.extItemToCreate.length > 0) {
+                var confirm = $mdDialog.confirm()
+                    .multiple(true)
+                    .title(gettextCatalog.getString('New {{extItemLabel}}',
+                            {extItemLabel: extItemLabel}))
+                    .textContent(gettextCatalog.getString('Do you want to create {{count}} new {{extItemLabel}} ?',
+                                  {count: $scope.extItemToCreate.length, extItemLabel: extItemLabel}) + '\n\r\n\r' +
+                                   $scope.extItemToCreate.toString().replace(/,/g,'\n\r'))
+                    .theme('light')
+                    .ok(gettextCatalog.getString('Create & Import'))
+                    .cancel(gettextCatalog.getString('Cancel'));
+                $mdDialog.show(confirm).then(function() {
+                  $scope.uploadFile();
+                });
               }
-              if (!$scope.check && $scope.extItemToCreate.length > 0 && $scope.extItemToCreate.includes(file.data[i][externalItem])) {
-                  file.data[i].alert = true;
-              }
-
+              }else {
+                var alert = $mdDialog.alert()
+                    .multiple(true)
+                    .title(gettextCatalog.getString('File error'))
+                    .textContent(gettextCatalog.getString('Wrong schema'))
+                    .theme('light')
+                    .ok(gettextCatalog.getString('Cancel'))
+                $mdDialog.show(alert);
+                $scope.importData = [];
+                $scope.check = true;
             }
-            if (!$scope.check && $scope.extItemToCreate.length > 0) {
-              var confirm = $mdDialog.confirm()
-                  .multiple(true)
-                  .title(gettextCatalog.getString('New {{extItemLabel}}',
-                          {extItemLabel: extItemLabel}))
-                  .textContent(gettextCatalog.getString('Do you want to create {{count}} new {{extItemLabel}} ?',
-                                {count: $scope.extItemToCreate.length, extItemLabel: extItemLabel}) + '\n\r\n\r' +
-                                 $scope.extItemToCreate.toString().replace(/,/g,'\n\r'))
-                  .theme('light')
-                  .ok(gettextCatalog.getString('Create & Import'))
-                  .cancel(gettextCatalog.getString('Cancel'));
-              $mdDialog.show(confirm).then(function() {
-                $scope.uploadFile();
-              });
-            }
-          } else {
-            var alert = $mdDialog.alert()
-                .multiple(true)
-                .title(gettextCatalog.getString('File error'))
-                .textContent(gettextCatalog.getString('Wrong schema'))
-                .theme('light')
-                .ok(gettextCatalog.getString('Cancel'))
-            $mdDialog.show(alert);
-            $scope.importData = [];
-            $scope.check = true;
-          }
         });
         return file.data;
       };
@@ -3028,6 +3183,16 @@
             itemFields.push('uuid');
             $scope.getCategories = await $scope.createCategories();
             break;
+          case 'Information risks':
+            let amvItems = ['asset','threat', 'vulnerability'];
+            amvItems.forEach(function(amvItem){
+              itemFields.push(amvItem + ' uuid',
+                              amvItem + ' label1', amvItem + ' label2', amvItem + ' label3', amvItem + ' label4',
+                              amvItem + ' description1', amvItem + ' description2', amvItem + ' description3', amvItem + ' description4',
+                  );
+            });
+            itemFields.push('threat theme label1', 'threat theme label2', 'threat theme label3', 'threat theme label4');
+            break;
           case 'Operational risks':
             $scope.getTags = await $scope.createTags();
             break;
@@ -3041,7 +3206,7 @@
             itemFields.push($scope.items[tab][index]['field']);
         }
 
-        await $scope.importData.forEach(function(postData){
+        await $scope.importData.forEach(function(postData,i){
           var postDataKeys = Object.keys(postData);
           for (let pdk of postDataKeys){
             if(!itemFields.includes(pdk.toLowerCase())){
@@ -3082,6 +3247,60 @@
             }
           }
 
+          if (tab == 'Information risks') {
+            let themeFound = $scope.actualExternalItems.find(theme => theme['label' + $scope.language].toLowerCase().trim() == postData['threat theme label' + $scope.defaultLang].toLowerCase().trim());
+            $scope.importData[i] = {
+              asset:{
+                uuid:postData['asset uuid'],
+                code:postData['asset code'].trim(),
+                label1:postData['asset label1'],
+                label2:postData['asset label2'],
+                label3:postData['asset label3'],
+                label4:postData['asset label4'],
+                type:2,
+                description1:postData['asset description1'],
+                description2:postData['asset description2'],
+                description3:postData['asset description3'],
+                description4:postData['asset description4']
+              },
+              threat:{
+                uuid:postData['threat uuid'],
+                code:postData['threat code'].trim(),
+                label1:postData['threat label1'],
+                label2:postData['threat label2'],
+                label3:postData['threat label3'],
+                label4:postData['threat label4'],
+                description1:postData['threat description1'],
+                description2:postData['threat description2'],
+                description3:postData['threat description3'],
+                description4:postData['threat description4'],
+                c:(!postData['threat c'] || postData['threat c'] == 0 || postData['threat c'].toLowerCase() == 'false' ? false : true),
+                i:(!postData['threat i'] || postData['threat i'] == 0 || postData['threat i'].toLowerCase() == 'false' ? false : true),
+                a:(!postData['threat a'] || postData['threat a'] == 0 || postData['threat a'].toLowerCase() == 'false' ? false : true),
+                theme: (themeFound !== undefined ?
+                        themeFound.id :
+                        {
+                          label1 : postData['threat theme label1'].trim(),
+                          label2 : postData['threat theme label2'].trim(),
+                          label3 : postData['threat theme label3'].trim(),
+                          label4 : postData['threat theme label4'].trim()
+                        })
+              },
+              vulnerability:{
+                uuid:postData['vulnerability uuid'],
+                code:postData['vulnerability code'].trim(),
+                label1:postData['vulnerability label1'],
+                label2:postData['vulnerability label2'],
+                label3:postData['vulnerability label3'],
+                label4:postData['vulnerability label4'],
+                description1:postData['vulnerability description1'],
+                description1:postData['vulnerability description2'],
+                description1:postData['vulnerability description3'],
+                description1:postData['vulnerability description4']
+              }
+            }
+          }
+
           if (tab == 'Categories') {
             postData.referential = referential;
           }
@@ -3101,7 +3320,6 @@
             postData.tags = tagsId;
           }
         });
-
         $mdDialog.hide($scope.importData);
 
       };
