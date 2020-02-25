@@ -1576,6 +1576,13 @@
                     successCreateObject(result)
                   });
                   break;
+
+                case 'Information risks':
+                  AmvService.createAmv(importData,function(result){
+                    $scope.updateAmvs();
+                    successCreateObject(result)
+                  });
+                  break;
                 case 'Categories':
                   SOACategoryService.createCategory(importData, function (result){
                     successCreateObject(result)
