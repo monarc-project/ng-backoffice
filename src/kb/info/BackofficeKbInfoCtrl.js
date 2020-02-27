@@ -2493,7 +2493,6 @@
                                   TagService, RiskService, MeasureMeasureService, toastr, gettextCatalog, $q, tab, themes, categories, referential, tags) {
 
       $scope.tab = tab;
-      console.log(themes);
       $scope.guideVisible = false;
       $scope.languages = ConfigService.getLanguages();
       $scope.language = ConfigService.getDefaultLanguageIndex();
