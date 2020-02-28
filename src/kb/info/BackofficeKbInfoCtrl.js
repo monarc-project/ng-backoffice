@@ -3064,14 +3064,6 @@
                         }
                       });
 
-                      let amvFound = items.find(amv => amv.asset.uuid === data[index]['asset uuid'] &&
-                                                       amv.threat.uuid === data[index]['threat uuid'] &&
-                                                       amv.vulnerability.uuid === data[index]['vulnerability uuid']);
-                      if (amvFound !== undefined) {
-                        data[index].error = gettextCatalog.getString('This risk is already on the knowledge base');
-                        $scope.check = true;
-                      }
-
                       return acc.concat([current]);
                     } else {
                       data[index].error = gettextCatalog.getString('This risk is already on the import list');
