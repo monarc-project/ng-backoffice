@@ -61,6 +61,11 @@
             </p>
         </md-list-item>
 
+        <md-list-item ui-sref="main.dashboard" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
+            <md-icon>bar_chart</md-icon>
+            <p>{{ 'Dashboard' | translate }}</p>
+        </md-list-item>
+
         <md-divider></md-divider>
 
         <p class="md-caption txtcenter">Copyright 2012-2019 <a href="https://www.cases.lu" target="_blank">CASES</a></p>

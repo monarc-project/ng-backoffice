@@ -195,6 +195,14 @@ angular
                 ncyBreadcrumb: {
                     label: '{{"Guide contents"|translate}}'
                 }
+            }).state('main.dashboard', {
+                url: "/dashboard",
+                views: {
+                    'main@main': {templateUrl: 'views/dashboard.html'}
+                },
+                ncyBreadcrumb: {
+                    label: '{{"Dashboard"|translate}}'
+                }
             });
 
             $provide.factory('monarcHttpInter', ['$injector', function ($injector) {
