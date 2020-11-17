@@ -21,8 +21,6 @@
 
         $rootScope.isAllowed = UserService.isAllowed;
 
-        gettextCatalog.debug = true;
-
         $scope.sidenavIsOpen = $mdMedia('gt-md');
         $scope.isLoggingOut = false;
 
