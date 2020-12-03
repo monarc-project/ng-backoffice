@@ -1,4 +1,4 @@
-<div flex ng-controller="BackofficeDeliveriesModelsCtrl">
+<div flex ng-controller="BackofficeDeliveriesModelsCtrl" ng-init="updateDeliveriesModels()">
     <div style="position: relative;">
         <div layout="row" layout-align="start center" class="md-padding" ng-if="!tags.selected.length">
             <h2 class="md-title md-padding-right md-padding-left">
@@ -18,7 +18,8 @@
                 <tr md-row>
                     <th md-column><span translate>Category</span></th>
                     <th md-column><span translate>Description</span></th>
-                    <th md-column><span translate>Actions</span></th>
+                    <th md-column width="5%" ng-repeat="lang in languages">{{ lang.name | translate }}</th>
+                    <th md-column width="20%"><span translate>Actions</span></th>
                 </tr>
                 </thead>
 
@@ -26,16 +27,21 @@
                 <tr md-row ng-repeat="deliverymodel in deliveriesmodels | orderBy:'category'">
                     <td md-cell>{{ getCategoryLabel(deliverymodel.category) | translate }}</td>
                     <td md-cell>{{ _langField(deliverymodel,'description') }}</td>
+                    <td md-cell ng-repeat="(index, lang) in languages">
+                      <span ng-if="isPresentModel(deliverymodel, index)">
+                        <md-icon class="icon-center">check</md-icon>
+                      </span>
+                    </td>
                     <td md-cell>
                         <md-menu>
                             <md-button class="md-icon-button md-primary" ng-click="$mdOpenMenu($event)">
                                 <md-icon>file_download</md-icon>
                             </md-button>
                             <md-menu-content>
-                                <md-menu-item ng-repeat="(idx, lang) in languages">
-                                    <md-button ng-click="downloadDeliveryModel(deliverymodel, idx)">
-                                      <countryflag country="{{ countriesCode[idx] }}"></countryflag>
-                                      {{ languagesNames[idx] }}
+                                <md-menu-item ng-repeat="(index, lang) in $root.languages" ng-if="isPresentModel(deliverymodel, index)">
+                                    <md-button ng-click="downloadDeliveryModel(deliverymodel, index)">
+                                      <countryflag country="{{ $root.languages[index].flag }}"></countryflag>
+                                      {{ $root.languages[index].name | translate }}
                                     </md-button>
                                 </md-menu-item>
                             </md-menu-content>
