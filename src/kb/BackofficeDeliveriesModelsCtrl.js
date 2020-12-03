@@ -12,13 +12,8 @@
      * KB > Document Models Controller for the Backoffice module
      */
     function BackofficeDeliveriesModelsCtrl($scope, $mdDialog, $mdMedia, $http, DownloadService, toastr, gettextCatalog,
-                                     DeliveriesModelsService, ConfigService, $timeout) {
+                                     DeliveriesModelsService) {
         $scope.deliveriesmodels = [];
-
-        $timeout(function () {
-            $scope.languages = ConfigService.getLanguages();
-        }, 1000);
-
 
         $scope.updateDeliveriesModels = function () {
             DeliveriesModelsService.getDeliveriesModels().then(function (data) {
@@ -27,13 +22,12 @@
                 }
             });
         }
-        $scope.updateDeliveriesModels();
 
         $scope.createNewDeliveryModel = function (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog', 'ConfigService', 'DeliveriesModelsService', 'Upload', CreateDeliveryModelDialogCtrl],
+                controller: ['$scope', '$rootScope', '$mdDialog', 'toastr', 'gettextCatalog', 'ConfigService', 'DeliveriesModelsService', 'Upload', CreateDeliveryModelDialogCtrl],
                 templateUrl: 'views/dialogs/create.deliverymodel.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
@@ -50,7 +44,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'toastr', 'gettextCatalog','ConfigService', 'DeliveriesModelsService', 'Upload', 'deliverymodel', CreateDeliveryModelDialogCtrl],
+                controller: ['$scope', '$rootScope', '$mdDialog', 'toastr', 'gettextCatalog','ConfigService', 'DeliveriesModelsService', 'Upload', 'deliverymodel', CreateDeliveryModelDialogCtrl],
                 templateUrl: 'views/dialogs/create.deliverymodel.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
@@ -85,6 +79,14 @@
             });
         };
 
+        $scope.isPresentModel = function (item, lang) {
+          if (item['path' + lang] && item['path' + lang]!="null") {
+            return true;
+          }else {
+            return false;
+          }
+        }
+
         $scope.downloadDeliveryModel = function (item, lang) {
             if (item['path' + lang]) {
                 $http.get(item['path' + lang], {responseType: 'arraybuffer'}).then(function (data) {
@@ -103,21 +105,14 @@
         $scope.getCategoryLabel = function (id) {
             return DeliveriesModelsService.getCategoryLabel(id);
         };
-
     }
 
-
-    function CreateDeliveryModelDialogCtrl($scope, $mdDialog, toastr, gettextCatalog, ConfigService, DeliveriesModelsService, Upload, deliverymodel) {
-        $scope.languages = ConfigService.getLanguages();
-        $scope.languagesNames = {};
-        angular.copy($scope.languages, $scope.languagesNames);
-        for (lang in $scope.languages) {
-             $scope.languagesNames[lang] = ISO6391.getName($scope.languages[lang] == 'gb' ? 'en' : $scope.languages[lang]);
-        }
+    function CreateDeliveryModelDialogCtrl($scope, $rootScope, $mdDialog, toastr, gettextCatalog, ConfigService, DeliveriesModelsService, Upload, deliverymodel) {
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (deliverymodel) {
             $scope.deliveryModel = deliverymodel;
+            $scope.deliveryModel.editable = deliverymodel.editable ? 1: 0;
             for (var i = 1; i <= 4; ++i) {
                 if ($scope.deliveryModel['description' + i] == null) {
                     $scope.deliveryModel['description' + i] = undefined;
@@ -190,7 +185,7 @@
 
                     if ($scope.deliveryModel['description' + i] == undefined) {
                         hasErrors = true;
-                        toastr.error($scope.file.$error, gettextCatalog.getString('Missing description for ') + $scope.languages[i]);
+                        toastr.error($scope.file.$error, gettextCatalog.getString('Missing description for ') + $rootScope.languages[i].name);
                         break;
                     }
                 }

@@ -151,7 +151,6 @@
     }
 
     function CreateModelDialogCtrl($scope, $mdDialog, ConfigService, model) {
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (model != undefined && model != null) {
