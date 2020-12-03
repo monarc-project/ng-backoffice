@@ -16,9 +16,15 @@
             $http.get('api/config').then(function (data) {
                 self.config.languages = {}
                 if (data.data.languages) {
-                    for (lang in data.data.languages) {
-                        self.config.languages[lang] = ISO6391.getCode(data.data.languages[lang]);
+                  for (lang in data.data.languages) {
+                    let code = ISO6391.getCode(data.data.languages[lang]);
+                    let AddLang = {
+                      code: code,
+                      flag: code == 'en' ? 'gb' : code,
+                      name: ISO6391.getName(code),
                     }
+                  self.config.languages[lang] = AddLang;
+                  }
                 }
                 if (data.data.defaultLanguageIndex) {
                     self.config.defaultLanguageIndex = data.data.defaultLanguageIndex;
@@ -45,7 +51,7 @@
                 return self.config.languages;
             } else {
                 // Fallback in case of error
-                return {1: 'gb'};
+                return {1: {code:'en', name: 'English', flag: 'gb'}};
             }
         };
 
