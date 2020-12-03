@@ -2,10 +2,9 @@ angular
     .module('BackofficeApp', ['ngMaterial', 'ngAnimate', 'toastr', 'ui.router', 'gettext', 'ngResource',
         'LocalStorageModule', 'md.data.table', 'ncy-angular-breadcrumb', 'ngFileUpload', 'angularInlineEdit',
         'ui.tree', 'ngMessages', 'AnrModule', 'ng-countryflags'])
-    .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', '$resourceProvider',
-        'localStorageServiceProvider', '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext', '$mdAriaProvider',
-        '$locationProvider',
-        function ($mdThemingProvider, $stateProvider, $urlRouterProvider, $resourceProvider, localStorageServiceProvider,
+    .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider', 
+             '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext', '$mdAriaProvider', '$locationProvider',
+        function ($mdThemingProvider, $stateProvider, $urlRouterProvider, localStorageServiceProvider,
                   $httpProvider, $breadcrumbProvider, $provide, gettext, $mdAriaProvider, $locationProvider) {
             // Store the state provider to be allow controllers to inject their routes
             window.$stateProvider = $stateProvider;
@@ -257,14 +256,16 @@ angular
             $rootScope.OFFICE_MODE = 'BO';
 
             ConfigService.loadConfig(function () {
-                var languages = ConfigService.getLanguages();
+                $rootScope.languages = ConfigService.getLanguages();
                 var uiLang = UserService.getUiLanguage();
                 $rootScope.mospApiUrl = ConfigService.getMospApiUrl();
 
                 if (uiLang === undefined || uiLang === null) {
                     gettextCatalog.setCurrentLanguage('en');
+                    $rootScope.uiLanguage = 'gb';
                 } else {
-                    gettextCatalog.setCurrentLanguage(languages[uiLang].substring(0, 2).toLowerCase());
+                    gettextCatalog.setCurrentLanguage($rootScope.languages[uiLang].code);
+                    $rootScope.uiLanguage = $rootScope.languages[uiLang].flag;
                 }
 
                 $rootScope.updatePaginationLabels();
