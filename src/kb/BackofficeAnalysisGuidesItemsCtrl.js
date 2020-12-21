@@ -106,7 +106,6 @@
 
 
     function CreateItemDialogCtrl($scope, $q, ConfigService, GuideService, $mdDialog, items, item) {
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (item) {

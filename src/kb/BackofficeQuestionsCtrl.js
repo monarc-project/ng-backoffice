@@ -132,7 +132,6 @@
 
 
     function CreateQuestionDialogCtrl($scope, ConfigService, $mdDialog, $q, QuestionService, questions, question) {
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (question) {

@@ -838,7 +838,7 @@
                 MeasureService.getMeasures({referential: $scope.referential_uuid, order:'code'}).then(function (data) {
                     var measuresRefSelected = data;
                     $mdDialog.show({
-                        controller: ['$scope', '$mdDialog', 'ReferentialService', 'MeasureService','ConfigService', 'MeasureMeasureService', '$q', 'measures', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
+                        controller: ['$scope', '$mdDialog', 'MeasureService', 'MeasureMeasureService', '$q', 'measures', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
                         templateUrl: 'views/anr/match.referentials.html',
                         targetEvent: ev,
                         preserveScope: false,
@@ -1106,7 +1106,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ReferentialService', 'ConfigService', 'AmvService', '$q', 'amv', 'referentials', CreateAmvDialogCtrl],
+                controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'AmvService', '$q', 'amv', 'referentials', CreateAmvDialogCtrl],
                 templateUrl: 'views/anr/create.amvs.html',
                 targetEvent: ev,
                 preserveScope: false,
@@ -1162,7 +1162,7 @@
 
             AmvService.getAmv(amv).then(function (amvData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'ReferentialService', 'ConfigService', 'AmvService', '$q', 'amv', 'referentials', CreateAmvDialogCtrl],
+                    controller: ['$scope', '$mdDialog', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'AmvService', '$q', 'amv', 'referentials', CreateAmvDialogCtrl],
                     templateUrl: 'views/anr/create.amvs.html',
                     targetEvent: ev,
                     preserveScope: false,
@@ -1534,7 +1534,7 @@
           var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
           $mdDialog.show({
               controller: ['$scope', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'AmvService',
-                          'SOACategoryService', 'TagService', 'RiskService', 'MeasureMeasureService', 'toastr', 'gettextCatalog', '$q', 'tab', 'themes', 'categories', 'referential' ,'tags',  ImportFileDialogCtrl],
+                          'SOACategoryService', 'TagService', 'RiskService', 'MeasureMeasureService', 'gettextCatalog', '$q', 'tab', 'themes', 'categories', 'referential' ,'tags',  ImportFileDialogCtrl],
               templateUrl: 'views/anr/import.file.html',
               targetEvent: ev,
               scope: $scope.$dialogScope.$new(),
@@ -1627,7 +1627,6 @@
             $scope.models = data.models;
         });
 
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
 
@@ -1688,7 +1687,6 @@
            $scope.listThemes = data['themes'];
         });
 
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.themeSearchText = '';
 
@@ -1854,8 +1852,6 @@
     }
 
     function CreateThemeDialogCtrl($scope, $mdDialog,  ConfigService, theme) {
-
-      $scope.languages = ConfigService.getLanguages();
       $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (theme != undefined && theme != null) {
@@ -1883,13 +1879,11 @@
 
     }
 
-
     function CreateVulnDialogCtrl($scope, $mdDialog, ModelService, ConfigService, vuln) {
         ModelService.getModels({isGeneric:0}).then(function (data) {
             $scope.models = data.models;
         });
 
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (vuln != undefined && vuln != null) {
@@ -1935,7 +1929,6 @@
     }
 
     function CreateReferentialDialogCtrl($scope, $mdDialog, ReferentialService, ConfigService, referential) {
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         var defaultLang = angular.copy($scope.language);
 
@@ -1973,9 +1966,7 @@
             $mdDialog.hide($scope.referential);
         }
     }
-    function MatchReferentialDialogCtrl($scope, $mdDialog, ReferentialService, MeasureService, ConfigService, MeasureMeasureService, $q, measures, referentials, referentialSelected) {
-        $scope.languages = ConfigService.getLanguages();
-        $scope.language = ConfigService.getDefaultLanguageIndex();
+    function MatchReferentialDialogCtrl($scope, $mdDialog, MeasureService, MeasureMeasureService, $q, measures, referentials, referentialSelected) {
         $scope.measuresRefSelected = measures.measures;
         $scope.referentialsList = referentials;
         $scope.referentialSelected = referentialSelected;
@@ -2087,7 +2078,6 @@
         SOACategoryService.getCategories({order: $scope._langField('label'), referential: referential.uuid}).then(function (data) {
            $scope.listCategories = data['categories'];
         });
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.categorySearchText = '';
         $scope.RefSelected = referential.uuid;
@@ -2233,8 +2223,6 @@
     }
 
     function CreateCategoryDialogCtrl($scope, $mdDialog,  ConfigService, referential, category) {
-
-      $scope.languages = ConfigService.getLanguages();
       $scope.language = ConfigService.getDefaultLanguageIndex();
       $scope.RefSelected = referential;
 
@@ -2267,7 +2255,6 @@
     }
 
     function updateMeasuresAMVDialogCtrl($scope, $mdDialog, referentials) {
-
         $scope.referentials = referentials;
         $scope.fromReferential = [];
         $scope.toReferential = [];
@@ -2287,9 +2274,7 @@
 
     }
 
-    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, ReferentialService, ConfigService, AmvService, $q, amv, referentials) {
-        $scope.languages = ConfigService.getLanguages();
-        $scope.defaultLang = ConfigService.getDefaultLanguageIndex();
+    function CreateAmvDialogCtrl($scope, $mdDialog, AssetService, ThreatService, VulnService, MeasureService, AmvService, $q, amv, referentials) {
         $scope.amvReferentials = referentials;
 
         $scope.queryAmvs = function (asset_id) {
@@ -2490,11 +2475,10 @@
     }
 
     function ImportFileDialogCtrl($scope, $mdDialog, ConfigService, AssetService, ThreatService, VulnService, MeasureService, AmvService, SOACategoryService,
-                                  TagService, RiskService, MeasureMeasureService, toastr, gettextCatalog, $q, tab, themes, categories, referential, tags) {
+                                  TagService, RiskService, MeasureMeasureService, gettextCatalog, $q, tab, themes, categories, referential, tags) {
 
       $scope.tab = tab;
       $scope.guideVisible = false;
-      $scope.languages = ConfigService.getLanguages();
       $scope.language = ConfigService.getDefaultLanguageIndex();
       $scope.defaultLang = angular.copy($scope.language);
 

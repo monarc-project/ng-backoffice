@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbOpRiskCtrl', [
-            '$scope', '$timeout', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
+            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'TagService', 'RiskService', 'UserService', 'ReferentialService', '$stateParams', '$state',
             BackofficeKbOpRiskCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > OPERATIONAL RISKS (ROLF)
      */
-    function BackofficeKbOpRiskCtrl($scope, $timeout, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
+    function BackofficeKbOpRiskCtrl($scope, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                     TagService, RiskService, UserService, ReferentialService, $stateParams, $state) {
         $scope.tab = $stateParams.tab;
         TableHelperService.resetBookmarks();
@@ -177,7 +177,7 @@
 
         var risksTabSelected = false;
 
-        $scope.$watchGroup(['risks.tag_filter'], function (newValue, oldValue) {
+        $scope.$watchGroup(['risks.tag_filter'], function () {
             if (risksTabSelected) {
                 // Refresh contents
                 $scope.updateRisks();
@@ -399,7 +399,6 @@
     }
 
     function CreateTagDialogCtrl($scope, $mdDialog, ConfigService, tag) {
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (tag != undefined && tag != null) {
@@ -424,7 +423,6 @@
     }
 
     function CreateRiskDialogCtrl($scope, $mdDialog, $q, ConfigService, TagService, MeasureService, risk, referentials) {
-        $scope.languages = ConfigService.getLanguages();
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.riskopReferentials = referentials;
 

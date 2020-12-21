@@ -3,11 +3,11 @@
         angular
             .module('BackofficeApp')
             .factory('UserService', [
-                '$resource', '$http', '$q', 'localStorageService', 'ConfigService', 'gettextCatalog',
+                '$rootScope', '$http', '$q', 'localStorageService', 'gettextCatalog',
                 UserService
             ]);
 
-        function UserService($resource, $http, $q, localStorageService, ConfigService, gettextCatalog) {
+        function UserService($rootScope, $http, $q, localStorageService, gettextCatalog) {
             var self = this;
 
             self.token = null;
@@ -57,7 +57,7 @@
                             }
                         }
                     },
-                    function (data) {
+                    function () {
                         self.authenticated = false;
                         self.token = null;
 
@@ -90,12 +90,12 @@
                             localStorageService.set('permission_groups', JSON.stringify([]));
                             localStorageService.set('uiLanguage', data.data.language);
 
-                            var languages = ConfigService.getLanguages();
-
                             if (data.data.language === undefined || data.data.language === null) {
                                 gettextCatalog.setCurrentLanguage('en');
+                                $rootScope.uiLanguage = 'gb';
                             } else {
-                                gettextCatalog.setCurrentLanguage(languages[data.data.language]);
+                                gettextCatalog.setCurrentLanguage($rootScope.languages[self.uiLanguage].flag);
+                                $rootScope.uiLanguage = $rootScope.languages[self.uiLanguage].flag;
                             }
 
                             updateRoles(promise);
@@ -107,7 +107,7 @@
                         }
                     },
 
-                    function (data) {
+                    function () {
                         self.authenticated = false;
                         self.token = null;
 

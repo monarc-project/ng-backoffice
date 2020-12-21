@@ -4,13 +4,15 @@
         .module('BackofficeApp')
         .controller('BackofficeMainCtrl', [
             '$scope', '$rootScope', '$state', '$mdSidenav', '$mdMedia', 'gettextCatalog', 'UserService',
+            'UserProfileService',
             BackofficeMainCtrl
         ]);
 
     /**
      * Main Controller for the Backoffice module
      */
-    function BackofficeMainCtrl($scope, $rootScope, $state, $mdSidenav, $mdMedia, gettextCatalog, UserService) {
+    function BackofficeMainCtrl($scope, $rootScope, $state, $mdSidenav, $mdMedia, gettextCatalog, UserService,
+                                UserProfileService) {
         if (!UserService.isAuthenticated() && !UserService.reauthenticate()) {
             setTimeout(function() {
                 $state.transitionTo('login');
@@ -19,9 +21,15 @@
             return;
         }
 
-        $rootScope.isAllowed = UserService.isAllowed;
+        $scope.changeLanguage = function (lang_id) {
+          UserService.setUiLanguage(lang_id);
+          UserProfileService.updateProfile({language:lang_id},function(){});
+          gettextCatalog.setCurrentLanguage($rootScope.languages[lang_id].code);
+          $rootScope.uiLanguage = $rootScope.languages[lang_id].flag;
+          $scope.updatePaginationLabels();
+        }
 
-        gettextCatalog.debug = true;
+        $rootScope.isAllowed = UserService.isAllowed;
 
         $scope.sidenavIsOpen = $mdMedia('gt-md');
         $scope.isLoggingOut = false;
