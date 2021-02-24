@@ -4,52 +4,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: ../ng_anr/views/__external_translate.html:8
-msgid "%d critical risk(s) to be treated as priority"
-msgstr ""
-
-#: ../ng_anr/views/__external_translate.html:12
-msgid "%d low risk(s) negligible"
-msgstr ""
-
-#: ../ng_anr/views/__external_translate.html:10
-msgid "%d medium risk(s) to be partially treated"
-msgstr ""
-
-#: ../ng_anr/views/anr.instance.html:54
-#: ../ng_anr/views/anr.instance.html:62
-#: ../ng_anr/views/anr.instance.html:70
-msgid "(inherited)"
-msgstr ""
-
-#: ../ng_anr/views/import.file.html:156
-#: ../ng_anr/views/import.record.html:65
-#: ../ng_anr/views/import.record.html:98
-msgid "* Mandatory field"
-msgstr ""
-
-#: ../ng_anr/views/create.amvs.html:130
-#: ../ng_anr/views/create.risks.html:106
-msgid "+ Add controls from referential"
-msgstr ""
-
-#: ../ng_anr/views/create.risks.html:72
-msgid "+ Add tags"
-msgstr ""
-
-#: ../ng_anr/views/add.objlib.html:59
-msgid "- or -"
-msgstr ""
-
 #: src/kb/info/BackofficeKbInfoCtrl.js:2612
 #: src/kb/info/BackofficeKbInfoCtrl.js:2645
 msgid ""
 "0: generic\n"
 "1: specific"
-msgstr ""
-
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:4392
-msgid "1, 2 or 3"
 msgstr ""
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2567
@@ -58,29 +17,10 @@ msgid ""
 "2: specific"
 msgstr ""
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:4146
 #: src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid ""
 "1: primary asset\n"
 "2: secondary asset"
-msgstr ""
-
-#: ../ng_anr/views/import.file.html:157
-#: ../ng_anr/views/import.record.html:99
-msgid "1:FR,2:EN,3:DE,4:NL"
-msgstr ""
-
-#: ../ng_anr/views/import.soa.html:15
-msgid ""
-"<p>A SOA can be completed from another one that is in the same risk analysis.</p><p>\n"
-"                      </p><h4>Before importing</h4>\n"
-"                      <li>Match the controls between the two referentials on knowledge base (Referentials Tab)</li>\n"
-"                      <li>Take a snapshot of risk analysis if necessary.</li>\n"
-"                      <h4>Import Options</h4>\n"
-"                      <p>You can select which fields of the SOA you want to import.</p>\n"
-"                      <p>If there is a multiple matching:</p>\n"
-"                      <li>The information of each control will be appended.</li>\n"
-"                      <li>For level of compliance, you can choose import mode calculation. (Average or worse level)</li>"
 msgstr ""
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57
@@ -99,6 +39,10 @@ msgstr ""
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:49
 #: ../ng_anr/views/_table_risks.html:56
 msgid "A Impact"
+msgstr ""
+
+#: ../ng_anr/views/import.soa.html:16
+msgid "A SOA can be completed from another one that is in the same risk analysis."
 msgstr ""
 
 #: ../ng_anr/views/_gettext_caveats.html:29
@@ -381,6 +325,15 @@ msgstr ""
 
 #: views/dialogs/create.users.admin.html:5
 msgid "Add an user"
+msgstr ""
+
+#: ../ng_anr/views/create.amvs.html:130
+#: ../ng_anr/views/create.risks.html:106
+msgid "Add controls from referential"
+msgstr ""
+
+#: ../ng_anr/views/create.risks.html:72
+msgid "Add tags"
 msgstr ""
 
 #: ../ng_anr/views/edit.evalcontext.html:24
@@ -666,7 +619,7 @@ msgstr ""
 #: ../ng_anr/views/anr.risksplan.sheet.html:37
 #: ../ng_anr/views/anr.soa.sheet.html:20
 #: ../ng_anr/views/anr.soa.sheet.html:92
-#: ../ng_anr/views/import.asset.html:35
+#: ../ng_anr/views/import.asset.html:24
 #: ../ng_anr/views/object.html:67
 #: ../ng_anr/views/risks.evalcontext.html:24
 #: views/info_risk.kb_mgmt.html:376
@@ -785,13 +738,10 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
+#: ../ng_anr/views/anr.instance.html:75
 #: ../ng_anr/views/create.instance.html:28
 #: ../ng_anr/views/create.objlibs.html:104
 msgid "Availability"
-msgstr ""
-
-#: ../ng_anr/views/anr.instance.html:67
-msgid "Availability:&nbsp;"
 msgstr ""
 
 #: ../ng_anr/views/import.soa.html:50
@@ -818,6 +768,10 @@ msgstr ""
 
 #: ../ng_anr/views/_gettext_caveats.html:28
 msgid "Bad mode for this asset or models attached to asset type incoherent"
+msgstr ""
+
+#: ../ng_anr/views/import.soa.html:17
+msgid "Before importing"
 msgstr ""
 
 #: ../ng_anr/src/AnrSoaCtrl.js:258
@@ -929,17 +883,17 @@ msgstr ""
 #: ../ng_anr/views/edit.evalcontext.html:38
 #: ../ng_anr/views/export.objlibs.html:76
 #: ../ng_anr/views/export.record.html:39
-#: ../ng_anr/views/import.amv.html:60
-#: ../ng_anr/views/import.asset.html:60
-#: ../ng_anr/views/import.file.html:171
+#: ../ng_anr/views/import.amv.html:49
+#: ../ng_anr/views/import.asset.html:49
+#: ../ng_anr/views/import.file.html:175
 #: ../ng_anr/views/import.instance.html:53
 #: ../ng_anr/views/import.object.html:137
 #: ../ng_anr/views/import.recommandationsSets.html:50
 #: ../ng_anr/views/import.record.html:114
-#: ../ng_anr/views/import.referentials.html:60
+#: ../ng_anr/views/import.referentials.html:49
 #: ../ng_anr/views/import.soa.html:62
-#: ../ng_anr/views/import.threat.html:60
-#: ../ng_anr/views/import.vulnerability.html:60
+#: ../ng_anr/views/import.threat.html:49
+#: ../ng_anr/views/import.vulnerability.html:49
 #: ../ng_anr/views/interviews.html:71
 #: ../ng_anr/views/snapshots.html:74
 #: ../ng_anr/views/updateMeasures.amvs.html:35
@@ -1205,13 +1159,10 @@ msgstr ""
 msgid "Composition"
 msgstr ""
 
+#: ../ng_anr/views/anr.instance.html:51
 #: ../ng_anr/views/create.instance.html:22
 #: ../ng_anr/views/create.objlibs.html:78
 msgid "Confidentiality"
-msgstr ""
-
-#: ../ng_anr/views/anr.instance.html:51
-msgid "Confidentiality:&nbsp;"
 msgstr ""
 
 #: views/account.html:58
@@ -1906,6 +1857,10 @@ msgstr ""
 msgid "Duration of data retention"
 msgstr ""
 
+#: ../ng_anr/views/__external_translate.html:19
+msgid "Dutch"
+msgstr ""
+
 #: views/account.html:24
 #: views/dialogs/create.users.admin.html:35
 #: views/index.client_mgmt.html:40
@@ -2110,6 +2065,10 @@ msgstr ""
 msgid "Encryption"
 msgstr ""
 
+#: ../ng_anr/views/__external_translate.html:17
+msgid "English"
+msgstr ""
+
 #: ../ng_anr/views/_gettext_caveats.html:23
 msgid "Entity does not exist"
 msgstr ""
@@ -2145,21 +2104,21 @@ msgstr ""
 msgid "Evidences"
 msgstr ""
 
-#: ../ng_anr/views/import.file.html:162
+#: ../ng_anr/views/import.file.html:152
+msgid "Ex: Tag1/Tag2/Tag3"
+msgstr ""
+
+#: ../ng_anr/views/import.file.html:166
 #: ../ng_anr/views/import.record.html:104
 #: ../ng_anr/views/import.record.html:70
 msgid "Example File"
 msgstr ""
 
 #: ../ng_anr/views/import.file.html:146
-#: ../ng_anr/views/import.record.html:52
-#: ../ng_anr/views/import.record.html:84
-msgid "Example: <i class=\"preserve-newlines\">{{item.example}}</i>"
-msgstr ""
-
 #: ../ng_anr/views/import.record.html:59
+#: ../ng_anr/views/import.record.html:84
 #: ../ng_anr/views/import.record.html:92
-msgid "Example: <i class=\"preserve-newlines\">{{subItem.example}}</i>"
+msgid "Example:"
 msgstr ""
 
 #: ../ng_anr/src/AnrSoaCtrl.js:250
@@ -2377,6 +2336,10 @@ msgstr ""
 msgid "First user last name"
 msgstr ""
 
+#: ../ng_anr/views/import.soa.html:24
+msgid "For level of compliance, you can choose import mode calculation. (Average or worse level)"
+msgstr ""
+
 #: ../ng_anr/views/detach.objlibs.html:66
 msgid "Force deletion"
 msgstr ""
@@ -2392,6 +2355,10 @@ msgstr ""
 
 #: ../ng_anr/views/create.threats.html:145
 msgid "Force risks to follow trends"
+msgstr ""
+
+#: ../ng_anr/views/__external_translate.html:16
+msgid "French"
 msgstr ""
 
 #: ../ng_anr/views/import.soa.html:29
@@ -2423,13 +2390,17 @@ msgstr ""
 msgid "Generic"
 msgstr ""
 
+#: ../ng_anr/views/__external_translate.html:18
+msgid "German"
+msgstr ""
+
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1494
 #: ../ng_anr/views/create.objlibs.html:58
 #: src/kb/info/BackofficeKbInfoCtrl.js:1296
 msgid "Global"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:18
+#: ../ng_anr/views/__external_translate.html:12
 msgid "Global assets"
 msgstr ""
 
@@ -2456,6 +2427,10 @@ msgstr ""
 msgid "Helpful informations"
 msgstr ""
 
+#: ../ng_anr/views/__external_translate.html:23
+msgid "Hidden on global dashboard"
+msgstr ""
+
 #: ../ng_anr/views/_gettext_caveats.html:97
 msgid "Home"
 msgstr ""
@@ -2480,6 +2455,10 @@ msgstr ""
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:914
 msgid "Identification of assets, vulnerabilities and impacts appreciation"
+msgstr ""
+
+#: ../ng_anr/views/import.soa.html:22
+msgid "If there is a multiple matching:"
 msgstr ""
 
 #: views/dialogs/create.deliverymodel.html:44
@@ -2539,13 +2518,13 @@ msgstr ""
 msgid "Implementation of the risk treatment plan"
 msgstr ""
 
-#: ../ng_anr/views/import.amv.html:63
-#: ../ng_anr/views/import.asset.html:63
+#: ../ng_anr/views/import.amv.html:52
+#: ../ng_anr/views/import.asset.html:52
 #: ../ng_anr/views/import.recommandationsSets.html:53
-#: ../ng_anr/views/import.referentials.html:63
+#: ../ng_anr/views/import.referentials.html:52
 #: ../ng_anr/views/import.soa.html:65
-#: ../ng_anr/views/import.threat.html:63
-#: ../ng_anr/views/import.vulnerability.html:63
+#: ../ng_anr/views/import.threat.html:52
+#: ../ng_anr/views/import.vulnerability.html:52
 msgid "Import"
 msgstr ""
 
@@ -2554,6 +2533,7 @@ msgstr ""
 msgid "Import Match referentials"
 msgstr ""
 
+#: ../ng_anr/views/import.soa.html:20
 #: ../ng_anr/views/import.soa.html:37
 msgid "Import Options"
 msgstr ""
@@ -2672,7 +2652,7 @@ msgstr ""
 msgid "Importance is required"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:20
+#: ../ng_anr/views/__external_translate.html:14
 msgid "Important (••)"
 msgstr ""
 
@@ -2683,11 +2663,8 @@ msgid "Importing file..."
 msgstr ""
 
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:81
-msgid "In progress"
-msgstr ""
-
 #: ../ng_anr/views/anr.risksplan.html:34
-msgid "In progress ({{rec.counterTreated}})"
+msgid "In progress"
 msgstr ""
 
 #: ../ng_anr/views/_object.composition.html:35
@@ -2707,7 +2684,7 @@ msgstr ""
 #: ../ng_anr/views/anr.dashboard.html:282
 #: ../ng_anr/views/anr.dashboard.risks.html:13
 #: ../ng_anr/views/anr.home.html:49
-#: ../ng_anr/views/anr.instance.html:86
+#: ../ng_anr/views/anr.instance.html:98
 #: ../ng_anr/views/anr.soa.sheet.html:10
 #: views/index.backoffice.html:25
 #: views/info_risk.kb_mgmt.html:321
@@ -2741,13 +2718,10 @@ msgstr ""
 msgid "Initial"
 msgstr ""
 
+#: ../ng_anr/views/anr.instance.html:63
 #: ../ng_anr/views/create.instance.html:25
 #: ../ng_anr/views/create.objlibs.html:91
 msgid "Integrity"
-msgstr ""
-
-#: ../ng_anr/views/anr.instance.html:59
-msgid "Integrity:&nbsp;"
 msgstr ""
 
 #: views/index.backoffice.html:125
@@ -2893,12 +2867,7 @@ msgstr ""
 #: ../ng_anr/views/create.themes.html:16
 #: ../ng_anr/views/create.threats.html:37
 #: ../ng_anr/views/create.vulns.html:37
-#: ../ng_anr/views/import.amv.html:15
-#: ../ng_anr/views/import.asset.html:15
 #: ../ng_anr/views/import.file.html:25
-#: ../ng_anr/views/import.referentials.html:15
-#: ../ng_anr/views/import.threat.html:15
-#: ../ng_anr/views/import.vulnerability.html:15
 #: views/dialogs/create.deliverymodel.html:27
 #: views/dialogs/create.guides.html:39
 #: views/dialogs/create.guides.items.html:51
@@ -2919,7 +2888,7 @@ msgstr ""
 msgid "Legal requirements"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:4
+#: ../ng_anr/views/__external_translate.html:2
 #: ../ng_anr/views/anr.dashboard.html:124
 #: ../ng_anr/views/anr.dashboard.html:170
 #: ../ng_anr/views/anr.dashboard.html:28
@@ -2947,8 +2916,20 @@ msgstr ""
 msgid "List of available snapshots"
 msgstr ""
 
+#: ../ng_anr/views/import.file.html:149
+msgid "List of categories:"
+msgstr ""
+
 #: ../ng_anr/views/import.object.html:54
 msgid "List of common MONARC assets"
+msgstr ""
+
+#: ../ng_anr/views/import.file.html:153
+msgid "List of tags:"
+msgstr ""
+
+#: ../ng_anr/views/import.file.html:148
+msgid "List of themes:"
 msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1493
@@ -2977,7 +2958,7 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:2
+#: ../ng_anr/views/__external_translate.html:1
 msgid "Lvl."
 msgstr ""
 
@@ -3013,6 +2994,12 @@ msgstr ""
 msgid "Manager:"
 msgstr ""
 
+#: ../ng_anr/views/import.file.html:160
+#: ../ng_anr/views/import.record.html:65
+#: ../ng_anr/views/import.record.html:98
+msgid "Mandatory field"
+msgstr ""
+
 #: ../ng_anr/views/create.amvs.html:32
 #: ../ng_anr/views/create.assets.html:32
 #: ../ng_anr/views/create.records.html:22
@@ -3029,6 +3016,10 @@ msgstr ""
 #: ../ng_anr/views/_anr.kbmgmt.html:232
 #: ../ng_anr/views/match.referentials.html:5
 msgid "Match referentials"
+msgstr ""
+
+#: ../ng_anr/views/import.soa.html:18
+msgid "Match the controls between the two referentials on knowledge base (Referentials Tab)"
 msgstr ""
 
 #: ../ng_anr/views/create.instance.html:57
@@ -3082,6 +3073,10 @@ msgstr ""
 
 #: views/dialogs/create.questions.html:80
 msgid "Multiple choices"
+msgstr ""
+
+#: ../ng_anr/views/import.file.html:151
+msgid "Multiple tags must be separated by a slash"
 msgstr ""
 
 #: views/account.html:4
@@ -3211,7 +3206,7 @@ msgstr ""
 
 #: ../ng_anr/views/add.objlib.html:46
 #: ../ng_anr/views/create.objlibs.html:215
-#: ../ng_anr/views/import.asset.html:51
+#: ../ng_anr/views/import.asset.html:40
 msgid "No asset matching your search was found"
 msgstr ""
 
@@ -3224,7 +3219,7 @@ msgstr ""
 msgid "No category matching your search was found. Click on"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:14
+#: ../ng_anr/views/__external_translate.html:8
 msgid "No category of personal data"
 msgstr ""
 
@@ -3241,7 +3236,7 @@ msgstr ""
 msgid "No data category matching your search was found. Click on"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:16
+#: ../ng_anr/views/__external_translate.html:10
 msgid "No international transfer"
 msgstr ""
 
@@ -3262,11 +3257,11 @@ msgstr ""
 msgid "No operational risk tag matching your search was found"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:17
+#: ../ng_anr/views/__external_translate.html:11
 msgid "No processor"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:15
+#: ../ng_anr/views/__external_translate.html:9
 msgid "No recipient"
 msgstr ""
 
@@ -3284,15 +3279,15 @@ msgstr ""
 msgid "No recommendation set matching your search was found. Click on"
 msgstr ""
 
-#: ../ng_anr/views/import.referentials.html:51
+#: ../ng_anr/views/import.referentials.html:40
 msgid "No referential matching your search was found"
 msgstr ""
 
-#: ../ng_anr/views/import.amv.html:51
+#: ../ng_anr/views/import.amv.html:40
 msgid "No risk matching your search was found"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:13
+#: ../ng_anr/views/__external_translate.html:7
 msgid "No target risks specified in your risk analysis yet"
 msgstr ""
 
@@ -3302,7 +3297,7 @@ msgstr ""
 
 #: ../ng_anr/views/create.amvs.html:79
 #: ../ng_anr/views/create.specrisk.html:33
-#: ../ng_anr/views/import.threat.html:51
+#: ../ng_anr/views/import.threat.html:40
 msgid "No threat matching your search was found"
 msgstr ""
 
@@ -3312,7 +3307,7 @@ msgstr ""
 
 #: ../ng_anr/views/create.amvs.html:104
 #: ../ng_anr/views/create.specrisk.html:56
-#: ../ng_anr/views/import.vulnerability.html:51
+#: ../ng_anr/views/import.vulnerability.html:40
 msgid "No vulnerability matching your search was found"
 msgstr ""
 
@@ -3391,7 +3386,7 @@ msgstr ""
 #: ../ng_anr/views/anr.dashboard.html:283
 #: ../ng_anr/views/anr.dashboard.risks.html:76
 #: ../ng_anr/views/anr.home.html:52
-#: ../ng_anr/views/anr.instance.html:89
+#: ../ng_anr/views/anr.instance.html:101
 #: ../ng_anr/views/anr.soa.sheet.html:82
 #: views/index.backoffice.html:32
 #: views/op_risk.kb_mgmt.html:68
@@ -3409,7 +3404,7 @@ msgstr ""
 msgid "Optimized"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:21
+#: ../ng_anr/views/__external_translate.html:15
 msgid "Optional (•)"
 msgstr ""
 
@@ -3427,12 +3422,12 @@ msgstr ""
 msgid "Organisation"
 msgstr ""
 
-#: ../ng_anr/views/import.amv.html:27
-#: ../ng_anr/views/import.asset.html:27
+#: ../ng_anr/views/import.amv.html:16
+#: ../ng_anr/views/import.asset.html:16
 #: ../ng_anr/views/import.recommandationsSets.html:17
-#: ../ng_anr/views/import.referentials.html:27
-#: ../ng_anr/views/import.threat.html:27
-#: ../ng_anr/views/import.vulnerability.html:27
+#: ../ng_anr/views/import.referentials.html:16
+#: ../ng_anr/views/import.threat.html:16
+#: ../ng_anr/views/import.vulnerability.html:16
 msgid "Organization"
 msgstr ""
 
@@ -3714,7 +3709,7 @@ msgid "Reduction"
 msgstr ""
 
 #: ../ng_anr/views/create.measures.html:35
-#: ../ng_anr/views/import.referentials.html:35
+#: ../ng_anr/views/import.referentials.html:24
 msgid "Referential"
 msgstr ""
 
@@ -3797,7 +3792,7 @@ msgstr ""
 
 #: ../ng_anr/views/anr.risksplan.history.html:12
 #: ../ng_anr/views/create.specriskop.html:36
-#: ../ng_anr/views/import.amv.html:35
+#: ../ng_anr/views/import.amv.html:24
 #: views/logs.admin.html:31
 msgid "Risk"
 msgstr ""
@@ -4180,6 +4175,14 @@ msgstr ""
 msgid "Statement of applicability"
 msgstr ""
 
+#: ../ng_anr/views/__external_translate.html:20
+msgid "Statistics data is collected"
+msgstr ""
+
+#: ../ng_anr/views/__external_translate.html:21
+msgid "Statistics data is ommitted"
+msgstr ""
+
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:62
 #: ../ng_anr/views/_anr.kbmgmt.html:117
 #: ../ng_anr/views/_anr.kbmgmt.html:189
@@ -4242,6 +4245,10 @@ msgstr ""
 #: views/op_risk.kb_mgmt.html:3
 #: views/op_risk.kb_mgmt.html:6
 msgid "Tags"
+msgstr ""
+
+#: ../ng_anr/views/import.soa.html:19
+msgid "Take a snapshot of risk analysis if necessary."
 msgstr ""
 
 #: ../ng_anr/views/deliverable.evalcontext.html:23
@@ -4471,6 +4478,10 @@ msgstr ""
 msgid "The impact scale type has been deleted successfully."
 msgstr ""
 
+#: ../ng_anr/views/import.soa.html:23
+msgid "The information of each control will be appended."
+msgstr ""
+
 #: ../ng_anr/views/_gettext_caveats.html:77
 msgid "The input does not appear to be an integer"
 msgstr ""
@@ -4510,7 +4521,7 @@ msgstr ""
 msgid "The label may not be empty"
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:6
+#: ../ng_anr/views/__external_translate.html:3
 msgid "The list of risks addressed is provided as an attachment. It lists %d risk(s) of which:"
 msgstr ""
 
@@ -5031,7 +5042,7 @@ msgstr ""
 #: ../ng_anr/views/create.amvs.html:73
 #: ../ng_anr/views/create.specrisk.html:27
 #: ../ng_anr/views/import.object.html:101
-#: ../ng_anr/views/import.threat.html:35
+#: ../ng_anr/views/import.threat.html:24
 #: ../ng_anr/views/object.html:68
 #: views/info_risk.kb_mgmt.html:377
 msgid "Threat"
@@ -5151,11 +5162,11 @@ msgstr ""
 msgid "Update password"
 msgstr ""
 
-#: ../ng_anr/views/anr.instance.html:80
+#: ../ng_anr/views/anr.instance.html:92
 msgid "Updating risks..."
 msgstr ""
 
-#: ../ng_anr/views/__external_translate.html:19
+#: ../ng_anr/views/__external_translate.html:13
 msgid "Urgent (•••)"
 msgstr ""
 
@@ -5233,17 +5244,18 @@ msgid "Value for qualification is not valid, Value for reduction amount is not v
 msgstr ""
 
 #: ../ng_anr/views/import.record.html:51
-#: ../ng_anr/views/import.record.html:83
-msgid "Value: <i class=\"preserve-newlines\">{{item.value}}</i>"
-msgstr ""
-
 #: ../ng_anr/views/import.record.html:58
+#: ../ng_anr/views/import.record.html:83
 #: ../ng_anr/views/import.record.html:91
-msgid "Value: <i class=\"preserve-newlines\">{{subItem.value}}</i>"
+msgid "Value:"
 msgstr ""
 
 #: ../ng_anr/views/deliverable.evalcontext.html:35
 msgid "Version"
+msgstr ""
+
+#: ../ng_anr/views/__external_translate.html:22
+msgid "Visible on global dashboard"
 msgstr ""
 
 #: ../ng_anr/views/_anr.kbmgmt.html:146
@@ -5270,7 +5282,7 @@ msgstr ""
 #: ../ng_anr/views/create.amvs.html:98
 #: ../ng_anr/views/create.specrisk.html:50
 #: ../ng_anr/views/import.object.html:102
-#: ../ng_anr/views/import.vulnerability.html:35
+#: ../ng_anr/views/import.vulnerability.html:24
 #: ../ng_anr/views/object.html:69
 #: views/info_risk.kb_mgmt.html:378
 msgid "Vulnerability"
@@ -5337,6 +5349,10 @@ msgstr ""
 
 #: ../ng_anr/views/_gettext_caveats.html:41
 msgid "You can not make this change. The level of integrity between the model and its assets would corrupt"
+msgstr ""
+
+#: ../ng_anr/views/import.soa.html:21
+msgid "You can select which fields of the SOA you want to import."
 msgstr ""
 
 #: ../ng_anr/views/_gettext_caveats.html:22
@@ -5558,6 +5574,10 @@ msgstr ""
 msgid "control does not exist"
 msgstr ""
 
+#: ../ng_anr/views/__external_translate.html:4
+msgid "critical risk(s) to be treated as priority"
+msgstr ""
+
 #: ../ng_anr/views/anr.ropa.html:348
 #: ../ng_anr/views/anr.ropa.html:353
 msgid "day(s)"
@@ -5581,6 +5601,12 @@ msgstr ""
 msgid "in the end"
 msgstr ""
 
+#: ../ng_anr/views/anr.instance.html:58
+#: ../ng_anr/views/anr.instance.html:70
+#: ../ng_anr/views/anr.instance.html:82
+msgid "inherited"
+msgstr ""
+
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4594
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4677
 #: src/kb/info/BackofficeKbInfoCtrl.js:3044
@@ -5588,9 +5614,17 @@ msgstr ""
 msgid "is mandatory"
 msgstr ""
 
+#: ../ng_anr/views/__external_translate.html:6
+msgid "low risk(s) negligible"
+msgstr ""
+
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4647
 #: src/kb/info/BackofficeKbInfoCtrl.js:3090
 msgid "match does not exist"
+msgstr ""
+
+#: ../ng_anr/views/__external_translate.html:5
+msgid "medium risk(s) to be partially treated"
 msgstr ""
 
 #: ../ng_anr/views/anr.ropa.html:349
@@ -5602,6 +5636,19 @@ msgstr ""
 #: ../ng_anr/views/_table_risks_op.html:186
 #: src/BackofficeApp.js:314
 msgid "of"
+msgstr ""
+
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:4392
+#: ../ng_anr/views/add.objlib.html:59
+msgid "or"
+msgstr ""
+
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:4146
+msgid "primary asset"
+msgstr ""
+
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:4146
+msgid "secondary asset"
 msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4108
@@ -5701,11 +5748,4 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:804
 #: src/kb/info/BackofficeKbInfoCtrl.js:689
 msgid "{{count}} vulnerabilities have been deleted."
-msgstr ""
-
-#: ../ng_anr/views/import.file.html:148
-msgid ""
-"{{item.field.includes('theme') ? 'List of themes:'\n"
-"                                          : item.field == 'category' ? 'List of categories:'\n"
-"                                          :'Multiple tags must be separated by a slash (/) \\n\\r\\ Ex: Tag1/Tag2/Tag3  \\n\\r\\n\\r List of tags: '}}"
 msgstr ""
