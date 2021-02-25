@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2021-02-26 09:59+0000\n"
-"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
+"Last-Translator: Juan Rocha <juan.rocha@securitymadein.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -123,7 +123,7 @@ msgstr "Деятельность(и)"
 
 #: ../ng_anr/views/anr.ropa.html:108 ../ng_anr/views/anr.ropa.html:534
 msgid "Actor"
-msgstr ""
+msgstr "Актер"
 
 #: ../ng_anr/views/anr.ropa.html:100 ../ng_anr/views/anr.ropa.html:526
 msgid "Actors"
