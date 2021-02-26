@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 09:59+0000\n"
+"PO-Revision-Date: 2021-02-26 14:00+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: none\n"
 "Language: zh_Hans\n"
@@ -18,18 +18,24 @@ msgid ""
 "0: generic\n"
 "1: specific"
 msgstr ""
+"0：通用 \n"
+"1：专用"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2567
 msgid ""
 "1: generic\n"
 "2: specific"
 msgstr ""
+"1：通用\n"
+"2：专用"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid ""
 "1: primary asset\n"
 "2: secondary asset"
 msgstr ""
+"1：一级资产\n"
+"2：二级资产"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -144,7 +150,7 @@ msgstr "增加一个数据主体和个人数据的类别"
 
 #: views/dialogs/create.clients.html:5
 msgid "Add a client"
-msgstr ""
+msgstr "增加一个客户"
 
 #: ../ng_anr/views/_object.composition.html:10
 #: ../ng_anr/views/_object.composition.html:20
@@ -170,7 +176,7 @@ msgstr "添加一个交付品模板"
 
 #: views/dialogs/create.guides.html:5
 msgid "Add a guide"
-msgstr ""
+msgstr "添加一个指南"
 
 #: ../ng_anr/views/anr.ropa.html:212
 msgid "Add a joint controller"
@@ -178,7 +184,7 @@ msgstr "增加一个联合控制器"
 
 #: views/dialogs/create.models.html:5
 msgid "Add a model"
-msgstr ""
+msgstr "增加一个模型"
 
 #: ../ng_anr/views/anr.ropa.html:26 ../ng_anr/views/create.records.html:5
 msgid "Add a processing"
@@ -224,7 +230,7 @@ msgstr "增加一个风险"
 
 #: views/dialogs/create.servers.admin.html:5
 msgid "Add a server"
-msgstr ""
+msgstr "增加一个服务器"
 
 #: ../ng_anr/views/snapshots.html:13
 msgid "Add a snapshot"
@@ -281,7 +287,7 @@ msgstr "添加采访"
 
 #: views/dialogs/create.guides.items.html:5
 msgid "Add an item"
-msgstr ""
+msgstr "增加一个项目"
 
 #: views/dialogs/create.users.admin.html:5
 msgid "Add an user"
@@ -302,7 +308,7 @@ msgstr "其他信息"
 
 #: views/dialogs/create.servers.admin.html:25 views/servers.admin.html:26
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 #: ../ng_anr/views/anr.ropa.html:132 ../ng_anr/views/anr.ropa.html:163
 #: ../ng_anr/views/anr.ropa.html:194 ../ng_anr/views/anr.ropa.html:233
@@ -351,7 +357,7 @@ msgstr "在获取{{事情}}时发生错误。{{status}}"
 
 #: views/analysis_guides.kb_mgmt.html:5
 msgid "Analysis guides"
-msgstr ""
+msgstr "分析指南"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4140 ../ng_anr/src/AnrKbMgmtCtrl.js:4250
 #: src/kb/info/BackofficeKbInfoCtrl.js:2555
@@ -385,7 +391,7 @@ msgstr "你确定要删除类别吗？"
 
 #: src/BackofficeClientMgmtCtrl.js:101
 msgid "Are you sure you want to delete client?"
-msgstr ""
+msgstr "你确定要删除客户吗？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1149 src/kb/info/BackofficeKbInfoCtrl.js:971
 msgid "Are you sure you want to delete control?"
@@ -401,11 +407,11 @@ msgstr "你确定要删除国际汇款吗？"
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:84
 msgid "Are you sure you want to delete item?"
-msgstr ""
+msgstr "你确定要删除项目吗？"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:103
 msgid "Are you sure you want to delete model?"
-msgstr ""
+msgstr "你确定要删除模型吗？"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:557
 msgid "Are you sure you want to delete personal data category?"
@@ -435,7 +441,7 @@ msgstr "你确定要删除风险吗？"
 
 #: src/admin/BackofficeAdminServerCtrl.js:95
 msgid "Are you sure you want to delete server?"
-msgstr ""
+msgstr "你确定要删除服务器吗？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1810
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:129
@@ -456,7 +462,7 @@ msgstr "您确定要删除{{数}}选的资产吗？"
 
 #: src/BackofficeClientMgmtCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected client(s)?"
-msgstr ""
+msgstr "您确定要删除{{数}}选中的客户吗？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1174 src/kb/info/BackofficeKbInfoCtrl.js:994
 msgid "Are you sure you want to delete the {{count}} selected controls?"
@@ -464,7 +470,7 @@ msgstr "您确定要删除{{数}}选中的控件吗？"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected model(s)?"
-msgstr ""
+msgstr "您确定要删除{{数}}选的模型吗？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2481
 msgid "Are you sure you want to delete the {{count}} selected recommendations?"
@@ -495,11 +501,11 @@ msgstr "你确定你要删除主题？"
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:73
 msgid "Are you sure you want to delete this guide?"
-msgstr ""
+msgstr "你确定要删除这个指南吗？"
 
 #: src/kb/BackofficeQuestionsCtrl.js:115
 msgid "Are you sure you want to delete this question?"
-msgstr ""
+msgstr "你确定要删除这个问题吗？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1408 src/kb/info/BackofficeKbInfoCtrl.js:1211
 msgid "Are you sure you want to delete this risk?"
@@ -872,15 +878,15 @@ msgstr "检查"
 
 #: src/kb/BackofficeQuestionsCtrl.js:28 views/dialogs/create.questions.html:72
 msgid "Checkboxes"
-msgstr ""
+msgstr "复选框"
 
 #: views/dialogs/create.questions.html:88
 msgid "Choice {{idx+1}}"
-msgstr ""
+msgstr "选择{{idx+1}}"
 
 #: views/dialogs/create.questions.html:83
 msgid "Choices"
-msgstr ""
+msgstr "选择"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:40
 msgid "Classification"
@@ -897,7 +903,7 @@ msgstr "点击这里输入..."
 
 #: views/index.backoffice.html:104
 msgid "Client management"
-msgstr ""
+msgstr "客户管理"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:50
 msgid "Client manager(s)"
@@ -905,7 +911,7 @@ msgstr "客户经理"
 
 #: views/index.client_mgmt.html:5
 msgid "Clients"
-msgstr ""
+msgstr "客户"
 
 #: ../ng_anr/views/add.objlib.html:8 ../ng_anr/views/anr.dashboard.risks.html:8
 #: ../ng_anr/views/create.amvs.html:9 ../ng_anr/views/create.assets.html:9
@@ -991,7 +997,7 @@ msgstr "评论"
 
 #: views/dialogs/create.clients.html:16 views/index.client_mgmt.html:39
 msgid "Company"
-msgstr ""
+msgstr "公司介绍"
 
 #: ../ng_anr/views/anr.dashboard.html:309
 msgid "Compliance"
@@ -1038,7 +1044,7 @@ msgstr "联系方式、银行信息、资质"
 
 #: views/analysis_guides.kb_mgmt.html:19 views/dialogs/create.guides.html:31
 msgid "Contains items"
-msgstr ""
+msgstr "包含项目"
 
 #: ../ng_anr/views/interviews.html:29 ../ng_anr/views/interviews.html:47
 msgid "Contents"
@@ -1207,7 +1213,7 @@ msgstr "自定义密码"
 
 #: views/dialogs/create.users.admin.html:51
 msgid "Customer admin"
-msgstr ""
+msgstr "客户管理"
 
 #: ../ng_anr/views/_gettext_caveats.html:99 ../ng_anr/views/anr.layout.html:31
 #: ../ng_anr/views/anr.layout.html:58
@@ -1224,7 +1230,7 @@ msgstr "数据保护干事"
 
 #: views/dialogs/create.users.admin.html:49
 msgid "Database admin"
-msgstr ""
+msgstr "数据库管理"
 
 #: ../ng_anr/views/interviews.html:45 ../ng_anr/views/snapshots.html:30
 #: views/index.client_mgmt.html:42 views/logs.admin.html:34
@@ -1589,7 +1595,7 @@ msgstr "将您的DOCX文件放到这个区域，或者点击这里选择一个�
 
 #: views/models.kb_mgmt.html:73
 msgid "Duplicate"
-msgstr ""
+msgstr "复制"
 
 #: ../ng_anr/views/object.html:33
 msgid "Duplicate asset"
@@ -1597,7 +1603,7 @@ msgstr "重复的资产"
 
 #: views/models.kb_mgmt.html:44
 msgid "Duplicating model..."
-msgstr ""
+msgstr "复制模型..."
 
 #: ../ng_anr/src/AnrObjectCtrl.js:343
 #: src/kb/models/BackofficeKbModelsCtrl.js:148
@@ -1647,7 +1653,7 @@ msgstr "编辑类别"
 
 #: views/dialogs/create.clients.html:6
 msgid "Edit client"
-msgstr ""
+msgstr "编辑客户端"
 
 #: ../ng_anr/views/create.objlibs.node.html:6
 msgid "Edit component"
@@ -1663,7 +1669,7 @@ msgstr "编辑交付品模板"
 
 #: views/dialogs/create.guides.html:6
 msgid "Edit guide"
-msgstr ""
+msgstr "编辑指南"
 
 #: ../ng_anr/views/anr.instance.html:22 ../ng_anr/views/create.instance.html:5
 msgid "Edit impacts"
@@ -1671,7 +1677,7 @@ msgstr "编辑影响"
 
 #: views/models.kb_mgmt.html:72
 msgid "Edit information"
-msgstr ""
+msgstr "编辑信息"
 
 #: ../ng_anr/views/interviews.html:35
 msgid "Edit interview"
@@ -1679,15 +1685,15 @@ msgstr "编辑采访"
 
 #: views/dialogs/create.guides.items.html:6
 msgid "Edit item"
-msgstr ""
+msgstr "编辑项目"
 
 #: views/dialogs/create.models.html:6
 msgid "Edit model"
-msgstr ""
+msgstr "编辑模型"
 
 #: views/dialogs/create.questions.html:6
 msgid "Edit question"
-msgstr ""
+msgstr "编辑问题"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:578
 #: ../ng_anr/views/create.recommandationsSets.html:6
@@ -1713,7 +1719,7 @@ msgstr "编辑风险分析"
 
 #: views/dialogs/create.servers.admin.html:6
 msgid "Edit server"
-msgstr ""
+msgstr "编辑服务器"
 
 #: ../ng_anr/views/create.specrisk.html:6
 msgid "Edit specific information risk"
@@ -1745,7 +1751,7 @@ msgstr "编辑漏洞"
 
 #: views/dialogs/create.models.html:45 views/models.kb_mgmt.html:56
 msgid "Editable impact scale"
-msgstr ""
+msgstr "可编辑的影响程度"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1134 ../ng_anr/src/AnrKbMgmtCtrl.js:1290
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1389 ../ng_anr/src/AnrKbMgmtCtrl.js:1594
@@ -1787,7 +1793,7 @@ msgstr "员工、现有客户、招聘候选人"
 
 #: views/dialogs/create.models.html:46
 msgid "Enable inherent risk"
-msgstr ""
+msgstr "启用固有风险"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:1614
 msgid "Encrypted storage, access controls"
@@ -1960,7 +1966,7 @@ msgstr "F（净风险）"
 
 #: views/dialogs/create.servers.admin.html:37 views/servers.admin.html:25
 msgid "FQDN"
-msgstr ""
+msgstr "FQDN"
 
 #: ../ng_anr/views/_gettext_caveats.html:48
 msgid "Field previous missing"
@@ -2029,15 +2035,15 @@ msgstr "名"
 
 #: views/dialogs/create.clients.html:77
 msgid "First user email"
-msgstr ""
+msgstr "第一个用户邮箱"
 
 #: views/dialogs/create.clients.html:59
 msgid "First user first name"
-msgstr ""
+msgstr "第一个用户的名字"
 
 #: views/dialogs/create.clients.html:68
 msgid "First user last name"
-msgstr ""
+msgstr "第一个用户姓"
 
 #: ../ng_anr/views/import.soa.html:24
 msgid ""
@@ -2116,11 +2122,11 @@ msgstr "治理"
 
 #: views/items.analysis_guides.kb_mgmt.html:3
 msgid "Guide items"
-msgstr ""
+msgstr "指南项目"
 
 #: views/index.backoffice.html:53
 msgid "Helpful informations"
-msgstr ""
+msgstr "有用的信息"
 
 #: ../ng_anr/views/__external_translate.html:23
 msgid "Hidden on global dashboard"
@@ -2417,7 +2423,7 @@ msgstr "爱尔兰、英国、加拿大"
 
 #: views/analysis_guides.kb_mgmt.html:28
 msgid "Items"
-msgstr ""
+msgstr "项目"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:1379
 msgid "January payroll account, summer recruitment"
@@ -2429,7 +2435,7 @@ msgstr "联合控制器"
 
 #: views/index.backoffice.html:19
 msgid "KB management"
-msgstr ""
+msgstr "KB管理"
 
 #: ../ng_anr/views/_table_risks.html:25 ../ng_anr/views/_table_risks_op.html:24
 msgid "Keywords"
@@ -2578,7 +2584,7 @@ msgstr "场地"
 
 #: views/info_risk.kb_mgmt.html:433 views/info_risk.kb_mgmt.html:434
 msgid "Lock"
-msgstr ""
+msgstr "锁定"
 
 #: views/login.html:25
 msgid "Log in"
@@ -2598,7 +2604,7 @@ msgstr "最大风险"
 
 #: views/index.backoffice.html:98
 msgid "Manage servers"
-msgstr ""
+msgstr "管理服务器"
 
 #: views/index.backoffice.html:90
 msgid "Manage users"
@@ -2636,7 +2642,7 @@ msgstr "手工制作"
 
 #: views/info_risk.kb_mgmt.html:240
 msgid "Match referential"
-msgstr ""
+msgstr "匹配参考"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:232
 #: ../ng_anr/views/match.referentials.html:5
@@ -2676,7 +2682,7 @@ msgstr "模式"
 
 #: views/dialogs/create.clients.html:47
 msgid "Model"
-msgstr ""
+msgstr "型号"
 
 #: ../ng_anr/views/_gettext_caveats.html:46
 msgid "Model missing"
@@ -2694,7 +2700,7 @@ msgstr "型号"
 
 #: views/dialogs/create.questions.html:80
 msgid "Multiple choices"
-msgstr ""
+msgstr "多项选择"
 
 #: ../ng_anr/views/import.file.html:151
 msgid "Multiple tags must be separated by a slash"
@@ -2702,7 +2708,7 @@ msgstr "多个标签必须用斜线分开"
 
 #: views/account.html:4
 msgid "My account details"
-msgstr ""
+msgstr "我的账户信息"
 
 #: ../ng_anr/views/anr.ropa.html:109 ../ng_anr/views/anr.ropa.html:505
 #: ../ng_anr/views/anr.ropa.html:535 ../ng_anr/views/anr.ropa.html:76
@@ -2730,7 +2736,7 @@ msgstr "网络"
 
 #: views/index.client_mgmt.html:6 views/index.client_mgmt.html:8
 msgid "New client"
-msgstr ""
+msgstr "新客户"
 
 #: ../ng_anr/views/_anr.evalscales.html:46
 msgid "New column name"
@@ -2750,16 +2756,16 @@ msgstr "新的控制。"
 
 #: views/analysis_guides.kb_mgmt.html:6 views/analysis_guides.kb_mgmt.html:8
 msgid "New guide"
-msgstr ""
+msgstr "新指南"
 
 #: views/items.analysis_guides.kb_mgmt.html:4
 #: views/items.analysis_guides.kb_mgmt.html:6
 msgid "New guide item"
-msgstr ""
+msgstr "新指南项目"
 
 #: views/models.kb_mgmt.html:6 views/models.kb_mgmt.html:8
 msgid "New model"
-msgstr ""
+msgstr "新模式"
 
 #: views/account.html:48 views/passwordforgotten.html:13
 msgid "New password"
@@ -2767,19 +2773,19 @@ msgstr "新密码"
 
 #: views/op_risk.kb_mgmt.html:72
 msgid "New risk"
-msgstr ""
+msgstr "新风险"
 
 #: views/servers.admin.html:5 views/servers.admin.html:7
 msgid "New server"
-msgstr ""
+msgstr "新服务器"
 
 #: views/op_risk.kb_mgmt.html:7
 msgid "New tag"
-msgstr ""
+msgstr "新标签"
 
 #: views/users.admin.html:5 views/users.admin.html:7
 msgid "New user"
-msgstr ""
+msgstr "新用户"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4692 src/kb/info/BackofficeKbInfoCtrl.js:3133
 msgid "New {{extItemLabel}}"
@@ -2849,11 +2855,11 @@ msgstr "无国际转账"
 #: views/dialogs/create.guides.items.html:43
 #: views/dialogs/create.questions.html:60
 msgid "No item matching your search was found"
-msgstr ""
+msgstr "没有找到符合您搜索的项目"
 
 #: views/dialogs/create.guides.html:30
 msgid "No items"
-msgstr ""
+msgstr "没有项目"
 
 #: ../ng_anr/views/create.specriskop.html:42
 msgid "No operational risk matching your search was found"
@@ -2962,7 +2968,7 @@ msgstr "只有一个类别的指南"
 
 #: views/models.kb_mgmt.html:71
 msgid "Open details"
-msgstr ""
+msgstr "打开细节"
 
 #: ../ng_anr/views/_table_risks.html:130
 msgid "Open risk sheet"
@@ -3131,7 +3137,7 @@ msgstr "上一个组件..."
 #: views/dialogs/create.guides.items.html:37
 #: views/dialogs/create.questions.html:54
 msgid "Previous item..."
-msgstr ""
+msgstr "上一个项目..."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:341 ../ng_anr/views/create.assets.html:86
 #: src/kb/info/BackofficeKbInfoCtrl.js:308
@@ -3177,11 +3183,11 @@ msgstr "产品合规性 客户协议"
 
 #: src/BackofficeAccountCtrl.js:33
 msgid "Profile updated"
-msgstr ""
+msgstr "更新资料"
 
 #: views/dialogs/create.clients.html:37 views/index.client_mgmt.html:41
 msgid "Proxy alias"
-msgstr ""
+msgstr "代理人别名"
 
 #: ../ng_anr/views/anr.ropa.html:88
 msgid "Purpose(s)"
@@ -3211,7 +3217,7 @@ msgstr "问题被删除"
 
 #: views/index.backoffice.html:60 views/questions.kb_mgmt.html:5
 msgid "Questions of trends assessment"
-msgstr ""
+msgstr "趋势评估问题"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:140
 msgid "R (Inherent risk)"
@@ -3573,11 +3579,11 @@ msgstr "分隔开来/"
 
 #: views/dialogs/create.clients.html:25
 msgid "Server"
-msgstr ""
+msgstr "服务器"
 
 #: views/servers.admin.html:4
 msgid "Servers"
-msgstr ""
+msgstr "服务器"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:124 ../ng_anr/src/AnrSoaSheetCtrl.js:251
 #: ../ng_anr/views/_oprisk_sheet.html:110 ../ng_anr/views/_risk_sheet.html:127
@@ -3629,7 +3635,7 @@ msgstr "显示固有的业务风险"
 
 #: src/kb/BackofficeQuestionsCtrl.js:27 views/dialogs/create.questions.html:71
 msgid "Simple text"
-msgstr ""
+msgstr "简单的文本"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2725
 msgid "Snapshot restored"
@@ -3678,7 +3684,7 @@ msgstr "具体型号链接"
 
 #: views/servers.admin.html:27
 msgid "State"
-msgstr ""
+msgstr "国家"
 
 #: ../ng_anr/views/anr.layout.html:46 ../ng_anr/views/anr.layout.html:72
 #: ../ng_anr/views/anr.soa.html:2 ../ng_anr/views/export.objlibs.html:64
@@ -3730,7 +3736,7 @@ msgstr "资产/影响的综合分析"
 
 #: views/dialogs/create.users.admin.html:50
 msgid "System admin"
-msgstr ""
+msgstr "系统管理员"
 
 #: ../ng_anr/views/_anr.evalscales.html:145
 msgid "T"
@@ -3763,15 +3769,15 @@ msgstr "CID值已成功隐藏，影响已重新评估。"
 
 #: views/dialogs/create.servers.admin.html:41
 msgid "The FQDN may not be empty"
-msgstr ""
+msgstr "FQDN可能不是空的"
 
 #: views/dialogs/create.servers.admin.html:31
 msgid "The IP address may not be empty"
-msgstr ""
+msgstr "IP地址不能为空"
 
 #: views/dialogs/create.servers.admin.html:32
 msgid "The IP address must be of this form : xxx.xxx.xxx.xxx"
-msgstr ""
+msgstr "IP地址必须是这样的形式：xxx.xxx.xxx.xxx。"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:216
 msgid "The SOA has been imported successfully."
@@ -3881,15 +3887,15 @@ msgstr "该类别不得为空"
 
 #: src/BackofficeClientMgmtCtrl.js:52
 msgid "The client has been created successfully."
-msgstr ""
+msgstr "客户端已经创建成功。"
 
 #: src/BackofficeClientMgmtCtrl.js:110
 msgid "The client has been deleted."
-msgstr ""
+msgstr "客户端已被删除。"
 
 #: src/BackofficeClientMgmtCtrl.js:83
 msgid "The client has been edited successfully."
-msgstr ""
+msgstr "客户端已编辑成功。"
 
 #: ../ng_anr/views/create.assets.html:78
 #: ../ng_anr/views/create.measures.html:54 ../ng_anr/views/create.risks.html:55
@@ -3940,27 +3946,27 @@ msgstr "该文档已编辑成功。"
 
 #: views/account.html:28 views/dialogs/create.clients.html:81
 msgid "The first user email may not be empty"
-msgstr ""
+msgstr "第一个用户邮箱可能不是空的"
 
 #: views/dialogs/create.clients.html:63
 msgid "The first user first name may not be empty"
-msgstr ""
+msgstr "第一个用户的名字不能为空"
 
 #: views/dialogs/create.clients.html:72
 msgid "The first user last name may not be empty"
-msgstr ""
+msgstr "第一个用户的姓不能为空"
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:39
 msgid "The guide has been created successfully."
-msgstr ""
+msgstr "指南已成功创建。"
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:83
 msgid "The guide has been deleted."
-msgstr ""
+msgstr "指南已被删除。"
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:63
 msgid "The guide has been edited successfully."
-msgstr ""
+msgstr "指南已编辑成功。"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1585
 msgid "The impact scale type has been deleted successfully."
@@ -3980,15 +3986,15 @@ msgstr "实例已成功导入"
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:48
 msgid "The item has been created successfully."
-msgstr ""
+msgstr "该项目已经创建成功。"
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:94
 msgid "The item has been deleted."
-msgstr ""
+msgstr "该项目已被删除。"
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:75
 msgid "The item has been edited successfully."
-msgstr ""
+msgstr "该项目已编辑成功。"
 
 #: ../ng_anr/views/create.assets.html:52
 #: ../ng_anr/views/create.categories.html:39
@@ -4014,19 +4020,19 @@ msgstr "所述风险清单作为附件提供。它列出了%d的风险，其中�
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:54
 msgid "The model has been created successfully."
-msgstr ""
+msgstr "模型已经创建成功。"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:113
 msgid "The model has been deleted."
-msgstr ""
+msgstr "该模型已被删除。"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:147
 msgid "The model has been duplicated sucessfully."
-msgstr ""
+msgstr "该模式已成功复制。"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:83
 msgid "The model has been edited successfully."
-msgstr ""
+msgstr "模型已编辑成功。"
 
 #: ../ng_anr/views/create.objlibs.html:38 views/dialogs/create.clients.html:20
 msgid "The name may not be empty"
@@ -4048,25 +4054,25 @@ msgstr "已成功复制处理。"
 
 #: views/dialogs/create.clients.html:41
 msgid "The proxy alias may not be empty"
-msgstr ""
+msgstr "代理的别名不能为空"
 
 #: views/dialogs/create.clients.html:42
 msgid ""
 "The proxy alias may only contain alphanumeric characters, underscores and "
 "dashes, and must be at least 3 characters long."
-msgstr ""
+msgstr "代理的别名只能包含字母数字字符、下划线和破折号，并且必须至少有3个字符长。"
 
 #: src/kb/BackofficeQuestionsCtrl.js:55
 msgid "The question has been created successfully."
-msgstr ""
+msgstr "问题已经创建成功。"
 
 #: src/kb/BackofficeQuestionsCtrl.js:125
 msgid "The question has been deleted."
-msgstr ""
+msgstr "该问题已被删除。"
 
 #: src/kb/BackofficeQuestionsCtrl.js:95
 msgid "The question has been edited successfully."
-msgstr ""
+msgstr "这个问题已经编辑成功。"
 
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:141
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:40
@@ -4211,15 +4217,15 @@ msgstr "所选的特定操作风险将被永久删除。你确定吗？"
 
 #: src/admin/BackofficeAdminServerCtrl.js:49
 msgid "The server has been created successfully."
-msgstr ""
+msgstr "服务器已经创建成功。"
 
 #: src/admin/BackofficeAdminServerCtrl.js:105
 msgid "The server has been deleted."
-msgstr ""
+msgstr "服务器已被删除。"
 
 #: src/admin/BackofficeAdminServerCtrl.js:74
 msgid "The server has been edited successfully."
-msgstr ""
+msgstr "服务器已被编辑成功。"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:210
 msgid "The server returned the error code:"
@@ -4641,7 +4647,7 @@ msgstr "用户"
 
 #: views/dialogs/create.users.admin.html:48
 msgid "User admin"
-msgstr ""
+msgstr "用户管理"
 
 #: views/users.admin.html:4
 msgid "Users"
@@ -4910,11 +4916,11 @@ msgstr "您必须选择一个地点"
 
 #: views/dialogs/create.guides.html:34
 msgid "You must select a mode"
-msgstr ""
+msgstr "您必须选择一种模式"
 
 #: views/dialogs/create.clients.html:54
 msgid "You must select a model"
-msgstr ""
+msgstr "您必须选择一个型号"
 
 #: ../ng_anr/views/_gettext_caveats.html:30
 msgid "You must select a position for your category"
@@ -4926,7 +4932,7 @@ msgstr "您必须选择一个风险"
 
 #: views/dialogs/create.clients.html:32
 msgid "You must select a server"
-msgstr ""
+msgstr "您必须选择一个服务器"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:28
 msgid "You must select a template"
@@ -4938,7 +4944,7 @@ msgstr "你必须选择一个威胁"
 
 #: views/dialogs/create.questions.html:75
 msgid "You must select a type"
-msgstr ""
+msgstr "您必须选择一种类型"
 
 #: ../ng_anr/views/create.amvs.html:108 ../ng_anr/views/create.specrisk.html:60
 msgid "You must select a vulnerability"
@@ -4985,7 +4991,7 @@ msgstr "您的密码重置码无效。请重试。"
 
 #: src/BackofficeAccountCtrl.js:33
 msgid "Your profile has been updated successfully"
-msgstr ""
+msgstr "您的资料已成功更新"
 
 #: ../ng_anr/views/create.amvs.html:153
 #: ../ng_anr/views/create.objlibs.categories.html:50
@@ -5011,11 +5017,11 @@ msgstr "类别"
 
 #: views/index.client_mgmt.html:28
 msgid "client selected"
-msgstr ""
+msgstr "客户选择"
 
 #: views/index.client_mgmt.html:28
 msgid "clients selected"
-msgstr ""
+msgstr "选定客户"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4621 src/kb/info/BackofficeKbInfoCtrl.js:3072
 msgid "code is already in use"
@@ -5147,11 +5153,11 @@ msgstr "{{数}}资产已被删除。"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:296
 msgid "{{count}} assets type have been deleted."
-msgstr ""
+msgstr "{{count}}资产类型已被删除。"
 
 #: src/BackofficeClientMgmtCtrl.js:138
 msgid "{{count}} clients have been deleted."
-msgstr ""
+msgstr "{{数}}客户已被删除。"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1187 src/kb/info/BackofficeKbInfoCtrl.js:1008
 msgid "{{count}} controls have been deleted."
@@ -5159,7 +5165,7 @@ msgstr "{{数}}控制已被删除。"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:134
 msgid "{{count}} models have been deleted."
-msgstr ""
+msgstr "{{数}}型号已被删除。"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2494
 msgid "{{count}} recommendations have been deleted."
