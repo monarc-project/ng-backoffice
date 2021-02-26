@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 10:37+0000\n"
+"PO-Revision-Date: 2021-02-26 11:00+0000\n"
 "Last-Translator: Ruslan Baidan <ruslan.baidan@cases.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -19,18 +19,24 @@ msgid ""
 "0: generic\n"
 "1: specific"
 msgstr ""
+"0: общие\n"
+"1: конкретные"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2567
 msgid ""
 "1: generic\n"
 "2: specific"
 msgstr ""
+"1 общие\n"
+"2: конкретные"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid ""
 "1: primary asset\n"
 "2: secondary asset"
 msgstr ""
+"1: первичный актив\n"
+"2: вторичный актив"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -282,7 +288,7 @@ msgstr "Добавить интервью"
 
 #: views/dialogs/create.guides.items.html:5
 msgid "Add an item"
-msgstr ""
+msgstr "Добавить элемент"
 
 #: views/dialogs/create.users.admin.html:5
 msgid "Add an user"
@@ -303,7 +309,7 @@ msgstr "Дополнительная информация"
 
 #: views/dialogs/create.servers.admin.html:25 views/servers.admin.html:26
 msgid "Address"
-msgstr ""
+msgstr "Адресс"
 
 #: ../ng_anr/views/anr.ropa.html:132 ../ng_anr/views/anr.ropa.html:163
 #: ../ng_anr/views/anr.ropa.html:194 ../ng_anr/views/anr.ropa.html:233
@@ -322,7 +328,7 @@ msgstr "Все"
 
 #: ../ng_anr/views/_table_risks.html:33 ../ng_anr/views/_table_risks_op.html:33
 msgid "All (unfiltered)"
-msgstr "Все (нефильтрованно)"
+msgstr "Все (без фильтра)"
 
 #: ../ng_anr/views/_gettext_caveats.html:52
 msgid "All asset models must not be regulator"
@@ -340,7 +346,7 @@ msgstr "Все категории"
 
 #: ../ng_anr/views/_gettext_caveats.html:73
 msgid "All models must be common to asset type, threat and vulnerability"
-msgstr "Все модели должны быть общими для типов активов, угроз и уязвимостей."
+msgstr "Все модели должны быть общими для типов активов, угроз и уязвимостей"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:490 views/op_risk.kb_mgmt.html:85
 msgid "All tags"
@@ -352,14 +358,14 @@ msgstr "Ошибка произошла при извлечении {{штуки
 
 #: views/analysis_guides.kb_mgmt.html:5
 msgid "Analysis guides"
-msgstr ""
+msgstr "Руководства анализа"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4140 ../ng_anr/src/AnrKbMgmtCtrl.js:4250
 #: src/kb/info/BackofficeKbInfoCtrl.js:2555
 #: src/kb/info/BackofficeKbInfoCtrl.js:2687
 msgid "Any network hardware (router, switch, firewall, etc.)"
 msgstr ""
-"Любое сетевое оборудование (маршрутизатор, коммутатор, брандмауэр и т.д.)."
+"Любое сетевое оборудование (маршрутизатор, коммутатор, брандмауэр и т.д.)"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4166 ../ng_anr/src/AnrKbMgmtCtrl.js:4268
 #: src/kb/info/BackofficeKbInfoCtrl.js:2588
@@ -389,7 +395,7 @@ msgstr "Вы уверены, что хотите удалить категори
 
 #: src/BackofficeClientMgmtCtrl.js:101
 msgid "Are you sure you want to delete client?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить клиента?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1149 src/kb/info/BackofficeKbInfoCtrl.js:971
 msgid "Are you sure you want to delete control?"
@@ -405,11 +411,11 @@ msgstr "Вы уверены, что хотите удалить междунар
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:84
 msgid "Are you sure you want to delete item?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить элемент?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:103
 msgid "Are you sure you want to delete model?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить модель?"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:557
 msgid "Are you sure you want to delete personal data category?"
@@ -439,7 +445,7 @@ msgstr "Вы уверены, что хотите удалить риск?"
 
 #: src/admin/BackofficeAdminServerCtrl.js:95
 msgid "Are you sure you want to delete server?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить сервер?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1810
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:129
@@ -452,46 +458,50 @@ msgstr "Вы уверены, что хотите удалить обработк
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:317 src/kb/info/BackofficeKbInfoCtrl.js:283
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
-msgstr "Вы уверены, что хотите удалить {{счет}} выбранный тип(ы) активов?"
+msgstr ""
+"Вы уверены, что хотите удалить выбранные типы активов? Выбрано: {{count}}"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1668 src/kb/info/BackofficeKbInfoCtrl.js:1502
 msgid "Are you sure you want to delete the {{count}} selected asset(s)?"
-msgstr "Вы уверены, что хотите удалить {{счет}} выбранный актив(ы)?"
+msgstr "Вы уверены, что хотите удалить выбранные активы? Выбрано: {{count}}"
 
 #: src/BackofficeClientMgmtCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected client(s)?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить выбранных клиентов? Выбрано: {{count}}"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1174 src/kb/info/BackofficeKbInfoCtrl.js:994
 msgid "Are you sure you want to delete the {{count}} selected controls?"
-msgstr "Вы уверены, что хотите удалить выбранные элементы управления?"
+msgstr ""
+"Вы уверены, что хотите удалить выбранный элементы управления? Выбрано: "
+"{{count}}"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected model(s)?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить выбранные модели? Выбрано: {{count}}"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2481
 msgid "Are you sure you want to delete the {{count}} selected recommendations?"
-msgstr "Вы уверены, что хотите удалить выбранные рекомендации?"
+msgstr ""
+"Вы уверены, что хотите удалить выбранные рекомендации? Выбрано {{count}}"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1431 ../ng_anr/src/AnrKbMgmtCtrl.js:2104
 #: src/kb/info/BackofficeKbInfoCtrl.js:1232
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:377
 msgid "Are you sure you want to delete the {{count}} selected risk(s)?"
-msgstr "Вы уверены, что хотите удалить {{счет}} выбранный риск(ы)?"
+msgstr "Вы уверены, что хотите удалить выбранные риски? Выбрано {{count}}"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1833
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:149
 msgid "Are you sure you want to delete the {{count}} selected tag(s)?"
-msgstr "Вы уверены, что хотите удалить выбранный тег(ы) {{счет}}?"
+msgstr "Вы уверены, что хотите удалить выбранные теги? Выбрано {{count}}"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:564 src/kb/info/BackofficeKbInfoCtrl.js:489
 msgid "Are you sure you want to delete the {{count}} selected threat(s)?"
-msgstr "Вы уверены, что хотите удалить {{счет}} выбранную(ые) угрозу(ы)?"
+msgstr "Вы уверены, что хотите удалить выбранные угрозы? Выбрано {{count}}"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:790 src/kb/info/BackofficeKbInfoCtrl.js:675
 msgid "Are you sure you want to delete the {{count}} selected vulnerabilites?"
-msgstr "Вы уверены, что хотите удалить {{счет}} выбранные уязвимости?"
+msgstr "Вы уверены, что хотите удалить выбранные уязвимости? Выбрано {{count}}"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2813 src/kb/info/BackofficeKbInfoCtrl.js:1823
 msgid "Are you sure you want to delete theme?"
@@ -499,11 +509,11 @@ msgstr "Вы уверены, что хотите удалить тему?"
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:73
 msgid "Are you sure you want to delete this guide?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить это руководство?"
 
 #: src/kb/BackofficeQuestionsCtrl.js:115
 msgid "Are you sure you want to delete this question?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить этот вопрос?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1408 src/kb/info/BackofficeKbInfoCtrl.js:1211
 msgid "Are you sure you want to delete this risk?"
@@ -878,7 +888,7 @@ msgstr "Проверить"
 
 #: src/kb/BackofficeQuestionsCtrl.js:28 views/dialogs/create.questions.html:72
 msgid "Checkboxes"
-msgstr ""
+msgstr "Чек-боксы"
 
 #: views/dialogs/create.questions.html:88
 msgid "Choice {{idx+1}}"
