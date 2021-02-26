@@ -2,14 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-25 15:29+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2021-02-26 11:00+0000\n"
+"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.5\n"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2612
 #: src/kb/info/BackofficeKbInfoCtrl.js:2645
@@ -54,6 +55,8 @@ msgstr "Effect D"
 msgid ""
 "A SOA can be completed from another one that is in the same risk analysis."
 msgstr ""
+"Een VVT kan vervolledigd worden via een andere VVT uit dezelfde risico "
+"analyse."
 
 #: ../ng_anr/views/_gettext_caveats.html:29
 msgid "A regulator model may not be generic"
@@ -294,11 +297,11 @@ msgstr "Een gebruiker toevoegen"
 
 #: ../ng_anr/views/create.amvs.html:130 ../ng_anr/views/create.risks.html:106
 msgid "Add controls from referential"
-msgstr ""
+msgstr "Voeg maatregelen toe van de standaard"
 
 #: ../ng_anr/views/create.risks.html:72
 msgid "Add tags"
-msgstr ""
+msgstr "Voeg tags toe"
 
 #: ../ng_anr/views/edit.evalcontext.html:24
 #: ../ng_anr/views/trends.evalcontext.html:149
@@ -702,7 +705,7 @@ msgstr ""
 
 #: ../ng_anr/views/import.soa.html:17
 msgid "Before importing"
-msgstr ""
+msgstr "Voor je importeert"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:258 ../ng_anr/views/anr.soa.html:88
 msgid "Best practices"
@@ -1855,7 +1858,7 @@ msgstr "Bewijsmateriaal"
 
 #: ../ng_anr/views/import.file.html:152
 msgid "Ex: Tag1/Tag2/Tag3"
-msgstr ""
+msgstr "Ex: Tag1/Tag2/Tag3"
 
 #: ../ng_anr/views/import.file.html:166 ../ng_anr/views/import.record.html:104
 #: ../ng_anr/views/import.record.html:70
@@ -1865,7 +1868,7 @@ msgstr "Voorbeeldbestand"
 #: ../ng_anr/views/import.file.html:146 ../ng_anr/views/import.record.html:59
 #: ../ng_anr/views/import.record.html:84 ../ng_anr/views/import.record.html:92
 msgid "Example:"
-msgstr ""
+msgstr "Voorbeeld:"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:250 ../ng_anr/views/anr.soa.html:64
 msgid "Excluded"
@@ -2063,6 +2066,8 @@ msgid ""
 "For level of compliance, you can choose import mode calculation. (Average or "
 "worse level)"
 msgstr ""
+"Voor het conformiteitsniveau, kan je import mode berekening kiezen. ("
+"Gemiddelde of slechtste niveau)"
 
 #: ../ng_anr/views/detach.objlibs.html:66
 msgid "Force deletion"
@@ -2143,7 +2148,7 @@ msgstr "Nuttige informatie"
 
 #: ../ng_anr/views/__external_translate.html:23
 msgid "Hidden on global dashboard"
-msgstr ""
+msgstr "Verborgen op globaal dashboard"
 
 #: ../ng_anr/views/_gettext_caveats.html:97
 msgid "Home"
@@ -2173,7 +2178,7 @@ msgstr ""
 
 #: ../ng_anr/views/import.soa.html:22
 msgid "If there is a multiple matching:"
-msgstr ""
+msgstr "Als er meerdere koppelingen zijn:"
 
 #: views/dialogs/create.deliverymodel.html:44
 msgid "If you save this template, previous templates will be lost."
@@ -2573,7 +2578,7 @@ msgstr "Lijst van de beschikbare snapshots"
 
 #: ../ng_anr/views/import.file.html:149
 msgid "List of categories:"
-msgstr ""
+msgstr "Lijst van categorieën:"
 
 #: ../ng_anr/views/import.object.html:54
 msgid "List of common MONARC assets"
@@ -2581,11 +2586,11 @@ msgstr "Lijst van de gemeenschappelijke MONARC-activa"
 
 #: ../ng_anr/views/import.file.html:153
 msgid "List of tags:"
-msgstr ""
+msgstr "Lijst van tags:"
 
 #: ../ng_anr/views/import.file.html:148
 msgid "List of themes:"
-msgstr ""
+msgstr "Lijst van thema's:"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1493 ../ng_anr/views/create.objlibs.html:57
 #: src/kb/info/BackofficeKbInfoCtrl.js:1295
@@ -2648,7 +2653,7 @@ msgstr "Verantwoordelijke:"
 #: ../ng_anr/views/import.file.html:160 ../ng_anr/views/import.record.html:65
 #: ../ng_anr/views/import.record.html:98
 msgid "Mandatory field"
-msgstr ""
+msgstr "Verplicht veld"
 
 #: ../ng_anr/views/create.amvs.html:32 ../ng_anr/views/create.assets.html:32
 #: ../ng_anr/views/create.records.html:22
@@ -2671,6 +2676,8 @@ msgid ""
 "Match the controls between the two referentials on knowledge base "
 "(Referentials Tab)"
 msgstr ""
+"Koppel de maatregelen tussen de 2 standaarden in de kennisdatabank ("
+"Standaarden Tab)"
 
 #: ../ng_anr/views/create.instance.html:57
 msgid "Max"
@@ -2721,7 +2728,7 @@ msgstr "Multiple choice"
 
 #: ../ng_anr/views/import.file.html:151
 msgid "Multiple tags must be separated by a slash"
-msgstr ""
+msgstr "Meerdere tags moeten gescheiden worden door een forward slash"
 
 #: views/account.html:4
 msgid "My account details"
@@ -3725,11 +3732,11 @@ msgstr "Verklaring van toepasselijkheid"
 
 #: ../ng_anr/views/__external_translate.html:20
 msgid "Statistics data is collected"
-msgstr ""
+msgstr "Statistische gegevens worden verzameld"
 
 #: ../ng_anr/views/__external_translate.html:21
 msgid "Statistics data is ommitted"
-msgstr ""
+msgstr "Statistische gegevens zijn weggelaten"
 
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:62 ../ng_anr/views/_anr.kbmgmt.html:117
 #: ../ng_anr/views/_anr.kbmgmt.html:189 ../ng_anr/views/_anr.kbmgmt.html:368
@@ -3787,7 +3794,7 @@ msgstr "Tags"
 
 #: ../ng_anr/views/import.soa.html:19
 msgid "Take a snapshot of risk analysis if necessary."
-msgstr ""
+msgstr "Neem een snapshot van de risico analyse als het nodig is."
 
 #: ../ng_anr/views/deliverable.evalcontext.html:23
 msgid "Template"
@@ -4015,7 +4022,7 @@ msgstr "De effecttypeschaal werd met succes verwijderd."
 
 #: ../ng_anr/views/import.soa.html:23
 msgid "The information of each control will be appended."
-msgstr ""
+msgstr "De informatie van elke maatregel zal toegevoegd worden."
 
 #: ../ng_anr/views/_gettext_caveats.html:77
 msgid "The input does not appear to be an integer"
@@ -4786,7 +4793,7 @@ msgstr "De kwalificatiewaarden en de reductiewaarden zijn niet geldig"
 #: ../ng_anr/views/import.record.html:51 ../ng_anr/views/import.record.html:58
 #: ../ng_anr/views/import.record.html:83 ../ng_anr/views/import.record.html:91
 msgid "Value:"
-msgstr ""
+msgstr "Waarde:"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:35
 msgid "Version"
@@ -4794,7 +4801,7 @@ msgstr "Versie"
 
 #: ../ng_anr/views/__external_translate.html:22
 msgid "Visible on global dashboard"
-msgstr ""
+msgstr "Zichtbaar op globaal dashboard"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:146 ../ng_anr/views/anr.dashboard.html:238
 #: views/info_risk.kb_mgmt.html:152
@@ -4892,7 +4899,7 @@ msgstr ""
 
 #: ../ng_anr/views/import.soa.html:21
 msgid "You can select which fields of the SOA you want to import."
-msgstr ""
+msgstr "Je kan selecteren welke velden van de VVT je wil importeren."
 
 #: ../ng_anr/views/_gettext_caveats.html:22
 msgid "You can't delete yourself"
@@ -5127,7 +5134,7 @@ msgstr "maatregel bestaat niet"
 
 #: ../ng_anr/views/__external_translate.html:4
 msgid "critical risk(s) to be treated as priority"
-msgstr ""
+msgstr "prioritair aan te pakken kritiek(e) risico(‘s)"
 
 #: ../ng_anr/views/anr.ropa.html:348 ../ng_anr/views/anr.ropa.html:353
 msgid "day(s)"
@@ -5153,7 +5160,7 @@ msgstr "aan het einde"
 #: ../ng_anr/views/anr.instance.html:58 ../ng_anr/views/anr.instance.html:70
 #: ../ng_anr/views/anr.instance.html:82
 msgid "inherited"
-msgstr ""
+msgstr "geërfd"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4594 ../ng_anr/src/AnrKbMgmtCtrl.js:4677
 #: src/kb/info/BackofficeKbInfoCtrl.js:3044
@@ -5163,7 +5170,7 @@ msgstr "is verplicht"
 
 #: ../ng_anr/views/__external_translate.html:6
 msgid "low risk(s) negligible"
-msgstr ""
+msgstr "verwaarloosba(a)r(e) gering(e) risico(‘s)"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4647 src/kb/info/BackofficeKbInfoCtrl.js:3090
 msgid "match does not exist"
@@ -5171,7 +5178,7 @@ msgstr "er bestaat geen overeenkomst"
 
 #: ../ng_anr/views/__external_translate.html:5
 msgid "medium risk(s) to be partially treated"
-msgstr ""
+msgstr "gedeeltelijk aan te pakken middelgro(o)t(e) risico(‘s)"
 
 #: ../ng_anr/views/anr.ropa.html:349 ../ng_anr/views/anr.ropa.html:354
 msgid "month(s)"
@@ -5184,15 +5191,15 @@ msgstr "van"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4392 ../ng_anr/views/add.objlib.html:59
 msgid "or"
-msgstr ""
+msgstr "of"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4146
 msgid "primary asset"
-msgstr ""
+msgstr "primaire asset"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4146
 msgid "secondary asset"
-msgstr ""
+msgstr "secondaire asset"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4108 src/kb/info/BackofficeKbInfoCtrl.js:2523
 msgid "tags"
