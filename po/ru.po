@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2021-02-26 14:00+0000\n"
-"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
+"Last-Translator: Ruslan Baidan <ruslan.baidan@cases.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -896,7 +896,7 @@ msgstr "Выбор {{idx+1}}"
 
 #: views/dialogs/create.questions.html:83
 msgid "Choices"
-msgstr ""
+msgstr "Варианты выбора"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:40
 msgid "Classification"
@@ -913,7 +913,7 @@ msgstr "Нажмите здесь, чтобы набрать..."
 
 #: views/index.backoffice.html:104
 msgid "Client management"
-msgstr ""
+msgstr "Клиентское управление"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:50
 msgid "Client manager(s)"
@@ -921,7 +921,7 @@ msgstr "Менеджер по работе с клиентами"
 
 #: views/index.client_mgmt.html:5
 msgid "Clients"
-msgstr ""
+msgstr "Клиенты"
 
 #: ../ng_anr/views/add.objlib.html:8 ../ng_anr/views/anr.dashboard.risks.html:8
 #: ../ng_anr/views/create.amvs.html:9 ../ng_anr/views/create.assets.html:9
@@ -1007,7 +1007,7 @@ msgstr "Комментарии"
 
 #: views/dialogs/create.clients.html:16 views/index.client_mgmt.html:39
 msgid "Company"
-msgstr ""
+msgstr "Компания"
 
 #: ../ng_anr/views/anr.dashboard.html:309
 msgid "Compliance"
@@ -1054,7 +1054,7 @@ msgstr "Контактные данные, банковские реквизит
 
 #: views/analysis_guides.kb_mgmt.html:19 views/dialogs/create.guides.html:31
 msgid "Contains items"
-msgstr ""
+msgstr "Содержит элементы"
 
 #: ../ng_anr/views/interviews.html:29 ../ng_anr/views/interviews.html:47
 msgid "Contents"
@@ -1223,7 +1223,7 @@ msgstr "Пользовательский пароль"
 
 #: views/dialogs/create.users.admin.html:51
 msgid "Customer admin"
-msgstr ""
+msgstr "Пользователь администратор"
 
 #: ../ng_anr/views/_gettext_caveats.html:99 ../ng_anr/views/anr.layout.html:31
 #: ../ng_anr/views/anr.layout.html:58
@@ -1240,7 +1240,7 @@ msgstr "Сотрудник по защите данных"
 
 #: views/dialogs/create.users.admin.html:49
 msgid "Database admin"
-msgstr ""
+msgstr "Админ базы данных"
 
 #: ../ng_anr/views/interviews.html:45 ../ng_anr/views/snapshots.html:30
 #: views/index.client_mgmt.html:42 views/logs.admin.html:34
@@ -1605,7 +1605,7 @@ msgstr "Бросьте файл DOCX в эту зону или нажмите з
 
 #: views/models.kb_mgmt.html:73
 msgid "Duplicate"
-msgstr ""
+msgstr "Повторение"
 
 #: ../ng_anr/views/object.html:33
 msgid "Duplicate asset"
@@ -1613,7 +1613,7 @@ msgstr "Дублируемый актив"
 
 #: views/models.kb_mgmt.html:44
 msgid "Duplicating model..."
-msgstr ""
+msgstr "Повторяющаяся модель..."
 
 #: ../ng_anr/src/AnrObjectCtrl.js:343
 #: src/kb/models/BackofficeKbModelsCtrl.js:148
@@ -1663,7 +1663,7 @@ msgstr "Категория редактирования"
 
 #: views/dialogs/create.clients.html:6
 msgid "Edit client"
-msgstr ""
+msgstr "Редактировать клиента"
 
 #: ../ng_anr/views/create.objlibs.node.html:6
 msgid "Edit component"
@@ -1679,7 +1679,7 @@ msgstr "Редактируемый шаблон"
 
 #: views/dialogs/create.guides.html:6
 msgid "Edit guide"
-msgstr ""
+msgstr "Редактировать руководство"
 
 #: ../ng_anr/views/anr.instance.html:22 ../ng_anr/views/create.instance.html:5
 msgid "Edit impacts"
@@ -1687,7 +1687,7 @@ msgstr "Редактировать воздействие"
 
 #: views/models.kb_mgmt.html:72
 msgid "Edit information"
-msgstr ""
+msgstr "Редактировать информацию"
 
 #: ../ng_anr/views/interviews.html:35
 msgid "Edit interview"
@@ -1695,15 +1695,15 @@ msgstr "Редактирование интервью"
 
 #: views/dialogs/create.guides.items.html:6
 msgid "Edit item"
-msgstr ""
+msgstr "Редактировать элемент"
 
 #: views/dialogs/create.models.html:6
 msgid "Edit model"
-msgstr ""
+msgstr "Редактировать модель"
 
 #: views/dialogs/create.questions.html:6
 msgid "Edit question"
-msgstr ""
+msgstr "Редактировать вопрос"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:578
 #: ../ng_anr/views/create.recommandationsSets.html:6
@@ -1729,7 +1729,7 @@ msgstr "Редактировать анализ рисков"
 
 #: views/dialogs/create.servers.admin.html:6
 msgid "Edit server"
-msgstr ""
+msgstr "Редактировать сервер"
 
 #: ../ng_anr/views/create.specrisk.html:6
 msgid "Edit specific information risk"
@@ -1761,7 +1761,7 @@ msgstr "Редактировать уязвимость"
 
 #: views/dialogs/create.models.html:45 views/models.kb_mgmt.html:56
 msgid "Editable impact scale"
-msgstr ""
+msgstr "Редактируемая шкала воздействия"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1134 ../ng_anr/src/AnrKbMgmtCtrl.js:1290
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1389 ../ng_anr/src/AnrKbMgmtCtrl.js:1594
@@ -1803,7 +1803,7 @@ msgstr "Сотрудник, существующие клиенты, рекру�
 
 #: views/dialogs/create.models.html:46
 msgid "Enable inherent risk"
-msgstr ""
+msgstr "Включить наследование рисков"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:1614
 msgid "Encrypted storage, access controls"
@@ -1976,7 +1976,7 @@ msgstr "F (Чистый риск)"
 
 #: views/dialogs/create.servers.admin.html:37 views/servers.admin.html:25
 msgid "FQDN"
-msgstr ""
+msgstr "FQDN"
 
 #: ../ng_anr/views/_gettext_caveats.html:48
 msgid "Field previous missing"
@@ -2045,15 +2045,15 @@ msgstr "Имя"
 
 #: views/dialogs/create.clients.html:77
 msgid "First user email"
-msgstr ""
+msgstr "Емайл первого пользователя"
 
 #: views/dialogs/create.clients.html:59
 msgid "First user first name"
-msgstr ""
+msgstr "Имя первого пользователя"
 
 #: views/dialogs/create.clients.html:68
 msgid "First user last name"
-msgstr ""
+msgstr "Фамилия первого пользователя"
 
 #: ../ng_anr/views/import.soa.html:24
 msgid ""
@@ -2105,11 +2105,11 @@ msgstr "Поколение успешно"
 #: ../ng_anr/views/create.threats.html:113 ../ng_anr/views/create.vulns.html:68
 #: src/kb/info/BackofficeKbInfoCtrl.js:95
 msgid "Generic"
-msgstr "Общий сайт"
+msgstr "Общий"
 
 #: ../ng_anr/views/__external_translate.html:18
 msgid "German"
-msgstr "немецкий язык"
+msgstr "немецкий"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1494 ../ng_anr/views/create.objlibs.html:58
 #: src/kb/info/BackofficeKbInfoCtrl.js:1296
@@ -2126,7 +2126,7 @@ msgstr "Глобальные активы"
 #: ../ng_anr/views/anr.dashboard.html:188 ../ng_anr/views/anr.dashboard.html:46
 #: ../ng_anr/views/anr.dashboard.html:92 views/login.html:50
 msgid "Go back"
-msgstr "возвращаться"
+msgstr "вернуться"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4332 src/kb/info/BackofficeKbInfoCtrl.js:2774
 msgid "Governance"
@@ -2134,11 +2134,11 @@ msgstr "Управление"
 
 #: views/items.analysis_guides.kb_mgmt.html:3
 msgid "Guide items"
-msgstr ""
+msgstr "Элементы руководства"
 
 #: views/index.backoffice.html:53
 msgid "Helpful informations"
-msgstr ""
+msgstr "Полезная информация"
 
 #: ../ng_anr/views/__external_translate.html:23
 msgid "Hidden on global dashboard"
@@ -2366,7 +2366,7 @@ msgstr "В библиотеке этот актив является прямы�
 #: ../ng_anr/src/AnrSoaCtrl.js:231 ../ng_anr/views/anr.soa.html:47
 #: ../ng_anr/views/import.soa.html:40
 msgid "Inclusion/Exclusion"
-msgstr "Инклюзия/Инклюзия"
+msgstr "Включить/Исключить"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:311 ../ng_anr/views/_anr.kbmgmt.html:314
 #: ../ng_anr/views/anr.dashboard.html:20 ../ng_anr/views/anr.dashboard.html:282
@@ -2435,7 +2435,7 @@ msgstr "Ирландия, Великобритания, Канада"
 
 #: views/analysis_guides.kb_mgmt.html:28
 msgid "Items"
-msgstr ""
+msgstr "Элементы"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:1379
 msgid "January payroll account, summer recruitment"
