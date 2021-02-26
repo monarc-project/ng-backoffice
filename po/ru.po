@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 10:30+0000\n"
+"PO-Revision-Date: 2021-02-26 10:36+0000\n"
 "Last-Translator: Ruslan Baidan <ruslan.baidan@cases.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -49,15 +49,15 @@ msgstr "Воздействие"
 #: ../ng_anr/views/import.soa.html:16
 msgid ""
 "A SOA can be completed from another one that is in the same risk analysis."
-msgstr "SOA может быть выполнена из другой, находящейся в том же анализе риска."
+msgstr "SOA можно заполнить из другого, находящегося в том же анализе рисков."
 
 #: ../ng_anr/views/_gettext_caveats.html:29
 msgid "A regulator model may not be generic"
-msgstr "Модель регулятора может быть не универсальной"
+msgstr "Модель регулятора может не являться универсальной"
 
 #: ../ng_anr/views/_anr.evalscales.html:98
 msgid "Acceptance thresholds of information risks"
-msgstr "Пороги восприятия информационных рисков"
+msgstr "Пороги принятия информационных рисков"
 
 #: ../ng_anr/views/_anr.evalscales.html:152
 msgid "Acceptance thresholds of operational risks"
@@ -67,7 +67,7 @@ msgstr "Пороги принятия операционных рисков"
 #: ../ng_anr/views/_oprisk_sheet.html:109 ../ng_anr/views/_risk_sheet.html:126
 #: ../ng_anr/views/_table_risks.html:37 ../ng_anr/views/_table_risks_op.html:37
 msgid "Accepted"
-msgstr "Принято"
+msgstr "Принять"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4224 src/kb/info/BackofficeKbInfoCtrl.js:2660
 msgid "Access control policy"
@@ -75,7 +75,7 @@ msgstr "Политика контроля доступа"
 
 #: views/index.backoffice.html:119
 msgid "Account"
-msgstr "аккаунт"
+msgstr "Аккаунт"
 
 #: views/logs.admin.html:30
 msgid "Action"
@@ -115,7 +115,7 @@ msgstr "История действий"
 #: ../ng_anr/views/detach.objlibs.html:23
 #: ../ng_anr/views/detach.objlibs.html:43
 msgid "Active parent"
-msgstr "Активный родитель"
+msgstr "Активный родительский элемент"
 
 #: ../ng_anr/views/anr.ropa.html:513
 msgid "Activity(s)"
@@ -123,11 +123,11 @@ msgstr "Деятельность(и)"
 
 #: ../ng_anr/views/anr.ropa.html:108 ../ng_anr/views/anr.ropa.html:534
 msgid "Actor"
-msgstr "Актер"
+msgstr "Актор"
 
 #: ../ng_anr/views/anr.ropa.html:100 ../ng_anr/views/anr.ropa.html:526
 msgid "Actors"
-msgstr "Актеры"
+msgstr "Акторы"
 
 #: ../ng_anr/views/_gettext_caveats.html:6
 msgid "Add"
@@ -145,7 +145,7 @@ msgstr "Добавить категорию субъектов данных и �
 
 #: views/dialogs/create.clients.html:5
 msgid "Add a client"
-msgstr ""
+msgstr "Добавить клиента"
 
 #: ../ng_anr/views/_object.composition.html:10
 #: ../ng_anr/views/_object.composition.html:20
