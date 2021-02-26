@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 09:59+0000\n"
+"PO-Revision-Date: 2021-02-26 14:00+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: none\n"
 "Language: pt\n"
@@ -18,18 +18,24 @@ msgid ""
 "0: generic\n"
 "1: specific"
 msgstr ""
+"0: genérico\n"
+"1: específico"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2567
 msgid ""
 "1: generic\n"
 "2: specific"
 msgstr ""
+"1: genérico\n"
+"2: específico"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid ""
 "1: primary asset\n"
 "2: secondary asset"
 msgstr ""
+"1: activo primário\n"
+"2: activo secundário"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -146,7 +152,7 @@ msgstr "Adicionar uma categoria de sujeitos de dados e dados pessoais"
 
 #: views/dialogs/create.clients.html:5
 msgid "Add a client"
-msgstr ""
+msgstr "Adicionar um cliente"
 
 #: ../ng_anr/views/_object.composition.html:10
 #: ../ng_anr/views/_object.composition.html:20
@@ -172,7 +178,7 @@ msgstr "Adicionar um modelo entregável"
 
 #: views/dialogs/create.guides.html:5
 msgid "Add a guide"
-msgstr ""
+msgstr "Adicionar um guia"
 
 #: ../ng_anr/views/anr.ropa.html:212
 msgid "Add a joint controller"
@@ -180,7 +186,7 @@ msgstr "Adicionar um controlador conjunto"
 
 #: views/dialogs/create.models.html:5
 msgid "Add a model"
-msgstr ""
+msgstr "Adicionar um modelo"
 
 #: ../ng_anr/views/anr.ropa.html:26 ../ng_anr/views/create.records.html:5
 msgid "Add a processing"
@@ -226,7 +232,7 @@ msgstr "Acrescentar um risco"
 
 #: views/dialogs/create.servers.admin.html:5
 msgid "Add a server"
-msgstr ""
+msgstr "Adicionar um servidor"
 
 #: ../ng_anr/views/snapshots.html:13
 msgid "Add a snapshot"
@@ -283,7 +289,7 @@ msgstr "Acrescentar uma entrevista"
 
 #: views/dialogs/create.guides.items.html:5
 msgid "Add an item"
-msgstr ""
+msgstr "Adicionar um item"
 
 #: views/dialogs/create.users.admin.html:5
 msgid "Add an user"
@@ -304,7 +310,7 @@ msgstr "Informação adicional"
 
 #: views/dialogs/create.servers.admin.html:25 views/servers.admin.html:26
 msgid "Address"
-msgstr ""
+msgstr "Endereço"
 
 #: ../ng_anr/views/anr.ropa.html:132 ../ng_anr/views/anr.ropa.html:163
 #: ../ng_anr/views/anr.ropa.html:194 ../ng_anr/views/anr.ropa.html:233
@@ -354,7 +360,7 @@ msgstr "Ocorreu um erro enquanto se buscava {{coisa }}: {{{status}}}"
 
 #: views/analysis_guides.kb_mgmt.html:5
 msgid "Analysis guides"
-msgstr ""
+msgstr "Guias de análise"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4140 ../ng_anr/src/AnrKbMgmtCtrl.js:4250
 #: src/kb/info/BackofficeKbInfoCtrl.js:2555
@@ -390,7 +396,7 @@ msgstr "Tem a certeza de que quer eliminar a categoria?"
 
 #: src/BackofficeClientMgmtCtrl.js:101
 msgid "Are you sure you want to delete client?"
-msgstr ""
+msgstr "Tens a certeza que queres apagar um cliente?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1149 src/kb/info/BackofficeKbInfoCtrl.js:971
 msgid "Are you sure you want to delete control?"
@@ -406,11 +412,11 @@ msgstr "Tem a certeza de que quer eliminar a transferência internacional?"
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:84
 msgid "Are you sure you want to delete item?"
-msgstr ""
+msgstr "Tens a certeza que queres apagar o item?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:103
 msgid "Are you sure you want to delete model?"
-msgstr ""
+msgstr "Tens a certeza que queres apagar o modelo?"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:557
 msgid "Are you sure you want to delete personal data category?"
@@ -440,7 +446,7 @@ msgstr "Tem a certeza de que quer eliminar o risco?"
 
 #: src/admin/BackofficeAdminServerCtrl.js:95
 msgid "Are you sure you want to delete server?"
-msgstr ""
+msgstr "Tens a certeza que queres apagar o servidor?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1810
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:129
@@ -463,6 +469,7 @@ msgstr "Tem a certeza de que quer apagar o(s) bem(s) seleccionado(s) {{count}}?"
 #: src/BackofficeClientMgmtCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected client(s)?"
 msgstr ""
+"Tem a certeza que quer apagar o(s) {{count}} cliente(s) seleccionado(s)?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1174 src/kb/info/BackofficeKbInfoCtrl.js:994
 msgid "Are you sure you want to delete the {{count}} selected controls?"
@@ -470,7 +477,7 @@ msgstr "Tem a certeza de que quer apagar os controlos seleccionados?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected model(s)?"
-msgstr ""
+msgstr "Tem a certeza que quer apagar o(s) modelo(s) seleccionado(s)?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2481
 msgid "Are you sure you want to delete the {{count}} selected recommendations?"
@@ -502,11 +509,11 @@ msgstr "Tem a certeza de que quer apagar o tema?"
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:73
 msgid "Are you sure you want to delete this guide?"
-msgstr ""
+msgstr "Tens a certeza que queres apagar este guia?"
 
 #: src/kb/BackofficeQuestionsCtrl.js:115
 msgid "Are you sure you want to delete this question?"
-msgstr ""
+msgstr "Tem a certeza que quer apagar esta pergunta?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1408 src/kb/info/BackofficeKbInfoCtrl.js:1211
 msgid "Are you sure you want to delete this risk?"
@@ -879,15 +886,15 @@ msgstr "Verifique"
 
 #: src/kb/BackofficeQuestionsCtrl.js:28 views/dialogs/create.questions.html:72
 msgid "Checkboxes"
-msgstr ""
+msgstr "Caixas de seleção"
 
 #: views/dialogs/create.questions.html:88
 msgid "Choice {{idx+1}}"
-msgstr ""
+msgstr "Escolha {{{idx+1}}"
 
 #: views/dialogs/create.questions.html:83
 msgid "Choices"
-msgstr ""
+msgstr "Escolhas"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:40
 msgid "Classification"
@@ -904,7 +911,7 @@ msgstr "Clique aqui para digitar..."
 
 #: views/index.backoffice.html:104
 msgid "Client management"
-msgstr ""
+msgstr "Gestão de clientes"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:50
 msgid "Client manager(s)"
@@ -912,7 +919,7 @@ msgstr "Gestor(es) de clientes"
 
 #: views/index.client_mgmt.html:5
 msgid "Clients"
-msgstr ""
+msgstr "Clientes"
 
 #: ../ng_anr/views/add.objlib.html:8 ../ng_anr/views/anr.dashboard.risks.html:8
 #: ../ng_anr/views/create.amvs.html:9 ../ng_anr/views/create.assets.html:9
@@ -998,7 +1005,7 @@ msgstr "Comentários"
 
 #: views/dialogs/create.clients.html:16 views/index.client_mgmt.html:39
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #: ../ng_anr/views/anr.dashboard.html:309
 msgid "Compliance"
@@ -1045,7 +1052,7 @@ msgstr "Dados de contacto, dados bancários, qualificações"
 
 #: views/analysis_guides.kb_mgmt.html:19 views/dialogs/create.guides.html:31
 msgid "Contains items"
-msgstr ""
+msgstr "Contém itens"
 
 #: ../ng_anr/views/interviews.html:29 ../ng_anr/views/interviews.html:47
 msgid "Contents"
@@ -1214,7 +1221,7 @@ msgstr "Senha personalizada"
 
 #: views/dialogs/create.users.admin.html:51
 msgid "Customer admin"
-msgstr ""
+msgstr "Administração do cliente"
 
 #: ../ng_anr/views/_gettext_caveats.html:99 ../ng_anr/views/anr.layout.html:31
 #: ../ng_anr/views/anr.layout.html:58
@@ -1231,7 +1238,7 @@ msgstr "Responsável pela protecção de dados"
 
 #: views/dialogs/create.users.admin.html:49
 msgid "Database admin"
-msgstr ""
+msgstr "Administração da base de dados"
 
 #: ../ng_anr/views/interviews.html:45 ../ng_anr/views/snapshots.html:30
 #: views/index.client_mgmt.html:42 views/logs.admin.html:34
@@ -1599,7 +1606,7 @@ msgstr ""
 
 #: views/models.kb_mgmt.html:73
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplicata"
 
 #: ../ng_anr/views/object.html:33
 msgid "Duplicate asset"
@@ -1607,7 +1614,7 @@ msgstr "Duplicação de bens"
 
 #: views/models.kb_mgmt.html:44
 msgid "Duplicating model..."
-msgstr ""
+msgstr "Duplicando o modelo..."
 
 #: ../ng_anr/src/AnrObjectCtrl.js:343
 #: src/kb/models/BackofficeKbModelsCtrl.js:148
@@ -1657,7 +1664,7 @@ msgstr "Categoria de edição"
 
 #: views/dialogs/create.clients.html:6
 msgid "Edit client"
-msgstr ""
+msgstr "Editar cliente"
 
 #: ../ng_anr/views/create.objlibs.node.html:6
 msgid "Edit component"
@@ -1673,7 +1680,7 @@ msgstr "Editar modelo entregável"
 
 #: views/dialogs/create.guides.html:6
 msgid "Edit guide"
-msgstr ""
+msgstr "Guia de edição"
 
 #: ../ng_anr/views/anr.instance.html:22 ../ng_anr/views/create.instance.html:5
 msgid "Edit impacts"
@@ -1681,7 +1688,7 @@ msgstr "Editar impactos"
 
 #: views/models.kb_mgmt.html:72
 msgid "Edit information"
-msgstr ""
+msgstr "Editar informações"
 
 #: ../ng_anr/views/interviews.html:35
 msgid "Edit interview"
@@ -1689,15 +1696,15 @@ msgstr "Editar entrevista"
 
 #: views/dialogs/create.guides.items.html:6
 msgid "Edit item"
-msgstr ""
+msgstr "Editar item"
 
 #: views/dialogs/create.models.html:6
 msgid "Edit model"
-msgstr ""
+msgstr "Editar modelo"
 
 #: views/dialogs/create.questions.html:6
 msgid "Edit question"
-msgstr ""
+msgstr "Editar pergunta"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:578
 #: ../ng_anr/views/create.recommandationsSets.html:6
@@ -1723,7 +1730,7 @@ msgstr "Editar análise de risco"
 
 #: views/dialogs/create.servers.admin.html:6
 msgid "Edit server"
-msgstr ""
+msgstr "Editar servidor"
 
 #: ../ng_anr/views/create.specrisk.html:6
 msgid "Edit specific information risk"
@@ -1755,7 +1762,7 @@ msgstr "Editar vulnerabilidade"
 
 #: views/dialogs/create.models.html:45 views/models.kb_mgmt.html:56
 msgid "Editable impact scale"
-msgstr ""
+msgstr "Escala de impacto editável"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1134 ../ng_anr/src/AnrKbMgmtCtrl.js:1290
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1389 ../ng_anr/src/AnrKbMgmtCtrl.js:1594
@@ -1797,7 +1804,7 @@ msgstr "Empregado, clientes existentes, candidatos de recrutamento"
 
 #: views/dialogs/create.models.html:46
 msgid "Enable inherent risk"
-msgstr ""
+msgstr "Permitir o risco inerente"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:1614
 msgid "Encrypted storage, access controls"
@@ -1970,7 +1977,7 @@ msgstr "F (Risco líquido)"
 
 #: views/dialogs/create.servers.admin.html:37 views/servers.admin.html:25
 msgid "FQDN"
-msgstr ""
+msgstr "FQDN"
 
 #: ../ng_anr/views/_gettext_caveats.html:48
 msgid "Field previous missing"
@@ -2039,15 +2046,15 @@ msgstr "Primeiro nome"
 
 #: views/dialogs/create.clients.html:77
 msgid "First user email"
-msgstr ""
+msgstr "Primeiro e-mail de usuário"
 
 #: views/dialogs/create.clients.html:59
 msgid "First user first name"
-msgstr ""
+msgstr "Primeiro nome de utilizador"
 
 #: views/dialogs/create.clients.html:68
 msgid "First user last name"
-msgstr ""
+msgstr "Primeiro sobrenome de usuário"
 
 #: ../ng_anr/views/import.soa.html:24
 msgid ""
@@ -2128,11 +2135,11 @@ msgstr "Governação"
 
 #: views/items.analysis_guides.kb_mgmt.html:3
 msgid "Guide items"
-msgstr ""
+msgstr "Itens Guia"
 
 #: views/index.backoffice.html:53
 msgid "Helpful informations"
-msgstr ""
+msgstr "Informações úteis"
 
 #: ../ng_anr/views/__external_translate.html:23
 msgid "Hidden on global dashboard"
@@ -2429,7 +2436,7 @@ msgstr "Irlanda, Reino Unido, Canadá"
 
 #: views/analysis_guides.kb_mgmt.html:28
 msgid "Items"
-msgstr ""
+msgstr "Itens"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:1379
 msgid "January payroll account, summer recruitment"
@@ -2441,7 +2448,7 @@ msgstr "Controladores conjuntos"
 
 #: views/index.backoffice.html:19
 msgid "KB management"
-msgstr ""
+msgstr "gestão KB"
 
 #: ../ng_anr/views/_table_risks.html:25 ../ng_anr/views/_table_risks_op.html:24
 msgid "Keywords"
@@ -2590,7 +2597,7 @@ msgstr "Localização"
 
 #: views/info_risk.kb_mgmt.html:433 views/info_risk.kb_mgmt.html:434
 msgid "Lock"
-msgstr ""
+msgstr "Fechadura"
 
 #: views/login.html:25
 msgid "Log in"
@@ -2610,7 +2617,7 @@ msgstr "Risco MAX"
 
 #: views/index.backoffice.html:98
 msgid "Manage servers"
-msgstr ""
+msgstr "Gerir servidores"
 
 #: views/index.backoffice.html:90
 msgid "Manage users"
@@ -2648,7 +2655,7 @@ msgstr "Criação manual"
 
 #: views/info_risk.kb_mgmt.html:240
 msgid "Match referential"
-msgstr ""
+msgstr "Match referencial"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:232
 #: ../ng_anr/views/match.referentials.html:5
@@ -2690,7 +2697,7 @@ msgstr "Modo"
 
 #: views/dialogs/create.clients.html:47
 msgid "Model"
-msgstr ""
+msgstr "Modelo"
 
 #: ../ng_anr/views/_gettext_caveats.html:46
 msgid "Model missing"
@@ -2708,7 +2715,7 @@ msgstr "Modelos"
 
 #: views/dialogs/create.questions.html:80
 msgid "Multiple choices"
-msgstr ""
+msgstr "Múltiplas escolhas"
 
 #: ../ng_anr/views/import.file.html:151
 msgid "Multiple tags must be separated by a slash"
@@ -2716,7 +2723,7 @@ msgstr "As etiquetas múltiplas devem ser separadas por uma barra"
 
 #: views/account.html:4
 msgid "My account details"
-msgstr ""
+msgstr "Os detalhes da minha conta"
 
 #: ../ng_anr/views/anr.ropa.html:109 ../ng_anr/views/anr.ropa.html:505
 #: ../ng_anr/views/anr.ropa.html:535 ../ng_anr/views/anr.ropa.html:76
@@ -2744,7 +2751,7 @@ msgstr "Rede"
 
 #: views/index.client_mgmt.html:6 views/index.client_mgmt.html:8
 msgid "New client"
-msgstr ""
+msgstr "Novo cliente"
 
 #: ../ng_anr/views/_anr.evalscales.html:46
 msgid "New column name"
@@ -2764,16 +2771,16 @@ msgstr "Novos controlos:"
 
 #: views/analysis_guides.kb_mgmt.html:6 views/analysis_guides.kb_mgmt.html:8
 msgid "New guide"
-msgstr ""
+msgstr "Novo guia"
 
 #: views/items.analysis_guides.kb_mgmt.html:4
 #: views/items.analysis_guides.kb_mgmt.html:6
 msgid "New guide item"
-msgstr ""
+msgstr "Novo item guia"
 
 #: views/models.kb_mgmt.html:6 views/models.kb_mgmt.html:8
 msgid "New model"
-msgstr ""
+msgstr "Novo modelo"
 
 #: views/account.html:48 views/passwordforgotten.html:13
 msgid "New password"
@@ -2781,19 +2788,19 @@ msgstr "Nova palavra-passe"
 
 #: views/op_risk.kb_mgmt.html:72
 msgid "New risk"
-msgstr ""
+msgstr "Novo risco"
 
 #: views/servers.admin.html:5 views/servers.admin.html:7
 msgid "New server"
-msgstr ""
+msgstr "Novo servidor"
 
 #: views/op_risk.kb_mgmt.html:7
 msgid "New tag"
-msgstr ""
+msgstr "Nova etiqueta"
 
 #: views/users.admin.html:5 views/users.admin.html:7
 msgid "New user"
-msgstr ""
+msgstr "Novo usuário"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4692 src/kb/info/BackofficeKbInfoCtrl.js:3133
 msgid "New {{extItemLabel}}"
@@ -2867,11 +2874,11 @@ msgstr "Nenhuma transferência internacional"
 #: views/dialogs/create.guides.items.html:43
 #: views/dialogs/create.questions.html:60
 msgid "No item matching your search was found"
-msgstr ""
+msgstr "Nenhum item que corresponda à sua pesquisa foi encontrado."
 
 #: views/dialogs/create.guides.html:30
 msgid "No items"
-msgstr ""
+msgstr "Nenhum artigo"
 
 #: ../ng_anr/views/create.specriskop.html:42
 msgid "No operational risk matching your search was found"
@@ -2989,7 +2996,7 @@ msgstr "Apenas um guia por categoria"
 
 #: views/models.kb_mgmt.html:71
 msgid "Open details"
-msgstr ""
+msgstr "Abrir detalhes"
 
 #: ../ng_anr/views/_table_risks.html:130
 msgid "Open risk sheet"
@@ -3160,7 +3167,7 @@ msgstr "Componente anterior..."
 #: views/dialogs/create.guides.items.html:37
 #: views/dialogs/create.questions.html:54
 msgid "Previous item..."
-msgstr ""
+msgstr "Item anterior..."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:341 ../ng_anr/views/create.assets.html:86
 #: src/kb/info/BackofficeKbInfoCtrl.js:308
@@ -3206,11 +3213,11 @@ msgstr "Conformidade do produto Acordo com o cliente"
 
 #: src/BackofficeAccountCtrl.js:33
 msgid "Profile updated"
-msgstr ""
+msgstr "Perfil actualizado"
 
 #: views/dialogs/create.clients.html:37 views/index.client_mgmt.html:41
 msgid "Proxy alias"
-msgstr ""
+msgstr "Alias de procuração"
 
 #: ../ng_anr/views/anr.ropa.html:88
 msgid "Purpose(s)"
@@ -3240,7 +3247,7 @@ msgstr "Pergunta eliminada"
 
 #: views/index.backoffice.html:60 views/questions.kb_mgmt.html:5
 msgid "Questions of trends assessment"
-msgstr ""
+msgstr "Questões de avaliação de tendências"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:140
 msgid "R (Inherent risk)"
@@ -3604,11 +3611,11 @@ msgstr "Separado por /"
 
 #: views/dialogs/create.clients.html:25
 msgid "Server"
-msgstr ""
+msgstr "Servidor"
 
 #: views/servers.admin.html:4
 msgid "Servers"
-msgstr ""
+msgstr "Servidores"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:124 ../ng_anr/src/AnrSoaSheetCtrl.js:251
 #: ../ng_anr/views/_oprisk_sheet.html:110 ../ng_anr/views/_risk_sheet.html:127
@@ -3660,7 +3667,7 @@ msgstr "Mostrar os riscos operacionais inerentes"
 
 #: src/kb/BackofficeQuestionsCtrl.js:27 views/dialogs/create.questions.html:71
 msgid "Simple text"
-msgstr ""
+msgstr "Texto simples"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2725
 msgid "Snapshot restored"
@@ -3712,7 +3719,7 @@ msgstr "Links para modelos específicos"
 
 #: views/servers.admin.html:27
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #: ../ng_anr/views/anr.layout.html:46 ../ng_anr/views/anr.layout.html:72
 #: ../ng_anr/views/anr.soa.html:2 ../ng_anr/views/export.objlibs.html:64
@@ -3764,7 +3771,7 @@ msgstr "Síntese de bens / impactos"
 
 #: views/dialogs/create.users.admin.html:50
 msgid "System admin"
-msgstr ""
+msgstr "Administração do sistema"
 
 #: ../ng_anr/views/_anr.evalscales.html:145
 msgid "T"
@@ -3797,15 +3804,15 @@ msgstr "Os valores do CID foram ocultados com sucesso, o impacto foi reavaliado"
 
 #: views/dialogs/create.servers.admin.html:41
 msgid "The FQDN may not be empty"
-msgstr ""
+msgstr "O FQDN não pode estar vazio"
 
 #: views/dialogs/create.servers.admin.html:31
 msgid "The IP address may not be empty"
-msgstr ""
+msgstr "O endereço IP não pode estar vazio"
 
 #: views/dialogs/create.servers.admin.html:32
 msgid "The IP address must be of this form : xxx.xxx.xxx.xxx"
-msgstr ""
+msgstr "O endereço IP deve ser deste formulário : xxx.xxx.xxx.xxx.xxx"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:216
 msgid "The SOA has been imported successfully."
@@ -3921,15 +3928,15 @@ msgstr "A categoria não pode estar vazia"
 
 #: src/BackofficeClientMgmtCtrl.js:52
 msgid "The client has been created successfully."
-msgstr ""
+msgstr "O cliente foi criado com sucesso."
 
 #: src/BackofficeClientMgmtCtrl.js:110
 msgid "The client has been deleted."
-msgstr ""
+msgstr "O cliente foi apagado."
 
 #: src/BackofficeClientMgmtCtrl.js:83
 msgid "The client has been edited successfully."
-msgstr ""
+msgstr "O cliente foi editado com sucesso."
 
 #: ../ng_anr/views/create.assets.html:78
 #: ../ng_anr/views/create.measures.html:54 ../ng_anr/views/create.risks.html:55
@@ -3980,27 +3987,27 @@ msgstr "O documento foi editado com sucesso."
 
 #: views/account.html:28 views/dialogs/create.clients.html:81
 msgid "The first user email may not be empty"
-msgstr ""
+msgstr "O primeiro e-mail do usuário não pode estar vazio"
 
 #: views/dialogs/create.clients.html:63
 msgid "The first user first name may not be empty"
-msgstr ""
+msgstr "O primeiro nome de usuário não pode estar vazio"
 
 #: views/dialogs/create.clients.html:72
 msgid "The first user last name may not be empty"
-msgstr ""
+msgstr "O primeiro sobrenome do usuário não pode estar vazio"
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:39
 msgid "The guide has been created successfully."
-msgstr ""
+msgstr "O guia foi criado com sucesso."
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:83
 msgid "The guide has been deleted."
-msgstr ""
+msgstr "O guia foi apagado."
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:63
 msgid "The guide has been edited successfully."
-msgstr ""
+msgstr "O guia foi editado com sucesso."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1585
 msgid "The impact scale type has been deleted successfully."
@@ -4020,15 +4027,15 @@ msgstr "O exemplo foi importado com sucesso"
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:48
 msgid "The item has been created successfully."
-msgstr ""
+msgstr "O item foi criado com sucesso."
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:94
 msgid "The item has been deleted."
-msgstr ""
+msgstr "O item foi eliminado."
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:75
 msgid "The item has been edited successfully."
-msgstr ""
+msgstr "O item foi editado com sucesso."
 
 #: ../ng_anr/views/create.assets.html:52
 #: ../ng_anr/views/create.categories.html:39
@@ -4056,19 +4063,19 @@ msgstr ""
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:54
 msgid "The model has been created successfully."
-msgstr ""
+msgstr "O modelo foi criado com sucesso."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:113
 msgid "The model has been deleted."
-msgstr ""
+msgstr "O modelo foi eliminado."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:147
 msgid "The model has been duplicated sucessfully."
-msgstr ""
+msgstr "O modelo tem sido duplicado com sucesso."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:83
 msgid "The model has been edited successfully."
-msgstr ""
+msgstr "O modelo foi editado com sucesso."
 
 #: ../ng_anr/views/create.objlibs.html:38 views/dialogs/create.clients.html:20
 msgid "The name may not be empty"
@@ -4093,25 +4100,27 @@ msgstr "O processamento foi duplicado com sucesso."
 
 #: views/dialogs/create.clients.html:41
 msgid "The proxy alias may not be empty"
-msgstr ""
+msgstr "O pseudônimo de proxy não pode estar vazio"
 
 #: views/dialogs/create.clients.html:42
 msgid ""
 "The proxy alias may only contain alphanumeric characters, underscores and "
 "dashes, and must be at least 3 characters long."
 msgstr ""
+"O pseudónimo proxy só pode conter caracteres alfanuméricos, sublinhados e "
+"traços, e deve ter pelo menos 3 caracteres de comprimento."
 
 #: src/kb/BackofficeQuestionsCtrl.js:55
 msgid "The question has been created successfully."
-msgstr ""
+msgstr "A questão foi criada com sucesso."
 
 #: src/kb/BackofficeQuestionsCtrl.js:125
 msgid "The question has been deleted."
-msgstr ""
+msgstr "A pergunta foi eliminada."
 
 #: src/kb/BackofficeQuestionsCtrl.js:95
 msgid "The question has been edited successfully."
-msgstr ""
+msgstr "A questão foi editada com sucesso."
 
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:141
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:40
@@ -4262,15 +4271,15 @@ msgstr ""
 
 #: src/admin/BackofficeAdminServerCtrl.js:49
 msgid "The server has been created successfully."
-msgstr ""
+msgstr "O servidor foi criado com sucesso."
 
 #: src/admin/BackofficeAdminServerCtrl.js:105
 msgid "The server has been deleted."
-msgstr ""
+msgstr "O servidor foi apagado."
 
 #: src/admin/BackofficeAdminServerCtrl.js:74
 msgid "The server has been edited successfully."
-msgstr ""
+msgstr "O servidor foi editado com sucesso."
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:210
 msgid "The server returned the error code:"
@@ -4709,7 +4718,7 @@ msgstr "Utilizador"
 
 #: views/dialogs/create.users.admin.html:48
 msgid "User admin"
-msgstr ""
+msgstr "Administração do usuário"
 
 #: views/users.admin.html:4
 msgid "Users"
@@ -4995,11 +5004,11 @@ msgstr "Deve seleccionar um local"
 
 #: views/dialogs/create.guides.html:34
 msgid "You must select a mode"
-msgstr ""
+msgstr "Você deve selecionar um modo"
 
 #: views/dialogs/create.clients.html:54
 msgid "You must select a model"
-msgstr ""
+msgstr "Você deve selecionar um modelo"
 
 #: ../ng_anr/views/_gettext_caveats.html:30
 msgid "You must select a position for your category"
@@ -5011,7 +5020,7 @@ msgstr "Deve seleccionar um risco"
 
 #: views/dialogs/create.clients.html:32
 msgid "You must select a server"
-msgstr ""
+msgstr "Você deve selecionar um servidor"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:28
 msgid "You must select a template"
@@ -5023,7 +5032,7 @@ msgstr "Deve seleccionar uma ameaça"
 
 #: views/dialogs/create.questions.html:75
 msgid "You must select a type"
-msgstr ""
+msgstr "Você deve selecionar um tipo"
 
 #: ../ng_anr/views/create.amvs.html:108 ../ng_anr/views/create.specrisk.html:60
 msgid "You must select a vulnerability"
@@ -5075,7 +5084,7 @@ msgstr ""
 
 #: src/BackofficeAccountCtrl.js:33
 msgid "Your profile has been updated successfully"
-msgstr ""
+msgstr "O seu perfil foi actualizado com sucesso"
 
 #: ../ng_anr/views/create.amvs.html:153
 #: ../ng_anr/views/create.objlibs.categories.html:50
@@ -5101,11 +5110,11 @@ msgstr "categorias"
 
 #: views/index.client_mgmt.html:28
 msgid "client selected"
-msgstr ""
+msgstr "cliente selecionado"
 
 #: views/index.client_mgmt.html:28
 msgid "clients selected"
-msgstr ""
+msgstr "clientes selecionados"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4621 src/kb/info/BackofficeKbInfoCtrl.js:3072
 msgid "code is already in use"
@@ -5237,11 +5246,11 @@ msgstr "{{conta}} os bens foram eliminados."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:296
 msgid "{{count}} assets type have been deleted."
-msgstr ""
+msgstr "{{conta}} tipo de activo foram apagados."
 
 #: src/BackofficeClientMgmtCtrl.js:138
 msgid "{{count}} clients have been deleted."
-msgstr ""
+msgstr "Os clientes foram apagados."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1187 src/kb/info/BackofficeKbInfoCtrl.js:1008
 msgid "{{count}} controls have been deleted."
@@ -5249,7 +5258,7 @@ msgstr "Os controlos foram eliminados."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:134
 msgid "{{count}} models have been deleted."
-msgstr ""
+msgstr "Os modelos foram apagados."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2494
 msgid "{{count}} recommendations have been deleted."
