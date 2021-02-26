@@ -127,7 +127,7 @@ msgstr "Актор"
 
 #: ../ng_anr/views/anr.ropa.html:100 ../ng_anr/views/anr.ropa.html:526
 msgid "Actors"
-msgstr "Актеры"
+msgstr "Акторы"
 
 #: ../ng_anr/views/_gettext_caveats.html:6
 msgid "Add"
