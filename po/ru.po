@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 10:35+0000\n"
+"PO-Revision-Date: 2021-02-26 10:36+0000\n"
 "Last-Translator: Ruslan Baidan <ruslan.baidan@cases.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -145,7 +145,7 @@ msgstr "Добавить категорию субъектов данных и �
 
 #: views/dialogs/create.clients.html:5
 msgid "Add a client"
-msgstr ""
+msgstr "Добавить клиента"
 
 #: ../ng_anr/views/_object.composition.html:10
 #: ../ng_anr/views/_object.composition.html:20
