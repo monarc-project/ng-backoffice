@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 10:36+0000\n"
+"PO-Revision-Date: 2021-02-26 10:37+0000\n"
 "Last-Translator: Ruslan Baidan <ruslan.baidan@cases.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -171,7 +171,7 @@ msgstr "Добавить поставляемый шаблон"
 
 #: views/dialogs/create.guides.html:5
 msgid "Add a guide"
-msgstr ""
+msgstr "Добавить руководство"
 
 #: ../ng_anr/views/anr.ropa.html:212
 msgid "Add a joint controller"
@@ -179,7 +179,7 @@ msgstr "Добавить совместный контроллер"
 
 #: views/dialogs/create.models.html:5
 msgid "Add a model"
-msgstr ""
+msgstr "Добавить модель"
 
 #: ../ng_anr/views/anr.ropa.html:26 ../ng_anr/views/create.records.html:5
 msgid "Add a processing"
@@ -225,7 +225,7 @@ msgstr "Добавить риск"
 
 #: views/dialogs/create.servers.admin.html:5
 msgid "Add a server"
-msgstr ""
+msgstr "Добавить сервер"
 
 #: ../ng_anr/views/snapshots.html:13
 msgid "Add a snapshot"
