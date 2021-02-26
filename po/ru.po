@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 09:59+0000\n"
-"Last-Translator: Juan Rocha <juan.rocha@securitymadein.lu>\n"
+"PO-Revision-Date: 2021-02-26 10:30+0000\n"
+"Last-Translator: Ruslan Baidan <ruslan.baidan@cases.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr "A"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:49 ../ng_anr/views/_table_risks.html:56
 msgid "A Impact"
-msgstr "A Воздействие"
+msgstr "Воздействие"
 
 #: ../ng_anr/views/import.soa.html:16
 msgid ""
