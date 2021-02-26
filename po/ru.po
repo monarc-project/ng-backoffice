@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 11:00+0000\n"
+"PO-Revision-Date: 2021-02-26 11:01+0000\n"
 "Last-Translator: Ruslan Baidan <ruslan.baidan@cases.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -892,7 +892,7 @@ msgstr "Чек-боксы"
 
 #: views/dialogs/create.questions.html:88
 msgid "Choice {{idx+1}}"
-msgstr ""
+msgstr "Выбор {{idx+1}}"
 
 #: views/dialogs/create.questions.html:83
 msgid "Choices"
