@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2021-03-12 14:52+0000\n"
-"Last-Translator: Sparwel <marc.sparwel@konzeptacht.de>\n"
+"Last-Translator: Ruslan Baidan <ruslan.baidan@cases.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -3258,11 +3258,11 @@ msgstr "R (Nettorisiko)"
 
 #: ../ng_anr/views/_anr.evalscales.html:202
 msgid "R: Risk, I: Impact, P: Probability"
-msgstr "R: Risiko, A: Auswirkung, W: Wahrscheinlichkeit"
+msgstr "R: Risiko, I: Auswirkung, P: Wahrscheinlichkeit"
 
 #: ../ng_anr/views/_anr.evalscales.html:147
 msgid "R: Risk, I: Impact, T: Threat, V: Vulnerability"
-msgstr "R: Risiko, A: Auswirkung, B: Bedrohung, S: Sicherheitsrisiko"
+msgstr "R: Risiko, I: Auswirkung, T: Bedrohung, V: Schwachstelle"
 
 #: ../ng_anr/views/anr.soa.html:93
 msgid "RRA"
