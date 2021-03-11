@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 11:00+0000\n"
-"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
+"PO-Revision-Date: 2021-03-12 14:52+0000\n"
+"Last-Translator: Sparwel <marc.sparwel@konzeptacht.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -368,7 +368,7 @@ msgstr "Analyseanleitungen"
 #: src/kb/info/BackofficeKbInfoCtrl.js:2555
 #: src/kb/info/BackofficeKbInfoCtrl.js:2687
 msgid "Any network hardware (router, switch, firewall, etc.)"
-msgstr "Jede Netzwerkausrüstung (Router, Switch, Firewall usw.)"
+msgstr "Jede Netzwerkkomponente (Router, Switch, Firewall usw.)"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4166 ../ng_anr/src/AnrKbMgmtCtrl.js:4268
 #: src/kb/info/BackofficeKbInfoCtrl.js:2588
@@ -609,28 +609,28 @@ msgstr "Zu exportierender Wert ist erforderlich"
 #: ../ng_anr/views/create.amvs.html:46 ../ng_anr/views/create.objlibs.html:131
 #: ../ng_anr/views/import.object.html:66 views/info_risk.kb_mgmt.html:462
 msgid "Asset type"
-msgstr "Werttyp"
+msgstr "Wertetyp"
 
 #: ../ng_anr/views/_gettext_caveats.html:49
 msgid "Asset type can't be primary"
-msgstr "Werttyp kann nicht primär sein"
+msgstr "Wertetyp kann nicht primär sein"
 
 #: ../ng_anr/views/_gettext_caveats.html:50
 msgid "Asset type mode can't be null"
-msgstr "Werttypmodus kann nicht Null sein"
+msgstr "Wertetypmodus kann nicht Null sein"
 
 #: ../ng_anr/views/_gettext_caveats.html:56
 msgid "Asset type not found"
-msgstr "Werttyp nicht gefunden"
+msgstr "Wertetyp nicht gefunden"
 
 #: ../ng_anr/views/anr.risksplan.history.html:31
 msgid "Asset type:"
-msgstr "Werttyp:"
+msgstr "Wertetyp:"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:4 ../ng_anr/views/_anr.kbmgmt.html:7
 #: views/info_risk.kb_mgmt.html:3 views/info_risk.kb_mgmt.html:7
 msgid "Asset types"
-msgstr "Werttypen"
+msgstr "Wertetypen"
 
 #: ../ng_anr/views/_object.composition.html:64
 #: ../ng_anr/views/detach.objlibs.html:38
@@ -639,7 +639,7 @@ msgstr "In der Risikoanalyse verwendeter Wert"
 
 #: ../ng_anr/views/_gettext_caveats.html:71
 msgid "Asset's model must not be regulator"
-msgstr "Wertmodell darf kein Regulierer sein"
+msgstr "Wertemodell darf kein Regulierer sein"
 
 #: ../ng_anr/views/anr.risksplan.history.html:32
 #: ../ng_anr/views/create.amvs.html:60
@@ -650,15 +650,15 @@ msgstr "Wert:"
 #: ../ng_anr/views/_anr.riskanalysis.html:44 views/info_risk.kb_mgmt.html:408
 #: views/info_risk.kb_mgmt.html:411
 msgid "Assets library"
-msgstr "Wertbibliothek"
+msgstr "Wertebibliothek"
 
 #: ../ng_anr/views/create.recommandation-measure.html:39
 msgid "Attach"
-msgstr "Anfügen"
+msgstr "Anhängen"
 
 #: ../ng_anr/views/create.recommandation-measure.html:5
 msgid "Attach a control to the recommendation"
-msgstr "Der Empfehlung eine Maßnahme anfügen"
+msgstr "Der Empfehlung eine Maßnahme anhängen"
 
 #: ../ng_anr/views/_oprisk_sheet.html:84 ../ng_anr/views/_risk_sheet.html:101
 msgid "Attach this recommendation"
@@ -679,7 +679,7 @@ msgstr "Verfügbarkeit"
 
 #: ../ng_anr/views/import.soa.html:50
 msgid "Average of levels"
-msgstr "Durchschnitt der Niveaus"
+msgstr "Durchschnitt der Level"
 
 #: ../ng_anr/views/anr.soa.html:87
 msgid "BP"
@@ -700,8 +700,8 @@ msgstr "Zurück zur Liste"
 #: ../ng_anr/views/_gettext_caveats.html:28
 msgid "Bad mode for this asset or models attached to asset type incoherent"
 msgstr ""
-"Falscher Modus für diesen Wert oder Inkohärenz der dem Werttyp angefügten "
-"Modelle"
+"Falscher Modus für diesen Wert oder kein Zusammenhang der dem Werttyp "
+"angefügten Modelle"
 
 #: ../ng_anr/views/import.soa.html:17
 msgid "Before importing"
@@ -709,11 +709,11 @@ msgstr "Vor dem Importieren"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:258 ../ng_anr/views/anr.soa.html:88
 msgid "Best practices"
-msgstr "Bewährte Verfahren"
+msgstr "Bewährte Verfahren (Best practices)"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:256 ../ng_anr/views/anr.soa.html:82
 msgid "Business requirements"
-msgstr "Betriebsanforderungen"
+msgstr "Geschäftsanforderungen"
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:49
 #: ../ng_anr/views/anr.risksplan.history.html:10
@@ -853,7 +853,7 @@ msgstr "Kategorien der betroffenen Person"
 
 #: ../ng_anr/views/anr.ropa.html:284
 msgid "Categories of data subjects and personal data"
-msgstr "Kategorien der betroffenen Personen und personenbezogene Daten"
+msgstr "Kategorien der betroffenen Personen und personenbezogenen Daten"
 
 #: ../ng_anr/views/anr.ropa.html:300
 msgid "Categories of personal data"
@@ -882,7 +882,7 @@ msgstr "Kennwort ändern"
 #: ../ng_anr/views/anr.dashboard.html:340 ../ng_anr/views/anr.dashboard.html:35
 #: ../ng_anr/views/anr.dashboard.html:81
 msgid "Chart type"
-msgstr "Grafiktyp"
+msgstr "Diagrammtyp"
 
 #: ../ng_anr/views/snapshots.html:46
 msgid "Check"
