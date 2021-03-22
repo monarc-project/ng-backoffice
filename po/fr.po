@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 11:00+0000\n"
+"PO-Revision-Date: 2021-03-22 14:49+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -228,7 +228,7 @@ msgstr "Ajouter un référentiel"
 #: ../ng_anr/views/create.amvs.html:5 ../ng_anr/views/create.risks.html:5
 #: views/info_risk.kb_mgmt.html:322 views/info_risk.kb_mgmt.html:324
 msgid "Add a risk"
-msgstr "Ajouter un  risque"
+msgstr "Ajouter un risque"
 
 #: views/dialogs/create.servers.admin.html:5
 msgid "Add a server"
@@ -409,7 +409,7 @@ msgstr "Êtes-vous sûr de vouloir supprimer un document ?"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:703
 msgid "Are you sure you want to delete international transfer?"
-msgstr "Êtes-vous sûr de vouloir supprimer le transfert international?"
+msgstr "Êtes-vous sûr de vouloir supprimer le transfert international ?"
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:84
 msgid "Are you sure you want to delete item?"
@@ -431,16 +431,16 @@ msgstr "Êtes-vous sûr de vouloir supprimer le destinataire ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2324
 msgid "Are you sure you want to delete recommendation set?"
-msgstr "Voulez-vous réellement supprimer l'ensemble de recommandations?"
+msgstr "Voulez-vous réellement supprimer l'ensemble de recommandations ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2456
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:151
 msgid "Are you sure you want to delete recommendation?"
-msgstr "Voulez-vous réellement supprimer la recommandation  ?"
+msgstr "Voulez-vous réellement supprimer la recommandation ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1028 src/kb/info/BackofficeKbInfoCtrl.js:860
 msgid "Are you sure you want to delete referential?"
-msgstr "Êtes-vous sûr de vouloir supprimer le référentiel?"
+msgstr "Êtes-vous sûr de vouloir supprimer le référentiel ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2083
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:357
@@ -514,7 +514,7 @@ msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2813 src/kb/info/BackofficeKbInfoCtrl.js:1823
 msgid "Are you sure you want to delete theme?"
-msgstr "Êtes-vous sûr de vouloir supprimer le thème?"
+msgstr "Êtes-vous sûr de vouloir supprimer le thème ?"
 
 #: src/kb/BackofficeAnalysisGuidesCtrl.js:73
 msgid "Are you sure you want to delete this guide?"
@@ -1443,7 +1443,7 @@ msgstr "Modèle de livrable pour la validation de modèle"
 
 #: ../ng_anr/views/_gettext_caveats.html:15
 msgid "Deliverable template for record of processing activities"
-msgstr "Deliverable template for record of processing activities"
+msgstr "Modèle de livrable pour le registre des activités de traitement"
 
 #: views/deliveries_models.kb_mgmt.html:5 views/index.backoffice.html:46
 msgid "Deliverable templates"
@@ -1862,7 +1862,7 @@ msgstr "Preuves"
 
 #: ../ng_anr/views/import.file.html:152
 msgid "Ex: Tag1/Tag2/Tag3"
-msgstr "Ex: Tag1/Tag2/Tag3"
+msgstr "Ex : Tag1/Tag2/Tag3"
 
 #: ../ng_anr/views/import.file.html:166 ../ng_anr/views/import.record.html:104
 #: ../ng_anr/views/import.record.html:70
@@ -1872,7 +1872,7 @@ msgstr "Exemple de fichier"
 #: ../ng_anr/views/import.file.html:146 ../ng_anr/views/import.record.html:59
 #: ../ng_anr/views/import.record.html:84 ../ng_anr/views/import.record.html:92
 msgid "Example:"
-msgstr "Exemple:"
+msgstr "Exemple :"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:250 ../ng_anr/views/anr.soa.html:64
 msgid "Excluded"
@@ -1898,7 +1898,7 @@ msgstr "Mesures en place"
 
 #: ../ng_anr/views/anr.risksplan.history.html:41
 msgid "Existing controls:"
-msgstr "Mesures en place:"
+msgstr "Mesures en place :"
 
 #: ../ng_anr/views/_anr.riskanalysis.html:12
 msgid "Expand all"
@@ -2181,7 +2181,7 @@ msgstr ""
 
 #: ../ng_anr/views/import.soa.html:22
 msgid "If there is a multiple matching:"
-msgstr "S'il y a plusieurs correspondances:"
+msgstr "S'il y a plusieurs correspondances :"
 
 #: views/dialogs/create.deliverymodel.html:44
 msgid "If you save this template, previous templates will be lost."
@@ -2472,7 +2472,7 @@ msgstr "Type de traitement"
 
 #: ../ng_anr/views/anr.risksplan.history.html:40
 msgid "Kind of treatment:"
-msgstr "Type de traitement:"
+msgstr "Type de traitement :"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1483 ../ng_anr/views/anr.layout.html:37
 #: ../ng_anr/views/anr.layout.html:66 src/kb/info/BackofficeKbInfoCtrl.js:1285
@@ -2571,7 +2571,7 @@ msgstr "Bibliothèque"
 #: ../ng_anr/views/_anr.evalscales.html:62
 #: ../ng_anr/views/_anr.evalscales.html:66
 msgid "Likelihood scale:"
-msgstr "Echelle de vraisemblance:"
+msgstr "Echelle de vraisemblance :"
 
 #: ../ng_anr/views/snapshots.html:25
 msgid "List of available snapshots"
@@ -2579,7 +2579,7 @@ msgstr "Liste des snapshots disponibles"
 
 #: ../ng_anr/views/import.file.html:149
 msgid "List of categories:"
-msgstr "Liste des catégories:"
+msgstr "Liste des catégories :"
 
 #: ../ng_anr/views/import.object.html:54
 msgid "List of common MONARC assets"
@@ -2587,11 +2587,11 @@ msgstr "Liste des actifs MONARC communs"
 
 #: ../ng_anr/views/import.file.html:153
 msgid "List of tags:"
-msgstr "Liste des tags:"
+msgstr "Liste des tags :"
 
 #: ../ng_anr/views/import.file.html:148
 msgid "List of themes:"
-msgstr "Liste des thèmes:"
+msgstr "Liste des thèmes :"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1493 ../ng_anr/views/create.objlibs.html:57
 #: src/kb/info/BackofficeKbInfoCtrl.js:1295
@@ -2777,7 +2777,7 @@ msgstr "Nouvelles mesures"
 
 #: ../ng_anr/views/anr.risksplan.history.html:42
 msgid "New controls:"
-msgstr "Nouvelles mesures:"
+msgstr "Nouvelles mesures :"
 
 #: views/analysis_guides.kb_mgmt.html:6 views/analysis_guides.kb_mgmt.html:8
 msgid "New guide"
@@ -3024,7 +3024,7 @@ msgstr "Opération réussie"
 
 #: ../ng_anr/views/create.objlibs.html:175
 msgid "Operational risk Tag"
-msgstr "Tag des  risques opérationnels"
+msgstr "Tag des risques opérationnels"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:470 ../ng_anr/views/_anr.kbmgmt.html:473
 #: ../ng_anr/views/anr.dashboard.html:116
@@ -3460,7 +3460,7 @@ msgstr "Description du risque"
 #: ../ng_anr/views/anr.risksplan.history.html:34
 #: ../ng_anr/views/validate.recommandation.html:18
 msgid "Risk description:"
-msgstr "Description du risque:"
+msgstr "Description du risque :"
 
 #: ../ng_anr/views/_gettext_caveats.html:25
 msgid "Risk integrity violation"
@@ -3589,7 +3589,7 @@ msgstr "Consultant(s) sécurité"
 
 #: ../ng_anr/views/_risk_rec_form.html:11
 msgid "Security controls:"
-msgstr "Mesures de sécurité:"
+msgstr "Mesures de sécurité :"
 
 #: ../ng_anr/views/anr.ropa.html:517 ../ng_anr/views/anr.ropa.html:92
 msgid "Security measures"
@@ -3821,11 +3821,11 @@ msgstr "Le FQDN ne peut pas être vide"
 
 #: views/dialogs/create.servers.admin.html:31
 msgid "The IP address may not be empty"
-msgstr "L'adresse IP ne pas pas être vide"
+msgstr "L'adresse IP ne peut pas être vide"
 
 #: views/dialogs/create.servers.admin.html:32
 msgid "The IP address must be of this form : xxx.xxx.xxx.xxx"
-msgstr "L'adresse IP doit être de la la forme : xxx.xxx.xxx.xxx"
+msgstr "L'adresse IP doit être de la forme : xxx.xxx.xxx.xxx"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:216
 msgid "The SOA has been imported successfully."
@@ -3850,7 +3850,7 @@ msgstr "L'asset a été créé avec succès."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1656 src/kb/info/BackofficeKbInfoCtrl.js:1490
 msgid "The asset has been deleted."
-msgstr "L’actif  a été supprimé."
+msgstr "L’actif a été supprimé."
 
 #: ../ng_anr/src/AnrObjectCtrl.js:142 ../ng_anr/src/AnrObjectCtrl.js:214
 msgid "The asset has been detached from the library."
@@ -3899,7 +3899,7 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:213 ../ng_anr/src/AnrKbMgmtCtrl.js:246
 #: src/kb/info/BackofficeKbInfoCtrl.js:207
 msgid "The asset type has been created successfully."
-msgstr "Le type d’actifs  a été créé avec succès."
+msgstr "Le type d’actifs a été créé avec succès."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:304 src/kb/info/BackofficeKbInfoCtrl.js:271
 msgid "The asset type has been deleted."
@@ -3910,12 +3910,12 @@ msgid ""
 "The asset type has been edited successfully, however without models, the "
 "element may not be specific."
 msgstr ""
-"Le type d’actifs  a été modifié avec succès, cependant sans modèles, "
+"Le type d’actifs a été modifié avec succès, cependant sans modèles, "
 "l'élément ne peut pas être spécifique."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:279 src/kb/info/BackofficeKbInfoCtrl.js:247
 msgid "The asset type has been edited successfully."
-msgstr "Le type d’actifs  a été modifié mis à jour avec succès."
+msgstr "Le type d’actifs a été modifié mis à jour avec succès."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:3299
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:130
@@ -3933,7 +3933,7 @@ msgstr "La catégorie a été supprimée."
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:182
 #: src/kb/info/BackofficeKbInfoCtrl.js:2179
 msgid "The category has been edited successfully."
-msgstr "La catégorie  a bien été modifiée."
+msgstr "La catégorie a bien été modifiée."
 
 #: ../ng_anr/views/create.measures.html:77
 msgid "The category may not be empty"
@@ -3968,7 +3968,7 @@ msgstr "La mesure a bien été créée."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1159 src/kb/info/BackofficeKbInfoCtrl.js:980
 msgid "The control has been deleted."
-msgstr "La mesure  a été supprimée."
+msgstr "La mesure a été supprimée."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1133 src/kb/info/BackofficeKbInfoCtrl.js:957
 msgid "The control has been edited successfully."
@@ -4295,7 +4295,7 @@ msgstr "Le serveur a bien été modifié."
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:210
 msgid "The server returned the error code:"
-msgstr "Le serveur a renvoyé le code d'erreur:"
+msgstr "Le serveur a renvoyé le code d'erreur :"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:294
 msgid "The specific information risk has been successfully deleted"
@@ -4371,7 +4371,7 @@ msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:523 src/kb/info/BackofficeKbInfoCtrl.js:449
 msgid "The threat has been edited successfully."
-msgstr "La menace  a bien été modifiée."
+msgstr "La menace a bien été modifiée."
 
 #: ../ng_anr/views/_gettext_caveats.html:72
 msgid "The tuple asset type / threat / vulnerability is invalid"
@@ -4395,8 +4395,8 @@ msgid ""
 "The vulnerability has been created successfully, however without models, the "
 "element may not be specific."
 msgstr ""
-"La vulnérabilité  a bien été créée, cependant sans modèles, l'élément ne "
-"peut pas être spécifique."
+"La vulnérabilité a bien été créée, cependant sans modèles, l'élément ne peut "
+"pas être spécifique."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:673 ../ng_anr/src/AnrKbMgmtCtrl.js:712
 #: src/kb/info/BackofficeKbInfoCtrl.js:598
@@ -4582,7 +4582,7 @@ msgstr "Cette analyse des risques n'existe pas"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4606 src/kb/info/BackofficeKbInfoCtrl.js:3057
 msgid "This risk is already on the import list"
-msgstr "This risk is already on the import list"
+msgstr "Ce risque figure déjà sur la liste d'import"
 
 #: ../ng_anr/views/_gettext_caveats.html:5
 msgid "This risk is already used"
@@ -4747,7 +4747,7 @@ msgstr "Valider"
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:53
 #: ../ng_anr/views/anr.risksplan.history.html:27
 msgid "Validation date:"
-msgstr "Date de validation:"
+msgstr "Date de validation :"
 
 #: ../ng_anr/views/_gettext_caveats.html:84
 #: ../ng_anr/views/_gettext_caveats.html:90
@@ -4784,8 +4784,8 @@ msgstr "La valeur de probabilité n’est pas valide"
 msgid ""
 "Value for probability is not valid, Value for qualification is not valid"
 msgstr ""
-"La valeur de probabilité de la menace n'est pas valide.\n"
-"La valeur de qualification de la vulnérabilité n'est pas valide"
+"La valeur de probabilité de la menace n'est pas valide, la valeur de "
+"qualification de la vulnérabilité n'est pas valide"
 
 #: ../ng_anr/views/_gettext_caveats.html:43
 msgid "Value for qualification is not valid"
@@ -4799,7 +4799,7 @@ msgstr "Les valeurs de qualification, et de réduction ne sont pas valides"
 #: ../ng_anr/views/import.record.html:51 ../ng_anr/views/import.record.html:58
 #: ../ng_anr/views/import.record.html:83 ../ng_anr/views/import.record.html:91
 msgid "Value:"
-msgstr "Value:"
+msgstr "Value :"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:35
 msgid "Version"
