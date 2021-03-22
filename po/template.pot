@@ -4,25 +4,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: src/kb/info/BackofficeKbInfoCtrl.js:2612
-#: src/kb/info/BackofficeKbInfoCtrl.js:2645
-msgid ""
-"0: generic\n"
-"1: specific"
-msgstr ""
-
-#: src/kb/info/BackofficeKbInfoCtrl.js:2567
-msgid ""
-"1: generic\n"
-"2: specific"
-msgstr ""
-
-#: src/kb/info/BackofficeKbInfoCtrl.js:2561
-msgid ""
-"1: primary asset\n"
-"2: secondary asset"
-msgstr ""
-
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57
 #: ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106
@@ -5583,6 +5564,12 @@ msgstr ""
 msgid "day(s)"
 msgstr ""
 
+#: src/kb/info/BackofficeKbInfoCtrl.js:2567
+#: src/kb/info/BackofficeKbInfoCtrl.js:2612
+#: src/kb/info/BackofficeKbInfoCtrl.js:2645
+msgid "generic"
+msgstr ""
+
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2596
 #: src/kb/info/BackofficeKbInfoCtrl.js:1613
 msgid "have been created successfully."
@@ -5644,11 +5631,19 @@ msgid "or"
 msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4146
+#: src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid "primary asset"
 msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4146
+#: src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid "secondary asset"
+msgstr ""
+
+#: src/kb/info/BackofficeKbInfoCtrl.js:2567
+#: src/kb/info/BackofficeKbInfoCtrl.js:2612
+#: src/kb/info/BackofficeKbInfoCtrl.js:2645
+msgid "specific"
 msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4108
