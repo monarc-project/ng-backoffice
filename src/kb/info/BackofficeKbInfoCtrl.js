@@ -2558,13 +2558,13 @@
               'field' : 'type',
               'required' : true,
               'type' : '1,2',
-              'example' : gettextCatalog.getString('\n1: primary asset\n2: secondary asset')
+              'example' : '\n1: ' + gettextCatalog.getString('primary asset') + '\n2: ' + gettextCatalog.getString('secondary asset')
             },
             'mode' : {
               'field' : 'mode',
               'required' : true,
               'type' : '0,1',
-              'example' : gettextCatalog.getString('\n1: generic\n2: specific')
+              'example' : '\n0: ' + gettextCatalog.getString('generic') + '\n1: ' + gettextCatalog.getString('specific')
             }
         },
         'Threats' : {
@@ -2609,7 +2609,7 @@
               'field' : 'mode',
               'required' : true,
               'type' : '0,1',
-              'example' : gettextCatalog.getString('\n0: generic\n1: specific')
+              'example' : '\n0: ' + gettextCatalog.getString('generic') + '\n1: ' + gettextCatalog.getString('specific')
             },
             'theme' : {
               'field' : 'theme',
@@ -2642,7 +2642,7 @@
               'field' : 'mode',
               'required' : true,
               'type' : '0,1',
-              'example' : gettextCatalog.getString('\n0: generic\n1: specific')
+              'example' : '\n0: ' + gettextCatalog.getString('generic') + '\n1: ' + gettextCatalog.getString('specific')
             }
         },
         'Controls' :  {
