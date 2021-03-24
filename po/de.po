@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-03-22 13:17+0000\n"
+"PO-Revision-Date: 2021-03-24 09:31+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2612
 #: src/kb/info/BackofficeKbInfoCtrl.js:2645
@@ -192,11 +192,11 @@ msgstr "Ein Modell hinzufügen"
 
 #: ../ng_anr/views/anr.ropa.html:26 ../ng_anr/views/create.records.html:5
 msgid "Add a processing"
-msgstr "Eine Verzeichnis hinzufügen"
+msgstr "Ein Verzeichnis hinzufügen"
 
 #: ../ng_anr/views/anr.ropa.html:481 ../ng_anr/views/create.processors.html:5
 msgid "Add a processor"
-msgstr "Eine Auftragnehmer hinzufügen"
+msgstr "Einen Auftragnehmer hinzufügen"
 
 #: ../ng_anr/views/trends.evalcontext.html:43
 #: views/dialogs/create.questions.html:5 views/questions.kb_mgmt.html:6
@@ -267,7 +267,7 @@ msgstr "Eine Bedrohung hinzufügen"
 #: ../ng_anr/views/create.vulns.html:5 views/info_risk.kb_mgmt.html:156
 #: views/info_risk.kb_mgmt.html:158
 msgid "Add a vulnerability"
-msgstr "Ein Sicherheitsrisiko hinzufügen"
+msgstr "Eine Schwachstelle hinzufügen"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:10 ../ng_anr/views/_anr.kbmgmt.html:8
 #: ../ng_anr/views/_anr.riskanalysis.html:57 ../ng_anr/views/add.objlib.html:5
@@ -350,7 +350,7 @@ msgstr "Alle Kategorien"
 #: ../ng_anr/views/_gettext_caveats.html:73
 msgid "All models must be common to asset type, threat and vulnerability"
 msgstr ""
-"Alle Modelle müssen Werttyp, Bedrohung und Sicherheitsrisiko gemeinsam sein"
+"Alle Modelle müssen Werttyp, Bedrohung und Schwachstelle gemeinsam haben"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:490 views/op_risk.kb_mgmt.html:85
 msgid "All tags"
@@ -408,7 +408,7 @@ msgstr "Sind Sie sicher, dass Sie das Dokument löschen wollen?"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:703
 msgid "Are you sure you want to delete international transfer?"
-msgstr "Soll die internationale Datenübertragung wirklich gelöscht werden?"
+msgstr "Soll die Internationale Datenübertragungen wirklich gelöscht werden?"
 
 #: src/kb/BackofficeAnalysisGuidesItemsCtrl.js:84
 msgid "Are you sure you want to delete item?"
@@ -502,8 +502,7 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:790 src/kb/info/BackofficeKbInfoCtrl.js:675
 msgid "Are you sure you want to delete the {{count}} selected vulnerabilites?"
 msgstr ""
-"Sollen die {{count}} ausgewählten Sicherheitsrisiken wirklich gelöscht "
-"werden?"
+"Sollen die {{count}} ausgewählten Schwachstelle(n) wirklich gelöscht werden?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2813 src/kb/info/BackofficeKbInfoCtrl.js:1823
 msgid "Are you sure you want to delete theme?"
@@ -531,7 +530,7 @@ msgstr "Soll der Benutzer wirklich gelöscht werden?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:766 src/kb/info/BackofficeKbInfoCtrl.js:652
 msgid "Are you sure you want to delete vulnerability?"
-msgstr "Soll das Sicherheitsrisiko wirklich gelöscht werden?"
+msgstr "Soll die Schwachstelle wirklich gelöscht werden?"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:411
 msgid "Are you sure you want to detach actor?"
@@ -1516,15 +1515,15 @@ msgstr "Komponente trennen"
 
 #: ../ng_anr/views/anr.ropa.html:137
 msgid "Detach controller"
-msgstr "Verantwortlicher trennen"
+msgstr "Verantwortlichen trennen"
 
 #: ../ng_anr/views/anr.ropa.html:168 ../ng_anr/views/anr.ropa.html:594
 msgid "Detach data protection officer"
-msgstr "Datenschutzbeauftragter trennen"
+msgstr "Datenschutzbeauftragten trennen"
 
 #: ../ng_anr/views/anr.ropa.html:238 ../ng_anr/views/anr.ropa.html:269
 msgid "Detach joint controller"
-msgstr "Gemeinsam Verantwortlicher trennen"
+msgstr "Gemeinsamen Verantwortlichen trennen"
 
 #: ../ng_anr/views/anr.ropa.html:493
 msgid "Detach processor"
@@ -1761,7 +1760,7 @@ msgstr "Benutzer bearbeiten"
 
 #: ../ng_anr/views/create.vulns.html:6
 msgid "Edit vulnerability"
-msgstr "Sicherheitsrisiko bearbeiten"
+msgstr "Schwachstelle bearbeiten"
 
 #: views/dialogs/create.models.html:45 views/models.kb_mgmt.html:56
 msgid "Editable impact scale"
@@ -2171,8 +2170,7 @@ msgstr "IT-Charta Nutzungsbedingungen Allgemeine Bedingungen"
 #: ../ng_anr/src/AnrLayoutCtrl.js:914
 msgid "Identification of assets, vulnerabilities and impacts appreciation"
 msgstr ""
-"Identifikation von Werten, Sicherheitsrisiken und Abschätzung der "
-"Auswirkungen"
+"Identifikation von Werten, Schwachstellen und Abschätzung der Auswirkungen"
 
 #: ../ng_anr/views/import.soa.html:22
 msgid "If there is a multiple matching:"
@@ -2421,7 +2419,7 @@ msgstr "Intern"
 
 #: ../ng_anr/views/anr.ropa.html:436
 msgid "International transfers"
-msgstr "Internationale Datenübertragung"
+msgstr "Internationale Datenübertragungen"
 
 #: ../ng_anr/views/export.objlibs.html:55
 msgid "Interviews"
@@ -2582,7 +2580,7 @@ msgstr "Liste gemeinsamer MONARC-Werte"
 
 #: ../ng_anr/views/import.file.html:153
 msgid "List of tags:"
-msgstr "Liste der Tags"
+msgstr "Liste der tags:"
 
 #: ../ng_anr/views/import.file.html:148
 msgid "List of themes:"
@@ -2874,7 +2872,7 @@ msgstr ""
 
 #: ../ng_anr/views/__external_translate.html:10
 msgid "No international transfer"
-msgstr "Kein Internationale Datenübertragung"
+msgstr "Kein Internationale Datenübertragungen"
 
 #: views/dialogs/create.guides.items.html:43
 #: views/dialogs/create.questions.html:60
@@ -2946,7 +2944,7 @@ msgstr "In Ihrer Analyse sind keine Bedrohungen aufgelistet."
 #: ../ng_anr/views/create.amvs.html:104 ../ng_anr/views/create.specrisk.html:56
 #: ../ng_anr/views/import.vulnerability.html:40
 msgid "No vulnerability matching your search was found"
-msgstr "Kein Ihrer Suche entsprechendes Sicherheitsrisiko gefunden"
+msgstr "Keine Ihrer Suche entsprechende Schwachstelle gefunden"
 
 #: ../ng_anr/views/anr.soa.html:107
 msgid "Non-existent"
@@ -3298,8 +3296,8 @@ msgid ""
 "Recommendation which requires a dedicated action to solve a vulnerability or "
 "a missing best practice"
 msgstr ""
-"Empfehlung, die eine fest zugeordnete Aktion zur Lösung eines "
-"Sicherheitsrisikos oder einer fehlenden bewährten Methode erfordert"
+"Empfehlung, die eine fest zugeordnete Aktion zur Lösung einer Schwachstelle "
+"oder einer fehlenden bewährten Methode erfordert"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:591 ../ng_anr/views/_oprisk_sheet.html:60
 #: ../ng_anr/views/_risk_sheet.html:75 ../ng_anr/views/anr.dashboard.html:327
@@ -3485,7 +3483,7 @@ msgstr "Risiken"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:902
 msgid "Risks analysis context"
-msgstr "Risikenanalysenkontext"
+msgstr "Risikoanalysekontext"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:31
 msgid "Risks by control"
@@ -3493,7 +3491,7 @@ msgstr "Risiken nach Maßnahme"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:904
 msgid "Risks management organisation"
-msgstr "Risikenmanagementorganisation"
+msgstr "Risikomanagementorganisation"
 
 #: ../ng_anr/views/create.objlibs.categories.html:39
 msgid "Root (none)"
@@ -3815,7 +3813,7 @@ msgstr "Der FQDN darf nicht leer sein"
 
 #: views/dialogs/create.servers.admin.html:31
 msgid "The IP address may not be empty"
-msgstr "Die IP-Adresse darf  nicht leer sein"
+msgstr "Die IP-Adresse darf nicht leer sein"
 
 #: views/dialogs/create.servers.admin.html:32
 msgid "The IP address must be of this form : xxx.xxx.xxx.xxx"
@@ -4370,7 +4368,7 @@ msgstr "Die Bedrohung wurde erfolgreich bearbeitet."
 
 #: ../ng_anr/views/_gettext_caveats.html:72
 msgid "The tuple asset type / threat / vulnerability is invalid"
-msgstr "Tuple-Werttyp/Bedrohung/Sicherheitsrisiko ist ungültig"
+msgstr "Tupel-Werttyp/Bedrohung/Schwachstelle ist ungültig"
 
 #: src/admin/BackofficeAdminUsersCtrl.js:70
 msgid "The user has been created successfully."
@@ -4390,29 +4388,29 @@ msgid ""
 "The vulnerability has been created successfully, however without models, the "
 "element may not be specific."
 msgstr ""
-"Das Sicherheitsrisiko wurde erfolgreich erstellt, jedoch ohne Modelle, das "
+"Die Schwachstelle wurde erfolgreich erstellt, jedoch ohne Modelle, das "
 "Element darf nicht spezifisch sein."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:673 ../ng_anr/src/AnrKbMgmtCtrl.js:712
 #: src/kb/info/BackofficeKbInfoCtrl.js:598
 msgid "The vulnerability has been created successfully."
-msgstr "Das Sicherheitsrisiko wurde erfolgreich erstellt."
+msgstr "Die Schwachstelle wurde erfolgreich erstellt."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:776 src/kb/info/BackofficeKbInfoCtrl.js:661
 msgid "The vulnerability has been deleted."
-msgstr "Das Sicherheitsrisiko wurde gelöscht."
+msgstr "Die Schwachstelle wurde gelöscht."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:748 src/kb/info/BackofficeKbInfoCtrl.js:634
 msgid ""
 "The vulnerability has been edited successfully, however without models, the "
 "element may not be specific."
 msgstr ""
-"Das Sicherheitsrisiko wurde erfolgreich bearbeitet, jedoch ohne Modelle, das "
+"Die Schwachstelle wurde erfolgreich bearbeitet, jedoch ohne Modelle, das "
 "Element darf nicht spezifisch sein."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:751 src/kb/info/BackofficeKbInfoCtrl.js:637
 msgid "The vulnerability has been edited successfully."
-msgstr "Das Sicherheitsrisiko wurde erfolgreich bearbeitet."
+msgstr "Das Schwachstelle wurde erfolgreich bearbeitet."
 
 #: ../ng_anr/views/create.threats.html:78
 msgid "Theme"
@@ -4807,12 +4805,12 @@ msgstr "Sichtbar auf dem globalen Dashboard"
 #: ../ng_anr/views/_anr.kbmgmt.html:146 ../ng_anr/views/anr.dashboard.html:238
 #: views/info_risk.kb_mgmt.html:152
 msgid "Vulnerabilities"
-msgstr "Sicherheitsrisiken"
+msgstr "Schwachstellen"
 
 #: ../ng_anr/views/_anr.evalscales.html:80
 #: ../ng_anr/views/_anr.evalscales.html:84
 msgid "Vulnerabilities scale:"
-msgstr "Sicherheitsrisikoskala:"
+msgstr "Schwachstellenskala:"
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:57
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:94
@@ -4827,7 +4825,7 @@ msgstr "Sicherheitsrisikoskala:"
 #: ../ng_anr/views/import.vulnerability.html:24 ../ng_anr/views/object.html:69
 #: views/info_risk.kb_mgmt.html:378
 msgid "Vulnerability"
-msgstr "Sicherheitsrisiko"
+msgstr "Schwachstelle"
 
 #: ../ng_anr/views/_risk_sheet.html:63 ../ng_anr/views/_table_risks.html:60
 msgid "Vulnerability qualification"
@@ -4840,11 +4838,11 @@ msgstr "Schwachstellenreduktion"
 #: ../ng_anr/views/anr.risksplan.history.html:38
 #: ../ng_anr/views/validate.recommandation.html:20
 msgid "Vulnerability:"
-msgstr "Sicherheitsrisiko:"
+msgstr "Schwachstelle:"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:149 views/info_risk.kb_mgmt.html:155
 msgid "Vulnerabilties"
-msgstr "Sicherheitsrisiken"
+msgstr "Schwachstellen"
 
 #: ../ng_anr/views/export.objlibs.html:37 ../ng_anr/views/export.record.html:31
 msgid "Without password"
@@ -5052,7 +5050,7 @@ msgstr "Sie müssen einen Typ auswählen"
 
 #: ../ng_anr/views/create.amvs.html:108 ../ng_anr/views/create.specrisk.html:60
 msgid "You must select a vulnerability"
-msgstr "Sie müssen ein Sicherheitsrisiko auswählen"
+msgstr "Sie müssen eine Schwachstelle auswählen"
 
 #: ../ng_anr/views/create.amvs.html:56 ../ng_anr/views/create.objlibs.html:141
 msgid "You must select an asset type"
@@ -5296,7 +5294,7 @@ msgstr "{{count}} Bedrohungen wurden gelöscht."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:804 src/kb/info/BackofficeKbInfoCtrl.js:689
 msgid "{{count}} vulnerabilities have been deleted."
-msgstr "{{count}} Sicherheitsrisiken wurden gelöscht."
+msgstr "{{count}} Schwachstelle(n) wurde(n) gelöscht."
 
 #~ msgid "%d critical risk(s) to be treated as priority"
 #~ msgstr "%d als Priorität zu behandelnde kritische Risiken"
