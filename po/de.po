@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-03-24 09:31+0000\n"
+"PO-Revision-Date: 2021-03-24 10:38+0100\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -10,32 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
-
-#: src/kb/info/BackofficeKbInfoCtrl.js:2612
-#: src/kb/info/BackofficeKbInfoCtrl.js:2645
-msgid ""
-"0: generic\n"
-"1: specific"
-msgstr ""
-"0: Allgemein\n"
-"1: spezifischen"
-
-#: src/kb/info/BackofficeKbInfoCtrl.js:2567
-msgid ""
-"1: generic\n"
-"2: specific"
-msgstr ""
-"1: Allgemein\n"
-"2: spezifischen"
-
-#: src/kb/info/BackofficeKbInfoCtrl.js:2561
-msgid ""
-"1: primary asset\n"
-"2: secondary asset"
-msgstr ""
-"1: primärer Wert\n"
-"2: sekundärer Wert"
+"X-Generator: Poedit 2.0.6\n"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -5146,6 +5121,12 @@ msgstr "priorisiert zu behandelnde kritische Risiken"
 msgid "day(s)"
 msgstr "Tag(e)"
 
+#: src/kb/info/BackofficeKbInfoCtrl.js:2567
+#: src/kb/info/BackofficeKbInfoCtrl.js:2612
+#: src/kb/info/BackofficeKbInfoCtrl.js:2645
+msgid "generic"
+msgstr ""
+
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2596 src/kb/info/BackofficeKbInfoCtrl.js:1613
 msgid "have been created successfully."
 msgstr "wurden erfolgreich erstellt."
@@ -5199,13 +5180,19 @@ msgstr "von"
 msgid "or"
 msgstr "oder"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:4146
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:4146 src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid "primary asset"
 msgstr "primärer Wert"
 
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:4146
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:4146 src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid "secondary asset"
 msgstr "sekundärer Wert"
+
+#: src/kb/info/BackofficeKbInfoCtrl.js:2567
+#: src/kb/info/BackofficeKbInfoCtrl.js:2612
+#: src/kb/info/BackofficeKbInfoCtrl.js:2645
+msgid "specific"
+msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4108 src/kb/info/BackofficeKbInfoCtrl.js:2523
 msgid "tags"
@@ -5295,105 +5282,3 @@ msgstr "{{count}} Bedrohungen wurden gelöscht."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:804 src/kb/info/BackofficeKbInfoCtrl.js:689
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} Schwachstelle(n) wurde(n) gelöscht."
-
-#~ msgid "%d critical risk(s) to be treated as priority"
-#~ msgstr "%d als Priorität zu behandelnde kritische Risiken"
-
-#~ msgid "%d low risk(s) negligible"
-#~ msgstr "%d vernachlässigbare niedrige Risiken"
-
-#~ msgid "%d medium risk(s) to be partially treated"
-#~ msgstr "%d teilweise zu behandelnde mittlere Risiken"
-
-#~ msgid "(inherited)"
-#~ msgstr "(geerbt)"
-
-#~ msgid "* Mandatory field"
-#~ msgstr "* Pflichtfeld"
-
-#~ msgid "+ Add controls from referential"
-#~ msgstr "+ Fügen Sie Steuerelemente aus Bezugsnorm hinzu"
-
-#~ msgid "+ Add tags"
-#~ msgstr "Tags hinzufügen"
-
-#~ msgid "- or -"
-#~ msgstr "- oder -"
-
-#~ msgid "1, 2 or 3"
-#~ msgstr "1, 2 oder 3"
-
-#~ msgid "1:FR,2:EN,3:DE,4:NL"
-#~ msgstr "1:FR,2:EN,3:DE,4:NL"
-
-#~ msgid ""
-#~ "<p>A SOA can be completed from another one that is in the same risk "
-#~ "analysis.</p><p>\n"
-#~ "                      </p><h4>Before importing</h4>\n"
-#~ "                      <li>Match the controls between the two referentials "
-#~ "on knowledge base (Referentials Tab)</li>\n"
-#~ "                      <li>Take a snapshot of risk analysis if necessary.</"
-#~ "li>\n"
-#~ "                      <h4>Import Options</h4>\n"
-#~ "                      <p>You can select which fields of the SOA you want "
-#~ "to import.</p>\n"
-#~ "                      <p>If there is a multiple matching:</p>\n"
-#~ "                      <li>The information of each control will be "
-#~ "appended.</li>\n"
-#~ "                      <li>For level of compliance, you can choose import "
-#~ "mode calculation. (Average or worse level)</li>"
-#~ msgstr ""
-#~ "<p>Eine SOA kann aus einer  anderen erstellt werden, die sich in "
-#~ "derselben Risikoanalyse befindet.</p><p>\n"
-#~ "                      </p><h4>Vor dem Importieren</h4>\n"
-#~ "                      <li>Gleichen Sie die Maßnahmen der beiden "
-#~ "Bezugsnormen aus aus der Wissensbasis an (Reiter Bezugsnorm)</li>\n"
-#~ "                      <li>Machen Sie ggf. eine Momentaufnahme der "
-#~ "Risikoanalyse.</li>\n"
-#~ "                      <h4>Importoptionen</h4>\n"
-#~ "                      <p>Sie können auswählen, welche Felder der SOA Sie "
-#~ "importieren möchten.</p>\n"
-#~ "                      <p>Wenn es mehrere Übereinstimmungen gibt:</p>\n"
-#~ "                      <li>Die Informationen zu jeder Maßnahme werden "
-#~ "angehängt.</li>\n"
-#~ "                      <li>Für den Übereinstimmungsgrad können Sie die "
-#~ "Berechnung im Importmodus wählen. (mittleres Niveau oder schlechter)</li>"
-
-#~ msgid "Availability:&nbsp;"
-#~ msgstr "Verfügbarkeit:&nbsp;"
-
-#~ msgid "Confidentiality:&nbsp;"
-#~ msgstr "Vertraulichkeit:&nbsp;"
-
-#~ msgid "Example: <i class=\"preserve-newlines\">{{item.example}}</i>"
-#~ msgstr "Beispiel: <i class=\"preserve-newlines\">{{item.example}}</i>"
-
-#~ msgid "Example: <i class=\"preserve-newlines\">{{subItem.example}}</i>"
-#~ msgstr "Beispiel: <i class=\"preserve-newlines\">{{subItem.example}}</i>"
-
-#~ msgid "In progress ({{rec.counterTreated}})"
-#~ msgstr "({{rec.counterTreated}}) in Bearbeitung"
-
-#~ msgid "Integrity:&nbsp;"
-#~ msgstr "Integrität:&nbsp;"
-
-#~ msgid "Value: <i class=\"preserve-newlines\">{{item.value}}</i>"
-#~ msgstr "Wert: <i class=\"preserve-newlines\">{{item.value}}</i>"
-
-#~ msgid "Value: <i class=\"preserve-newlines\">{{subItem.value}}</i>"
-#~ msgstr "Wert: <i class=\"preserve-newlines\">{{subItem.value}}</i>"
-
-#~ msgid ""
-#~ "{{item.field.includes('theme') ? 'List of themes:'\n"
-#~ "                                          : item.field == 'category' ? "
-#~ "'List of categories:'\n"
-#~ "                                          :'Multiple tags must be "
-#~ "separated by a slash (/) \\n\\r\\ Ex: Tag1/Tag2/Tag3  \\n\\r\\n\\r List "
-#~ "of tags: '}}"
-#~ msgstr ""
-#~ "{{item.field.includes('theme') ? 'Liste der Themen:'\n"
-#~ "                                          : item.field == 'category' ? "
-#~ "'Liste der Kategorien:'\n"
-#~ "                                          :'Mehrere Tags müssen durch "
-#~ "einen Schrägstrich getrennt werden (/) \\n\\r\\ Ex: Tag1/Tag2/Tag3  \\n\\r"
-#~ "\\n\\r Liste der tags: '}}"
