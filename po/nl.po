@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 11:00+0000\n"
+"PO-Revision-Date: 2021-05-11 11:42+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.6.1-dev\n"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2612
 #: src/kb/info/BackofficeKbInfoCtrl.js:2645
@@ -357,7 +357,7 @@ msgstr "Alle tags"
 
 #: src/ErrorService.js:11
 msgid "An error occurred while fetching {{ thing }}: {{status}}"
-msgstr "Er heeft zich een fout voorgedaan op {{ thing }}: {{ status }}"
+msgstr "Er heeft zich een fout voorgedaan op {{ thing }}: {{status}}"
 
 #: views/analysis_guides.kb_mgmt.html:5
 msgid "Analysis guides"
@@ -460,11 +460,11 @@ msgstr "Weet u zeker dat u de verwerking wilt verwijderen?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:317 src/kb/info/BackofficeKbInfoCtrl.js:283
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
-msgstr "Wilt u de {{ count }} geselecteerde activatypes werkelijk verwijderen?"
+msgstr "Wilt u de {{count}} geselecteerde activatypes werkelijk verwijderen?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1668 src/kb/info/BackofficeKbInfoCtrl.js:1502
 msgid "Are you sure you want to delete the {{count}} selected asset(s)?"
-msgstr "Wilt u de {{ count }} geselecteerde activa werkelijk verwijderen?"
+msgstr "Wilt u de {{count}} geselecteerde activa werkelijk verwijderen?"
 
 #: src/BackofficeClientMgmtCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected client(s)?"
@@ -472,7 +472,7 @@ msgstr "Wilt u de {{ count }} geselecteerde klanten werkelijk verwijderen?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1174 src/kb/info/BackofficeKbInfoCtrl.js:994
 msgid "Are you sure you want to delete the {{count}} selected controls?"
-msgstr "Wilt u de {{ count }} geselecteerde maatregelen werkelijk verwijderen?"
+msgstr "Wilt u de {{count}} geselecteerde maatregelen werkelijk verwijderen?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected model(s)?"
@@ -488,22 +488,20 @@ msgstr ""
 #: src/kb/info/BackofficeKbInfoCtrl.js:1232
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:377
 msgid "Are you sure you want to delete the {{count}} selected risk(s)?"
-msgstr "Wilt u de {{ count }} geselecteerde risico’s werkelijk verwijderen?"
+msgstr "Wilt u de {{count}} geselecteerde risico’s werkelijk verwijderen?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1833
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:149
 msgid "Are you sure you want to delete the {{count}} selected tag(s)?"
-msgstr "Wilt u de {{ count }} geselecteerde tags werkelijk verwijderen?"
+msgstr "Wilt u de {{count}} geselecteerde tags werkelijk verwijderen?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:564 src/kb/info/BackofficeKbInfoCtrl.js:489
 msgid "Are you sure you want to delete the {{count}} selected threat(s)?"
-msgstr ""
-"Wilt u de {{ count }} geselecteerde bedreigingen werkelijk verwijderen?"
+msgstr "Wilt u de {{count}} geselecteerde bedreigingen werkelijk verwijderen?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:790 src/kb/info/BackofficeKbInfoCtrl.js:675
 msgid "Are you sure you want to delete the {{count}} selected vulnerabilites?"
-msgstr ""
-"Wilt u de {{ count }} geselecteerde kwetsbaarheden werkelijk verwijderen?"
+msgstr "Wilt u de {{count}} geselecteerde kwetsbaarheden werkelijk verwijderen?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2813 src/kb/info/BackofficeKbInfoCtrl.js:1823
 msgid "Are you sure you want to delete theme?"
@@ -5250,7 +5248,7 @@ msgstr "{{ risks_total }} risico’s van de informatie"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1684 ../ng_anr/src/AnrKbMgmtCtrl.js:331
 #: src/kb/info/BackofficeKbInfoCtrl.js:1517
 msgid "{{count}} assets have been deleted."
-msgstr "{{ count }} activatypes werden verwijderd."
+msgstr "{{count}} activatypes werden verwijderd."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:296
 msgid "{{count}} assets type have been deleted."
@@ -5262,7 +5260,7 @@ msgstr "{{ count }} klanten werden verwijderd."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1187 src/kb/info/BackofficeKbInfoCtrl.js:1008
 msgid "{{count}} controls have been deleted."
-msgstr "{{ count }} maatregelen werden verwijderd."
+msgstr "{{count}} maatregelen werden verwijderd."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:134
 msgid "{{count}} models have been deleted."
@@ -5275,20 +5273,20 @@ msgstr "{{count}} aanbevelingen zijn verwijderd."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2118
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:390
 msgid "{{count}} risks have been deleted."
-msgstr "{{ count }} risico’s werden verwijderd."
+msgstr "{{count}} risico’s werden verwijderd."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1847
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:162
 msgid "{{count}} tags have been deleted."
-msgstr "{{ count }} tags werden verwijderd."
+msgstr "{{count}} tags werden verwijderd."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:578 src/kb/info/BackofficeKbInfoCtrl.js:503
 msgid "{{count}} threats have been deleted."
-msgstr "{{ count }} bedreigingen werden verwijderd."
+msgstr "{{count}} bedreigingen werden verwijderd."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:804 src/kb/info/BackofficeKbInfoCtrl.js:689
 msgid "{{count}} vulnerabilities have been deleted."
-msgstr "{{ count }} kwetsbaarheden werden verwijderd."
+msgstr "{{count}} kwetsbaarheden werden verwijderd."
 
 #~ msgid "%d critical risk(s) to be treated as priority"
 #~ msgstr "%d prioritair aan te pakken kritiek(e) risico(‘s)"
