@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 14:00+0000\n"
+"PO-Revision-Date: 2021-05-11 11:42+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.6.1-dev\n"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2612
 #: src/kb/info/BackofficeKbInfoCtrl.js:2645
@@ -353,7 +353,7 @@ msgstr "すべてのタグ"
 
 #: src/ErrorService.js:11
 msgid "An error occurred while fetching {{ thing }}: {{status}}"
-msgstr "取得中にエラーが発生しました。{{{status}}}"
+msgstr "{{ thing }}の取得中にエラーが発生しました。{{status}}"
 
 #: views/analysis_guides.kb_mgmt.html:5
 msgid "Analysis guides"
@@ -454,11 +454,11 @@ msgstr "処理を削除しても大丈夫ですか？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:317 src/kb/info/BackofficeKbInfoCtrl.js:283
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
-msgstr "選択したアセット・タイプ（複数可）の{{{count}}}を削除してもよろしいですか？"
+msgstr "選択したアセット・タイプ（複数可）の{{count}}を削除してもよろしいですか？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1668 src/kb/info/BackofficeKbInfoCtrl.js:1502
 msgid "Are you sure you want to delete the {{count}} selected asset(s)?"
-msgstr "選択したアセット{{{count}}}を削除してもよろしいですか？"
+msgstr "選択したアセット{{count}}を削除してもよろしいですか？"
 
 #: src/BackofficeClientMgmtCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected client(s)?"
@@ -466,7 +466,7 @@ msgstr "選択した{{{count}}}クライアントを削除してもよろしい�
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1174 src/kb/info/BackofficeKbInfoCtrl.js:994
 msgid "Are you sure you want to delete the {{count}} selected controls?"
-msgstr "選択したコントロール{{{count}}}を削除してもよろしいですか？"
+msgstr "選択したコントロール{{count}}を削除してもよろしいですか？"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected model(s)?"
@@ -474,22 +474,22 @@ msgstr "選択した{{{count}}}モデルを削除してもよろしいですか�
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2481
 msgid "Are you sure you want to delete the {{count}} selected recommendations?"
-msgstr "選択した{{{count}}}の推薦を削除してもよろしいでしょうか？"
+msgstr "選択した{{count}}の推薦を削除してもよろしいでしょうか？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1431 ../ng_anr/src/AnrKbMgmtCtrl.js:2104
 #: src/kb/info/BackofficeKbInfoCtrl.js:1232
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:377
 msgid "Are you sure you want to delete the {{count}} selected risk(s)?"
-msgstr "選択したリスク{{{count}}}を削除してもよろしいですか？"
+msgstr "選択したリスク{{count}}を削除してもよろしいですか？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1833
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:149
 msgid "Are you sure you want to delete the {{count}} selected tag(s)?"
-msgstr "選択したタグ{{{count}}}を削除してもよろしいですか？"
+msgstr "選択したタグ{{count}}を削除してもよろしいですか？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:564 src/kb/info/BackofficeKbInfoCtrl.js:489
 msgid "Are you sure you want to delete the {{count}} selected threat(s)?"
-msgstr "選択した脅威{{{count}}}を削除してもよろしいですか？"
+msgstr "選択した脅威{{count}}を削除してもよろしいですか？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:790 src/kb/info/BackofficeKbInfoCtrl.js:675
 msgid "Are you sure you want to delete the {{count}} selected vulnerabilites?"
@@ -1569,7 +1569,7 @@ msgstr "脆弱性を表示する"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4694 src/kb/info/BackofficeKbInfoCtrl.js:3135
 msgid "Do you want to create {{count}} new {{extItemLabel}} ?"
-msgstr "新しい{{{extItemLabel}}}を{{{count}}}を作成しますか？?"
+msgstr "新しい{{extItemLabel}}を{{count}}を作成しますか?"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:45
 msgid "Document name"
@@ -2789,7 +2789,7 @@ msgstr "新規ユーザー"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4692 src/kb/info/BackofficeKbInfoCtrl.js:3133
 msgid "New {{extItemLabel}}"
-msgstr "新しい{{extItemLabel}}}。"
+msgstr "新しい{{extItemLabel}}。"
 
 #: ../ng_anr/views/_oprisk_sheet.html:140 ../ng_anr/views/_risk_sheet.html:169
 #: ../ng_anr/views/trends.evalcontext.html:128
@@ -4790,7 +4790,7 @@ msgstr "噫"
 msgid ""
 "You are about to validate the implementation of recommendation <b>{{rec."
 "code}} - {{rec.description}}</b> for the following risk:"
-msgstr "勧告 <b>{{{rec.code}}の実装を検証しようとしています。- {{rec.description}}</b>以下のリスクについて。"
+msgstr "勧告 <b>{{rec.code}}の実装を検証しようとしています。- {{rec.description}}</b>以下のリスクについて。"
 
 #: ../ng_anr/views/_anr.infosnapshot.html:4
 msgid "You are currently on a snapshot, no changes will be possible."
@@ -5126,19 +5126,19 @@ msgstr "年"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1445 src/kb/info/BackofficeKbInfoCtrl.js:1245
 msgid "{{ count }} risks have been deleted."
-msgstr "カウント }}リスクを削除しました。"
+msgstr "{{ count }} リスクが削除されました。"
 
 #: ../ng_anr/views/object.html:58
 msgid "{{ object.risks.length }} information risks"
-msgstr "{{ object.risk.length }} 情報リスク"
+msgstr "{{ object.risks.length }} 情報リスク"
 
 #: ../ng_anr/views/import.object.html:94
 msgid "{{ object_details.oprisks.length }} operational risks"
-msgstr "{{ object_details.opolisks.length }} 運用上のリスク"
+msgstr "{{ object_details.oprisks.length }} 運用上のリスク"
 
 #: ../ng_anr/views/import.object.html:93
 msgid "{{ object_details.risks.length }} information risks"
-msgstr "{{ object_details.risk.length }} 情報リスク"
+msgstr "{{ object_details.risks.length }} 情報リスク"
 
 #: ../ng_anr/views/_table_risks_op.html:5
 msgid "{{ oprisks_total }} operational risks"
@@ -5171,7 +5171,7 @@ msgstr "{{count}}モデルを削除しました。"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2494
 msgid "{{count}} recommendations have been deleted."
-msgstr "{{count}}}の推奨事項は削除されました。"
+msgstr "{{count}}の推奨事項は削除されました。"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2118
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:390
@@ -5189,4 +5189,4 @@ msgstr "{{count}}の脅迫は削除されました。"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:804 src/kb/info/BackofficeKbInfoCtrl.js:689
 msgid "{{count}} vulnerabilities have been deleted."
-msgstr "{{count}}} 脆弱性を削除しました。"
+msgstr "{{count}} 脆弱性を削除しました。"
