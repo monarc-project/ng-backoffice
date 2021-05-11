@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-03-22 14:49+0000\n"
+"PO-Revision-Date: 2021-05-11 11:42+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.6.1-dev\n"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2612
 #: src/kb/info/BackofficeKbInfoCtrl.js:2645
@@ -357,7 +357,7 @@ msgstr "Tous les tags"
 
 #: src/ErrorService.js:11
 msgid "An error occurred while fetching {{ thing }}: {{status}}"
-msgstr "Une erreur est survenue sur {{ thing }} : {{ status }}"
+msgstr "Une erreur est survenue sur {{ thing }} : {{status}}"
 
 #: views/analysis_guides.kb_mgmt.html:5
 msgid "Analysis guides"
@@ -463,12 +463,11 @@ msgstr "Êtes-vous sûr de vouloir supprimer le traitement ?"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:317 src/kb/info/BackofficeKbInfoCtrl.js:283
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
 msgstr ""
-"Voulez-vous réellement supprimer les {{ count }} types d'actifs "
-"sélectionnés ?"
+"Voulez-vous réellement supprimer les {{count}} types d'actifs sélectionnés ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1668 src/kb/info/BackofficeKbInfoCtrl.js:1502
 msgid "Are you sure you want to delete the {{count}} selected asset(s)?"
-msgstr "Voulez-vous réellement supprimer les {{ count }} actifs sélectionnés ?"
+msgstr "Voulez-vous réellement supprimer les {{count}} actifs sélectionnés ?"
 
 #: src/BackofficeClientMgmtCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected client(s)?"
@@ -477,8 +476,7 @@ msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1174 src/kb/info/BackofficeKbInfoCtrl.js:994
 msgid "Are you sure you want to delete the {{count}} selected controls?"
-msgstr ""
-"Voulez-vous réellement supprimer les {{ count }} mesures sélectionnées ?"
+msgstr "Voulez-vous réellement supprimer les {{count}} mesures sélectionnées ?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected model(s)?"
@@ -488,20 +486,18 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2481
 msgid "Are you sure you want to delete the {{count}} selected recommendations?"
 msgstr ""
-"Voulez-vous réellement supprimer les {{ count }} recommandations "
-"sélectionnés ?"
+"Voulez-vous réellement supprimer les {{count}} recommandations sélectionnés ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1431 ../ng_anr/src/AnrKbMgmtCtrl.js:2104
 #: src/kb/info/BackofficeKbInfoCtrl.js:1232
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:377
 msgid "Are you sure you want to delete the {{count}} selected risk(s)?"
-msgstr ""
-"Voulez-vous réellement supprimer les {{ count }} risques sélectionnés ?"
+msgstr "Voulez-vous réellement supprimer les {{count}} risques sélectionnés ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1833
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:149
 msgid "Are you sure you want to delete the {{count}} selected tag(s)?"
-msgstr "Voulez-vous réellement supprimer les {{ count }} tags sélectionnés ?"
+msgstr "Voulez-vous réellement supprimer les {{count}} tags sélectionnés ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:564 src/kb/info/BackofficeKbInfoCtrl.js:489
 msgid "Are you sure you want to delete the {{count}} selected threat(s)?"
@@ -5260,7 +5256,7 @@ msgstr "{{ risks_total }} risques de l'information"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1684 ../ng_anr/src/AnrKbMgmtCtrl.js:331
 #: src/kb/info/BackofficeKbInfoCtrl.js:1517
 msgid "{{count}} assets have been deleted."
-msgstr "{{ count }} actifs ont été supprimés."
+msgstr "{{count}} types d’actifs ont été supprimés."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:296
 msgid "{{count}} assets type have been deleted."
@@ -5272,7 +5268,7 @@ msgstr "{{count}} clients ont été supprimés."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1187 src/kb/info/BackofficeKbInfoCtrl.js:1008
 msgid "{{count}} controls have been deleted."
-msgstr "{{ count }} mesures ont été supprimées."
+msgstr "{{count}} mesures ont été supprimées."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:134
 msgid "{{count}} models have been deleted."
@@ -5280,7 +5276,7 @@ msgstr "{{count}} modèles ont été supprimés."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2494
 msgid "{{count}} recommendations have been deleted."
-msgstr "{{ count }} recommendations ont été supprimées."
+msgstr "{{count}} recommendations ont été supprimées."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2118
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:390
