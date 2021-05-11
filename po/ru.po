@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-02-26 14:00+0000\n"
-"Last-Translator: Ruslan Baidan <ruslan.baidan@cases.lu>\n"
+"PO-Revision-Date: 2021-05-11 11:42+0000\n"
+"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.6.1-dev\n"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2612
 #: src/kb/info/BackofficeKbInfoCtrl.js:2645
@@ -354,7 +354,7 @@ msgstr "Все метки"
 
 #: src/ErrorService.js:11
 msgid "An error occurred while fetching {{ thing }}: {{status}}"
-msgstr "Ошибка произошла при извлечении {{штуки}}: {{статус}}"
+msgstr "Ошибка произошла при извлечении {{ thing }}: {{status}}"
 
 #: views/analysis_guides.kb_mgmt.html:5
 msgid "Analysis guides"
@@ -1579,7 +1579,7 @@ msgstr "Отображать уязвимые места по"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4694 src/kb/info/BackofficeKbInfoCtrl.js:3135
 msgid "Do you want to create {{count}} new {{extItemLabel}} ?"
-msgstr "Хотите ли вы создать {{conount}} новую {{extItemLabel}} ?"
+msgstr "Хотите ли вы создать {{count}} новую {{extItemLabel}} ?"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:45
 msgid "Document name"
@@ -5206,23 +5206,23 @@ msgstr "год(ы)"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1445 src/kb/info/BackofficeKbInfoCtrl.js:1245
 msgid "{{ count }} risks have been deleted."
-msgstr "риски были удалены."
+msgstr "{{ count }} риски были удалены."
 
 #: ../ng_anr/views/object.html:58
 msgid "{{ object.risks.length }} information risks"
-msgstr "{{объект.риски.длина}} информационные риски"
+msgstr "{{ object.risks.length }} информационные риски"
 
 #: ../ng_anr/views/import.object.html:94
 msgid "{{ object_details.oprisks.length }} operational risks"
-msgstr "{{{объект_details.oprisks.long }} операционные риски"
+msgstr "{{ object_details.oprisks.length }} операционные риски"
 
 #: ../ng_anr/views/import.object.html:93
 msgid "{{ object_details.risks.length }} information risks"
-msgstr "{{объект_details.risks.long }} информационные риски"
+msgstr "{{ object_details.risks.length }} информационные риски"
 
 #: ../ng_anr/views/_table_risks_op.html:5
 msgid "{{ oprisks_total }} operational risks"
-msgstr "операционные риски"
+msgstr "{{ oprisks_total }} операционные риски"
 
 #: ../ng_anr/views/_table_risks.html:9
 msgid "{{ risks_total }} information risks"
@@ -5231,7 +5231,7 @@ msgstr "{{ risks_total }} информационные риски"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1684 ../ng_anr/src/AnrKbMgmtCtrl.js:331
 #: src/kb/info/BackofficeKbInfoCtrl.js:1517
 msgid "{{count}} assets have been deleted."
-msgstr "Активы были удалены."
+msgstr "{{count}} Активы были удалены."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:296
 msgid "{{count}} assets type have been deleted."
@@ -5243,7 +5243,7 @@ msgstr "{{счет}}клиенты были удалены."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1187 src/kb/info/BackofficeKbInfoCtrl.js:1008
 msgid "{{count}} controls have been deleted."
-msgstr "{{счет}}контроли были удалены."
+msgstr "{{count}}контроли были удалены."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:134
 msgid "{{count}} models have been deleted."
@@ -5251,21 +5251,21 @@ msgstr "{{счет}} модели были удалены."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2494
 msgid "{{count}} recommendations have been deleted."
-msgstr "{{счет}} рекомендации были удалены."
+msgstr "{{count}} рекомендации были удалены."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2118
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:390
 msgid "{{count}} risks have been deleted."
-msgstr "риски были удалены."
+msgstr "{{count}} риски были удалены."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1847
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:162
 msgid "{{count}} tags have been deleted."
-msgstr "{{conount}} тэги были удалены."
+msgstr "{{count}} тэги были удалены."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:578 src/kb/info/BackofficeKbInfoCtrl.js:503
 msgid "{{count}} threats have been deleted."
-msgstr "Угрозы были удалены."
+msgstr "{{count}} Угрозы были удалены."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:804 src/kb/info/BackofficeKbInfoCtrl.js:689
 msgid "{{count}} vulnerabilities have been deleted."
