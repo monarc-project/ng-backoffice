@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-05-11 11:42+0000\n"
-"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
+"PO-Revision-Date: 2021-05-21 08:52+0000\n"
+"Last-Translator: Sparwel <marc.sparwel@konzeptacht.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -4785,7 +4785,7 @@ msgstr "Schwachstellen"
 #: ../ng_anr/views/_anr.evalscales.html:80
 #: ../ng_anr/views/_anr.evalscales.html:84
 msgid "Vulnerabilities scale:"
-msgstr "Schwachstellenskala:"
+msgstr "Qualifizierungsskala:"
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:57
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:94
