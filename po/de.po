@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-05-21 08:52+0000\n"
+"PO-Revision-Date: 2021-06-11 14:52+0000\n"
 "Last-Translator: Sparwel <marc.sparwel@konzeptacht.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -435,7 +435,9 @@ msgstr "Soll das Verzeichnis wirklich gelöscht werden?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:317 src/kb/info/BackofficeKbInfoCtrl.js:283
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
-msgstr "Sollen die {{count}} ausgewählten Wertetypen wirklich gelöscht werden?"
+msgstr ""
+"Sind sie sich sicher, dass die {{count}} ausgewählten Werttypen wirklich "
+"gelöscht werden sollen?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1668 src/kb/info/BackofficeKbInfoCtrl.js:1502
 msgid "Are you sure you want to delete the {{count}} selected asset(s)?"
@@ -1614,7 +1616,7 @@ msgstr "E-Mail"
 
 #: ../ng_anr/views/anr.soa.html:63
 msgid "EX"
-msgstr "N.A."
+msgstr "NA"
 
 #: ../ng_anr/views/_gettext_caveats.html:3
 #: ../ng_anr/views/_risk_rec_form.html:22
@@ -1844,7 +1846,7 @@ msgstr "Beispiel:"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:250 ../ng_anr/views/anr.soa.html:64
 msgid "Excluded"
-msgstr "nicht anwendbar"
+msgstr "Nicht anwendbar"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2404
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:60
