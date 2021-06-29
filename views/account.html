@@ -23,7 +23,7 @@
                 <md-input-container class="md-block">
                     <label translate>E-mail</label>
                     <md-icon>email</md-icon>
-                    <input type="email" name="email" autocomplete="email" ng-model="user.email" ng-pattern="/^([\w-]+\.?)+(\+[\w-]+)?@([0-9a-zA-Z\-]{2,}\.)+[a-zA-Z]{2,7}$/">
+                    <input type="email" name="email" autocomplete="email" ng-model="user.email" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">
                     <div ng-messages="accountForm.email.$error">
                         <div ng-message="required">{{ 'The first user email may not be empty' | translate }}</div>
                     </div>
