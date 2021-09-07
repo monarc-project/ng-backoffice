@@ -2,14 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-09-07 09:14+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2021-09-07 07:49+0000\n"
+"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.6.1-dev\n"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -29,6 +30,8 @@ msgstr "Effect D"
 msgid ""
 "A SOA can be completed from another one that is in the same risk analysis."
 msgstr ""
+"Een VVT kan vervolledigd worden via een andere VVT uit dezelfde risico "
+"analyse."
 
 #: ../ng_anr/views/_gettext_caveats.html:29
 msgid "A regulator model may not be generic"
@@ -39,6 +42,9 @@ msgid ""
 "A verification email has been sent to you. Open this email and click the "
 "link to activate your account, then copy and paste the MOSP API Key here"
 msgstr ""
+"Een verificatie email is naar u verzonden. Open deze e-mail en klik op de "
+"link om uw account te activeren, kopieer en plak vervolgens de MOSP API "
+"Sleutel hier"
 
 #: ../ng_anr/views/_anr.evalscales.html:141
 msgid "Acceptance thresholds of information risks"
@@ -97,7 +103,7 @@ msgstr "Actiegeschiedenis"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:682
 msgid "Activation MOSP account"
-msgstr ""
+msgstr "Activering MOSP-account"
 
 #: ../ng_anr/views/_object.composition.html:46
 #: ../ng_anr/views/_object.composition.html:68
@@ -214,7 +220,7 @@ msgstr "Een risico toevoegen"
 
 #: ../ng_anr/views/create.scale.html:5
 msgid "Add a scale"
-msgstr ""
+msgstr "Een schaal toevoegen"
 
 #: views/dialogs/create.servers.admin.html:5
 msgid "Add a server"
@@ -283,16 +289,16 @@ msgstr "Een gebruiker toevoegen"
 
 #: ../ng_anr/views/create.amvs.html:130 ../ng_anr/views/create.risks.html:106
 msgid "Add controls from referential"
-msgstr ""
+msgstr "Voeg maatregelen toe van de standaard"
 
 #: ../ng_anr/views/_anr.evalscales.html:232
 #: ../ng_anr/views/_anr.evalscales.html:50
 msgid "Add scales"
-msgstr ""
+msgstr "Schalen toevoegen"
 
 #: ../ng_anr/views/create.risks.html:72
 msgid "Add tags"
-msgstr ""
+msgstr "Voeg tags toe"
 
 #: ../ng_anr/views/edit.evalcontext.html:24
 #: ../ng_anr/views/trends.evalcontext.html:149
@@ -452,6 +458,7 @@ msgstr "Weet u zeker dat u de verwerking wilt verwijderen?"
 #: ../ng_anr/src/AnrLayoutCtrl.js:3366
 msgid "Are you sure you want to delete the {{count}} scales selected ?"
 msgstr ""
+"Weet u zeker dat u de geselecteerde {{count}} schalen wilt verwijderen ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:330 src/kb/info/BackofficeKbInfoCtrl.js:283
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
@@ -702,7 +709,7 @@ msgstr ""
 
 #: ../ng_anr/views/import.soa.html:17
 msgid "Before importing"
-msgstr ""
+msgstr "Voor je importeert"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:260 ../ng_anr/views/anr.soa.html:88
 msgid "Best practices"
@@ -896,7 +903,7 @@ msgstr "Aan te vinken vakjes"
 
 #: ../ng_anr/views/__external_translate.html:26
 msgid "Chinese"
-msgstr ""
+msgstr "Chinees"
 
 #: views/dialogs/create.questions.html:88
 msgid "Choice {{idx+1}}"
@@ -934,7 +941,7 @@ msgstr "Klanten"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:686
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
 #: ../ng_anr/views/add.objlib.html:8 ../ng_anr/views/anr.dashboard.risks.html:8
 #: ../ng_anr/views/create.amvs.html:9 ../ng_anr/views/create.assets.html:9
@@ -1376,7 +1383,7 @@ msgstr "De analyse verwijderen"
 #: ../ng_anr/views/_anr.evalscales.html:238
 #: ../ng_anr/views/_anr.evalscales.html:56 ../ng_anr/views/delete.scale.html:4
 msgid "Delete scales"
-msgstr ""
+msgstr "Schalen verwijderen"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:290
 msgid "Delete specific information risk"
@@ -1856,7 +1863,7 @@ msgstr "De entiteit bestaat niet in deze risicoanalyse"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:374 ../ng_anr/src/AnrObjectCtrl.js:693
 msgid "Error"
-msgstr ""
+msgstr "Fout"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:210
 msgid "Error while uploading"
@@ -1885,7 +1892,7 @@ msgstr "Bewijsmateriaal"
 
 #: ../ng_anr/views/import.file.html:152
 msgid "Ex: Tag1/Tag2/Tag3"
-msgstr ""
+msgstr "Ex: Tag1/Tag2/Tag3"
 
 #: ../ng_anr/views/import.file.html:166 ../ng_anr/views/import.record.html:104
 #: ../ng_anr/views/import.record.html:70
@@ -1895,7 +1902,7 @@ msgstr "Voorbeeldbestand"
 #: ../ng_anr/views/import.file.html:146 ../ng_anr/views/import.record.html:59
 #: ../ng_anr/views/import.record.html:84 ../ng_anr/views/import.record.html:92
 msgid "Example:"
-msgstr ""
+msgstr "Voorbeeld:"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:252 ../ng_anr/views/anr.soa.html:64
 msgid "Excluded"
@@ -2089,6 +2096,8 @@ msgid ""
 "For level of compliance, you can choose import mode calculation. (Average or "
 "worse level)"
 msgstr ""
+"Voor het conformiteitsniveau, kan je import mode berekening kiezen. ("
+"Gemiddelde of slechtste niveau)"
 
 #: ../ng_anr/views/detach.objlibs.html:66
 msgid "Force deletion"
@@ -2169,11 +2178,11 @@ msgstr "Nuttige informatie"
 
 #: ../ng_anr/views/__external_translate.html:30
 msgid "Hidden on global dashboard"
-msgstr ""
+msgstr "Verborgen op globaal dashboard"
 
 #: ../ng_anr/views/__external_translate.html:31
 msgid "Hide"
-msgstr ""
+msgstr "Verberg"
 
 #: ../ng_anr/views/_gettext_caveats.html:97
 msgid "Home"
@@ -2203,7 +2212,7 @@ msgstr ""
 
 #: ../ng_anr/views/import.soa.html:22
 msgid "If there is a multiple matching:"
-msgstr ""
+msgstr "Als er meerdere koppelingen zijn:"
 
 #: views/dialogs/create.deliverymodel.html:44
 msgid "If you save this template, previous templates will be lost."
@@ -2236,11 +2245,11 @@ msgstr "Beïnvloed criterium"
 
 #: ../ng_anr/views/_anr.evalscales.html:68
 msgid "Impacts"
-msgstr ""
+msgstr "Gevolgen"
 
 #: ../ng_anr/views/_anr.evalscales.html:23
 msgid "Impacts and consequences scale:"
-msgstr ""
+msgstr "Impacts en gevolgen schaal:"
 
 #: ../ng_anr/views/_anr.evalscales.html:214
 msgid "Impacts scale:"
@@ -2324,11 +2333,11 @@ msgstr "Importeer een actief van MOSP"
 
 #: ../ng_anr/views/import.asset.html:5
 msgid "Import an asset type from MOSP"
-msgstr ""
+msgstr "Een goederensoort uit MOSP importeren"
 
 #: ../ng_anr/views/import.amv.html:5
 msgid "Import an information risk from MOSP"
-msgstr ""
+msgstr "Een informatierisico uit MOSP importeren"
 
 #: ../ng_anr/views/anr.instance.html:27
 msgid "Import analysis"
@@ -2418,7 +2427,7 @@ msgstr "Opname/Uitsluiting"
 
 #: ../ng_anr/views/import.amv.html:37
 msgid "Information risk"
-msgstr ""
+msgstr "Informatierisico"
 
 #: ../ng_anr/views/_anr.evalscales.html:3 ../ng_anr/views/_anr.kbmgmt.html:331
 #: ../ng_anr/views/_anr.kbmgmt.html:334 ../ng_anr/views/anr.dashboard.html:20
@@ -2489,7 +2498,7 @@ msgstr "Ierland, VK, Canada"
 
 #: ../ng_anr/views/__external_translate.html:21
 msgid "Italian"
-msgstr ""
+msgstr "Italiaans"
 
 #: views/analysis_guides.kb_mgmt.html:28
 msgid "Items"
@@ -2501,7 +2510,7 @@ msgstr "Januari salarisadministratie, zomer rekrutering, zomer rekrutering"
 
 #: ../ng_anr/views/__external_translate.html:22
 msgid "Japanese"
-msgstr ""
+msgstr "Japans"
 
 #: ../ng_anr/views/anr.ropa.html:209
 msgid "Joint controllers"
@@ -2611,7 +2620,7 @@ msgstr "Mate van naleving"
 
 #: ../ng_anr/views/_anr.evalscales.html:224
 msgid "Levels"
-msgstr ""
+msgstr "Niveaus"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:36 ../ng_anr/views/_gettext_caveats.html:100
 msgid "Library"
@@ -2629,7 +2638,7 @@ msgstr "Lijst van de beschikbare snapshots"
 
 #: ../ng_anr/views/import.file.html:149
 msgid "List of categories:"
-msgstr ""
+msgstr "Lijst van categorieën:"
 
 #: ../ng_anr/views/import.object.html:54
 msgid "List of common MONARC assets"
@@ -2637,11 +2646,11 @@ msgstr "Lijst van de gemeenschappelijke MONARC-activa"
 
 #: ../ng_anr/views/import.file.html:153
 msgid "List of tags:"
-msgstr ""
+msgstr "Lijst van tags:"
 
 #: ../ng_anr/views/import.file.html:148
 msgid "List of themes:"
-msgstr ""
+msgstr "Lijst van thema's:"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1624 ../ng_anr/views/create.objlibs.html:63
 #: src/kb/info/BackofficeKbInfoCtrl.js:1295
@@ -2677,7 +2686,7 @@ msgstr "MAX risico"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:624
 msgid "MOSP API Key"
-msgstr ""
+msgstr "MOSP API Sleutel"
 
 #: views/index.backoffice.html:98
 msgid "Manage servers"
@@ -2708,7 +2717,7 @@ msgstr "Verantwoordelijke:"
 #: ../ng_anr/views/import.file.html:160 ../ng_anr/views/import.record.html:65
 #: ../ng_anr/views/import.record.html:98
 msgid "Mandatory field"
-msgstr ""
+msgstr "Verplicht veld"
 
 #: ../ng_anr/views/create.amvs.html:32 ../ng_anr/views/create.assets.html:32
 #: ../ng_anr/views/create.records.html:22
@@ -2731,6 +2740,8 @@ msgid ""
 "Match the controls between the two referentials on knowledge base "
 "(Referentials Tab)"
 msgstr ""
+"Koppel de maatregelen tussen de 2 standaarden in de kennisdatabank ("
+"Standaarden Tab)"
 
 #: ../ng_anr/views/create.instance.html:42
 msgid "Max"
@@ -2781,7 +2792,7 @@ msgstr "Multiple choice"
 
 #: ../ng_anr/views/import.file.html:151
 msgid "Multiple tags must be separated by a slash"
-msgstr ""
+msgstr "Meerdere tags moeten gescheiden worden door een forward slash"
 
 #: views/account.html:4
 msgid "My account details"
@@ -3177,11 +3188,11 @@ msgstr "Gelieve uw nieuwe wachtwoord in te voeren en te bevestigen"
 
 #: ../ng_anr/views/__external_translate.html:23
 msgid "Polish"
-msgstr ""
+msgstr "Pools"
 
 #: ../ng_anr/views/__external_translate.html:24
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugees"
 
 #: ../ng_anr/views/_table_risks_op.html:53
 #: views/items.analysis_guides.kb_mgmt.html:16
@@ -3270,11 +3281,11 @@ msgstr "Proxy-alias"
 
 #: ../ng_anr/views/publish.object.html:51
 msgid "Publish"
-msgstr ""
+msgstr "Publiceren"
 
 #: ../ng_anr/views/object.html:43 ../ng_anr/views/publish.object.html:5
 msgid "Publish asset in MOSP"
-msgstr ""
+msgstr "Het actief publiceren in MOSP"
 
 #: ../ng_anr/views/anr.ropa.html:88
 msgid "Purpose(s)"
@@ -3390,6 +3401,8 @@ msgid ""
 "Register your API Key associated with your MOSP account or create one by "
 "MONARC user account"
 msgstr ""
+"Registreer uw API-sleutel die is gekoppeld aan uw MOSP-account of maak er "
+"een aan met uw MONARC-gebruikersaccount"
 
 #: ../ng_anr/views/import.soa.html:41
 msgid "Remarks"
@@ -3496,7 +3509,7 @@ msgstr "Risico voordien"
 
 #: ../ng_anr/views/_oprisk_sheet.html:86 ../ng_anr/views/_risk_sheet.html:91
 msgid "Risk context"
-msgstr ""
+msgstr "Risico context"
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:58
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:133
@@ -3523,7 +3536,7 @@ msgstr "Context van het beheer van het risico"
 
 #: ../ng_anr/views/_oprisk_sheet.html:65 ../ng_anr/views/_risk_sheet.html:70
 msgid "Risk owner"
-msgstr ""
+msgstr "Risico-eigenaar"
 
 #: ../ng_anr/views/_oprisk_sheet.html:94
 msgid "Risk probability"
@@ -3573,7 +3586,7 @@ msgstr "Regels per pagina:"
 
 #: ../ng_anr/views/__external_translate.html:25
 msgid "Russian"
-msgstr ""
+msgstr "Russisch"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:627
 #: ../ng_anr/views/deliverable.evalcontext.html:75
@@ -3692,7 +3705,7 @@ msgstr "Gedeeld"
 
 #: ../ng_anr/views/__external_translate.html:32
 msgid "Show"
-msgstr ""
+msgstr "Toon"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:102 ../ng_anr/views/_anr.kbmgmt.html:178
 #: ../ng_anr/views/_anr.kbmgmt.html:26 ../ng_anr/views/_anr.kbmgmt.html:278
@@ -3773,7 +3786,7 @@ msgstr ""
 #: ../ng_anr/views/anr.soa.sheet.html:104
 #: ../ng_anr/views/anr.soa.sheet.html:111
 msgid "Some scales are hidden"
-msgstr ""
+msgstr "Sommige schalen zijn verborgen"
 
 #: ../ng_anr/views/_table_risks.html:50 ../ng_anr/views/_table_risks_op.html:50
 msgid "Sort"
@@ -3789,7 +3802,7 @@ msgstr "Bron"
 
 #: ../ng_anr/views/__external_translate.html:20
 msgid "Spanish"
-msgstr ""
+msgstr "Spaans"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:95 ../ng_anr/src/CreateObjlibDialogCtrl.js:73
 #: ../ng_anr/views/create.assets.html:69 ../ng_anr/views/create.objlibs.html:73
@@ -3815,11 +3828,11 @@ msgstr "Verklaring van toepasselijkheid"
 
 #: ../ng_anr/views/__external_translate.html:27
 msgid "Statistics data is collected"
-msgstr ""
+msgstr "Statistische gegevens worden verzameld"
 
 #: ../ng_anr/views/__external_translate.html:28
 msgid "Statistics data is ommitted"
-msgstr ""
+msgstr "Statistische gegevens zijn weggelaten"
 
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:62 ../ng_anr/views/_anr.kbmgmt.html:127
 #: ../ng_anr/views/_anr.kbmgmt.html:204 ../ng_anr/views/_anr.kbmgmt.html:394
@@ -3834,7 +3847,7 @@ msgstr "Status"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:372
 msgid "Successful publishing"
-msgstr ""
+msgstr "Succesvol publiceren"
 
 #: ../ng_anr/views/trends.evalcontext.html:134
 msgid "Summary"
@@ -3881,7 +3894,7 @@ msgstr "Tags"
 
 #: ../ng_anr/views/import.soa.html:19
 msgid "Take a snapshot of risk analysis if necessary."
-msgstr ""
+msgstr "Neem een snapshot van de risico analyse als het nodig is."
 
 #: ../ng_anr/views/deliverable.evalcontext.html:23
 msgid "Template"
@@ -3964,7 +3977,7 @@ msgstr "De activa werden met succes geïmporteerd"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:372
 msgid "The asset has been published in MOSP successfully."
-msgstr ""
+msgstr "Het goed is met succes in MOSP gepubliceerd."
 
 #: ../ng_anr/src/AnrObjectCtrl.js:135 ../ng_anr/src/AnrObjectCtrl.js:171
 #: ../ng_anr/src/AnrObjectCtrl.js:209
@@ -4074,7 +4087,7 @@ msgstr "De deliverable werd met succes gegenereerd."
 
 #: ../ng_anr/views/publish.object.html:27
 msgid "The description may not be empty"
-msgstr ""
+msgstr "De beschrijving mag niet leeg zijn"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:38
 msgid "The document has been created successfully."
@@ -4114,7 +4127,7 @@ msgstr "De gids werd met succes gewijzigd."
 
 #: ../ng_anr/views/import.soa.html:23
 msgid "The information of each control will be appended."
-msgstr ""
+msgstr "De informatie van elke maatregel zal toegevoegd worden."
 
 #: ../ng_anr/views/_gettext_caveats.html:77
 msgid "The input does not appear to be an integer"
@@ -4184,11 +4197,11 @@ msgstr "De naam mag niet leeg zijn"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1949
 msgid "The operational risk impact scale has been created successfully."
-msgstr ""
+msgstr "De operationele risico-impactschaal is succesvol aangemaakt."
 
 #: ../ng_anr/views/publish.object.html:40
 msgid "The organization may not be empty"
-msgstr ""
+msgstr "De organisatie mag niet leeg zijn"
 
 #: src/BackofficeLoginCtrl.js:27
 msgid ""
@@ -4740,7 +4753,7 @@ msgstr "Evaluatie van de bedreigingen"
 
 #: ../ng_anr/views/delete.scale.html:17
 msgid "To delete ?"
-msgstr ""
+msgstr "Verwijderen ?"
 
 #: ../ng_anr/views/anr.layout.html:23
 msgid "Tools"
@@ -4901,7 +4914,7 @@ msgstr "De kwalificatiewaarden en de reductiewaarden zijn niet geldig"
 #: ../ng_anr/views/import.record.html:51 ../ng_anr/views/import.record.html:58
 #: ../ng_anr/views/import.record.html:83 ../ng_anr/views/import.record.html:91
 msgid "Value:"
-msgstr ""
+msgstr "Waarde:"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:35
 msgid "Version"
@@ -4909,7 +4922,7 @@ msgstr "Versie"
 
 #: ../ng_anr/views/__external_translate.html:29
 msgid "Visible on global dashboard"
-msgstr ""
+msgstr "Zichtbaar op globaal dashboard"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:156 ../ng_anr/views/anr.dashboard.html:238
 #: views/info_risk.kb_mgmt.html:152
@@ -4955,7 +4968,7 @@ msgstr "Kwetsbaarheden"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:622
 msgid "What is your MOSP API Key?"
-msgstr ""
+msgstr "Wat is uw MOSP API Sleutel?"
 
 #: ../ng_anr/views/export.objlibs.html:37 ../ng_anr/views/export.record.html:31
 msgid "Without password"
@@ -4971,7 +4984,7 @@ msgstr "Alles opvouwen"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:693
 msgid "Wrong MOSP API Key. Try again."
-msgstr ""
+msgstr "Verkeerde MOSP API sleutel. Probeer het opnieuw."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4663 ../ng_anr/src/AnrKbMgmtCtrl.js:4943
 #: src/kb/info/BackofficeKbInfoCtrl.js:2831
@@ -5015,7 +5028,7 @@ msgstr ""
 
 #: ../ng_anr/views/import.soa.html:21
 msgid "You can select which fields of the SOA you want to import."
-msgstr ""
+msgstr "Je kan selecteren welke velden van de VVT je wil importeren."
 
 #: ../ng_anr/views/_gettext_caveats.html:22
 msgid "You can't delete yourself"
@@ -5167,7 +5180,7 @@ msgstr "U moet een kwetsbaarheid selecteren"
 
 #: ../ng_anr/views/import.object.mosp.html:47
 msgid "You must select an asset"
-msgstr ""
+msgstr "U moet een goed kiezen"
 
 #: ../ng_anr/views/create.amvs.html:56 ../ng_anr/views/create.objlibs.html:147
 msgid "You must select an asset type"
@@ -5254,7 +5267,7 @@ msgstr "maatregel bestaat niet"
 
 #: ../ng_anr/views/__external_translate.html:4
 msgid "critical risk(s) to be treated as priority"
-msgstr ""
+msgstr "prioritair aan te pakken kritiek(e) risico(‘s)"
 
 #: ../ng_anr/views/anr.ropa.html:348 ../ng_anr/views/anr.ropa.html:353
 msgid "day(s)"
@@ -5264,7 +5277,7 @@ msgstr "dag(en)"
 #: src/kb/info/BackofficeKbInfoCtrl.js:2612
 #: src/kb/info/BackofficeKbInfoCtrl.js:2645
 msgid "generic"
-msgstr ""
+msgstr "generiek"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2745 src/kb/info/BackofficeKbInfoCtrl.js:1613
 msgid "have been created successfully."
@@ -5286,7 +5299,7 @@ msgstr "aan het einde"
 #: ../ng_anr/views/anr.instance.html:58 ../ng_anr/views/anr.instance.html:70
 #: ../ng_anr/views/anr.instance.html:82
 msgid "inherited"
-msgstr ""
+msgstr "geërfd"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4829 ../ng_anr/src/AnrKbMgmtCtrl.js:4912
 #: src/kb/info/BackofficeKbInfoCtrl.js:3044
@@ -5296,7 +5309,7 @@ msgstr "is verplicht"
 
 #: ../ng_anr/views/__external_translate.html:6
 msgid "low risk(s) negligible"
-msgstr ""
+msgstr "verwaarloosba(a)r(e) gering(e) risico(‘s)"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4882 src/kb/info/BackofficeKbInfoCtrl.js:3090
 msgid "match does not exist"
@@ -5304,7 +5317,7 @@ msgstr "er bestaat geen overeenkomst"
 
 #: ../ng_anr/views/__external_translate.html:5
 msgid "medium risk(s) to be partially treated"
-msgstr ""
+msgstr "gedeeltelijk aan te pakken middelgro(o)t(e) risico(‘s)"
 
 #: ../ng_anr/views/anr.ropa.html:349 ../ng_anr/views/anr.ropa.html:354
 msgid "month(s)"
@@ -5317,21 +5330,21 @@ msgstr "van"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4647 ../ng_anr/views/add.objlib.html:59
 msgid "or"
-msgstr ""
+msgstr "of"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4401 src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid "primary asset"
-msgstr ""
+msgstr "primaire asset"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4401 src/kb/info/BackofficeKbInfoCtrl.js:2561
 msgid "secondary asset"
-msgstr ""
+msgstr "secondaire asset"
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:2567
 #: src/kb/info/BackofficeKbInfoCtrl.js:2612
 #: src/kb/info/BackofficeKbInfoCtrl.js:2645
 msgid "specific"
-msgstr ""
+msgstr "specifiek"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4359 src/kb/info/BackofficeKbInfoCtrl.js:2523
 msgid "tags"
@@ -5411,7 +5424,7 @@ msgstr "{{ count }} risico’s werden verwijderd."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1664 ../ng_anr/src/AnrLayoutCtrl.js:1987
 msgid "{{count}} scales have been deleted."
-msgstr ""
+msgstr "{{count}} schalen zijn verwijderd."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1986
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:162
