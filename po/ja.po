@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-05-11 11:42+0000\n"
+"PO-Revision-Date: 2021-09-08 11:53+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -5142,11 +5142,11 @@ msgstr "{{ object_details.risks.length }} 情報リスク"
 
 #: ../ng_anr/views/_table_risks_op.html:5
 msgid "{{ oprisks_total }} operational risks"
-msgstr "オペレーショナルリスク"
+msgstr "{{ oprisks_total }} オペレーショナルリスク"
 
 #: ../ng_anr/views/_table_risks.html:9
 msgid "{{ risks_total }} information risks"
-msgstr "リスクの総計 }}} 情報リスク"
+msgstr "{{ risks_total }} じょうほうリスク"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1684 ../ng_anr/src/AnrKbMgmtCtrl.js:331
 #: src/kb/info/BackofficeKbInfoCtrl.js:1517
