@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2021-09-07 07:49+0000\n"
+"PO-Revision-Date: 2021-09-07 08:42+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -354,7 +354,7 @@ msgstr "Tous les tags"
 
 #: src/ErrorService.js:11
 msgid "An error occurred while fetching {{ thing }}: {{status}}"
-msgstr "Une erreur est survenue sur {{ thing }} : {{ status }}"
+msgstr "Une erreur est survenue sur {{ thing }} : {{status}}"
 
 #: views/analysis_guides.kb_mgmt.html:5
 msgid "Analysis guides"
@@ -465,12 +465,11 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:330 src/kb/info/BackofficeKbInfoCtrl.js:283
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
 msgstr ""
-"Voulez-vous réellement supprimer les {{ count }} types d'actifs "
-"sélectionnés ?"
+"Voulez-vous réellement supprimer les {{count}} types d'actifs sélectionnés ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1795 src/kb/info/BackofficeKbInfoCtrl.js:1502
 msgid "Are you sure you want to delete the {{count}} selected asset(s)?"
-msgstr "Voulez-vous réellement supprimer les {{ count }} actifs sélectionnés ?"
+msgstr "Voulez-vous réellement supprimer les {{count}} actifs sélectionnés ?"
 
 #: src/BackofficeClientMgmtCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected client(s)?"
@@ -479,8 +478,7 @@ msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1242 src/kb/info/BackofficeKbInfoCtrl.js:994
 msgid "Are you sure you want to delete the {{count}} selected controls?"
-msgstr ""
-"Voulez-vous réellement supprimer les {{ count }} mesures sélectionnées ?"
+msgstr "Voulez-vous réellement supprimer les {{count}} mesures sélectionnées ?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:122
 msgid "Are you sure you want to delete the {{count}} selected model(s)?"
@@ -490,20 +488,18 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2634
 msgid "Are you sure you want to delete the {{count}} selected recommendations?"
 msgstr ""
-"Voulez-vous réellement supprimer les {{ count }} recommandations "
-"sélectionnés ?"
+"Voulez-vous réellement supprimer les {{count}} recommandations sélectionnés ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1560 ../ng_anr/src/AnrKbMgmtCtrl.js:2232
 #: src/kb/info/BackofficeKbInfoCtrl.js:1232
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:377
 msgid "Are you sure you want to delete the {{count}} selected risk(s)?"
-msgstr ""
-"Voulez-vous réellement supprimer les {{ count }} risques sélectionnés ?"
+msgstr "Voulez-vous réellement supprimer les {{count}} risques sélectionnés ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1972
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:149
 msgid "Are you sure you want to delete the {{count}} selected tag(s)?"
-msgstr "Voulez-vous réellement supprimer les {{ count }} tags sélectionnés ?"
+msgstr "Voulez-vous réellement supprimer les {{count}} tags sélectionnés ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:593 src/kb/info/BackofficeKbInfoCtrl.js:489
 msgid "Are you sure you want to delete the {{count}} selected threat(s)?"
@@ -2479,7 +2475,7 @@ msgstr "Interne"
 
 #: ../ng_anr/views/anr.ropa.html:436
 msgid "International transfers"
-msgstr "Transferts internationals"
+msgstr "Transferts internationaux"
 
 #: ../ng_anr/views/export.objlibs.html:55
 msgid "Interviews"
@@ -2601,7 +2597,7 @@ msgstr "Langue"
 #: views/account.html:18 views/dialogs/create.users.admin.html:26
 #: views/users.admin.html:37
 msgid "Last name"
-msgstr "Nom"
+msgstr "Nom de famille"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:254 ../ng_anr/views/anr.soa.html:70
 msgid "Legal requirements"
@@ -4295,7 +4291,7 @@ msgstr "La recommandation a bien été validée."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2422
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:245
 msgid "The recommendation set has been created successfully."
-msgstr "L'ensemble de recommandations a bien été créée."
+msgstr "L'ensemble de recommandations a bien été créé."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2486
 msgid "The recommendation set has been deleted."
@@ -5406,7 +5402,7 @@ msgstr "{{ risks_total }} risques de l'information"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1811 ../ng_anr/src/AnrKbMgmtCtrl.js:344
 #: src/kb/info/BackofficeKbInfoCtrl.js:1517
 msgid "{{count}} assets have been deleted."
-msgstr "{{ count }} actifs ont été supprimés."
+msgstr "{{count}} types d’actifs ont été supprimés."
 
 #: src/kb/info/BackofficeKbInfoCtrl.js:296
 msgid "{{count}} assets type have been deleted."
@@ -5418,7 +5414,7 @@ msgstr "{{count}} clients ont été supprimés."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1255 src/kb/info/BackofficeKbInfoCtrl.js:1008
 msgid "{{count}} controls have been deleted."
-msgstr "{{ count }} mesures ont été supprimées."
+msgstr "{{count}} mesures ont été supprimées."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:134
 msgid "{{count}} models have been deleted."
@@ -5426,7 +5422,7 @@ msgstr "{{count}} modèles ont été supprimés."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2647
 msgid "{{count}} recommendations have been deleted."
-msgstr "{{ count }} recommendations ont été supprimées."
+msgstr "{{count}} recommendations ont été supprimées."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2246
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:390
