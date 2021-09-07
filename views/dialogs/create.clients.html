@@ -76,7 +76,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user email</label>
                     <md-icon>email</md-icon>
-                    <input ng-model="client.first_user_email" name="first_user_email" type="email" required ng-disabled="client.id" ng-pattern="/^([\w-]+\.?)+(\+[\w-]+)?@([0-9a-zA-Z\-]{2,}\.)+[a-zA-Z]{2,7}$/">
+                    <input ng-model="client.first_user_email" name="first_user_email" type="email" ng-disabled="client.id" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
                     <div ng-messages="clientForm.first_user_email.$error">
                         <div ng-message="required">{{ 'The first user email may not be empty' | translate }}</div>
                     </div>

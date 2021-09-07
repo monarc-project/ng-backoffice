@@ -22,6 +22,7 @@
                       code: code,
                       flag: code == 'en' ? 'gb' : code,
                       name: ISO6391.getName(code),
+                      index: lang,
                     }
                   self.config.languages[lang] = AddLang;
                   }

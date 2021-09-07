@@ -2,7 +2,7 @@ angular
     .module('BackofficeApp', ['ngMaterial', 'ngAnimate', 'toastr', 'ui.router', 'gettext', 'ngResource',
         'LocalStorageModule', 'md.data.table', 'ncy-angular-breadcrumb', 'ngFileUpload', 'angularInlineEdit',
         'ui.tree', 'ngMessages', 'AnrModule', 'ng-countryflags'])
-    .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider', 
+    .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider',
              '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext', '$mdAriaProvider', '$locationProvider',
         function ($mdThemingProvider, $stateProvider, $urlRouterProvider, localStorageServiceProvider,
                   $httpProvider, $breadcrumbProvider, $provide, gettext, $mdAriaProvider, $locationProvider) {
@@ -219,8 +219,15 @@ angular
                         var ErrorService = $injector.get('ErrorService');
 
                         if (response.status == 401) {
-                            var $state = $injector.get('$state');
-                            $state.transitionTo('login');
+                            const state = $injector.get('$state');
+                            state.transitionTo('login');
+                        } else if (response.status == 403) {
+                            const resourceUrl = response.config.url;
+                            if (resourceUrl) {
+                                ErrorService.notifyError('This resource is forbidden: ' + resourceUrl);
+                            } else {
+                                ErrorService.notifyError('Unauthorized operation occurred.');
+                            }
                         } else if (response.status == 412) {
                             // Human-readable error, with translation support
                             for (var i = 0; i < response.data.errors.length; ++i) {
@@ -316,5 +323,10 @@ angular
             }
 
             $rootScope.updatePaginationLabels();
+
+            //Handle rejection when close/ESC a $mdDialog
+            $rootScope.handleRejectionDialog = function(reject) {
+              if(reject !== undefined) throw reject;
+            }
         }
     ]);
