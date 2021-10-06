@@ -1,6 +1,6 @@
 angular
     .module('BackofficeApp', ['ngMaterial', 'ngAnimate', 'toastr', 'ui.router', 'gettext', 'ngResource',
-        'LocalStorageModule', 'md.data.table', 'ncy-angular-breadcrumb', 'ngFileUpload', 'angularInlineEdit',
+        'LocalStorageModule', 'md.data.table', 'ncy-angular-breadcrumb', 'ngFileUpload',
         'ui.tree', 'ngMessages', 'AnrModule', 'ng-countryflags'])
     .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider',
              '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext', '$mdAriaProvider', '$locationProvider',
