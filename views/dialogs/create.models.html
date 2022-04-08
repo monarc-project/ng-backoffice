@@ -36,7 +36,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Description</label>
                     <md-icon>subject</md-icon>
-                    <textarea ng-model="model['description' + language]" rows="4"></textarea>
+                    <textarea ng-model="model['description' + language]"></textarea>
                 </md-input-container>
 
                 <md-subheader>{{ 'Options' | translate }}</md-subheader>
@@ -45,6 +45,13 @@
                     <md-checkbox ng-model="model.isScalesUpdatable" ng-true-value="1" ng-false-value="0" class="md-primary md-align-top-left">{{ 'Editable impact scale' | translate }}</md-checkbox>
                     <md-checkbox ng-model="model.showRolfBrut" ng-true-value="1" ng-false-value="0" class="md-primary md-align-top-left">{{ 'Enable inherent risk' | translate }}</md-checkbox>
                 </div>
+                <md-subheader>{{ 'Assets context information ' | translate }}</md-subheader>
+                <md-chips
+                    md-on-add="addAssetContextField($index,$chip)"
+                    ng-model="contextFields[language]"
+                    placeholder="+ {{ 'Add a context field' | translate }}"
+                    md-enable-chip-edit="true">
+                </md-chips>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
