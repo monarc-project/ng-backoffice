@@ -181,18 +181,12 @@
             }
         })
 
-
-        $scope.contextFieldsLanguage = [];
         $scope.contextFields = {
             1:[],
             2:[],
             3:[],
             4:[]
         }
-
-        $scope.addAssetContextField = function(index, chip) {
-            console.log($scope.contextFields);
-        };
 
         $scope.cancel = function() {
             $mdDialog.cancel();
