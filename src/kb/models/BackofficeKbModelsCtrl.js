@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbModelsCtrl', [
             '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
-            'ModelService', '$timeout',
+            'ModelService', 'MetadataInstanceService', '$timeout',
             BackofficeKbModelsCtrl
         ]);
 
@@ -12,7 +12,7 @@
      * BO > KB > MODELS
      */
     function BackofficeKbModelsCtrl($scope, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
-                                    ModelService, $timeout) {
+                                    ModelService, MetadataInstanceService, $timeout) {
         TableHelperService.resetBookmarks();
 
         $scope.models = TableHelperService.build($scope._langField('label'), 10, 1, '');
@@ -171,7 +171,8 @@
                 isScalesUpdatable: false,
                 isGeneric: false,
                 isRegulator: false,
-                showRolfBrut: false
+                showRolfBrut: false,
+                metadatas:{}
             };
         }
 
@@ -181,11 +182,19 @@
             }
         })
 
-        $scope.contextFields = {
+        $scope.metadataFields = {
             1:[],
             2:[],
             3:[],
             4:[]
+        }
+
+        $scope.addmetadataField = function (metadata, index) {
+            for (const lang in $scope.metadataFields) {
+                if($scope.metadataFields[lang].indexOf(metadata) == -1){
+                    $scope.metadataFields[lang].push(metadata)
+                }
+            }
         }
 
         $scope.cancel = function() {
@@ -196,6 +205,7 @@
             // Field is "isGeneric", but for UX reasons we display a "Specific" checkbox - invert the value here
             $scope.model.isGeneric = !$scope.model.isGeneric;
 
+            $scope.model.metadatas = $scope.metadataFields;
             $mdDialog.hide($scope.model);
         };
     }

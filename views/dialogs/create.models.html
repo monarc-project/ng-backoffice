@@ -47,8 +47,8 @@
                 </div>
                 <md-subheader>{{ 'Assets context information ' | translate }}</md-subheader>
                 <md-chips
-                    md-on-add="addAssetContextField($index,$chip)"
-                    ng-model="contextFields[language]"
+                    md-on-add="addmetadataField($chip,$index)"
+                    ng-model="metadataFields[language]"
                     placeholder="+ {{ 'Add a context field' | translate }}"
                     md-enable-chip-edit="true">
                 </md-chips>
