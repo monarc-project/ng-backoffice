@@ -3,7 +3,7 @@
     angular
         .module('BackofficeApp')
         .controller('BackofficeKbModelsCtrl', [
-            '$scope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
+            '$scope', '$rootScope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
             'ModelService', 'MetadataInstanceService', '$timeout',
             BackofficeKbModelsCtrl
         ]);
@@ -11,7 +11,7 @@
     /**
      * BO > KB > MODELS
      */
-    function BackofficeKbModelsCtrl($scope, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
+    function BackofficeKbModelsCtrl($scope, $rootScope, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                     ModelService, MetadataInstanceService, $timeout) {
         TableHelperService.resetBookmarks();
 
@@ -38,7 +38,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$mdDialog', 'ConfigService', 'model', CreateModelDialogCtrl],
+                controller: ['$scope', '$rootScope', '$mdDialog', 'ConfigService', 'MetadataInstanceService', 'model', CreateModelDialogCtrl],
                 templateUrl: 'views/dialogs/create.models.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
@@ -67,7 +67,7 @@
 
             ModelService.getModel(model.id).then(function (modelData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$mdDialog', 'ConfigService', 'model', CreateModelDialogCtrl],
+                    controller: ['$scope', '$rootScope', '$mdDialog', 'ConfigService', 'MetadataInstanceService', 'model', CreateModelDialogCtrl],
                     templateUrl: 'views/dialogs/create.models.html',
                     targetEvent: ev,
                     clickOutsideToClose: false,
@@ -150,7 +150,7 @@
         }
     }
 
-    function CreateModelDialogCtrl($scope, $mdDialog, ConfigService, model) {
+    function CreateModelDialogCtrl($scope, $rootScope, $mdDialog, ConfigService, MetadataInstanceService, model) {
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (model != undefined && model != null) {
@@ -190,11 +190,28 @@
         }
 
         $scope.addmetadataField = function (metadata, index) {
-            for (const lang in $scope.metadataFields) {
-                if($scope.metadataFields[lang].indexOf(metadata) == -1){
-                    $scope.metadataFields[lang].push(metadata)
-                }
-            }
+            let labels = {};
+            for (language in $rootScope.languages) {
+                  labels[$rootScope.languages[language].code] = metadata;
+                  if($scope.metadataFields[language].indexOf(metadata) == -1){
+                          $scope.metadataFields[language].push(metadata)
+                  }
+            };
+
+            console.log(labels);
+            // MetadataInstanceService.createMetadata(metadata,
+            //     function(){
+            //
+            //     },
+            //     function(){
+            //
+            //     }
+            // );
+            // for (const lang in $scope.metadataFields) {
+            //     if($scope.metadataFields[lang].indexOf(metadata) == -1){
+            //         $scope.metadataFields[lang].push(metadata)
+            //     }
+            // }
         }
 
         $scope.cancel = function() {
@@ -204,7 +221,6 @@
         $scope.create = function() {
             // Field is "isGeneric", but for UX reasons we display a "Specific" checkbox - invert the value here
             $scope.model.isGeneric = !$scope.model.isGeneric;
-
             $scope.model.metadatas = $scope.metadataFields;
             $mdDialog.hide($scope.model);
         };
