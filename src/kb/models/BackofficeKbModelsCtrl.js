@@ -185,21 +185,15 @@
             }
         })
 
-        $scope.metadataFields = {};
-        for (language in $rootScope.languages) {
-            $scope.metadataFields[$rootScope.languages[language].code] = [];
-        }
+        $scope.metadataFields = [];
 
         $scope.newChip = function (chip, language) {
-            newChip = {
-                label: chip,
-                index: $scope.metadataFields[language].length + 1
-            };
-
-            for (language in $scope.metadataFields) {
-                $scope.metadataFields[language].push(angular.copy(newChip))
-            };
-
+            newChip = {};
+            for (language in $rootScope.languages) {
+                newChip[$rootScope.languages[language].code] = chip ;
+            }
+            newChip['index'] = $scope.metadataFields.length + 1
+            $scope.metadataFields.push(angular.copy(newChip))
             return newChip;
         }
 
@@ -228,13 +222,11 @@
         };
 
         $scope.deleteMetadata = function (index) {
-            for (langIndex in $scope.metadataFields) {
-                $scope.metadataFields[langIndex].splice(index,1);
-                $scope.metadataFields[langIndex] = angular.copy($scope.metadataFields[langIndex]);
-                $scope.metadataFields[langIndex].forEach((metadata, i) => {
-                    metadata.index = i + 1
-                });
-            };
+            $scope.metadataFields.splice(index,1);
+            $scope.metadataFields = angular.copy($scope.metadataFields);
+            $scope.metadataFields.forEach((metadata, i) => {
+                metadata.index = i + 1
+            });
         }
 
         $scope.cancel = function() {
@@ -242,21 +234,12 @@
         };
 
         $scope.create = function() {
+            $scope.metadataFields.forEach((metadata, i) => {
+                delete metadata.index;
+            });
             // Field is "isGeneric", but for UX reasons we display a "Specific" checkbox - invert the value here
             $scope.model.isGeneric = !$scope.model.isGeneric;
-            let metadatas = []
-            for (language in $scope.metadataFields) {
-                $scope.metadataFields[language].forEach((metadata, i) => {
-                    if (metadatas[i]) {
-                        metadatas[i][language] = metadata.label;
-                    } else {
-                        metadataToAdd = {};
-                        metadataToAdd[language] = metadata.label;
-                        metadatas.push(metadataToAdd);
-                    }
-                });
-            }
-            $scope.model.metadatas = metadatas;
+            $scope.model.metadatas = $scope.metadataFields;
             $mdDialog.hide($scope.model);
         };
     }

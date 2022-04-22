@@ -24,7 +24,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Label</label>
                     <md-icon>label</md-icon>
-                    <input ng-model="metaDatas[$root.languages[language].code][metadataIndex].label" name="label" required>
+                    <input ng-model="metaDatas[metadataIndex][$root.languages[language].code]" name="label" required>
                     <div ng-messages="metadataForm.label.$error">
                         <div ng-message="required">{{ 'The label may not be empty' | translate }}</div>
                     </div>
