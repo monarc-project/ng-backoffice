@@ -47,24 +47,22 @@
                 </div>
                 <md-subheader>{{ 'Assets context information ' | translate }}</md-subheader>
                 <md-chips
-                    md-on-add="addmetadataField($chip,$index)"
-                    ng-model="metadataFields[language]"
+                    ng-model="metadataFields[$root.languages[language].code]"
                     placeholder="+ {{ 'Add a context field' | translate }}"
-                    md-removable=false>
+                    md-removable=false
+                    md-transform-chip = "newChip($chip, $root.languages[language].code)">
                     <md-chip-template class="metadataInstanceChips" layout="row">
-                        <strong class="md-padding">[{{$index}}]</strong>
-                        <span class="md-padding">{{$chip}}</span>
-                        <md-button  class="md-primary md-icon-button" ng-click="editMetadata($event)">
-                          <md-icon>edit</md-icon>
-                          <md-tooltip>{{ 'Edit' | translate }}</md-tooltip>
+                        <strong class="md-padding">[{{$chip.index}}]</strong>
+                        <span class="md-padding">{{$chip.label}}</span>
+                        <md-button  class="md-primary md-icon-button" ng-click="editMetadata($event, $root.languages[language].index, $chip.index)">
+                            <md-icon>edit</md-icon>
+                            <md-tooltip>{{ 'Edit' | translate }}</md-tooltip>
                         </md-button>
-                        <md-button class="md-warn md-icon-button" ng-click="deleteMetadata($event)">
-                          <md-icon>delete</md-icon>
-                          <md-tooltip>{{ 'Delete' | translate }}</md-tooltip>
+                        <md-button class="md-warn md-icon-button" ng-click="deleteMetadata($index)">
+                            <md-icon>delete</md-icon>
+                            <md-tooltip>{{ 'Delete' | translate }}</md-tooltip>
                         </md-button>
                     </md-chip-template>
-
-
                 </md-chips>
             </div>
         </md-dialog-content>
