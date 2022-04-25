@@ -38,7 +38,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
             $mdDialog.show({
-                controller: ['$scope', '$rootScope', '$mdDialog', '$mdMedia', 'ConfigService', 'model', CreateModelDialogCtrl],
+                controller: ['$scope', '$rootScope', '$mdDialog', '$mdMedia', 'gettextCatalog','ConfigService', 'MetadataInstanceService', 'model', CreateModelDialogCtrl],
                 templateUrl: 'views/dialogs/create.models.html',
                 targetEvent: ev,
                 clickOutsideToClose: false,
@@ -70,7 +70,7 @@
 
             ModelService.getModel(model.id).then(function (modelData) {
                 $mdDialog.show({
-                    controller: ['$scope', '$rootScope', '$mdDialog', '$mdMedia', 'ConfigService', 'model', CreateModelDialogCtrl],
+                    controller: ['$scope', '$rootScope', '$mdDialog', '$mdMedia', 'gettextCatalog', 'ConfigService', 'MetadataInstanceService','model', CreateModelDialogCtrl],
                     templateUrl: 'views/dialogs/create.models.html',
                     targetEvent: ev,
                     clickOutsideToClose: false,
@@ -153,7 +153,7 @@
         }
     }
 
-    function CreateModelDialogCtrl($scope, $rootScope, $mdDialog, $mdMedia, ConfigService, model) {
+    function CreateModelDialogCtrl($scope, $rootScope, $mdDialog, $mdMedia, gettextCatalog, ConfigService, MetadataInstanceService, model) {
         $scope.language = ConfigService.getDefaultLanguageIndex();
 
         if (model != undefined && model != null) {
@@ -175,9 +175,10 @@
                 isGeneric: false,
                 isRegulator: false,
                 showRolfBrut: false,
-                metadatas:{}
             };
         }
+
+        $scope.model.metadatas = [];
 
         $scope.$watch('model.isRegulator', function (newValue) {
             if (newValue) {
@@ -185,16 +186,44 @@
             }
         })
 
-        $scope.metadataFields = [];
+        $scope.$watch('language', function (newValue) {
+            if (newValue && $scope.model.id) {
+                let language = $rootScope.languages[newValue].code;
+                MetadataInstanceService.getMetadatas({
+                    anrId: $scope.model.anr.id,
+                    language:language
+                })
+                .then(function(data){
+                    $scope.model.metadatas = data.data;
+                });
+            }
+        })
 
         $scope.newChip = function (chip, language) {
             newChip = {};
             for (language in $rootScope.languages) {
                 newChip[$rootScope.languages[language].code] = chip ;
             }
-            newChip['index'] = $scope.metadataFields.length + 1
-            $scope.metadataFields.push(angular.copy(newChip))
-            return newChip;
+            if ($scope.model.id) {
+                let language = $rootScope.languages[$scope.language].code;
+                MetadataInstanceService.createMetadata({
+                    anrId: $scope.model.anr.id,
+                    metadatas: [newChip]},
+                    function(){
+                        MetadataInstanceService.getMetadatas({
+                            anrId: $scope.model.anr.id,
+                            language:language
+                        })
+                        .then(function(data){
+                            $scope.model.metadatas = data.data;
+                        });
+                    }
+                );
+            } else {
+                newChip['index'] = $scope.model.metadatas.length + 1;
+                $scope.model.metadatas.push(angular.copy(newChip));
+                return newChip;
+            }
         }
 
         $scope.editMetadata = function (ev, language, index) {
@@ -208,24 +237,73 @@
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 locals: {
-                    metaDatas : $scope.metadataFields,
+                    model : $scope.model,
                 }
             })
-            function editMetadataDialogCtrl($scope, $mdDialog, metaDatas){
+            function editMetadataDialogCtrl($scope, $mdDialog, model){
                 $scope.language = language;
                 $scope.metadataIndex = index - 1;
-                $scope.metaDatas = metaDatas;
+                $scope.metaDatas = model.metadatas;
+
+                $scope.$watch('language', function (newValue) {
+                    if (newValue && model.id) {
+                        let language = $rootScope.languages[newValue].code;
+                        MetadataInstanceService.getMetadatas({
+                            anrId: model.anr.id,
+                            language:language
+                        })
+                        .then(function(data){
+                            $scope.metaDatas = data.data;
+                        });
+                    }
+                })
+
+                $scope.$watch(
+                    'metaDatas[metadataIndex][$root.languages[language].code]',
+                    function (newValue, oldValue) {
+                        if (newValue && oldValue && newValue != oldValue) {
+                        }
+                    }
+                )
+
                 $scope.cancel = function() {
                     $mdDialog.cancel();
                 };
             }
         };
 
-        $scope.deleteMetadata = function (index) {
-            $scope.metadataFields.splice(index,1);
-            $scope.metadataFields = angular.copy($scope.metadataFields);
-            $scope.metadataFields.forEach((metadata, i) => {
-                metadata.index = i + 1
+        $scope.deleteMetadata = function (ev, index) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Are you sure you want to delete the context field?'))
+                .textContent(gettextCatalog.getString('This operation is irreversible.'))
+                .targetEvent(ev)
+                .theme('light')
+                .multiple(true)
+                .ok(gettextCatalog.getString('Delete'))
+                .cancel(gettextCatalog.getString('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                if ($scope.model.metadatas[index].id && $scope.model.id) {
+                    MetadataInstanceService.deleteMetadata(
+                        $scope.model.metadatas[index].id,
+                        $scope.model.anr.id,
+                        function() {
+                            let language = $rootScope.languages[$scope.language].code;
+                            MetadataInstanceService.getMetadatas({
+                                anrId: model.anr.id,
+                                language:language
+                            })
+                            .then(function(data){
+                                $scope.model.metadatas = data.data;
+                            });
+                        }
+                    );
+                } else {
+                    $scope.model.metadatas.splice(index,1);
+                    $scope.model.metadatas = angular.copy($scope.model.metadatas);
+                    $scope.model.metadatas.forEach((metadata, i) => {
+                        metadata.index = i + 1
+                    });
+                }
             });
         }
 
@@ -234,12 +312,15 @@
         };
 
         $scope.create = function() {
-            $scope.metadataFields.forEach((metadata, i) => {
-                delete metadata.index;
-            });
+            if (!$scope.model.id) {
+                $scope.model.metadatas.forEach((metadata, i) => {
+                    delete metadata.index;
+                });
+            } else {
+                $scope.model.metadatas = [];
+            }
             // Field is "isGeneric", but for UX reasons we display a "Specific" checkbox - invert the value here
             $scope.model.isGeneric = !$scope.model.isGeneric;
-            $scope.model.metadatas = $scope.metadataFields;
             $mdDialog.hide($scope.model);
         };
     }
