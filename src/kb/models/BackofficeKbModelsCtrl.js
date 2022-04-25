@@ -192,7 +192,7 @@
 
         $scope.$watch('language', function (newValue) {
             if (newValue && $scope.model.id) {
-                let language = $rootScope.languages[newValue].code;
+                let language = $rootScope.getLanguageCode(newValue);
                 MetadataInstanceService.getMetadatas({
                     anrId: $scope.model.anr.id,
                     language:language
@@ -209,7 +209,7 @@
                 newChip[$rootScope.languages[language].code] = chip ;
             }
             if ($scope.model.id) {
-                let language = $rootScope.languages[$scope.language].code;
+                let language = $rootScope.getLanguageCode($scope.language);
                 MetadataInstanceService.createMetadata({
                     anrId: $scope.model.anr.id,
                     metadatas: [newChip]},
@@ -251,7 +251,7 @@
 
                 $scope.$watch('language', function (newValue) {
                     if (newValue && model.id) {
-                        let language = $rootScope.languages[newValue].code;
+                        let language = $rootScope.getLanguageCode(newValue);
                         MetadataInstanceService.getMetadatas({
                             anrId: model.anr.id,
                             language:language
@@ -263,7 +263,7 @@
                 })
 
                 $scope.$watch(
-                    'metaDatas[metadataIndex][$root.languages[language].code]',
+                    'metaDatas[metadataIndex][$root.getLanguageCode(language)]',
                     function (newValue, oldValue) {
                         if (newValue && oldValue && newValue != oldValue) {
                         }
@@ -291,7 +291,7 @@
                         $scope.model.metadatas[index].id,
                         $scope.model.anr.id,
                         function() {
-                            let language = $rootScope.languages[$scope.language].code;
+                            let language = $rootScope.getLanguageCode($scope.language);
                             MetadataInstanceService.getMetadatas({
                                 anrId: model.anr.id,
                                 language:language

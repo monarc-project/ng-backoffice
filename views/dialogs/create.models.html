@@ -50,7 +50,7 @@
                     ng-model="model.metadatas"
                     placeholder="+ {{ 'Add a context field' | translate }}"
                     md-removable=false
-                    md-transform-chip = "newChip($chip, $root.languages[language].code)">
+                    md-transform-chip = "newChip($chip, $root.getLanguageCode(language))">
                     <md-chip-template class="metadataInstanceChips" layout="row">
                         <strong class="md-padding">[{{$chip.index}}]</strong>
                         <span class="md-padding">{{$chip[$root.languages[language].code]}}</span>
