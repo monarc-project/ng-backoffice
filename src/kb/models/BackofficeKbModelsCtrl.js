@@ -62,6 +62,8 @@
                             $scope.createNewModel(ev, model);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -79,19 +81,21 @@
                         'model': modelData
                     }
                 })
-                    .then(function (model) {
-                        ModelService.updateModel(model,
-                            function () {
-                                $scope.updateModels();
-                                toastr.success(gettextCatalog.getString('The model has been edited successfully.',
-                                    {modelLabel: $scope._langField(model,'label')}), gettextCatalog.getString('Edition successful'));
-                            },
+                .then(function (model) {
+                    ModelService.updateModel(model,
+                        function () {
+                            $scope.updateModels();
+                            toastr.success(gettextCatalog.getString('The model has been edited successfully.',
+                                {modelLabel: $scope._langField(model,'label')}), gettextCatalog.getString('Edition successful'));
+                        },
 
-                            function () {
-                                $scope.editModel(ev, model);
-                            }
-                        );
-                    });
+                        function () {
+                            $scope.editModel(ev, model);
+                        }
+                    );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
+                });
             });
         };
 
