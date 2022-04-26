@@ -230,7 +230,7 @@
             }
         }
 
-        $scope.editMetadata = function (ev, language, index) {
+        $scope.editMetadata = function (ev, language, metadata) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
             $mdDialog.show({
                 controller: editMetadataDialogCtrl,
@@ -246,18 +246,18 @@
             })
             function editMetadataDialogCtrl($scope, $mdDialog, model){
                 $scope.language = language;
-                $scope.metadataIndex = index - 1;
-                $scope.metaDatas = model.metadatas;
+                $scope.metadata = model.metadatas[metadata.index - 1];
 
                 $scope.$watch('language', function (newValue) {
                     if (newValue && model.id) {
                         let language = $rootScope.getLanguageCode(newValue);
-                        MetadataInstanceService.getMetadatas({
-                            anrId: model.anr.id,
-                            language:language
-                        })
+                        MetadataInstanceService.getMetadata(
+                            metadata.id,
+                            model.anr.id,
+                            language
+                        )
                         .then(function(data){
-                            $scope.metaDatas = data.data;
+                            $scope.metadata = data.data;
                         });
                     }
                 })
@@ -266,6 +266,7 @@
                     'metaDatas[metadataIndex][$root.getLanguageCode(language)]',
                     function (newValue, oldValue) {
                         if (newValue && oldValue && newValue != oldValue) {
+
                         }
                     }
                 )

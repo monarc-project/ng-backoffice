@@ -54,7 +54,7 @@
                     <md-chip-template class="metadataInstanceChips" layout="row">
                         <strong class="md-padding">[{{$chip.index}}]</strong>
                         <span class="md-padding">{{$chip[$root.languages[language].code]}}</span>
-                        <md-button  class="md-primary md-icon-button" ng-click="editMetadata($event, $root.languages[language].index, $chip.index)">
+                        <md-button  class="md-primary md-icon-button" ng-click="editMetadata($event, $root.languages[language].index, $chip)">
                             <md-icon>edit</md-icon>
                             <md-tooltip>{{ 'Edit' | translate }}</md-tooltip>
                         </md-button>
