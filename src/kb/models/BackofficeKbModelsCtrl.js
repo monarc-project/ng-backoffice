@@ -240,10 +240,20 @@
                 multiple: true,
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
+                onRemoving : function(){
+                    MetadataInstanceService.getMetadatas({
+                        anrId: $scope.model.anr.id,
+                        language:$rootScope.getLanguageCode(language)
+                    })
+                    .then(function(data){
+                        $scope.model.metadatas = data.data;
+                    });
+                },
                 locals: {
                     model : $scope.model,
                 }
             })
+
             function editMetadataDialogCtrl($scope, $mdDialog, model){
                 $scope.language = language;
                 $scope.metadata = model.metadatas[metadata.index - 1];
@@ -263,10 +273,14 @@
                 })
 
                 $scope.$watch(
-                    'metaDatas[metadataIndex][$root.getLanguageCode(language)]',
+                    'metadata[$root.getLanguageCode(language)]',
                     function (newValue, oldValue) {
-                        if (newValue && oldValue && newValue != oldValue) {
-
+                        if (model.id && newValue && oldValue && newValue != oldValue) {
+                            let language = $rootScope.getLanguageCode($scope.language);
+                            MetadataInstanceService.updateMetadata(
+                                model.anr.id,
+                                {...$scope.metadata,language:language}
+                            )
                         }
                     }
                 )
