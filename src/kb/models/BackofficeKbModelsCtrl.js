@@ -192,14 +192,7 @@
 
         $scope.$watch('language', function (newValue) {
             if (newValue && $scope.model.id) {
-                let language = $rootScope.getLanguageCode(newValue);
-                MetadataInstanceService.getMetadatas({
-                    anrId: $scope.model.anr.id,
-                    language:language
-                })
-                .then(function(data){
-                    $scope.model.metadatas = data.data;
-                });
+                updateMetadatas();
             }
         })
 
@@ -209,19 +202,10 @@
                 newChip[$rootScope.languages[language].code] = chip ;
             }
             if ($scope.model.id) {
-                let language = $rootScope.getLanguageCode($scope.language);
                 MetadataInstanceService.createMetadata({
                     anrId: $scope.model.anr.id,
                     metadatas: [newChip]},
-                    function(){
-                        MetadataInstanceService.getMetadatas({
-                            anrId: $scope.model.anr.id,
-                            language:language
-                        })
-                        .then(function(data){
-                            $scope.model.metadatas = data.data;
-                        });
-                    }
+                    updateMetadatas()
                 );
             } else {
                 newChip['index'] = $scope.model.metadatas.length + 1;
@@ -241,13 +225,7 @@
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 onRemoving : function(){
-                    MetadataInstanceService.getMetadatas({
-                        anrId: $scope.model.anr.id,
-                        language:$rootScope.getLanguageCode(language)
-                    })
-                    .then(function(data){
-                        $scope.model.metadatas = data.data;
-                    });
+                    updateMetadatas();
                 },
                 locals: {
                     model : $scope.model,
@@ -305,16 +283,7 @@
                     MetadataInstanceService.deleteMetadata(
                         $scope.model.metadatas[index].id,
                         $scope.model.anr.id,
-                        function() {
-                            let language = $rootScope.getLanguageCode($scope.language);
-                            MetadataInstanceService.getMetadatas({
-                                anrId: model.anr.id,
-                                language:language
-                            })
-                            .then(function(data){
-                                $scope.model.metadatas = data.data;
-                            });
-                        }
+                        updateMetadatas()
                     );
                 } else {
                     $scope.model.metadatas.splice(index,1);
@@ -341,6 +310,17 @@
             // Field is "isGeneric", but for UX reasons we display a "Specific" checkbox - invert the value here
             $scope.model.isGeneric = !$scope.model.isGeneric;
             $mdDialog.hide($scope.model);
+        };
+
+        function updateMetadatas(){
+            let language = $rootScope.getLanguageCode($scope.language);
+            MetadataInstanceService.getMetadatas({
+                anrId: $scope.model.anr.id,
+                language:language
+            })
+            .then(function(data){
+                $scope.model.metadatas = data.data;
+            });
         };
     }
 })();
