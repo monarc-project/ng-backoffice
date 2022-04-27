@@ -205,7 +205,9 @@
                 MetadataInstanceService.createMetadata({
                     anrId: $scope.model.anr.id,
                     metadatas: [newChip]},
-                    updateMetadatas()
+                    function(){
+                        updateMetadatas()
+                    }
                 );
             } else {
                 newChip['index'] = $scope.model.metadatas.length + 1;
