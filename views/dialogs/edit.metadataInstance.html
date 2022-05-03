@@ -2,7 +2,7 @@
     <form name="metadataForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2 translate>Edit context information</h2>
+                <h2 translate>Edit asset context field</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-disabled="metadataForm.$error.required" ng-click="cancel()">
                     <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
@@ -11,7 +11,7 @@
         </md-toolbar>
         <md-dialog-content>
             <div class="md-dialog-content">
-                <md-input-container class="md-block"  ng-hide="OFFICE_MODE == 'FO'" flex>
+                <md-input-container class="md-block" flex>
                     <label translate>Language</label>
                     <md-icon>language</md-icon>
                     <md-select ng-model="language" ng-change="switchLanguage()">
