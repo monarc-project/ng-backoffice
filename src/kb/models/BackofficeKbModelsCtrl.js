@@ -168,7 +168,7 @@
                 description3: '',
                 description4: '',
                 isDefault: false,
-                isScalesUpdatable: false,
+                areScalesUpdatable: false,
                 isGeneric: false,
                 isRegulator: false,
                 showRolfBrut: false
