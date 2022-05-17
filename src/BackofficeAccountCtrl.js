@@ -24,6 +24,8 @@
                     firstname: data.firstname,
                     lastname: data.lastname,
                     email: data.email,
+                    isTwoFactorAuthEnabled: data.isTwoFactorAuthEnabled,
+                    remainingRecoveryCodes: data.remainingRecoveryCodes,
                 };
             });
         };
@@ -190,6 +192,14 @@
       };
     }
 
+    function displayRecoveryCodesDialogCtrl($scope, $mdDialog, toastr, $http, user, recoveryCodes, gettextCatalog) {
+      $scope.recoveryCodes = recoveryCodes;
 
+      $scope.ok = function() {
+        $scope.recoveryCodes = "";
+        $mdDialog.hide($scope.user);
+      };
     }
+}
+
 })();
