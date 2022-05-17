@@ -15,7 +15,9 @@
         $scope.pwForgotMode = false;
         $scope.user = {
             'email': null,
-            'password': null
+            'password': null,
+            'otp': null,
+            'recoveryCode': null,
         };
 
         $scope.passwordForgotten = function () {
@@ -29,14 +31,20 @@
             });
         };
 
+        $scope.recoveryMode = function () {
+            $scope.recoveryCodeMode = true;
+            $scope.twoFAMode = false;
+        };
+
         $scope.returnToLogin = function () {
             $scope.pwForgotMode = false;
+            $scope.twoFAMode = false;
         };
 
         $scope.login = function () {
             $scope.isLoggingIn = true;
 
-            UserService.authenticate($scope.user.email, $scope.user.password).then(
+            UserService.authenticate($scope.user.email, $scope.user.password, $scope.user.otp, $scope.user.recoveryCode).then(
                 function () {
                     if (UserService.isAllowed('dbadmin')) {
                         $state.transitionTo('main');
@@ -45,9 +53,15 @@
                     }
                 },
 
-                function () {
+                function (revoked) {
                     $scope.isLoggingIn = false;
-                    toastr.warning(gettextCatalog.getString('Your e-mail address or password is invalid, please try again.'));
+                    if (revoked == "2FARequired") {
+                      $scope.twoFAMode = (revoked == "2FARequired");
+                      toastr.warning(gettext('Please enter your Two Factor Authentication token.'));
+                    }
+                    if (!revoked) {
+                        toastr.warning(gettext('Your e-mail address or password is invalid, please try again.'));
+                    }
                 }
             );
         }
