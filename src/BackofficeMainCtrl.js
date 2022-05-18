@@ -6,7 +6,19 @@
             '$scope', '$rootScope', '$state', '$mdSidenav', '$mdMedia', 'gettextCatalog', 'UserService',
             'UserProfileService',
             BackofficeMainCtrl
-        ]);
+        ])
+        .directive('focusMe', function($timeout) {
+          return {
+            link: function(scope, element, attrs) {
+              scope.$watch(attrs.focusMe, function(value) {
+                if(value === true) {
+                  element[0].focus();
+                  scope[attrs.focusMe] = false;
+                }
+              });
+            }
+          };
+        });
 
     /**
      * Main Controller for the Backoffice module
