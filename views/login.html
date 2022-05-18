@@ -33,6 +33,7 @@
 
             <div layout="row">
                 <span flex></span>
+                <md-button ng-click="returnToLogin()" ng-if="twoFAMode || recoveryCodeMode">{{ 'Go back' | translate }}</md-button>
                 <md-button ng-click="recoveryMode()" ng-if="twoFAMode" ng-hide="isLoggingIn">{{ 'Use recovery code?' | translate }}</md-button>
                 <md-button ng-click="passwordForgotten()" ng-if="!twoFAMode && !recoveryCodeMode" ng-hide="isLoggingIn">{{ 'Password forgotten?' | translate }}</md-button>
                 <md-button class="md-primary" ng-click="login()" ng-hide="isLoggingIn">{{ 'Log in' | translate }}</md-button>
