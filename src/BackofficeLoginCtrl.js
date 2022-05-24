@@ -3,14 +3,14 @@
   angular
   .module('BackofficeApp')
   .controller('BackofficeLoginCtrl', [
-    '$scope', '$state', '$http', 'toastr', 'gettextCatalog', 'UserService',
+    '$scope', '$state', '$http', 'toastr', 'gettextCatalog', 'gettext', 'UserService',
     BackofficeLoginCtrl
   ]);
 
   /**
   * Login Controller for the Backoffice module
   */
-  function BackofficeLoginCtrl($scope, $state, $http, toastr, gettextCatalog, UserService) {
+  function BackofficeLoginCtrl($scope, $state, $http, toastr, gettextCatalog, gettext, UserService) {
     $scope.isLoggingIn = false;
     $scope.pwForgotMode = false;
     $scope.user = {
