@@ -39,6 +39,9 @@
     $scope.returnToLogin = function () {
       $scope.pwForgotMode = false;
       $scope.twoFAMode = false;
+      $scope.recoveryCodeMode = false;
+      $scope.user.otp = "";
+      $scope.user.recoveryCode = "";
     };
 
     $scope.login = function () {
@@ -62,6 +65,8 @@
             toastr.warning(gettext('Please enter your Two Factor Authentication token.'));
           }
           if (!revoked) {
+            $scope.user.otp = "";
+            $scope.user.recoveryCode = "";
             toastr.warning(gettext('Your e-mail address or password is invalid, please try again.'));
           }
         }
