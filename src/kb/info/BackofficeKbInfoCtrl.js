@@ -3324,10 +3324,10 @@
                 theme: (themeFound !== undefined ?
                         themeFound.id :
                         {
-                          label1 : postData['threat theme label1'].trim(),
-                          label2 : postData['threat theme label2'].trim(),
-                          label3 : postData['threat theme label3'].trim(),
-                          label4 : postData['threat theme label4'].trim()
+                          label1 : postData['threat theme label1'] ? postData['threat theme label1'].trim() : null,
+                          label2 : postData['threat theme label2'] ? postData['threat theme label2'].trim() : null,
+                          label3 : postData['threat theme label3'] ? postData['threat theme label3'].trim() : null,
+                          label4 : postData['threat theme label4'] ? postData['threat theme label4'].trim() : null,
                         })
               },
               vulnerability:{
