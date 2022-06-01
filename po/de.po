@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-01 10:26+0200\n"
+"PO-Revision-Date: 2022-06-01 08:46+0000\n"
 "Last-Translator: Cédric Bonhomme <cedric@cedricbonhomme.org>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -10,11 +10,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: views/dialogs/activate.2FA.html:28
 msgid "2FA QRCode"
-msgstr ""
+msgstr "2FA QRCode"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -107,7 +107,7 @@ msgstr "Aktionsverlauf"
 
 #: views/dialogs/activate.2FA.html:5
 msgid "Activate two-factor authentication"
-msgstr ""
+msgstr "Aktivieren Sie die Zwei-Faktor-Authentifizierung"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:682
 msgid "Activation MOSP account"
@@ -560,13 +560,16 @@ msgstr "Soll die Empfehlung wirklich getrennt werden?"
 #, fuzzy
 #| msgid "Are you sure you want to detach actor?"
 msgid "Are you sure you want to disable two-factor authentication?"
-msgstr "Soll der Agent wirklich getrennt werden?"
+msgstr ""
+"Sind Sie sicher, dass Sie die Zwei-Faktor-Authentifizierung deaktivieren "
+"möchten?"
 
 #: src/BackofficeAccountCtrl.js:113
 #, fuzzy
 #| msgid "Are you sure you want to delete server?"
 msgid "Are you sure you want to generate new recovery codes ?"
-msgstr "Soll der Server wirklich gelöscht werden?"
+msgstr ""
+"Sind Sie sicher, dass Sie neue Wiederherstellungscodes generieren möchten?"
 
 #: ../ng_anr/views/_table_risks.html:69 ../ng_anr/views/_table_risks_op.html:65
 msgid "Ascending"
@@ -694,7 +697,7 @@ msgstr "Auditreihenfolge"
 
 #: views/account.html:80
 msgid "Authenticator app"
-msgstr ""
+msgstr "Authentikator App"
 
 #: ../ng_anr/views/snapshots.html:31
 msgid "Author"
@@ -1603,15 +1606,15 @@ msgstr "Details"
 #, fuzzy
 #| msgid "Deliverable"
 msgid "Disable"
-msgstr "Ergebnis"
+msgstr "Deaktivieren"
 
 #: views/account.html:85
 msgid "Disable Two-Factor Authentication"
-msgstr ""
+msgstr "Deaktivieren Sie die Zwei-Faktor-Authentifizierung"
 
 #: src/BackofficeAccountCtrl.js:90
 msgid "Disabling two-factor authentication"
-msgstr ""
+msgstr "Deaktivierung der Zwei-Faktor-Authentifizierung"
 
 #: ../ng_anr/views/anr.dashboard.html:133
 #: ../ng_anr/views/anr.dashboard.html:179
@@ -1898,7 +1901,7 @@ msgstr "Englisch"
 
 #: views/dialogs/activate.2FA.html:25
 msgid "Enter the token from your two-factor application."
-msgstr ""
+msgstr "Geben Sie das Token von Ihrer Zwei-Faktor-Anwendung ein."
 
 #: ../ng_anr/views/_gettext_caveats.html:23
 msgid "Entity does not exist"
@@ -1914,19 +1917,19 @@ msgstr "Fehler"
 
 #: src/BackofficeAccountCtrl.js:182
 msgid "Error when activating two-factor authentication."
-msgstr ""
+msgstr "Fehler beim Aktivieren der Zwei-Faktor-Authentifizierung."
 
 #: src/BackofficeAccountCtrl.js:102
 msgid "Error when deactivating two-factor authentication."
-msgstr ""
+msgstr "Fehler beim Deaktivieren der Zwei-Faktor-Authentifizierung."
 
 #: src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
-msgstr ""
+msgstr "Fehler beim Aktivieren der Zwei-Faktor-Authentifizierung."
 
 #: src/BackofficeAccountCtrl.js:151
 msgid "Error when generating recovery codes."
-msgstr ""
+msgstr "Fehler beim Generieren von Wiederherstellungscodes."
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:210
 msgid "Error while uploading"
@@ -2199,7 +2202,7 @@ msgstr "Allgemeine Informationen"
 #, fuzzy
 #| msgid "Generation successful"
 msgid "Generate new codes"
-msgstr "Generierung erfolgreich"
+msgstr "Generieren Sie neue Codes"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1010
 msgid "Generation successful"
@@ -2287,6 +2290,8 @@ msgstr "Wenn es mehrere Übereinstimmungen gibt:"
 msgid ""
 "If you regenerate recovery codes, you automatically invalidate old codes."
 msgstr ""
+"Wenn Sie Wiederherstellungscodes regenerieren, werden Sie automatisch alte "
+"Codes ungültig."
 
 #: views/dialogs/create.deliverymodel.html:44
 msgid "If you save this template, previous templates will be lost."
@@ -2383,13 +2388,13 @@ msgstr "Importieren Sie eine Bezugsnorm von MOSP"
 #, fuzzy
 #| msgid "Import Match referentials"
 msgid "Import a referentials match"
-msgstr "Export von Korrespondenz zwischen Bezugsnormen"
+msgstr "Importieren einer Referenziale Übereinstimmung"
 
 #: ../ng_anr/views/import.match.html:5
 #, fuzzy
 #| msgid "Import a referential from MOSP"
 msgid "Import a referentials match from MOSP"
-msgstr "Importieren Sie eine Bezugsnorm von MOSP"
+msgstr "Importieren eine Referenziale von MOSP überein"
 
 #: ../ng_anr/views/anr.home.html:30
 msgid "Import a risk analysis"
@@ -2944,7 +2949,7 @@ msgstr "Neues Kennwort"
 #, fuzzy
 #| msgid "New controls"
 msgid "New recovery codes"
-msgstr "Neue Maßnahmen"
+msgstr "Neue Wiederherstellungscodes"
 
 #: views/op_risk.kb_mgmt.html:72
 msgid "New risk"
@@ -3081,7 +3086,7 @@ msgstr "Es wurde keine Bezugsnorm gefunden, die Ihrer Suche entspricht"
 #, fuzzy
 #| msgid "No referential matching your search was found"
 msgid "No referentials match was found in your search"
-msgstr "Es wurde keine Bezugsnorm gefunden, die Ihrer Suche entspricht"
+msgstr "In Ihrer Suche wurden keine Übereinstimmungen für Referenziale gefunden"
 
 #: ../ng_anr/views/import.amv.html:43
 msgid "No risk matching your search was found"
@@ -3130,7 +3135,7 @@ msgstr "Anzahl der anzuzeigenden Schwachstellen"
 #: src/BackofficeAccountCtrl.js:115 views/dialogs/activate.2FA.html:39
 #: views/dialogs/display.recoverycodes.html:27
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../ng_anr/views/anr.dashboard.html:217
 #: ../ng_anr/views/anr.dashboard.html:243
@@ -3285,7 +3290,7 @@ msgstr ""
 
 #: src/BackofficeLoginCtrl.js:65
 msgid "Please enter your Two Factor Authentication token."
-msgstr ""
+msgstr "Bitte geben Sie Ihren zwei Faktor -Authentifizierungs -Token ein."
 
 #: views/passwordforgotten.html:10
 msgid "Please type in and confirm your new password"
@@ -3484,23 +3489,25 @@ msgstr "Verzeichnis von Verarbeitungstätigkeiten"
 
 #: views/login.html:29
 msgid "Recovery code"
-msgstr ""
+msgstr "Wiederherstellungscode"
 
 #: views/account.html:90
 msgid "Recovery codes"
-msgstr ""
+msgstr "Wiederherstellungscodes"
 
 #: views/account.html:93
 msgid ""
 "Recovery codes can be used to access your account in the event you lose "
 "access to your two-factor method."
 msgstr ""
+"Wiederherstellungscodes können verwendet werden, um auf Ihr Konto "
+"zuzugreifen, falls Sie den Zugriff auf Ihre Zwei-Faktor-Methode verlieren."
 
 #: views/account.html:89
 #, fuzzy
 #| msgid "Export options"
 msgid "Recovery options"
-msgstr "Optionen exportieren"
+msgstr "Wiederherstellungsoptionen"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:115 ../ng_anr/src/AnrSoaSheetCtrl.js:209
 #: ../ng_anr/views/_oprisk_sheet.html:155 ../ng_anr/views/_risk_sheet.html:153
@@ -3525,7 +3532,7 @@ msgstr "Bezugsnormen"
 #, fuzzy
 #| msgid "Referentials"
 msgid "Referentials match"
-msgstr "Bezugsnormen"
+msgstr "Referenziale übereinstimmen"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:623
 msgid ""
@@ -3537,7 +3544,7 @@ msgstr ""
 
 #: views/account.html:92
 msgid "Remaining recovery codes: {{ user.remainingRecoveryCodes }}."
-msgstr ""
+msgstr "Verbleibende Wiederherstellungscodes: {{user.RemainingRecoveryCodes}}."
 
 #: ../ng_anr/views/import.soa.html:41
 msgid "Remarks"
@@ -3741,6 +3748,8 @@ msgid ""
 "Scan the QR code with your two-factor application and enter the\n"
 "            token in the input."
 msgstr ""
+"QR-Code mit Ihrer Zwei-Faktor-Anwendung scannen und eingeben\n"
+"             Token in der Eingabe."
 
 #: ../ng_anr/views/create.objlibs.html:60 views/info_risk.kb_mgmt.html:463
 msgid "Scope"
@@ -3798,10 +3807,8 @@ msgid "Secondary"
 msgstr "Sekundär"
 
 #: views/account.html:41
-#, fuzzy
-#| msgid "Security measures"
 msgid "Security"
-msgstr "Datensicherheitsmassnahmen"
+msgstr "Sicherheit"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:55
 msgid "Security consultant(s)"
@@ -3852,7 +3859,7 @@ msgstr "Server"
 
 #: views/account.html:82
 msgid "Set up"
-msgstr ""
+msgstr "Konfiguration"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:124 ../ng_anr/src/AnrSoaSheetCtrl.js:215
 #: ../ng_anr/views/_oprisk_sheet.html:158 ../ng_anr/views/_risk_sheet.html:156
@@ -4334,7 +4341,7 @@ msgstr ""
 #, fuzzy
 #| msgid "The theme has been created successfully."
 msgid "The matches have been created successfully."
-msgstr "Das Thema wurde erfolgreich erstellt."
+msgstr "Die Übereinstimmungen wurden erfolgreich erstellt."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:54
 msgid "The model has been created successfully."
@@ -4921,7 +4928,7 @@ msgstr "Zum Löschen ?"
 
 #: views/dialogs/activate.2FA.html:22
 msgid "Token from your two-factor application."
-msgstr ""
+msgstr "Token aus Ihrer Zwei-Faktor-Anwendung."
 
 #: ../ng_anr/views/anr.layout.html:23
 msgid "Tools"
@@ -4953,7 +4960,7 @@ msgstr "Beurteilung von Trends erfolgreich gespeichert"
 
 #: views/login.html:23
 msgid "Two factor code"
-msgstr ""
+msgstr "Zwei -Faktor -Code"
 
 #: views/dialogs/activate.2FA.html:13
 msgid ""
@@ -4962,22 +4969,27 @@ msgid ""
 "be invalided.\n"
 "            This can be an issue if you are using several OTP devices."
 msgstr ""
+"Die Zwei-Faktor-Authentifizierung ist bereits eingerichtet.\n"
+"             Wenn Sie unten ein neues Token einreichen, wird Ihr vorheriger "
+"privater Schlüssel ungültig.\n"
+"             Dies kann ein Problem sein, wenn Sie mehrere OTP-Geräte "
+"verwenden."
 
 #: views/account.html:78
 msgid "Two-Factor authentication"
-msgstr ""
+msgstr "Zwei-Faktor-Authentifizierung"
 
 #: src/BackofficeAccountCtrl.js:100 src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication"
-msgstr ""
+msgstr "Zwei-Faktor-Authentifizierung"
 
 #: src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication is now activated."
-msgstr ""
+msgstr "Die Zwei-Faktor-Authentifizierung wird jetzt aktiviert."
 
 #: src/BackofficeAccountCtrl.js:100
 msgid "Two-factor authentication is now deactivated."
-msgstr ""
+msgstr "Die Zwei-Faktor-Authentifizierung ist jetzt deaktiviert."
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
@@ -5035,6 +5047,8 @@ msgid ""
 "Use a second factor besides your password to increase security for your "
 "account."
 msgstr ""
+"Verwenden Sie neben Ihrem Passwort einen zweiten Faktor, um die Sicherheit "
+"für Ihr Konto zu erhöhen."
 
 #: ../ng_anr/views/create.specriskop.html:19
 msgid "Use an existing risk"
@@ -5042,7 +5056,7 @@ msgstr "Ein existierendes Risiko verwenden"
 
 #: views/login.html:37
 msgid "Use recovery code?"
-msgstr ""
+msgstr "Wiederherstellungscode verwenden?"
 
 #: ../ng_anr/views/create.recommandation-kbase.html:46
 #: ../ng_anr/views/create.recommandation.html:70
@@ -5342,7 +5356,7 @@ msgstr "Sie müssen den Nachnamen des Benutzers eingeben"
 #, fuzzy
 #| msgid "You must select one or more roles"
 msgid "You must generate recovery codes."
-msgstr "Sie müssen eine oder mehrere Rollen auswählen"
+msgstr "Sie müssen Wiederherstellungscodes generieren."
 
 #: views/dialogs/create.deliverymodel.html:22
 #: views/dialogs/create.guides.html:22
@@ -5412,7 +5426,7 @@ msgstr "Sie müssen ein Kennwort eingeben"
 
 #: views/dialogs/display.recoverycodes.html:21
 msgid "You won't be able to view this again."
-msgstr ""
+msgstr "Sie werden dies nicht noch einmal anzeigen können."
 
 #: src/BackofficeLoginCtrl.js:70
 msgid "Your e-mail address or password is invalid, please try again."
@@ -5421,7 +5435,7 @@ msgstr ""
 
 #: views/dialogs/display.recoverycodes.html:13
 msgid "Your new recovery codes:"
-msgstr ""
+msgstr "Ihre neuen Wiederherstellungscodes:"
 
 #: src/BackofficePasswordForgottenCtrl.js:30
 msgid "Your password has been reset."
