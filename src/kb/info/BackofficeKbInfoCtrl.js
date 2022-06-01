@@ -838,7 +838,7 @@
                 MeasureService.getMeasures({referential: $scope.referential_uuid, order:'code'}).then(function (data) {
                     var measuresRefSelected = data;
                     $mdDialog.show({
-                        controller: ['$scope', '$mdDialog', 'MeasureService', 'MeasureMeasureService', '$q', 'measures', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
+                        controller: ['$scope', '$mdDialog', '$mdMedia', 'MeasureService', 'MeasureMeasureService', '$q', 'measures', 'referentials', 'referentialSelected', MatchReferentialDialogCtrl],
                         templateUrl: 'views/anr/match.referentials.html',
                         targetEvent: ev,
                         preserveScope: false,
@@ -1966,7 +1966,7 @@
             $mdDialog.hide($scope.referential);
         }
     }
-    function MatchReferentialDialogCtrl($scope, $mdDialog, MeasureService, MeasureMeasureService, $q, measures, referentials, referentialSelected) {
+    function MatchReferentialDialogCtrl($scope, $mdDialog, $mdMedia, MeasureService, MeasureMeasureService, $q, measures, referentials, referentialSelected) {
         $scope.measuresRefSelected = measures.measures;
         $scope.referentialsList = referentials;
         $scope.referentialSelected = referentialSelected;
@@ -2063,12 +2063,33 @@
             })
         };
 
+        $scope.importMatchRefs = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+            $mdDialog.show({
+                controller: ['$scope', '$mdDialog', importMatchRefDialogCtrl],
+                templateUrl: 'views/anr/create.match.html',
+                targetEvent: ev,
+                preserveScope: false,
+                scope: $scope.$dialogScope.$new(),
+                clickOutsideToClose: false,
+                fullscreen: useFullScreen,
+                locals: {
+                }
+            })
+        };
+
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
 
         $scope.create = function() {
             $mdDialog.hide($scope.matchMeasures);
+        };
+    }
+
+    function importMatchRefDialogCtrl($scope, $mdDialog) {
+        $scope.cancel = function() {
+            $mdDialog.cancel();
         };
     }
 
