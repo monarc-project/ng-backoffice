@@ -1845,7 +1845,7 @@ msgid "Disable Two-Factor Authentication"
 msgstr ""
 
 #: src/BackofficeAccountCtrl.js:90
-msgid "Disabling two-factor authentication"
+msgid "Disable two-factor authentication"
 msgstr ""
 
 #: ../ng_anr/views/anr.dashboard.html:133
@@ -2168,14 +2168,11 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: src/BackofficeAccountCtrl.js:182
-msgid "Error when activating two-factor authentication."
-msgstr ""
-
 #: src/BackofficeAccountCtrl.js:102
-msgid "Error when deactivating two-factor authentication."
+msgid "Error when disabling two-factor authentication."
 msgstr ""
 
+#: src/BackofficeAccountCtrl.js:182
 #: src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
 msgstr ""

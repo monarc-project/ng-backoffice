@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-01 08:40+0000\n"
+"PO-Revision-Date: 2022-06-02 15:40+0200\n"
 "Last-Translator: Cédric Bonhomme <cedric@cedricbonhomme.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: views/dialogs/activate.2FA.html:28
 msgid "2FA QRCode"
@@ -1609,7 +1609,9 @@ msgid "Disable Two-Factor Authentication"
 msgstr "Désactiver l'authentification à deux facteurs"
 
 #: src/BackofficeAccountCtrl.js:90
-msgid "Disabling two-factor authentication"
+#, fuzzy
+#| msgid "Disabling two-factor authentication"
+msgid "Disable two-factor authentication"
 msgstr "Désactivation de l'authentification à deux facteurs"
 
 #: ../ng_anr/views/anr.dashboard.html:133
@@ -1911,15 +1913,13 @@ msgstr "L'entité n'existe pas dans cette analyse des risques"
 msgid "Error"
 msgstr "Erreur"
 
-#: src/BackofficeAccountCtrl.js:182
-msgid "Error when activating two-factor authentication."
+#: src/BackofficeAccountCtrl.js:102
+#, fuzzy
+#| msgid "Error when enabling two-factor authentication."
+msgid "Error when disabling two-factor authentication."
 msgstr "Erreur lors de l'activation de l'authentification à deux facteurs."
 
-#: src/BackofficeAccountCtrl.js:102
-msgid "Error when deactivating two-factor authentication."
-msgstr "Erreur lors de la désactivation de l'authentification à deux facteurs."
-
-#: src/BackofficeAccountCtrl.js:80
+#: src/BackofficeAccountCtrl.js:182 src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
 msgstr "Erreur lors de l'activation de l'authentification à deux facteurs."
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-01 08:46+0000\n"
+"PO-Revision-Date: 2022-06-02 15:40+0200\n"
 "Last-Translator: Cédric Bonhomme <cedric@cedricbonhomme.org>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: views/dialogs/activate.2FA.html:28
 msgid "2FA QRCode"
@@ -1613,7 +1613,9 @@ msgid "Disable Two-Factor Authentication"
 msgstr "Deaktivieren Sie die Zwei-Faktor-Authentifizierung"
 
 #: src/BackofficeAccountCtrl.js:90
-msgid "Disabling two-factor authentication"
+#, fuzzy
+#| msgid "Disabling two-factor authentication"
+msgid "Disable two-factor authentication"
 msgstr "Deaktivierung der Zwei-Faktor-Authentifizierung"
 
 #: ../ng_anr/views/anr.dashboard.html:133
@@ -1915,15 +1917,13 @@ msgstr "Einheit existiert nicht für diese Risikoanalyse"
 msgid "Error"
 msgstr "Fehler"
 
-#: src/BackofficeAccountCtrl.js:182
-msgid "Error when activating two-factor authentication."
+#: src/BackofficeAccountCtrl.js:102
+#, fuzzy
+#| msgid "Error when enabling two-factor authentication."
+msgid "Error when disabling two-factor authentication."
 msgstr "Fehler beim Aktivieren der Zwei-Faktor-Authentifizierung."
 
-#: src/BackofficeAccountCtrl.js:102
-msgid "Error when deactivating two-factor authentication."
-msgstr "Fehler beim Deaktivieren der Zwei-Faktor-Authentifizierung."
-
-#: src/BackofficeAccountCtrl.js:80
+#: src/BackofficeAccountCtrl.js:182 src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
 msgstr "Fehler beim Aktivieren der Zwei-Faktor-Authentifizierung."
 
@@ -3086,7 +3086,8 @@ msgstr "Es wurde keine Bezugsnorm gefunden, die Ihrer Suche entspricht"
 #, fuzzy
 #| msgid "No referential matching your search was found"
 msgid "No referentials match was found in your search"
-msgstr "In Ihrer Suche wurden keine Übereinstimmungen für Referenziale gefunden"
+msgstr ""
+"In Ihrer Suche wurden keine Übereinstimmungen für Referenziale gefunden"
 
 #: ../ng_anr/views/import.amv.html:43
 msgid "No risk matching your search was found"
