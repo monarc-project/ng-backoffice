@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-02 15:40+0200\n"
+"PO-Revision-Date: 2022-06-02 13:47+0000\n"
 "Last-Translator: Cédric Bonhomme <cedric@cedricbonhomme.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: views/dialogs/activate.2FA.html:28
 msgid "2FA QRCode"
@@ -1605,9 +1605,8 @@ msgid "Disable Two-Factor Authentication"
 msgstr "Désactiver l'authentification à deux facteurs"
 
 #: src/BackofficeAccountCtrl.js:90
-#, fuzzy
 msgid "Disable two-factor authentication"
-msgstr "Désactivation de l'authentification à deux facteurs"
+msgstr "Désactiver l'authentification à deux facteurs"
 
 #: ../ng_anr/views/anr.dashboard.html:133
 #: ../ng_anr/views/anr.dashboard.html:179
@@ -1909,9 +1908,8 @@ msgid "Error"
 msgstr "Erreur"
 
 #: src/BackofficeAccountCtrl.js:102
-#, fuzzy
 msgid "Error when disabling two-factor authentication."
-msgstr "Erreur lors de l'activation de l'authentification à deux facteurs."
+msgstr "Erreur lors de la désactivation de l'authentification à deux facteurs."
 
 #: src/BackofficeAccountCtrl.js:182 src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
@@ -2930,7 +2928,6 @@ msgid "New password"
 msgstr "Nouveau mot de passe"
 
 #: src/BackofficeAccountCtrl.js:112 views/dialogs/display.recoverycodes.html:5
-#, fuzzy
 msgid "New recovery codes"
 msgstr "Nouveaux codes de récupération"
 
@@ -3071,7 +3068,6 @@ msgid "No referential matching your search was found"
 msgstr "Aucun référentiel correspondant à votre recherche n'a été trouvé"
 
 #: ../ng_anr/views/import.match.html:43
-#, fuzzy
 msgid "No referentials match was found in your search"
 msgstr "Aucun référentiel correspondant n'a été trouvé dans votre recherche"
 
@@ -3494,7 +3490,6 @@ msgstr ""
 "au cas où vous perdriez l'accès à votre méthode à deux facteurs."
 
 #: views/account.html:89
-#, fuzzy
 msgid "Recovery options"
 msgstr "Options de récupération"
 
@@ -3791,7 +3786,6 @@ msgid "Secondary"
 msgstr "Secondaire"
 
 #: views/account.html:41
-#, fuzzy
 msgid "Security"
 msgstr "Sécurité"
 
@@ -4321,7 +4315,6 @@ msgstr ""
 "risque(s) dont :"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1108
-#, fuzzy
 msgid "The matches have been created successfully."
 msgstr "Les correspondances ont été créées avec succès."
 
@@ -5334,7 +5327,6 @@ msgid "You must enter the user's last name"
 msgstr "Vous devez entrer le nom de l'utilisateur"
 
 #: views/account.html:91
-#, fuzzy
 msgid "You must generate recovery codes."
 msgstr "Vous devez générer des codes de récupération."
 
