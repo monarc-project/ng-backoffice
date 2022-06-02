@@ -559,8 +559,6 @@ msgid "Are you sure you want to detach recommendation ?"
 msgstr "Voulez-vous réellement détacher la recommandation ?"
 
 #: src/BackofficeAccountCtrl.js:91
-#, fuzzy
-#| msgid "Are you sure you want to detach actor?"
 msgid "Are you sure you want to disable two-factor authentication?"
 msgstr "Voulez-vous vraiment désactiver l'authentification à deux facteurs ?"
 
@@ -1599,8 +1597,6 @@ msgid "Details"
 msgstr "Détails"
 
 #: src/BackofficeAccountCtrl.js:93
-#, fuzzy
-#| msgid "Deliverable"
 msgid "Disable"
 msgstr "Désactiver"
 
@@ -1610,7 +1606,6 @@ msgstr "Désactiver l'authentification à deux facteurs"
 
 #: src/BackofficeAccountCtrl.js:90
 #, fuzzy
-#| msgid "Disabling two-factor authentication"
 msgid "Disable two-factor authentication"
 msgstr "Désactivation de l'authentification à deux facteurs"
 
@@ -1915,7 +1910,6 @@ msgstr "Erreur"
 
 #: src/BackofficeAccountCtrl.js:102
 #, fuzzy
-#| msgid "Error when enabling two-factor authentication."
 msgid "Error when disabling two-factor authentication."
 msgstr "Erreur lors de l'activation de l'authentification à deux facteurs."
 
@@ -2195,8 +2189,6 @@ msgid "General information"
 msgstr "Informations générales"
 
 #: views/account.html:95
-#, fuzzy
-#| msgid "Generation successful"
 msgid "Generate new codes"
 msgstr "Générer de nouveaux codes"
 
@@ -2381,14 +2373,10 @@ msgid "Import a referential from MOSP"
 msgstr "Importer un référentiel depuis MOSP"
 
 #: ../ng_anr/views/create.match.html:4
-#, fuzzy
-#| msgid "Import Match referentials"
 msgid "Import a referentials match"
 msgstr "Importer une correspondance de référentiels"
 
 #: ../ng_anr/views/import.match.html:5
-#, fuzzy
-#| msgid "Import a referential from MOSP"
 msgid "Import a referentials match from MOSP"
 msgstr "Importer une correspondance de référentiels depuis MOSP"
 
@@ -2943,7 +2931,6 @@ msgstr "Nouveau mot de passe"
 
 #: src/BackofficeAccountCtrl.js:112 views/dialogs/display.recoverycodes.html:5
 #, fuzzy
-#| msgid "New controls"
 msgid "New recovery codes"
 msgstr "Nouveaux codes de récupération"
 
@@ -3085,7 +3072,6 @@ msgstr "Aucun référentiel correspondant à votre recherche n'a été trouvé"
 
 #: ../ng_anr/views/import.match.html:43
 #, fuzzy
-#| msgid "No referential matching your search was found"
 msgid "No referentials match was found in your search"
 msgstr "Aucun référentiel correspondant n'a été trouvé dans votre recherche"
 
@@ -3509,7 +3495,6 @@ msgstr ""
 
 #: views/account.html:89
 #, fuzzy
-#| msgid "Export options"
 msgid "Recovery options"
 msgstr "Options de récupération"
 
@@ -3534,7 +3519,6 @@ msgstr "Référentiels"
 
 #: ../ng_anr/views/import.match.html:37
 #, fuzzy
-#| msgid "Referentials"
 msgid "Referentials match"
 msgstr "Correspondance des référentiels"
 
@@ -3808,7 +3792,6 @@ msgstr "Secondaire"
 
 #: views/account.html:41
 #, fuzzy
-#| msgid "Security measures"
 msgid "Security"
 msgstr "Sécurité"
 
@@ -4339,7 +4322,6 @@ msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1108
 #, fuzzy
-#| msgid "The theme has been created successfully."
 msgid "The matches have been created successfully."
 msgstr "Les correspondances ont été créées avec succès."
 
@@ -5353,7 +5335,6 @@ msgstr "Vous devez entrer le nom de l'utilisateur"
 
 #: views/account.html:91
 #, fuzzy
-#| msgid "You must select one or more roles"
 msgid "You must generate recovery codes."
 msgstr "Vous devez générer des codes de récupération."
 
@@ -5675,3 +5656,15 @@ msgstr "{{count}} menaces ont été supprimées."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:847 src/kb/info/BackofficeKbInfoCtrl.js:689
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnérabilités ont été supprimées."
+
+#: src/BackofficeAccountCtrl.js:90
+msgid "Disabling two-factor authentication"
+msgstr "Désactivation de l'authentification à deux facteurs"
+
+#: src/BackofficeAccountCtrl.js:182
+msgid "Error when activating two-factor authentication."
+msgstr "Erreur lors de l'activation de l'authentification à deux facteurs."
+
+#: src/BackofficeAccountCtrl.js:102
+msgid "Error when deactivating two-factor authentication."
+msgstr "Erreur lors de la désactivation de l'authentification à deux facteurs."
