@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-02 15:40+0200\n"
+"PO-Revision-Date: 2022-06-02 13:47+0000\n"
 "Last-Translator: Cédric Bonhomme <cedric@cedricbonhomme.org>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: views/dialogs/activate.2FA.html:28
 msgid "2FA QRCode"
@@ -557,19 +557,12 @@ msgid "Are you sure you want to detach recommendation ?"
 msgstr "Soll die Empfehlung wirklich getrennt werden?"
 
 #: src/BackofficeAccountCtrl.js:91
-#, fuzzy
-#| msgid "Are you sure you want to detach actor?"
 msgid "Are you sure you want to disable two-factor authentication?"
-msgstr ""
-"Sind Sie sicher, dass Sie die Zwei-Faktor-Authentifizierung deaktivieren "
-"möchten?"
+msgstr "Möchten Sie die Zwei-Faktor-Authentifizierung wirklich deaktivieren?"
 
 #: src/BackofficeAccountCtrl.js:113
-#, fuzzy
-#| msgid "Are you sure you want to delete server?"
 msgid "Are you sure you want to generate new recovery codes ?"
-msgstr ""
-"Sind Sie sicher, dass Sie neue Wiederherstellungscodes generieren möchten?"
+msgstr "Möchten Sie wirklich neue Wiederherstellungscodes generieren?"
 
 #: ../ng_anr/views/_table_risks.html:69 ../ng_anr/views/_table_risks_op.html:65
 msgid "Ascending"
@@ -1603,8 +1596,6 @@ msgid "Details"
 msgstr "Details"
 
 #: src/BackofficeAccountCtrl.js:93
-#, fuzzy
-#| msgid "Deliverable"
 msgid "Disable"
 msgstr "Deaktivieren"
 
@@ -1613,10 +1604,8 @@ msgid "Disable Two-Factor Authentication"
 msgstr "Deaktivieren Sie die Zwei-Faktor-Authentifizierung"
 
 #: src/BackofficeAccountCtrl.js:90
-#, fuzzy
-#| msgid "Disabling two-factor authentication"
 msgid "Disable two-factor authentication"
-msgstr "Deaktivierung der Zwei-Faktor-Authentifizierung"
+msgstr "Deaktivieren Sie die Zwei-Faktor-Authentifizierung"
 
 #: ../ng_anr/views/anr.dashboard.html:133
 #: ../ng_anr/views/anr.dashboard.html:179
@@ -1918,10 +1907,8 @@ msgid "Error"
 msgstr "Fehler"
 
 #: src/BackofficeAccountCtrl.js:102
-#, fuzzy
-#| msgid "Error when enabling two-factor authentication."
 msgid "Error when disabling two-factor authentication."
-msgstr "Fehler beim Aktivieren der Zwei-Faktor-Authentifizierung."
+msgstr "Fehler beim Deaktivieren der Zwei-Faktor-Authentifizierung."
 
 #: src/BackofficeAccountCtrl.js:182 src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
@@ -2199,8 +2186,6 @@ msgid "General information"
 msgstr "Allgemeine Informationen"
 
 #: views/account.html:95
-#, fuzzy
-#| msgid "Generation successful"
 msgid "Generate new codes"
 msgstr "Generieren Sie neue Codes"
 
@@ -2385,16 +2370,12 @@ msgid "Import a referential from MOSP"
 msgstr "Importieren Sie eine Bezugsnorm von MOSP"
 
 #: ../ng_anr/views/create.match.html:4
-#, fuzzy
-#| msgid "Import Match referentials"
 msgid "Import a referentials match"
-msgstr "Importieren einer Referenziale Übereinstimmung"
+msgstr "Importieren Sie eine Übereinstimmung mit Referenzen"
 
 #: ../ng_anr/views/import.match.html:5
-#, fuzzy
-#| msgid "Import a referential from MOSP"
 msgid "Import a referentials match from MOSP"
-msgstr "Importieren eine Referenziale von MOSP überein"
+msgstr "Importieren Sie eine Referenzreferenzübereinstimmung aus MOSP"
 
 #: ../ng_anr/views/anr.home.html:30
 msgid "Import a risk analysis"
@@ -2946,8 +2927,6 @@ msgid "New password"
 msgstr "Neues Kennwort"
 
 #: src/BackofficeAccountCtrl.js:112 views/dialogs/display.recoverycodes.html:5
-#, fuzzy
-#| msgid "New controls"
 msgid "New recovery codes"
 msgstr "Neue Wiederherstellungscodes"
 
@@ -3505,8 +3484,6 @@ msgstr ""
 "zuzugreifen, falls Sie den Zugriff auf Ihre Zwei-Faktor-Methode verlieren."
 
 #: views/account.html:89
-#, fuzzy
-#| msgid "Export options"
 msgid "Recovery options"
 msgstr "Wiederherstellungsoptionen"
 
@@ -4339,8 +4316,6 @@ msgstr ""
 "Aufgelistet werden %d Risiken, davon:"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1108
-#, fuzzy
-#| msgid "The theme has been created successfully."
 msgid "The matches have been created successfully."
 msgstr "Die Übereinstimmungen wurden erfolgreich erstellt."
 
@@ -5354,8 +5329,6 @@ msgid "You must enter the user's last name"
 msgstr "Sie müssen den Nachnamen des Benutzers eingeben"
 
 #: views/account.html:91
-#, fuzzy
-#| msgid "You must select one or more roles"
 msgid "You must generate recovery codes."
 msgstr "Sie müssen Wiederherstellungscodes generieren."
 
