@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-03 12:18+0200\n"
-"Last-Translator: Paul Turcu <paul.turcu35@gmail.com>\n"
+"PO-Revision-Date: 2022-06-03 11:54+0000\n"
+"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -11,11 +11,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: views/dialogs/activate.2FA.html:30
 msgid "2FA QRCode"
-msgstr ""
+msgstr "2FA QRCode"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -108,7 +108,7 @@ msgstr "Istoricul acțiunilor"
 
 #: views/dialogs/activate.2FA.html:5
 msgid "Activate two-factor authentication"
-msgstr ""
+msgstr "Activați autentificarea cu doi factori"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:682
 msgid "Activation MOSP account"
@@ -161,9 +161,8 @@ msgid "Add a component to asset"
 msgstr "Adăugați o componentă la activ"
 
 #: views/dialogs/create.models.html:51
-#| msgid "Add a control"
 msgid "Add a context field"
-msgstr ""
+msgstr "Adăugați un câmp de context"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:261 ../ng_anr/views/_anr.kbmgmt.html:263
 #: ../ng_anr/views/_risk_rec_form.html:18
@@ -282,9 +281,8 @@ msgid "Add an asset"
 msgstr "Adăugați un activ"
 
 #: ../ng_anr/views/context.instance.html:33
-#| msgid "Add an asset type"
 msgid "Add an asset context field"
-msgstr ""
+msgstr "Adăugați un câmp de context al activelor"
 
 #: ../ng_anr/views/create.assets.html:5
 msgid "Add an asset type"
@@ -472,14 +470,12 @@ msgid "Are you sure you want to delete tag?"
 msgstr "Sunteți sigur ca doriți să ștergeți eticheta?"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:439
-#| msgid "Are you sure you want to delete asset type?"
 msgid "Are you sure you want to delete the asset context field?"
-msgstr ""
+msgstr "Sunteți sigur că doriți să ștergeți câmpul de context al activului?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:276
-#| msgid "Are you sure you want to delete control?"
 msgid "Are you sure you want to delete the context field?"
-msgstr ""
+msgstr "Sunteți sigur că doriți să ștergeți câmpul contextual?"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:228
 msgid "Are you sure you want to delete the processing?"
@@ -576,14 +572,12 @@ msgid "Are you sure you want to detach recommendation ?"
 msgstr "Sunteți sigur ca doriți să detașați recomandarea?"
 
 #: src/BackofficeAccountCtrl.js:91
-#| msgid "Are you sure you want to detach actor?"
 msgid "Are you sure you want to disable two-factor authentication?"
-msgstr ""
+msgstr "Sunteți sigur că doriți să dezactivați autentificarea cu doi factori?"
 
 #: src/BackofficeAccountCtrl.js:113
-#| msgid "Are you sure you want to delete server?"
 msgid "Are you sure you want to generate new recovery codes ?"
-msgstr ""
+msgstr "Sunteți sigur că doriți să generați noi coduri de recuperare ?"
 
 #: ../ng_anr/views/_table_risks.html:69 ../ng_anr/views/_table_risks_op.html:65
 msgid "Ascending"
@@ -619,14 +613,12 @@ msgid "Asset added successfully"
 msgstr "Activ adăugat cu succes"
 
 #: ../ng_anr/views/anr.instance.html:37 ../ng_anr/views/context.instance.html:5
-#| msgid "Asset not exist"
 msgid "Asset context"
-msgstr ""
+msgstr "Contextul activului"
 
 #: views/dialogs/create.models.html:48
-#| msgid "Asset not exist"
 msgid "Asset context fields"
-msgstr ""
+msgstr "Câmpuri contextuale de active"
 
 #: ../ng_anr/views/import.instance.html:5 ../ng_anr/views/import.object.html:5
 msgid "Asset import center"
@@ -721,7 +713,7 @@ msgstr "Comandă de audit"
 
 #: views/account.html:80
 msgid "Authenticator App"
-msgstr ""
+msgstr "Aplicația Authenticator"
 
 #: ../ng_anr/views/snapshots.html:31
 msgid "Author"
@@ -1076,7 +1068,7 @@ msgstr "Cod"
 
 #: ../ng_anr/views/_anr.evalscales.html:555
 msgid "Colour"
-msgstr ""
+msgstr "Culoare"
 
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:83 ../ng_anr/views/anr.risksplan.html:33
 msgid "Coming"
@@ -1106,9 +1098,8 @@ msgid "Compliance"
 msgstr "Conformitate"
 
 #: ../ng_anr/views/_anr.evalscales.html:538
-#| msgid "Compliance"
 msgid "Compliance scale:"
-msgstr ""
+msgstr "Scala de conformitate:"
 
 #: ../ng_anr/views/create.objlibs.node.html:27
 msgid "Component"
@@ -1644,17 +1635,16 @@ msgid "Details"
 msgstr "Detalii"
 
 #: src/BackofficeAccountCtrl.js:93
-#| msgid "Deliverable"
 msgid "Disable"
-msgstr ""
+msgstr "Dezactivați"
 
 #: views/account.html:85
 msgid "Disable Two-Factor Authentication"
-msgstr ""
+msgstr "Dezactivați autentificarea cu doi factori"
 
 #: src/BackofficeAccountCtrl.js:90
 msgid "Disable two-factor authentication"
-msgstr ""
+msgstr "Dezactivați autentificarea cu doi factori"
 
 #: ../ng_anr/views/anr.dashboard.html:133
 #: ../ng_anr/views/anr.dashboard.html:179
@@ -1775,9 +1765,8 @@ msgid "Edit asset"
 msgstr "Editați activul"
 
 #: views/dialogs/edit.metadataInstance.html:5
-#| msgid "Edit asset type"
 msgid "Edit asset context field"
-msgstr ""
+msgstr "Editați câmpul de context al activului"
 
 #: ../ng_anr/views/create.assets.html:6
 msgid "Edit asset type"
@@ -1946,7 +1935,7 @@ msgstr "Engleză"
 
 #: views/dialogs/activate.2FA.html:27
 msgid "Enter the token from your two-factor application."
-msgstr ""
+msgstr "Introduceți token-ul din aplicația cu doi factori."
 
 #: ../ng_anr/views/_gettext_caveats.html:23
 msgid "Entity does not exist"
@@ -1962,15 +1951,15 @@ msgstr "Eroare"
 
 #: src/BackofficeAccountCtrl.js:102
 msgid "Error when disabling two-factor authentication."
-msgstr ""
+msgstr "Eroare la dezactivarea autentificării cu doi factori."
 
 #: src/BackofficeAccountCtrl.js:182 src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
-msgstr ""
+msgstr "Eroare la activarea autentificării cu doi factori."
 
 #: src/BackofficeAccountCtrl.js:151
 msgid "Error when generating recovery codes."
-msgstr ""
+msgstr "Eroare la generarea codurilor de recuperare."
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:214
 msgid "Error while uploading"
@@ -2126,7 +2115,7 @@ msgstr "FQDN"
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:490
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:492
 msgid "Field label"
-msgstr ""
+msgstr "Etichetă câmp"
 
 #: ../ng_anr/views/_gettext_caveats.html:48
 msgid "Field previous missing"
@@ -2247,9 +2236,8 @@ msgid "General information"
 msgstr "Informații generale"
 
 #: views/account.html:100
-#| msgid "Generation successful"
 msgid "Generate new codes"
-msgstr ""
+msgstr "Generarea de noi coduri"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1033
 msgid "Generation successful"
@@ -2336,6 +2324,7 @@ msgstr "Dacă există o potrivire multiplă:"
 msgid ""
 "If you regenerate recovery codes, you automatically invalidate old codes."
 msgstr ""
+"Dacă regenerați codurile de recuperare, invalidați automat codurile vechi."
 
 #: views/dialogs/create.deliverymodel.html:44
 msgid "If you save this template, previous templates will be lost."
@@ -2429,14 +2418,12 @@ msgid "Import a referential from MOSP"
 msgstr "Importați un referențial din MOSP"
 
 #: ../ng_anr/views/create.match.html:4
-#| msgid "Import Match referentials"
 msgid "Import a referentials match"
-msgstr ""
+msgstr "Importați o potrivire de referențiali"
 
 #: ../ng_anr/views/import.match.html:5
-#| msgid "Import a referential from MOSP"
 msgid "Import a referentials match from MOSP"
-msgstr ""
+msgstr "Importați o potrivire de referențiali din MOSP"
 
 #: ../ng_anr/views/anr.home.html:30
 msgid "Import a risk analysis"
@@ -2984,9 +2971,8 @@ msgid "New password"
 msgstr "Parolă Nouă"
 
 #: src/BackofficeAccountCtrl.js:112 views/dialogs/display.recoverycodes.html:5
-#| msgid "New controls"
 msgid "New recovery codes"
-msgstr ""
+msgstr "Noi coduri de recuperare"
 
 #: views/op_risk.kb_mgmt.html:72
 msgid "New risk"
@@ -3123,9 +3109,8 @@ msgid "No referential matching your search was found"
 msgstr "Nu s-a găsit nicio referință care să corespundă căutării dvs"
 
 #: ../ng_anr/views/import.match.html:43
-#| msgid "No referential matching your search was found"
 msgid "No referentials match was found in your search"
-msgstr ""
+msgstr "Nu a fost găsită nicio potrivire de referențiali în căutarea dvs."
 
 #: ../ng_anr/views/import.amv.html:43
 msgid "No risk matching your search was found"
@@ -3170,7 +3155,7 @@ msgstr "Numărul de vulnerabilități de afișat"
 #: src/BackofficeAccountCtrl.js:115 views/dialogs/activate.2FA.html:40
 #: views/dialogs/display.recoverycodes.html:27
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../ng_anr/views/anr.dashboard.html:217
 #: ../ng_anr/views/anr.dashboard.html:243
@@ -3322,7 +3307,7 @@ msgstr ""
 
 #: src/BackofficeLoginCtrl.js:65
 msgid "Please enter your Two Factor Authentication token."
-msgstr ""
+msgstr "Vă rugăm să introduceți tokenul de autentificare cu doi factori."
 
 #: views/passwordforgotten.html:10
 msgid "Please type in and confirm your new password"
@@ -3377,9 +3362,8 @@ msgid "Primary"
 msgstr "Primar"
 
 #: ../ng_anr/views/__external_translate.html:33
-#| msgid "primary asset"
 msgid "Primary assets"
-msgstr ""
+msgstr "Active primare"
 
 #: ../ng_anr/views/create.recommandation-kbase.html:48
 #: ../ng_anr/views/create.recommandation.html:72
@@ -3522,22 +3506,23 @@ msgstr "Evidența activităților de prelucrare"
 
 #: views/login.html:29
 msgid "Recovery code"
-msgstr ""
+msgstr "Cod de recuperare"
 
 #: views/account.html:90
 msgid "Recovery codes"
-msgstr ""
+msgstr "Coduri de recuperare"
 
 #: views/account.html:95
 msgid ""
 "Recovery codes can be used to access your account in the event you lose "
 "access to your two-factor method."
 msgstr ""
+"Codurile de recuperare pot fi utilizate pentru a vă accesa contul în cazul "
+"în care pierdeți accesul la metoda dumneavoastră cu doi factori."
 
 #: views/account.html:89
-#| msgid "Export options"
 msgid "Recovery options"
-msgstr ""
+msgstr "Opțiuni de recuperare"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:115 ../ng_anr/src/AnrSoaSheetCtrl.js:209
 #: ../ng_anr/views/_oprisk_sheet.html:155 ../ng_anr/views/_risk_sheet.html:153
@@ -3559,9 +3544,8 @@ msgid "Referentials"
 msgstr "Referenţiale"
 
 #: ../ng_anr/views/import.match.html:37
-#| msgid "Referentials"
 msgid "Referentials match"
-msgstr ""
+msgstr "Potrivirea referințelor"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:623
 msgid ""
@@ -3573,7 +3557,7 @@ msgstr ""
 
 #: views/account.html:94
 msgid "Remaining recovery codes: {{ user.remainingRecoveryCodes }}."
-msgstr ""
+msgstr "Coduri de recuperare rămase: {{ user.remainingRecoveryCodes }}."
 
 #: ../ng_anr/views/import.soa.html:41
 msgid "Remarks"
@@ -3778,6 +3762,8 @@ msgid ""
 "Scan the QR code with your two-factor application and enter the token in the "
 "input."
 msgstr ""
+"Scanați codul QR cu aplicația dumneavoastră cu doi factori și introduceți "
+"token-ul în câmpul de intrare."
 
 #: ../ng_anr/views/create.objlibs.html:60 views/info_risk.kb_mgmt.html:463
 msgid "Scope"
@@ -3830,14 +3816,12 @@ msgid "Secondary"
 msgstr "Secundar"
 
 #: ../ng_anr/views/__external_translate.html:34
-#| msgid "secondary asset"
 msgid "Secondary assets"
-msgstr ""
+msgstr "Active secundare"
 
 #: views/account.html:41
-#| msgid "Security measures"
 msgid "Security"
-msgstr ""
+msgstr "Securitate"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:55
 msgid "Security consultant(s)"
@@ -3888,7 +3872,7 @@ msgstr "Servere"
 
 #: views/account.html:82
 msgid "Set up"
-msgstr ""
+msgstr "Configurare"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:124 ../ng_anr/src/AnrSoaSheetCtrl.js:215
 #: ../ng_anr/views/_oprisk_sheet.html:158 ../ng_anr/views/_risk_sheet.html:156
@@ -4365,9 +4349,8 @@ msgstr ""
 "dintre care:"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1108
-#| msgid "The theme has been created successfully."
 msgid "The matches have been created successfully."
-msgstr ""
+msgstr "Meciurile au fost create cu succes."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:57
 msgid "The model has been created successfully."
@@ -4950,7 +4933,7 @@ msgstr "A sterge ?"
 
 #: views/dialogs/activate.2FA.html:24
 msgid "Token from your two-factor application."
-msgstr ""
+msgstr "Tokenul din aplicația dvs. cu doi factori."
 
 #: ../ng_anr/views/anr.layout.html:23
 msgid "Tools"
@@ -4982,7 +4965,7 @@ msgstr "Evaluarea tendințelor a fost salvată cu succes"
 
 #: views/login.html:23
 msgid "Two factor code"
-msgstr ""
+msgstr "Codul cu doi factori"
 
 #: views/dialogs/activate.2FA.html:15
 msgid ""
@@ -4990,22 +4973,25 @@ msgid ""
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
 msgstr ""
+"Autentificarea cu doi factori este deja configurată. Dacă trimiteți un nou "
+"token mai jos, cheia privată anterioară va fi invalidată. Acest lucru poate "
+"fi o problemă dacă utilizați mai multe dispozitive OTP."
 
 #: views/account.html:78
 msgid "Two-Factor authentication"
-msgstr ""
+msgstr "Autentificare cu doi factori"
 
 #: src/BackofficeAccountCtrl.js:100 src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication"
-msgstr ""
+msgstr "Autentificare cu doi factori"
 
 #: src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication is now activated."
-msgstr ""
+msgstr "Autentificarea cu doi factori este acum activată."
 
 #: src/BackofficeAccountCtrl.js:100
 msgid "Two-factor authentication is now deactivated."
-msgstr ""
+msgstr "Autentificarea cu doi factori este acum dezactivată."
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
@@ -5063,6 +5049,8 @@ msgid ""
 "Use a second factor besides your password to increase security for your "
 "account."
 msgstr ""
+"Utilizați un al doilea factor în afară de parolă pentru a crește securitatea "
+"contului dvs."
 
 #: ../ng_anr/views/create.specriskop.html:19
 msgid "Use an existing risk"
@@ -5070,7 +5058,7 @@ msgstr "Utilizați un risc existent"
 
 #: views/login.html:37
 msgid "Use recovery code?"
-msgstr ""
+msgstr "Folosiți codul de recuperare?"
 
 #: ../ng_anr/views/create.recommandation-kbase.html:46
 #: ../ng_anr/views/create.recommandation.html:70
@@ -5366,9 +5354,8 @@ msgid "You must enter the user's last name"
 msgstr "Trebuie să introduceți numele de familie al utilizatorului"
 
 #: views/account.html:93
-#| msgid "You must select one or more roles"
 msgid "You must generate recovery codes."
-msgstr ""
+msgstr "Trebuie să generați coduri de recuperare."
 
 #: views/dialogs/create.deliverymodel.html:22
 #: views/dialogs/create.guides.html:22
@@ -5438,7 +5425,7 @@ msgstr "Trebuie să introduceți o parolă"
 
 #: views/dialogs/display.recoverycodes.html:21
 msgid "You won't be able to view this again."
-msgstr ""
+msgstr "Nu veți mai putea vizualiza acest lucru."
 
 #: src/BackofficeLoginCtrl.js:70
 msgid "Your e-mail address or password is invalid, please try again."
@@ -5448,7 +5435,7 @@ msgstr ""
 
 #: views/dialogs/display.recoverycodes.html:13
 msgid "Your new recovery codes:"
-msgstr ""
+msgstr "Noile dvs. coduri de recuperare:"
 
 #: src/BackofficePasswordForgottenCtrl.js:30
 msgid "Your password has been reset."
