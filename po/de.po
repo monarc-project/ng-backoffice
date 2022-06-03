@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-03 12:13+0200\n"
-"Last-Translator: Cédric Bonhomme <cedric@cedricbonhomme.org>\n"
+"PO-Revision-Date: 2022-06-03 11:54+0000\n"
+"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: views/dialogs/activate.2FA.html:30 views/dialogs/activate.2FA.html:28
 msgid "2FA QRCode"
@@ -164,7 +164,7 @@ msgstr "Eine Komponente zum Wert hinzufügen"
 
 #: views/dialogs/create.models.html:51
 msgid "Add a context field"
-msgstr ""
+msgstr "Hinzufügen eines Kontextfeldes"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:261 ../ng_anr/views/_anr.kbmgmt.html:263
 #: ../ng_anr/views/_risk_rec_form.html:18
@@ -284,7 +284,7 @@ msgstr "Einen Wert hinzufügen"
 
 #: ../ng_anr/views/context.instance.html:33
 msgid "Add an asset context field"
-msgstr ""
+msgstr "Hinzufügen eines Asset-Kontextfeldes"
 
 #: ../ng_anr/views/create.assets.html:5
 msgid "Add an asset type"
@@ -484,11 +484,11 @@ msgstr "Soll das Tag wirklich gelöscht werden?"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:439
 msgid "Are you sure you want to delete the asset context field?"
-msgstr ""
+msgstr "Sind Sie sicher, dass Sie das Asset-Kontextfeld löschen möchten?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:276
 msgid "Are you sure you want to delete the context field?"
-msgstr ""
+msgstr "Sind Sie sicher, dass Sie das Kontextfeld löschen wollen?"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:228
 msgid "Are you sure you want to delete the processing?"
@@ -645,11 +645,11 @@ msgstr "Wert erfolgreich hinzugefügt"
 
 #: ../ng_anr/views/anr.instance.html:37 ../ng_anr/views/context.instance.html:5
 msgid "Asset context"
-msgstr ""
+msgstr "Asset-Kontext"
 
 #: views/dialogs/create.models.html:48
 msgid "Asset context fields"
-msgstr ""
+msgstr "Asset-Kontextfelder"
 
 #: ../ng_anr/views/import.instance.html:5 ../ng_anr/views/import.object.html:5
 msgid "Asset import center"
@@ -744,7 +744,7 @@ msgstr "Auditreihenfolge"
 
 #: views/account.html:80
 msgid "Authenticator App"
-msgstr ""
+msgstr "Authenticator-App"
 
 #: ../ng_anr/views/snapshots.html:31
 msgid "Author"
@@ -1136,7 +1136,7 @@ msgstr "Code"
 
 #: ../ng_anr/views/_anr.evalscales.html:555
 msgid "Colour"
-msgstr ""
+msgstr "Farbe"
 
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:83 ../ng_anr/views/anr.risksplan.html:33
 msgid "Coming"
@@ -1167,7 +1167,7 @@ msgstr "Konformität"
 
 #: ../ng_anr/views/_anr.evalscales.html:538
 msgid "Compliance scale:"
-msgstr ""
+msgstr "Konformitätsskala:"
 
 #: ../ng_anr/views/create.objlibs.node.html:27
 msgid "Component"
@@ -1911,7 +1911,7 @@ msgstr "Wert bearbeiten"
 
 #: views/dialogs/edit.metadataInstance.html:5
 msgid "Edit asset context field"
-msgstr ""
+msgstr "Asset-Kontextfeld bearbeiten"
 
 #: ../ng_anr/views/create.assets.html:6
 msgid "Edit asset type"
@@ -2283,7 +2283,7 @@ msgstr "FQDN"
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:490
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:492
 msgid "Field label"
-msgstr ""
+msgstr "Feldbezeichnung"
 
 #: ../ng_anr/views/_gettext_caveats.html:48
 msgid "Field previous missing"
@@ -3298,7 +3298,7 @@ msgstr "Es wurde keine Bezugsnorm gefunden, die Ihrer Suche entspricht"
 
 #: ../ng_anr/views/import.match.html:43
 msgid "No referentials match was found in your search"
-msgstr ""
+msgstr "In Ihrer Suche wurden keine Übereinstimmungen für Referenziale gefunden"
 
 #: ../ng_anr/views/import.amv.html:43
 msgid "No risk matching your search was found"
@@ -3553,7 +3553,7 @@ msgstr "Primär"
 
 #: ../ng_anr/views/__external_translate.html:33
 msgid "Primary assets"
-msgstr ""
+msgstr "Primäres Vermögen"
 
 #: ../ng_anr/views/create.recommandation-kbase.html:48
 #: ../ng_anr/views/create.recommandation.html:72
@@ -3958,6 +3958,8 @@ msgid ""
 "Scan the QR code with your two-factor application and enter the token in the "
 "input."
 msgstr ""
+"Scannen Sie den QR-Code mit Ihrer Zwei-Faktor-Anwendung und geben Sie das "
+"Token in die Eingabe ein."
 
 #: ../ng_anr/views/create.objlibs.html:60 views/info_risk.kb_mgmt.html:463
 msgid "Scope"
@@ -4017,7 +4019,7 @@ msgstr "Sekundär"
 
 #: ../ng_anr/views/__external_translate.html:34
 msgid "Secondary assets"
-msgstr ""
+msgstr "Sekundäre Assets"
 
 #: views/account.html:41
 msgid "Security"
@@ -5276,6 +5278,9 @@ msgid ""
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
 msgstr ""
+"Die Zwei-Faktor-Authentifizierung ist bereits eingerichtet. Wenn Sie unten "
+"ein neues Token eingeben, wird Ihr vorheriger privater Schlüssel ungültig. "
+"Dies kann ein Problem darstellen, wenn Sie mehrere OTP-Geräte verwenden."
 
 #: views/account.html:78
 msgid "Two-Factor authentication"
@@ -5826,7 +5831,7 @@ msgstr "Tag(e)"
 #: src/kb/info/BackofficeKbInfoCtrl.js:2633
 #: src/kb/info/BackofficeKbInfoCtrl.js:2666
 msgid "generic"
-msgstr "allgemein"
+msgstr "allgemeines"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2770 src/kb/info/BackofficeKbInfoCtrl.js:1640
 #: src/kb/info/BackofficeKbInfoCtrl.js:1613
