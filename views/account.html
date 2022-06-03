@@ -74,10 +74,10 @@
                         <md-button class="md-raised md-primary" ng-click="updatePassword()" ng-disabled="password.old == '' || password.new == '' || password.old == '' || password.new != password.confirm || passwordForm.passwordnew.$invalid || passwordForm.passwordconfirm.$invalid" type="submit">{{ 'Update password' | translate }}</md-button>
                     </div>
                 </div>
-                
+
                 <p class="md-title" translate>Two-Factor authentication</p>
-                <p translate>Use a second factor besides your password to increase security for your account.</p>
-                <p class="md-subhead" translate>Authenticator app</p>
+                <p class="md-subhead" translate>Use a second factor besides your password to increase security for your account.</p>
+                <p class="md-title" translate>Authenticator App</p>
                 <div layout="row">
                     <md-button class="md-raised md-primary" ng-click="activateAuthenticatorApp()">{{ 'Set up' | translate }}</md-button>
                 </div>
@@ -88,13 +88,17 @@
                 <div ng-if="user.isTwoFactorAuthEnabled">
                   <p class="md-title" translate>Recovery options</p>
                   <p class="md-subhead" translate>Recovery codes</p>
-                  <p ng-if="user.remainingRecoveryCodes == 0" translate>You must generate recovery codes.</p>
-                  <p ng-if="user.remainingRecoveryCodes != 0" translate>Remaining recovery codes: {{ user.remainingRecoveryCodes }}.</p>
-                  <p translate>Recovery codes can be used to access your account in the event you lose access to your two-factor method.</p>
+                  <md-card class="md-card-info">
+                    <md-card-content>
+                      <p ng-if="user.remainingRecoveryCodes == 0" translate>You must generate recovery codes.                   </p>
+                      <p ng-if="user.remainingRecoveryCodes !== 0" translate>Remaining recovery codes: {{ user.remainingRecoveryCodes }}.</p>
+                      <p translate>Recovery codes can be used to access your account in the event you lose access to your two-factor method.</p>
+                      <p translate>If you regenerate recovery codes, you automatically invalidate old codes.</p>
+                    </md-card-content>
+                  </md-card>
                   <div layout="row">
                       <md-button class="md-raised md-primary" ng-click="generateRecoveryCodes()">{{ 'Generate new codes' | translate }}</md-button>
                   </div>
-                  <p translate>If you regenerate recovery codes, you automatically invalidate old codes.</p>
                 </div>
             </form>
         </md-card-content>
