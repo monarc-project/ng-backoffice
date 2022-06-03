@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-03 12:16+0200\n"
+"PO-Revision-Date: 2022-06-03 11:54+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -10,11 +10,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: views/dialogs/activate.2FA.html:30
 msgid "2FA QRCode"
-msgstr ""
+msgstr "2FA QRCode"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -44,6 +44,8 @@ msgid ""
 "A verification email has been sent to you. Open this email and click the "
 "link to activate your account, then copy and paste the MOSP API Key here"
 msgstr ""
+"検証メールがお客様に送信されました。このメールを開き、リンクをクリックしてアカウントを有効にしてから、MOSP API "
+"Keyをここにコピー＆ペーストしてください。"
 
 #: ../ng_anr/views/_anr.evalscales.html:200
 msgid "Acceptance thresholds of information risks"
@@ -102,11 +104,11 @@ msgstr "アクション履歴"
 
 #: views/dialogs/activate.2FA.html:5
 msgid "Activate two-factor authentication"
-msgstr ""
+msgstr "2ファクタ認証の有効化"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:682
 msgid "Activation MOSP account"
-msgstr ""
+msgstr "アクティベーション MOSPアカウント"
 
 #: ../ng_anr/views/_object.composition.html:46
 #: ../ng_anr/views/_object.composition.html:68
@@ -155,9 +157,8 @@ msgid "Add a component to asset"
 msgstr "アセットにコンポーネントを追加する"
 
 #: views/dialogs/create.models.html:51
-#| msgid "Add a control"
 msgid "Add a context field"
-msgstr ""
+msgstr "コンテキストフィールドを追加する"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:261 ../ng_anr/views/_anr.kbmgmt.html:263
 #: ../ng_anr/views/_risk_rec_form.html:18
@@ -227,9 +228,8 @@ msgid "Add a risk"
 msgstr "リスクの追加"
 
 #: ../ng_anr/views/create.scale.html:5
-#| msgid "Add a client"
 msgid "Add a scale"
-msgstr ""
+msgstr "スケールの追加"
 
 #: views/dialogs/create.servers.admin.html:5
 msgid "Add a server"
@@ -277,9 +277,8 @@ msgid "Add an asset"
 msgstr "資産の追加"
 
 #: ../ng_anr/views/context.instance.html:33
-#| msgid "Add an asset type"
 msgid "Add an asset context field"
-msgstr ""
+msgstr "アセットコンテキストフィールドを追加する"
 
 #: ../ng_anr/views/create.assets.html:5
 msgid "Add an asset type"
@@ -307,9 +306,8 @@ msgstr "参照元からのコントロールの追加"
 
 #: ../ng_anr/views/_anr.evalscales.html:335
 #: ../ng_anr/views/_anr.evalscales.html:61
-#| msgid "Add tags"
 msgid "Add scales"
-msgstr ""
+msgstr "スケールの追加"
 
 #: ../ng_anr/views/create.risks.html:72
 msgid "Add tags"
@@ -464,23 +462,20 @@ msgid "Are you sure you want to delete tag?"
 msgstr "タグの削除でよろしいでしょうか？"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:439
-#| msgid "Are you sure you want to delete asset type?"
 msgid "Are you sure you want to delete the asset context field?"
-msgstr ""
+msgstr "アセットコンテキストフィールドを本当に削除してよいのですか？"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:276
-#| msgid "Are you sure you want to delete control?"
 msgid "Are you sure you want to delete the context field?"
-msgstr ""
+msgstr "本当にコンテキストフィールドを削除しますか？"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:228
 msgid "Are you sure you want to delete the processing?"
 msgstr "処理を削除しても大丈夫ですか？"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:3474
-#| msgid "Are you sure you want to delete the {{count}} selected tag(s)?"
 msgid "Are you sure you want to delete the {{count}} scales selected ?"
-msgstr ""
+msgstr "選択した{{count}}個のスケールを削除してよろしいですか？"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:330 src/kb/info/BackofficeKbInfoCtrl.js:287
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
@@ -567,14 +562,12 @@ msgid "Are you sure you want to detach recommendation ?"
 msgstr "あなたは本当に推薦を切り離したいのですか？"
 
 #: src/BackofficeAccountCtrl.js:91
-#| msgid "Are you sure you want to detach actor?"
 msgid "Are you sure you want to disable two-factor authentication?"
-msgstr ""
+msgstr "本当に2ファクタ認証を無効にしますか?"
 
 #: src/BackofficeAccountCtrl.js:113
-#| msgid "Are you sure you want to delete server?"
 msgid "Are you sure you want to generate new recovery codes ?"
-msgstr ""
+msgstr "新しいリカバリーコードを生成しますか？"
 
 #: ../ng_anr/views/_table_risks.html:69 ../ng_anr/views/_table_risks_op.html:65
 msgid "Ascending"
@@ -610,14 +603,12 @@ msgid "Asset added successfully"
 msgstr "アセットの追加に成功"
 
 #: ../ng_anr/views/anr.instance.html:37 ../ng_anr/views/context.instance.html:5
-#| msgid "Asset not exist"
 msgid "Asset context"
-msgstr ""
+msgstr "アセットコンテキスト"
 
 #: views/dialogs/create.models.html:48
-#| msgid "Asset not exist"
 msgid "Asset context fields"
-msgstr ""
+msgstr "アセットコンテキストフィールド"
 
 #: ../ng_anr/views/import.instance.html:5 ../ng_anr/views/import.object.html:5
 msgid "Asset import center"
@@ -712,7 +703,7 @@ msgstr "監査命令"
 
 #: views/account.html:80
 msgid "Authenticator App"
-msgstr ""
+msgstr "認証アプリ"
 
 #: ../ng_anr/views/snapshots.html:31
 msgid "Author"
@@ -952,7 +943,7 @@ msgstr "チェックボックス"
 
 #: ../ng_anr/views/__external_translate.html:26
 msgid "Chinese"
-msgstr ""
+msgstr "中国語"
 
 #: views/dialogs/create.questions.html:88
 msgid "Choice {{idx+1}}"
@@ -993,7 +984,7 @@ msgstr "クライアント"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:686
 msgid "Close"
-msgstr ""
+msgstr "閉じる"
 
 #: ../ng_anr/views/add.objlib.html:8 ../ng_anr/views/anr.dashboard.risks.html:8
 #: ../ng_anr/views/context.instance.html:8 ../ng_anr/views/create.amvs.html:9
@@ -1067,7 +1058,7 @@ msgstr "コード"
 
 #: ../ng_anr/views/_anr.evalscales.html:555
 msgid "Colour"
-msgstr ""
+msgstr "カラー"
 
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:83 ../ng_anr/views/anr.risksplan.html:33
 msgid "Coming"
@@ -1097,9 +1088,8 @@ msgid "Compliance"
 msgstr "コンプライアンス"
 
 #: ../ng_anr/views/_anr.evalscales.html:538
-#| msgid "Compliance"
 msgid "Compliance scale:"
-msgstr ""
+msgstr "コンプライアンス・スケール"
 
 #: ../ng_anr/views/create.objlibs.node.html:27
 msgid "Component"
@@ -1448,9 +1438,8 @@ msgstr "リスク分析の削除"
 
 #: ../ng_anr/views/_anr.evalscales.html:343
 #: ../ng_anr/views/_anr.evalscales.html:70 ../ng_anr/views/delete.scale.html:4
-#| msgid "Delete asset"
 msgid "Delete scales"
-msgstr ""
+msgstr "スケールの削除"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:305
 msgid "Delete specific information risk"
@@ -1636,17 +1625,16 @@ msgid "Details"
 msgstr "詳細"
 
 #: src/BackofficeAccountCtrl.js:93
-#| msgid "Deliverable"
 msgid "Disable"
-msgstr ""
+msgstr "無効にする"
 
 #: views/account.html:85
 msgid "Disable Two-Factor Authentication"
-msgstr ""
+msgstr "2ファクタ認証を無効にする"
 
 #: src/BackofficeAccountCtrl.js:90
 msgid "Disable two-factor authentication"
-msgstr ""
+msgstr "2要素認証の無効化"
 
 #: ../ng_anr/views/anr.dashboard.html:133
 #: ../ng_anr/views/anr.dashboard.html:179
@@ -1767,9 +1755,8 @@ msgid "Edit asset"
 msgstr "アセットの編集"
 
 #: views/dialogs/edit.metadataInstance.html:5
-#| msgid "Edit asset type"
 msgid "Edit asset context field"
-msgstr ""
+msgstr "アセットコンテキストフィールドを編集する"
 
 #: ../ng_anr/views/create.assets.html:6
 msgid "Edit asset type"
@@ -1938,7 +1925,7 @@ msgstr "英語"
 
 #: views/dialogs/activate.2FA.html:27
 msgid "Enter the token from your two-factor application."
-msgstr ""
+msgstr "2ファクタアプリケーションからトークンを入力してください。"
 
 #: ../ng_anr/views/_gettext_caveats.html:23
 msgid "Entity does not exist"
@@ -1950,19 +1937,19 @@ msgstr "このリスク分析のためのエンティティが存在しない"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:374 ../ng_anr/src/AnrObjectCtrl.js:693
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 #: src/BackofficeAccountCtrl.js:102
 msgid "Error when disabling two-factor authentication."
-msgstr ""
+msgstr "2要素認証を無効にする際のエラーです。"
 
 #: src/BackofficeAccountCtrl.js:182 src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
-msgstr ""
+msgstr "2ファクタ認証を有効にする際にエラーが発生しました。"
 
 #: src/BackofficeAccountCtrl.js:151
 msgid "Error when generating recovery codes."
-msgstr ""
+msgstr "リカバリーコードの生成時にエラーが発生しました。"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:214
 msgid "Error while uploading"
@@ -2118,7 +2105,7 @@ msgstr "エフキューディーエヌ"
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:490
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:492
 msgid "Field label"
-msgstr ""
+msgstr "フィールドラベル"
 
 #: ../ng_anr/views/_gettext_caveats.html:48
 msgid "Field previous missing"
@@ -2239,9 +2226,8 @@ msgid "General information"
 msgstr "一般的な情報"
 
 #: views/account.html:100
-#| msgid "Generation successful"
 msgid "Generate new codes"
-msgstr ""
+msgstr "新しいコードを生成する"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1033
 msgid "Generation successful"
@@ -2294,7 +2280,7 @@ msgstr "グローバルダッシュボードで非表示"
 
 #: ../ng_anr/views/__external_translate.html:31
 msgid "Hide"
-msgstr ""
+msgstr "隠す"
 
 #: ../ng_anr/views/_gettext_caveats.html:97
 msgid "Home"
@@ -2327,7 +2313,7 @@ msgstr "複数のマッチングがある場合"
 #: views/account.html:96
 msgid ""
 "If you regenerate recovery codes, you automatically invalidate old codes."
-msgstr ""
+msgstr "リカバリーコードを再生成すると、古いコードが自動的に無効になります。"
 
 #: views/dialogs/create.deliverymodel.html:44
 msgid "If you save this template, previous templates will be lost."
@@ -2357,14 +2343,12 @@ msgid "Impacted criteria"
 msgstr "影響を受けた基準"
 
 #: ../ng_anr/views/_anr.evalscales.html:82
-#| msgid "Impact"
 msgid "Impacts"
-msgstr ""
+msgstr "影響"
 
 #: ../ng_anr/views/_anr.evalscales.html:29
-#| msgid "Impacts scale:"
 msgid "Impacts and consequences scale:"
-msgstr ""
+msgstr "影響と結果のスケールです。"
 
 #: ../ng_anr/views/_anr.evalscales.html:315
 msgid "Impacts scale:"
@@ -2423,14 +2407,12 @@ msgid "Import a referential from MOSP"
 msgstr "MOSPから参照をインポートする"
 
 #: ../ng_anr/views/create.match.html:4
-#| msgid "Import Match referentials"
 msgid "Import a referentials match"
-msgstr ""
+msgstr "リファレンシャルマッチのインポート"
 
 #: ../ng_anr/views/import.match.html:5
-#| msgid "Import a referential from MOSP"
 msgid "Import a referentials match from MOSP"
-msgstr ""
+msgstr "MOSPからリファレンシャルマッチをインポートする"
 
 #: ../ng_anr/views/anr.home.html:30
 msgid "Import a risk analysis"
@@ -2457,14 +2439,12 @@ msgid "Import an asset from MOSP"
 msgstr "MOSPからアセットをインポートする"
 
 #: ../ng_anr/views/import.asset.html:5
-#| msgid "Import an asset from MOSP"
 msgid "Import an asset type from MOSP"
-msgstr ""
+msgstr "MOSPからアセットタイプをインポートする"
 
 #: ../ng_anr/views/import.amv.html:5
-#| msgid "Import a risk from MOSP"
 msgid "Import an information risk from MOSP"
-msgstr ""
+msgstr "MOSPからの情報リスクの取り込み"
 
 #: ../ng_anr/views/anr.instance.html:27
 msgid "Import analysis"
@@ -2555,9 +2535,8 @@ msgid "Inclusion/Exclusion"
 msgstr "封入・排除"
 
 #: ../ng_anr/views/import.amv.html:37
-#| msgid "Information risks"
 msgid "Information risk"
-msgstr ""
+msgstr "情報リスク"
 
 #: ../ng_anr/views/_anr.evalscales.html:3 ../ng_anr/views/_anr.kbmgmt.html:331
 #: ../ng_anr/views/_anr.kbmgmt.html:334 ../ng_anr/views/anr.dashboard.html:20
@@ -2624,7 +2603,7 @@ msgstr "アイルランド、イギリス、カナダ"
 
 #: ../ng_anr/views/__external_translate.html:21
 msgid "Italian"
-msgstr ""
+msgstr "イタリア語"
 
 #: views/analysis_guides.kb_mgmt.html:28
 msgid "Items"
@@ -2636,7 +2615,7 @@ msgstr "1月の給与計算、夏の募集"
 
 #: ../ng_anr/views/__external_translate.html:22
 msgid "Japanese"
-msgstr ""
+msgstr "日本語"
 
 #: ../ng_anr/views/anr.ropa.html:209
 msgid "Joint controllers"
@@ -2749,9 +2728,8 @@ msgstr "コンプライアンスのレベル"
 
 #: ../ng_anr/views/_anr.evalscales.html:324
 #: ../ng_anr/views/_anr.evalscales.html:546
-#| msgid "Level"
 msgid "Levels"
-msgstr ""
+msgstr "レベル"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:36 ../ng_anr/views/_gettext_caveats.html:100
 msgid "Library"
@@ -2817,7 +2795,7 @@ msgstr "MAXリスク"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:624
 msgid "MOSP API Key"
-msgstr ""
+msgstr "MOSP APIキー"
 
 #: views/index.backoffice.html:98
 msgid "Manage servers"
@@ -2982,9 +2960,8 @@ msgid "New password"
 msgstr "新しいパスワード"
 
 #: src/BackofficeAccountCtrl.js:112 views/dialogs/display.recoverycodes.html:5
-#| msgid "New controls"
 msgid "New recovery codes"
-msgstr ""
+msgstr "新しいリカバリーコード"
 
 #: views/op_risk.kb_mgmt.html:72
 msgid "New risk"
@@ -3115,9 +3092,8 @@ msgid "No referential matching your search was found"
 msgstr "検索結果に一致するリファレンスは見つかりませんでした。"
 
 #: ../ng_anr/views/import.match.html:43
-#| msgid "No referential matching your search was found"
 msgid "No referentials match was found in your search"
-msgstr ""
+msgstr "検索しても一致するリファレンシャルコードが見つかりませんでした。"
 
 #: ../ng_anr/views/import.amv.html:43
 msgid "No risk matching your search was found"
@@ -3162,7 +3138,7 @@ msgstr "表示する脆弱性の数"
 #: src/BackofficeAccountCtrl.js:115 views/dialogs/activate.2FA.html:40
 #: views/dialogs/display.recoverycodes.html:27
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../ng_anr/views/anr.dashboard.html:217
 #: ../ng_anr/views/anr.dashboard.html:243
@@ -3313,20 +3289,19 @@ msgstr ""
 
 #: src/BackofficeLoginCtrl.js:65
 msgid "Please enter your Two Factor Authentication token."
-msgstr ""
+msgstr "二要素認証のトークンを入力してください。"
 
 #: views/passwordforgotten.html:10
 msgid "Please type in and confirm your new password"
 msgstr "新しいパスワードを入力して確認してください"
 
 #: ../ng_anr/views/__external_translate.html:23
-#| msgid "English"
 msgid "Polish"
-msgstr ""
+msgstr "ポーランド語"
 
 #: ../ng_anr/views/__external_translate.html:24
 msgid "Portuguese"
-msgstr ""
+msgstr "ポルトガル語"
 
 #: ../ng_anr/views/_table_risks_op.html:53
 #: views/items.analysis_guides.kb_mgmt.html:16
@@ -3369,9 +3344,8 @@ msgid "Primary"
 msgstr "プライマリ"
 
 #: ../ng_anr/views/__external_translate.html:33
-#| msgid "primary asset"
 msgid "Primary assets"
-msgstr ""
+msgstr "主な資産"
 
 #: ../ng_anr/views/create.recommandation-kbase.html:48
 #: ../ng_anr/views/create.recommandation.html:72
@@ -3420,11 +3394,11 @@ msgstr "プロキシエイリアス"
 
 #: ../ng_anr/views/publish.object.html:51
 msgid "Publish"
-msgstr ""
+msgstr "発行"
 
 #: ../ng_anr/views/object.html:43 ../ng_anr/views/publish.object.html:5
 msgid "Publish asset in MOSP"
-msgstr ""
+msgstr "MOSPにアセットを公開"
 
 #: ../ng_anr/views/anr.ropa.html:88
 msgid "Purpose(s)"
@@ -3514,22 +3488,21 @@ msgstr "加工活動の記録"
 
 #: views/login.html:29
 msgid "Recovery code"
-msgstr ""
+msgstr "リカバリーコード"
 
 #: views/account.html:90
 msgid "Recovery codes"
-msgstr ""
+msgstr "リカバリーコード"
 
 #: views/account.html:95
 msgid ""
 "Recovery codes can be used to access your account in the event you lose "
 "access to your two-factor method."
-msgstr ""
+msgstr "リカバリーコードは、二要素認証にアクセスできなくなった場合に、お客様のアカウントにアクセスするために使用します。"
 
 #: views/account.html:89
-#| msgid "Export options"
 msgid "Recovery options"
-msgstr ""
+msgstr "リカバリーオプション"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:115 ../ng_anr/src/AnrSoaSheetCtrl.js:209
 #: ../ng_anr/views/_oprisk_sheet.html:155 ../ng_anr/views/_risk_sheet.html:153
@@ -3551,19 +3524,18 @@ msgid "Referentials"
 msgstr "参考文献"
 
 #: ../ng_anr/views/import.match.html:37
-#| msgid "Referentials"
 msgid "Referentials match"
-msgstr ""
+msgstr "参照元が一致"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:623
 msgid ""
 "Register your API Key associated with your MOSP account or create one by "
 "MONARC user account"
-msgstr ""
+msgstr "MOSPアカウントに関連付けられたAPIキーの登録、またはMONARCユーザーアカウントによるAPIキーの作成"
 
 #: views/account.html:94
 msgid "Remaining recovery codes: {{ user.remainingRecoveryCodes }}."
-msgstr ""
+msgstr "残りのリカバリーコード {{ user.remainingRecoveryCodes }}となります。"
 
 #: ../ng_anr/views/import.soa.html:41
 msgid "Remarks"
@@ -3669,9 +3641,8 @@ msgid "Risk before"
 msgstr "リスクの前に"
 
 #: ../ng_anr/views/_oprisk_sheet.html:86 ../ng_anr/views/_risk_sheet.html:91
-#| msgid "Risk analysis context"
 msgid "Risk context"
-msgstr ""
+msgstr "リスクコンテキスト"
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:59
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:133
@@ -3697,9 +3668,8 @@ msgid "Risk management context"
 msgstr "リスク管理の文脈"
 
 #: ../ng_anr/views/_oprisk_sheet.html:65 ../ng_anr/views/_risk_sheet.html:70
-#| msgid "Risk after"
 msgid "Risk owner"
-msgstr ""
+msgstr "リスクオーナー"
 
 #: ../ng_anr/views/_oprisk_sheet.html:94
 msgid "Risk probability"
@@ -3749,7 +3719,7 @@ msgstr "1ページあたりの行数。"
 
 #: ../ng_anr/views/__external_translate.html:25
 msgid "Russian"
-msgstr ""
+msgstr "ロシア語"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:627
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:496
@@ -3769,7 +3739,7 @@ msgstr "変更を保存"
 msgid ""
 "Scan the QR code with your two-factor application and enter the token in the "
 "input."
-msgstr ""
+msgstr "二要素認証アプリケーションでQRコードを読み取り、入力欄にトークンを入力してください。"
 
 #: ../ng_anr/views/create.objlibs.html:60 views/info_risk.kb_mgmt.html:463
 msgid "Scope"
@@ -3821,14 +3791,12 @@ msgid "Secondary"
 msgstr "二次"
 
 #: ../ng_anr/views/__external_translate.html:34
-#| msgid "secondary asset"
 msgid "Secondary assets"
-msgstr ""
+msgstr "セカンダリーアセット"
 
 #: views/account.html:41
-#| msgid "Security measures"
 msgid "Security"
-msgstr ""
+msgstr "セキュリティ"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:55
 msgid "Security consultant(s)"
@@ -3879,7 +3847,7 @@ msgstr "サーバー"
 
 #: views/account.html:82
 msgid "Set up"
-msgstr ""
+msgstr "設定する"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:124 ../ng_anr/src/AnrSoaSheetCtrl.js:215
 #: ../ng_anr/views/_oprisk_sheet.html:158 ../ng_anr/views/_risk_sheet.html:156
@@ -3888,9 +3856,8 @@ msgid "Shared"
 msgstr "共有"
 
 #: ../ng_anr/views/__external_translate.html:32
-#| msgid "Show all"
 msgid "Show"
-msgstr ""
+msgstr "ショー"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:102 ../ng_anr/views/_anr.kbmgmt.html:178
 #: ../ng_anr/views/_anr.kbmgmt.html:26 ../ng_anr/views/_anr.kbmgmt.html:278
@@ -3971,7 +3938,7 @@ msgstr ""
 #: ../ng_anr/views/anr.soa.sheet.html:104
 #: ../ng_anr/views/anr.soa.sheet.html:111
 msgid "Some scales are hidden"
-msgstr ""
+msgstr "一部のスケールは非表示です"
 
 #: ../ng_anr/views/_table_risks.html:50 ../ng_anr/views/_table_risks_op.html:50
 msgid "Sort"
@@ -3987,7 +3954,7 @@ msgstr "ソース"
 
 #: ../ng_anr/views/__external_translate.html:20
 msgid "Spanish"
-msgstr ""
+msgstr "スペイン語"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:95 ../ng_anr/src/CreateObjlibDialogCtrl.js:73
 #: ../ng_anr/views/create.assets.html:69 ../ng_anr/views/create.objlibs.html:73
@@ -4032,7 +3999,7 @@ msgstr "ステータス"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:372
 msgid "Successful publishing"
-msgstr ""
+msgstr "公開成功"
 
 #: ../ng_anr/views/trends.evalcontext.html:134
 msgid "Summary"
@@ -4160,9 +4127,8 @@ msgid "The asset has been imported successfully"
 msgstr "アセットが正常にインポートされました"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:372
-#| msgid "The asset has been duplicated successfully."
 msgid "The asset has been published in MOSP successfully."
-msgstr ""
+msgstr "アセットはMOSPで正常に公開されました。"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:135 ../ng_anr/src/AnrObjectCtrl.js:171
 #: ../ng_anr/src/AnrObjectCtrl.js:209
@@ -4269,9 +4235,8 @@ msgid "The deliverable has been generated successfully."
 msgstr "無事に成果物が生成されました。"
 
 #: ../ng_anr/views/publish.object.html:27
-#| msgid "The code may not be empty"
 msgid "The description may not be empty"
-msgstr ""
+msgstr "説明は空でない場合があります"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:38
 msgid "The document has been created successfully."
@@ -4360,9 +4325,8 @@ msgstr ""
 "クをリストアップしています。"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1108
-#| msgid "The theme has been created successfully."
 msgid "The matches have been created successfully."
-msgstr ""
+msgstr "マッチが正常に作成されました。"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:57
 msgid "The model has been created successfully."
@@ -4386,14 +4350,12 @@ msgid "The name may not be empty"
 msgstr "名前が空でない場合もあります。"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2022
-#| msgid "The recommendation set has been created successfully."
 msgid "The operational risk impact scale has been created successfully."
-msgstr ""
+msgstr "オペレーショナル・リスクの影響度尺度の作成に成功しました。"
 
 #: ../ng_anr/views/publish.object.html:40
-#| msgid "The name may not be empty"
 msgid "The organization may not be empty"
-msgstr ""
+msgstr "組織は空ではありません。"
 
 #: src/BackofficeLoginCtrl.js:29
 msgid ""
@@ -4936,11 +4898,11 @@ msgstr "脅威の評価"
 
 #: ../ng_anr/views/delete.scale.html:17
 msgid "To delete ?"
-msgstr ""
+msgstr "削除するには？"
 
 #: views/dialogs/activate.2FA.html:24
 msgid "Token from your two-factor application."
-msgstr ""
+msgstr "2要素アプリケーションからトークンを"
 
 #: ../ng_anr/views/anr.layout.html:23
 msgid "Tools"
@@ -4972,7 +4934,7 @@ msgstr "トレンド評価の保存に成功"
 
 #: views/login.html:23
 msgid "Two factor code"
-msgstr ""
+msgstr "二要素コード"
 
 #: views/dialogs/activate.2FA.html:15
 msgid ""
@@ -4980,22 +4942,24 @@ msgid ""
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
 msgstr ""
+"2ファクタ認証はすでに設定されています。以下で新しいトークンを送信すると、以前の秘密鍵は無効となります。これは、複数のOTPデバイスを使用している場合に問"
+"題となることがあります。"
 
 #: views/account.html:78
 msgid "Two-Factor authentication"
-msgstr ""
+msgstr "2ファクタ認証"
 
 #: src/BackofficeAccountCtrl.js:100 src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication"
-msgstr ""
+msgstr "2ファクタ認証"
 
 #: src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication is now activated."
-msgstr ""
+msgstr "2ファクタ認証が有効になりました。"
 
 #: src/BackofficeAccountCtrl.js:100
 msgid "Two-factor authentication is now deactivated."
-msgstr ""
+msgstr "2ファクタ認証は現在無効化されています。"
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
@@ -5052,7 +5016,7 @@ msgstr "緊急(•••)"
 msgid ""
 "Use a second factor besides your password to increase security for your "
 "account."
-msgstr ""
+msgstr "パスワード以外の2つ目の要素を使用して、アカウントのセキュリティを向上させます。"
 
 #: ../ng_anr/views/create.specriskop.html:19
 msgid "Use an existing risk"
@@ -5060,7 +5024,7 @@ msgstr "既存のリスクを利用する"
 
 #: views/login.html:37
 msgid "Use recovery code?"
-msgstr ""
+msgstr "リカバリーコードを使用しますか？"
 
 #: ../ng_anr/views/create.recommandation-kbase.html:46
 #: ../ng_anr/views/create.recommandation.html:70
@@ -5190,7 +5154,7 @@ msgstr "脆弱性"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:622
 msgid "What is your MOSP API Key?"
-msgstr ""
+msgstr "あなたのMOSP API Keyは何ですか？"
 
 #: ../ng_anr/views/export.objlibs.html:37 ../ng_anr/views/export.record.html:31
 msgid "Without password"
@@ -5206,7 +5170,7 @@ msgstr "すべてを包む"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:693
 msgid "Wrong MOSP API Key. Try again."
-msgstr ""
+msgstr "MOSP API Keyが違います。もう一度お試しください。"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4769 ../ng_anr/src/AnrKbMgmtCtrl.js:5049
 #: src/kb/info/BackofficeKbInfoCtrl.js:2889
@@ -5346,9 +5310,8 @@ msgid "You must enter the user's last name"
 msgstr "ユーザーの姓を入力する必要があります。"
 
 #: views/account.html:93
-#| msgid "You must select one or more roles"
 msgid "You must generate recovery codes."
-msgstr ""
+msgstr "リカバリーコードを生成する必要があります。"
 
 #: views/dialogs/create.deliverymodel.html:22
 #: views/dialogs/create.guides.html:22
@@ -5400,9 +5363,8 @@ msgid "You must select a vulnerability"
 msgstr "脆弱性を選択する必要があります"
 
 #: ../ng_anr/views/import.object.mosp.html:47
-#| msgid "You must select an asset type"
 msgid "You must select an asset"
-msgstr ""
+msgstr "アセットを選択してください。"
 
 #: ../ng_anr/views/create.amvs.html:56 ../ng_anr/views/create.objlibs.html:147
 msgid "You must select an asset type"
@@ -5419,7 +5381,7 @@ msgstr "パスワードを入力する必要があります。"
 
 #: views/dialogs/display.recoverycodes.html:21
 msgid "You won't be able to view this again."
-msgstr ""
+msgstr "これは二度と表示できません。"
 
 #: src/BackofficeLoginCtrl.js:70
 msgid "Your e-mail address or password is invalid, please try again."
@@ -5427,7 +5389,7 @@ msgstr "メールアドレスまたはパスワードが無効です。"
 
 #: views/dialogs/display.recoverycodes.html:13
 msgid "Your new recovery codes:"
-msgstr ""
+msgstr "あなたの新しいリカバリーコード"
 
 #: src/BackofficePasswordForgottenCtrl.js:30
 msgid "Your password has been reset."
@@ -5506,9 +5468,8 @@ msgstr "日"
 #: src/kb/info/BackofficeKbInfoCtrl.js:2625
 #: src/kb/info/BackofficeKbInfoCtrl.js:2670
 #: src/kb/info/BackofficeKbInfoCtrl.js:2703
-#| msgid "Generic"
 msgid "generic"
-msgstr ""
+msgstr "汎用"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2770 src/kb/info/BackofficeKbInfoCtrl.js:1640
 msgid "have been created successfully."
@@ -5574,9 +5535,8 @@ msgstr "二次資産"
 #: src/kb/info/BackofficeKbInfoCtrl.js:2625
 #: src/kb/info/BackofficeKbInfoCtrl.js:2670
 #: src/kb/info/BackofficeKbInfoCtrl.js:2703
-#| msgid "Specific"
 msgid "specific"
-msgstr ""
+msgstr "特定"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4465 src/kb/info/BackofficeKbInfoCtrl.js:2581
 msgid "tags"
@@ -5655,9 +5615,8 @@ msgid "{{count}} risks have been deleted."
 msgstr "{{count}}リスクを削除しました。"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1723 ../ng_anr/src/AnrLayoutCtrl.js:2060
-#| msgid "{{count}} clients have been deleted."
 msgid "{{count}} scales have been deleted."
-msgstr ""
+msgstr "{{count}} 個のスケールが削除されました。"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2011
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:166
