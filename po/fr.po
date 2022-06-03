@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-03 12:15+0200\n"
-"Last-Translator: Cédric Bonhomme <cedric@cedricbonhomme.org>\n"
+"PO-Revision-Date: 2022-06-03 11:54+0000\n"
+"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: views/dialogs/activate.2FA.html:30 views/dialogs/activate.2FA.html:28
 msgid "2FA QRCode"
@@ -162,7 +162,7 @@ msgstr "Ajouter un composant à l’actif"
 
 #: views/dialogs/create.models.html:51
 msgid "Add a context field"
-msgstr ""
+msgstr "Ajouter un champ contextuel"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:261 ../ng_anr/views/_anr.kbmgmt.html:263
 #: ../ng_anr/views/_risk_rec_form.html:18
@@ -282,7 +282,7 @@ msgstr "Ajouter un actif"
 
 #: ../ng_anr/views/context.instance.html:33
 msgid "Add an asset context field"
-msgstr ""
+msgstr "Ajouter un champ de contexte d'actif"
 
 #: ../ng_anr/views/create.assets.html:5
 msgid "Add an asset type"
@@ -486,11 +486,11 @@ msgstr "Voulez-vous réellement supprimer le tag ?"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:439
 msgid "Are you sure you want to delete the asset context field?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le champ de contexte d'actif ?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:276
 msgid "Are you sure you want to delete the context field?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le champ contextuel ?"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:228
 msgid "Are you sure you want to delete the processing?"
@@ -647,11 +647,11 @@ msgstr "L’actif a bien été ajouté"
 
 #: ../ng_anr/views/anr.instance.html:37 ../ng_anr/views/context.instance.html:5
 msgid "Asset context"
-msgstr ""
+msgstr "Contexte de l'actif"
 
 #: views/dialogs/create.models.html:48
 msgid "Asset context fields"
-msgstr ""
+msgstr "Champs contextuels des actifs"
 
 #: ../ng_anr/views/import.instance.html:5 ../ng_anr/views/import.object.html:5
 msgid "Asset import center"
@@ -746,7 +746,7 @@ msgstr "Ordre de l'audit"
 
 #: views/account.html:80
 msgid "Authenticator App"
-msgstr ""
+msgstr "Application d'authentification"
 
 #: ../ng_anr/views/snapshots.html:31
 msgid "Author"
@@ -1137,7 +1137,7 @@ msgstr "Code"
 
 #: ../ng_anr/views/_anr.evalscales.html:555
 msgid "Colour"
-msgstr ""
+msgstr "Couleur"
 
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:83 ../ng_anr/views/anr.risksplan.html:33
 msgid "Coming"
@@ -1168,7 +1168,7 @@ msgstr "Conformité"
 
 #: ../ng_anr/views/_anr.evalscales.html:538
 msgid "Compliance scale:"
-msgstr ""
+msgstr "Échelle de conformité :"
 
 #: ../ng_anr/views/create.objlibs.node.html:27
 msgid "Component"
@@ -1912,7 +1912,7 @@ msgstr "Modifier l’actif"
 
 #: views/dialogs/edit.metadataInstance.html:5
 msgid "Edit asset context field"
-msgstr ""
+msgstr "Modifier le champ contextuel des actifs"
 
 #: ../ng_anr/views/create.assets.html:6
 msgid "Edit asset type"
@@ -2284,7 +2284,7 @@ msgstr "FQDN"
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:490
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:492
 msgid "Field label"
-msgstr ""
+msgstr "Étiquette du champ"
 
 #: ../ng_anr/views/_gettext_caveats.html:48
 msgid "Field previous missing"
@@ -2644,7 +2644,7 @@ msgstr "Importer une analyse"
 
 #: ../ng_anr/views/import.object.html:88
 msgid "Import asset"
-msgstr "Importer l’actif"
+msgstr "Importer un actif"
 
 #: ../ng_anr/views/import.file.html:39 ../ng_anr/views/import.instance.html:42
 #: ../ng_anr/views/import.record.html:35
@@ -3562,7 +3562,7 @@ msgstr "Primaire"
 
 #: ../ng_anr/views/__external_translate.html:33
 msgid "Primary assets"
-msgstr ""
+msgstr "Actifs primaires"
 
 #: ../ng_anr/views/create.recommandation-kbase.html:48
 #: ../ng_anr/views/create.recommandation.html:72
@@ -3758,7 +3758,7 @@ msgstr ""
 
 #: views/account.html:94 views/account.html:92
 msgid "Remaining recovery codes: {{ user.remainingRecoveryCodes }}."
-msgstr "Codes de récupération restants: {{ user.remainingRecoveryCodes }}."
+msgstr "Codes de récupération restants : {{ user.remainingRecoveryCodes }}."
 
 #: ../ng_anr/views/import.soa.html:41
 msgid "Remarks"
@@ -3967,6 +3967,7 @@ msgid ""
 "Scan the QR code with your two-factor application and enter the token in the "
 "input."
 msgstr ""
+"Scannez le code QR avec votre application à deux facteurs et entrez le jeton."
 
 #: ../ng_anr/views/create.objlibs.html:60 views/info_risk.kb_mgmt.html:463
 msgid "Scope"
@@ -4022,7 +4023,7 @@ msgstr "Secondaire"
 
 #: ../ng_anr/views/__external_translate.html:34
 msgid "Secondary assets"
-msgstr ""
+msgstr "Actifs secondaires"
 
 #: views/account.html:41
 msgid "Security"
@@ -5277,6 +5278,9 @@ msgid ""
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
 msgstr ""
+"L'authentification à deux facteurs est déjà configurée. Si vous soumettez un "
+"nouveau jeton ci-dessous, votre clé privée précédente sera invalidée. Cela "
+"peut être un problème si vous utilisez plusieurs périphériques OTP."
 
 #: views/account.html:78
 msgid "Two-Factor authentication"
