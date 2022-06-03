@@ -66,6 +66,8 @@
 
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -106,6 +108,8 @@
 
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 

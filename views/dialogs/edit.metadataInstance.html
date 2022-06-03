@@ -1,0 +1,35 @@
+<md-dialog md-theme="light" class="dialog-width">
+    <form name="metadataForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 translate>Edit asset context field</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-disabled="metadataForm.$error.required" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block" flex>
+                    <label translate>Language</label>
+                    <md-icon>language</md-icon>
+                    <md-select ng-model="language" ng-change="switchLanguage()">
+                      <md-option ng-repeat="(index, lang) in $root.languages" value="{{ index }}">
+                        <countryflag country="{{ $root.languages[index].flag }}"></countryflag>
+                        {{ $root.languages[index].name | translate }}
+                      </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" flex>
+                    <label translate>Label</label>
+                    <md-icon>label</md-icon>
+                    <input ng-model="metadata[$root.getLanguageCode(language)]" name="label" required>
+                    <div ng-messages="metadataForm.label.$error">
+                        <div ng-message="required">{{ 'The label may not be empty' | translate }}</div>
+                    </div>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

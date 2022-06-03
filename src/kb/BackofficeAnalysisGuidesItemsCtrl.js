@@ -48,6 +48,8 @@
                             toastr.success(gettextCatalog.getString('The item has been created successfully.'), gettextCatalog.getString('Creation successful'));
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -75,6 +77,8 @@
                                 toastr.success(gettextCatalog.getString('The item has been edited successfully.'), gettextCatalog.getString('Edition successful'));
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };

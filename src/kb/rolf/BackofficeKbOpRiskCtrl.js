@@ -89,6 +89,8 @@
                             $scope.createNewTag(ev, tag);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -120,6 +122,8 @@
                                 $scope.createNewTag(ev, tag);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -259,6 +263,8 @@
                       gettextCatalog.getString('Edition successful'));
                     $rootScope.$broadcast('opRiskUpdated');
                 });
+              }, function (reject) {
+                $scope.handleRejectionDialog(reject);
               });
         }
 
@@ -307,6 +313,8 @@
                             $scope.createNewRisk(ev, riskBackup);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -348,6 +356,8 @@
                                 $scope.editRisk(ev, riskBackup);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -557,7 +567,7 @@
 
         $scope.createAndContinue = function() {
             $scope.risk.cont = true;
-            
+
             referentials.forEach(function (ref){
               var promise = $q.defer();
               if ($scope.risk.measures[ref.uuid] != undefined) {

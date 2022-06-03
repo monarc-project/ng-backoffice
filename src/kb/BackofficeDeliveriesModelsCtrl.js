@@ -37,6 +37,8 @@
                     $scope.updateDeliveriesModels();
                     toastr.success(gettextCatalog.getString('The document has been created successfully.',
                         {deliveryModelLabel: $scope._langField(deliveryModel,'description')}), gettextCatalog.getString('Creation successful'));
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -57,6 +59,8 @@
                     $scope.updateDeliveriesModels();
                     toastr.success(gettextCatalog.getString('The document has been edited successfully.',
                         {deliveryModelLabel: $scope._langField(deliveryModel,'description')}), gettextCatalog.getString('Edition successful'));
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
