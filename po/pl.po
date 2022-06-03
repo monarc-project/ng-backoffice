@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-03 12:17+0200\n"
+"PO-Revision-Date: 2022-06-03 11:54+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: none\n"
 "Language: pl\n"
@@ -11,11 +11,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: views/dialogs/activate.2FA.html:30
 msgid "2FA QRCode"
-msgstr ""
+msgstr "2FA QRCode"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -46,6 +46,9 @@ msgid ""
 "A verification email has been sent to you. Open this email and click the "
 "link to activate your account, then copy and paste the MOSP API Key here"
 msgstr ""
+"Email weryfikacyjny został do Ciebie wysłany. Otwórz tę wiadomość i kliknij "
+"na link, aby aktywować swoje konto, a następnie skopiuj i wklej klucz MOSP "
+"API tutaj."
 
 #: ../ng_anr/views/_anr.evalscales.html:200
 msgid "Acceptance thresholds of information risks"
@@ -104,11 +107,11 @@ msgstr "Historia działań"
 
 #: views/dialogs/activate.2FA.html:5
 msgid "Activate two-factor authentication"
-msgstr ""
+msgstr "Aktywuj uwierzytelnianie dwuskładnikowe"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:682
 msgid "Activation MOSP account"
-msgstr ""
+msgstr "Aktywacja konta MOSP"
 
 #: ../ng_anr/views/_object.composition.html:46
 #: ../ng_anr/views/_object.composition.html:68
@@ -157,9 +160,8 @@ msgid "Add a component to asset"
 msgstr "Dodaj składnik do zasobu"
 
 #: views/dialogs/create.models.html:51
-#| msgid "Add a control"
 msgid "Add a context field"
-msgstr ""
+msgstr "Dodaj pole kontekstowe"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:261 ../ng_anr/views/_anr.kbmgmt.html:263
 #: ../ng_anr/views/_risk_rec_form.html:18
@@ -229,9 +231,8 @@ msgid "Add a risk"
 msgstr "Dodaj ryzyko"
 
 #: ../ng_anr/views/create.scale.html:5
-#| msgid "Add a client"
 msgid "Add a scale"
-msgstr ""
+msgstr "Dodaj skalę"
 
 #: views/dialogs/create.servers.admin.html:5
 msgid "Add a server"
@@ -279,9 +280,8 @@ msgid "Add an asset"
 msgstr "Dodaj składnik aktywów"
 
 #: ../ng_anr/views/context.instance.html:33
-#| msgid "Add an asset type"
 msgid "Add an asset context field"
-msgstr ""
+msgstr "Dodaj pole kontekstu aktywów"
 
 #: ../ng_anr/views/create.assets.html:5
 msgid "Add an asset type"
@@ -309,9 +309,8 @@ msgstr "Dodaj kontrolki z referencji"
 
 #: ../ng_anr/views/_anr.evalscales.html:335
 #: ../ng_anr/views/_anr.evalscales.html:61
-#| msgid "Add tags"
 msgid "Add scales"
-msgstr ""
+msgstr "Dodaj skalę"
 
 #: ../ng_anr/views/create.risks.html:72
 msgid "Add tags"
@@ -468,23 +467,20 @@ msgid "Are you sure you want to delete tag?"
 msgstr "Czy na pewno chcesz usunąć tag?"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:439
-#| msgid "Are you sure you want to delete asset type?"
 msgid "Are you sure you want to delete the asset context field?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć pole kontekstu aktywów?"
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:276
-#| msgid "Are you sure you want to delete control?"
 msgid "Are you sure you want to delete the context field?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć pole kontekstowe?"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:228
 msgid "Are you sure you want to delete the processing?"
 msgstr "Czy na pewno chcesz usunąć przetwarzanie?"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:3474
-#| msgid "Are you sure you want to delete the {{count}} selected tag(s)?"
 msgid "Are you sure you want to delete the {{count}} scales selected ?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć zaznaczone wagi {{count}} ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:330 src/kb/info/BackofficeKbInfoCtrl.js:287
 msgid "Are you sure you want to delete the {{count}} selected asset type(s)?"
@@ -570,14 +566,12 @@ msgid "Are you sure you want to detach recommendation ?"
 msgstr "Czy na pewno chcesz odłączyć rekomendację?"
 
 #: src/BackofficeAccountCtrl.js:91
-#| msgid "Are you sure you want to detach actor?"
 msgid "Are you sure you want to disable two-factor authentication?"
-msgstr ""
+msgstr "Czy na pewno chcesz wyłączyć uwierzytelnianie dwuskładnikowe?"
 
 #: src/BackofficeAccountCtrl.js:113
-#| msgid "Are you sure you want to delete server?"
 msgid "Are you sure you want to generate new recovery codes ?"
-msgstr ""
+msgstr "Czy na pewno chcesz wygenerować nowe kody odzyskiwania?"
 
 #: ../ng_anr/views/_table_risks.html:69 ../ng_anr/views/_table_risks_op.html:65
 msgid "Ascending"
@@ -613,14 +607,12 @@ msgid "Asset added successfully"
 msgstr "Aktywa dodane pomyślnie"
 
 #: ../ng_anr/views/anr.instance.html:37 ../ng_anr/views/context.instance.html:5
-#| msgid "Asset not exist"
 msgid "Asset context"
-msgstr ""
+msgstr "Kontekst aktywów"
 
 #: views/dialogs/create.models.html:48
-#| msgid "Asset not exist"
 msgid "Asset context fields"
-msgstr ""
+msgstr "Pola kontekstowe aktywów"
 
 #: ../ng_anr/views/import.instance.html:5 ../ng_anr/views/import.object.html:5
 msgid "Asset import center"
@@ -715,7 +707,7 @@ msgstr "Zlecenie audytu"
 
 #: views/account.html:80
 msgid "Authenticator App"
-msgstr ""
+msgstr "Aplikacja uwierzytelniająca"
 
 #: ../ng_anr/views/snapshots.html:31
 msgid "Author"
@@ -955,7 +947,7 @@ msgstr "Checkboxy"
 
 #: ../ng_anr/views/__external_translate.html:26
 msgid "Chinese"
-msgstr ""
+msgstr "Chiński"
 
 #: views/dialogs/create.questions.html:88
 msgid "Choice {{idx+1}}"
@@ -996,7 +988,7 @@ msgstr "Klienci"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:686
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: ../ng_anr/views/add.objlib.html:8 ../ng_anr/views/anr.dashboard.risks.html:8
 #: ../ng_anr/views/context.instance.html:8 ../ng_anr/views/create.amvs.html:9
@@ -1070,7 +1062,7 @@ msgstr "Kod"
 
 #: ../ng_anr/views/_anr.evalscales.html:555
 msgid "Colour"
-msgstr ""
+msgstr "Kolor"
 
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:83 ../ng_anr/views/anr.risksplan.html:33
 msgid "Coming"
@@ -1100,9 +1092,8 @@ msgid "Compliance"
 msgstr "Zgodność"
 
 #: ../ng_anr/views/_anr.evalscales.html:538
-#| msgid "Compliance"
 msgid "Compliance scale:"
-msgstr ""
+msgstr "Skala zgodności:"
 
 #: ../ng_anr/views/create.objlibs.node.html:27
 msgid "Component"
@@ -1451,9 +1442,8 @@ msgstr "Usunąć analizę ryzyka"
 
 #: ../ng_anr/views/_anr.evalscales.html:343
 #: ../ng_anr/views/_anr.evalscales.html:70 ../ng_anr/views/delete.scale.html:4
-#| msgid "Delete asset"
 msgid "Delete scales"
-msgstr ""
+msgstr "Usuń skalę"
 
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:305
 msgid "Delete specific information risk"
@@ -1641,17 +1631,16 @@ msgid "Details"
 msgstr "Szczegóły"
 
 #: src/BackofficeAccountCtrl.js:93
-#| msgid "Deliverable"
 msgid "Disable"
-msgstr ""
+msgstr "Wyłącz"
 
 #: views/account.html:85
 msgid "Disable Two-Factor Authentication"
-msgstr ""
+msgstr "Wyłącz uwierzytelnianie dwuskładnikowe"
 
 #: src/BackofficeAccountCtrl.js:90
 msgid "Disable two-factor authentication"
-msgstr ""
+msgstr "Wyłącz uwierzytelnianie dwuskładnikowe"
 
 #: ../ng_anr/views/anr.dashboard.html:133
 #: ../ng_anr/views/anr.dashboard.html:179
@@ -1770,9 +1759,8 @@ msgid "Edit asset"
 msgstr "Edycja aktywów"
 
 #: views/dialogs/edit.metadataInstance.html:5
-#| msgid "Edit asset type"
 msgid "Edit asset context field"
-msgstr ""
+msgstr "Edytuj pole kontekstowe zasobu"
 
 #: ../ng_anr/views/create.assets.html:6
 msgid "Edit asset type"
@@ -1941,7 +1929,7 @@ msgstr "English"
 
 #: views/dialogs/activate.2FA.html:27
 msgid "Enter the token from your two-factor application."
-msgstr ""
+msgstr "Wprowadź token z aplikacji uwierzytelniania dwuskładnikowego."
 
 #: ../ng_anr/views/_gettext_caveats.html:23
 msgid "Entity does not exist"
@@ -1953,19 +1941,19 @@ msgstr "Podmiot nie istnieje dla niniejszej analizy ryzyka"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:374 ../ng_anr/src/AnrObjectCtrl.js:693
 msgid "Error"
-msgstr ""
+msgstr "Błąd"
 
 #: src/BackofficeAccountCtrl.js:102
 msgid "Error when disabling two-factor authentication."
-msgstr ""
+msgstr "Błąd podczas wyłączania uwierzytelniania dwuskładnikowego."
 
 #: src/BackofficeAccountCtrl.js:182 src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
-msgstr ""
+msgstr "Błąd podczas włączania uwierzytelniania dwuskładnikowego."
 
 #: src/BackofficeAccountCtrl.js:151
 msgid "Error when generating recovery codes."
-msgstr ""
+msgstr "Błąd podczas generowania kodów odzyskiwania."
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:214
 msgid "Error while uploading"
@@ -2121,7 +2109,7 @@ msgstr "FQDN"
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:490
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:492
 msgid "Field label"
-msgstr ""
+msgstr "Etykieta pola"
 
 #: ../ng_anr/views/_gettext_caveats.html:48
 msgid "Field previous missing"
@@ -2242,9 +2230,8 @@ msgid "General information"
 msgstr "Informacje ogólne"
 
 #: views/account.html:100
-#| msgid "Generation successful"
 msgid "Generate new codes"
-msgstr ""
+msgstr "Generowanie nowych kodów"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1033
 msgid "Generation successful"
@@ -2297,7 +2284,7 @@ msgstr "Ukryty na globalnej tablicy rozdzielczej"
 
 #: ../ng_anr/views/__external_translate.html:31
 msgid "Hide"
-msgstr ""
+msgstr "Ukryj"
 
 #: ../ng_anr/views/_gettext_caveats.html:97
 msgid "Home"
@@ -2331,6 +2318,8 @@ msgstr "Jeśli występuje wielokrotne dopasowanie:"
 msgid ""
 "If you regenerate recovery codes, you automatically invalidate old codes."
 msgstr ""
+"W przypadku regeneracji kodów odzyskiwania następuje automatyczne "
+"unieważnienie starych kodów."
 
 #: views/dialogs/create.deliverymodel.html:44
 msgid "If you save this template, previous templates will be lost."
@@ -2360,14 +2349,12 @@ msgid "Impacted criteria"
 msgstr "Kryteria wpływu"
 
 #: ../ng_anr/views/_anr.evalscales.html:82
-#| msgid "Impact"
 msgid "Impacts"
-msgstr ""
+msgstr "Oddziaływania"
 
 #: ../ng_anr/views/_anr.evalscales.html:29
-#| msgid "Impacts scale:"
 msgid "Impacts and consequences scale:"
-msgstr ""
+msgstr "Skala wpływów i konsekwencji:"
 
 #: ../ng_anr/views/_anr.evalscales.html:315
 msgid "Impacts scale:"
@@ -2426,14 +2413,12 @@ msgid "Import a referential from MOSP"
 msgstr "Import referencji z MOSP"
 
 #: ../ng_anr/views/create.match.html:4
-#| msgid "Import Match referentials"
 msgid "Import a referentials match"
-msgstr ""
+msgstr "Importuj dopasowanie referencji"
 
 #: ../ng_anr/views/import.match.html:5
-#| msgid "Import a referential from MOSP"
 msgid "Import a referentials match from MOSP"
-msgstr ""
+msgstr "Importuj dopasowanie referencji z MOSP"
 
 #: ../ng_anr/views/anr.home.html:30
 msgid "Import a risk analysis"
@@ -2460,14 +2445,12 @@ msgid "Import an asset from MOSP"
 msgstr "Importuj aktywa z MOSP"
 
 #: ../ng_anr/views/import.asset.html:5
-#| msgid "Import an asset from MOSP"
 msgid "Import an asset type from MOSP"
-msgstr ""
+msgstr "Importuj rodzaj aktywów z MOSP"
 
 #: ../ng_anr/views/import.amv.html:5
-#| msgid "Import a risk from MOSP"
 msgid "Import an information risk from MOSP"
-msgstr ""
+msgstr "Zaimportuj ryzyko informacyjne z MOSP"
 
 #: ../ng_anr/views/anr.instance.html:27
 msgid "Import analysis"
@@ -2557,9 +2540,8 @@ msgid "Inclusion/Exclusion"
 msgstr "Włączenie/wyłączenie"
 
 #: ../ng_anr/views/import.amv.html:37
-#| msgid "Information risks"
 msgid "Information risk"
-msgstr ""
+msgstr "Ryzyko informacyjne"
 
 #: ../ng_anr/views/_anr.evalscales.html:3 ../ng_anr/views/_anr.kbmgmt.html:331
 #: ../ng_anr/views/_anr.kbmgmt.html:334 ../ng_anr/views/anr.dashboard.html:20
@@ -2626,7 +2608,7 @@ msgstr "Irlandia, Wielka Brytania, Kanada"
 
 #: ../ng_anr/views/__external_translate.html:21
 msgid "Italian"
-msgstr ""
+msgstr "Włoski"
 
 #: views/analysis_guides.kb_mgmt.html:28
 msgid "Items"
@@ -2638,7 +2620,7 @@ msgstr "Konto płacowe w styczniu, rekrutacja letnia"
 
 #: ../ng_anr/views/__external_translate.html:22
 msgid "Japanese"
-msgstr ""
+msgstr "Japoński"
 
 #: ../ng_anr/views/anr.ropa.html:209
 msgid "Joint controllers"
@@ -2751,9 +2733,8 @@ msgstr "Poziom zgodności"
 
 #: ../ng_anr/views/_anr.evalscales.html:324
 #: ../ng_anr/views/_anr.evalscales.html:546
-#| msgid "Level"
 msgid "Levels"
-msgstr ""
+msgstr "Poziomy"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:36 ../ng_anr/views/_gettext_caveats.html:100
 msgid "Library"
@@ -2819,7 +2800,7 @@ msgstr "Maksymalne ryzyko"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:624
 msgid "MOSP API Key"
-msgstr ""
+msgstr "Klucz API MOSP"
 
 #: views/index.backoffice.html:98
 msgid "Manage servers"
@@ -2985,9 +2966,8 @@ msgid "New password"
 msgstr "Nowe hasło"
 
 #: src/BackofficeAccountCtrl.js:112 views/dialogs/display.recoverycodes.html:5
-#| msgid "New controls"
 msgid "New recovery codes"
-msgstr ""
+msgstr "Nowe kody odzyskiwania"
 
 #: views/op_risk.kb_mgmt.html:72
 msgid "New risk"
@@ -3122,9 +3102,8 @@ msgid "No referential matching your search was found"
 msgstr "Nie znaleziono referencji pasujących do Twojego wyszukiwania"
 
 #: ../ng_anr/views/import.match.html:43
-#| msgid "No referential matching your search was found"
 msgid "No referentials match was found in your search"
-msgstr ""
+msgstr "W wyniku wyszukiwania nie znaleziono odpowiedników."
 
 #: ../ng_anr/views/import.amv.html:43
 msgid "No risk matching your search was found"
@@ -3169,7 +3148,7 @@ msgstr "Liczba podatności do wyświetlenia"
 #: src/BackofficeAccountCtrl.js:115 views/dialogs/activate.2FA.html:40
 #: views/dialogs/display.recoverycodes.html:27
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../ng_anr/views/anr.dashboard.html:217
 #: ../ng_anr/views/anr.dashboard.html:243
@@ -3320,20 +3299,19 @@ msgstr ""
 
 #: src/BackofficeLoginCtrl.js:65
 msgid "Please enter your Two Factor Authentication token."
-msgstr ""
+msgstr "Wprowadź swój token uwierzytelniania dwuskładnikowego."
 
 #: views/passwordforgotten.html:10
 msgid "Please type in and confirm your new password"
 msgstr "Proszę wpisać i potwierdzić nowe hasło"
 
 #: ../ng_anr/views/__external_translate.html:23
-#| msgid "English"
 msgid "Polish"
-msgstr ""
+msgstr "Polski"
 
 #: ../ng_anr/views/__external_translate.html:24
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugalski"
 
 #: ../ng_anr/views/_table_risks_op.html:53
 #: views/items.analysis_guides.kb_mgmt.html:16
@@ -3376,9 +3354,8 @@ msgid "Primary"
 msgstr "Strona główna"
 
 #: ../ng_anr/views/__external_translate.html:33
-#| msgid "primary asset"
 msgid "Primary assets"
-msgstr ""
+msgstr "Aktywa podstawowe"
 
 #: ../ng_anr/views/create.recommandation-kbase.html:48
 #: ../ng_anr/views/create.recommandation.html:72
@@ -3427,11 +3404,11 @@ msgstr "Alias proxy"
 
 #: ../ng_anr/views/publish.object.html:51
 msgid "Publish"
-msgstr ""
+msgstr "Opublikuj"
 
 #: ../ng_anr/views/object.html:43 ../ng_anr/views/publish.object.html:5
 msgid "Publish asset in MOSP"
-msgstr ""
+msgstr "Opublikuj aktywa w MOSP"
 
 #: ../ng_anr/views/anr.ropa.html:88
 msgid "Purpose(s)"
@@ -3521,22 +3498,23 @@ msgstr "Rejestr czynności przetwarzania danych"
 
 #: views/login.html:29
 msgid "Recovery code"
-msgstr ""
+msgstr "Kod odzyskiwania"
 
 #: views/account.html:90
 msgid "Recovery codes"
-msgstr ""
+msgstr "Kody odzyskiwania"
 
 #: views/account.html:95
 msgid ""
 "Recovery codes can be used to access your account in the event you lose "
 "access to your two-factor method."
 msgstr ""
+"Kody odzyskiwania mogą być używane do uzyskania dostępu do konta w przypadku "
+"utraty dostępu do metody uwierzytelniania dwuskładnikowego."
 
 #: views/account.html:89
-#| msgid "Export options"
 msgid "Recovery options"
-msgstr ""
+msgstr "Opcje odzyskiwania"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:115 ../ng_anr/src/AnrSoaSheetCtrl.js:209
 #: ../ng_anr/views/_oprisk_sheet.html:155 ../ng_anr/views/_risk_sheet.html:153
@@ -3558,19 +3536,20 @@ msgid "Referentials"
 msgstr "Odsyłacze"
 
 #: ../ng_anr/views/import.match.html:37
-#| msgid "Referentials"
 msgid "Referentials match"
-msgstr ""
+msgstr "Odniesienia pasują"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:623
 msgid ""
 "Register your API Key associated with your MOSP account or create one by "
 "MONARC user account"
 msgstr ""
+"Zarejestruj swój klucz API powiązany z Twoim kontem MOSP lub utwórz go "
+"poprzez konto użytkownika MONARC"
 
 #: views/account.html:94
 msgid "Remaining recovery codes: {{ user.remainingRecoveryCodes }}."
-msgstr ""
+msgstr "Pozostałe kody odzyskiwania: {{ user.remainingRecoveryCodes }}."
 
 #: ../ng_anr/views/import.soa.html:41
 msgid "Remarks"
@@ -3676,9 +3655,8 @@ msgid "Risk before"
 msgstr "Ryzyko przed"
 
 #: ../ng_anr/views/_oprisk_sheet.html:86 ../ng_anr/views/_risk_sheet.html:91
-#| msgid "Risk analysis context"
 msgid "Risk context"
-msgstr ""
+msgstr "Kontekst ryzyka"
 
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:59
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:133
@@ -3704,9 +3682,8 @@ msgid "Risk management context"
 msgstr "Kontekst zarządzania ryzykiem"
 
 #: ../ng_anr/views/_oprisk_sheet.html:65 ../ng_anr/views/_risk_sheet.html:70
-#| msgid "Risk after"
 msgid "Risk owner"
-msgstr ""
+msgstr "Właściciel ryzyka"
 
 #: ../ng_anr/views/_oprisk_sheet.html:94
 msgid "Risk probability"
@@ -3756,7 +3733,7 @@ msgstr "Rzędy na stronie:"
 
 #: ../ng_anr/views/__external_translate.html:25
 msgid "Russian"
-msgstr ""
+msgstr "Rosyjski"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:627
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:496
@@ -3777,6 +3754,8 @@ msgid ""
 "Scan the QR code with your two-factor application and enter the token in the "
 "input."
 msgstr ""
+"Zeskanuj kod QR za pomocą aplikacji do uwierzytelniania dwuskładnikowego i "
+"wprowadź token w polu wprowadzania danych."
 
 #: ../ng_anr/views/create.objlibs.html:60 views/info_risk.kb_mgmt.html:463
 msgid "Scope"
@@ -3828,14 +3807,12 @@ msgid "Secondary"
 msgstr "Druga strona"
 
 #: ../ng_anr/views/__external_translate.html:34
-#| msgid "secondary asset"
 msgid "Secondary assets"
-msgstr ""
+msgstr "Aktywa drugorzędne"
 
 #: views/account.html:41
-#| msgid "Security measures"
 msgid "Security"
-msgstr ""
+msgstr "Bezpieczeństwo"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:55
 msgid "Security consultant(s)"
@@ -3874,7 +3851,7 @@ msgstr "Wybierz składnik aktywów"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4719 src/kb/info/BackofficeKbInfoCtrl.js:2859
 msgid "Separed by /"
-msgstr "Separed by /"
+msgstr "Podzielony przez /"
 
 #: views/dialogs/create.clients.html:25
 msgid "Server"
@@ -3886,7 +3863,7 @@ msgstr "Serwery"
 
 #: views/account.html:82
 msgid "Set up"
-msgstr ""
+msgstr "Konfiguracja"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:124 ../ng_anr/src/AnrSoaSheetCtrl.js:215
 #: ../ng_anr/views/_oprisk_sheet.html:158 ../ng_anr/views/_risk_sheet.html:156
@@ -3895,9 +3872,8 @@ msgid "Shared"
 msgstr "Wspólna strona"
 
 #: ../ng_anr/views/__external_translate.html:32
-#| msgid "Show all"
 msgid "Show"
-msgstr ""
+msgstr "Pokaż"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:102 ../ng_anr/views/_anr.kbmgmt.html:178
 #: ../ng_anr/views/_anr.kbmgmt.html:26 ../ng_anr/views/_anr.kbmgmt.html:278
@@ -3977,7 +3953,7 @@ msgstr ""
 #: ../ng_anr/views/anr.soa.sheet.html:104
 #: ../ng_anr/views/anr.soa.sheet.html:111
 msgid "Some scales are hidden"
-msgstr ""
+msgstr "Niektóre skale są ukryte"
 
 #: ../ng_anr/views/_table_risks.html:50 ../ng_anr/views/_table_risks_op.html:50
 msgid "Sort"
@@ -3993,7 +3969,7 @@ msgstr "Źródło"
 
 #: ../ng_anr/views/__external_translate.html:20
 msgid "Spanish"
-msgstr ""
+msgstr "Hiszpański"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:95 ../ng_anr/src/CreateObjlibDialogCtrl.js:73
 #: ../ng_anr/views/create.assets.html:69 ../ng_anr/views/create.objlibs.html:73
@@ -4038,7 +4014,7 @@ msgstr "Status"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:372
 msgid "Successful publishing"
-msgstr ""
+msgstr "Publikacja zakończona sukcesem"
 
 #: ../ng_anr/views/trends.evalcontext.html:134
 msgid "Summary"
@@ -4166,9 +4142,8 @@ msgid "The asset has been imported successfully"
 msgstr "Składnik aktywów został zaimportowany pomyślnie"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:372
-#| msgid "The asset has been duplicated successfully."
 msgid "The asset has been published in MOSP successfully."
-msgstr ""
+msgstr "Aktywo zostało pomyślnie opublikowane w MOSP."
 
 #: ../ng_anr/src/AnrObjectCtrl.js:135 ../ng_anr/src/AnrObjectCtrl.js:171
 #: ../ng_anr/src/AnrObjectCtrl.js:209
@@ -4275,9 +4250,8 @@ msgid "The deliverable has been generated successfully."
 msgstr "Rezultat został wygenerowany pomyślnie."
 
 #: ../ng_anr/views/publish.object.html:27
-#| msgid "The code may not be empty"
 msgid "The description may not be empty"
-msgstr ""
+msgstr "Opis nie może być pusty"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:38
 msgid "The document has been created successfully."
@@ -4366,9 +4340,8 @@ msgstr ""
 "%d rodzajów ryzyka, w tym:"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1108
-#| msgid "The theme has been created successfully."
 msgid "The matches have been created successfully."
-msgstr ""
+msgstr "Mecze zostały utworzone pomyślnie."
 
 #: src/kb/models/BackofficeKbModelsCtrl.js:57
 msgid "The model has been created successfully."
@@ -4392,14 +4365,12 @@ msgid "The name may not be empty"
 msgstr "Nazwa nie może być pusta"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2022
-#| msgid "The recommendation set has been created successfully."
 msgid "The operational risk impact scale has been created successfully."
-msgstr ""
+msgstr "Skala wpływu ryzyka operacyjnego została utworzona pomyślnie."
 
 #: ../ng_anr/views/publish.object.html:40
-#| msgid "The name may not be empty"
 msgid "The organization may not be empty"
-msgstr ""
+msgstr "Organizacja nie może być pusta"
 
 #: src/BackofficeLoginCtrl.js:29
 msgid ""
@@ -4950,11 +4921,11 @@ msgstr "Ocena zagrożeń"
 
 #: ../ng_anr/views/delete.scale.html:17
 msgid "To delete ?"
-msgstr ""
+msgstr "Aby usunąć ?"
 
 #: views/dialogs/activate.2FA.html:24
 msgid "Token from your two-factor application."
-msgstr ""
+msgstr "Token z Twojej aplikacji dwufunkcyjnej."
 
 #: ../ng_anr/views/anr.layout.html:23
 msgid "Tools"
@@ -4986,7 +4957,7 @@ msgstr "Ocena trendów zapisana pomyślnie"
 
 #: views/login.html:23
 msgid "Two factor code"
-msgstr ""
+msgstr "Kod dwuskładnikowy"
 
 #: views/dialogs/activate.2FA.html:15
 msgid ""
@@ -4994,22 +4965,25 @@ msgid ""
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
 msgstr ""
+"Uwierzytelnianie dwuskładnikowe jest już skonfigurowane. Jeśli podasz "
+"poniżej nowy token, Twój poprzedni klucz prywatny zostanie unieważniony. "
+"Może to stanowić problem w przypadku korzystania z kilku urządzeń OTP."
 
 #: views/account.html:78
 msgid "Two-Factor authentication"
-msgstr ""
+msgstr "Uwierzytelnianie dwuskładnikowe"
 
 #: src/BackofficeAccountCtrl.js:100 src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication"
-msgstr ""
+msgstr "Uwierzytelnianie dwuskładnikowe"
 
 #: src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication is now activated."
-msgstr ""
+msgstr "Uwierzytelnianie dwuskładnikowe jest teraz aktywne."
 
 #: src/BackofficeAccountCtrl.js:100
 msgid "Two-factor authentication is now deactivated."
-msgstr ""
+msgstr "Uwierzytelnianie dwuskładnikowe jest teraz wyłączone."
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
@@ -5067,6 +5041,8 @@ msgid ""
 "Use a second factor besides your password to increase security for your "
 "account."
 msgstr ""
+"Aby zwiększyć bezpieczeństwo swojego konta, oprócz hasła użyj drugiego "
+"czynnika."
 
 #: ../ng_anr/views/create.specriskop.html:19
 msgid "Use an existing risk"
@@ -5074,7 +5050,7 @@ msgstr "Wykorzystanie istniejącego ryzyka"
 
 #: views/login.html:37
 msgid "Use recovery code?"
-msgstr ""
+msgstr "Używasz kodu odzyskiwania?"
 
 #: ../ng_anr/views/create.recommandation-kbase.html:46
 #: ../ng_anr/views/create.recommandation.html:70
@@ -5208,7 +5184,7 @@ msgstr "Podatność na zagrożenia"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:622
 msgid "What is your MOSP API Key?"
-msgstr ""
+msgstr "Jaki jest Twój klucz API MOSP?"
 
 #: ../ng_anr/views/export.objlibs.html:37 ../ng_anr/views/export.record.html:31
 msgid "Without password"
@@ -5224,7 +5200,7 @@ msgstr "Zawiń wszystko"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:693
 msgid "Wrong MOSP API Key. Try again."
-msgstr ""
+msgstr "Nieprawidłowy klucz API MOSP. Spróbuj ponownie."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4769 ../ng_anr/src/AnrKbMgmtCtrl.js:5049
 #: src/kb/info/BackofficeKbInfoCtrl.js:2889
@@ -5370,9 +5346,8 @@ msgid "You must enter the user's last name"
 msgstr "Musisz podać nazwisko użytkownika"
 
 #: views/account.html:93
-#| msgid "You must select one or more roles"
 msgid "You must generate recovery codes."
-msgstr ""
+msgstr "Musisz wygenerować kody odzyskiwania."
 
 #: views/dialogs/create.deliverymodel.html:22
 #: views/dialogs/create.guides.html:22
@@ -5424,9 +5399,8 @@ msgid "You must select a vulnerability"
 msgstr "Musisz wybrać podatność na zagrożenia"
 
 #: ../ng_anr/views/import.object.mosp.html:47
-#| msgid "You must select an asset type"
 msgid "You must select an asset"
-msgstr ""
+msgstr "Musisz wybrać składnik aktywów"
 
 #: ../ng_anr/views/create.amvs.html:56 ../ng_anr/views/create.objlibs.html:147
 msgid "You must select an asset type"
@@ -5443,7 +5417,7 @@ msgstr "Należy wpisać hasło"
 
 #: views/dialogs/display.recoverycodes.html:21
 msgid "You won't be able to view this again."
-msgstr ""
+msgstr "Nie będzie można ich ponownie wyświetlić."
 
 #: src/BackofficeLoginCtrl.js:70
 msgid "Your e-mail address or password is invalid, please try again."
@@ -5451,7 +5425,7 @@ msgstr "Twój adres e-mail lub hasło są nieprawidłowe, spróbuj ponownie."
 
 #: views/dialogs/display.recoverycodes.html:13
 msgid "Your new recovery codes:"
-msgstr ""
+msgstr "Twoje nowe kody odzyskiwania:"
 
 #: src/BackofficePasswordForgottenCtrl.js:30
 msgid "Your password has been reset."
@@ -5531,9 +5505,8 @@ msgstr "dzień(y)"
 #: src/kb/info/BackofficeKbInfoCtrl.js:2625
 #: src/kb/info/BackofficeKbInfoCtrl.js:2670
 #: src/kb/info/BackofficeKbInfoCtrl.js:2703
-#| msgid "Generic"
 msgid "generic"
-msgstr ""
+msgstr "ogólne"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2770 src/kb/info/BackofficeKbInfoCtrl.js:1640
 msgid "have been created successfully."
@@ -5599,9 +5572,8 @@ msgstr "aktywa wtórne"
 #: src/kb/info/BackofficeKbInfoCtrl.js:2625
 #: src/kb/info/BackofficeKbInfoCtrl.js:2670
 #: src/kb/info/BackofficeKbInfoCtrl.js:2703
-#| msgid "Specific"
 msgid "specific"
-msgstr ""
+msgstr "specyficzne"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:4465 src/kb/info/BackofficeKbInfoCtrl.js:2581
 msgid "tags"
@@ -5680,9 +5652,8 @@ msgid "{{count}} risks have been deleted."
 msgstr "{{count}} zagrożenia zostały usunięte."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:1723 ../ng_anr/src/AnrLayoutCtrl.js:2060
-#| msgid "{{count}} clients have been deleted."
 msgid "{{count}} scales have been deleted."
-msgstr ""
+msgstr "Skale {{count}} zostały usunięte."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2011
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:166
