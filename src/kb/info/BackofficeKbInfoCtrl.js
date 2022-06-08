@@ -1018,7 +1018,7 @@
         /*
          * AMVS TAB
          */
-        $scope.amvs = TableHelperService.build('status', 20, 1, '');
+        $scope.amvs = TableHelperService.build('asset:position', 20, 1, '')
         $scope.amvs.activeFilter = 1;
         var amvsFilterWatch;
         $scope.referentials_filter = [];
