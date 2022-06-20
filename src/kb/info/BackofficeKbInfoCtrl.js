@@ -213,6 +213,8 @@
                             $scope.createNewAsset(ev, asset);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -253,6 +255,8 @@
                                 $scope.editAsset(ev, asset);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -411,6 +415,8 @@
                             $scope.createNewThreat(ev, threat);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -457,6 +463,8 @@
                                 $scope.editThreat(ev, threat);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -604,6 +612,8 @@
                             $scope.createNewVuln(ev, vuln);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -643,6 +653,8 @@
                                 $scope.editVuln(ev, vuln);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -796,6 +808,8 @@
                             $scope.createNewReferential(ev, referential);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -827,6 +841,8 @@
                                 $scope.editReferential(ev, referential);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -930,6 +946,8 @@
                             $scope.createNewMeasure(ev, measure);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -962,6 +980,8 @@
                                 $scope.editMeasure(ev, measure);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -1099,6 +1119,8 @@
                       gettextCatalog.getString('Edition successful'));
                     $rootScope.$broadcast('amvUpdated');
                 });
+              }, function (reject) {
+                $scope.handleRejectionDialog(reject);
               });
         }
 
@@ -1148,6 +1170,8 @@
                             $scope.createNewAmv(ev, amvBackup);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -1197,6 +1221,8 @@
                                 $scope.editAmv(ev, amvBackup);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -1531,6 +1557,7 @@
         //Import File Center
 
         $scope.importFile = function (ev,tab) {
+          $mdDialog.cancel();
           var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
           $mdDialog.show({
               controller: ['$scope', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService', 'VulnService', 'MeasureService', 'AmvService',
@@ -1613,7 +1640,9 @@
                 toastr.success(gettextCatalog.getString((Array.isArray(result.id) ? result.id.length : 1) + ' ' + tab + ' ' + 'have been created successfully.'),
                                gettextCatalog.getString('Creation successful'));
               };
-            })
+            }, function (reject) {
+              $scope.handleRejectionDialog(reject);
+            });
         }
     }
 
@@ -1780,6 +1809,8 @@
                             $scope.createNewTheme(ev, theme);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -1813,6 +1844,8 @@
                                 $scope.editTheme(ev, theme);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -2171,6 +2204,8 @@
                             $scope.createNewCategory(ev, category);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -2205,6 +2240,8 @@
                                 $scope.editCategory(ev, category);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };

@@ -40,6 +40,8 @@
                                 {guideLabel: guide.description1}), gettextCatalog.getString('Creation successful'));
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -64,6 +66,8 @@
                                 {guideLabel: guide.description1}), gettextCatalog.getString('Edition successful'));
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 

@@ -57,6 +57,8 @@
                             $scope.createNewClient(ev, client);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -84,6 +86,8 @@
                                     {clientName: client.name}), gettextCatalog.getString('Edition successful'));
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             };
 
