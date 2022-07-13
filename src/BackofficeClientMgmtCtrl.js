@@ -155,7 +155,7 @@
 
     function CreateClientDialogCtrl($scope, $mdDialog, $q, toastr, gettextCatalog, ModelService, AdminServerGetService, client) {
         ModelService.getModels().then(function (x) {
-            $scope.models = x.models;
+            $scope.models = x.models.filter(model => model.isGeneric == 0);
         });
 
         AdminServerGetService.getServers().then(function (x) {
