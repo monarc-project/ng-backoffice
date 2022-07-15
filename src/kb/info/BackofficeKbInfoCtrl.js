@@ -2671,6 +2671,7 @@
             },
             'theme' : {
               'field' : 'theme',
+              'fieldBis' : 'theme label1\ntheme label2\ntheme label3\ntheme label4',
               'required' : true,
               'type' : 'text',
               'example' : $scope.actualExternalItems
