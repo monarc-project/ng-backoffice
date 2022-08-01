@@ -2549,7 +2549,6 @@
           var getService = ThreatService.getThreats();
           var items = 'threats';
           $scope.actualExternalItems = themes;
-          var extItemLabel = gettextCatalog.getString('themes');
         break;
         case 'Vulnerabilties':
           var getService = VulnService.getVulns();
@@ -2557,9 +2556,7 @@
         case 'Controls':
           var getService = MeasureService.getMeasures({referential: referential});
           var items = 'measures';
-          var externalItem = 'category';
           $scope.actualExternalItems = categories;
-          var extItemLabel = gettextCatalog.getString('categories');
         break;
         case 'Information risks':
           var getService = AmvService.getAmvs();
@@ -2718,7 +2715,8 @@
               'example' : gettextCatalog.getString('Access control policy')
             },
             'category' : {
-              'field' : 'category',
+              'field' : 'category label' + $scope.defaultLang,
+              'fieldBis' : 'category label1\ncategory label2\ncategory label3\ncategory label4',
               'required' : true,
               'type' : 'text',
               'example' : $scope.actualExternalItems
@@ -2929,38 +2927,13 @@
           return promise.promise
       }
 
-      $scope.createCategories = function () {
+      async function createCategory (category){
           var promise = $q.defer();
-          var categoryData = {};
-          if ($scope.extItemToCreate && $scope.extItemToCreate.length > 0) {
-            for (let i = 0; i < $scope.extItemToCreate.length; i++) {
-               categoryData[i] = {
-                 referential: referential,
-                 label1: '',
-                 label2: '',
-                 label3: '',
-                 label4: '',
-               };
-               for (var j = 1; j <= 4; j++) {
-                 categoryData[i]['label' + j] = $scope.extItemToCreate[i];
-               }
-            }
-            SOACategoryService.createCategory(categoryData, function(){
-               SOACategoryService.getCategories({referential: referential}).then(function (e) {
-                   promise.resolve(e.categories);
-               }, function (e) {
-                   promise.reject();
-               });
-            });
-          }else {
-            SOACategoryService.getCategories({referential: referential}).then(function (e) {
-                promise.resolve(e.categories);
-            }, function (e) {
-                promise.reject();
-            });
-          }
-          return promise.promise;
-      };
+          SOACategoryService.createCategory(category, await function(result){
+            promise.resolve(result.id);
+          });
+          return promise.promise
+      }
 
       $scope.createTags = function () {
           var promise = $q.defer();
@@ -3197,8 +3170,7 @@
             itemFields.push('theme');
             break;
           case 'Controls':
-            itemFields.push('uuid');
-            $scope.getCategories = await $scope.createCategories();
+            itemFields.push('uuid', 'category');
             break;
           case 'Information risks':
             let amvItems = ['asset','threat', 'vulnerability'];
@@ -3218,7 +3190,6 @@
             break;
           default:
         }
-        var cia = ['c','i','a'];
         for(var index in $scope.items[tab]) {
             itemFields.push($scope.items[tab][index]['field']);
         }
@@ -3226,6 +3197,7 @@
           var postDataKeys = Object.keys(postData);
 
           if (tab == 'Threats') {
+            let cia = ['c','i','a'];
             for (let i = 0; i < cia.length; i++) {
               if (!postData[cia[i]] || postData[cia[i]] == 0 || postData[cia[i]].toLowerCase() == 'false' ) {
                 postData[cia[i]] = false;
@@ -3258,15 +3230,27 @@
 
           if (tab == 'Controls') {
             postData.referential = referential;
-            if (postData['category']) {
-              $scope.getCategories.filter(function(category){
-                for (var i = 1; i <=4; i++) {
-                  if (category['label' + i] && category['label' + i].toLowerCase().trim() === postData.category.toLowerCase().trim()){
-                    $scope.idCategory =  category.id;
-                  }
+            if (postData['category label' + $scope.defaultLang]) {
+              let categoryFound = $scope.actualExternalItems.find(category =>
+                category['label' + $scope.language].toLowerCase().trim() == postData['category label' + $scope.defaultLang].toLowerCase().trim()
+              );
+              if (categoryFound == undefined) {
+                let categoryToCreate = {
+                  referential: referential,
+                  label1 : postData['category label1'] ? postData['category label1'].trim() : null,
+                  label2 : postData['category label2'] ? postData['category label2'].trim() : null,
+                  label3 : postData['category label3'] ? postData['category label3'].trim() : null,
+                  label4 : postData['category label4'] ? postData['category label4'].trim() : null,
                 }
-              });
-              postData.category = $scope.idCategory;
+
+                await createCategory(categoryToCreate).then(function (id){
+                    categoryToCreate.id = id;
+                    postData.category = id;
+                    $scope.actualExternalItems.push(categoryToCreate);
+                });
+              } else {
+                postData.category = categoryFound.id;
+              }
             }
           }
 
