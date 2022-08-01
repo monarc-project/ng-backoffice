@@ -2921,38 +2921,13 @@
           return promise.promise
       };
 
-      $scope.createThemes = async function () {
+      async function createTheme (theme){
           var promise = $q.defer();
-          var themesData = {};
-          if ($scope.extItemToCreate && $scope.extItemToCreate.length > 0) {
-             for (let i = 0; i < $scope.extItemToCreate.length; i++) {
-               themesData[i] = {
-                 label1: '',
-                 label2: '',
-                 label3: '',
-                 label4: '',
-               };
-               for (var j = 1; j <= 4; j++) {
-                 themesData[i]['label' + j] = $scope.extItemToCreate[i];
-               }
-             }
-
-             ThreatService.createTheme(themesData, function(){
-                ThreatService.getThemes().then(function (e) {
-                    promise.resolve(e.themes);
-                }, function (e) {
-                    promise.reject();
-                });
-             });
-          }else {
-            ThreatService.getThemes().then(function (e) {
-                promise.resolve(e.themes);
-            }, function (e) {
-                promise.reject();
-            });
-          }
-          return promise.promise;
-      };
+          ThreatService.createTheme(theme, await function(result){
+            promise.resolve(result.id);
+          });
+          return promise.promise
+      }
 
       $scope.createCategories = function () {
           var promise = $q.defer();
@@ -3216,12 +3191,10 @@
       };
 
       $scope.uploadFile = async function () {
-
-        var itemsToImport = $scope.importData.length;
         var itemFields= ['label1','label2','label3','label4','description1','description2','description3','description4'];
         switch (tab) {
           case 'Threats':
-            $scope.getThemes = await $scope.createThemes();
+            itemFields.push('theme');
             break;
           case 'Controls':
             itemFields.push('uuid');
@@ -3249,14 +3222,8 @@
         for(var index in $scope.items[tab]) {
             itemFields.push($scope.items[tab][index]['field']);
         }
-
-        await $scope.importData.forEach(function(postData,i){
+        for await (const postData of $scope.importData) {
           var postDataKeys = Object.keys(postData);
-          for (let pdk of postDataKeys){
-            if(!itemFields.includes(pdk.toLowerCase())){
-              delete postData[pdk];
-            }
-          }
 
           if (tab == 'Threats') {
             for (let i = 0; i < cia.length; i++) {
@@ -3266,17 +3233,29 @@
                 postData[cia[i]] = true;
               }
             }
-            if (postData['theme']) {
-              $scope.getThemes.filter(function(theme){
-                for (var i = 1; i <=4; i++) {
-                  if (theme['label' + i] && theme['label' + i].toLowerCase().trim() === postData.theme.toLowerCase().trim()){
-                    $scope.idTheme =  theme.id;
+            if (postData['theme label' + $scope.defaultLang]) {
+                let themeFound = $scope.actualExternalItems.find(theme =>
+                    theme['label' + $scope.language].toLowerCase().trim() == postData['theme label' + $scope.defaultLang].toLowerCase().trim()
+                );
+                if (themeFound == undefined) {
+                  let themeToCreate = {
+                    label1 : postData['theme label1'] ? postData['theme label1'].trim() : null,
+                    label2 : postData['theme label2'] ? postData['theme label2'].trim() : null,
+                    label3 : postData['theme label3'] ? postData['theme label3'].trim() : null,
+                    label4 : postData['theme label4'] ? postData['theme label4'].trim() : null,
                   }
+
+                  await createTheme(themeToCreate).then(function (id){
+                      themeToCreate.id = id;
+                      postData.theme = id;
+                      $scope.actualExternalItems.push(themeToCreate);
+                  });
+                } else {
+                  postData.theme = themeFound.id;
                 }
-              });
-              postData.theme = $scope.idTheme;
             }
           }
+
           if (tab == 'Controls') {
             postData.referential = referential;
             if (postData['category']) {
@@ -3363,7 +3342,13 @@
             });
             postData.tags = tagsId;
           }
-        });
+
+          for (let pdk of postDataKeys){
+            if(!itemFields.includes(pdk.toLowerCase())){
+              delete postData[pdk];
+            }
+          }
+        }
         $mdDialog.hide($scope.importData);
 
       };
