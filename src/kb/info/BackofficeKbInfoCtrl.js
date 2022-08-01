@@ -2548,7 +2548,6 @@
         case 'Threats':
           var getService = ThreatService.getThreats();
           var items = 'threats';
-          var externalItem = 'theme';
           $scope.actualExternalItems = themes;
           var extItemLabel = gettextCatalog.getString('themes');
         break;
@@ -2670,7 +2669,7 @@
               'example' : '\n0: ' + gettextCatalog.getString('generic') + '\n1: ' + gettextCatalog.getString('specific')
             },
             'theme' : {
-              'field' : 'theme',
+              'field' : 'theme label' + $scope.defaultLang,
               'fieldBis' : 'theme label1\ntheme label2\ntheme label3\ntheme label4',
               'required' : true,
               'type' : 'text',
