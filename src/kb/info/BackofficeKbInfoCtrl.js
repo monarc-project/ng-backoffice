@@ -2539,49 +2539,63 @@
       $scope.guideVisible = false;
       $scope.language = ConfigService.getDefaultLanguageIndex();
       $scope.defaultLang = angular.copy($scope.language);
+      var codes = [];
+      var matches = [];
+      var allMeasures = [];
 
       switch (tab) {
         case 'Asset types':
-          var getService = AssetService.getAssets();
-          var items = 'assets';
+          AssetService.getAssets().then(function (data) {
+              codes = data.assets.map(asset => asset.code.toLowerCase());
+          });
           break;
         case 'Threats':
-          var getService = ThreatService.getThreats();
-          var items = 'threats';
+          ThreatService.getThreats().then(function (data) {
+              codes = data.threats.map(threat => threat.code.toLowerCase());
+          });
           $scope.actualExternalItems = themes;
-        break;
+          break;
         case 'Vulnerabilties':
-          var getService = VulnService.getVulns();
-          var items = 'vulnerabilities'; break;
+          VulnService.getVulns().then(function (data) {
+              codes = data.vulnerabilities.map(vulnerability => vulnerability.code.toLowerCase());
+          });
+          break;
         case 'Controls':
-          var getService = MeasureService.getMeasures({referential: referential});
-          var items = 'measures';
+          MeasureService.getMeasures({referential: referential}).then(function (data) {
+              codes = data.measures.map(measure => measure.code.toLowerCase());
+          });
           $scope.actualExternalItems = categories;
         break;
         case 'Information risks':
-          var getService = AmvService.getAmvs();
-          var items = 'amvs';
+          AmvService.getAmvs().then(function (data) {
+              codes = data.amvs.map(measure => amvs.code.toLowerCase());
+          });
           $scope.actualExternalItems = themes;
         break;
         case 'Categories':
-          var getService = SOACategoryService.getCategories({referential: referential});
-          var items = 'categories';
+          SOACategoryService.getCategories({referential: referential}).then(function (data) {
+              codes = data.categories.map(category => category.code.toLowerCase());
+          });
         break;
         case 'Tags':
-          var getService = TagService.getTags();
-          var items = 'tags'; break;
+          TagService.getTags().then(function (data) {
+              codes = data.tags.map(tag => tag.code.toLowerCase());
+          });
+          break;
         case 'Operational risks':
-          var getService = RiskService.getRisks();
+          RiskService.getRisks().then(function (data) {
+              codes = data.risks.map(risk => risk.code.toLowerCase());
+          });
           var externalItem = 'tags';
           $scope.actualExternalItems = tags;
           var extItemLabel = gettextCatalog.getString('tags');
-          var items = 'risks';
         break;
         case 'Matches':
-          var getService = MeasureMeasureService.getMeasuresMeasures();
-          var items = 'MeasureMeasure';
+          MeasureMeasureService.getMeasuresMeasures().then(function (data) {
+            matches = data.risks.map(risk => risk.code.toLowerCase());
+          });
           MeasureService.getMeasures().then(function (data) {
-            $scope.allMeasures = data.measures;
+            allMeasures = data.measures;
           });
         break;
         default:
@@ -2908,17 +2922,6 @@
         }
       };
 
-      $scope.getItems = function (){
-        var promise = $q.defer();
-        getService.then(function (e) {
-            $scope.isProcessing = false;
-            promise.resolve(e[items]);
-        }, function (e) {
-            promise.reject(e);
-        });
-          return promise.promise
-      };
-
       async function createTheme (theme){
           var promise = $q.defer();
           ThreatService.createTheme(theme, await function(result){
@@ -2970,8 +2973,6 @@
 
       $scope.checkFile = function (file) {
         $scope.extItemToCreate = [];
-        $scope.getItems().then(async function(items){
-
         var requiredFields = [];
 
         for(var index in $scope.items[tab]) {
@@ -3073,7 +3074,7 @@
                   file.data[i].alert = false;
 
                   if (requiredFields.includes('code')) {
-                    var codes = items.map(item => item.code.toLowerCase());
+                    // var codes = allThreats.map(item => item.code.toLowerCase());
                     if (file.data[i]['code'] && codes.includes(file.data[i]['code'].toLowerCase().trim())) {
                         file.data[i].error += gettextCatalog.getString('code is already in use') + "\n";;
                         $scope.check = true;
@@ -3083,8 +3084,7 @@
                   }
 
                   if (requiredFields.includes('match') && file.data[i]['control'] && file.data[i]['match']) {
-                    var matches = items.map(item => item.father.uuid.toLowerCase() + item.child.uuid.toLowerCase());
-                    var uuids = $scope.allMeasures.map(item => item.uuid);
+                    var uuids = allMeasures.map(item => item.uuid);
 
                     if (!uuids.includes(file.data[i]['control'].toLowerCase().trim())) {
                       file.data[i]['control'] = '-';
@@ -3097,23 +3097,23 @@
                       $scope.check = true;
                     }
                     if (matches.includes(file.data[i]['control'].toLowerCase().trim() + file.data[i]['match'].toLowerCase().trim())) {
-                        var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
+                        var measure = allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
                         file.data[i]['father'] = file.data[i]['control'];
                         file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
 
-                        var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
+                        var measure = allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
                         file.data[i]['child'] = file.data[i]['match'];
                         file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
                         file.data[i].error += gettextCatalog.getString('this matching is already in use') + "\n";
                         $scope.check = true;
                     }else {
-                      var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
+                      var measure = allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
                       if (measure.length > 0) {
                         file.data[i]['father'] = file.data[i]['control'];
                         file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
                       }
 
-                      var measure = $scope.allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
+                      var measure = allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
                       if (measure.length > 0) {
                         file.data[i]['child'] = file.data[i]['match'];
                         file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
@@ -3159,7 +3159,6 @@
                 $scope.importData = [];
                 $scope.check = true;
             }
-        });
         return file.data;
       };
 
