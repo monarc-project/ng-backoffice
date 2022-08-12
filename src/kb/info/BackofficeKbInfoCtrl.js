@@ -1672,7 +1672,7 @@
           controller: ['$scope', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService', 'VulnService',
             'MeasureService', 'AmvService', 'SOACategoryService', 'TagService', 'RiskService',
             'MeasureMeasureService', 'ObjlibService', 'gettextCatalog', '$q', 'tab', 'themes',
-            'categories', 'referential', 'tags', ImportFileDialogCtrl
+            'categories', 'libraryCategoriesPath', 'referential', 'tags', ImportFileDialogCtrl
           ],
           templateUrl: 'views/anr/import.file.html',
           targetEvent: ev,
@@ -1684,6 +1684,7 @@
             'tab': tab,
             'themes': $scope.listThemes,
             'categories': $scope.listCategories,
+            'libraryCategoriesPath': $scope.categories,
             'referential': $scope.RefSelected,
             'tags': $scope.listTags
           }
@@ -2695,7 +2696,7 @@
   }
 
   function ImportFileDialogCtrl($scope, $mdDialog, ConfigService, AssetService, ThreatService, VulnService, MeasureService, AmvService, SOACategoryService,
-    TagService, RiskService, MeasureMeasureService, ObjlibService, gettextCatalog, $q, tab, themes, categories, referential, tags) {
+    TagService, RiskService, MeasureMeasureService, ObjlibService, gettextCatalog, $q, tab, themes, categories, libraryCategoriesPath, referential, tags) {
 
     $scope.tab = tab;
     $scope.guideVisible = false;
@@ -2704,8 +2705,8 @@
     var codes = [];
     var matches = [];
     var allMeasures = [];
+    var allTags = [];
     var allLibraryCategories = [];
-    var libraryCategoriesPath = {};
 
 
     switch (tab) {
@@ -2769,14 +2770,16 @@
         break;
       case 'Assets library':
         var extItemLabel = gettextCatalog.getString('library categories');
-        $scope.actualExternalItems = [];
+        $scope.actualExternalItems = libraryCategoriesPath;
         ObjlibService.getObjlibsCats().then(function(data) {
-          getActualLibCategoriesPath(data.categories);
           allLibraryCategories = getFlatLibCategories(data.categories)
         });
         AssetService.getAssets().then(function(data) {
           codes = data.assets;
         });
+        TagService.getTags().then(function(data) {
+          allTags = data.tags;
+        })
         break;
       default:
     }
@@ -3084,7 +3087,7 @@
           'field': 'asset type code',
           'required': true,
           'type': 'text',
-          'example': 'C16, 123, CAZ, C-12'
+          'example': 'Asset type code must exist in the Knowledge Base'
         },
         'scope': {
           'field': 'scope',
@@ -3097,6 +3100,12 @@
           'required': true,
           'type': '0,1',
           'example': '\n0: ' + gettextCatalog.getString('generic') + '\n1: ' + gettextCatalog.getString('specific')
+        },
+        'rolfTag': {
+          'field': 'operational risk tag',
+          'required': false,
+          'type': 'text',
+          'example': 'Operational risk tag must exist in the Knowledge Base'
         },
         'category': {
           'field': 'category label' + $scope.defaultLang,
@@ -3253,6 +3262,7 @@
 
         } else if (tab == 'Assets library') {
           for (let row of file.data) {
+            let isPrimaryAsset = false;
             row.error = '';
             row.alert = false;
             requiredFields.forEach(requiredField => {
@@ -3265,10 +3275,19 @@
               row.error += gettextCatalog.getString('the asset type code does not exist. Create it before import') + "\n";;
               $scope.check = true;
             } else {
-              row.asset = codes.find(code => code.code.toLowerCase() === row['asset type code'].toLowerCase().trim()).uuid
+              let assetType = codes.find(code => code.code.toLowerCase() === row['asset type code'].toLowerCase().trim())
+              row.asset = assetType.uuid;
+              isPrimaryAsset = assetType.type == 1 ? true : false;
             }
 
-            let libraryCategories = row['category label' + $scope.defaultLang].toString().split(">");
+            if (row['operational risk tag'] && isPrimaryAsset && !allTags.map(tag => tag.code.toLowerCase()).includes(row['operational risk tag'].toLowerCase().trim())) {
+              row.error += gettextCatalog.getString('the operational risk tag does not exist. Create it before import') + "\n";;
+              $scope.check = true;
+            } else if (row['operational risk tag']) {
+              row.rolfTag = allTags.find(tag => tag.code.toLowerCase() === row['operational risk tag'].toLowerCase().trim()).id
+            }
+
+            let libraryCategories = row['category label' + $scope.defaultLang].toString().split(">>");
             libraryCategories.forEach(libraryCategory => {
               let libraryCategoryFound = allLibraryCategories.find(category =>
                 category['label' + $scope.defaultLang].toLowerCase().trim() == libraryCategory.toLowerCase().trim()
@@ -3543,7 +3562,7 @@
         }
 
         if (tab == 'Assets library') {
-          let libraryCategories = postData['category label' + $scope.defaultLang].toString().split(">");
+          let libraryCategories = postData['category label' + $scope.defaultLang].toString().split(">>");
           let parentIds = [];
 
           for await (let [index, libraryCategory] of libraryCategories.entries()) {
@@ -3559,10 +3578,10 @@
                 parent: index == 0 ? null : parentIds[index - 1],
                 implicitPosition: 2,
                 position: null,
-                label1: postData['category label1'].toString().split(">")[index] ? postData['category label1'].toString().split(">")[index].trim() : null,
-                label2: postData['category label2'].toString().split(">")[index] ? postData['category label2'].toString().split(">")[index].trim() : null,
-                label3: postData['category label3'].toString().split(">")[index] ? postData['category label3'].toString().split(">")[index].trim() : null,
-                label4: postData['category label4'].toString().split(">")[index] ? postData['category label4'].toString().split(">")[index].trim() : null,
+                label1: postData['category label1'].toString().split(">>")[index] ? postData['category label1'].toString().split(">>")[index].trim() : null,
+                label2: postData['category label2'].toString().split(">>")[index] ? postData['category label2'].toString().split(">>")[index].trim() : null,
+                label3: postData['category label3'].toString().split(">>")[index] ? postData['category label3'].toString().split(">>")[index].trim() : null,
+                label4: postData['category label4'].toString().split(">>")[index] ? postData['category label4'].toString().split(">>")[index].trim() : null,
               };
 
               await createLibraryCategory(categoryToCreate).then(function(id) {
@@ -3576,17 +3595,16 @@
             asset: postData.asset,
             category: parentIds[parentIds.length - 1],
             implicitPosition: 2,
-            label1: postData.label1,
-            label2: postData.label2,
-            label3: postData.label3,
-            label4: postData.label4,
+            label1: postData.label1 ? postData.label1.trim() : null,
+            label2: postData.label2 ? postData.label2.trim() : null,
+            label3: postData.label3 ? postData.label3.trim() : null,
+            label4: postData.label4 ? postData.label4.trim() : null,
             mode: postData.mode,
-            name1: postData.name1,
-            name2: postData.name2,
-            name3: postData.name3,
-            name4: postData.name4,
-            previous: null,
-            rolfTag: 1,
+            name1: postData.name1 ? postData.name1.trim() : null,
+            name2: postData.name2 ? postData.name2.trim() : null,
+            name3: postData.name3 ? postData.name3.trim() : null,
+            name4: postData.name4 ? postData.name4.trim() : null,
+            rolfTag: postData.rolfTag,
             scope: postData.scope,
           }
         }
@@ -3646,60 +3664,6 @@
     $scope.cancel = function() {
       $mdDialog.cancel();
     };
-
-    function getActualLibCategoriesPath(categories, root) {
-      return categories.reduce((acc, category) => {
-        let categoryId = root ? (root.rootId ? root.rootId : root.id) : category.id;
-
-        if (category.child && category.child.length) {
-          if (root) {
-            libraryCategoriesPath[categoryId] = {
-              label1: libraryCategoriesPath[categoryId].label1 + ' > ' + category.label1,
-              label2: libraryCategoriesPath[categoryId].label2 + ' > ' + category.label2,
-              label3: libraryCategoriesPath[categoryId].label3 + ' > ' + category.label3,
-              label4: libraryCategoriesPath[categoryId].label4 + ' > ' + category.label4
-            };
-            category.rootId = categoryId;
-          } else {
-            libraryCategoriesPath[categoryId] = {
-              label1: category.label1,
-              label2: category.label2,
-              label3: category.label3,
-              label4: category.label4
-            };
-          }
-          libraryCategoriesPath[categoryId] = Object.assign((getActualLibCategoriesPath(category.child, category)));
-        } else {
-          if (root.rootId) {
-            libraryCategoriesPath[categoryId] = {
-              label1: libraryCategoriesPath[root.rootId].label1 + ' > ' + category.label1,
-              label2: libraryCategoriesPath[root.rootId].label2 + ' > ' + category.label2,
-              label3: libraryCategoriesPath[root.rootId].label3 + ' > ' + category.label3,
-              label4: libraryCategoriesPath[root.rootId].label4 + ' > ' + category.label4
-            }
-          } else {
-            libraryCategoriesPath[categoryId] = {
-              label1: root.label1 + ' > ' + category.label1,
-              label2: root.label2 + ' > ' + category.label2,
-              label3: root.label3 + ' > ' + category.label3,
-              label4: root.label4 + ' > ' + category.label4
-            }
-          }
-        }
-
-        if ($scope.actualExternalItems.indexOf(libraryCategoriesPath[categoryId]) == -1) {
-            for (var i = 1; i <= 4; i++) {
-                if (libraryCategoriesPath[categoryId]['label' + i].includes('null')) {
-                    delete libraryCategoriesPath[categoryId]['label' + i];
-                }
-            }
-
-          $scope.actualExternalItems.push(libraryCategoriesPath[categoryId]);
-        }
-
-        return libraryCategoriesPath[categoryId];
-      }, []);
-    }
 
     function getFlatLibCategories(categories) {
       return categories.reduce((acc, category) => {
