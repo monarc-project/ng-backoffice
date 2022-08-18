@@ -1669,8 +1669,8 @@
       $mdDialog.cancel();
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
       $mdDialog.show({
-          controller: ['$scope', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService', 'VulnService',
-            'MeasureService', 'AmvService', 'SOACategoryService', 'TagService', 'RiskService',
+          controller: ['$scope', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService',
+            'VulnService', 'MeasureService', 'SOACategoryService', 'TagService', 'RiskService',
             'MeasureMeasureService', 'ObjlibService', 'gettextCatalog', '$q', 'tab', 'themes',
             'categories', 'libraryCategoriesPath', 'referential', 'tags', ImportFileDialogCtrl
           ],
@@ -2695,19 +2695,24 @@
     };
   }
 
-  function ImportFileDialogCtrl($scope, $mdDialog, ConfigService, AssetService, ThreatService, VulnService, MeasureService, AmvService, SOACategoryService,
+  function ImportFileDialogCtrl($scope, $mdDialog, ConfigService, AssetService, ThreatService, VulnService, MeasureService, SOACategoryService,
     TagService, RiskService, MeasureMeasureService, ObjlibService, gettextCatalog, $q, tab, themes, categories, libraryCategoriesPath, referential, tags) {
 
     $scope.tab = tab;
     $scope.guideVisible = false;
     $scope.language = ConfigService.getDefaultLanguageIndex();
     $scope.defaultLang = angular.copy($scope.language);
+    var requiredFields = [];
+    var extItemToCreate = [];
     var codes = [];
     var matches = [];
     var allMeasures = [];
     var allTags = [];
     var allLibraryCategories = [];
-
+    var libraryCategoryPaths = [];
+    var externalItem = null;
+    var pluralExtItem = null;
+    var extItemField = null;
 
     switch (tab) {
       case 'Asset types':
@@ -2716,10 +2721,12 @@
         });
         break;
       case 'Threats':
+        externalItem = 'theme';
+        pluralExtItem = 'themes';
+        $scope.actualExternalItems = themes;
         ThreatService.getThreats().then(function(data) {
           codes = data.threats.map(threat => threat.code.toLowerCase());
         });
-        $scope.actualExternalItems = themes;
         break;
       case 'Vulnerabilties':
         VulnService.getVulns().then(function(data) {
@@ -2727,25 +2734,19 @@
         });
         break;
       case 'Controls':
+        externalItem = 'category';
+        pluralExtItem = 'categories';
+        $scope.actualExternalItems = categories;
         MeasureService.getMeasures({
           referential: referential
         }).then(function(data) {
           codes = data.measures.map(measure => measure.code.toLowerCase());
         });
-        $scope.actualExternalItems = categories;
         break;
       case 'Information risks':
-        AmvService.getAmvs().then(function(data) {
-          codes = data.amvs.map(measure => amvs.code.toLowerCase());
-        });
+        externalItem = 'theme';
+        pluralExtItem = 'themes';
         $scope.actualExternalItems = themes;
-        break;
-      case 'Categories':
-        SOACategoryService.getCategories({
-          referential: referential
-        }).then(function(data) {
-          codes = data.categories.map(category => category.code.toLowerCase());
-        });
         break;
       case 'Tags':
         TagService.getTags().then(function(data) {
@@ -2753,33 +2754,34 @@
         });
         break;
       case 'Operational risks':
+        externalItem = 'tag';
+        pluralExtItem = 'tags';
+        $scope.actualExternalItems = tags;
         RiskService.getRisks().then(function(data) {
           codes = data.risks.map(risk => risk.code.toLowerCase());
         });
-        var externalItem = 'tags';
-        $scope.actualExternalItems = tags;
-        var extItemLabel = gettextCatalog.getString('tags');
         break;
       case 'Matches':
         MeasureMeasureService.getMeasuresMeasures().then(function(data) {
-          matches = data.risks.map(risk => risk.code.toLowerCase());
+          matches = data.MeasureMeasure.map(mm => mm.father.uuid.toLowerCase() + mm.child.uuid.toLowerCase());
         });
         MeasureService.getMeasures().then(function(data) {
           allMeasures = data.measures;
         });
         break;
       case 'Assets library':
-        var extItemLabel = gettextCatalog.getString('library categories');
+        externalItem = 'category';
+        pluralExtItem = 'categories';
         $scope.actualExternalItems = libraryCategoriesPath;
-        ObjlibService.getObjlibsCats().then(function(data) {
-          allLibraryCategories = getFlatLibCategories(data.categories)
-        });
         AssetService.getAssets().then(function(data) {
           codes = data.assets;
         });
         TagService.getTags().then(function(data) {
           allTags = data.tags;
         })
+        ObjlibService.getObjlibsCats().then(function(data) {
+          allLibraryCategories = getFlatLibCategories(data.categories)
+        });
         break;
       default:
     }
@@ -2976,7 +2978,7 @@
           'type': 'Boolean',
           'example': '0,1,false,true'
         },
-        'threat_theme': {
+        'theme': {
           'field': 'threat theme label' + $scope.defaultLang,
           'fieldBis': 'threat theme label1\nthreat theme label2\nthreat theme label3\nthreat theme label4',
           'required': true,
@@ -3002,15 +3004,6 @@
           'type': 'text',
           'example': gettextCatalog.getString('IT charter Conditions of use General terms and conditions')
         }
-      },
-      'Categories': {
-        'label': {
-          'field': 'label' + $scope.defaultLang,
-          'fieldBis': 'label1\nlabel2\nlabel3\nlabel4',
-          'required': true,
-          'type': 'text',
-          'example': gettextCatalog.getString('Operations security')
-        },
       },
       'Tags': {
         'code': {
@@ -3047,11 +3040,12 @@
           'type': 'text',
           'example': gettextCatalog.getString('Product Compliance Customer agreement')
         },
-        'tags': {
-          'field': 'tags',
+        'tag': {
+          'field': 'tag label' + $scope.defaultLang,
+          'fieldBis': 'tag label1\ntag label2\ntag label3\ntag label4',
           'required': false,
           'type': 'text',
-          'example': gettextCatalog.getString('Separed by /') + $scope.actualExternalItems
+          'example': $scope.actualExternalItems
         }
       },
       'Matches': {
@@ -3119,23 +3113,14 @@
 
     $scope.parseFile = function(fileContent) {
       $scope.check = false;
-      $scope.isProcessing = false;
+      $scope.isProcessing = true;
       if (typeof fileContent === 'object') {
         if (Array.isArray(fileContent)) {
-          var fileContentJson = {
+          $scope.importData = checkFile({
             data: fileContent
-          };
-          $scope.importData = $scope.checkFile(fileContentJson);
+          });
         } else {
-          var alert = $mdDialog.alert()
-            .multiple(true)
-            .title(gettextCatalog.getString('File error'))
-            .textContent(gettextCatalog.getString('Wrong schema'))
-            .theme('light')
-            .ok(gettextCatalog.getString('Cancel'))
-          $mdDialog.show(alert);
-          $scope.importData = [];
-          $scope.check = true;
+          alertWrongSchema();
         }
       } else {
         Papa.parse(fileContent, {
@@ -3143,138 +3128,73 @@
           skipEmptyLines: true,
           trimHeaders: true,
           beforeFirstChunk: function(chunk) {
-            var rows = chunk.split(/\r\n|\r|\n/);
+            let rows = chunk.split(/\r\n|\r|\n/);
             rows[0] = rows[0].toLowerCase();
             return rows.join('\n');
           },
           complete: function(importData) {
-            $scope.importData = $scope.checkFile(importData);
+            $scope.importData = checkFile(importData);
           }
         });
       }
     };
 
-    $scope.checkFile = function(file) {
-      $scope.extItemToCreate = [];
-      var requiredFields = [];
-      var libraryCategoriesToCreate = [];
+    function checkFile(file) {
+      if (externalItem) {
+        extItemField = $scope.items[tab][externalItem].field;
+      }
 
-      for (var index in $scope.items[tab]) {
+      for (let index in $scope.items[tab]) {
         if ($scope.items[tab][index]['required']) {
           requiredFields.push($scope.items[tab][index]['field']);
         }
       }
 
       if (!file.meta || file.meta.fields.some(rf => requiredFields.includes(rf)) && file.data.length > 0) {
-        if (externalItem) {
-          if (externalItem == 'tags') {
-            var tags = [];
-            file.data.forEach(function(list) {
-              if (list['tags']) {
-                var tag = list['tags'].toString().split("/");
-                tag.forEach(function(t) {
-                  tags.push(t.trim());
-                })
-              }
-            });
-            var uniqueLabels = new Set(tags);
-          } else {
-            var uniqueLabels = new Set(file.data.map(item => item[externalItem].trim()));
-          }
-
-          for (let label of uniqueLabels) {
-            var found = false;
-            if (label) {
-              $scope.actualExternalItems.filter(function(ei) {
-                for (var i = 1; i <= 4; i++) {
-                  if (ei['label' + i].toLowerCase().trim() === label.toLowerCase().trim()) {
-                    found = true;
-                  }
-                }
-              });
-              if (!found) {
-                $scope.extItemToCreate.push(label.trim());
-              }
-            }
-          }
-        }
-
-        if (tab == "Information risks") {
-          $scope.isProcessing = true;
+        if (tab == 'Information risks') {
           const amvItems = ['asset', 'threat', 'vulnerability'];
-
-          async function getAllAmvItems() {
-            var [assets, threats, vulnerabilities] = await Promise.all([
-              AssetService.getAssets().then(function(data) {
-                return data.assets.map(asset => ({
-                  code: asset.code,
-                  uuid: asset.uuid
-                }));
-              }),
-              ThreatService.getThreats().then(function(data) {
-                return data.threats.map(threat => ({
-                  code: threat.code,
-                  uuid: threat.uuid
-                }));
-              }),
-              VulnService.getVulns().then(function(data) {
-                return data.vulnerabilities.map(vulnerability => ({
-                  code: vulnerability.code,
-                  uuid: vulnerability.uuid
-                }));
-              })
-            ]);
-
-            $scope.isProcessing = false;
-            return [assets, threats, vulnerabilities];
-          }
-
           getAllAmvItems().then(function(values) {
             file.data.reduce((acc, current, index, data) => {
+              let externalItemFound = findExternalItem(current[extItemField], $scope.actualExternalItems);
+              if (!externalItemFound && !extItemToCreate.includes(current[extItemField])) {
+                extItemToCreate.push(current[extItemField]);
+                current.alert = true;
+              }
               const duplicate = acc.find(item => item['asset code'] === current['asset code'] &&
                 item['threat code'] === current['threat code'] &&
                 item['vulnerability code'] === current['vulnerability code']
               );
               if (!duplicate) {
-                data[index].error = '';
-                data[index]['asset uuid'] = data[index]['threat uuid'] = data[index]['vulnerability uuid'] = null;
-                for (var j = 0; j < requiredFields.length; j++) {
-                  if (!data[index][requiredFields[j]]) {
-                    data[index].error += requiredFields[j] + " " + gettextCatalog.getString('is mandatory') + "\n";
-                    $scope.check = true;
-                  }
-                }
-                amvItems.forEach(function(amvItem, i) {
-                  let itemFound = values[i].find(item => item.code.toLowerCase() === data[index][amvItem + ' code'].toLowerCase().trim());
+                current.error = '';
+                current['asset uuid'] = current['threat uuid'] = current['vulnerability uuid'] = null;
+                checkRequiredFields(current);
+
+                amvItems.forEach((amvItem, i) => {
+                  let itemFound = values[i].find(item => item.code.toLowerCase() === current[amvItem + ' code'].toLowerCase().trim());
                   if (itemFound !== undefined) {
-                    data[index][amvItem + ' uuid'] = itemFound.uuid;
+                    current[amvItem + ' uuid'] = itemFound.uuid;
                   }
                 });
 
                 return acc.concat([current]);
               } else {
-                data[index].error = gettextCatalog.getString('This risk is already on the import list');
+                current.error = gettextCatalog.getString('This risk is already on the import list');
                 $scope.check = true;
                 return acc;
               }
             }, []);
+            alertCreateNewExternalItems();
           });
-
         } else if (tab == 'Assets library') {
-          for (let row of file.data) {
+          file.data.forEach(row => {
             let isPrimaryAsset = false;
             row.error = '';
-            row.alert = false;
-            requiredFields.forEach(requiredField => {
-              if (!row[requiredField]) {
-                row.error += requiredField + " " + gettextCatalog.getString('is mandatory') + "\n";;
-                $scope.check = true;
-              }
-            });
+            checkRequiredFields(row);
+
             if (row['asset type code'] && !codes.map(code => code.code.toLowerCase()).includes(row['asset type code'].toLowerCase().trim())) {
               row.error += gettextCatalog.getString('the asset type code does not exist. Create it before import') + "\n";;
               $scope.check = true;
-            } else {
+            } else if (row['asset type code']) {
               let assetType = codes.find(code => code.code.toLowerCase() === row['asset type code'].toLowerCase().trim())
               row.asset = assetType.uuid;
               isPrimaryAsset = assetType.type == 1 ? true : false;
@@ -3287,129 +3207,107 @@
               row.rolfTag = allTags.find(tag => tag.code.toLowerCase() === row['operational risk tag'].toLowerCase().trim()).id
             }
 
-            let libraryCategories = row['category label' + $scope.defaultLang].toString().split(">>");
-            libraryCategories.forEach(libraryCategory => {
-              let libraryCategoryFound = allLibraryCategories.find(category =>
-                category['label' + $scope.defaultLang].toLowerCase().trim() == libraryCategory.toLowerCase().trim()
-              );
-              let newLibraryCategory = row['category label' + $scope.defaultLang];
-              if (!libraryCategoryFound && !libraryCategoriesToCreate.includes(newLibraryCategory)) {
-                libraryCategoriesToCreate.push(newLibraryCategory);
-              }
-            });
-          }
+            if (row[extItemField]) {
+              let libraryCategories = row[extItemField].toString().split(">>");
+              let path = row[extItemField]
+                .split(" ")
+                .join("")
+                .toLowerCase()
+                .trim()
+              libraryCategories.forEach(libraryCategory => {
+                let libraryCategoryFound = findExternalItem(libraryCategory, allLibraryCategories);
+                if (!libraryCategoryFound && !libraryCategoryPaths.includes(path)) {
+                  libraryCategoryPaths.push(path);
+                  extItemToCreate.push(row[extItemField]);
+                  row.alert = true;
+                }
+              });
+            }
+          });
+        } else if (tab == 'Matches') {
+          file.data.forEach(row => {
+            row.error = '';
+            checkRequiredFields(row);
 
+            if (row.control && row.match) {
+              let uuids = allMeasures.map(item => item.uuid);
+              let measure = [];
+
+              if (!uuids.includes(row.control.toLowerCase().trim())) {
+                row.control = '-';
+                row.error += gettextCatalog.getString('control does not exist') + "\n";
+                $scope.check = true;
+              }
+              if (!uuids.includes(row.match.toLowerCase().trim())) {
+                row.match = '-';
+                row.error += gettextCatalog.getString('match does not exist') + "\n";
+                $scope.check = true;
+              }
+              if (matches.includes(row.control.toLowerCase().trim() + row.match.toLowerCase().trim())) {
+                measure = allMeasures.filter(measure => measure.uuid == row.control.toLowerCase().trim())
+                row.father = row.control;
+                row.control = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+
+                measure = allMeasures.filter(measure => measure.uuid == row.match.toLowerCase().trim())
+                row.child = row.match;
+                row.match = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                row.error += gettextCatalog.getString('this matching is already in use') + "\n";
+                $scope.check = true;
+              } else {
+                measure = allMeasures.filter(measure => measure.uuid == row.control.toLowerCase().trim())
+                if (measure.length) {
+                  row.father = row.control;
+                  row.control = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                }
+
+                measure = allMeasures.filter(measure => measure.uuid == row.match.toLowerCase().trim())
+                if (measure.length) {
+                  row.child = row.match;
+                  row.match = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                }
+              }
+            }
+          });
         } else {
-          for (var i = 0; i < file.data.length; i++) {
-            file.data[i].error = '';
-            file.data[i].alert = false;
+          file.data.forEach(row => {
+            row.error = '';
+            checkRequiredFields(row)
 
-            if (requiredFields.includes('code')) {
-              if (file.data[i]['code'] && codes.includes(file.data[i]['code'].toLowerCase().trim())) {
-                file.data[i].error += gettextCatalog.getString('code is already in use') + "\n";;
+            if (requiredFields.includes('code') && row.code) {
+              if (codes.includes(row.code.toLowerCase().trim())) {
+                row.error += gettextCatalog.getString('code is already in use') + "\n";;
                 $scope.check = true;
               } else {
-                codes.push(file.data[i]['code'].toLowerCase());
+                codes.push(row.code.toLowerCase());
               }
             }
 
-            if (requiredFields.includes('match') && file.data[i]['control'] && file.data[i]['match']) {
-              var uuids = allMeasures.map(item => item.uuid);
-
-              if (!uuids.includes(file.data[i]['control'].toLowerCase().trim())) {
-                file.data[i]['control'] = '-';
-                file.data[i].error += gettextCatalog.getString('control does not exist') + "\n";
-                $scope.check = true;
-              }
-              if (!uuids.includes(file.data[i]['match'].toLowerCase().trim())) {
-                file.data[i]['match'] = '-';
-                file.data[i].error += gettextCatalog.getString('match does not exist') + "\n";
-                $scope.check = true;
-              }
-              if (matches.includes(file.data[i]['control'].toLowerCase().trim() + file.data[i]['match'].toLowerCase().trim())) {
-                var measure = allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
-                file.data[i]['father'] = file.data[i]['control'];
-                file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
-
-                var measure = allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
-                file.data[i]['child'] = file.data[i]['match'];
-                file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
-                file.data[i].error += gettextCatalog.getString('this matching is already in use') + "\n";
-                $scope.check = true;
+            if (externalItem && row[extItemField]) {
+              if (externalItem == 'tag') {
+                let tags = row[extItemField].toString().split("/");
+                tags.forEach(tag => {
+                  let tagFound = findExternalItem(tag, $scope.actualExternalItems);
+                  if (!tagFound && !extItemToCreate.includes(tag)) {
+                    extItemToCreate.push(tag);
+                    row.alert = true;
+                  }
+                });
               } else {
-                var measure = allMeasures.filter(measure => measure.uuid == file.data[i]['control'].toLowerCase().trim())
-                if (measure.length > 0) {
-                  file.data[i]['father'] = file.data[i]['control'];
-                  file.data[i]['control'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
-                }
-
-                var measure = allMeasures.filter(measure => measure.uuid == file.data[i]['match'].toLowerCase().trim())
-                if (measure.length > 0) {
-                  file.data[i]['child'] = file.data[i]['match'];
-                  file.data[i]['match'] = measure[0].referential['label' + $scope.language] + " : " + measure[0].code + " - " + measure[0]['label' + $scope.language];
+                let externalItemFound = findExternalItem(row[extItemField], $scope.actualExternalItems);
+                if (!externalItemFound && !extItemToCreate.includes(row[extItemField])) {
+                  extItemToCreate.push(row[extItemField]);
+                  row.alert = true;
                 }
               }
             }
-
-            for (var j = 0; j < requiredFields.length; j++) {
-              if (!file.data[i][requiredFields[j]]) {
-                file.data[i].error += requiredFields[j] + " " + gettextCatalog.getString('is mandatory') + "\n";;
-                $scope.check = true;
-              }
-            }
-            if (!$scope.check && $scope.extItemToCreate.length > 0 && $scope.extItemToCreate.includes(file.data[i][externalItem])) {
-              file.data[i].alert = true;
-            }
-
-          }
-        }
-        if (!$scope.check && libraryCategoriesToCreate.length > 0) {
-          var confirm = $mdDialog.confirm()
-            .multiple(true)
-            .title(gettextCatalog.getString('New {{extItemLabel}}', {
-              extItemLabel: extItemLabel
-            }))
-            .textContent(gettextCatalog.getString('Do you want to create {{count}} new {{extItemLabel}} ?', {
-                count: libraryCategoriesToCreate.length,
-                extItemLabel: extItemLabel
-              }) + '\n\r\n\r' +
-              libraryCategoriesToCreate.toString().replace(/,/g, '\n\r'))
-            .theme('light')
-            .ok(gettextCatalog.getString('Create & Import'))
-            .cancel(gettextCatalog.getString('Cancel'));
-          $mdDialog.show(confirm).then(function() {
-            $scope.uploadFile();
           });
         }
-        if (!$scope.check && $scope.extItemToCreate.length > 0) {
-          var confirm = $mdDialog.confirm()
-            .multiple(true)
-            .title(gettextCatalog.getString('New {{extItemLabel}}', {
-              extItemLabel: extItemLabel
-            }))
-            .textContent(gettextCatalog.getString('Do you want to create {{count}} new {{extItemLabel}} ?', {
-                count: $scope.extItemToCreate.length,
-                extItemLabel: extItemLabel
-              }) + '\n\r\n\r' +
-              $scope.extItemToCreate.toString().replace(/,/g, '\n\r'))
-            .theme('light')
-            .ok(gettextCatalog.getString('Create & Import'))
-            .cancel(gettextCatalog.getString('Cancel'));
-          $mdDialog.show(confirm).then(function() {
-            $scope.uploadFile();
-          });
-        }
+        alertCreateNewExternalItems();
       } else {
-        var alert = $mdDialog.alert()
-          .multiple(true)
-          .title(gettextCatalog.getString('File error'))
-          .textContent(gettextCatalog.getString('Wrong schema'))
-          .theme('light')
-          .ok(gettextCatalog.getString('Cancel'))
-        $mdDialog.show(alert);
-        $scope.importData = [];
-        $scope.check = true;
+        alertWrongSchema();
+        return;
       }
+      $scope.isProcessing = false;
       return file.data;
     };
 
@@ -3420,7 +3318,7 @@
           itemFields.push('theme');
           break;
         case 'Controls':
-          itemFields.push('uuid', 'category');
+          itemFields.push('uuid', 'category', 'referential');
           break;
         case 'Information risks':
           let amvItems = ['asset', 'threat', 'vulnerability'];
@@ -3433,7 +3331,7 @@
           itemFields.push('threat theme label1', 'threat theme label2', 'threat theme label3', 'threat theme label4');
           break;
         case 'Operational risks':
-          $scope.getTags = await $scope.createTags();
+          itemFields.push('tags');
           break;
         case 'Matches':
           itemFields.push('father', 'child');
@@ -3444,22 +3342,19 @@
         itemFields.push($scope.items[tab][index]['field']);
       }
       for await (var [i, postData] of $scope.importData.entries()) {
-        var postDataKeys = Object.keys(postData);
-
         if (tab == 'Threats') {
           let cia = ['c', 'i', 'a'];
-          for (let i = 0; i < cia.length; i++) {
-            if (!postData[cia[i]] || postData[cia[i]] == 0 || postData[cia[i]].toLowerCase() == 'false') {
-              postData[cia[i]] = false;
+          cia.forEach(criteria => {
+            if (!postData[criteria] || postData[criteria] == 0 || postData[criteria].toLowerCase() == 'false') {
+              postData[criteria] = false;
             } else {
-              postData[cia[i]] = true;
+              postData[criteria] = true;
             }
-          }
-          if (postData['theme label' + $scope.defaultLang]) {
-            let themeFound = $scope.actualExternalItems.find(theme =>
-              theme['label' + $scope.language].toLowerCase().trim() == postData['theme label' + $scope.defaultLang].toLowerCase().trim()
-            );
-            if (themeFound == undefined) {
+          });
+
+          if (postData[extItemField]) {
+            let themeFound = findExternalItem(postData[extItemField], $scope.actualExternalItems);
+            if (!themeFound) {
               let themeToCreate = {
                 label1: postData['theme label1'] ? postData['theme label1'].trim() : null,
                 label2: postData['theme label2'] ? postData['theme label2'].trim() : null,
@@ -3468,9 +3363,7 @@
               }
 
               await createTheme(themeToCreate).then(function(id) {
-                themeToCreate.id = id;
                 postData.theme = id;
-                $scope.actualExternalItems.push(themeToCreate);
               });
             } else {
               postData.theme = themeFound.id;
@@ -3480,11 +3373,9 @@
 
         if (tab == 'Controls') {
           postData.referential = referential;
-          if (postData['category label' + $scope.defaultLang]) {
-            let categoryFound = $scope.actualExternalItems.find(category =>
-              category['label' + $scope.language].toLowerCase().trim() == postData['category label' + $scope.defaultLang].toLowerCase().trim()
-            );
-            if (categoryFound == undefined) {
+          if (postData[extItemField]) {
+            let categoryFound = findExternalItem(postData[extItemField], $scope.actualExternalItems);
+            if (!categoryFound) {
               let categoryToCreate = {
                 referential: referential,
                 label1: postData['category label1'] ? postData['category label1'].trim() : null,
@@ -3495,17 +3386,15 @@
 
               await createCategory(categoryToCreate).then(function(id) {
                 categoryToCreate.id = id;
-                postData.category = id;
-                $scope.actualExternalItems.push(categoryToCreate);
+                postData.category = categoryToCreate;
               });
             } else {
-              postData.category = categoryFound.id;
+              postData.category = categoryFound;
             }
           }
         }
 
         if (tab == 'Information risks') {
-          let themeFound = $scope.actualExternalItems.find(theme => theme['label' + $scope.language].toLowerCase().trim() == postData['threat theme label' + $scope.defaultLang].toLowerCase().trim());
           $scope.importData[i] = {
             asset: {
               uuid: postData['asset uuid'],
@@ -3534,13 +3423,6 @@
               c: (!postData['threat c'] || postData['threat c'] == 0 || postData['threat c'].toLowerCase() == 'false' ? false : true),
               i: (!postData['threat i'] || postData['threat i'] == 0 || postData['threat i'].toLowerCase() == 'false' ? false : true),
               a: (!postData['threat a'] || postData['threat a'] == 0 || postData['threat a'].toLowerCase() == 'false' ? false : true),
-              theme: (themeFound !== undefined ?
-                themeFound.id : {
-                  label1: postData['threat theme label1'] ? postData['threat theme label1'].trim() : null,
-                  label2: postData['threat theme label2'] ? postData['threat theme label2'].trim() : null,
-                  label3: postData['threat theme label3'] ? postData['threat theme label3'].trim() : null,
-                  label4: postData['threat theme label4'] ? postData['threat theme label4'].trim() : null,
-                })
             },
             vulnerability: {
               uuid: postData['vulnerability uuid'],
@@ -3555,24 +3437,46 @@
               description1: postData['vulnerability description4']
             }
           }
-        }
 
-        if (tab == 'Categories') {
-          postData.referential = referential;
+          if (postData[extItemField]) {
+            let themeFound = findExternalItem(postData[extItemField], $scope.actualExternalItems);
+            if (!themeFound) {
+              let themeToCreate = {
+                label1: postData['threat theme label1'] ? postData['threat theme label1'].trim() : null,
+                label2: postData['threat theme label2'] ? postData['threat theme label2'].trim() : null,
+                label3: postData['threat theme label3'] ? postData['threat theme label3'].trim() : null,
+                label4: postData['threat theme label4'] ? postData['threat theme label4'].trim() : null,
+              }
+
+              await createTheme(themeToCreate).then(function(id) {
+                $scope.importData[i].threat.theme = id;
+              });
+            } else {
+              $scope.importData[i].threat.theme = themeFound.id;
+            }
+          }
         }
 
         if (tab == 'Assets library') {
-          let libraryCategories = postData['category label' + $scope.defaultLang].toString().split(">>");
+          libraryCategoryPaths = [];
           let parentIds = [];
+          let libraryCategories = postData[extItemField].toString().split(">>");
+          let path = postData[extItemField]
+            .split(" ")
+            .join("")
+            .toLowerCase()
+            .trim()
 
           for await (let [index, libraryCategory] of libraryCategories.entries()) {
-            let libraryCategoryFound = allLibraryCategories.find(category =>
-              category['label' + $scope.defaultLang].toLowerCase().trim() == libraryCategory.toLowerCase().trim()
-            );
+            let libraryCategoryFound = findExternalItem(libraryCategory, allLibraryCategories);
+            if (!libraryCategoryFound && !libraryCategoryPaths.includes(path)) {
+              libraryCategoryPaths.push(path);
+            }
+            if (libraryCategoryFound && libraryCategoryPaths.includes(path)) {
+              libraryCategoryFound = false
+            }
 
-            if (libraryCategoryFound) {
-              parentIds.push(libraryCategoryFound.id);
-            } else {
+            if (!libraryCategoryFound) {
               let categoryToCreate = {
                 path: null,
                 parent: index == 0 ? null : parentIds[index - 1],
@@ -3587,7 +3491,8 @@
               await createLibraryCategory(categoryToCreate).then(function(id) {
                 parentIds.push(id);
               });
-
+            } else {
+              parentIds.push(libraryCategoryFound.id);
             }
           }
 
@@ -3609,22 +3514,30 @@
           }
         }
 
-        if (postData['tags']) {
-          var tag = postData.tags.toString().split("/");
-          var tagsId = [];
-          tag.forEach(function(tag) {
-            $scope.getTags.filter(function(tags) {
-              for (var i = 1; i <= 4; i++) {
-                if (tags['label' + i] && tags['label' + i].toLowerCase().trim() === tag.toLowerCase().trim()) {
-                  tagsId.push(tags.id);
-                }
+        if (tab == 'Operational risks') {
+          $scope.importData[i].tags = [];
+          let tags = postData[extItemField].toString().split("/");
+          for await (let [index, tag] of tags.entries()) {
+            let tagFound = findExternalItem(tag, $scope.actualExternalItems);
+            if (!tagFound) {
+              let tagToCreate = {
+                code: postData[extItemField].toString().split("/")[index] + Math.floor(Math.random() * 1000),
+                label1: postData['tag label1'].toString().split("/")[index] ? postData['tag label1'].toString().split("/")[index].trim() : null,
+                label2: postData['tag label2'].toString().split("/")[index] ? postData['tag label2'].toString().split("/")[index].trim() : null,
+                label3: postData['tag label3'].toString().split("/")[index] ? postData['tag label3'].toString().split("/")[index].trim() : null,
+                label4: postData['tag label4'].toString().split("/")[index] ? postData['tag label4'].toString().split("/")[index].trim() : null,
               }
-            });
-          });
-          postData.tags = tagsId;
+
+              await createTag(tagToCreate).then(function(id) {
+                $scope.importData[i].tags.push(id);
+              });
+            } else {
+              $scope.importData[i].tags.push(tagFound.id);
+            }
+          }
         }
 
-        for (let pdk of postDataKeys) {
+        for (let pdk of Object.keys(postData)) {
           if (!itemFields.includes(pdk.toLowerCase())) {
             delete postData[pdk];
           }
@@ -3640,7 +3553,7 @@
 
     $scope.downloadExempleFile = function() {
       var fields = [];
-      for (var index in $scope.items[tab]) {
+      for (let index in $scope.items[tab]) {
         if ($scope.items[tab][index]['field']) {
           if ($scope.items[tab][index]['field'].match(/\n/)) {
             var temp = $scope.items[tab][index]['field'].replace(/\n/g, ',');
@@ -3677,10 +3590,94 @@
       }, []);
     }
 
+    function findExternalItem(externalItem, actualExternalItems) {
+      let found = actualExternalItems.filter(function(actualExternalItem) {
+        for (let i = 1; i <= 4; i++) {
+          if (actualExternalItem['label' + i] && actualExternalItem['label' + i].toLowerCase().trim() === externalItem.toLowerCase().trim()) {
+            return true;
+          }
+        }
+      });
+
+      return found.length ? found[0] : false;
+    }
+
+    function alertCreateNewExternalItems() {
+      if (!$scope.check && extItemToCreate.length) {
+        var confirm = $mdDialog.confirm()
+          .multiple(true)
+          .title(gettextCatalog.getPlural(extItemToCreate.length, 'New {{externalItem}}', 'New {{pluralExtItem}}', {
+            externalItem: gettextCatalog.getString(externalItem),
+            pluralExtItem: gettextCatalog.getString(pluralExtItem)
+          }))
+          .textContent(gettextCatalog.getPlural(
+              extItemToCreate.length,
+              'Do you want to create new {{externalItem}} ?',
+              'Do you want to create {{count}} new {{pluralExtItem}} ?', {
+                count: extItemToCreate.length,
+                externalItem: gettextCatalog.getString(externalItem),
+                pluralExtItem: gettextCatalog.getString(pluralExtItem)
+              }) + '\n\r\n\r' +
+            extItemToCreate.toString().replace(/,/g, '\n\r'))
+          .theme('light')
+          .ok(gettextCatalog.getString('Create & Import'))
+          .cancel(gettextCatalog.getString('Cancel'));
+        $mdDialog.show(confirm).then(function() {
+          $scope.uploadFile();
+        });
+      }
+    }
+
+    function alertWrongSchema() {
+      let alert = $mdDialog.alert()
+        .multiple(true)
+        .title(gettextCatalog.getString('File error'))
+        .textContent(gettextCatalog.getString('Wrong schema'))
+        .theme('light')
+        .ok(gettextCatalog.getString('Cancel'))
+      $mdDialog.show(alert);
+      $scope.check = true;
+    }
+
+    function checkRequiredFields(row) {
+      requiredFields.forEach(requiredField => {
+        if (!row[requiredField]) {
+          row.error += requiredField + " " + gettextCatalog.getString('is mandatory') + "\n";;
+          $scope.check = true;
+        }
+      });
+    }
+
+    async function getAllAmvItems() {
+      let [assets, threats, vulnerabilities] = await Promise.all([
+        AssetService.getAssets().then(function(data) {
+          return data.assets.map(asset => ({
+            code: asset.code,
+            uuid: asset.uuid
+          }));
+        }),
+        ThreatService.getThreats().then(function(data) {
+          return data.threats.map(threat => ({
+            code: threat.code,
+            uuid: threat.uuid
+          }));
+        }),
+        VulnService.getVulns().then(function(data) {
+          return data.vulnerabilities.map(vulnerability => ({
+            code: vulnerability.code,
+            uuid: vulnerability.uuid
+          }));
+        })
+      ]);
+      return [assets, threats, vulnerabilities];
+    }
+
     async function createTheme(theme) {
       var promise = $q.defer();
       ThreatService.createTheme(theme, await
         function(result) {
+          theme.id = result.id;
+          $scope.actualExternalItems.push(theme);
           promise.resolve(result.id);
         });
       return promise.promise
@@ -3690,6 +3687,8 @@
       var promise = $q.defer();
       SOACategoryService.createCategory(category, await
         function(result) {
+          category.id = result.id;
+          $scope.actualExternalItems.push(category);
           promise.resolve(result.id);
         });
       return promise.promise
@@ -3699,42 +3698,22 @@
       var promise = $q.defer();
       ObjlibService.createObjlibCat(libraryCategory, await
         function(result) {
+          libraryCategory.id = result.categ.id;
+          allLibraryCategories.push(libraryCategory);
           promise.resolve(result.categ.id);
         });
       return promise.promise
     }
 
-    $scope.createTags = function() {
+    async function createTag(tag) {
       var promise = $q.defer();
-      var tagsData = {};
-      if ($scope.extItemToCreate && $scope.extItemToCreate.length > 0) {
-        for (let i = 0; i < $scope.extItemToCreate.length; i++) {
-          tagsData[i] = {
-            code: $scope.extItemToCreate[i] + Math.floor(Math.random() * 1000),
-            label1: '',
-            label2: '',
-            label3: '',
-            label4: '',
-          };
-          for (var j = 1; j <= 4; j++) {
-            tagsData[i]['label' + j] = $scope.extItemToCreate[i];
-          }
-        }
-        TagService.createTag(tagsData, function() {
-          TagService.getTags().then(function(e) {
-            promise.resolve(e.tags);
-          }, function(e) {
-            promise.reject();
-          });
+      TagService.createTag(tag, await
+        function(result) {
+          tag.id = id;
+          $scope.actualExternalItems.push(tag);
+          promise.resolve(result.id);
         });
-      } else {
-        TagService.getTags().then(function(e) {
-          promise.resolve(e.tags);
-        }, function(e) {
-          promise.reject();
-        });
-      }
-      return promise.promise;
-    };
+      return promise.promise
+    }
   }
 })();
