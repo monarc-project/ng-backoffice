@@ -2709,7 +2709,6 @@
     var allMeasures = [];
     var allTags = [];
     var allLibraryCategories = [];
-    var libraryCategoryPaths = [];
     var externalItem = null;
     var pluralExtItem = null;
     var extItemField = null;
@@ -3140,6 +3139,7 @@
     };
 
     function checkFile(file) {
+      extItemToCreate = [];
       if (externalItem) {
         extItemField = $scope.items[tab][externalItem].field;
       }
@@ -3155,7 +3155,7 @@
           const amvItems = ['asset', 'threat', 'vulnerability'];
           getAllAmvItems().then(function(values) {
             file.data.reduce((acc, current, index, data) => {
-              let externalItemFound = findExternalItem(current[extItemField], $scope.actualExternalItems);
+              let externalItemFound = findExternalItem(current, $scope.actualExternalItems, extItemField.slice(0, -1));
               if (!externalItemFound && !extItemToCreate.includes(current[extItemField])) {
                 extItemToCreate.push(current[extItemField]);
                 current.alert = true;
@@ -3186,7 +3186,9 @@
             alertCreateNewExternalItems();
           });
         } else if (tab == 'Assets library') {
-          file.data.forEach(row => {
+          var libraryCategoryPaths = [];
+
+          file.data.forEach((row, index) => {
             let isPrimaryAsset = false;
             row.error = '';
             checkRequiredFields(row);
@@ -3197,10 +3199,10 @@
             } else if (row['asset type code']) {
               let assetType = codes.find(code => code.code.toLowerCase() === row['asset type code'].toLowerCase().trim())
               row.asset = assetType.uuid;
-              isPrimaryAsset = assetType.type == 1 ? true : false;
+              row.isPrimaryAsset = assetType.type == 1 ? true : false;
             }
 
-            if (row['operational risk tag'] && isPrimaryAsset && !allTags.map(tag => tag.code.toLowerCase()).includes(row['operational risk tag'].toLowerCase().trim())) {
+            if (row['operational risk tag'] && row.isPrimaryAsset && !allTags.map(tag => tag.code.toLowerCase()).includes(row['operational risk tag'].toLowerCase().trim())) {
               row.error += gettextCatalog.getString('the operational risk tag does not exist. Create it before import') + "\n";;
               $scope.check = true;
             } else if (row['operational risk tag']) {
@@ -3208,20 +3210,33 @@
             }
 
             if (row[extItemField]) {
-              let libraryCategories = row[extItemField].toString().split(">>");
               let path = row[extItemField]
                 .split(" ")
                 .join("")
                 .toLowerCase()
-                .trim()
-              libraryCategories.forEach(libraryCategory => {
-                let libraryCategoryFound = findExternalItem(libraryCategory, allLibraryCategories);
-                if (!libraryCategoryFound && !libraryCategoryPaths.includes(path)) {
-                  libraryCategoryPaths.push(path);
-                  extItemToCreate.push(row[extItemField]);
-                  row.alert = true;
-                }
-              });
+                .trim();
+
+              let libraryCategories = [];
+              for (let i = 1; i <= 4; i++) {
+                libraryCategories[i] = [];
+                row[extItemField.slice(0, -1) + i].toString().split(">>").forEach(category => {
+                  let libraryTemp = {};
+                  for (let j = 1; j <= 4; j++) {
+                    libraryTemp[extItemField.slice(0, -1) + j] = category;
+                  }
+                  libraryCategories[i].push(libraryTemp);
+                });
+                libraryCategories[i] = libraryCategories[i].every(category => {
+                  let libraryCategoryFound = findExternalItem(category, allLibraryCategories, extItemField.slice(0, -1));
+                  return libraryCategoryFound;
+                });
+              };
+
+              if (libraryCategories.every(lc => !lc) && !libraryCategoryPaths.includes(path)) {
+                libraryCategoryPaths.push(path);
+                extItemToCreate.push(row[extItemField]);
+                row.alert = $scope.check ? false : true;
+              }
             }
           });
         } else if (tab == 'Matches') {
@@ -3293,7 +3308,7 @@
                   }
                 });
               } else {
-                let externalItemFound = findExternalItem(row[extItemField], $scope.actualExternalItems);
+                let externalItemFound = findExternalItem(row, $scope.actualExternalItems, extItemField.slice(0, -1));
                 if (!externalItemFound && !extItemToCreate.includes(row[extItemField])) {
                   extItemToCreate.push(row[extItemField]);
                   row.alert = true;
@@ -3353,7 +3368,7 @@
           });
 
           if (postData[extItemField]) {
-            let themeFound = findExternalItem(postData[extItemField], $scope.actualExternalItems);
+            let themeFound = findExternalItem(postData, $scope.actualExternalItems, extItemField.slice(0, -1));
             if (!themeFound) {
               let themeToCreate = {
                 label1: postData['theme label1'] ? postData['theme label1'].trim() : null,
@@ -3374,7 +3389,7 @@
         if (tab == 'Controls') {
           postData.referential = referential;
           if (postData[extItemField]) {
-            let categoryFound = findExternalItem(postData[extItemField], $scope.actualExternalItems);
+            let categoryFound = findExternalItem(postData, $scope.actualExternalItems, extItemField.slice(0, -1));
             if (!categoryFound) {
               let categoryToCreate = {
                 referential: referential,
@@ -3439,7 +3454,7 @@
           }
 
           if (postData[extItemField]) {
-            let themeFound = findExternalItem(postData[extItemField], $scope.actualExternalItems);
+            let themeFound = findExternalItem(postData, $$scope.actualExternalItems, extItemField.slice(0, -1));
             if (!themeFound) {
               let themeToCreate = {
                 label1: postData['threat theme label1'] ? postData['threat theme label1'].trim() : null,
@@ -3460,6 +3475,7 @@
         if (tab == 'Assets library') {
           libraryCategoryPaths = [];
           let parentIds = [];
+          let categoryToSearch = {};
           let libraryCategories = postData[extItemField].toString().split(">>");
           let path = postData[extItemField]
             .split(" ")
@@ -3468,7 +3484,10 @@
             .trim()
 
           for await (let [index, libraryCategory] of libraryCategories.entries()) {
-            let libraryCategoryFound = findExternalItem(libraryCategory, allLibraryCategories);
+            for (let i = 1; i <= 4; i++) {
+              categoryToSearch[extItemField.slice(0, -1) + i] = libraryCategory;
+            }
+            let libraryCategoryFound = findExternalItem(categoryToSearch, allLibraryCategories, extItemField.slice(0, -1));
             if (!libraryCategoryFound && !libraryCategoryPaths.includes(path)) {
               libraryCategoryPaths.push(path);
             }
@@ -3510,7 +3529,7 @@
             name3: postData.name3 ? postData.name3.trim() : null,
             name4: postData.name4 ? postData.name4.trim() : null,
             rolfTag: postData.rolfTag,
-            scope: postData.scope,
+            scope: postData.isPrimaryAsset ? 1 : postData.scope,
           }
         }
 
@@ -3590,17 +3609,22 @@
       }, []);
     }
 
-    function findExternalItem(externalItem, actualExternalItems) {
-      let found = actualExternalItems.filter(function(actualExternalItem) {
-        for (let i = 1; i <= 4; i++) {
-          if (actualExternalItem['label' + i] && actualExternalItem['label' + i].toLowerCase().trim() === externalItem.toLowerCase().trim()) {
-            return true;
+    function findExternalItem(externalItem, actualExternalItems, field) {
+      let itemFound = false;
+      actualExternalItems.some((actualExternalItem, index) => {
+        for (var i = 1; i <= 4; i++) {
+          for (var j = 1; j <= 4; j++) {
+            if (actualExternalItem['label' + i] &&
+              externalItem[field + j] &&
+              actualExternalItem['label' + i].toLowerCase().trim() === externalItem[field + j].toLowerCase().trim()) {
+              itemFound = actualExternalItem;
+              return true;
+            }
           }
         }
-      });
-
-      return found.length ? found[0] : false;
-    }
+      })
+      return itemFound;
+    };
 
     function alertCreateNewExternalItems() {
       if (!$scope.check && extItemToCreate.length) {
