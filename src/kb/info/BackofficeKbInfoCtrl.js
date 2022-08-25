@@ -2779,7 +2779,8 @@
           allTags = data.tags;
         })
         ObjlibService.getObjlibsCats().then(function(data) {
-          allLibraryCategories = getFlatLibCategories(data.categories)
+          allLibraryCategories = getFlatLibCategories(data.categories);
+          allTreeViewCategories = data.categories;
         });
         break;
       default:
@@ -3217,20 +3218,30 @@
                 .trim();
 
               let libraryCategories = [];
+                //manage the 4 languages
               for (let i = 1; i <= 4; i++) {
-                libraryCategories[i] = [];
-                row[extItemField.slice(0, -1) + i].toString().split(">>").forEach(category => {
-                  let libraryTemp = {};
-                  for (let j = 1; j <= 4; j++) {
-                    libraryTemp[extItemField.slice(0, -1) + j] = category;
-                  }
-                  libraryCategories[i].push(libraryTemp);
-                });
-                libraryCategories[i] = libraryCategories[i].every(category => {
-                  let libraryCategoryFound = findExternalItem(category, allLibraryCategories, extItemField.slice(0, -1));
-                  return libraryCategoryFound;
-                });
-              };
+                libraryCategories[i] = row[extItemField.slice(0, -1) + i].split(">>");
+              }
+              // check all the paths to see if we need to create or not category
+              for (let i = 1; i <= 4; i++) {
+                let libraryCategoryFound = findExternalObjectsCategory(libraryCategories[i], allTreeViewCategories, i);
+                libraryCategories[i] = libraryCategoryFound;
+              }
+
+              // for (let i = 1; i <= 4; i++) {
+              //   libraryCategories[i] = [];
+              //   row[extItemField.slice(0, -1) + i].toString().split(">>").forEach(category => {
+              //     let libraryTemp = {};
+              //     for (let j = 1; j <= 4; j++) {
+              //       libraryTemp[extItemField.slice(0, -1) + j] = category;
+              //     }
+              //     libraryCategories[i].push(libraryTemp);
+              //   });
+              //   libraryCategories[i] = libraryCategories[i].every(category => {
+              //     let libraryCategoryFound = findExternalItem(category, allLibraryCategories, extItemField.slice(0, -1));
+              //     return libraryCategoryFound;
+              //   });
+              // };
 
               if (libraryCategories.every(lc => !lc) && !libraryCategoryPaths.includes(path)) {
                 libraryCategoryPaths.push(path);
@@ -3624,6 +3635,20 @@
         }
       })
       return itemFound;
+    };
+
+    function findExternalObjectsCategory(externalCategory, actualTreeViewsCategories, languageId) {
+      var index = undefined;
+      index  = actualTreeViewsCategories.find(categ => categ['label'+languageId] === externalCategory[0]);
+
+      if(index !== undefined && (!Array.isArray(externalCategory) || (Array.isArray(externalCategory)&&externalCategory.length==1))) {
+        return true;
+      } else if (index !== undefined && externalCategory.length > 1 && 'child' in index) {
+        return findExternalObjectsCategory(externalCategory.shift(), index['child'], languageId)
+      } else {
+        return false;
+      }
+
     };
 
     function alertCreateNewExternalItems() {
