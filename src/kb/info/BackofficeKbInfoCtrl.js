@@ -2712,6 +2712,8 @@
     var externalItem = null;
     var pluralExtItem = null;
     var extItemField = null;
+    var parentIdsPaths = [];
+
 
     switch (tab) {
       case 'Asset types':
@@ -3218,30 +3220,14 @@
                 .trim();
 
               let libraryCategories = [];
-                //manage the 4 languages
-              for (let i = 1; i <= 4; i++) {
-                libraryCategories[i] = row[extItemField.slice(0, -1) + i].split(">>");
-              }
-              // check all the paths to see if we need to create or not category
-              for (let i = 1; i <= 4; i++) {
-                let libraryCategoryFound = findExternalObjectsCategory(libraryCategories[i], allTreeViewCategories, i);
-                libraryCategories[i] = libraryCategoryFound;
-              }
+              parentIdsPaths = [];
 
-              // for (let i = 1; i <= 4; i++) {
-              //   libraryCategories[i] = [];
-              //   row[extItemField.slice(0, -1) + i].toString().split(">>").forEach(category => {
-              //     let libraryTemp = {};
-              //     for (let j = 1; j <= 4; j++) {
-              //       libraryTemp[extItemField.slice(0, -1) + j] = category;
-              //     }
-              //     libraryCategories[i].push(libraryTemp);
-              //   });
-              //   libraryCategories[i] = libraryCategories[i].every(category => {
-              //     let libraryCategoryFound = findExternalItem(category, allLibraryCategories, extItemField.slice(0, -1));
-              //     return libraryCategoryFound;
-              //   });
-              // };
+              for (let i = 1; i <= 4; i++) {
+                let [categoryFound, parentIds] = findExternalObjectsCategory(row[extItemField.slice(0, -1) + i].split(">>"), allTreeViewCategories, i);
+                libraryCategories[i] = categoryFound
+                row.parentIdsPath = parentIds;
+              }
+              row.categoriesToCreate = libraryCategories.every(lc => !lc);
 
               if (libraryCategories.every(lc => !lc) && !libraryCategoryPaths.includes(path)) {
                 libraryCategoryPaths.push(path);
@@ -3485,50 +3471,38 @@
 
         if (tab == 'Assets library') {
           libraryCategoryPaths = [];
-          let parentIds = [];
-          let categoryToSearch = {};
           let libraryCategories = postData[extItemField].toString().split(">>");
-          let path = postData[extItemField]
-            .split(" ")
-            .join("")
-            .toLowerCase()
-            .trim()
 
           for await (let [index, libraryCategory] of libraryCategories.entries()) {
-            for (let i = 1; i <= 4; i++) {
-              categoryToSearch[extItemField.slice(0, -1) + i] = libraryCategory;
-            }
-            let libraryCategoryFound = findExternalItem(categoryToSearch, allLibraryCategories, extItemField.slice(0, -1));
-            if (!libraryCategoryFound && !libraryCategoryPaths.includes(path)) {
-              libraryCategoryPaths.push(path);
-            }
-            if (libraryCategoryFound && libraryCategoryPaths.includes(path)) {
-              libraryCategoryFound = false
-            }
-
-            if (!libraryCategoryFound) {
-              let categoryToCreate = {
-                path: null,
-                parent: index == 0 ? null : parentIds[index - 1],
-                implicitPosition: 2,
-                position: null,
-                label1: postData['category label1'].toString().split(">>")[index] ? postData['category label1'].toString().split(">>")[index].trim() : null,
-                label2: postData['category label2'].toString().split(">>")[index] ? postData['category label2'].toString().split(">>")[index].trim() : null,
-                label3: postData['category label3'].toString().split(">>")[index] ? postData['category label3'].toString().split(">>")[index].trim() : null,
-                label4: postData['category label4'].toString().split(">>")[index] ? postData['category label4'].toString().split(">>")[index].trim() : null,
-              };
-
-              await createLibraryCategory(categoryToCreate).then(function(id) {
-                parentIds.push(id);
+            if (postData.categoriesToCreate && postData.parentIdsPath.length - index == 0) {
+              let libraryCategoryFound = allLibraryCategories.find(category => {
+                let parent = index == 0 ? null : postData.parentIdsPath[index - 1];
+                return category['label' + $scope.defaultLang].toLowerCase().trim() == libraryCategory.toLowerCase().trim() &&
+                  category.parent == parent;
               });
-            } else {
-              parentIds.push(libraryCategoryFound.id);
+
+              if (!libraryCategoryFound) {
+                let categoryToCreate = {
+                  parent: index == 0 ? null : postData.parentIdsPath[index - 1],
+                  implicitPosition: 2,
+                  position: null,
+                  label1: postData['category label1'].toString().split(">>")[index] ? postData['category label1'].toString().split(">>")[index].trim() : null,
+                  label2: postData['category label2'].toString().split(">>")[index] ? postData['category label2'].toString().split(">>")[index].trim() : null,
+                  label3: postData['category label3'].toString().split(">>")[index] ? postData['category label3'].toString().split(">>")[index].trim() : null,
+                  label4: postData['category label4'].toString().split(">>")[index] ? postData['category label4'].toString().split(">>")[index].trim() : null,
+                };
+                await createLibraryCategory(categoryToCreate).then(function(id) {
+                  postData.parentIdsPath.push(id);
+                });
+              } else {
+                postData.parentIdsPath.push(libraryCategoryFound.id);
+              }
             }
           }
 
           $scope.importData[i] = {
             asset: postData.asset,
-            category: parentIds[parentIds.length - 1],
+            category: postData.parentIdsPath[postData.parentIdsPath.length - 1],
             implicitPosition: 2,
             label1: postData.label1 ? postData.label1.trim() : null,
             label2: postData.label2 ? postData.label2.trim() : null,
@@ -3638,15 +3612,28 @@
     };
 
     function findExternalObjectsCategory(externalCategory, actualTreeViewsCategories, languageId) {
-      var index = undefined;
-      index  = actualTreeViewsCategories.find(categ => categ['label'+languageId] === externalCategory[0]);
+      let categoryFound = actualTreeViewsCategories.find(category => {
+        for (let i = 1; i <= 4; i++) {
+          if (category['label' + i] && category['label' + i].toLowerCase().trim() == externalCategory[0].toLowerCase().trim()) {
+            return category['label' + i].toLowerCase().trim() == externalCategory[0].toLowerCase().trim();
+          }
+        }
+      });
 
-      if(index !== undefined && (!Array.isArray(externalCategory) || (Array.isArray(externalCategory)&&externalCategory.length==1))) {
-        return true;
-      } else if (index !== undefined && externalCategory.length > 1 && 'child' in index) {
-        return findExternalObjectsCategory(externalCategory.shift(), index['child'], languageId)
+      if (!categoryFound) return [false, parentIdsPaths];
+
+      if (externalCategory.length == 1) {
+        if (!parentIdsPaths.includes(categoryFound.id)) parentIdsPaths.push(categoryFound.id);
+        return [true, parentIdsPaths];
+      }
+
+      if (externalCategory.length > 1 && categoryFound.child) {
+        if (!parentIdsPaths.includes(categoryFound.id)) parentIdsPaths.push(categoryFound.id);
+        externalCategory.shift();
+        return findExternalObjectsCategory(externalCategory, categoryFound.child, languageId)
       } else {
-        return false;
+        if (!parentIdsPaths.includes(categoryFound.id)) parentIdsPaths.push(categoryFound.id);
+        return [false, parentIdsPaths]
       }
 
     };
