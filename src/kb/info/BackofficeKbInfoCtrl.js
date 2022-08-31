@@ -3223,7 +3223,7 @@
               parentIdsPaths = [];
 
               for (let i = 1; i <= 4; i++) {
-                let [categoryFound, parentIds] = findExternalObjectsCategory(row[extItemField.slice(0, -1) + i].split(">>"), allTreeViewCategories, i);
+                let [categoryFound, parentIds] = findExternalObjectsCategory(row[extItemField.slice(0, -1) + i].split(">>"), allTreeViewCategories);
                 libraryCategories[i] = categoryFound
                 row.parentIdsPath = parentIds;
               }
@@ -3296,18 +3296,31 @@
 
             if (externalItem && row[extItemField]) {
               if (externalItem == 'tag') {
-                let tags = row[extItemField].toString().split("/");
-                tags.forEach(tag => {
-                  let tagFound = findExternalItem(tag, $scope.actualExternalItems);
-                  if (!tagFound && !extItemToCreate.includes(tag)) {
-                    extItemToCreate.push(tag);
+                let tags = [];
+                row.tagsFound = [];
+                for (let i = 1; i <= 4; i++) {
+                  tags[i] = row[extItemField.slice(0, -1) + i].toString().split("/");
+                }
+
+                tags[1].map((x, i) => {
+                  tagToSearch = {};
+                  tags.map((tag, index) => {
+                    tagToSearch[extItemField.slice(0, -1) + index] = tag[i]
+                  })
+                  let tagFound = findExternalItem(tagToSearch, $scope.actualExternalItems, extItemField.slice(0, -1));
+                  if (tagFound) {
+                    row.tagsFound[tagToSearch[extItemField].toLowerCase().trim()] = tagFound.id;
+                  }
+
+                  if (!tagFound && !extItemToCreate.includes(tagToSearch[extItemField.slice(0, -1) + $scope.language].trim())) {
+                    extItemToCreate.push(tagToSearch[extItemField.slice(0, -1) + $scope.language].trim());
                     row.alert = true;
                   }
-                });
+                })
               } else {
                 let externalItemFound = findExternalItem(row, $scope.actualExternalItems, extItemField.slice(0, -1));
-                if (!externalItemFound && !extItemToCreate.includes(row[extItemField])) {
-                  extItemToCreate.push(row[extItemField]);
+                if (!externalItemFound && !extItemToCreate.includes(row[extItemField].trim())) {
+                  extItemToCreate.push(row[extItemField].trim());
                   row.alert = true;
                 }
               }
@@ -3522,8 +3535,7 @@
           $scope.importData[i].tags = [];
           let tags = postData[extItemField].toString().split("/");
           for await (let [index, tag] of tags.entries()) {
-            let tagFound = findExternalItem(tag, $scope.actualExternalItems);
-            if (!tagFound) {
+            if (extItemToCreate.includes(tag.trim())) {
               let tagToCreate = {
                 code: postData[extItemField].toString().split("/")[index] + Math.floor(Math.random() * 1000),
                 label1: postData['tag label1'].toString().split("/")[index] ? postData['tag label1'].toString().split("/")[index].trim() : null,
@@ -3531,12 +3543,11 @@
                 label3: postData['tag label3'].toString().split("/")[index] ? postData['tag label3'].toString().split("/")[index].trim() : null,
                 label4: postData['tag label4'].toString().split("/")[index] ? postData['tag label4'].toString().split("/")[index].trim() : null,
               }
-
               await createTag(tagToCreate).then(function(id) {
                 $scope.importData[i].tags.push(id);
               });
             } else {
-              $scope.importData[i].tags.push(tagFound.id);
+              $scope.importData[i].tags.push(postData.tagsFound[tag.toLowerCase().trim()])
             }
           }
         }
@@ -3548,7 +3559,6 @@
         }
       }
       $mdDialog.hide($scope.importData);
-
     };
 
     $scope.toggleGuide = function() {
@@ -3596,7 +3606,7 @@
 
     function findExternalItem(externalItem, actualExternalItems, field) {
       let itemFound = false;
-      actualExternalItems.some((actualExternalItem, index) => {
+      actualExternalItems.some(actualExternalItem => {
         for (var i = 1; i <= 4; i++) {
           for (var j = 1; j <= 4; j++) {
             if (actualExternalItem['label' + i] &&
@@ -3611,7 +3621,7 @@
       return itemFound;
     };
 
-    function findExternalObjectsCategory(externalCategory, actualTreeViewsCategories, languageId) {
+    function findExternalObjectsCategory(externalCategory, actualTreeViewsCategories) {
       let categoryFound = actualTreeViewsCategories.find(category => {
         for (let i = 1; i <= 4; i++) {
           if (category['label' + i] && category['label' + i].toLowerCase().trim() == externalCategory[0].toLowerCase().trim()) {
@@ -3630,7 +3640,7 @@
       if (externalCategory.length > 1 && categoryFound.child) {
         if (!parentIdsPaths.includes(categoryFound.id)) parentIdsPaths.push(categoryFound.id);
         externalCategory.shift();
-        return findExternalObjectsCategory(externalCategory, categoryFound.child, languageId)
+        return findExternalObjectsCategory(externalCategory, categoryFound.child)
       } else {
         if (!parentIdsPaths.includes(categoryFound.id)) parentIdsPaths.push(categoryFound.id);
         return [false, parentIdsPaths]
@@ -3745,7 +3755,7 @@
       var promise = $q.defer();
       TagService.createTag(tag, await
         function(result) {
-          tag.id = id;
+          tag.id = result.id;
           $scope.actualExternalItems.push(tag);
           promise.resolve(result.id);
         });
