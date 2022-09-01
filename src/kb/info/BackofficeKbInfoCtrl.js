@@ -1747,6 +1747,7 @@
 							break;
 						case 'Assets library':
 							ObjlibService.createObjlib(importData, function(result) {
+                                $scope.updateObjlibs();
 								successCreateObject(result)
 							});
 							break;
@@ -2713,7 +2714,6 @@
 		var pluralExtItem = null;
 		var extItemField = null;
 		var parentIdsPaths = [];
-
 
 		switch (tab) {
 			case 'Asset types':
