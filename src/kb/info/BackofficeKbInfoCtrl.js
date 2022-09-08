@@ -1747,7 +1747,7 @@
 							break;
 						case 'Assets library':
 							ObjlibService.createObjlib(importData, function(result) {
-                                $scope.updateObjlibs();
+								$scope.updateObjlibs();
 								successCreateObject(result)
 							});
 							break;
@@ -2714,6 +2714,7 @@
 		var pluralExtItem = null;
 		var extItemField = null;
 		var parentIdsPaths = [];
+		var externalItemsFound = [];
 
 		switch (tab) {
 			case 'Asset types':
@@ -3158,11 +3159,7 @@
 					const amvItems = ['asset', 'threat', 'vulnerability'];
 					getAllAmvItems().then(function(values) {
 						file.data.reduce((acc, current, index, data) => {
-							let externalItemFound = findExternalItem(current, $scope.actualExternalItems, extItemField.slice(0, -1));
-							if (!externalItemFound && !extItemToCreate.includes(current[extItemField])) {
-								extItemToCreate.push(current[extItemField]);
-								current.alert = true;
-							}
+							findExternalItem(current, $scope.actualExternalItems, extItemField.slice(0, -1));
 							const duplicate = acc.find(item => item['asset code'] === current['asset code'] &&
 								item['threat code'] === current['threat code'] &&
 								item['vulnerability code'] === current['vulnerability code']
@@ -3281,23 +3278,23 @@
 						}
 					});
 				} else {
+					let codeList = angular.copy(codes);
 					file.data.forEach(row => {
 						row.error = '';
 						checkRequiredFields(row)
 
 						if (requiredFields.includes('code') && row.code) {
-							if (codes.includes(row.code.toLowerCase().trim())) {
+							if (codeList.includes(row.code.toLowerCase().trim())) {
 								row.error += gettextCatalog.getString('code is already in use') + "\n";;
 								$scope.check = true;
 							} else {
-								codes.push(row.code.toLowerCase());
+								codeList.push(row.code.toLowerCase());
 							}
 						}
 
 						if (externalItem && row[extItemField]) {
 							if (externalItem == 'tag') {
 								let tags = [];
-								row.tagsFound = [];
 								for (let i = 1; i <= 4; i++) {
 									tags[i] = row[extItemField.slice(0, -1) + i].toString().split("/");
 								}
@@ -3308,21 +3305,10 @@
 										tagToSearch[extItemField.slice(0, -1) + index] = tag[i]
 									})
 									let tagFound = findExternalItem(tagToSearch, $scope.actualExternalItems, extItemField.slice(0, -1));
-									if (tagFound) {
-										row.tagsFound[tagToSearch[extItemField].toLowerCase().trim()] = tagFound.id;
-									}
-
-									if (!tagFound && !extItemToCreate.includes(tagToSearch[extItemField.slice(0, -1) + $scope.language].trim())) {
-										extItemToCreate.push(tagToSearch[extItemField.slice(0, -1) + $scope.language].trim());
-										row.alert = true;
-									}
+									if (!tagFound) row.alert = true;
 								})
 							} else {
-								let externalItemFound = findExternalItem(row, $scope.actualExternalItems, extItemField.slice(0, -1));
-								if (!externalItemFound && !extItemToCreate.includes(row[extItemField].trim())) {
-									extItemToCreate.push(row[extItemField].trim());
-									row.alert = true;
-								}
+								findExternalItem(row, $scope.actualExternalItems, extItemField.slice(0, -1));
 							}
 						}
 					});
@@ -3337,7 +3323,9 @@
 		};
 
 		$scope.uploadFile = async function() {
+			let filedata = angular.copy($scope.importData);
 			var itemFields = ['label1', 'label2', 'label3', 'label4', 'description1', 'description2', 'description3', 'description4'];
+
 			switch (tab) {
 				case 'Threats':
 					itemFields.push('theme');
@@ -3366,199 +3354,196 @@
 			for (var index in $scope.items[tab]) {
 				itemFields.push($scope.items[tab][index]['field']);
 			}
-			for await (var [i, postData] of $scope.importData.entries()) {
+			for await (var [i, row] of filedata.entries()) {
 				if (tab == 'Threats') {
 					let cia = ['c', 'i', 'a'];
 					cia.forEach(criteria => {
-						if (!postData[criteria] || postData[criteria] == 0 || postData[criteria].toLowerCase() == 'false') {
-							postData[criteria] = false;
+						if (!row[criteria] || row[criteria] == 0 || row[criteria].toLowerCase() == 'false') {
+							row[criteria] = false;
 						} else {
-							postData[criteria] = true;
+							row[criteria] = true;
 						}
 					});
 
-					if (postData[extItemField]) {
-						let themeFound = findExternalItem(postData, $scope.actualExternalItems, extItemField.slice(0, -1));
-						if (!themeFound) {
+					if (row[extItemField]) {
+						if (inExternalItemsFound(row[extItemField])) {
+							row.theme = inExternalItemsFound(row[extItemField]);
+						} else {
 							let themeToCreate = {
-								label1: postData['theme label1'] ? postData['theme label1'].trim() : null,
-								label2: postData['theme label2'] ? postData['theme label2'].trim() : null,
-								label3: postData['theme label3'] ? postData['theme label3'].trim() : null,
-								label4: postData['theme label4'] ? postData['theme label4'].trim() : null,
+								label1: row['theme label1'] ? row['theme label1'].trim() : null,
+								label2: row['theme label2'] ? row['theme label2'].trim() : null,
+								label3: row['theme label3'] ? row['theme label3'].trim() : null,
+								label4: row['theme label4'] ? row['theme label4'].trim() : null,
 							}
 
 							await createTheme(themeToCreate).then(function(id) {
-								postData.theme = id;
+								row.theme = id;
 							});
-						} else {
-							postData.theme = themeFound.id;
 						}
 					}
 				}
 
 				if (tab == 'Controls') {
-					postData.referential = referential;
-					if (postData[extItemField]) {
-						let categoryFound = findExternalItem(postData, $scope.actualExternalItems, extItemField.slice(0, -1));
-						if (!categoryFound) {
+					row.referential = referential;
+					if (row[extItemField]) {
+						if (inExternalItemsFound(row[extItemField])) {
+							row.category = inExternalItemsFound(row[extItemField]);
+						} else {
 							let categoryToCreate = {
 								referential: referential,
-								label1: postData['category label1'] ? postData['category label1'].trim() : null,
-								label2: postData['category label2'] ? postData['category label2'].trim() : null,
-								label3: postData['category label3'] ? postData['category label3'].trim() : null,
-								label4: postData['category label4'] ? postData['category label4'].trim() : null,
+								label1: row['category label1'] ? row['category label1'].trim() : null,
+								label2: row['category label2'] ? row['category label2'].trim() : null,
+								label3: row['category label3'] ? row['category label3'].trim() : null,
+								label4: row['category label4'] ? row['category label4'].trim() : null,
 							}
 
 							await createCategory(categoryToCreate).then(function(id) {
-								categoryToCreate.id = id;
-								postData.category = categoryToCreate;
+								row.category = id;
 							});
-						} else {
-							postData.category = categoryFound;
 						}
 					}
 				}
 
 				if (tab == 'Information risks') {
-					$scope.importData[i] = {
-						asset: {
-							uuid: postData['asset uuid'],
-							code: postData['asset code'].trim(),
-							label1: postData['asset label1'],
-							label2: postData['asset label2'],
-							label3: postData['asset label3'],
-							label4: postData['asset label4'],
-							type: 2,
-							description1: postData['asset description1'],
-							description2: postData['asset description2'],
-							description3: postData['asset description3'],
-							description4: postData['asset description4']
-						},
-						threat: {
-							uuid: postData['threat uuid'],
-							code: postData['threat code'].trim(),
-							label1: postData['threat label1'],
-							label2: postData['threat label2'],
-							label3: postData['threat label3'],
-							label4: postData['threat label4'],
-							description1: postData['threat description1'],
-							description2: postData['threat description2'],
-							description3: postData['threat description3'],
-							description4: postData['threat description4'],
-							c: (!postData['threat c'] || postData['threat c'] == 0 || postData['threat c'].toLowerCase() == 'false' ? false : true),
-							i: (!postData['threat i'] || postData['threat i'] == 0 || postData['threat i'].toLowerCase() == 'false' ? false : true),
-							a: (!postData['threat a'] || postData['threat a'] == 0 || postData['threat a'].toLowerCase() == 'false' ? false : true),
-						},
-						vulnerability: {
-							uuid: postData['vulnerability uuid'],
-							code: postData['vulnerability code'].trim(),
-							label1: postData['vulnerability label1'],
-							label2: postData['vulnerability label2'],
-							label3: postData['vulnerability label3'],
-							label4: postData['vulnerability label4'],
-							description1: postData['vulnerability description1'],
-							description1: postData['vulnerability description2'],
-							description1: postData['vulnerability description3'],
-							description1: postData['vulnerability description4']
+					let theme = null;
+					if (row[extItemField]) {
+						if (inExternalItemsFound(row[extItemField])) {
+							theme = inExternalItemsFound(row[extItemField]);
+						} else {
+							let themeToCreate = {
+								label1: row['threat theme label1'] ? row['threat theme label1'].trim() : null,
+								label2: row['threat theme label2'] ? row['threat theme label2'].trim() : null,
+								label3: row['threat theme label3'] ? row['threat theme label3'].trim() : null,
+								label4: row['threat theme label4'] ? row['threat theme label4'].trim() : null,
+							}
+							await createTheme(themeToCreate).then(function(id) {
+								theme = id;
+							});
 						}
 					}
-
-					if (postData[extItemField]) {
-						let themeFound = findExternalItem(postData, $$scope.actualExternalItems, extItemField.slice(0, -1));
-						if (!themeFound) {
-							let themeToCreate = {
-								label1: postData['threat theme label1'] ? postData['threat theme label1'].trim() : null,
-								label2: postData['threat theme label2'] ? postData['threat theme label2'].trim() : null,
-								label3: postData['threat theme label3'] ? postData['threat theme label3'].trim() : null,
-								label4: postData['threat theme label4'] ? postData['threat theme label4'].trim() : null,
-							}
-
-							await createTheme(themeToCreate).then(function(id) {
-								$scope.importData[i].threat.theme = id;
-							});
-						} else {
-							$scope.importData[i].threat.theme = themeFound.id;
+					filedata[i] = {
+						asset: {
+							uuid: row['asset uuid'],
+							code: row['asset code'].trim(),
+							label1: row['asset label1'],
+							label2: row['asset label2'],
+							label3: row['asset label3'],
+							label4: row['asset label4'],
+							type: 2,
+							description1: row['asset description1'],
+							description2: row['asset description2'],
+							description3: row['asset description3'],
+							description4: row['asset description4']
+						},
+						threat: {
+							uuid: row['threat uuid'],
+							code: row['threat code'].trim(),
+							label1: row['threat label1'],
+							label2: row['threat label2'],
+							label3: row['threat label3'],
+							label4: row['threat label4'],
+							description1: row['threat description1'],
+							description2: row['threat description2'],
+							description3: row['threat description3'],
+							description4: row['threat description4'],
+							c: (!row['threat c'] || row['threat c'] == 0 || row['threat c'].toLowerCase() == 'false' ? false : true),
+							i: (!row['threat i'] || row['threat i'] == 0 || row['threat i'].toLowerCase() == 'false' ? false : true),
+							a: (!row['threat a'] || row['threat a'] == 0 || row['threat a'].toLowerCase() == 'false' ? false : true),
+							theme: theme
+						},
+						vulnerability: {
+							uuid: row['vulnerability uuid'],
+							code: row['vulnerability code'].trim(),
+							label1: row['vulnerability label1'],
+							label2: row['vulnerability label2'],
+							label3: row['vulnerability label3'],
+							label4: row['vulnerability label4'],
+							description1: row['vulnerability description1'],
+							description1: row['vulnerability description2'],
+							description1: row['vulnerability description3'],
+							description1: row['vulnerability description4']
 						}
 					}
 				}
 
 				if (tab == 'Assets library') {
 					libraryCategoryPaths = [];
-					let libraryCategories = postData[extItemField].toString().split(">>");
+					let libraryCategories = row[extItemField].toString().split(">>");
 
 					for await (let [index, libraryCategory] of libraryCategories.entries()) {
-						if (postData.categoriesToCreate && postData.parentIdsPath.length - index == 0) {
+						if (row.categoriesToCreate && row.parentIdsPath.length - index == 0) {
 							let libraryCategoryFound = allLibraryCategories.find(category => {
-								let parent = index == 0 ? null : postData.parentIdsPath[index - 1];
+								let parent = index == 0 ? null : row.parentIdsPath[index - 1];
 								return category['label' + $scope.defaultLang].toLowerCase().trim() == libraryCategory.toLowerCase().trim() &&
 									category.parent == parent;
 							});
 
 							if (!libraryCategoryFound) {
 								let categoryToCreate = {
-									parent: index == 0 ? null : postData.parentIdsPath[index - 1],
+									parent: index == 0 ? null : row.parentIdsPath[index - 1],
 									implicitPosition: 2,
 									position: null,
-									label1: postData['category label1'].toString().split(">>")[index] ? postData['category label1'].toString().split(">>")[index].trim() : null,
-									label2: postData['category label2'].toString().split(">>")[index] ? postData['category label2'].toString().split(">>")[index].trim() : null,
-									label3: postData['category label3'].toString().split(">>")[index] ? postData['category label3'].toString().split(">>")[index].trim() : null,
-									label4: postData['category label4'].toString().split(">>")[index] ? postData['category label4'].toString().split(">>")[index].trim() : null,
+									label1: row['category label1'].toString().split(">>")[index] ? row['category label1'].toString().split(">>")[index].trim() : null,
+									label2: row['category label2'].toString().split(">>")[index] ? row['category label2'].toString().split(">>")[index].trim() : null,
+									label3: row['category label3'].toString().split(">>")[index] ? row['category label3'].toString().split(">>")[index].trim() : null,
+									label4: row['category label4'].toString().split(">>")[index] ? row['category label4'].toString().split(">>")[index].trim() : null,
 								};
 								await createLibraryCategory(categoryToCreate).then(function(id) {
-									postData.parentIdsPath.push(id);
+									row.parentIdsPath.push(id);
 								});
 							} else {
-								postData.parentIdsPath.push(libraryCategoryFound.id);
+								row.parentIdsPath.push(libraryCategoryFound.id);
 							}
 						}
 					}
 
-					$scope.importData[i] = {
-						asset: postData.asset,
-						category: postData.parentIdsPath[postData.parentIdsPath.length - 1],
+					filedata[i] = {
+						asset: row.asset,
+						category: row.parentIdsPath[row.parentIdsPath.length - 1],
 						implicitPosition: 2,
-						label1: postData.label1 ? postData.label1.trim() : null,
-						label2: postData.label2 ? postData.label2.trim() : null,
-						label3: postData.label3 ? postData.label3.trim() : null,
-						label4: postData.label4 ? postData.label4.trim() : null,
-						mode: postData.mode,
-						name1: postData.name1 ? postData.name1.trim() : null,
-						name2: postData.name2 ? postData.name2.trim() : null,
-						name3: postData.name3 ? postData.name3.trim() : null,
-						name4: postData.name4 ? postData.name4.trim() : null,
-						rolfTag: postData.rolfTag,
-						scope: postData.isPrimaryAsset ? 1 : postData.scope,
+						label1: row.label1 ? row.label1.trim() : null,
+						label2: row.label2 ? row.label2.trim() : null,
+						label3: row.label3 ? row.label3.trim() : null,
+						label4: row.label4 ? row.label4.trim() : null,
+						mode: row.mode,
+						name1: row.name1 ? row.name1.trim() : null,
+						name2: row.name2 ? row.name2.trim() : null,
+						name3: row.name3 ? row.name3.trim() : null,
+						name4: row.name4 ? row.name4.trim() : null,
+						rolfTag: row.rolfTag,
+						scope: row.isPrimaryAsset ? 1 : row.scope,
 					}
 				}
 
 				if (tab == 'Operational risks') {
-					$scope.importData[i].tags = [];
-					let tags = postData[extItemField].toString().split("/");
+					let tagsIds = [];
+					let tags = row[extItemField].toString().split("/");
 					for await (let [index, tag] of tags.entries()) {
-						if (extItemToCreate.includes(tag.trim())) {
+						if (inExternalItemsFound(tag)) {
+							tagsIds.push(inExternalItemsFound(tag));
+						} else {
 							let tagToCreate = {
-								code: postData[extItemField].toString().split("/")[index] + Math.floor(Math.random() * 1000),
-								label1: postData['tag label1'].toString().split("/")[index] ? postData['tag label1'].toString().split("/")[index].trim() : null,
-								label2: postData['tag label2'].toString().split("/")[index] ? postData['tag label2'].toString().split("/")[index].trim() : null,
-								label3: postData['tag label3'].toString().split("/")[index] ? postData['tag label3'].toString().split("/")[index].trim() : null,
-								label4: postData['tag label4'].toString().split("/")[index] ? postData['tag label4'].toString().split("/")[index].trim() : null,
+								code: row[extItemField].toString().split("/")[index] + Math.floor(Math.random() * 1000),
+								label1: row['tag label1'].toString().split("/")[index] ? row['tag label1'].toString().split("/")[index].trim() : null,
+								label2: row['tag label2'].toString().split("/")[index] ? row['tag label2'].toString().split("/")[index].trim() : null,
+								label3: row['tag label3'].toString().split("/")[index] ? row['tag label3'].toString().split("/")[index].trim() : null,
+								label4: row['tag label4'].toString().split("/")[index] ? row['tag label4'].toString().split("/")[index].trim() : null,
 							}
 							await createTag(tagToCreate).then(function(id) {
-								$scope.importData[i].tags.push(id);
+								tagsIds.push(id);
 							});
-						} else {
-							$scope.importData[i].tags.push(postData.tagsFound[tag.toLowerCase().trim()])
 						}
+						row.tags = tagsIds;
 					}
 				}
 
-				for (let pdk of Object.keys(postData)) {
+				for (let pdk of Object.keys(row)) {
 					if (!itemFields.includes(pdk.toLowerCase())) {
-						delete postData[pdk];
+						delete row[pdk];
 					}
 				}
 			}
-			$mdDialog.hide($scope.importData);
+			$mdDialog.hide(filedata);
 		};
 
 		$scope.toggleGuide = function() {
@@ -3605,20 +3590,28 @@
 		}
 
 		function findExternalItem(externalItem, actualExternalItems, field) {
-			let itemFound = false;
+			let externalItemFound = false;
 			actualExternalItems.some(actualExternalItem => {
 				for (var i = 1; i <= 4; i++) {
 					for (var j = 1; j <= 4; j++) {
 						if (actualExternalItem['label' + i] &&
 							externalItem[field + j] &&
 							actualExternalItem['label' + i].toLowerCase().trim() === externalItem[field + j].toLowerCase().trim()) {
-							itemFound = actualExternalItem;
+							externalItemFound = actualExternalItem;
 							return true;
 						}
 					}
 				}
 			})
-			return itemFound;
+			if (externalItemFound) {
+				addExternalItemFound(externalItem[extItemField], externalItemFound.id);
+			}
+
+			if (!externalItemFound && !extItemToCreate.includes(externalItem[extItemField].toLowerCase().trim())) {
+				extItemToCreate.push(externalItem[extItemField].toLowerCase().trim());
+				externalItem.alert = true;
+			}
+			return externalItemFound;
 		};
 
 		function findExternalObjectsCategory(externalCategory, actualTreeViewsCategories) {
@@ -3647,6 +3640,17 @@
 			}
 
 		};
+
+		function inExternalItemsFound(label) {
+			if (externalItemsFound[label.toString().toLowerCase().trim()]) {
+				return externalItemsFound[label.toString().toLowerCase().trim()];
+			}
+			return false;
+		}
+
+		function addExternalItemFound(label, id) {
+			externalItemsFound[label.toString().toLowerCase().trim()] = id;
+		}
 
 		function alertCreateNewExternalItems() {
 			if (!$scope.check && extItemToCreate.length) {
@@ -3722,8 +3726,7 @@
 			var promise = $q.defer();
 			ThreatService.createTheme(theme, await
 				function(result) {
-					theme.id = result.id;
-					$scope.actualExternalItems.push(theme);
+					addExternalItemFound(theme['label' + $scope.defaultLang], result.id);
 					promise.resolve(result.id);
 				});
 			return promise.promise
@@ -3733,8 +3736,7 @@
 			var promise = $q.defer();
 			SOACategoryService.createCategory(category, await
 				function(result) {
-					category.id = result.id;
-					$scope.actualExternalItems.push(category);
+					addExternalItemFound(category['label' + $scope.defaultLang], result.id);
 					promise.resolve(result.id);
 				});
 			return promise.promise
@@ -3755,8 +3757,7 @@
 			var promise = $q.defer();
 			TagService.createTag(tag, await
 				function(result) {
-					tag.id = result.id;
-					$scope.actualExternalItems.push(tag);
+					addExternalItemFound(tag['label' + $scope.defaultLang], result.id);
 					promise.resolve(result.id);
 				});
 			return promise.promise
