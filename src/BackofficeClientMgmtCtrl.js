@@ -169,7 +169,7 @@
                 name: '',
                 proxyAlias: '',
                 contact_email: '',
-                model_id: null
+                model_id: []
             };
         }
 
