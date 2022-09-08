@@ -1456,34 +1456,34 @@
 
 		$scope.updateObjlibsTabCategoriesFilter = function() {
 			ObjlibService.getObjlibsCats().then(function(data) {
-                var buildItemRecurse = function (children, parentPath) {
-                    var output = [];
+				var buildItemRecurse = function(children, parentPath) {
+					var output = [];
 
-                    for (var i = 0; i < children.length; ++i) {
-                        var child = children[i];
+					for (var i = 0; i < children.length; ++i) {
+						var child = children[i];
 
-                        if (parentPath != "") {
-                            for (let i = 1; i <= 4; i++) {
-                                child['label' + i] = parentPath['label' + i] + " >> " + child['label' + i];
-                            }
-                        }
-                        output.push(child);
+						if (parentPath != "") {
+							for (let i = 1; i <= 4; i++) {
+								child['label' + i] = parentPath['label' + i] + " >> " + child['label' + i];
+							}
+						}
+						output.push(child);
 
-                        if (child.child && child.child.length > 0) {
-                            let parentPathLabels = {};
-                            for (let i = 1; i <= 4; i++) {
-                                parentPathLabels['label' + i] = child['label' + i]
-                            }
+						if (child.child && child.child.length > 0) {
+							let parentPathLabels = {};
+							for (let i = 1; i <= 4; i++) {
+								parentPathLabels['label' + i] = child['label' + i]
+							}
 
-                            var child_output = buildItemRecurse(child.child, parentPathLabels);
-                            output = output.concat(child_output);
-                        }
-                    }
+							var child_output = buildItemRecurse(child.child, parentPathLabels);
+							output = output.concat(child_output);
+						}
+					}
 
-                    return output;
-                };
+					return output;
+				};
 
-                $scope.objlib_categories = buildItemRecurse(data.categories, "");
+				$scope.objlib_categories = buildItemRecurse(data.categories, "");
 			});
 		};
 
@@ -3106,7 +3106,7 @@
 					'field': 'operational risk tag',
 					'required': false,
 					'type': 'text',
-					'example': 'Operational risk tag must exist in the Knowledge Base'
+					'example': 'Only one operational risk tag can be linked and must exist in the Knowledge Base'
 				},
 				'category': {
 					'field': 'category label' + $scope.defaultLang,
@@ -3206,11 +3206,13 @@
 							row.isPrimaryAsset = assetType.type == 1 ? true : false;
 						}
 
-						if (row['operational risk tag'] && row.isPrimaryAsset && !allTags.map(tag => tag.code.toLowerCase()).includes(row['operational risk tag'].toLowerCase().trim())) {
-							row.error += gettextCatalog.getString('the operational risk tag does not exist. Create it before import') + "\n";;
-							$scope.check = true;
-						} else if (row['operational risk tag']) {
-							row.rolfTag = allTags.find(tag => tag.code.toLowerCase() === row['operational risk tag'].toLowerCase().trim()).id
+						if (row['operational risk tag'] && row.isPrimaryAsset) {
+							if (!allTags.map(tag => tag.code.toLowerCase()).includes(row['operational risk tag'].toLowerCase().trim())) {
+								row.error += gettextCatalog.getString('the operational risk tag does not exist. Create it before import') + "\n";;
+								$scope.check = true;
+							} else if (row['operational risk tag']) {
+								row.rolfTag = allTags.find(tag => tag.code.toLowerCase() === row['operational risk tag'].toLowerCase().trim()).id
+							}
 						}
 
 						if (row[extItemField]) {
@@ -3358,6 +3360,7 @@
 			for (var index in $scope.items[tab]) {
 				itemFields.push($scope.items[tab][index]['field']);
 			}
+
 			for await (var [i, row] of filedata.entries()) {
 				if (tab == 'Threats') {
 					let cia = ['c', 'i', 'a'];
@@ -3677,11 +3680,11 @@
 					.ok(gettextCatalog.getString('Create & Import'))
 					.cancel(gettextCatalog.getString('Cancel'));
 				$mdDialog.show(confirm)
-                .then(function() {
-					$scope.uploadFile();
-				},function(reject) {
-					$scope.handleRejectionDialog(reject);
-				});
+					.then(function() {
+						$scope.uploadFile();
+					}, function(reject) {
+						$scope.handleRejectionDialog(reject);
+					});
 			}
 		}
 
