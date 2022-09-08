@@ -3672,8 +3672,11 @@
 					.theme('light')
 					.ok(gettextCatalog.getString('Create & Import'))
 					.cancel(gettextCatalog.getString('Cancel'));
-				$mdDialog.show(confirm).then(function() {
+				$mdDialog.show(confirm)
+                .then(function() {
 					$scope.uploadFile();
+				},function(reject) {
+					$scope.handleRejectionDialog(reject);
 				});
 			}
 		}
