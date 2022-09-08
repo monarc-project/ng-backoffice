@@ -3132,7 +3132,7 @@
 					trimHeaders: true,
 					beforeFirstChunk: function(chunk) {
 						let rows = chunk.split(/\r\n|\r|\n/);
-						rows[0] = rows[0].toLowerCase();
+						rows[0] = rows[0].toLowerCase().trim();
 						return rows.join('\n');
 					},
 					complete: function(importData) {
@@ -3288,7 +3288,7 @@
 								row.error += gettextCatalog.getString('code is already in use') + "\n";;
 								$scope.check = true;
 							} else {
-								codeList.push(row.code.toLowerCase());
+								codeList.push(row.code.toLowerCase().trim());
 							}
 						}
 
@@ -3358,7 +3358,7 @@
 				if (tab == 'Threats') {
 					let cia = ['c', 'i', 'a'];
 					cia.forEach(criteria => {
-						if (!row[criteria] || row[criteria] == 0 || row[criteria].toLowerCase() == 'false') {
+						if (!row[criteria] || row[criteria] == 0 || row[criteria].toLowerCase().trim() == 'false') {
 							row[criteria] = false;
 						} else {
 							row[criteria] = true;
@@ -3446,9 +3446,9 @@
 							description2: row['threat description2'],
 							description3: row['threat description3'],
 							description4: row['threat description4'],
-							c: (!row['threat c'] || row['threat c'] == 0 || row['threat c'].toLowerCase() == 'false' ? false : true),
-							i: (!row['threat i'] || row['threat i'] == 0 || row['threat i'].toLowerCase() == 'false' ? false : true),
-							a: (!row['threat a'] || row['threat a'] == 0 || row['threat a'].toLowerCase() == 'false' ? false : true),
+							c: (!row['threat c'] || row['threat c'] == 0 || row['threat c'].toLowerCase().trim() == 'false' ? false : true),
+							i: (!row['threat i'] || row['threat i'] == 0 || row['threat i'].toLowerCase().trim() == 'false' ? false : true),
+							a: (!row['threat a'] || row['threat a'] == 0 || row['threat a'].toLowerCase().trim() == 'false' ? false : true),
 							theme: theme
 						},
 						vulnerability: {
