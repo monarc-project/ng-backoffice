@@ -1455,31 +1455,35 @@
 		};
 
 		$scope.updateObjlibsTabCategoriesFilter = function() {
-			ObjlibService.getObjlibsCats({
-				limit: 0
-			}).then(function(data) {
-				var buildItemRecurse = function(children, depth) {
-					var output = [];
+			ObjlibService.getObjlibsCats().then(function(data) {
+                var buildItemRecurse = function (children, parentPath) {
+                    var output = [];
 
-					for (var i = 0; i < children.length; ++i) {
-						var child = children[i];
+                    for (var i = 0; i < children.length; ++i) {
+                        var child = children[i];
 
-						for (var j = 0; j < depth; ++j) {
-							child[$scope._langField('label')] = " >> " + $scope._langField(child, 'label');
-						}
+                        if (parentPath != "") {
+                            for (let i = 1; i <= 4; i++) {
+                                child['label' + i] = parentPath['label' + i] + " >> " + child['label' + i];
+                            }
+                        }
+                        output.push(child);
 
-						output.push(child);
+                        if (child.child && child.child.length > 0) {
+                            let parentPathLabels = {};
+                            for (let i = 1; i <= 4; i++) {
+                                parentPathLabels['label' + i] = child['label' + i]
+                            }
 
-						if (child.child && child.child.length > 0) {
-							var child_output = buildItemRecurse(child.child, depth + 1);
-							output = output.concat(child_output);
-						}
-					}
+                            var child_output = buildItemRecurse(child.child, parentPathLabels);
+                            output = output.concat(child_output);
+                        }
+                    }
 
-					return output;
-				};
+                    return output;
+                };
 
-				$scope.objlib_categories = buildItemRecurse(data.categories, 0);
+                $scope.objlib_categories = buildItemRecurse(data.categories, "");
 			});
 		};
 
