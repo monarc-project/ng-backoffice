@@ -1675,8 +1675,8 @@
 			$mdDialog.show({
 					controller: ['$scope', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService',
 						'VulnService', 'MeasureService', 'SOACategoryService', 'TagService', 'RiskService',
-						'MeasureMeasureService', 'ObjlibService', 'gettextCatalog', '$q', 'tab', 'themes',
-						'categories', 'libraryCategoriesPath', 'referential', 'tags', ImportFileDialogCtrl
+						'MeasureMeasureService', 'ObjlibService', 'gettextCatalog', '$q', 'tab',
+						'referential', ImportFileDialogCtrl
 					],
 					templateUrl: 'views/anr/import.file.html',
 					targetEvent: ev,
@@ -1686,11 +1686,7 @@
 					fullscreen: useFullScreen,
 					locals: {
 						'tab': tab,
-						'themes': $scope.listThemes,
-						'categories': $scope.listCategories,
-						'libraryCategoriesPath': $scope.categories,
 						'referential': $scope.RefSelected,
-						'tags': $scope.listTags
 					}
 				})
 				.then(function(importData) {
@@ -1837,10 +1833,6 @@
 			isGeneric: 0
 		}).then(function(data) {
 			$scope.models = data.models;
-		});
-
-		ThreatService.getThemes().then(function(data) {
-			$scope.listThemes = data['themes'];
 		});
 
 		$scope.language = ConfigService.getDefaultLanguageIndex();
@@ -2268,12 +2260,6 @@
 	function CreateMeasureDialogCtrl($scope, toastr, $mdMedia, $mdDialog, gettextCatalog, SOACategoryService,
 		MeasureService, ReferentialService, ConfigService, $q, measure, referential) {
 
-		SOACategoryService.getCategories({
-			order: $scope._langField('label'),
-			referential: referential.uuid
-		}).then(function(data) {
-			$scope.listCategories = data['categories'];
-		});
 		$scope.language = ConfigService.getDefaultLanguageIndex();
 		$scope.categorySearchText = '';
 		$scope.RefSelected = referential.uuid;
@@ -2495,10 +2481,6 @@
 			});
 		};
 
-		ThreatService.getThemes().then(function(data) {
-			$scope.listThemes = data['themes'];
-		});
-
 		if (amv != undefined && amv != null) {
 			$scope.amv = amv;
 
@@ -2700,8 +2682,9 @@
 		};
 	}
 
-	function ImportFileDialogCtrl($scope, $mdDialog, ConfigService, AssetService, ThreatService, VulnService, MeasureService, SOACategoryService,
-		TagService, RiskService, MeasureMeasureService, ObjlibService, gettextCatalog, $q, tab, themes, categories, libraryCategoriesPath, referential, tags) {
+	function ImportFileDialogCtrl($scope, $mdDialog, ConfigService, AssetService, ThreatService,
+		VulnService, MeasureService, SOACategoryService, TagService, RiskService,
+		MeasureMeasureService, ObjlibService, gettextCatalog, $q, tab, referential) {
 
 		$scope.tab = tab;
 		$scope.guideVisible = false;
@@ -2729,9 +2712,11 @@
 			case 'Threats':
 				externalItem = 'theme';
 				pluralExtItem = 'themes';
-				$scope.actualExternalItems = themes;
 				ThreatService.getThreats().then(function(data) {
 					codes = data.threats.map(threat => threat.code.toLowerCase());
+				});
+				ThreatService.getThemes().then(function(data) {
+					$scope.actualExternalItems = data.themes;
 				});
 				break;
 			case 'Vulnerabilties':
@@ -2742,17 +2727,24 @@
 			case 'Controls':
 				externalItem = 'category';
 				pluralExtItem = 'categories';
-				$scope.actualExternalItems = categories;
 				MeasureService.getMeasures({
 					referential: referential
 				}).then(function(data) {
 					codes = data.measures.map(measure => measure.code.toLowerCase());
 				});
+				SOACategoryService.getCategories({
+					order: $scope._langField('label'),
+					referential: referential
+				}).then(function(data) {
+					$scope.actualExternalItems = data.categories;
+				});
 				break;
 			case 'Information risks':
 				externalItem = 'theme';
 				pluralExtItem = 'themes';
-				$scope.actualExternalItems = themes;
+				ThreatService.getThemes().then(function(data) {
+					$scope.actualExternalItems = data.themes;
+				});
 				break;
 			case 'Tags':
 				TagService.getTags().then(function(data) {
@@ -2762,9 +2754,11 @@
 			case 'Operational risks':
 				externalItem = 'tag';
 				pluralExtItem = 'tags';
-				$scope.actualExternalItems = tags;
 				RiskService.getRisks().then(function(data) {
 					codes = data.risks.map(risk => risk.code.toLowerCase());
+				});
+				TagService.getTags().then(function(data) {
+					$scope.actualExternalItems = data.tags;
 				});
 				break;
 			case 'Matches':
@@ -2778,7 +2772,6 @@
 			case 'Assets library':
 				externalItem = 'category';
 				pluralExtItem = 'categories';
-				$scope.actualExternalItems = libraryCategoriesPath;
 				AssetService.getAssets().then(function(data) {
 					codes = data.assets;
 				});
@@ -2788,6 +2781,7 @@
 				ObjlibService.getObjlibsCats().then(function(data) {
 					allLibraryCategories = getFlatLibCategories(data.categories);
 					allTreeViewCategories = data.categories;
+					$scope.actualExternalItems = getLibraryCategoriesPath(data.categories);
 				});
 				break;
 			default:
@@ -3595,6 +3589,26 @@
 				return acc;
 			}, []);
 		}
+
+		function getLibraryCategoriesPath(categories, parentPath) {
+			return categories.reduce((acc, category) => {
+				if (parentPath) {
+					for (let i = 1; i <= 4; i++) {
+						category['label' + i] = parentPath['label' + i] + " >> " + category['label' + i];
+					}
+				}
+				acc.push(category);
+
+				if (category.child && category.child.length) {
+					let parentPathLabels = {};
+					for (let i = 1; i <= 4; i++) {
+						parentPathLabels['label' + i] = category['label' + i]
+					}
+					acc = acc.concat(getLibraryCategoriesPath(category.child, parentPathLabels));
+				}
+				return acc;
+			}, []);
+		};
 
 		function findExternalItem(externalItem, actualExternalItems, field) {
 			let externalItemFound = false;
