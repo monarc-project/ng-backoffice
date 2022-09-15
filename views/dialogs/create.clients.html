@@ -46,7 +46,7 @@
                 <md-input-container class="md-block" flex ng-if="models.length > 0">
                     <label translate>Specific models</label>
                     <md-icon>widgets</md-icon>
-                    <md-select ng-model="client.model_id" name="model_id" required multiple>
+                    <md-select ng-model="client.model_id" name="model_id" multiple>
                         <md-option ng-repeat="model in models" ng-value="model.id">{{ _langField(model,'label') }}</md-option>
                     </md-select>
 
