@@ -435,12 +435,6 @@
     function CreateRiskDialogCtrl($scope, $mdDialog, $q, ConfigService, TagService, MeasureService, risk, referentials) {
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.riskopReferentials = referentials;
-
-
-        TagService.getTags().then(function (data) {
-           $scope.listTags = data['tags'];
-        });
-
         $scope.tagSearchText = null;
         $scope.tagSelectedItem = null;
         $scope.queryTagSearch = function (query) {
