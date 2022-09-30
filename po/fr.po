@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-30 10:09+0200\n"
+"PO-Revision-Date: 2022-09-30 11:21+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: views/dialogs/activate.2FA.html:30
 msgid "2FA QRCode"
@@ -48,7 +48,7 @@ msgid ""
 msgstr ""
 "Un e-mail de vérification vous a été envoyé. Ouvrez cet e-mail et cliquez "
 "sur le lien pour activer votre compte, puis copiez et collez la clé API MOSP "
-"ici."
+"ici"
 
 #: ../ng_anr/views/_anr.evalscales.html:200
 msgid "Acceptance thresholds of information risks"
@@ -273,9 +273,8 @@ msgid "Add a vulnerability"
 msgstr "Ajouter une vulnérabilité"
 
 #: ../ng_anr/views/add.objlib.html:42
-#| msgid "Add a category"
 msgid "Add a whole category"
-msgstr ""
+msgstr "Ajouter une catégorie entière"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:10 ../ng_anr/views/_anr.kbmgmt.html:8
 #: ../ng_anr/views/_anr.riskanalysis.html:57 ../ng_anr/views/add.objlib.html:45
@@ -384,9 +383,8 @@ msgstr "Guides de l'analyse"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1174
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1492
-#| msgid "General information"
 msgid "Any further information"
-msgstr ""
+msgstr "Toute autre information"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1026
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1222
@@ -674,7 +672,7 @@ msgstr "Le type d’actifs ne peut pas être primaire"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1180
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1498
 msgid "Asset type code must exist in the Knowledge Base"
-msgstr ""
+msgstr "Le code du type d'actif doit exister dans la base de connaissances"
 
 #: ../ng_anr/views/_gettext_caveats.html:50
 msgid "Asset type mode can't be null"
@@ -809,7 +807,7 @@ msgstr "OC"
 
 #: ../ng_anr/views/import.object.html:28
 msgid "CSV file"
-msgstr ""
+msgstr "Fichier CSV"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1213 ../ng_anr/src/AnrKbMgmtCtrl.js:1342
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1369 ../ng_anr/src/AnrKbMgmtCtrl.js:1674
@@ -948,9 +946,8 @@ msgid "Category"
 msgstr "Catégorie"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2067
-#| msgid "Asset added successfully"
 msgid "Category added successfully"
-msgstr ""
+msgstr "Catégorie ajoutée avec succès"
 
 #: views/account.html:45
 msgid "Change password"
@@ -1609,7 +1606,7 @@ msgstr "Description :"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1168
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1485
 msgid "Desktop Computer"
-msgstr ""
+msgstr "Ordinateur de bureau"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:203 ../ng_anr/src/AnrObjectCtrl.js:573
 #: ../ng_anr/src/AnrObjectCtrl.js:92 ../ng_anr/src/InstanceService.js:9
@@ -1711,11 +1708,10 @@ msgid "Display vulnerabilities by"
 msgstr "Trier les vulnérabilités par"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:755
-#| msgid "Do you want to create {{count}} new {{extItemLabel}} ?"
 msgid "Do you want to create new {{externalItem}} ?"
 msgid_plural "Do you want to create {{count}} new {{pluralExtItem}} ?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Voulez-vous créer un nouvel {{externalItem}} ?"
+msgstr[1] "Voulez-vous créer {{count}} nouveaux {{pluralExtItem}} ?"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:45
 msgid "Document name"
@@ -2014,7 +2010,7 @@ msgstr "Preuves"
 
 #: ../ng_anr/views/import.file.html:166
 msgid "Ex: Category1/ Category2/ Category3"
-msgstr ""
+msgstr "Ex : Categorie1/ Categorie2/ Categorie3"
 
 #: ../ng_anr/views/import.file.html:171
 msgid "Ex: Tag1/Tag2/Tag3"
@@ -2800,7 +2796,7 @@ msgstr "Liste des thèmes :"
 
 #: ../ng_anr/views/add.objlib.html:15
 msgid "Loading library ..."
-msgstr ""
+msgstr "Chargement de la bibliothèque ..."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1758 ../ng_anr/views/create.objlibs.html:68
 #: src/kb/info/BackofficeKbInfoCtrl.js:1416
@@ -2835,14 +2831,12 @@ msgid "MAX risk"
 msgstr "Risque MAX"
 
 #: ../ng_anr/views/import.object.html:29
-#| msgid "Import file"
 msgid "MONARC export file"
-msgstr ""
+msgstr "Fichier exporté de MONARC"
 
 #: ../ng_anr/views/import.object.html:30
-#| msgid "Import from MONARC library"
 msgid "MONARC library"
-msgstr ""
+msgstr "Bibliothèque MONARC"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:624
 msgid "MOSP API Key"
@@ -2939,9 +2933,9 @@ msgid "Models"
 msgstr "Modèles"
 
 #: ../ng_anr/views/import.file.html:165
-#| msgid "Multiple tags must be separated by a slash"
 msgid "Multiple categories must be separated by a \"double greater than\""
 msgstr ""
+"Plusieurs catégories doivent être séparées par un \"double supérieur à\""
 
 #: views/dialogs/create.questions.html:80
 msgid "Multiple choices"
@@ -2983,7 +2977,7 @@ msgstr "Réseau"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1168
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1485
 msgid "Network and Telecom"
-msgstr ""
+msgstr "Réseau et Télécom"
 
 #: views/index.client_mgmt.html:6 views/index.client_mgmt.html:8
 msgid "New client"
@@ -3039,11 +3033,10 @@ msgid "New user"
 msgstr "Nouvel utilisateur"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:751
-#| msgid "New {{extItemLabel}}"
 msgid "New {{externalItem}}"
 msgid_plural "New {{pluralExtItem}}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Nouveau {{externalItem}}"
+msgstr[1] "Nouveaux {{pluralExtItem}}"
 
 #: ../ng_anr/views/_oprisk_sheet.html:188 ../ng_anr/views/_risk_sheet.html:198
 #: ../ng_anr/views/trends.evalcontext.html:128
@@ -3238,10 +3231,12 @@ msgid ""
 "Only one operational risk tag can be linked and must exist in the Knowledge "
 "Base"
 msgstr ""
+"Un seul tag du risque opérationnel peut être liée et doit exister dans la "
+"base de connaissances"
 
 #: ../ng_anr/views/import.file.html:177
 msgid "Only one tag to link"
-msgstr ""
+msgstr "Un seul tag à relier"
 
 #: views/models.kb_mgmt.html:71
 msgid "Open details"
@@ -3616,7 +3611,7 @@ msgid ""
 "MONARC user account"
 msgstr ""
 "Enregistrez votre clé API associée à votre compte MOSP ou créez-en une dans "
-"votre compte utilisateur MONARC."
+"votre compte utilisateur MONARC"
 
 #: views/account.html:94
 msgid "Remaining recovery codes: {{ user.remainingRecoveryCodes }}."
@@ -4050,9 +4045,8 @@ msgid "Specific"
 msgstr "Spécifique"
 
 #: views/dialogs/create.clients.html:47
-#| msgid "Specific models links"
 msgid "Specific models"
-msgstr ""
+msgstr "Modèles spécifiques"
 
 #: ../ng_anr/views/create.assets.html:92
 #: ../ng_anr/views/create.threats.html:135 ../ng_anr/views/create.vulns.html:83
@@ -4257,9 +4251,8 @@ msgid "The asset type has been edited successfully."
 msgstr "Le type d’actifs a été modifié mis à jour avec succès."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2067
-#| msgid "The asset has been added to the library."
 msgid "The category has been added to the library."
-msgstr ""
+msgstr "La catégorie a été ajoutée à la bibliothèque."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:3810
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:139
@@ -5587,9 +5580,8 @@ msgstr "générique"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1186
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1504
-#| msgid "Global"
 msgid "global"
-msgstr ""
+msgstr "global"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2935 src/kb/info/BackofficeKbInfoCtrl.js:1760
 msgid "have been created successfully."
@@ -5619,9 +5611,8 @@ msgstr "est obligatoire"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1186
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1504
-#| msgid "Local"
 msgid "local"
-msgstr ""
+msgstr "local"
 
 #: ../ng_anr/views/__external_translate.html:6
 msgid "low risk(s) negligible"
@@ -5667,11 +5658,11 @@ msgstr "spécifique"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:195
 msgid "the asset type code does not exist. Create it before import"
-msgstr ""
+msgstr "le code du type d'actif n'existe pas. Créez-le avant d'importer"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:205
 msgid "the operational risk tag does not exist. Create it before import"
-msgstr ""
+msgstr "Le tag du risque opérationnel n'existe pas. Créez-le avant d'importer"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:286
 msgid "this matching is already in use"
