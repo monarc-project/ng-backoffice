@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-30 10:11+0200\n"
+"PO-Revision-Date: 2022-09-30 11:21+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: none\n"
 "Language: pl\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: views/dialogs/activate.2FA.html:30
 msgid "2FA QRCode"
@@ -274,7 +274,7 @@ msgstr "Dodaj słabą stronę"
 
 #: ../ng_anr/views/add.objlib.html:42
 msgid "Add a whole category"
-msgstr ""
+msgstr "Dodaj całą kategorię"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:10 ../ng_anr/views/_anr.kbmgmt.html:8
 #: ../ng_anr/views/_anr.riskanalysis.html:57 ../ng_anr/views/add.objlib.html:45
@@ -383,7 +383,7 @@ msgstr "Przewodniki analityczne"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1174
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1492
 msgid "Any further information"
-msgstr ""
+msgstr "Wszelkie dalsze informacje"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1026
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1222
@@ -663,7 +663,7 @@ msgstr "Typ aktywów nie może być główny"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1180
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1498
 msgid "Asset type code must exist in the Knowledge Base"
-msgstr ""
+msgstr "Kod typu aktywów musi istnieć w Bazie Wiedzy"
 
 #: ../ng_anr/views/_gettext_caveats.html:50
 msgid "Asset type mode can't be null"
@@ -799,7 +799,7 @@ msgstr "CO"
 
 #: ../ng_anr/views/import.object.html:28
 msgid "CSV file"
-msgstr ""
+msgstr "Plik CSV"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1213 ../ng_anr/src/AnrKbMgmtCtrl.js:1342
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1369 ../ng_anr/src/AnrKbMgmtCtrl.js:1674
@@ -939,7 +939,7 @@ msgstr "Kategoria"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2067
 msgid "Category added successfully"
-msgstr ""
+msgstr "Kategoria dodana pomyślnie"
 
 #: views/account.html:45
 msgid "Change password"
@@ -1600,7 +1600,7 @@ msgstr "Opis:"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1168
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1485
 msgid "Desktop Computer"
-msgstr ""
+msgstr "Komputer stacjonarny"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:203 ../ng_anr/src/AnrObjectCtrl.js:573
 #: ../ng_anr/src/AnrObjectCtrl.js:92 ../ng_anr/src/InstanceService.js:9
@@ -1704,9 +1704,9 @@ msgstr "Wyświetlanie luk w zabezpieczeniach poprzez"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:755
 msgid "Do you want to create new {{externalItem}} ?"
 msgid_plural "Do you want to create {{count}} new {{pluralExtItem}} ?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Czy chcesz stworzyć nowy {{externalItem}} ?"
+msgstr[1] "Czy chcesz stworzyć {{count}} nowy {{pluralExtItem}} ?"
+msgstr[2] "Czy chcesz stworzyć {{count}} nowy {{pluralExtItem}} ?"
 
 #: ../ng_anr/views/deliverable.evalcontext.html:45
 msgid "Document name"
@@ -2003,7 +2003,7 @@ msgstr "Dowody"
 
 #: ../ng_anr/views/import.file.html:166
 msgid "Ex: Category1/ Category2/ Category3"
-msgstr ""
+msgstr "Ex: Kategoria1/ Kategoria2/ Kategoria3"
 
 #: ../ng_anr/views/import.file.html:171
 msgid "Ex: Tag1/Tag2/Tag3"
@@ -2788,7 +2788,7 @@ msgstr "Lista tematów:"
 
 #: ../ng_anr/views/add.objlib.html:15
 msgid "Loading library ..."
-msgstr ""
+msgstr "Ładowanie biblioteki ..."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1758 ../ng_anr/views/create.objlibs.html:68
 #: src/kb/info/BackofficeKbInfoCtrl.js:1416
@@ -2824,11 +2824,11 @@ msgstr "Maksymalne ryzyko"
 
 #: ../ng_anr/views/import.object.html:29
 msgid "MONARC export file"
-msgstr ""
+msgstr "Plik eksportu MONARC"
 
 #: ../ng_anr/views/import.object.html:30
 msgid "MONARC library"
-msgstr ""
+msgstr "Biblioteka MONARC"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:624
 msgid "MOSP API Key"
@@ -2926,7 +2926,7 @@ msgstr "Modele"
 
 #: ../ng_anr/views/import.file.html:165
 msgid "Multiple categories must be separated by a \"double greater than\""
-msgstr ""
+msgstr "Wiele kategorii musi być oddzielonych \"podwójnym większym niż\""
 
 #: views/dialogs/create.questions.html:80
 msgid "Multiple choices"
@@ -2968,7 +2968,7 @@ msgstr "Sieć"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1168
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1485
 msgid "Network and Telecom"
-msgstr ""
+msgstr "Sieć i telekomunikacja"
 
 #: views/index.client_mgmt.html:6 views/index.client_mgmt.html:8
 msgid "New client"
@@ -3026,9 +3026,9 @@ msgstr "Nowy użytkownik"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:751
 msgid "New {{externalItem}}"
 msgid_plural "New {{pluralExtItem}}"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Nowy {{externalItem}}"
+msgstr[1] "Nowy {{pluralExtItem}}"
+msgstr[2] "Nowy {{pluralExtItem}}"
 
 #: ../ng_anr/views/_oprisk_sheet.html:188 ../ng_anr/views/_risk_sheet.html:198
 #: ../ng_anr/views/trends.evalcontext.html:128
@@ -3216,10 +3216,12 @@ msgid ""
 "Only one operational risk tag can be linked and must exist in the Knowledge "
 "Base"
 msgstr ""
+"Tylko jeden tag dotyczący ryzyka operacyjnego może być powiązany i musi "
+"istnieć w bazie wiedzy"
 
 #: ../ng_anr/views/import.file.html:177
 msgid "Only one tag to link"
-msgstr ""
+msgstr "Tylko jeden tag do powiązania"
 
 #: views/models.kb_mgmt.html:71
 msgid "Open details"
@@ -4027,7 +4029,7 @@ msgstr "Konkretnie"
 
 #: views/dialogs/create.clients.html:47
 msgid "Specific models"
-msgstr ""
+msgstr "Określone modele"
 
 #: ../ng_anr/views/create.assets.html:92
 #: ../ng_anr/views/create.threats.html:135 ../ng_anr/views/create.vulns.html:83
@@ -4233,7 +4235,7 @@ msgstr "Typ środka trwałego został pomyślnie edytowany."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2067
 msgid "The category has been added to the library."
-msgstr ""
+msgstr "Kategoria została dodana do biblioteki."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:3810
 #: ../ng_anr/src/CreateObjlibDialogCtrl.js:139
@@ -4452,6 +4454,8 @@ msgid ""
 "The proxy alias may only contain alphanumeric characters, underscores and "
 "dashes, and must be at least 3 characters long."
 msgstr ""
+"Alias proxy może zawierać tylko znaki alfanumeryczne, podkreślenia i "
+"myślniki i musi mieć długość co najmniej 3 znaków."
 
 #: src/kb/BackofficeQuestionsCtrl.js:55
 msgid "The question has been created successfully."
@@ -5550,12 +5554,12 @@ msgstr "dzień(y)"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1313
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1510
 msgid "generic"
-msgstr "ogólne"
+msgstr "ogólna"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1186
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1504
 msgid "global"
-msgstr ""
+msgstr "globalna"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2935 src/kb/info/BackofficeKbInfoCtrl.js:1760
 msgid "have been created successfully."
@@ -5586,7 +5590,7 @@ msgstr "jest obowiązkowy"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1186
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1504
 msgid "local"
-msgstr ""
+msgstr "lokalna"
 
 #: ../ng_anr/views/__external_translate.html:6
 msgid "low risk(s) negligible"
@@ -5628,15 +5632,15 @@ msgstr "aktywa wtórne"
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1313
 #: ../ng_anr/src/ImportFileDialogCtrl.js:1510
 msgid "specific"
-msgstr "specyficzne"
+msgstr "specyficzny"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:195
 msgid "the asset type code does not exist. Create it before import"
-msgstr ""
+msgstr "kod typu zasobu nie istnieje. Utwórz go przed importem"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:205
 msgid "the operational risk tag does not exist. Create it before import"
-msgstr ""
+msgstr "tag ryzyka operacyjnego nie istnieje. Utwórz go przed importem"
 
 #: ../ng_anr/src/ImportFileDialogCtrl.js:286
 msgid "this matching is already in use"
