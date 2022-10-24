@@ -1,7 +1,7 @@
 angular
     .module('BackofficeApp', ['ngMaterial', 'ngAnimate', 'toastr', 'ui.router', 'gettext', 'ngResource',
         'LocalStorageModule', 'md.data.table', 'ncy-angular-breadcrumb', 'ngFileUpload',
-        'ui.tree', 'ngMessages', 'AnrModule', 'ng-countryflags'])
+        'ui.tree', 'ngMessages', 'AnrModule'])
     .config(['$mdThemingProvider', '$stateProvider', '$urlRouterProvider', 'localStorageServiceProvider',
              '$httpProvider', '$breadcrumbProvider', '$provide', 'gettext', '$mdAriaProvider', '$locationProvider',
         function ($mdThemingProvider, $stateProvider, $urlRouterProvider, localStorageServiceProvider,
@@ -327,6 +327,11 @@ angular
             //Handle rejection when close/ESC a $mdDialog
             $rootScope.handleRejectionDialog = function(reject) {
               if(reject !== undefined) throw reject;
+            }
+
+            //Get language code by index
+            $rootScope.getLanguageCode = function(index) {
+              return $rootScope.languages[index].code;
             }
         }
     ]);

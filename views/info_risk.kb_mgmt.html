@@ -469,13 +469,13 @@
                     <tbody md-body>
                     <tr md-row md-select="objlib" md-select-id="id" ng-repeat="objlib in objlibs.items.objects">
                         <td md-cell class="clickable-rows" ng-click="selectCategoryFilter(objlib.category.id)">{{ _langField(objlib.category,'label') }}</td>
-                        <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.id})">{{ _langField(objlib,'name') }}</td>
-                        <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.id})">{{ _langField(objlib,'label') }}</td>
+                        <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.uuid})">{{ _langField(objlib,'name') }}</td>
+                        <td md-cell class="clickable-rows" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.uuid})">{{ _langField(objlib,'label') }}</td>
                         <td md-cell>{{ objlib.asset.code }} - {{ _langField(objlib.asset,'label') }}</td>
                         <td md-cell>{{ objlibScopeStr(objlib.scope) }}</td>
                         <td md-cell>{{ specificityStr(objlib.mode) }}</td>
                         <td md-cell>
-                            <md-button class="md-icon-button md-primary" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.id})"><md-icon>open_in_new</md-icon></md-button>
+                            <md-button class="md-icon-button md-primary" ui-sref="main.kb_mgmt.info_risk.object({objectId: objlib.uuid})"><md-icon>open_in_new</md-icon></md-button>
                             <md-button class="md-icon-button md-primary" ng-click="editObjlib($event, objlib);"><md-icon>edit</md-icon></md-button>
                             <md-button class="md-icon-button md-warn" ng-click="deleteObjlib($event, objlib)"><md-icon>delete</md-icon></md-button>
                         </td>

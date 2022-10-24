@@ -57,6 +57,8 @@
                             $scope.createNewClient(ev, client);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -84,6 +86,8 @@
                                     {clientName: client.name}), gettextCatalog.getString('Edition successful'));
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             };
 
@@ -151,7 +155,7 @@
 
     function CreateClientDialogCtrl($scope, $mdDialog, $q, toastr, gettextCatalog, ModelService, AdminServerGetService, client) {
         ModelService.getModels().then(function (x) {
-            $scope.models = x.models;
+            $scope.models = x.models.filter(model => model.isGeneric == 0);
         });
 
         AdminServerGetService.getServers().then(function (x) {
@@ -165,7 +169,7 @@
                 name: '',
                 proxyAlias: '',
                 contact_email: '',
-                model_id: null
+                model_id: []
             };
         }
 

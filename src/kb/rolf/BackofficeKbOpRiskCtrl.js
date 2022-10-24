@@ -89,6 +89,8 @@
                             $scope.createNewTag(ev, tag);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -120,6 +122,8 @@
                                 $scope.createNewTag(ev, tag);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -259,6 +263,8 @@
                       gettextCatalog.getString('Edition successful'));
                     $rootScope.$broadcast('opRiskUpdated');
                 });
+              }, function (reject) {
+                $scope.handleRejectionDialog(reject);
               });
         }
 
@@ -307,6 +313,8 @@
                             $scope.createNewRisk(ev, riskBackup);
                         }
                     );
+                }, function (reject) {
+                  $scope.handleRejectionDialog(reject);
                 });
         };
 
@@ -348,6 +356,8 @@
                                 $scope.editRisk(ev, riskBackup);
                             }
                         );
+                    }, function (reject) {
+                      $scope.handleRejectionDialog(reject);
                     });
             });
         };
@@ -425,12 +435,6 @@
     function CreateRiskDialogCtrl($scope, $mdDialog, $q, ConfigService, TagService, MeasureService, risk, referentials) {
         $scope.language = ConfigService.getDefaultLanguageIndex();
         $scope.riskopReferentials = referentials;
-
-
-        TagService.getTags().then(function (data) {
-           $scope.listTags = data['tags'];
-        });
-
         $scope.tagSearchText = null;
         $scope.tagSelectedItem = null;
         $scope.queryTagSearch = function (query) {
@@ -557,7 +561,7 @@
 
         $scope.createAndContinue = function() {
             $scope.risk.cont = true;
-            
+
             referentials.forEach(function (ref){
               var promise = $q.defer();
               if ($scope.risk.measures[ref.uuid] != undefined) {
