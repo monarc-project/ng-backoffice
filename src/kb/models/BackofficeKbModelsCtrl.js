@@ -52,7 +52,7 @@
                         function (response) {
                             $scope.updateModels();
                             ModelService.getModel(response.id).then(function(data) {
-                                MetadataInstanceService.createMetadata({anrId: data.anr.id, metadatas:model.metadatas},function(){},function(){})
+                                MetadataInstanceService.createMetadata({anrId: data.anr.id, metadata:model.metadata},function(){},function(){})
                             })
                             toastr.success(gettextCatalog.getString('The model has been created successfully.',
                                 {modelLabel: $scope._langField(model,'label')}), gettextCatalog.getString('Creation successful'));
@@ -182,7 +182,7 @@
             };
         }
 
-        $scope.model.metadatas = [];
+        $scope.model.metadata = [];
 
         $scope.$watch('model.isRegulator', function (newValue) {
             if (newValue) {
@@ -192,7 +192,7 @@
 
         $scope.$watch('language', function (newValue) {
             if (newValue && $scope.model.id) {
-                updateMetadatas();
+                updateMetadata();
             }
         })
 
@@ -204,14 +204,14 @@
             if ($scope.model.id) {
                 MetadataInstanceService.createMetadata({
                     anrId: $scope.model.anr.id,
-                    metadatas: [newChip]},
+                    metadata: [newChip]},
                     function(){
-                        updateMetadatas()
+                        updateMetadata()
                     }
                 );
             } else {
-                newChip['index'] = $scope.model.metadatas.length + 1;
-                $scope.model.metadatas.push(angular.copy(newChip));
+                newChip['index'] = $scope.model.metadata.length + 1;
+                $scope.model.metadata.push(angular.copy(newChip));
                 return newChip;
             }
         }
@@ -227,7 +227,7 @@
                 clickOutsideToClose: false,
                 fullscreen: useFullScreen,
                 onRemoving : function(){
-                    updateMetadatas();
+                    updateMetadata();
                 },
                 locals: {
                     model : $scope.model,
@@ -236,7 +236,7 @@
 
             function editMetadataDialogCtrl($scope, $mdDialog, model){
                 $scope.language = language;
-                $scope.metadata = model.metadatas[metadata.index - 1];
+                $scope.metadata = model.metadata[metadata.index - 1];
 
                 $scope.$watch('language', function (newValue) {
                     if (newValue && model.id) {
@@ -281,17 +281,17 @@
                 .ok(gettextCatalog.getString('Delete'))
                 .cancel(gettextCatalog.getString('Cancel'));
             $mdDialog.show(confirm).then(function() {
-                if ($scope.model.metadatas[index].id && $scope.model.id) {
+                if ($scope.model.metadata[index].id && $scope.model.id) {
                     MetadataInstanceService.deleteMetadata(
-                        $scope.model.metadatas[index].id,
+                        $scope.model.metadata[index].id,
                         $scope.model.anr.id,
-                        updateMetadatas()
+                        updateMetadata()
                     );
                 } else {
-                    $scope.model.metadatas.splice(index,1);
-                    $scope.model.metadatas = angular.copy($scope.model.metadatas);
-                    $scope.model.metadatas.forEach((metadata, i) => {
-                        metadata.index = i + 1
+                    $scope.model.metadata.splice(index,1);
+                    $scope.model.metadata = angular.copy($scope.model.metadata);
+                    $scope.model.metadata.forEach((metadataItem, i) => {
+                        metadataItem.index = i + 1
                     });
                 }
             });
@@ -303,25 +303,25 @@
 
         $scope.create = function() {
             if (!$scope.model.id) {
-                $scope.model.metadatas.forEach((metadata, i) => {
-                    delete metadata.index;
+                $scope.model.metadata.forEach((metadataItem, i) => {
+                    delete metadataItem.index;
                 });
             } else {
-                $scope.model.metadatas = [];
+                $scope.model.metadata = [];
             }
             // Field is "isGeneric", but for UX reasons we display a "Specific" checkbox - invert the value here
             $scope.model.isGeneric = !$scope.model.isGeneric;
             $mdDialog.hide($scope.model);
         };
 
-        function updateMetadatas(){
+        function updateMetadata(){
             let language = $rootScope.getLanguageCode($scope.language);
-            MetadataInstanceService.getMetadatas({
+            MetadataInstanceService.getMetadataList({
                 anrId: $scope.model.anr.id,
-                language:language
+                language: language
             })
             .then(function(data){
-                $scope.model.metadatas = data.data;
+                $scope.model.metadata = data.data;
             });
         };
     }
