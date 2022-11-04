@@ -33,7 +33,7 @@
             <tr md-row ng-repeat="server in servers.servers">
                 <td md-cell>{{ server.label }}</td>
                 <td md-cell>{{ server.fqdn }}</td>
-                <td md-cell>{{ server.ip_address }}</td>
+                <td md-cell>{{ server.ipAddress }}</td>
                 <td md-cell><md-button class="md-icon-button" ng-click="toggleServerStatus(server)"><md-icon>{{ server.status ? 'done' : 'close' }}</md-icon></md-button></td>
                 <td md-cell>
                     <md-button class="md-icon-button md-primary" ng-click="editServer($event, server)">
