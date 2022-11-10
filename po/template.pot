@@ -55,8 +55,8 @@ msgstr ""
 msgid "Accepted"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1000
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1328
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1326
+#: ../ng_anr/src/ImportFileDialogCtrl.js:998
 msgid "Access control policy"
 msgstr ""
 
@@ -421,22 +421,22 @@ msgstr ""
 msgid "Analysis guides"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1174
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1492
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1172
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1490
 msgid "Any further information"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1026
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1222
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1356
-#: ../ng_anr/src/ImportFileDialogCtrl.js:916
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1024
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1220
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1354
+#: ../ng_anr/src/ImportFileDialogCtrl.js:914
 msgid "Any network hardware (router, switch, firewall, etc.)"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1044
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1255
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1375
-#: ../ng_anr/src/ImportFileDialogCtrl.js:942
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1042
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1253
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1373
+#: ../ng_anr/src/ImportFileDialogCtrl.js:940
 msgid "Any situation that could facilitate the conflagration of premises or equipment."
 msgstr ""
 
@@ -528,7 +528,7 @@ msgstr ""
 msgid "Are you sure you want to delete the processing?"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3798
+#: ../ng_anr/src/AnrLayoutCtrl.js:3782
 msgid "Are you sure you want to delete the {{count}} scales selected ?"
 msgstr ""
 
@@ -638,7 +638,7 @@ msgstr ""
 msgid "Ascending"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3270
+#: ../ng_anr/src/AnrLayoutCtrl.js:3254
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:56
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:132
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:94
@@ -685,6 +685,7 @@ msgstr ""
 msgid "Asset context fields"
 msgstr ""
 
+#: ../ng_anr/views/create.objlibs.html:18
 #: ../ng_anr/views/import.instance.html:5
 #: ../ng_anr/views/import.object.html:5
 msgid "Asset import center"
@@ -726,8 +727,8 @@ msgstr ""
 msgid "Asset type can't be primary"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1180
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1498
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1178
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1496
 msgid "Asset type code must exist in the Knowledge Base"
 msgstr ""
 
@@ -899,7 +900,7 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:69
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:881
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:907
-#: ../ng_anr/src/AnrLayoutCtrl.js:3806
+#: ../ng_anr/src/AnrLayoutCtrl.js:3790
 #: ../ng_anr/src/AnrObjectCtrl.js:164
 #: ../ng_anr/src/AnrObjectCtrl.js:204
 #: ../ng_anr/src/AnrObjectCtrl.js:574
@@ -916,8 +917,8 @@ msgstr ""
 #: ../ng_anr/src/AnrRopaCtrl.js:563
 #: ../ng_anr/src/AnrRopaCtrl.js:640
 #: ../ng_anr/src/AnrRopaCtrl.js:709
-#: ../ng_anr/src/ImportFileDialogCtrl.js:766
-#: ../ng_anr/src/ImportFileDialogCtrl.js:782
+#: ../ng_anr/src/ImportFileDialogCtrl.js:764
+#: ../ng_anr/src/ImportFileDialogCtrl.js:780
 #: ../ng_anr/src/InstanceService.js:10
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:109
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:133
@@ -1189,7 +1190,7 @@ msgstr ""
 msgid "Close dialog"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3267
+#: ../ng_anr/src/AnrLayoutCtrl.js:3251
 #: ../ng_anr/src/AnrSoaCtrl.js:254
 #: ../ng_anr/views/_anr.kbmgmt.html:129
 #: ../ng_anr/views/_anr.kbmgmt.html:206
@@ -1361,7 +1362,7 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:765
+#: ../ng_anr/src/ImportFileDialogCtrl.js:763
 msgid "Create & Import"
 msgstr ""
 
@@ -1465,7 +1466,7 @@ msgstr ""
 msgid "Current password"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3272
+#: ../ng_anr/src/AnrLayoutCtrl.js:3256
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:135
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:98
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:55
@@ -1570,7 +1571,7 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:651
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:880
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:906
-#: ../ng_anr/src/AnrLayoutCtrl.js:3805
+#: ../ng_anr/src/AnrLayoutCtrl.js:3789
 #: ../ng_anr/src/AnrObjectCtrl.js:163
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:309
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:331
@@ -1830,8 +1831,8 @@ msgstr ""
 msgid "Description:"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1168
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1485
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1166
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1483
 msgid "Desktop Computer"
 msgstr ""
 
@@ -1894,11 +1895,8 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
-#: views/account.html:85
-msgid "Disable Two-Factor Authentication"
-msgstr ""
-
 #: src/BackofficeAccountCtrl.js:90
+#: views/account.html:85
 msgid "Disable two-factor authentication"
 msgstr ""
 
@@ -1944,7 +1942,7 @@ msgstr ""
 msgid "Display vulnerabilities by"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:755
+#: ../ng_anr/src/ImportFileDialogCtrl.js:753
 msgid "Do you want to create new {{externalItem}} ?"
 msgid_plural "Do you want to create {{count}} new {{pluralExtItem}} ?"
 msgstr[0] ""
@@ -2295,7 +2293,7 @@ msgstr ""
 msgid "Excluded"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3271
+#: ../ng_anr/src/AnrLayoutCtrl.js:3255
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:61
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:134
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:97
@@ -2442,7 +2440,7 @@ msgstr ""
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:66
 #: ../ng_anr/src/AnrRopaCtrl.js:50
-#: ../ng_anr/src/ImportFileDialogCtrl.js:779
+#: ../ng_anr/src/ImportFileDialogCtrl.js:777
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:232
 #: src/kb/info/BackofficeKbInfoCtrl.js:66
 msgid "File error"
@@ -2484,10 +2482,10 @@ msgstr ""
 msgid "Financial management, talent research"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1038
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1249
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1369
-#: ../ng_anr/src/ImportFileDialogCtrl.js:936
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1036
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1247
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1367
+#: ../ng_anr/src/ImportFileDialogCtrl.js:934
 msgid "Fire"
 msgstr ""
 
@@ -2592,8 +2590,8 @@ msgstr ""
 msgid "Go back"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1100
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1434
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1098
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1432
 msgid "Governance"
 msgstr ""
 
@@ -2628,10 +2626,10 @@ msgstr ""
 msgid "I Impact"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1086
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1307
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1419
-#: ../ng_anr/src/ImportFileDialogCtrl.js:986
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1084
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1305
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1417
+#: ../ng_anr/src/ImportFileDialogCtrl.js:984
 msgid "IT charter Conditions of use General terms and conditions"
 msgstr ""
 
@@ -2651,7 +2649,7 @@ msgstr ""
 msgid "If you save this template, previous templates will be lost."
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3269
+#: ../ng_anr/src/AnrLayoutCtrl.js:3253
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:57
 #: ../ng_anr/views/anr.risksplan.html:14
 #: ../ng_anr/views/risks.evalcontext.html:23
@@ -2814,7 +2812,6 @@ msgstr ""
 #: ../ng_anr/views/create.match.html:26
 #: ../ng_anr/views/create.measures.html:17
 #: ../ng_anr/views/create.measures.html:20
-#: ../ng_anr/views/create.objlibs.html:18
 #: ../ng_anr/views/create.objlibs.html:28
 #: ../ng_anr/views/create.recommandation-kbase.html:17
 #: ../ng_anr/views/create.records.html:17
@@ -3335,15 +3332,15 @@ msgstr ""
 msgid "Net risk"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1020
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1216
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1350
-#: ../ng_anr/src/ImportFileDialogCtrl.js:910
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1018
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1214
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1348
+#: ../ng_anr/src/ImportFileDialogCtrl.js:908
 msgid "Network"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1168
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1485
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1166
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1483
 msgid "Network and Telecom"
 msgstr ""
 
@@ -3407,7 +3404,7 @@ msgstr ""
 msgid "New user"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:751
+#: ../ng_anr/src/ImportFileDialogCtrl.js:749
 msgid "New {{externalItem}}"
 msgid_plural "New {{pluralExtItem}}"
 msgstr[0] ""
@@ -3435,10 +3432,10 @@ msgstr ""
 msgid "No Data Avalaible"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1080
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1301
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1413
-#: ../ng_anr/src/ImportFileDialogCtrl.js:980
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1078
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1299
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1411
+#: ../ng_anr/src/ImportFileDialogCtrl.js:978
 msgid "No IT charter specifying the rules of use"
 msgstr ""
 
@@ -3595,8 +3592,8 @@ msgstr ""
 msgid "Only one guide by category"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1192
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1516
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1190
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1514
 msgid "Only one operational risk tag can be linked and must exist in the Knowledge Base"
 msgstr ""
 
@@ -3714,7 +3711,7 @@ msgstr ""
 msgid "Payroll, personnel file, recruitment"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1154
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1152
 msgid "Periodically review access permissions."
 msgstr ""
 
@@ -3727,7 +3724,7 @@ msgid "Personal information"
 msgstr ""
 
 #: ../ng_anr/views/add.objlib.html:19
-msgid "Pick an existing asset from the knowledge base"
+msgid "Pick an existing category or asset from the knowledge base"
 msgstr ""
 
 #: views/login.html:53
@@ -3735,7 +3732,7 @@ msgid "Please enter the e-mail address associated to your account. An e-mail wil
 msgstr ""
 
 #: src/BackofficeLoginCtrl.js:65
-msgid "Please enter your Two Factor Authentication token."
+msgid "Please enter your two-factor authentication token."
 msgstr ""
 
 #: views/passwordforgotten.html:10
@@ -3830,8 +3827,8 @@ msgstr ""
 msgid "Processors"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1120
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1455
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1118
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1453
 msgid "Product Compliance Customer agreement"
 msgstr ""
 
@@ -3872,7 +3869,7 @@ msgstr ""
 msgid "Question"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3463
+#: ../ng_anr/src/AnrLayoutCtrl.js:3447
 msgid "Question deleted"
 msgstr ""
 
@@ -3905,7 +3902,7 @@ msgstr ""
 msgid "Recipients"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3268
+#: ../ng_anr/src/AnrLayoutCtrl.js:3252
 #: ../ng_anr/src/AnrRisksPlanCtrl.js:55
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:51
 #: ../ng_anr/views/anr.risksplan.history.html:11
@@ -4029,7 +4026,7 @@ msgstr ""
 msgid "Reset positions"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3273
+#: ../ng_anr/src/AnrLayoutCtrl.js:3257
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:100
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:137
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:152
@@ -4321,7 +4318,7 @@ msgstr ""
 msgid "Select a referential"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1126
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1124
 msgid "Separed by /"
 msgstr ""
 
@@ -4419,7 +4416,7 @@ msgstr ""
 msgid "Simple text"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3603
+#: ../ng_anr/src/AnrLayoutCtrl.js:3587
 msgid "Snapshot restored"
 msgstr ""
 
@@ -4429,8 +4426,8 @@ msgid "Snapshots"
 msgstr ""
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2899
-#: ../ng_anr/src/AnrLayoutCtrl.js:3839
-#: ../ng_anr/src/AnrLayoutCtrl.js:4028
+#: ../ng_anr/src/AnrLayoutCtrl.js:3823
+#: ../ng_anr/src/AnrLayoutCtrl.js:4012
 #: ../ng_anr/src/AnrRopaCtrl.js:1706
 msgid "Some files could not be imported"
 msgstr ""
@@ -4605,8 +4602,8 @@ msgstr ""
 msgid "The SOA has been imported successfully."
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1114
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1449
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1112
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1447
 msgid "The applicable legal and regulatory requirements are not determined, understood and consistently met"
 msgstr ""
 
@@ -4655,8 +4652,8 @@ msgid "The asset has been exported successfully."
 msgstr ""
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2895
-#: ../ng_anr/src/AnrLayoutCtrl.js:3841
-#: ../ng_anr/src/AnrLayoutCtrl.js:3900
+#: ../ng_anr/src/AnrLayoutCtrl.js:3825
+#: ../ng_anr/src/AnrLayoutCtrl.js:3884
 msgid "The asset has been imported successfully"
 msgstr ""
 
@@ -4825,7 +4822,7 @@ msgstr ""
 msgid "The input does not appear to be an integer"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:4030
+#: ../ng_anr/src/AnrLayoutCtrl.js:4014
 msgid "The instance has been imported successfully"
 msgstr ""
 
@@ -5316,7 +5313,7 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:648
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:877
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:903
-#: ../ng_anr/src/AnrLayoutCtrl.js:3801
+#: ../ng_anr/src/AnrLayoutCtrl.js:3785
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:440
 #: ../ng_anr/src/AnrRopaCtrl.js:230
 #: ../ng_anr/src/AnrRopaCtrl.js:560
@@ -5400,11 +5397,11 @@ msgstr ""
 msgid "Threat"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3530
+#: ../ng_anr/src/AnrLayoutCtrl.js:3514
 msgid "Threat assessment saved successfully"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3545
+#: ../ng_anr/src/AnrLayoutCtrl.js:3529
 msgid "Threat evaluation summary saved successfully"
 msgstr ""
 
@@ -5469,7 +5466,7 @@ msgstr ""
 msgid "Trends assessment"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3441
+#: ../ng_anr/src/AnrLayoutCtrl.js:3425
 msgid "Trends assessment saved successfully"
 msgstr ""
 
@@ -5477,17 +5474,14 @@ msgstr ""
 msgid "Two factor code"
 msgstr ""
 
-#: views/dialogs/activate.2FA.html:15
-msgid "Two-Factor Authentication is already set up. If you submit a new token below, your previous private key will be invalided. This can be an issue if you are using several OTP devices."
-msgstr ""
-
-#: views/account.html:78
-msgid "Two-Factor authentication"
-msgstr ""
-
 #: src/BackofficeAccountCtrl.js:100
 #: src/BackofficeAccountCtrl.js:78
+#: views/account.html:78
 msgid "Two-factor authentication"
+msgstr ""
+
+#: views/dialogs/activate.2FA.html:15
+msgid "Two-factor authentication is already set up. If you submit a new token below, your previous private key will be invalided. This can be an issue if you are using several OTP devices."
 msgstr ""
 
 #: src/BackofficeAccountCtrl.js:78
@@ -5515,7 +5509,7 @@ msgstr ""
 msgid "Type of risks"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3026
+#: ../ng_anr/src/AnrLayoutCtrl.js:3028
 #: ../ng_anr/views/anr.soa.html:18
 #: views/info_risk.kb_mgmt.html:429
 msgid "Uncategorized"
@@ -5721,7 +5715,7 @@ msgstr ""
 msgid "Wrong MOSP API Key. Try again."
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:780
+#: ../ng_anr/src/ImportFileDialogCtrl.js:778
 msgid "Wrong schema"
 msgstr ""
 
@@ -5991,15 +5985,15 @@ msgstr ""
 msgid "day(s)"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1234
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1279
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1313
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1510
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1232
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1277
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1311
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1508
 msgid "generic"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1186
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1504
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1184
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1502
 msgid "global"
 msgstr ""
 
@@ -6027,12 +6021,12 @@ msgstr ""
 msgid "inherited"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:790
+#: ../ng_anr/src/ImportFileDialogCtrl.js:788
 msgid "is mandatory"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1186
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1504
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1184
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1502
 msgid "local"
 msgstr ""
 
@@ -6059,24 +6053,24 @@ msgstr ""
 msgid "of"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1160
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1158
 msgid "or"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1228
-#: ../ng_anr/src/ImportFileDialogCtrl.js:922
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1226
+#: ../ng_anr/src/ImportFileDialogCtrl.js:920
 msgid "primary asset"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1228
-#: ../ng_anr/src/ImportFileDialogCtrl.js:922
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1226
+#: ../ng_anr/src/ImportFileDialogCtrl.js:920
 msgid "secondary asset"
 msgstr ""
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1234
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1279
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1313
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1510
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1232
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1277
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1311
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1508
 msgid "specific"
 msgstr ""
 

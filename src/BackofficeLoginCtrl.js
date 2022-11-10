@@ -62,7 +62,7 @@
           $scope.isLoggingIn = false;
           if (revoked == "2FARequired") {
             $scope.twoFAMode = (revoked == "2FARequired");
-            toastr.warning(gettext('Please enter your Two Factor Authentication token.'));
+            toastr.warning(gettext('Please enter your two-factor authentication token.'));
           }
           if (!revoked) {
             $scope.user.otp = "";
