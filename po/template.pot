@@ -5,6 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 
 #: views/dialogs/activate.2FA.html:30
+#: views/login.html:27
 msgid "2FA QRCode"
 msgstr ""
 
@@ -2000,7 +2001,7 @@ msgstr ""
 #: views/dialogs/create.users.admin.html:35
 #: views/index.client_mgmt.html:40
 #: views/login.html:11
-#: views/login.html:57
+#: views/login.html:66
 #: views/users.admin.html:38
 msgid "E-mail"
 msgstr ""
@@ -2585,8 +2586,8 @@ msgstr ""
 #: ../ng_anr/views/anr.dashboard.html:188
 #: ../ng_anr/views/anr.dashboard.html:46
 #: ../ng_anr/views/anr.dashboard.html:92
-#: views/login.html:36
-#: views/login.html:64
+#: views/login.html:45
+#: views/login.html:73
 msgid "Go back"
 msgstr ""
 
@@ -3169,7 +3170,7 @@ msgstr ""
 msgid "Lock"
 msgstr ""
 
-#: views/login.html:39
+#: views/login.html:48
 msgid "Log in"
 msgstr ""
 
@@ -3698,7 +3699,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: views/login.html:38
+#: views/login.html:47
 msgid "Password forgotten?"
 msgstr ""
 
@@ -3727,12 +3728,20 @@ msgstr ""
 msgid "Pick an existing category or asset from the knowledge base"
 msgstr ""
 
-#: views/login.html:53
+#: src/BackofficeLoginCtrl.js:74
+msgid "Please configure two-factor authentication."
+msgstr ""
+
+#: views/login.html:62
 msgid "Please enter the e-mail address associated to your account. An e-mail will be sent to you with account recovery instructions."
 msgstr ""
 
-#: src/BackofficeLoginCtrl.js:65
+#: src/BackofficeLoginCtrl.js:71
 msgid "Please enter your two-factor authentication token."
+msgstr ""
+
+#: views/login.html:25
+msgid "Please scan the QRCode and enter the verification code."
 msgstr ""
 
 #: views/passwordforgotten.html:10
@@ -3939,7 +3948,7 @@ msgstr ""
 msgid "Record of processing activities"
 msgstr ""
 
-#: views/login.html:29
+#: views/login.html:38
 msgid "Recovery code"
 msgstr ""
 
@@ -4017,7 +4026,7 @@ msgstr ""
 msgid "Reset filter"
 msgstr ""
 
-#: views/login.html:65
+#: views/login.html:74
 #: views/passwordforgotten.html:33
 msgid "Reset password"
 msgstr ""
@@ -4897,7 +4906,7 @@ msgstr ""
 msgid "The organization may not be empty"
 msgstr ""
 
-#: src/BackofficeLoginCtrl.js:29
+#: src/BackofficeLoginCtrl.js:31
 msgid "The password reset request has been sent successfully. You will receive a mail shortly with information on how to reset your account password."
 msgstr ""
 
@@ -5470,10 +5479,6 @@ msgstr ""
 msgid "Trends assessment saved successfully"
 msgstr ""
 
-#: views/login.html:23
-msgid "Two factor code"
-msgstr ""
-
 #: src/BackofficeAccountCtrl.js:100
 #: src/BackofficeAccountCtrl.js:78
 #: views/account.html:78
@@ -5484,12 +5489,24 @@ msgstr ""
 msgid "Two-factor authentication is already set up. If you submit a new token below, your previous private key will be invalided. This can be an issue if you are using several OTP devices."
 msgstr ""
 
+#: views/login.html:24
+msgid "Two-factor authentication is enforced on this instance."
+msgstr ""
+
 #: src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication is now activated."
 msgstr ""
 
 #: src/BackofficeAccountCtrl.js:100
 msgid "Two-factor authentication is now deactivated."
+msgstr ""
+
+#: views/login.html:32
+msgid "Two-factor code"
+msgstr ""
+
+#: views/login.html:23
+msgid "Two-factor verification code"
 msgstr ""
 
 #: ../ng_anr/views/_anr.evalscales.html:254
@@ -5557,7 +5574,7 @@ msgstr ""
 msgid "Use an existing risk"
 msgstr ""
 
-#: views/login.html:37
+#: views/login.html:46
 msgid "Use recovery code?"
 msgstr ""
 
@@ -5907,7 +5924,7 @@ msgstr ""
 msgid "You won't be able to view this again."
 msgstr ""
 
-#: src/BackofficeLoginCtrl.js:70
+#: src/BackofficeLoginCtrl.js:80
 msgid "Your e-mail address or password is invalid, please try again."
 msgstr ""
 

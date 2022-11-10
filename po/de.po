@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-10 10:10+0100\n"
+"PO-Revision-Date: 2022-11-10 10:17+0100\n"
 "Last-Translator: Cédric Bonhomme <cedric@cedricbonhomme.org>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: views/dialogs/activate.2FA.html:30
+#: views/dialogs/activate.2FA.html:30 views/login.html:27
 msgid "2FA QRCode"
 msgstr "2FA QRCode"
 
@@ -1759,7 +1759,7 @@ msgid "Dutch"
 msgstr "Niederländisch"
 
 #: views/account.html:24 views/dialogs/create.users.admin.html:35
-#: views/index.client_mgmt.html:40 views/login.html:11 views/login.html:57
+#: views/index.client_mgmt.html:40 views/login.html:11 views/login.html:66
 #: views/users.admin.html:38
 msgid "E-mail"
 msgstr "E-Mail"
@@ -2290,8 +2290,8 @@ msgstr "Globale Werte"
 #: ../ng_anr/src/Charts/RadarChartService.js:62
 #: ../ng_anr/views/anr.dashboard.html:142
 #: ../ng_anr/views/anr.dashboard.html:188 ../ng_anr/views/anr.dashboard.html:46
-#: ../ng_anr/views/anr.dashboard.html:92 views/login.html:36
-#: views/login.html:64
+#: ../ng_anr/views/anr.dashboard.html:92 views/login.html:45
+#: views/login.html:73
 msgid "Go back"
 msgstr "Gehe zurück"
 
@@ -2809,7 +2809,7 @@ msgstr "Ort"
 msgid "Lock"
 msgstr "Sperren"
 
-#: views/login.html:39
+#: views/login.html:48
 msgid "Log in"
 msgstr "Anmelden"
 
@@ -3314,7 +3314,7 @@ msgstr "Übergeordnetes Element fehlt"
 msgid "Password"
 msgstr "Kennwort"
 
-#: views/login.html:38
+#: views/login.html:47
 msgid "Password forgotten?"
 msgstr "Kennwort vergessen?"
 
@@ -3339,12 +3339,16 @@ msgid "Personal information"
 msgstr "Privatinformationen"
 
 #: ../ng_anr/views/add.objlib.html:19
-#, fuzzy
-#| msgid "Pick an existing asset from the knowledge base"
 msgid "Pick an existing category or asset from the knowledge base"
-msgstr "Wählen Sie einen existierenden Wert aus der Wissensdatenbank"
+msgstr ""
+"Wählen Sie eine vorhandene Kategorie oder ein Asset aus der Wissensdatenbank "
+"aus"
 
-#: views/login.html:53
+#: src/BackofficeLoginCtrl.js:74
+msgid "Please configure two-factor authentication."
+msgstr "Bitte konfigurieren Sie die Zwei-Faktor-Authentifizierung."
+
+#: views/login.html:62
 msgid ""
 "Please enter the e-mail address associated to your account. An e-mail will "
 "be sent to you with account recovery instructions."
@@ -3352,11 +3356,13 @@ msgstr ""
 "Bitte geben Sie die Ihrem Konto zugeordnete E-Mail-Adresse ein. Sie werden "
 "eine E-Mail mit Anleitungen zur Kontowiederherstellung erhalten."
 
-#: src/BackofficeLoginCtrl.js:65
-#, fuzzy
-#| msgid "Please enter your Two Factor Authentication token."
+#: src/BackofficeLoginCtrl.js:71
 msgid "Please enter your two-factor authentication token."
-msgstr "Bitte geben Sie Ihren zwei Faktor -Authentifizierungs -Token ein."
+msgstr "Bitte geben Sie Ihr Zwei-Faktor-Authentifizierungstoken ein."
+
+#: views/login.html:25
+msgid "Please scan the QRCode and enter the verification code."
+msgstr "Bitte scannen Sie den QRCode und geben Sie den Bestätigungscode ein."
 
 #: views/passwordforgotten.html:10
 msgid "Please type in and confirm your new password"
@@ -3554,7 +3560,7 @@ msgstr "Empfehlungssets"
 msgid "Record of processing activities"
 msgstr "Verzeichnis von Verarbeitungstätigkeiten"
 
-#: views/login.html:29
+#: views/login.html:38
 msgid "Recovery code"
 msgstr "Wiederherstellungscode"
 
@@ -3629,7 +3635,7 @@ msgstr "Vertreter"
 msgid "Reset filter"
 msgstr "Filter zurücksetzen"
 
-#: views/login.html:65 views/passwordforgotten.html:33
+#: views/login.html:74 views/passwordforgotten.html:33
 msgid "Reset password"
 msgstr "Kennwort zurücksetzen"
 
@@ -4447,7 +4453,7 @@ msgstr ""
 msgid "The organization may not be empty"
 msgstr "Die Organisation darf nicht leer sein"
 
-#: src/BackofficeLoginCtrl.js:29
+#: src/BackofficeLoginCtrl.js:31
 msgid ""
 "The password reset request has been sent successfully. You will receive a "
 "mail shortly with information on how to reset your account password."
@@ -5028,29 +5034,24 @@ msgstr "Beurteilung von Trends"
 msgid "Trends assessment saved successfully"
 msgstr "Beurteilung von Trends erfolgreich gespeichert"
 
-#: views/login.html:23
-msgid "Two factor code"
-msgstr "Zwei -Faktor -Code"
-
 #: src/BackofficeAccountCtrl.js:100 src/BackofficeAccountCtrl.js:78
 #: views/account.html:78
 msgid "Two-factor authentication"
 msgstr "Zwei-Faktor-Authentifizierung"
 
 #: views/dialogs/activate.2FA.html:15
-#, fuzzy
-#| msgid ""
-#| "Two-Factor Authentication is already set up. If you submit a new token "
-#| "below, your previous private key will be invalided. This can be an issue "
-#| "if you are using several OTP devices."
 msgid ""
 "Two-factor authentication is already set up. If you submit a new token "
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
 msgstr ""
 "Die Zwei-Faktor-Authentifizierung ist bereits eingerichtet. Wenn Sie unten "
-"ein neues Token eingeben, wird Ihr vorheriger privater Schlüssel ungültig. "
-"Dies kann ein Problem darstellen, wenn Sie mehrere OTP-Geräte verwenden."
+"ein neues Token einreichen, wird Ihr vorheriger privater Schlüssel ungültig. "
+"Dies kann ein Problem sein, wenn Sie mehrere OTP-Geräte verwenden."
+
+#: views/login.html:24
+msgid "Two-factor authentication is enforced on this instance."
+msgstr "Auf dieser Instanz wird die Zwei-Faktor-Authentifizierung erzwungen."
 
 #: src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication is now activated."
@@ -5059,6 +5060,14 @@ msgstr "Die Zwei-Faktor-Authentifizierung wird jetzt aktiviert."
 #: src/BackofficeAccountCtrl.js:100
 msgid "Two-factor authentication is now deactivated."
 msgstr "Die Zwei-Faktor-Authentifizierung ist jetzt deaktiviert."
+
+#: views/login.html:32
+msgid "Two-factor code"
+msgstr "Zwei-Faktor-Code"
+
+#: views/login.html:23
+msgid "Two-factor verification code"
+msgstr "Zwei-Faktor-Bestätigungscode"
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
@@ -5123,7 +5132,7 @@ msgstr ""
 msgid "Use an existing risk"
 msgstr "Ein existierendes Risiko verwenden"
 
-#: views/login.html:37
+#: views/login.html:46
 msgid "Use recovery code?"
 msgstr "Wiederherstellungscode verwenden?"
 
@@ -5493,7 +5502,7 @@ msgstr "Sie müssen ein Kennwort eingeben"
 msgid "You won't be able to view this again."
 msgstr "Sie werden dies nicht noch einmal anzeigen können."
 
-#: src/BackofficeLoginCtrl.js:70
+#: src/BackofficeLoginCtrl.js:80
 msgid "Your e-mail address or password is invalid, please try again."
 msgstr ""
 "Ihre E-Mail-Adresse oder Ihr Kennwort ist ungültig, versuchen Sie es erneut."
@@ -5755,9 +5764,3 @@ msgstr "{{count}} Bedrohungen wurden gelöscht."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:915 src/kb/info/BackofficeKbInfoCtrl.js:761
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} Schwachstelle(n) wurde(n) gelöscht."
-
-#~ msgid "Disable Two-Factor Authentication"
-#~ msgstr "Deaktivieren Sie die Zwei-Faktor-Authentifizierung"
-
-#~ msgid "Two-Factor authentication"
-#~ msgstr "Zwei-Faktor-Authentifizierung"
