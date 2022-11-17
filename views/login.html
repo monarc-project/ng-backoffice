@@ -3,7 +3,7 @@
 <div layout="row" layout-align="center center" class="md-main-content" ng-controller="BackofficeLoginCtrl" style="background: #F0F0F0" flex>
     <div layout="column" flex flex-gt-sm="50" flex-gt-md="40" class="md-whiteframe-12dp" style="background: white; z-index:2" ng-if="!pwForgotMode">
         <div layout-align="center center" layout="row" class="md-padding">
-            <img src="img/logo-cases.png" style="width: 30% ;margin: 10px 0 0 0">
+            <img src="img/logo-monarc.png" style="width: 30% ;margin: 10px 0 0 0">
         </div>
 
         <form layout="column" class="md-padding" ng-submit="login()">
@@ -19,8 +19,17 @@
                 <input ng-model="user.password" type="password" ng-disabled="isLoggingIn">
             </md-input-container>
 
+            <md-input-container flex ng-if="twoFASetUpMode">
+              <label translate>Two-factor verification code</label>
+              <p translate>Two-factor authentication is enforced on this instance.</p>
+              <p translate>Please scan the QRCode and enter the verification code.</p>
+              <md-icon>pin</md-icon>
+              <img ng-src="{{ user.qrcode }}" ng-attr-title="{{ '2FA QRCode' | translate }}" ng-align="right"></img>
+              <input ng-model="user.verificationCode" type="password" ng-disabled="isLoggingIn" focus-me="twoFASetUpMode">
+            </md-input-container>
+
             <md-input-container flex ng-if="twoFAMode">
-                <label translate>Two factor code</label>
+                <label translate>Two-factor code</label>
                 <md-icon>vpn_key</md-icon>
                 <input ng-model="user.otp" type="password" ng-disabled="isLoggingIn" focus-me="twoFAMode">
             </md-input-container>
@@ -45,7 +54,7 @@
 
     <div layout="column" flex flex-gt-sm="50" flex-gt-md="40" class="md-whiteframe-12dp" style="background: white; z-index:2" ng-if="pwForgotMode">
         <div layout-align="center center" layout="row" class="md-padding">
-            <img src="img/logo-cases.png" style="width: 30% ;margin: 10px 0 0 0">
+            <img src="img/logo-monarc.png" style="width: 30% ;margin: 10px 0 0 0">
         </div>
 
         <form layout="column" class="md-padding" ng-submit="passwordForgottenImpl()">
