@@ -47,18 +47,18 @@
                 </div>
                 <md-subheader>{{ 'Asset context fields' | translate }}</md-subheader>
                 <md-chips
-                    ng-model="model.metadata"
+                    ng-model="model.metadataFields"
                     placeholder="+ {{ 'Add a context field' | translate }}"
                     md-removable=false
                     md-transform-chip = "newChip($chip, $root.getLanguageCode(language))">
                     <md-chip-template class="metadataInstanceChips" layout="row">
                         <strong class="md-padding">[{{$chip.index}}]</strong>
                         <span class="md-padding">{{$chip[$root.languages[language].code]}}</span>
-                        <md-button  class="md-primary md-icon-button" ng-click="editMetadata($event, $root.languages[language].index, $chip)">
+                        <md-button  class="md-primary md-icon-button" ng-click="editMetadataField($event, $root.languages[language].index, $chip)">
                             <md-icon>edit</md-icon>
                             <md-tooltip>{{ 'Edit' | translate }}</md-tooltip>
                         </md-button>
-                        <md-button class="md-warn md-icon-button" ng-click="deleteMetadata($event, $index)">
+                        <md-button class="md-warn md-icon-button" ng-click="deleteMetadataField($event, $index)">
                             <md-icon>delete</md-icon>
                             <md-tooltip>{{ 'Delete' | translate }}</md-tooltip>
                         </md-button>

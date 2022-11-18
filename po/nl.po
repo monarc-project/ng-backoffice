@@ -1059,7 +1059,7 @@ msgstr "Sluiten"
 #: views/dialogs/create.servers.admin.html:9
 #: views/dialogs/create.users.admin.html:9
 #: views/dialogs/display.recoverycodes.html:8
-#: views/dialogs/edit.metadataInstance.html:8
+#: views/dialogs/edit.metadataField.html:8
 msgid "Close dialog"
 msgstr "Het venster sluiten"
 
@@ -1782,7 +1782,7 @@ msgstr "De aanbeveling wijzigen"
 msgid "Edit asset"
 msgstr "Het actief wijzigen"
 
-#: views/dialogs/edit.metadataInstance.html:5
+#: views/dialogs/edit.metadataField.html:5
 msgid "Edit asset context field"
 msgstr "Bewerk asset contextveld"
 
@@ -2704,7 +2704,7 @@ msgstr "WV"
 #: ../ng_anr/views/delete.scale.html:16 views/dialogs/create.models.html:28
 #: views/dialogs/create.questions.html:27
 #: views/dialogs/create.servers.admin.html:16
-#: views/dialogs/edit.metadataInstance.html:25 views/info_risk.kb_mgmt.html:122
+#: views/dialogs/edit.metadataField.html:25 views/info_risk.kb_mgmt.html:122
 #: views/info_risk.kb_mgmt.html:196 views/info_risk.kb_mgmt.html:292
 #: views/info_risk.kb_mgmt.html:461 views/info_risk.kb_mgmt.html:48
 #: views/models.kb_mgmt.html:53 views/op_risk.kb_mgmt.html:124
@@ -2732,7 +2732,7 @@ msgstr "Benamingen en beschrijvingen"
 #: views/dialogs/create.guides.html:39
 #: views/dialogs/create.guides.items.html:51
 #: views/dialogs/create.models.html:16 views/dialogs/create.questions.html:16
-#: views/dialogs/edit.metadataInstance.html:15 views/index.backoffice.html:129
+#: views/dialogs/edit.metadataField.html:15 views/index.backoffice.html:129
 msgid "Language"
 msgstr "Taal"
 
@@ -4395,7 +4395,7 @@ msgstr "Het element werd met succes gewijzigd."
 #: ../ng_anr/views/create.threats.html:52 ../ng_anr/views/create.vulns.html:52
 #: views/dialogs/create.models.html:32
 #: views/dialogs/create.servers.admin.html:20
-#: views/dialogs/edit.metadataInstance.html:29
+#: views/dialogs/edit.metadataField.html:29
 msgid "The label may not be empty"
 msgstr "De benaming mag niet leeg zijn"
 
