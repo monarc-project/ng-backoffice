@@ -253,7 +253,7 @@
                 })
 
                 $scope.$watch(
-                    'metadataFields[$root.getLanguageCode(language)]',
+                    'metadataField[$root.getLanguageCode(language)]',
                     function (newValue, oldValue) {
                         if (model.id && newValue && oldValue && newValue != oldValue) {
                             let language = $rootScope.getLanguageCode($scope.language);
