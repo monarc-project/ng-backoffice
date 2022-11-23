@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-30 11:21+0000\n"
+"PO-Revision-Date: 2022-11-23 10:59+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: views/dialogs/activate.2FA.html:30 views/login.html:27
 msgid "2FA QRCode"
@@ -1716,7 +1716,7 @@ msgstr "Показать угрозы по"
 #: ../ng_anr/views/anr.dashboard.html:197
 #: ../ng_anr/views/anr.dashboard.html:266 ../ng_anr/views/anr.dashboard.html:57
 msgid "Display treatment by"
-msgstr ""
+msgstr "Показать лечение по"
 
 #: ../ng_anr/views/anr.dashboard.html:341
 msgid "Display vulnerabilities by"
@@ -2199,7 +2199,7 @@ msgstr "Тип файла не поддерживается"
 #: ../ng_anr/views/anr.dashboard.html:184
 #: ../ng_anr/views/anr.dashboard.html:253 ../ng_anr/views/anr.dashboard.html:44
 msgid "Filter by treatment"
-msgstr ""
+msgstr "Фильтр по лечению"
 
 #: ../ng_anr/views/_table_risks.html:42 ../ng_anr/views/_table_risks_op.html:42
 msgid "Filter table"
@@ -3211,7 +3211,7 @@ msgstr "Не обработанный"
 
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
-msgstr ""
+msgstr "Количество угроз для отображения"
 
 #: ../ng_anr/views/anr.dashboard.html:351
 #: ../ng_anr/views/anr.dashboard.html:372
@@ -3374,11 +3374,11 @@ msgstr "Личная информация"
 
 #: ../ng_anr/views/add.objlib.html:19
 msgid "Pick an existing category or asset from the knowledge base"
-msgstr ""
+msgstr "Выберите существующую категорию или актив из базы знаний."
 
 #: src/BackofficeLoginCtrl.js:74
 msgid "Please configure two-factor authentication."
-msgstr ""
+msgstr "Пожалуйста, настройте двухфакторную аутентификацию."
 
 #: views/login.html:62
 msgid ""
@@ -3391,11 +3391,11 @@ msgstr ""
 
 #: src/BackofficeLoginCtrl.js:71
 msgid "Please enter your two-factor authentication token."
-msgstr ""
+msgstr "Введите маркер двухфакторной аутентификации."
 
 #: views/login.html:25
 msgid "Please scan the QRCode and enter the verification code."
-msgstr ""
+msgstr "Пожалуйста, отсканируйте QRCode и введите код проверки."
 
 #: views/passwordforgotten.html:10
 msgid "Please type in and confirm your new password"
@@ -5040,7 +5040,7 @@ msgstr "Всего"
 #: ../ng_anr/views/anr.dashboard.html:187
 #: ../ng_anr/views/anr.dashboard.html:256 ../ng_anr/views/anr.dashboard.html:47
 msgid "Treated"
-msgstr ""
+msgstr "Обработано"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:151 ../ng_anr/src/AnrSoaSheetCtrl.js:58
 #: ../ng_anr/views/_table_risks.html:92 ../ng_anr/views/_table_risks_op.html:92
@@ -5072,7 +5072,7 @@ msgstr "Двухфакторная аутентификация"
 
 #: src/BackofficeAccountCtrl.js:82
 msgid "Two-factor authentication failed"
-msgstr ""
+msgstr "Двухфакторная аутентификация не прошла"
 
 #: views/dialogs/activate.2FA.html:15
 msgid ""
@@ -5080,10 +5080,13 @@ msgid ""
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
 msgstr ""
+"Двухфакторная аутентификация уже настроена. Если вы отправите новый токен "
+"ниже, ваш предыдущий закрытый ключ будет аннулирован. Это может быть "
+"проблемой, если вы используете несколько устройств OTP."
 
 #: views/login.html:24
 msgid "Two-factor authentication is enforced on this instance."
-msgstr ""
+msgstr "На данном экземпляре двухфакторная аутентификация включена."
 
 #: src/BackofficeAccountCtrl.js:79
 msgid "Two-factor authentication is now activated."
@@ -5099,7 +5102,7 @@ msgstr ""
 
 #: views/login.html:23
 msgid "Two-factor verification code"
-msgstr ""
+msgstr "Код двухфакторной проверки"
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
