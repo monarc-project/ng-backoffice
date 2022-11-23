@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-30 11:21+0000\n"
+"PO-Revision-Date: 2022-11-23 10:59+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
-"Language-Team: Spanish <https://translate.monarc.lu/projects/monarc/back-"
-"office/es/>\n"
+"Language-Team: Spanish <https://translate.monarc.lu/projects/monarc/"
+"back-office/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: views/dialogs/activate.2FA.html:30 views/login.html:27
 msgid "2FA QRCode"
@@ -1731,7 +1731,7 @@ msgstr "Mostrar amenazas por"
 #: ../ng_anr/views/anr.dashboard.html:197
 #: ../ng_anr/views/anr.dashboard.html:266 ../ng_anr/views/anr.dashboard.html:57
 msgid "Display treatment by"
-msgstr ""
+msgstr "Mostrar tratamiento por"
 
 #: ../ng_anr/views/anr.dashboard.html:341
 msgid "Display vulnerabilities by"
@@ -2215,7 +2215,7 @@ msgstr "Tipo de archivo no admitido"
 #: ../ng_anr/views/anr.dashboard.html:184
 #: ../ng_anr/views/anr.dashboard.html:253 ../ng_anr/views/anr.dashboard.html:44
 msgid "Filter by treatment"
-msgstr ""
+msgstr "Filtrar por tratamiento"
 
 #: ../ng_anr/views/_table_risks.html:42 ../ng_anr/views/_table_risks_op.html:42
 msgid "Filter table"
@@ -3234,7 +3234,7 @@ msgstr "No se ha tratado"
 
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
-msgstr ""
+msgstr "Número de amenazas a mostrar"
 
 #: ../ng_anr/views/anr.dashboard.html:351
 #: ../ng_anr/views/anr.dashboard.html:372
@@ -3398,11 +3398,11 @@ msgstr "Información personal"
 
 #: ../ng_anr/views/add.objlib.html:19
 msgid "Pick an existing category or asset from the knowledge base"
-msgstr ""
+msgstr "Elija una categoría o un activo existente en la base de conocimientos"
 
 #: src/BackofficeLoginCtrl.js:74
 msgid "Please configure two-factor authentication."
-msgstr ""
+msgstr "Por favor, configure la autenticación de dos factores."
 
 #: views/login.html:62
 msgid ""
@@ -3414,11 +3414,11 @@ msgstr ""
 
 #: src/BackofficeLoginCtrl.js:71
 msgid "Please enter your two-factor authentication token."
-msgstr ""
+msgstr "Por favor, introduzca su token de autenticación de dos factores."
 
 #: views/login.html:25
 msgid "Please scan the QRCode and enter the verification code."
-msgstr ""
+msgstr "Por favor, escanee el QRCode e introduzca el código de verificación."
 
 #: views/passwordforgotten.html:10
 msgid "Please type in and confirm your new password"
@@ -5068,7 +5068,7 @@ msgstr "Total"
 #: ../ng_anr/views/anr.dashboard.html:187
 #: ../ng_anr/views/anr.dashboard.html:256 ../ng_anr/views/anr.dashboard.html:47
 msgid "Treated"
-msgstr ""
+msgstr "Tratado"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:151 ../ng_anr/src/AnrSoaSheetCtrl.js:58
 #: ../ng_anr/views/_table_risks.html:92 ../ng_anr/views/_table_risks_op.html:92
@@ -5100,7 +5100,7 @@ msgstr "Autenticación de dos factores"
 
 #: src/BackofficeAccountCtrl.js:82
 msgid "Two-factor authentication failed"
-msgstr ""
+msgstr "La autenticación de dos factores ha fallado"
 
 #: views/dialogs/activate.2FA.html:15
 msgid ""
@@ -5108,10 +5108,13 @@ msgid ""
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
 msgstr ""
+"La autenticación de dos factores ya está configurada. Si envías un nuevo "
+"token a continuación, tu clave privada anterior quedará invalidada. Esto "
+"puede ser un problema si está utilizando varios dispositivos OTP."
 
 #: views/login.html:24
 msgid "Two-factor authentication is enforced on this instance."
-msgstr ""
+msgstr "La autenticación de dos factores se aplica en esta instancia."
 
 #: src/BackofficeAccountCtrl.js:79
 msgid "Two-factor authentication is now activated."
@@ -5127,7 +5130,7 @@ msgstr ""
 
 #: views/login.html:23
 msgid "Two-factor verification code"
-msgstr ""
+msgstr "Código de verificación de dos factores"
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
