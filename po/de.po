@@ -347,7 +347,6 @@ msgid "Administration"
 msgstr "Verwaltung"
 
 #: ../ng_anr/views/anr.dashboard.html:359
-#: ../ng_anr/views/anr.dashboard.html:258
 msgid "All"
 msgstr "Alle"
 
@@ -372,9 +371,7 @@ msgstr "Kein Wertemodell darf Regulierer sein"
 #: ../ng_anr/views/anr.dashboard.html:239
 #: ../ng_anr/views/anr.dashboard.html:269 ../ng_anr/views/anr.dashboard.html:30
 #: ../ng_anr/views/anr.dashboard.html:60 ../ng_anr/views/anr.dashboard.html:98
-#: views/info_risk.kb_mgmt.html:437 ../ng_anr/views/anr.dashboard.html:125
-#: ../ng_anr/views/anr.dashboard.html:171 ../ng_anr/views/anr.dashboard.html:29
-#: ../ng_anr/views/anr.dashboard.html:75
+#: views/info_risk.kb_mgmt.html:437
 msgid "All assets"
 msgstr "Alle Werte"
 
@@ -597,11 +594,11 @@ msgstr "Soll der Wert wirklich getrennt werden?"
 msgid "Are you sure you want to detach recommendation ?"
 msgstr "Soll die Empfehlung wirklich getrennt werden?"
 
-#: src/BackofficeAccountCtrl.js:96 src/BackofficeAccountCtrl.js:91
+#: src/BackofficeAccountCtrl.js:96
 msgid "Are you sure you want to disable two-factor authentication?"
 msgstr "Möchten Sie die Zwei-Faktor-Authentifizierung wirklich deaktivieren?"
 
-#: src/BackofficeAccountCtrl.js:118 src/BackofficeAccountCtrl.js:113
+#: src/BackofficeAccountCtrl.js:118
 msgid "Are you sure you want to generate new recovery codes ?"
 msgstr "Möchten Sie wirklich neue Wiederherstellungscodes generieren?"
 
@@ -626,7 +623,7 @@ msgstr "Aufsteigend"
 #: ../ng_anr/views/anr.soa.sheet.html:20 ../ng_anr/views/anr.soa.sheet.html:92
 #: ../ng_anr/views/import.object.mosp.html:38 ../ng_anr/views/object.html:72
 #: ../ng_anr/views/risks.evalcontext.html:24 views/info_risk.kb_mgmt.html:376
-#: views/info_risk.kb_mgmt.html:436 ../ng_anr/views/anr.dashboard.html:333
+#: views/info_risk.kb_mgmt.html:436
 msgid "Asset"
 msgstr "Wert"
 
@@ -928,13 +925,11 @@ msgstr "CSV-Datei"
 #: views/dialogs/create.guides.items.html:71
 #: views/dialogs/create.models.html:72 views/dialogs/create.questions.html:108
 #: views/dialogs/create.servers.admin.html:51
-#: views/dialogs/create.users.admin.html:62 src/BackofficeAccountCtrl.js:117
-#: src/BackofficeAccountCtrl.js:95
+#: views/dialogs/create.users.admin.html:62
 msgid "Cancel"
 msgstr "Abbrechen"
 
 #: ../ng_anr/views/anr.dashboard.html:387
-#: ../ng_anr/views/anr.dashboard.html:277
 msgid "Cartography"
 msgstr "Kartographie"
 
@@ -978,12 +973,6 @@ msgstr "Kennwort ändern"
 #: ../ng_anr/views/anr.dashboard.html:315 ../ng_anr/views/anr.dashboard.html:36
 #: ../ng_anr/views/anr.dashboard.html:364
 #: ../ng_anr/views/anr.dashboard.html:450
-#: ../ng_anr/views/anr.dashboard.html:131
-#: ../ng_anr/views/anr.dashboard.html:177
-#: ../ng_anr/views/anr.dashboard.html:224
-#: ../ng_anr/views/anr.dashboard.html:263
-#: ../ng_anr/views/anr.dashboard.html:340 ../ng_anr/views/anr.dashboard.html:35
-#: ../ng_anr/views/anr.dashboard.html:81
 msgid "Chart type"
 msgstr "Diagrammtyp"
 
@@ -1138,7 +1127,6 @@ msgstr "Firma"
 
 #: ../ng_anr/views/_anr.evalscales.html:525
 #: ../ng_anr/views/anr.dashboard.html:419
-#: ../ng_anr/views/anr.dashboard.html:309
 msgid "Compliance"
 msgstr "Konformität"
 
@@ -1347,8 +1335,6 @@ msgstr "Aktuelle Risiko (Nettorisiko)"
 
 #: ../ng_anr/views/anr.dashboard.html:163 ../ng_anr/views/anr.dashboard.html:23
 #: ../ng_anr/views/anr.dashboard.html:400
-#: ../ng_anr/views/anr.dashboard.html:119
-#: ../ng_anr/views/anr.dashboard.html:290
 msgid "Current risks"
 msgstr "Aktuelle Risiken"
 
@@ -1685,12 +1671,11 @@ msgstr "Vertreter trennen"
 msgid "Details"
 msgstr "Details"
 
-#: src/BackofficeAccountCtrl.js:98 src/BackofficeAccountCtrl.js:93
+#: src/BackofficeAccountCtrl.js:98
 msgid "Disable"
 msgstr "Deaktivieren"
 
 #: src/BackofficeAccountCtrl.js:95 views/account.html:85
-#: src/BackofficeAccountCtrl.js:90
 msgid "Disable two-factor authentication"
 msgstr "Zwei-Faktor-Authentifizierung deaktivieren"
 
@@ -1700,22 +1685,14 @@ msgstr "Zwei-Faktor-Authentifizierung deaktivieren"
 #: ../ng_anr/views/anr.dashboard.html:317
 #: ../ng_anr/views/anr.dashboard.html:366 ../ng_anr/views/anr.dashboard.html:38
 #: ../ng_anr/views/anr.dashboard.html:452
-#: ../ng_anr/views/anr.dashboard.html:133
-#: ../ng_anr/views/anr.dashboard.html:179
-#: ../ng_anr/views/anr.dashboard.html:226
-#: ../ng_anr/views/anr.dashboard.html:265
-#: ../ng_anr/views/anr.dashboard.html:342 ../ng_anr/views/anr.dashboard.html:37
-#: ../ng_anr/views/anr.dashboard.html:83
 msgid "Discrete Bar Chart"
 msgstr "Vertikales Histogramm"
 
 #: ../ng_anr/views/anr.dashboard.html:422
-#: ../ng_anr/views/anr.dashboard.html:312
 msgid "Display compliance of"
 msgstr "Zeigen Sie die Konformität von"
 
 #: ../ng_anr/views/anr.dashboard.html:166
-#: ../ng_anr/views/anr.dashboard.html:122
 msgid "Display current operational risks by"
 msgstr "Aktuelle operationelle Risiken anzeigen nach"
 
@@ -1724,21 +1701,18 @@ msgid "Display current risks by"
 msgstr "Aktuelle Risiken anzeigen nach"
 
 #: ../ng_anr/views/anr.dashboard.html:440
-#: ../ng_anr/views/anr.dashboard.html:330
 msgid "Display recommendations by"
 msgstr "Empfehlungen anzeigen nach"
 
 #: ../ng_anr/views/anr.dashboard.html:235
-#: ../ng_anr/views/anr.dashboard.html:168
 msgid "Display residual operational risks by"
 msgstr "Anzeige der verbleibenden operationellen Risiken nach"
 
-#: ../ng_anr/views/anr.dashboard.html:94 ../ng_anr/views/anr.dashboard.html:72
+#: ../ng_anr/views/anr.dashboard.html:94
 msgid "Display residual risks by"
 msgstr "Anzeige Restrisiken durch"
 
 #: ../ng_anr/views/anr.dashboard.html:305
-#: ../ng_anr/views/anr.dashboard.html:215
 msgid "Display threats by"
 msgstr "Bedrohungen anzeigen nach"
 
@@ -1749,7 +1723,6 @@ msgid "Display treatment by"
 msgstr "Behandlung anzeigen nach"
 
 #: ../ng_anr/views/anr.dashboard.html:341
-#: ../ng_anr/views/anr.dashboard.html:241
 msgid "Display vulnerabilities by"
 msgstr "Sortiere die Schwachstellen nach"
 
@@ -1770,9 +1743,6 @@ msgstr "Dokumente"
 #: ../ng_anr/views/anr.dashboard.html:107
 #: ../ng_anr/views/anr.dashboard.html:179
 #: ../ng_anr/views/anr.dashboard.html:248 ../ng_anr/views/anr.dashboard.html:39
-#: ../ng_anr/views/anr.dashboard.html:134
-#: ../ng_anr/views/anr.dashboard.html:180 ../ng_anr/views/anr.dashboard.html:38
-#: ../ng_anr/views/anr.dashboard.html:84
 msgid "Donut Chart"
 msgstr "Donut-Diagramm"
 
@@ -2021,16 +1991,15 @@ msgstr "Einheit existiert nicht für diese Risikoanalyse"
 msgid "Error"
 msgstr "Fehler"
 
-#: src/BackofficeAccountCtrl.js:107 src/BackofficeAccountCtrl.js:102
+#: src/BackofficeAccountCtrl.js:107
 msgid "Error when disabling two-factor authentication."
 msgstr "Fehler beim Deaktivieren der Zwei-Faktor-Authentifizierung."
 
 #: src/BackofficeAccountCtrl.js:187 src/BackofficeAccountCtrl.js:85
-#: src/BackofficeAccountCtrl.js:182 src/BackofficeAccountCtrl.js:80
 msgid "Error when enabling two-factor authentication."
 msgstr "Fehler beim Aktivieren der Zwei-Faktor-Authentifizierung."
 
-#: src/BackofficeAccountCtrl.js:156 src/BackofficeAccountCtrl.js:151
+#: src/BackofficeAccountCtrl.js:156
 msgid "Error when generating recovery codes."
 msgstr "Fehler beim Generieren von Wiederherstellungscodes."
 
@@ -2134,15 +2103,6 @@ msgstr "Export"
 #: ../ng_anr/views/anr.dashboard.html:410
 #: ../ng_anr/views/anr.dashboard.html:430
 #: ../ng_anr/views/anr.dashboard.html:457 ../ng_anr/views/anr.dashboard.html:64
-#: ../ng_anr/views/anr.dashboard.html:138
-#: ../ng_anr/views/anr.dashboard.html:184
-#: ../ng_anr/views/anr.dashboard.html:231
-#: ../ng_anr/views/anr.dashboard.html:270
-#: ../ng_anr/views/anr.dashboard.html:291
-#: ../ng_anr/views/anr.dashboard.html:300
-#: ../ng_anr/views/anr.dashboard.html:320
-#: ../ng_anr/views/anr.dashboard.html:347 ../ng_anr/views/anr.dashboard.html:42
-#: ../ng_anr/views/anr.dashboard.html:88
 msgid "Export (PNG)"
 msgstr "Export (PNG)"
 
@@ -2362,9 +2322,6 @@ msgstr "Globale Werte"
 #: ../ng_anr/views/anr.dashboard.html:209
 #: ../ng_anr/views/anr.dashboard.html:278 ../ng_anr/views/anr.dashboard.html:68
 #: views/login.html:45 views/login.html:73
-#: ../ng_anr/views/anr.dashboard.html:142
-#: ../ng_anr/views/anr.dashboard.html:188 ../ng_anr/views/anr.dashboard.html:46
-#: ../ng_anr/views/anr.dashboard.html:92
 msgid "Go back"
 msgstr "Gehe zurück"
 
@@ -2396,9 +2353,6 @@ msgstr "Startseite"
 #: ../ng_anr/views/anr.dashboard.html:318
 #: ../ng_anr/views/anr.dashboard.html:367
 #: ../ng_anr/views/anr.dashboard.html:453
-#: ../ng_anr/views/anr.dashboard.html:227
-#: ../ng_anr/views/anr.dashboard.html:266
-#: ../ng_anr/views/anr.dashboard.html:343
 msgid "Horizontal Bar Chart"
 msgstr "Horizontales Histogramm"
 
@@ -2608,7 +2562,6 @@ msgstr "Import erfolgreich"
 #: ../ng_anr/views/_anr.kbmgmt.html:674 ../ng_anr/views/anr.dashboard.html:444
 #: ../ng_anr/views/create.recommandation-kbase.html:43
 #: ../ng_anr/views/create.recommandation.html:67
-#: ../ng_anr/views/anr.dashboard.html:334
 msgid "Importance"
 msgstr "Gewichtung"
 
@@ -2649,7 +2602,6 @@ msgstr "Informationsrisiko"
 #: ../ng_anr/views/anr.dashboard.risks.html:13 ../ng_anr/views/anr.home.html:49
 #: ../ng_anr/views/anr.instance.html:103 ../ng_anr/views/anr.soa.sheet.html:10
 #: views/index.backoffice.html:25 views/info_risk.kb_mgmt.html:321
-#: ../ng_anr/views/anr.dashboard.html:282
 msgid "Information risks"
 msgstr "Informationsrisiken"
 
@@ -2823,8 +2775,7 @@ msgstr "Rechtliche Anforderungen"
 #: ../ng_anr/views/__external_translate.html:2
 #: ../ng_anr/views/anr.dashboard.html:168
 #: ../ng_anr/views/anr.dashboard.html:237 ../ng_anr/views/anr.dashboard.html:28
-#: ../ng_anr/views/anr.dashboard.html:96 ../ng_anr/views/anr.dashboard.html:124
-#: ../ng_anr/views/anr.dashboard.html:170 ../ng_anr/views/anr.dashboard.html:74
+#: ../ng_anr/views/anr.dashboard.html:96
 msgid "Level"
 msgstr "Ebene"
 
@@ -2973,8 +2924,6 @@ msgstr "Max"
 
 #: ../ng_anr/views/anr.dashboard.html:309
 #: ../ng_anr/views/anr.dashboard.html:345
-#: ../ng_anr/views/anr.dashboard.html:219
-#: ../ng_anr/views/anr.dashboard.html:245
 msgid "Max. associated risk level"
 msgstr "Max. assoziiertes Risikoniveau"
 
@@ -3089,7 +3038,6 @@ msgid "New password"
 msgstr "Neues Kennwort"
 
 #: src/BackofficeAccountCtrl.js:117 views/dialogs/display.recoverycodes.html:5
-#: src/BackofficeAccountCtrl.js:112
 msgid "New recovery codes"
 msgstr "Neue Wiederherstellungscodes"
 
@@ -3134,8 +3082,6 @@ msgstr "Kein(e)"
 #: ../ng_anr/src/Charts/MultiVerticalBarChartService.js:112
 #: ../ng_anr/src/Charts/RadarChartService.js:54
 #: ../ng_anr/src/Charts/VerticalBarChartService.js:114
-#: ../ng_anr/src/Charts/MultiVerticalBarChartService.js:94
-#: ../ng_anr/src/Charts/VerticalBarChartService.js:96
 msgid "No Data Avalaible"
 msgstr "Keine Daten verfügbar"
 
@@ -3279,21 +3225,17 @@ msgstr "Anzahl der anzuzeigenden Bedrohungen"
 
 #: ../ng_anr/views/anr.dashboard.html:351
 #: ../ng_anr/views/anr.dashboard.html:372
-#: ../ng_anr/views/anr.dashboard.html:250
 msgid "Number of vulnerabilities to display"
 msgstr "Anzahl der anzuzeigenden Schwachstellen"
 
 #: src/BackofficeAccountCtrl.js:120 views/dialogs/activate.2FA.html:40
-#: views/dialogs/display.recoverycodes.html:27 src/BackofficeAccountCtrl.js:115
+#: views/dialogs/display.recoverycodes.html:27
 msgid "OK"
 msgstr "OK"
 
 #: ../ng_anr/views/anr.dashboard.html:307
 #: ../ng_anr/views/anr.dashboard.html:343
 #: ../ng_anr/views/anr.dashboard.html:442
-#: ../ng_anr/views/anr.dashboard.html:217
-#: ../ng_anr/views/anr.dashboard.html:243
-#: ../ng_anr/views/anr.dashboard.html:332
 msgid "Occurrence"
 msgstr "Vorkommen"
 
@@ -3351,8 +3293,7 @@ msgstr "Operatives Risiko-Tag"
 #: ../ng_anr/views/anr.dashboard.risks.html:76 ../ng_anr/views/anr.home.html:52
 #: ../ng_anr/views/anr.instance.html:106 ../ng_anr/views/anr.soa.sheet.html:82
 #: views/index.backoffice.html:32 views/op_risk.kb_mgmt.html:68
-#: views/op_risk.kb_mgmt.html:71 ../ng_anr/views/anr.dashboard.html:116
-#: ../ng_anr/views/anr.dashboard.html:283
+#: views/op_risk.kb_mgmt.html:71
 msgid "Operational risks"
 msgstr "Operative Risiken"
 
@@ -3400,9 +3341,7 @@ msgstr "Seite:"
 #: ../ng_anr/views/anr.dashboard.html:270 ../ng_anr/views/anr.dashboard.html:31
 #: ../ng_anr/views/anr.dashboard.html:310
 #: ../ng_anr/views/anr.dashboard.html:346 ../ng_anr/views/anr.dashboard.html:61
-#: ../ng_anr/views/anr.dashboard.html:99 ../ng_anr/views/anr.dashboard.html:126
-#: ../ng_anr/views/anr.dashboard.html:172 ../ng_anr/views/anr.dashboard.html:30
-#: ../ng_anr/views/anr.dashboard.html:76
+#: ../ng_anr/views/anr.dashboard.html:99
 msgid "Parent asset"
 msgstr "Übergeordneter Wert"
 
@@ -3550,7 +3489,6 @@ msgstr "Prob. (Nettorisiko)"
 #: ../ng_anr/views/_anr.evalscales.html:489
 #: ../ng_anr/views/anr.dashboard.html:308
 #: ../ng_anr/views/trends.evalcontext.html:100
-#: ../ng_anr/views/anr.dashboard.html:218
 msgid "Probability"
 msgstr "Wahrscheinlichkeit"
 
@@ -3590,7 +3528,6 @@ msgid "Qualif."
 msgstr "Qualif."
 
 #: ../ng_anr/views/anr.dashboard.html:344
-#: ../ng_anr/views/anr.dashboard.html:244
 msgid "Qualification"
 msgstr "Qualifikation"
 
@@ -3654,7 +3591,6 @@ msgstr ""
 #: ../ng_anr/views/_anr.kbmgmt.html:626 ../ng_anr/views/_oprisk_sheet.html:108
 #: ../ng_anr/views/_risk_sheet.html:104 ../ng_anr/views/anr.dashboard.html:437
 #: ../ng_anr/views/export.objlibs.html:59
-#: ../ng_anr/views/anr.dashboard.html:327
 msgid "Recommendations"
 msgstr "Empfehlungen"
 
@@ -3772,8 +3708,6 @@ msgstr "Restrisiko"
 
 #: ../ng_anr/views/anr.dashboard.html:232
 #: ../ng_anr/views/anr.dashboard.html:409 ../ng_anr/views/anr.dashboard.html:91
-#: ../ng_anr/views/anr.dashboard.html:165
-#: ../ng_anr/views/anr.dashboard.html:299 ../ng_anr/views/anr.dashboard.html:69
 msgid "Residual risks"
 msgstr "Restrisiken"
 
@@ -5101,7 +5035,7 @@ msgstr "Bedrohung:"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:81 ../ng_anr/views/_anr.kbmgmt.html:84
 #: ../ng_anr/views/anr.dashboard.html:302 views/info_risk.kb_mgmt.html:80
-#: views/info_risk.kb_mgmt.html:83 ../ng_anr/views/anr.dashboard.html:212
+#: views/info_risk.kb_mgmt.html:83
 msgid "Threats"
 msgstr "Bedrohungen"
 
@@ -5159,8 +5093,7 @@ msgid "Trends assessment saved successfully"
 msgstr "Beurteilung von Trends erfolgreich gespeichert"
 
 #: src/BackofficeAccountCtrl.js:105 src/BackofficeAccountCtrl.js:79
-#: views/account.html:78 src/BackofficeAccountCtrl.js:100
-#: src/BackofficeAccountCtrl.js:78
+#: views/account.html:78
 msgid "Two-factor authentication"
 msgstr "Zwei-Faktor-Authentifizierung"
 
@@ -5182,19 +5115,15 @@ msgstr ""
 msgid "Two-factor authentication is enforced on this instance."
 msgstr "Die Zwei-Faktor-Authentifizierung wird in dieser Instanz erzwungen."
 
-#: src/BackofficeAccountCtrl.js:79 src/BackofficeAccountCtrl.js:78
+#: src/BackofficeAccountCtrl.js:79
 msgid "Two-factor authentication is now activated."
 msgstr "Die Zwei-Faktor-Authentifizierung wird jetzt aktiviert."
 
-#: src/BackofficeAccountCtrl.js:105 src/BackofficeAccountCtrl.js:100
+#: src/BackofficeAccountCtrl.js:105
 msgid "Two-factor authentication is now deactivated."
 msgstr "Die Zwei-Faktor-Authentifizierung ist jetzt deaktiviert."
 
-#: views/login.html:32
-msgid "Two-factor code"
-msgstr "Zwei-Faktor-Code"
-
-#: views/login.html:23
+#: views/login.html:23 views/login.html:32
 msgid "Two-factor verification code"
 msgstr "Zwei-Faktor-Verifizierungscode"
 
@@ -5209,7 +5138,6 @@ msgid "Type"
 msgstr "Typ"
 
 #: ../ng_anr/views/anr.dashboard.html:390
-#: ../ng_anr/views/anr.dashboard.html:280
 msgid "Type of risks"
 msgstr "Niedrige Risiken"
 
@@ -5354,7 +5282,7 @@ msgid "Visible on global dashboard"
 msgstr "Sichtbar auf dem globalen Dashboard"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:156 ../ng_anr/views/anr.dashboard.html:338
-#: views/info_risk.kb_mgmt.html:152 ../ng_anr/views/anr.dashboard.html:238
+#: views/info_risk.kb_mgmt.html:152
 msgid "Vulnerabilities"
 msgstr "Schwachstellen"
 

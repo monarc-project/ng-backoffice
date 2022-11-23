@@ -5575,11 +5575,8 @@ msgstr ""
 msgid "Two-factor authentication is now deactivated."
 msgstr ""
 
-#: views/login.html:32
-msgid "Two-factor code"
-msgstr ""
-
 #: views/login.html:23
+#: views/login.html:32
 msgid "Two-factor verification code"
 msgstr ""
 

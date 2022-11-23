@@ -5012,7 +5012,8 @@ msgid ""
 "Two-factor authentication is already set up. If you submit a new token "
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
-msgstr "双因素认证已经设置好了。如果你在下面提交一个新的令牌，你以前的私钥将被废止。"
+msgstr ""
+"双因素认证已经设置好了。如果你在下面提交一个新的令牌，你以前的私钥将被废止。"
 "如果你正在使用几个OTP设备，这可能是一个问题。"
 
 #: views/login.html:24
@@ -5027,11 +5028,7 @@ msgstr "双因素认证现在已经激活。"
 msgid "Two-factor authentication is now deactivated."
 msgstr "双因素认证现在已被停用。"
 
-#: views/login.html:32
-msgid "Two-factor code"
-msgstr ""
-
-#: views/login.html:23
+#: views/login.html:23 views/login.html:32
 msgid "Two-factor verification code"
 msgstr "双因素验证码"
 

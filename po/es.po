@@ -4,8 +4,8 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2022-11-23 10:59+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
-"Language-Team: Spanish <https://translate.monarc.lu/projects/monarc/"
-"back-office/es/>\n"
+"Language-Team: Spanish <https://translate.monarc.lu/projects/monarc/back-"
+"office/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5124,11 +5124,7 @@ msgstr "La autenticación de dos factores ya está activada."
 msgid "Two-factor authentication is now deactivated."
 msgstr "La autenticación de dos factores está ahora desactivada."
 
-#: views/login.html:32
-msgid "Two-factor code"
-msgstr ""
-
-#: views/login.html:23
+#: views/login.html:23 views/login.html:32
 msgid "Two-factor verification code"
 msgstr "Código de verificación de dos factores"
 
