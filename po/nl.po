@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.14-dev\n"
 
-#: views/dialogs/activate.2FA.html:30
+#: views/dialogs/activate.2FA.html:30 views/login.html:27
 msgid "2FA QRCode"
 msgstr "2FA QRCode"
 
@@ -61,11 +61,14 @@ msgstr "Aanvaardingsdrempels voor operationele risico’s"
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:121 ../ng_anr/src/AnrSoaSheetCtrl.js:213
 #: ../ng_anr/views/_oprisk_sheet.html:157 ../ng_anr/views/_risk_sheet.html:155
 #: ../ng_anr/views/_table_risks.html:37 ../ng_anr/views/_table_risks_op.html:37
+#: ../ng_anr/views/anr.dashboard.html:119
+#: ../ng_anr/views/anr.dashboard.html:191
+#: ../ng_anr/views/anr.dashboard.html:260 ../ng_anr/views/anr.dashboard.html:51
 msgid "Accepted"
 msgstr "Aanvaard"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1000
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1328
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1326
+#: ../ng_anr/src/ImportFileDialogCtrl.js:998
 msgid "Access control policy"
 msgstr "Toegangscontrolebeleid"
 
@@ -341,11 +344,18 @@ msgstr "Adres, e-mail, telefoon, ...."
 msgid "Administration"
 msgstr "Administratie"
 
-#: ../ng_anr/views/anr.dashboard.html:258
+#: ../ng_anr/views/anr.dashboard.html:359
 msgid "All"
 msgstr "Alle"
 
 #: ../ng_anr/views/_table_risks.html:33 ../ng_anr/views/_table_risks_op.html:33
+#: ../ng_anr/views/anr.dashboard.html:114
+#: ../ng_anr/views/anr.dashboard.html:127
+#: ../ng_anr/views/anr.dashboard.html:186
+#: ../ng_anr/views/anr.dashboard.html:199
+#: ../ng_anr/views/anr.dashboard.html:255
+#: ../ng_anr/views/anr.dashboard.html:268 ../ng_anr/views/anr.dashboard.html:46
+#: ../ng_anr/views/anr.dashboard.html:59
 msgid "All (unfiltered)"
 msgstr "Alle (ongefilterd)"
 
@@ -353,9 +363,13 @@ msgstr "Alle (ongefilterd)"
 msgid "All asset models must not be regulator"
 msgstr "Niet alle modellen van de asset mogen regelmodellen zijn"
 
-#: ../ng_anr/views/anr.dashboard.html:125
-#: ../ng_anr/views/anr.dashboard.html:171 ../ng_anr/views/anr.dashboard.html:29
-#: ../ng_anr/views/anr.dashboard.html:75 views/info_risk.kb_mgmt.html:437
+#: ../ng_anr/views/anr.dashboard.html:128
+#: ../ng_anr/views/anr.dashboard.html:170
+#: ../ng_anr/views/anr.dashboard.html:200
+#: ../ng_anr/views/anr.dashboard.html:239
+#: ../ng_anr/views/anr.dashboard.html:269 ../ng_anr/views/anr.dashboard.html:30
+#: ../ng_anr/views/anr.dashboard.html:60 ../ng_anr/views/anr.dashboard.html:98
+#: views/info_risk.kb_mgmt.html:437
 msgid "All assets"
 msgstr "Alle activa"
 
@@ -381,22 +395,22 @@ msgstr "Er heeft zich een fout voorgedaan op {{ thing }}: {{status}}"
 msgid "Analysis guides"
 msgstr "Analysegidsen"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1174
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1492
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1172
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1490
 msgid "Any further information"
 msgstr "Meer informatie"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1026
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1222
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1356
-#: ../ng_anr/src/ImportFileDialogCtrl.js:916
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1024
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1220
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1354
+#: ../ng_anr/src/ImportFileDialogCtrl.js:914
 msgid "Any network hardware (router, switch, firewall, etc.)"
 msgstr "Alle netwerkhardware (router, switch, firewall, bekabeling enz.)"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1044
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1255
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1375
-#: ../ng_anr/src/ImportFileDialogCtrl.js:942
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1042
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1253
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1373
+#: ../ng_anr/src/ImportFileDialogCtrl.js:940
 msgid ""
 "Any situation that could facilitate the conflagration of premises or "
 "equipment."
@@ -487,7 +501,7 @@ msgstr "Weet u zeker dat u het contextveld wilt verwijderen?"
 msgid "Are you sure you want to delete the processing?"
 msgstr "Weet u zeker dat u de verwerking wilt verwijderen?"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3798
+#: ../ng_anr/src/AnrLayoutCtrl.js:3782
 msgid "Are you sure you want to delete the {{count}} scales selected ?"
 msgstr ""
 "Weet u zeker dat u de geselecteerde {{count}} schalen wilt verwijderen ?"
@@ -578,11 +592,11 @@ msgstr "Wilt u het actief werkelijk loskoppelen?"
 msgid "Are you sure you want to detach recommendation ?"
 msgstr "Wilt u de aanbeveling werkelijk loskoppelen?"
 
-#: src/BackofficeAccountCtrl.js:91
+#: src/BackofficeAccountCtrl.js:96
 msgid "Are you sure you want to disable two-factor authentication?"
 msgstr "Weet u zeker dat u twee-factor authenticatie wilt uitschakelen?"
 
-#: src/BackofficeAccountCtrl.js:113
+#: src/BackofficeAccountCtrl.js:118
 msgid "Are you sure you want to generate new recovery codes ?"
 msgstr "Weet u zeker dat u nieuwe herstelcodes wilt genereren?"
 
@@ -590,7 +604,7 @@ msgstr "Weet u zeker dat u nieuwe herstelcodes wilt genereren?"
 msgid "Ascending"
 msgstr "Stijgend"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3270
+#: ../ng_anr/src/AnrLayoutCtrl.js:3254
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:56
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:132
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:94
@@ -599,7 +613,7 @@ msgstr "Stijgend"
 #: ../ng_anr/views/_risk_sheet.html:44 ../ng_anr/views/_table_risks.html:53
 #: ../ng_anr/views/_table_risks.html:87 ../ng_anr/views/_table_risks_op.html:52
 #: ../ng_anr/views/_table_risks_op.html:88 ../ng_anr/views/add.objlib.html:29
-#: ../ng_anr/views/anr.dashboard.html:333
+#: ../ng_anr/views/anr.dashboard.html:443
 #: ../ng_anr/views/anr.dashboard.risks.html:17
 #: ../ng_anr/views/anr.dashboard.risks.html:80
 #: ../ng_anr/views/anr.risksplan.sheet.html:12
@@ -627,6 +641,7 @@ msgstr "Activa context"
 msgid "Asset context fields"
 msgstr "Asset contextvelden"
 
+#: ../ng_anr/views/create.objlibs.html:18
 #: ../ng_anr/views/import.instance.html:5 ../ng_anr/views/import.object.html:5
 msgid "Asset import center"
 msgstr "Activa-importcentrum"
@@ -665,8 +680,8 @@ msgstr "Actieftype"
 msgid "Asset type can't be primary"
 msgstr "Het activatype mag niet primair zijn"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1180
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1498
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1178
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1496
 msgid "Asset type code must exist in the Knowledge Base"
 msgstr "De code van het activatype moet bestaan in de kennisbank"
 
@@ -817,7 +832,7 @@ msgstr "CSV-bestand"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:372 ../ng_anr/src/AnrKbMgmtCtrl.js:3864
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:626 ../ng_anr/src/AnrKbMgmtCtrl.js:652
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:69 ../ng_anr/src/AnrKbMgmtCtrl.js:881
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:907 ../ng_anr/src/AnrLayoutCtrl.js:3806
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:907 ../ng_anr/src/AnrLayoutCtrl.js:3790
 #: ../ng_anr/src/AnrObjectCtrl.js:164 ../ng_anr/src/AnrObjectCtrl.js:204
 #: ../ng_anr/src/AnrObjectCtrl.js:574 ../ng_anr/src/AnrObjectCtrl.js:628
 #: ../ng_anr/src/AnrObjectCtrl.js:93 ../ng_anr/src/AnrObjectInstanceCtrl.js:310
@@ -827,8 +842,8 @@ msgstr "CSV-bestand"
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:497 ../ng_anr/src/AnrRopaCtrl.js:234
 #: ../ng_anr/src/AnrRopaCtrl.js:417 ../ng_anr/src/AnrRopaCtrl.js:53
 #: ../ng_anr/src/AnrRopaCtrl.js:563 ../ng_anr/src/AnrRopaCtrl.js:640
-#: ../ng_anr/src/AnrRopaCtrl.js:709 ../ng_anr/src/ImportFileDialogCtrl.js:766
-#: ../ng_anr/src/ImportFileDialogCtrl.js:782
+#: ../ng_anr/src/AnrRopaCtrl.js:709 ../ng_anr/src/ImportFileDialogCtrl.js:764
+#: ../ng_anr/src/ImportFileDialogCtrl.js:780
 #: ../ng_anr/src/InstanceService.js:10
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:109
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:133
@@ -871,7 +886,7 @@ msgstr "CSV-bestand"
 #: ../ng_anr/views/snapshots.html:74
 #: ../ng_anr/views/updateMeasures.amvs.html:35
 #: ../ng_anr/views/validate.recommandation.html:34
-#: src/BackofficeAccountCtrl.js:117 src/BackofficeAccountCtrl.js:95
+#: src/BackofficeAccountCtrl.js:100 src/BackofficeAccountCtrl.js:122
 #: src/BackofficeClientMgmtCtrl.js:109 src/BackofficeClientMgmtCtrl.js:131
 #: src/admin/BackofficeAdminServerCtrl.js:99
 #: src/admin/BackofficeAdminUsersCtrl.js:113
@@ -912,7 +927,7 @@ msgstr "CSV-bestand"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ../ng_anr/views/anr.dashboard.html:277
+#: ../ng_anr/views/anr.dashboard.html:387
 msgid "Cartography"
 msgstr "Cartografie"
 
@@ -950,12 +965,12 @@ msgstr "Categorie succesvol toegevoegd"
 msgid "Change password"
 msgstr "Wachtwoord wijzigen"
 
-#: ../ng_anr/views/anr.dashboard.html:131
-#: ../ng_anr/views/anr.dashboard.html:177
-#: ../ng_anr/views/anr.dashboard.html:224
-#: ../ng_anr/views/anr.dashboard.html:263
-#: ../ng_anr/views/anr.dashboard.html:340 ../ng_anr/views/anr.dashboard.html:35
-#: ../ng_anr/views/anr.dashboard.html:81
+#: ../ng_anr/views/anr.dashboard.html:104
+#: ../ng_anr/views/anr.dashboard.html:176
+#: ../ng_anr/views/anr.dashboard.html:245
+#: ../ng_anr/views/anr.dashboard.html:315 ../ng_anr/views/anr.dashboard.html:36
+#: ../ng_anr/views/anr.dashboard.html:364
+#: ../ng_anr/views/anr.dashboard.html:450
 msgid "Chart type"
 msgstr "Diagramtype"
 
@@ -1063,7 +1078,7 @@ msgstr "Sluiten"
 msgid "Close dialog"
 msgstr "Het venster sluiten"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3267 ../ng_anr/src/AnrSoaCtrl.js:254
+#: ../ng_anr/src/AnrLayoutCtrl.js:3251 ../ng_anr/src/AnrSoaCtrl.js:254
 #: ../ng_anr/views/_anr.kbmgmt.html:129 ../ng_anr/views/_anr.kbmgmt.html:206
 #: ../ng_anr/views/_anr.kbmgmt.html:303 ../ng_anr/views/_anr.kbmgmt.html:470
 #: ../ng_anr/views/_anr.kbmgmt.html:54 ../ng_anr/views/_anr.kbmgmt.html:564
@@ -1109,7 +1124,7 @@ msgid "Company"
 msgstr "Firma"
 
 #: ../ng_anr/views/_anr.evalscales.html:525
-#: ../ng_anr/views/anr.dashboard.html:309
+#: ../ng_anr/views/anr.dashboard.html:419
 msgid "Compliance"
 msgstr "Naleving"
 
@@ -1208,7 +1223,7 @@ msgstr "Land"
 msgid "Create"
 msgstr "Creëren"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:765
+#: ../ng_anr/src/ImportFileDialogCtrl.js:763
 msgid "Create & Import"
 msgstr "Creëer & importeer"
 
@@ -1296,7 +1311,7 @@ msgstr "Creatie geslaagd"
 msgid "Current password"
 msgstr "Huidig wachtwoord"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3272
+#: ../ng_anr/src/AnrLayoutCtrl.js:3256
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:135
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:98
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:55 ../ng_anr/src/AnrSoaSheetCtrl.js:56
@@ -1316,8 +1331,8 @@ msgstr "Huidig risico"
 msgid "Current risk (Net risk)"
 msgstr "Huidig risico (Nettorisico)"
 
-#: ../ng_anr/views/anr.dashboard.html:119 ../ng_anr/views/anr.dashboard.html:23
-#: ../ng_anr/views/anr.dashboard.html:290
+#: ../ng_anr/views/anr.dashboard.html:163 ../ng_anr/views/anr.dashboard.html:23
+#: ../ng_anr/views/anr.dashboard.html:400
 msgid "Current risks"
 msgstr "Huidige risico's"
 
@@ -1380,7 +1395,7 @@ msgstr "Definitie van de risico-evaluatiecriteria"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:371 ../ng_anr/src/AnrKbMgmtCtrl.js:3863
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:625 ../ng_anr/src/AnrKbMgmtCtrl.js:651
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:880 ../ng_anr/src/AnrKbMgmtCtrl.js:906
-#: ../ng_anr/src/AnrLayoutCtrl.js:3805 ../ng_anr/src/AnrObjectCtrl.js:163
+#: ../ng_anr/src/AnrLayoutCtrl.js:3789 ../ng_anr/src/AnrObjectCtrl.js:163
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:309
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:331
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:444 ../ng_anr/src/AnrRopaCtrl.js:233
@@ -1558,6 +1573,9 @@ msgstr "Leverbare:"
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:118 ../ng_anr/src/AnrSoaSheetCtrl.js:211
 #: ../ng_anr/views/_oprisk_sheet.html:156 ../ng_anr/views/_risk_sheet.html:154
 #: ../ng_anr/views/_table_risks.html:36 ../ng_anr/views/_table_risks_op.html:36
+#: ../ng_anr/views/anr.dashboard.html:118
+#: ../ng_anr/views/anr.dashboard.html:190
+#: ../ng_anr/views/anr.dashboard.html:259 ../ng_anr/views/anr.dashboard.html:50
 msgid "Denied"
 msgstr "Geweigerd"
 
@@ -1600,8 +1618,8 @@ msgstr "Beschrijving van bewaartermijn"
 msgid "Description:"
 msgstr "Beschrijving:"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1168
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1485
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1166
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1483
 msgid "Desktop Computer"
 msgstr "Desktop Computer"
 
@@ -1651,32 +1669,28 @@ msgstr "De vertegenwoordiger loskoppelen"
 msgid "Details"
 msgstr "Details"
 
-#: src/BackofficeAccountCtrl.js:93
+#: src/BackofficeAccountCtrl.js:98
 msgid "Disable"
 msgstr "Uitschakelen"
 
-#: views/account.html:85
-msgid "Disable Two-Factor Authentication"
-msgstr "Authenticatie met twee factoren uitschakelen"
-
-#: src/BackofficeAccountCtrl.js:90
+#: src/BackofficeAccountCtrl.js:95 views/account.html:85
 msgid "Disable two-factor authentication"
 msgstr "Twee-factorauthenticatie uitschakelen"
 
-#: ../ng_anr/views/anr.dashboard.html:133
-#: ../ng_anr/views/anr.dashboard.html:179
-#: ../ng_anr/views/anr.dashboard.html:226
-#: ../ng_anr/views/anr.dashboard.html:265
-#: ../ng_anr/views/anr.dashboard.html:342 ../ng_anr/views/anr.dashboard.html:37
-#: ../ng_anr/views/anr.dashboard.html:83
+#: ../ng_anr/views/anr.dashboard.html:106
+#: ../ng_anr/views/anr.dashboard.html:178
+#: ../ng_anr/views/anr.dashboard.html:247
+#: ../ng_anr/views/anr.dashboard.html:317
+#: ../ng_anr/views/anr.dashboard.html:366 ../ng_anr/views/anr.dashboard.html:38
+#: ../ng_anr/views/anr.dashboard.html:452
 msgid "Discrete Bar Chart"
 msgstr "Discrete staafdiagram"
 
-#: ../ng_anr/views/anr.dashboard.html:312
+#: ../ng_anr/views/anr.dashboard.html:422
 msgid "Display compliance of"
 msgstr "Toon de compliance van"
 
-#: ../ng_anr/views/anr.dashboard.html:122
+#: ../ng_anr/views/anr.dashboard.html:166
 msgid "Display current operational risks by"
 msgstr "Toon de huidige operationele risico's door"
 
@@ -1684,27 +1698,33 @@ msgstr "Toon de huidige operationele risico's door"
 msgid "Display current risks by"
 msgstr "Toon huidige risico's door"
 
-#: ../ng_anr/views/anr.dashboard.html:330
+#: ../ng_anr/views/anr.dashboard.html:440
 msgid "Display recommendations by"
 msgstr "Aanbevelingen voor de weergave door"
 
-#: ../ng_anr/views/anr.dashboard.html:168
+#: ../ng_anr/views/anr.dashboard.html:235
 msgid "Display residual operational risks by"
 msgstr "Laat de resterende operationele risico's zien door"
 
-#: ../ng_anr/views/anr.dashboard.html:72
+#: ../ng_anr/views/anr.dashboard.html:94
 msgid "Display residual risks by"
 msgstr "Restrisico's weergeven door"
 
-#: ../ng_anr/views/anr.dashboard.html:215
+#: ../ng_anr/views/anr.dashboard.html:305
 msgid "Display threats by"
 msgstr "Dreigingen weergeven met"
 
-#: ../ng_anr/views/anr.dashboard.html:241
+#: ../ng_anr/views/anr.dashboard.html:125
+#: ../ng_anr/views/anr.dashboard.html:197
+#: ../ng_anr/views/anr.dashboard.html:266 ../ng_anr/views/anr.dashboard.html:57
+msgid "Display treatment by"
+msgstr ""
+
+#: ../ng_anr/views/anr.dashboard.html:341
 msgid "Display vulnerabilities by"
 msgstr "Geef kwetsbaarheden weer met"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:755
+#: ../ng_anr/src/ImportFileDialogCtrl.js:753
 msgid "Do you want to create new {{externalItem}} ?"
 msgid_plural "Do you want to create {{count}} new {{pluralExtItem}} ?"
 msgstr[0] "Wil je een nieuwe {{externalItem}} aanmaken?"
@@ -1718,9 +1738,9 @@ msgstr "Naam van het document"
 msgid "Documents"
 msgstr "Documenten"
 
-#: ../ng_anr/views/anr.dashboard.html:134
-#: ../ng_anr/views/anr.dashboard.html:180 ../ng_anr/views/anr.dashboard.html:38
-#: ../ng_anr/views/anr.dashboard.html:84
+#: ../ng_anr/views/anr.dashboard.html:107
+#: ../ng_anr/views/anr.dashboard.html:179
+#: ../ng_anr/views/anr.dashboard.html:248 ../ng_anr/views/anr.dashboard.html:39
 msgid "Donut Chart"
 msgstr "Ringdiagram"
 
@@ -1759,7 +1779,7 @@ msgid "Dutch"
 msgstr "Nederlands"
 
 #: views/account.html:24 views/dialogs/create.users.admin.html:35
-#: views/index.client_mgmt.html:40 views/login.html:11 views/login.html:57
+#: views/index.client_mgmt.html:40 views/login.html:11 views/login.html:66
 #: views/users.admin.html:38
 msgid "E-mail"
 msgstr "E-mail"
@@ -1966,18 +1986,19 @@ msgid "Entity does not exist for this risk analysis"
 msgstr "De entiteit bestaat niet in deze risicoanalyse"
 
 #: ../ng_anr/src/AnrObjectCtrl.js:374 ../ng_anr/src/AnrObjectCtrl.js:693
+#: src/BackofficeAccountCtrl.js:82
 msgid "Error"
 msgstr "Fout"
 
-#: src/BackofficeAccountCtrl.js:102
+#: src/BackofficeAccountCtrl.js:107
 msgid "Error when disabling two-factor authentication."
 msgstr "Fout bij het uitschakelen van authenticatie met twee factoren."
 
-#: src/BackofficeAccountCtrl.js:182 src/BackofficeAccountCtrl.js:80
+#: src/BackofficeAccountCtrl.js:187 src/BackofficeAccountCtrl.js:85
 msgid "Error when enabling two-factor authentication."
 msgstr "Fout bij het inschakelen van de twee-factorauthenticatie."
 
-#: src/BackofficeAccountCtrl.js:151
+#: src/BackofficeAccountCtrl.js:156
 msgid "Error when generating recovery codes."
 msgstr "Fout bij het genereren van herstelcodes."
 
@@ -2029,7 +2050,7 @@ msgstr "Voorbeeld:"
 msgid "Excluded"
 msgstr "Uitgesloten"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3271
+#: ../ng_anr/src/AnrLayoutCtrl.js:3255
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:61
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:134
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:97
@@ -2072,15 +2093,15 @@ msgstr "Alles uitvouwen"
 msgid "Export"
 msgstr "Exporteren"
 
-#: ../ng_anr/views/anr.dashboard.html:138
-#: ../ng_anr/views/anr.dashboard.html:184
-#: ../ng_anr/views/anr.dashboard.html:231
-#: ../ng_anr/views/anr.dashboard.html:270
-#: ../ng_anr/views/anr.dashboard.html:291
-#: ../ng_anr/views/anr.dashboard.html:300
-#: ../ng_anr/views/anr.dashboard.html:320
-#: ../ng_anr/views/anr.dashboard.html:347 ../ng_anr/views/anr.dashboard.html:42
-#: ../ng_anr/views/anr.dashboard.html:88
+#: ../ng_anr/views/anr.dashboard.html:132
+#: ../ng_anr/views/anr.dashboard.html:205
+#: ../ng_anr/views/anr.dashboard.html:274
+#: ../ng_anr/views/anr.dashboard.html:331
+#: ../ng_anr/views/anr.dashboard.html:380
+#: ../ng_anr/views/anr.dashboard.html:401
+#: ../ng_anr/views/anr.dashboard.html:410
+#: ../ng_anr/views/anr.dashboard.html:430
+#: ../ng_anr/views/anr.dashboard.html:457 ../ng_anr/views/anr.dashboard.html:64
 msgid "Export (PNG)"
 msgstr "Exporteer (PNG)"
 
@@ -2155,7 +2176,7 @@ msgid "File Schema (json, bin)"
 msgstr "Bestandsindeling (json, bin)"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:66 ../ng_anr/src/AnrRopaCtrl.js:50
-#: ../ng_anr/src/ImportFileDialogCtrl.js:779
+#: ../ng_anr/src/ImportFileDialogCtrl.js:777
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:232
 #: src/kb/info/BackofficeKbInfoCtrl.js:66
 msgid "File error"
@@ -2178,6 +2199,12 @@ msgstr "Wachtwoord bestand (indien van toepassing)"
 msgid "File type not supported"
 msgstr "Bestandstype niet ondersteund"
 
+#: ../ng_anr/views/anr.dashboard.html:112
+#: ../ng_anr/views/anr.dashboard.html:184
+#: ../ng_anr/views/anr.dashboard.html:253 ../ng_anr/views/anr.dashboard.html:44
+msgid "Filter by treatment"
+msgstr ""
+
 #: ../ng_anr/views/_table_risks.html:42 ../ng_anr/views/_table_risks_op.html:42
 msgid "Filter table"
 msgstr "De tabel filteren"
@@ -2194,10 +2221,10 @@ msgstr "Eindrapport"
 msgid "Financial management, talent research"
 msgstr "Financieel management, talentonderzoek"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1038
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1249
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1369
-#: ../ng_anr/src/ImportFileDialogCtrl.js:936
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1036
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1247
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1367
+#: ../ng_anr/src/ImportFileDialogCtrl.js:934
 msgid "Fire"
 msgstr "Brand"
 
@@ -2290,15 +2317,15 @@ msgstr "Wereldwijde activa"
 
 #: ../ng_anr/src/Charts/DonutChartService.js:88
 #: ../ng_anr/src/Charts/RadarChartService.js:62
-#: ../ng_anr/views/anr.dashboard.html:142
-#: ../ng_anr/views/anr.dashboard.html:188 ../ng_anr/views/anr.dashboard.html:46
-#: ../ng_anr/views/anr.dashboard.html:92 views/login.html:36
-#: views/login.html:64
+#: ../ng_anr/views/anr.dashboard.html:136
+#: ../ng_anr/views/anr.dashboard.html:209
+#: ../ng_anr/views/anr.dashboard.html:278 ../ng_anr/views/anr.dashboard.html:68
+#: views/login.html:45 views/login.html:73
 msgid "Go back"
 msgstr "Terug"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1100
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1434
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1098
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1432
 msgid "Governance"
 msgstr "Bestuur"
 
@@ -2322,9 +2349,9 @@ msgstr "Verberg"
 msgid "Home"
 msgstr "Startpagina"
 
-#: ../ng_anr/views/anr.dashboard.html:227
-#: ../ng_anr/views/anr.dashboard.html:266
-#: ../ng_anr/views/anr.dashboard.html:343
+#: ../ng_anr/views/anr.dashboard.html:318
+#: ../ng_anr/views/anr.dashboard.html:367
+#: ../ng_anr/views/anr.dashboard.html:453
 msgid "Horizontal Bar Chart"
 msgstr "Horizontaal staafdiagram"
 
@@ -2332,10 +2359,10 @@ msgstr "Horizontaal staafdiagram"
 msgid "I Impact"
 msgstr "I Impact"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1086
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1307
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1419
-#: ../ng_anr/src/ImportFileDialogCtrl.js:986
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1084
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1305
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1417
+#: ../ng_anr/src/ImportFileDialogCtrl.js:984
 msgid "IT charter Conditions of use General terms and conditions"
 msgstr "Informaticacharter Gebruiksvoorwaarden Algemene voorwaarden"
 
@@ -2359,7 +2386,7 @@ msgstr ""
 msgid "If you save this template, previous templates will be lost."
 msgstr "Als u deze sjabloon opslaat, gaan eerdere sjablonen verloren."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3269 ../ng_anr/src/AnrRisksPlanCtrl.js:57
+#: ../ng_anr/src/AnrLayoutCtrl.js:3253 ../ng_anr/src/AnrRisksPlanCtrl.js:57
 #: ../ng_anr/views/anr.risksplan.html:14
 #: ../ng_anr/views/risks.evalcontext.html:23
 msgid "Imp."
@@ -2508,7 +2535,6 @@ msgstr "Importeren vanuit een MOSP"
 #: ../ng_anr/views/create.match.html:16 ../ng_anr/views/create.match.html:26
 #: ../ng_anr/views/create.measures.html:17
 #: ../ng_anr/views/create.measures.html:20
-#: ../ng_anr/views/create.objlibs.html:18
 #: ../ng_anr/views/create.objlibs.html:28
 #: ../ng_anr/views/create.recommandation-kbase.html:17
 #: ../ng_anr/views/create.records.html:17 ../ng_anr/views/create.risks.html:17
@@ -2532,7 +2558,7 @@ msgstr "Importeermethode:"
 msgid "Import successful"
 msgstr "Succesvol geïmporteerd"
 
-#: ../ng_anr/views/_anr.kbmgmt.html:674 ../ng_anr/views/anr.dashboard.html:334
+#: ../ng_anr/views/_anr.kbmgmt.html:674 ../ng_anr/views/anr.dashboard.html:444
 #: ../ng_anr/views/create.recommandation-kbase.html:43
 #: ../ng_anr/views/create.recommandation.html:67
 msgid "Importance"
@@ -2571,7 +2597,7 @@ msgstr "Informatierisico"
 
 #: ../ng_anr/views/_anr.evalscales.html:3 ../ng_anr/views/_anr.kbmgmt.html:331
 #: ../ng_anr/views/_anr.kbmgmt.html:334 ../ng_anr/views/anr.dashboard.html:20
-#: ../ng_anr/views/anr.dashboard.html:282
+#: ../ng_anr/views/anr.dashboard.html:392
 #: ../ng_anr/views/anr.dashboard.risks.html:13 ../ng_anr/views/anr.home.html:49
 #: ../ng_anr/views/anr.instance.html:103 ../ng_anr/views/anr.soa.sheet.html:10
 #: views/index.backoffice.html:25 views/info_risk.kb_mgmt.html:321
@@ -2746,9 +2772,9 @@ msgid "Legal requirements"
 msgstr "Wettelijke vereisten"
 
 #: ../ng_anr/views/__external_translate.html:2
-#: ../ng_anr/views/anr.dashboard.html:124
-#: ../ng_anr/views/anr.dashboard.html:170 ../ng_anr/views/anr.dashboard.html:28
-#: ../ng_anr/views/anr.dashboard.html:74
+#: ../ng_anr/views/anr.dashboard.html:168
+#: ../ng_anr/views/anr.dashboard.html:237 ../ng_anr/views/anr.dashboard.html:28
+#: ../ng_anr/views/anr.dashboard.html:96
 msgid "Level"
 msgstr "Niveau"
 
@@ -2812,7 +2838,7 @@ msgstr "Positie"
 msgid "Lock"
 msgstr "Vergrendelen"
 
-#: views/login.html:39
+#: views/login.html:48
 msgid "Log in"
 msgstr "Verbinden"
 
@@ -2895,8 +2921,8 @@ msgstr ""
 msgid "Max"
 msgstr "Max"
 
-#: ../ng_anr/views/anr.dashboard.html:219
-#: ../ng_anr/views/anr.dashboard.html:245
+#: ../ng_anr/views/anr.dashboard.html:309
+#: ../ng_anr/views/anr.dashboard.html:345
 msgid "Max. associated risk level"
 msgstr "Max. geassocieerd risiconiveau"
 
@@ -2965,15 +2991,15 @@ msgstr "Netto waarschijnlijkheid"
 msgid "Net risk"
 msgstr "Nettorisico"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1020
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1216
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1350
-#: ../ng_anr/src/ImportFileDialogCtrl.js:910
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1018
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1214
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1348
+#: ../ng_anr/src/ImportFileDialogCtrl.js:908
 msgid "Network"
 msgstr "Netwerk"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1168
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1485
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1166
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1483
 msgid "Network and Telecom"
 msgstr "Netwerk en Telecom"
 
@@ -3010,7 +3036,7 @@ msgstr "Nieuw model"
 msgid "New password"
 msgstr "Nieuw wachtwoord"
 
-#: src/BackofficeAccountCtrl.js:112 views/dialogs/display.recoverycodes.html:5
+#: src/BackofficeAccountCtrl.js:117 views/dialogs/display.recoverycodes.html:5
 msgid "New recovery codes"
 msgstr "Nieuwe herstelcodes"
 
@@ -3030,7 +3056,7 @@ msgstr "Nieuwe tag"
 msgid "New user"
 msgstr "Nieuwe gebruiker"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:751
+#: ../ng_anr/src/ImportFileDialogCtrl.js:749
 msgid "New {{externalItem}}"
 msgid_plural "New {{pluralExtItem}}"
 msgstr[0] "Nieuw {{externalItem}}"
@@ -3048,19 +3074,20 @@ msgstr "Nee"
 #: ../ng_anr/src/Charts/HeatmapChartService.js:56
 #: ../ng_anr/src/Charts/HorizontalBarChartService.js:92
 #: ../ng_anr/src/Charts/LineChartService.js:102
+#: ../ng_anr/src/Charts/MiniHorizontalBarChartsService.js:89
 #: ../ng_anr/src/Charts/MultiHeatmapChartService.js:87
 #: ../ng_anr/src/Charts/MultiHorizontalBarChartService.js:90
 #: ../ng_anr/src/Charts/MultiLineChartService.js:65
-#: ../ng_anr/src/Charts/MultiVerticalBarChartService.js:94
+#: ../ng_anr/src/Charts/MultiVerticalBarChartService.js:112
 #: ../ng_anr/src/Charts/RadarChartService.js:54
-#: ../ng_anr/src/Charts/VerticalBarChartService.js:96
+#: ../ng_anr/src/Charts/VerticalBarChartService.js:114
 msgid "No Data Avalaible"
 msgstr "Geen gegevens beschikbaar"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1080
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1301
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1413
-#: ../ng_anr/src/ImportFileDialogCtrl.js:980
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1078
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1299
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1411
+#: ../ng_anr/src/ImportFileDialogCtrl.js:978
 msgid "No IT charter specifying the rules of use"
 msgstr ""
 "Gebrek aan een informaticacharter waarin de gebruikseisen worden beschreven"
@@ -3184,21 +3211,29 @@ msgstr "Niet gedefinieerd"
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:127 ../ng_anr/src/AnrSoaSheetCtrl.js:217
 #: ../ng_anr/views/_oprisk_sheet.html:154 ../ng_anr/views/_risk_sheet.html:152
 #: ../ng_anr/views/_table_risks.html:34 ../ng_anr/views/_table_risks_op.html:34
+#: ../ng_anr/views/anr.dashboard.html:116
+#: ../ng_anr/views/anr.dashboard.html:188
+#: ../ng_anr/views/anr.dashboard.html:257 ../ng_anr/views/anr.dashboard.html:48
 msgid "Not treated"
 msgstr "Niet behandeld"
 
-#: ../ng_anr/views/anr.dashboard.html:250
+#: ../ng_anr/views/anr.dashboard.html:323
+msgid "Number of threats to display"
+msgstr ""
+
+#: ../ng_anr/views/anr.dashboard.html:351
+#: ../ng_anr/views/anr.dashboard.html:372
 msgid "Number of vulnerabilities to display"
 msgstr "Aantal te tonen kwetsbaarheden"
 
-#: src/BackofficeAccountCtrl.js:115 views/dialogs/activate.2FA.html:40
+#: src/BackofficeAccountCtrl.js:120 views/dialogs/activate.2FA.html:40
 #: views/dialogs/display.recoverycodes.html:27
 msgid "OK"
 msgstr "OK"
 
-#: ../ng_anr/views/anr.dashboard.html:217
-#: ../ng_anr/views/anr.dashboard.html:243
-#: ../ng_anr/views/anr.dashboard.html:332
+#: ../ng_anr/views/anr.dashboard.html:307
+#: ../ng_anr/views/anr.dashboard.html:343
+#: ../ng_anr/views/anr.dashboard.html:442
 msgid "Occurrence"
 msgstr "Voorval"
 
@@ -3217,8 +3252,8 @@ msgstr "Alleen de globale activa zullen kunnen worden geïmporteerd door fusie."
 msgid "Only one guide by category"
 msgstr "Er kan slechts één gids per categorie zijn"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1192
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1516
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1190
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1514
 msgid ""
 "Only one operational risk tag can be linked and must exist in the Knowledge "
 "Base"
@@ -3253,8 +3288,8 @@ msgstr "Tag van de operationele risico’s"
 
 #: ../ng_anr/views/_anr.evalscales.html:289
 #: ../ng_anr/views/_anr.kbmgmt.html:500 ../ng_anr/views/_anr.kbmgmt.html:503
-#: ../ng_anr/views/anr.dashboard.html:116
-#: ../ng_anr/views/anr.dashboard.html:283
+#: ../ng_anr/views/anr.dashboard.html:160
+#: ../ng_anr/views/anr.dashboard.html:393
 #: ../ng_anr/views/anr.dashboard.risks.html:76 ../ng_anr/views/anr.home.html:52
 #: ../ng_anr/views/anr.instance.html:106 ../ng_anr/views/anr.soa.sheet.html:82
 #: views/index.backoffice.html:32 views/op_risk.kb_mgmt.html:68
@@ -3299,9 +3334,14 @@ msgstr "Oorspronkelijk wachtwoord foutief"
 msgid "Page:"
 msgstr "Pagina:"
 
-#: ../ng_anr/views/anr.dashboard.html:126
-#: ../ng_anr/views/anr.dashboard.html:172 ../ng_anr/views/anr.dashboard.html:30
-#: ../ng_anr/views/anr.dashboard.html:76
+#: ../ng_anr/views/anr.dashboard.html:129
+#: ../ng_anr/views/anr.dashboard.html:171
+#: ../ng_anr/views/anr.dashboard.html:201
+#: ../ng_anr/views/anr.dashboard.html:240
+#: ../ng_anr/views/anr.dashboard.html:270 ../ng_anr/views/anr.dashboard.html:31
+#: ../ng_anr/views/anr.dashboard.html:310
+#: ../ng_anr/views/anr.dashboard.html:346 ../ng_anr/views/anr.dashboard.html:61
+#: ../ng_anr/views/anr.dashboard.html:99
 msgid "Parent asset"
 msgstr "Moederactief"
 
@@ -3318,7 +3358,7 @@ msgstr "Bovenliggend element ontbreekt"
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: views/login.html:38
+#: views/login.html:47
 msgid "Password forgotten?"
 msgstr "Wachtwoord vergeten?"
 
@@ -3330,7 +3370,7 @@ msgstr "De wachtwoorden zijn niet identiek."
 msgid "Payroll, personnel file, recruitment"
 msgstr "Loonlijst, personeelsdossier, aanwervingen"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1154
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1152
 msgid "Periodically review access permissions."
 msgstr "Controleer regelmatig de toegangsrechten."
 
@@ -3343,10 +3383,14 @@ msgid "Personal information"
 msgstr "Persoonlijke informatie"
 
 #: ../ng_anr/views/add.objlib.html:19
-msgid "Pick an existing asset from the knowledge base"
-msgstr "Kies een bestaand actief uit de knowledge base"
+msgid "Pick an existing category or asset from the knowledge base"
+msgstr ""
 
-#: views/login.html:53
+#: src/BackofficeLoginCtrl.js:74
+msgid "Please configure two-factor authentication."
+msgstr ""
+
+#: views/login.html:62
 msgid ""
 "Please enter the e-mail address associated to your account. An e-mail will "
 "be sent to you with account recovery instructions."
@@ -3354,9 +3398,13 @@ msgstr ""
 "Gelieve het aan uw account verbonden e-mailadres in te voeren. U zult een e-"
 "mail ontvangen met instructies voor het recupereren hiervan."
 
-#: src/BackofficeLoginCtrl.js:65
-msgid "Please enter your Two Factor Authentication token."
-msgstr "Voer uw Two Factor Authentication token in."
+#: src/BackofficeLoginCtrl.js:71
+msgid "Please enter your two-factor authentication token."
+msgstr ""
+
+#: views/login.html:25
+msgid "Please scan the QRCode and enter the verification code."
+msgstr ""
 
 #: views/passwordforgotten.html:10
 msgid "Please type in and confirm your new password"
@@ -3438,7 +3486,7 @@ msgid "Prob.(Net risk)"
 msgstr "Waarsch. (Nettorisico)"
 
 #: ../ng_anr/views/_anr.evalscales.html:489
-#: ../ng_anr/views/anr.dashboard.html:218
+#: ../ng_anr/views/anr.dashboard.html:308
 #: ../ng_anr/views/trends.evalcontext.html:100
 msgid "Probability"
 msgstr "Waarschijnlijkheid"
@@ -3447,8 +3495,8 @@ msgstr "Waarschijnlijkheid"
 msgid "Processors"
 msgstr "Verwerkers"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1120
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1455
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1118
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1453
 msgid "Product Compliance Customer agreement"
 msgstr "Product Conformiteit klantenovereenkomst"
 
@@ -3478,7 +3526,7 @@ msgstr "Doel(en)"
 msgid "Qualif."
 msgstr "Kwalif."
 
-#: ../ng_anr/views/anr.dashboard.html:244
+#: ../ng_anr/views/anr.dashboard.html:344
 msgid "Qualification"
 msgstr "Kwalificatie"
 
@@ -3486,7 +3534,7 @@ msgstr "Kwalificatie"
 msgid "Question"
 msgstr "Vraag"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3463
+#: ../ng_anr/src/AnrLayoutCtrl.js:3447
 msgid "Question deleted"
 msgstr "Vraag met succes verwijderd"
 
@@ -3518,7 +3566,7 @@ msgstr "Type Ontvanger"
 msgid "Recipients"
 msgstr "Ontvangers"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3268 ../ng_anr/src/AnrRisksPlanCtrl.js:55
+#: ../ng_anr/src/AnrLayoutCtrl.js:3252 ../ng_anr/src/AnrRisksPlanCtrl.js:55
 #: ../ng_anr/src/AnrRisksPlanHistoryCtrl.js:51
 #: ../ng_anr/views/anr.risksplan.history.html:11
 #: ../ng_anr/views/anr.risksplan.html:13
@@ -3540,7 +3588,7 @@ msgstr ""
 "ontbrekende goede praktijk te verhelpen"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:626 ../ng_anr/views/_oprisk_sheet.html:108
-#: ../ng_anr/views/_risk_sheet.html:104 ../ng_anr/views/anr.dashboard.html:327
+#: ../ng_anr/views/_risk_sheet.html:104 ../ng_anr/views/anr.dashboard.html:437
 #: ../ng_anr/views/export.objlibs.html:59
 msgid "Recommendations"
 msgstr "Aanbevelingen"
@@ -3554,7 +3602,7 @@ msgstr "Aanbevelingen Sets"
 msgid "Record of processing activities"
 msgstr "Register van de verwerkingsactiviteiten"
 
-#: views/login.html:29
+#: views/login.html:38
 msgid "Recovery code"
 msgstr "Herstel code"
 
@@ -3577,6 +3625,9 @@ msgstr "Herstel opties"
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:115 ../ng_anr/src/AnrSoaSheetCtrl.js:209
 #: ../ng_anr/views/_oprisk_sheet.html:155 ../ng_anr/views/_risk_sheet.html:153
 #: ../ng_anr/views/_table_risks.html:35 ../ng_anr/views/_table_risks_op.html:35
+#: ../ng_anr/views/anr.dashboard.html:117
+#: ../ng_anr/views/anr.dashboard.html:189
+#: ../ng_anr/views/anr.dashboard.html:258 ../ng_anr/views/anr.dashboard.html:49
 msgid "Reduction"
 msgstr "Reductie"
 
@@ -3629,7 +3680,7 @@ msgstr "Vertegenwoordiger"
 msgid "Reset filter"
 msgstr "Herinitialiseren"
 
-#: views/login.html:65 views/passwordforgotten.html:33
+#: views/login.html:74 views/passwordforgotten.html:33
 msgid "Reset password"
 msgstr "Het wachtwoord herinitialiseren"
 
@@ -3637,7 +3688,7 @@ msgstr "Het wachtwoord herinitialiseren"
 msgid "Reset positions"
 msgstr "De posities herinitialiseren"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3273
+#: ../ng_anr/src/AnrLayoutCtrl.js:3257
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:100
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:137
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:152 ../ng_anr/src/AnrSoaSheetCtrl.js:59
@@ -3654,8 +3705,8 @@ msgstr "De posities herinitialiseren"
 msgid "Residual risk"
 msgstr "Restrisico"
 
-#: ../ng_anr/views/anr.dashboard.html:165
-#: ../ng_anr/views/anr.dashboard.html:299 ../ng_anr/views/anr.dashboard.html:69
+#: ../ng_anr/views/anr.dashboard.html:232
+#: ../ng_anr/views/anr.dashboard.html:409 ../ng_anr/views/anr.dashboard.html:91
 msgid "Residual risks"
 msgstr "Restrisico's"
 
@@ -3903,7 +3954,7 @@ msgstr "Selecteer een aanbevelingsset"
 msgid "Select a referential"
 msgstr "Kies een standaard"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1126
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1124
 msgid "Separed by /"
 msgstr "Gescheiden door /"
 
@@ -3922,6 +3973,9 @@ msgstr "Opstellen"
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:124 ../ng_anr/src/AnrSoaSheetCtrl.js:215
 #: ../ng_anr/views/_oprisk_sheet.html:158 ../ng_anr/views/_risk_sheet.html:156
 #: ../ng_anr/views/_table_risks.html:38 ../ng_anr/views/_table_risks_op.html:38
+#: ../ng_anr/views/anr.dashboard.html:120
+#: ../ng_anr/views/anr.dashboard.html:192
+#: ../ng_anr/views/anr.dashboard.html:261 ../ng_anr/views/anr.dashboard.html:52
 msgid "Shared"
 msgstr "Gedeeld"
 
@@ -3976,7 +4030,7 @@ msgstr "De operationele brutorisico’s weergeven"
 msgid "Simple text"
 msgstr "Eenvoudige tekst"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3603
+#: ../ng_anr/src/AnrLayoutCtrl.js:3587
 msgid "Snapshot restored"
 msgstr "Herstelde snapshot"
 
@@ -3984,8 +4038,8 @@ msgstr "Herstelde snapshot"
 msgid "Snapshots"
 msgstr "Snapshots"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2899 ../ng_anr/src/AnrLayoutCtrl.js:3839
-#: ../ng_anr/src/AnrLayoutCtrl.js:4028 ../ng_anr/src/AnrRopaCtrl.js:1706
+#: ../ng_anr/src/AnrLayoutCtrl.js:2899 ../ng_anr/src/AnrLayoutCtrl.js:3823
+#: ../ng_anr/src/AnrLayoutCtrl.js:4012 ../ng_anr/src/AnrRopaCtrl.js:1706
 msgid "Some files could not be imported"
 msgstr "Bepaalde bestanden konden niet worden geïmporteerd"
 
@@ -4150,8 +4204,8 @@ msgstr "Het IP-adres moet het volgende formaat hebben: xxx.xxx.xxx.xxx"
 msgid "The SOA has been imported successfully."
 msgstr "De VVT is succesvol geïmporteerd."
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1114
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1449
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1112
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1447
 msgid ""
 "The applicable legal and regulatory requirements are not determined, "
 "understood and consistently met"
@@ -4198,8 +4252,8 @@ msgstr "Het actief werd met succes gewijzigd."
 msgid "The asset has been exported successfully."
 msgstr "Het actief werd met succes geëxporteerd."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2895 ../ng_anr/src/AnrLayoutCtrl.js:3841
-#: ../ng_anr/src/AnrLayoutCtrl.js:3900
+#: ../ng_anr/src/AnrLayoutCtrl.js:2895 ../ng_anr/src/AnrLayoutCtrl.js:3825
+#: ../ng_anr/src/AnrLayoutCtrl.js:3884
 msgid "The asset has been imported successfully"
 msgstr "De activa werden met succes geïmporteerd"
 
@@ -4365,7 +4419,7 @@ msgstr "De informatie van elke maatregel zal toegevoegd worden."
 msgid "The input does not appear to be an integer"
 msgstr "De input moet een geheel getal zijn"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:4030
+#: ../ng_anr/src/AnrLayoutCtrl.js:4014
 msgid "The instance has been imported successfully"
 msgstr "Dit actief werd met succes geïmporteerd"
 
@@ -4440,7 +4494,7 @@ msgstr "De operationele risico-impactschaal is succesvol aangemaakt."
 msgid "The organization may not be empty"
 msgstr "De organisatie mag niet leeg zijn"
 
-#: src/BackofficeLoginCtrl.js:29
+#: src/BackofficeLoginCtrl.js:31
 msgid ""
 "The password reset request has been sent successfully. You will receive a "
 "mail shortly with information on how to reset your account password."
@@ -4875,7 +4929,7 @@ msgstr "Deze naam wordt al gebruikt"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:368 ../ng_anr/src/AnrKbMgmtCtrl.js:3860
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:622 ../ng_anr/src/AnrKbMgmtCtrl.js:648
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:877 ../ng_anr/src/AnrKbMgmtCtrl.js:903
-#: ../ng_anr/src/AnrLayoutCtrl.js:3801
+#: ../ng_anr/src/AnrLayoutCtrl.js:3785
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:440 ../ng_anr/src/AnrRopaCtrl.js:230
 #: ../ng_anr/src/AnrRopaCtrl.js:560 ../ng_anr/src/AnrRopaCtrl.js:637
 #: ../ng_anr/src/AnrRopaCtrl.js:706
@@ -4954,11 +5008,11 @@ msgstr ""
 msgid "Threat"
 msgstr "Bedreiging"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3530
+#: ../ng_anr/src/AnrLayoutCtrl.js:3514
 msgid "Threat assessment saved successfully"
 msgstr "Evaluatie van de bedreiging met succes opgeslagen"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3545
+#: ../ng_anr/src/AnrLayoutCtrl.js:3529
 msgid "Threat evaluation summary saved successfully"
 msgstr "Synthese van de evaluatie van de bedreigingen met succes opgeslagen"
 
@@ -4972,7 +5026,7 @@ msgid "Threat:"
 msgstr "Bedreiging:"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:81 ../ng_anr/views/_anr.kbmgmt.html:84
-#: ../ng_anr/views/anr.dashboard.html:212 views/info_risk.kb_mgmt.html:80
+#: ../ng_anr/views/anr.dashboard.html:302 views/info_risk.kb_mgmt.html:80
 #: views/info_risk.kb_mgmt.html:83
 msgid "Threats"
 msgstr "Bedreigingen"
@@ -5001,8 +5055,17 @@ msgstr "Gereedschappen"
 msgid "Total"
 msgstr "Totaal"
 
+#: ../ng_anr/views/anr.dashboard.html:115
+#: ../ng_anr/views/anr.dashboard.html:187
+#: ../ng_anr/views/anr.dashboard.html:256 ../ng_anr/views/anr.dashboard.html:47
+msgid "Treated"
+msgstr ""
+
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:151 ../ng_anr/src/AnrSoaSheetCtrl.js:58
 #: ../ng_anr/views/_table_risks.html:92 ../ng_anr/views/_table_risks_op.html:92
+#: ../ng_anr/views/anr.dashboard.html:169
+#: ../ng_anr/views/anr.dashboard.html:238 ../ng_anr/views/anr.dashboard.html:29
+#: ../ng_anr/views/anr.dashboard.html:97
 #: ../ng_anr/views/anr.dashboard.risks.html:22
 #: ../ng_anr/views/anr.dashboard.risks.html:84
 #: ../ng_anr/views/anr.soa.sheet.html:25 ../ng_anr/views/anr.soa.sheet.html:96
@@ -5017,39 +5080,45 @@ msgstr "Tendensen"
 msgid "Trends assessment"
 msgstr "Evaluatie van de tendensen"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3441
+#: ../ng_anr/src/AnrLayoutCtrl.js:3425
 msgid "Trends assessment saved successfully"
 msgstr "De evaluatie van de tendensen werd met succes opgeslagen"
 
-#: views/login.html:23
-msgid "Two factor code"
-msgstr "Twee-factor code"
-
-#: views/dialogs/activate.2FA.html:15
-msgid ""
-"Two-Factor Authentication is already set up. If you submit a new token "
-"below, your previous private key will be invalided. This can be an issue if "
-"you are using several OTP devices."
-msgstr ""
-"Twee-factor authenticatie is al ingesteld. Als u hieronder een nieuw token "
-"invoert, zal uw vorige private key worden geÃ¯nvalideerd. Dit kan een "
-"probleem zijn als u meerdere OTP-apparaten gebruikt."
-
+#: src/BackofficeAccountCtrl.js:105 src/BackofficeAccountCtrl.js:79
 #: views/account.html:78
-msgid "Two-Factor authentication"
-msgstr "Twee-factor authenticatie"
-
-#: src/BackofficeAccountCtrl.js:100 src/BackofficeAccountCtrl.js:78
 msgid "Two-factor authentication"
 msgstr "Twee-factor authenticatie"
 
-#: src/BackofficeAccountCtrl.js:78
+#: src/BackofficeAccountCtrl.js:82
+msgid "Two-factor authentication failed"
+msgstr ""
+
+#: views/dialogs/activate.2FA.html:15
+msgid ""
+"Two-factor authentication is already set up. If you submit a new token "
+"below, your previous private key will be invalided. This can be an issue if "
+"you are using several OTP devices."
+msgstr ""
+
+#: views/login.html:24
+msgid "Two-factor authentication is enforced on this instance."
+msgstr ""
+
+#: src/BackofficeAccountCtrl.js:79
 msgid "Two-factor authentication is now activated."
 msgstr "Twee-factor authenticatie is nu geactiveerd."
 
-#: src/BackofficeAccountCtrl.js:100
+#: src/BackofficeAccountCtrl.js:105
 msgid "Two-factor authentication is now deactivated."
 msgstr "Twee-factorauthenticatie is nu gedeactiveerd."
+
+#: views/login.html:32
+msgid "Two-factor code"
+msgstr ""
+
+#: views/login.html:23
+msgid "Two-factor verification code"
+msgstr ""
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
@@ -5061,11 +5130,11 @@ msgstr "MxV"
 msgid "Type"
 msgstr "Type"
 
-#: ../ng_anr/views/anr.dashboard.html:280
+#: ../ng_anr/views/anr.dashboard.html:390
 msgid "Type of risks"
 msgstr "Type risico's"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3026 ../ng_anr/views/anr.soa.html:18
+#: ../ng_anr/src/AnrLayoutCtrl.js:3028 ../ng_anr/views/anr.soa.html:18
 #: views/info_risk.kb_mgmt.html:429
 msgid "Uncategorized"
 msgstr "Zonder categorie"
@@ -5114,7 +5183,7 @@ msgstr ""
 msgid "Use an existing risk"
 msgstr "Een bestaand risico gebruiken"
 
-#: views/login.html:37
+#: views/login.html:46
 msgid "Use recovery code?"
 msgstr "Herstelcode gebruiken?"
 
@@ -5204,7 +5273,7 @@ msgstr "Versie"
 msgid "Visible on global dashboard"
 msgstr "Zichtbaar op globaal dashboard"
 
-#: ../ng_anr/views/_anr.kbmgmt.html:156 ../ng_anr/views/anr.dashboard.html:238
+#: ../ng_anr/views/_anr.kbmgmt.html:156 ../ng_anr/views/anr.dashboard.html:338
 #: views/info_risk.kb_mgmt.html:152
 msgid "Vulnerabilities"
 msgstr "Kwetsbaarheden"
@@ -5266,7 +5335,7 @@ msgstr "Alles opvouwen"
 msgid "Wrong MOSP API Key. Try again."
 msgstr "Verkeerde MOSP API sleutel. Probeer het opnieuw."
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:780
+#: ../ng_anr/src/ImportFileDialogCtrl.js:778
 msgid "Wrong schema"
 msgstr "Verkeerd schema"
 
@@ -5481,7 +5550,7 @@ msgstr "U moet een wachtwoord invoeren"
 msgid "You won't be able to view this again."
 msgstr "U zult deze niet meer kunnen bekijken."
 
-#: src/BackofficeLoginCtrl.js:70
+#: src/BackofficeLoginCtrl.js:80
 msgid "Your e-mail address or password is invalid, please try again."
 msgstr "Uw e-mailadres of wachtwoord is incorrect, probeer het opnieuw a.u.b."
 
@@ -5560,15 +5629,15 @@ msgstr "prioritair aan te pakken kritiek(e) risico(‘s)"
 msgid "day(s)"
 msgstr "dag(en)"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1234
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1279
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1313
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1510
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1232
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1277
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1311
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1508
 msgid "generic"
 msgstr "generiek"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1186
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1504
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1184
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1502
 msgid "global"
 msgstr "globaal"
 
@@ -5594,12 +5663,12 @@ msgstr "aan het einde"
 msgid "inherited"
 msgstr "geërfd"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:790
+#: ../ng_anr/src/ImportFileDialogCtrl.js:788
 msgid "is mandatory"
 msgstr "is verplicht"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1186
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1504
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1184
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1502
 msgid "local"
 msgstr "lokaal"
 
@@ -5624,24 +5693,24 @@ msgstr "maand(en)"
 msgid "of"
 msgstr "van"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1160
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1158
 msgid "or"
 msgstr "of"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1228
-#: ../ng_anr/src/ImportFileDialogCtrl.js:922
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1226
+#: ../ng_anr/src/ImportFileDialogCtrl.js:920
 msgid "primary asset"
 msgstr "primaire asset"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1228
-#: ../ng_anr/src/ImportFileDialogCtrl.js:922
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1226
+#: ../ng_anr/src/ImportFileDialogCtrl.js:920
 msgid "secondary asset"
 msgstr "secondaire asset"
 
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1234
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1279
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1313
-#: ../ng_anr/src/ImportFileDialogCtrl.js:1510
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1232
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1277
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1311
+#: ../ng_anr/src/ImportFileDialogCtrl.js:1508
 msgid "specific"
 msgstr "specifiek"
 
