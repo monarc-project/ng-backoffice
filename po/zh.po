@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-30 11:21+0000\n"
+"PO-Revision-Date: 2022-11-23 10:59+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: none\n"
 "Language: zh\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: views/dialogs/activate.2FA.html:30 views/login.html:27
 msgid "2FA QRCode"
@@ -1705,7 +1705,7 @@ msgstr "显示威胁"
 #: ../ng_anr/views/anr.dashboard.html:197
 #: ../ng_anr/views/anr.dashboard.html:266 ../ng_anr/views/anr.dashboard.html:57
 msgid "Display treatment by"
-msgstr ""
+msgstr "显示治疗方法"
 
 #: ../ng_anr/views/anr.dashboard.html:341
 msgid "Display vulnerabilities by"
@@ -2186,7 +2186,7 @@ msgstr "不支持的文件类型"
 #: ../ng_anr/views/anr.dashboard.html:184
 #: ../ng_anr/views/anr.dashboard.html:253 ../ng_anr/views/anr.dashboard.html:44
 msgid "Filter by treatment"
-msgstr ""
+msgstr "按治疗方法过滤"
 
 #: ../ng_anr/views/_table_risks.html:42 ../ng_anr/views/_table_risks_op.html:42
 msgid "Filter table"
@@ -3187,7 +3187,7 @@ msgstr "未处理"
 
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
-msgstr ""
+msgstr "显示的威胁数量"
 
 #: ../ng_anr/views/anr.dashboard.html:351
 #: ../ng_anr/views/anr.dashboard.html:372
@@ -3348,11 +3348,11 @@ msgstr "个人资料"
 
 #: ../ng_anr/views/add.objlib.html:19
 msgid "Pick an existing category or asset from the knowledge base"
-msgstr ""
+msgstr "从知识库中挑选一个现有的类别或资产"
 
 #: src/BackofficeLoginCtrl.js:74
 msgid "Please configure two-factor authentication."
-msgstr ""
+msgstr "请配置双因素认证。"
 
 #: views/login.html:62
 msgid ""
@@ -3364,11 +3364,11 @@ msgstr ""
 
 #: src/BackofficeLoginCtrl.js:71
 msgid "Please enter your two-factor authentication token."
-msgstr ""
+msgstr "请输入你的双因素认证令牌。"
 
 #: views/login.html:25
 msgid "Please scan the QRCode and enter the verification code."
-msgstr ""
+msgstr "请扫描QRCode并输入验证码。"
 
 #: views/passwordforgotten.html:10
 msgid "Please type in and confirm your new password"
@@ -4973,7 +4973,7 @@ msgstr "总数"
 #: ../ng_anr/views/anr.dashboard.html:187
 #: ../ng_anr/views/anr.dashboard.html:256 ../ng_anr/views/anr.dashboard.html:47
 msgid "Treated"
-msgstr ""
+msgstr "已处理"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:151 ../ng_anr/src/AnrSoaSheetCtrl.js:58
 #: ../ng_anr/views/_table_risks.html:92 ../ng_anr/views/_table_risks_op.html:92
@@ -5005,18 +5005,19 @@ msgstr "双因素认证"
 
 #: src/BackofficeAccountCtrl.js:82
 msgid "Two-factor authentication failed"
-msgstr ""
+msgstr "双因素认证失败"
 
 #: views/dialogs/activate.2FA.html:15
 msgid ""
 "Two-factor authentication is already set up. If you submit a new token "
 "below, your previous private key will be invalided. This can be an issue if "
 "you are using several OTP devices."
-msgstr ""
+msgstr "双因素认证已经设置好了。如果你在下面提交一个新的令牌，你以前的私钥将被废止。"
+"如果你正在使用几个OTP设备，这可能是一个问题。"
 
 #: views/login.html:24
 msgid "Two-factor authentication is enforced on this instance."
-msgstr ""
+msgstr "双因素认证在这个实例上被强制执行。"
 
 #: src/BackofficeAccountCtrl.js:79
 msgid "Two-factor authentication is now activated."
@@ -5032,7 +5033,7 @@ msgstr ""
 
 #: views/login.html:23
 msgid "Two-factor verification code"
-msgstr ""
+msgstr "双因素验证码"
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
