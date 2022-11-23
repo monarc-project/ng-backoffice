@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-23 10:59+0000\n"
+"PO-Revision-Date: 2022-11-23 13:38+0000\n"
 "Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -3390,7 +3390,7 @@ msgstr "Informazioni personali"
 #: ../ng_anr/views/add.objlib.html:19
 msgid "Pick an existing category or asset from the knowledge base"
 msgstr ""
-"Scegliete una categoria o una risorsa esistente dalla base di conoscenze."
+"Scegliete una categoria o una risorsa esistente dalla base di conoscenze"
 
 #: src/BackofficeLoginCtrl.js:74
 msgid "Please configure two-factor authentication."
