@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-11 11:32+0000\n"
-"Last-Translator: Cédric Bonhomme <cedric@cedricbonhomme.org>\n"
+"PO-Revision-Date: 2022-11-23 10:59+0000\n"
+"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1747,7 +1747,7 @@ msgstr "Trier les menaces par"
 #: ../ng_anr/views/anr.dashboard.html:197
 #: ../ng_anr/views/anr.dashboard.html:266 ../ng_anr/views/anr.dashboard.html:57
 msgid "Display treatment by"
-msgstr ""
+msgstr "Afficher le traitement par"
 
 #: ../ng_anr/views/anr.dashboard.html:341
 #: ../ng_anr/views/anr.dashboard.html:241
@@ -2245,7 +2245,7 @@ msgstr "Type de fichier non supporté"
 #: ../ng_anr/views/anr.dashboard.html:184
 #: ../ng_anr/views/anr.dashboard.html:253 ../ng_anr/views/anr.dashboard.html:44
 msgid "Filter by treatment"
-msgstr ""
+msgstr "Filtrer par traitement"
 
 #: ../ng_anr/views/_table_risks.html:42 ../ng_anr/views/_table_risks_op.html:42
 msgid "Filter table"
@@ -3281,7 +3281,7 @@ msgstr "Non traité"
 
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
-msgstr ""
+msgstr "Nombre de menaces à afficher"
 
 #: ../ng_anr/views/anr.dashboard.html:351
 #: ../ng_anr/views/anr.dashboard.html:372
@@ -5132,7 +5132,7 @@ msgstr "Total"
 #: ../ng_anr/views/anr.dashboard.html:187
 #: ../ng_anr/views/anr.dashboard.html:256 ../ng_anr/views/anr.dashboard.html:47
 msgid "Treated"
-msgstr ""
+msgstr "Traité"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:151 ../ng_anr/src/AnrSoaSheetCtrl.js:58
 #: ../ng_anr/views/_table_risks.html:92 ../ng_anr/views/_table_risks_op.html:92
@@ -5165,7 +5165,7 @@ msgstr "Authentification à deux facteurs"
 
 #: src/BackofficeAccountCtrl.js:82
 msgid "Two-factor authentication failed"
-msgstr ""
+msgstr "L'authentification à deux facteurs a échoué"
 
 #: views/dialogs/activate.2FA.html:15
 msgid ""
