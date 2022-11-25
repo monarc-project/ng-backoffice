@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-23 10:59+0000\n"
-"Last-Translator: Juan Rocha <juan.rocha@cases.lu>\n"
+"PO-Revision-Date: 2022-11-26 16:32+0000\n"
+"Last-Translator: Sparwel <marc.sparwel@konzeptacht.de>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -3549,7 +3549,9 @@ msgstr "R: Risiko, I: Auswirkung, P: Wahrscheinlichkeit"
 
 #: ../ng_anr/views/_anr.evalscales.html:282
 msgid "R: Risk, I: Impact, T: Threat, V: Vulnerability"
-msgstr "R: Risiko, I: Auswirkung, T: Bedrohung, V: Schwachstelle"
+msgstr ""
+"R: Risiko, I: Auswirkung, W: Wahrscheinlichkeitsskala, Q: "
+"Qualifizierungsskala"
 
 #: ../ng_anr/views/anr.soa.html:93
 msgid "RRA"
@@ -5129,7 +5131,7 @@ msgstr "Zwei-Faktor-Verifizierungscode"
 
 #: ../ng_anr/views/_anr.evalscales.html:254
 msgid "TxV"
-msgstr "BxS"
+msgstr "WxQ"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:55 ../ng_anr/views/create.assets.html:83
 #: views/dialogs/create.questions.html:68 views/info_risk.kb_mgmt.html:50
