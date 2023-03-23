@@ -58,7 +58,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user first name</label>
                     <md-icon>person</md-icon>
-                    <input ng-model="client.first_user_firstname" name="first_user_firstname" required ng-disabled="client.id">
+                    <input ng-model="client.first_user_firstname" name="first_user_firstname" required>
                     <div ng-messages="clientForm.first_user_firstname.$error">
                         <div ng-message="required">{{ 'The first user first name may not be empty' | translate }}</div>
                     </div>
@@ -67,7 +67,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user last name</label>
                     <md-icon>person</md-icon>
-                    <input ng-model="client.first_user_lastname" name="first_user_lastname" required ng-disabled="client.id">
+                    <input ng-model="client.first_user_lastname" name="first_user_lastname" required>
                     <div ng-messages="clientForm.first_user_lastname.$error">
                         <div ng-message="required">{{ 'The first user last name may not be empty' | translate }}</div>
                     </div>
@@ -76,9 +76,22 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user email</label>
                     <md-icon>email</md-icon>
-                    <input ng-model="client.first_user_email" name="first_user_email" type="email" ng-disabled="client.id" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
+                    <input ng-model="client.first_user_email" name="first_user_email" type="email" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
                     <div ng-messages="clientForm.first_user_email.$error">
                         <div ng-message="required">{{ 'The first user email may not be empty' | translate }}</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <div layout="row">
+                        client.id
+                        <div><md-switch ng-model="client.twoFactorAuthEnforced">{{ 'Enforce 2FA' | translate }}</md-switch></div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <div layout="row">
+                        <div><md-switch ng-model="client.isBackgroundProcessActive">{{ 'Activate background import' | translate }}</md-switch></div>
                     </div>
                 </md-input-container>
             </div>

@@ -169,7 +169,9 @@
                 name: '',
                 proxyAlias: '',
                 contact_email: '',
-                model_id: []
+                model_id: [],
+                twoFactorAuthEnforced: true,
+                isBackgroundProcessActive: false,
             };
         }
 
