@@ -83,16 +83,11 @@
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
-                    <div layout="row">
-                        client.id
-                        <div><md-switch ng-model="client.twoFactorAuthEnforced">{{ 'Enforce 2FA' | translate }}</md-switch></div>
-                    </div>
+                    <md-switch class="no-margin" ng-model="client.twoFactorAuthEnforced">{{ 'Enforce 2FA' | translate }}</md-switch>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
-                    <div layout="row">
-                        <div><md-switch ng-model="client.isBackgroundProcessActive">{{ 'Activate background import' | translate }}</md-switch></div>
-                    </div>
+                    <md-switch class="no-margin" ng-model="client.isBackgroundImportActive">{{ 'Activate background import' | translate }}</md-switch>
                 </md-input-container>
             </div>
         </md-dialog-content>

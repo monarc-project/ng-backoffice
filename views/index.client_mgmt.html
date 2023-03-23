@@ -39,6 +39,8 @@
                     <th md-column md-order-by="name"><span translate>Company</span></th>
                     <th md-column md-order-by="first_user_email"><span translate>E-mail</span></th>
                     <th md-column md-order-by="proxyAlias"><span translate>Proxy alias</span></th>
+                    <th md-column><span translate>2FA enforced</span></th>
+                    <th md-column><span translate>Background import active</span></th>
                     <th md-column md-order-by="createdAt"><span translate>Date</span></th>
                     <th md-column><span translate>Actions</span></th>
                 </tr>
@@ -49,6 +51,8 @@
                     <td md-cell>{{ client.name }}</td>
                     <td md-cell>{{ client.first_user_email }}</td>
                     <td md-cell>{{ client.proxyAlias }}</td>
+                    <td md-cell>{{ client.twoFactorAuthEnforced }}</td>
+                    <td md-cell>{{ client.isBackgroundImportActive }}</td>
                     <td md-cell>{{ client.createdAt.date.replace(' ', 'T') | date:'short' }}</td>
                     <td md-cell>
                         <md-button class="md-icon-button md-warn" ng-click="deleteClient($event, client)"><md-icon>delete</md-icon></md-button>

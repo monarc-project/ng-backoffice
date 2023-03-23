@@ -171,7 +171,7 @@
                 contact_email: '',
                 model_id: [],
                 twoFactorAuthEnforced: true,
-                isBackgroundProcessActive: false,
+                isBackgroundImportActive: false,
             };
         }
 
