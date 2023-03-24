@@ -9,6 +9,10 @@ msgstr ""
 msgid "2FA QRCode"
 msgstr ""
 
+#: views/index.client_mgmt.html:42
+msgid "2FA enforced"
+msgstr ""
+
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57
 #: ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106
@@ -97,7 +101,7 @@ msgstr ""
 #: ../ng_anr/views/snapshots.html:33
 #: views/analysis_guides.kb_mgmt.html:20
 #: views/deliveries_models.kb_mgmt.html:22
-#: views/index.client_mgmt.html:43
+#: views/index.client_mgmt.html:45
 #: views/info_risk.kb_mgmt.html:127
 #: views/info_risk.kb_mgmt.html:200
 #: views/info_risk.kb_mgmt.html:294
@@ -117,6 +121,10 @@ msgstr ""
 #: views/index.backoffice.html:112
 #: views/logs.admin.html:4
 msgid "Actions history"
+msgstr ""
+
+#: views/dialogs/create.clients.html:90
+msgid "Activate background import"
 msgstr ""
 
 #: views/dialogs/activate.2FA.html:5
@@ -545,7 +553,7 @@ msgstr ""
 msgid "Are you sure you want to delete the processing?"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3782
+#: ../ng_anr/src/AnrLayoutCtrl.js:3779
 msgid "Are you sure you want to delete the {{count}} scales selected ?"
 msgstr ""
 
@@ -718,7 +726,7 @@ msgstr ""
 msgid "Asset not exist"
 msgstr ""
 
-#: ../ng_anr/views/import.instance.html:35
+#: ../ng_anr/views/import.instance.html:43
 #: ../ng_anr/views/import.object.html:43
 msgid "Asset password (if any)"
 msgstr ""
@@ -825,6 +833,10 @@ msgstr ""
 msgid "Average of levels"
 msgstr ""
 
+#: ../ng_anr/views/__external_translate.html:36
+msgid "Average of the max. risk value"
+msgstr ""
+
 #: ../ng_anr/views/anr.soa.html:87
 msgid "BP"
 msgstr ""
@@ -841,6 +853,10 @@ msgstr ""
 #: ../ng_anr/views/import.object.html:86
 #: views/items.analysis_guides.kb_mgmt.html:2
 msgid "Back to the list"
+msgstr ""
+
+#: views/index.client_mgmt.html:43
+msgid "Background import active"
 msgstr ""
 
 #: ../ng_anr/views/_gettext_caveats.html:28
@@ -917,7 +933,7 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:69
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:881
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:907
-#: ../ng_anr/src/AnrLayoutCtrl.js:3790
+#: ../ng_anr/src/AnrLayoutCtrl.js:3787
 #: ../ng_anr/src/AnrObjectCtrl.js:164
 #: ../ng_anr/src/AnrObjectCtrl.js:204
 #: ../ng_anr/src/AnrObjectCtrl.js:574
@@ -973,7 +989,7 @@ msgstr ""
 #: ../ng_anr/views/import.amv.html:52
 #: ../ng_anr/views/import.asset.html:52
 #: ../ng_anr/views/import.file.html:198
-#: ../ng_anr/views/import.instance.html:53
+#: ../ng_anr/views/import.instance.html:61
 #: ../ng_anr/views/import.match.html:52
 #: ../ng_anr/views/import.object.html:138
 #: ../ng_anr/views/import.object.mosp.html:66
@@ -1022,7 +1038,7 @@ msgstr ""
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:372
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:392
 #: views/dialogs/activate.2FA.html:37
-#: views/dialogs/create.clients.html:89
+#: views/dialogs/create.clients.html:97
 #: views/dialogs/create.deliverymodel.html:64
 #: views/dialogs/create.guides.html:59
 #: views/dialogs/create.guides.items.html:71
@@ -1408,6 +1424,10 @@ msgstr ""
 msgid "Create an interview"
 msgstr ""
 
+#: ../ng_anr/views/import.instance.html:29
+msgid "Create an snapshot before importing"
+msgstr ""
+
 #: ../ng_anr/views/create.amvs.html:173
 #: ../ng_anr/views/create.assets.html:117
 #: ../ng_anr/views/create.categories.html:46
@@ -1543,7 +1563,7 @@ msgstr ""
 
 #: ../ng_anr/views/interviews.html:45
 #: ../ng_anr/views/snapshots.html:30
-#: views/index.client_mgmt.html:42
+#: views/index.client_mgmt.html:44
 #: views/logs.admin.html:34
 msgid "Date"
 msgstr ""
@@ -1588,7 +1608,7 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:651
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:880
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:906
-#: ../ng_anr/src/AnrLayoutCtrl.js:3789
+#: ../ng_anr/src/AnrLayoutCtrl.js:3786
 #: ../ng_anr/src/AnrObjectCtrl.js:163
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:309
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:331
@@ -1672,7 +1692,7 @@ msgstr ""
 msgid "Delete referential"
 msgstr ""
 
-#: ../ng_anr/views/anr.home.html:40
+#: ../ng_anr/views/anr.home.html:43
 msgid "Delete risk analysis"
 msgstr ""
 
@@ -2233,6 +2253,10 @@ msgstr ""
 msgid "Encryption"
 msgstr ""
 
+#: views/dialogs/create.clients.html:86
+msgid "Enforce 2FA"
+msgstr ""
+
 #: ../ng_anr/views/__external_translate.html:17
 msgid "English"
 msgstr ""
@@ -2429,7 +2453,7 @@ msgstr ""
 msgid "Export successful"
 msgstr ""
 
-#: ../ng_anr/views/anr.home.html:35
+#: ../ng_anr/views/anr.home.html:38
 msgid "Export the whole risk analysis"
 msgstr ""
 
@@ -2824,7 +2848,7 @@ msgid "Import asset"
 msgstr ""
 
 #: ../ng_anr/views/import.file.html:39
-#: ../ng_anr/views/import.instance.html:42
+#: ../ng_anr/views/import.instance.html:50
 #: ../ng_anr/views/import.record.html:35
 msgid "Import file"
 msgstr ""
@@ -2891,7 +2915,7 @@ msgstr ""
 msgid "Important (••)"
 msgstr ""
 
-#: ../ng_anr/views/import.instance.html:45
+#: ../ng_anr/views/import.instance.html:53
 #: ../ng_anr/views/import.object.html:50
 #: ../ng_anr/views/import.record.html:38
 msgid "Importing file..."
@@ -2923,7 +2947,7 @@ msgstr ""
 #: ../ng_anr/views/anr.dashboard.html:20
 #: ../ng_anr/views/anr.dashboard.html:392
 #: ../ng_anr/views/anr.dashboard.risks.html:13
-#: ../ng_anr/views/anr.home.html:49
+#: ../ng_anr/views/anr.home.html:52
 #: ../ng_anr/views/anr.instance.html:103
 #: ../ng_anr/views/anr.soa.sheet.html:10
 #: views/index.backoffice.html:25
@@ -3604,6 +3628,10 @@ msgstr ""
 msgid "Not treated"
 msgstr ""
 
+#: ../ng_anr/views/__external_translate.html:35
+msgid "Number of risks"
+msgstr ""
+
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
 msgstr ""
@@ -3674,7 +3702,7 @@ msgstr ""
 #: ../ng_anr/views/anr.dashboard.html:160
 #: ../ng_anr/views/anr.dashboard.html:393
 #: ../ng_anr/views/anr.dashboard.risks.html:76
-#: ../ng_anr/views/anr.home.html:52
+#: ../ng_anr/views/anr.home.html:55
 #: ../ng_anr/views/anr.instance.html:106
 #: ../ng_anr/views/anr.soa.sheet.html:82
 #: views/index.backoffice.html:32
@@ -4494,7 +4522,7 @@ msgid "Snapshots"
 msgstr ""
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2899
-#: ../ng_anr/src/AnrLayoutCtrl.js:3823
+#: ../ng_anr/src/AnrLayoutCtrl.js:3820
 #: ../ng_anr/src/AnrLayoutCtrl.js:4012
 #: ../ng_anr/src/AnrRopaCtrl.js:1706
 msgid "Some files could not be imported"
@@ -4720,8 +4748,8 @@ msgid "The asset has been exported successfully."
 msgstr ""
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:2895
-#: ../ng_anr/src/AnrLayoutCtrl.js:3825
-#: ../ng_anr/src/AnrLayoutCtrl.js:3884
+#: ../ng_anr/src/AnrLayoutCtrl.js:3822
+#: ../ng_anr/src/AnrLayoutCtrl.js:3881
 msgid "The asset has been imported successfully"
 msgstr ""
 
@@ -4882,6 +4910,10 @@ msgstr ""
 msgid "The guide has been edited successfully."
 msgstr ""
 
+#: ../ng_anr/src/AnrLayoutCtrl.js:4016
+msgid "The import process is added to the queue and will be executed soon."
+msgstr ""
+
 #: ../ng_anr/views/import.soa.html:23
 msgid "The information of each control will be appended."
 msgstr ""
@@ -4890,7 +4922,7 @@ msgstr ""
 msgid "The input does not appear to be an integer"
 msgstr ""
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:4014
+#: ../ng_anr/src/AnrLayoutCtrl.js:4021
 msgid "The instance has been imported successfully"
 msgstr ""
 
@@ -5299,6 +5331,10 @@ msgstr ""
 msgid "There are no risks for this instance, or your filters returned no results."
 msgstr ""
 
+#: ../ng_anr/views/anr.home.html:34
+msgid "There is an import error (Restore a snapshot or remove analysis)"
+msgstr ""
+
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:104
 msgid "There is no document template of this category for this language."
 msgstr ""
@@ -5381,7 +5417,7 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:648
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:877
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:903
-#: ../ng_anr/src/AnrLayoutCtrl.js:3785
+#: ../ng_anr/src/AnrLayoutCtrl.js:3782
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:440
 #: ../ng_anr/src/AnrRopaCtrl.js:230
 #: ../ng_anr/src/AnrRopaCtrl.js:560
