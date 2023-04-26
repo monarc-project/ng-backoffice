@@ -41,3 +41,9 @@ a {
 .kb-sub-tabs md-next-button{
     right:170px ;
 }
+
+md-switch.no-margin {
+  margin: 0;
+  height: 0;
+  line-height: 0;
+}

@@ -58,7 +58,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user first name</label>
                     <md-icon>person</md-icon>
-                    <input ng-model="client.firstUserFirstname" name="firstUserFirstname" required ng-disabled="client.id">
+                    <input ng-model="client.firstUserFirstname" name="firstUserFirstname" required>
                     <div ng-messages="clientForm.firstUserFirstname.$error">
                         <div ng-message="required">{{ 'The first user first name may not be empty' | translate }}</div>
                     </div>
@@ -67,7 +67,7 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user last name</label>
                     <md-icon>person</md-icon>
-                    <input ng-model="client.firstUserLastname" name="firstUserLastname" required ng-disabled="client.id">
+                    <input ng-model="client.firstUserLastname" name="firstUserLastname" required>
                     <div ng-messages="clientForm.firstUserLastname.$error">
                         <div ng-message="required">{{ 'The first user last name may not be empty' | translate }}</div>
                     </div>
@@ -76,10 +76,18 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user email</label>
                     <md-icon>email</md-icon>
-                    <input ng-model="client.firstUserEmail" name="firstUserEmail" type="email" ng-disabled="client.id" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
+                    <input ng-model="client.firstUserEmail" name="firstUserEmail" type="email" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
                     <div ng-messages="clientForm.firstUserEmail.$error">
                         <div ng-message="required">{{ 'The first user email may not be empty' | translate }}</div>
                     </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <md-switch class="no-margin" ng-model="client.twoFactorAuthEnforced">{{ 'Enforce 2FA' | translate }}</md-switch>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <md-switch class="no-margin" ng-model="client.isBackgroundImportActive">{{ 'Activate background import' | translate }}</md-switch>
                 </md-input-container>
             </div>
         </md-dialog-content>
