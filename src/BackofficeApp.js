@@ -279,16 +279,16 @@ angular
             });
 
             $rootScope._langField = function (obj, field) {
-                if(!obj){
+                if (!obj) {
                     return '';
-                }else{
-                    if(!field){
-                        return obj + ConfigService.getDefaultLanguageIndex();
-                    }else{
-                        var uiLang = UserService.getUiLanguage();
-                        if(!obj[field + uiLang] || obj[field + uiLang] == ''){
+                } else {
+                    var uiLang = UserService.getUiLanguage();
+                    if (!field) {
+                        return obj + (uiLang ? uiLang : ConfigService.getDefaultLanguageIndex());
+                    } else {
+                        if (!obj[field + uiLang] || obj[field + uiLang] === '') {
                             return obj[field + ConfigService.getDefaultLanguageIndex()];
-                        }else{
+                        } else {
                             return obj[field + uiLang];
                         }
                     }
