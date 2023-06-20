@@ -2257,6 +2257,10 @@ msgstr ""
 msgid "Enforce 2FA"
 msgstr ""
 
+#: views/dialogs/create.clients.html:90
+msgid "Reset 2FA"
+msgstr ""
+
 #: ../ng_anr/views/__external_translate.html:17
 msgid "English"
 msgstr ""

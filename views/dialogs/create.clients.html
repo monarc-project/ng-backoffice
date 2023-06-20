@@ -86,6 +86,10 @@
                     <md-switch class="no-margin" ng-model="client.twoFactorAuthEnforced">{{ 'Enforce 2FA' | translate }}</md-switch>
                 </md-input-container>
 
+                <md-input-container class="md-block" flex ng-if="client.id">
+                    <md-switch class="no-margin" ng-model="client.resetTwoFactorAuth">{{ 'Reset 2FA' | translate }}</md-switch>
+                </md-input-container>
+
                 <md-input-container class="md-block" flex>
                     <md-switch class="no-margin" ng-model="client.isBackgroundImportActive">{{ 'Activate background import' | translate }}</md-switch>
                 </md-input-container>

@@ -164,6 +164,7 @@
 
         if (client != undefined && client != null) {
             $scope.client = client;
+            $scope.client.resetTwoFactorAuth = false
         } else {
             $scope.client = {
                 name: '',
@@ -171,6 +172,7 @@
                 contact_email: '',
                 model_id: [],
                 twoFactorAuthEnforced: true,
+                resetTwoFactorAuth: false,
                 isBackgroundImportActive: false,
             };
         }
