@@ -1997,6 +1997,10 @@ msgstr "Chiffrement"
 msgid "Enforce 2FA"
 msgstr "Appliquer 2FA"
 
+#: views/dialogs/create.clients.html:90
+msgid "Reset 2FA"
+msgstr "Réinitialiser 2FA"
+
 #: ../ng_anr/views/__external_translate.html:17
 msgid "English"
 msgstr "Anglais"
