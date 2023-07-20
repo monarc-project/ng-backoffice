@@ -228,6 +228,28 @@ angular
                             } else {
                                 ErrorService.notifyError('Unauthorized operation occurred.');
                             }
+                        } else if (response.status === 400) {
+                            for (var i = 0; i < response.data.errors.length; ++i) {
+                                const messages = JSON.parse(response.data.errors[i].message);
+                                let validationErrors = '';
+                                if (messages.hasOwnProperty('row')) {
+                                    // TODO: 1. Translation, 2. New lines after the messages or use a file template.
+                                    // gettextCatalog.getString('Validation errors in row')
+                                    validationErrors += 'Validation errors in row' + ' #'
+                                      + messages.row + "\r\n";
+                                } else {
+                                    validationErrors += 'Input data validation errors: \r\n';
+                                }
+                                if (messages.hasOwnProperty('validationErrors')) {
+                                    for (const [field, fieldMessage] of Object.entries(messages.validationErrors)) {
+                                        validationErrors += '[' + field + "] :\r\n";
+                                        for (const message of fieldMessage) {
+                                            validationErrors += '- ' + message + "\r\n";
+                                        }
+                                    }
+                                }
+                                ErrorService.notifyError(validationErrors)
+                            }
                         } else if (response.status == 412) {
                             // Human-readable error, with translation support
                             for (var i = 0; i < response.data.errors.length; ++i) {
