@@ -216,12 +216,13 @@ angular
                     },
 
                     'responseError': function (response) {
+                        let i;
                         var ErrorService = $injector.get('ErrorService');
 
-                        if (response.status == 401) {
+                        if (response.status === 401) {
                             const state = $injector.get('$state');
                             state.transitionTo('login');
-                        } else if (response.status == 403) {
+                        } else if (response.status === 403) {
                             const resourceUrl = response.config.url;
                             if (resourceUrl) {
                                 ErrorService.notifyError('This resource is forbidden: ' + resourceUrl);
@@ -229,7 +230,7 @@ angular
                                 ErrorService.notifyError('Unauthorized operation occurred.');
                             }
                         } else if (response.status === 400) {
-                            for (var i = 0; i < response.data.errors.length; ++i) {
+                            for (i = 0; i < response.data.errors.length; ++i) {
                                 const messages = JSON.parse(response.data.errors[i].message);
                                 let validationErrors = '';
                                 if (messages.hasOwnProperty('row')) {
@@ -248,11 +249,11 @@ angular
                                         }
                                     }
                                 }
-                                ErrorService.notifyError(validationErrors)
+                                ErrorService.notifyError(validationErrors);
                             }
-                        } else if (response.status == 412) {
+                        } else if (response.status === 412) {
                             // Human-readable error, with translation support
-                            for (var i = 0; i < response.data.errors.length; ++i) {
+                            for (i = 0; i < response.data.errors.length; ++i) {
                                 ErrorService.notifyError(response.data.errors[i].message);
                             }
                         } else if (response.status >= 400 && response.config.url.indexOf('auth') < 0) {
