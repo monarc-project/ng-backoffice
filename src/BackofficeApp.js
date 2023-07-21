@@ -231,7 +231,7 @@ angular
                             }
                         } else if (response.status === 400) {
                             for (i = 0; i < response.data.errors.length; ++i) {
-                                const messages = JSON.parse(response.data.errors[i].message);
+                                const messages = response.data.errors[i];
                                 let validationErrors = '';
                                 if (messages.hasOwnProperty('row')) {
                                     // TODO: 1. Translation, 2. New lines after the messages or use a file template.
