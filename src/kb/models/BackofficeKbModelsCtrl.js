@@ -177,18 +177,11 @@
                 isDefault: false,
                 areScalesUpdatable: false,
                 isGeneric: false,
-                isRegulator: false,
                 showRolfBrut: false,
             };
         }
 
         $scope.model.metadataFields = [];
-
-        $scope.$watch('model.isRegulator', function (newValue) {
-            if (newValue) {
-                $scope.model.isGeneric = true; // Which is inverted (see UX note) - a Regulator model may NOT be Generic
-            }
-        })
 
         $scope.$watch('language', function (newValue) {
             if (newValue && $scope.model.id) {
