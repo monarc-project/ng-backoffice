@@ -1676,9 +1676,9 @@
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
       $mdDialog.show({
         controller: ['$scope', '$http', '$mdDialog', 'ConfigService', 'AssetService', 'ThreatService',
-          'VulnService', 'MeasureService', 'ClientRecommandationService', 'SOACategoryService', 'TagService',
+          'VulnService', 'MeasureService', 'ClientRecommendationService', 'SOACategoryService', 'TagService',
           'RiskService', 'MeasureMeasureService', 'ObjlibService', 'gettextCatalog', '$q', 'tab', 'referential',
-          'recommandationSet', ImportFileDialogCtrl
+          'recommendationSet', ImportFileDialogCtrl
         ],
         templateUrl: 'views/anr/import.file.html',
         targetEvent: ev,
@@ -1689,7 +1689,7 @@
         locals: {
           'tab': tab,
           'referential': $scope.RefSelected,
-          'recommandationSet': null
+          'recommendationSet': null
         }
       })
         .then(function (importData) {

@@ -219,16 +219,16 @@ msgid "Add a recipient"
 msgstr "Ajouter un destinataire"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:627 ../ng_anr/views/_anr.kbmgmt.html:629
-#: ../ng_anr/views/create.recommandation-kbase.html:5
-#: ../ng_anr/views/create.recommandation.html:5
+#: ../ng_anr/views/create.recommendation-kbase.html:5
+#: ../ng_anr/views/create.recommendation.html:5
 msgid "Add a recommendation"
-msgstr "Ajouter une recommandation"
+msgstr "Ajouter une recommendation"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:607
-#: ../ng_anr/views/create.recommandation.html:52
-#: ../ng_anr/views/create.recommandationsSets.html:5
+#: ../ng_anr/views/create.recommendation.html:52
+#: ../ng_anr/views/create.recommendationsSets.html:5
 msgid "Add a recommendation set"
-msgstr "Ajouter un ensemble de recommandation"
+msgstr "Ajouter un ensemble de recommendation"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:235
 #: ../ng_anr/views/create.referentials.html:5 views/info_risk.kb_mgmt.html:228
@@ -474,12 +474,12 @@ msgstr "Êtes-vous sûr de vouloir supprimer le destinataire ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2652
 msgid "Are you sure you want to delete recommendation set?"
-msgstr "Voulez-vous réellement supprimer l'ensemble de recommandations ?"
+msgstr "Voulez-vous réellement supprimer l'ensemble de recommendations ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2786
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:127
 msgid "Are you sure you want to delete recommendation?"
-msgstr "Voulez-vous réellement supprimer la recommandation ?"
+msgstr "Voulez-vous réellement supprimer la recommendation ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1206 src/kb/info/BackofficeKbInfoCtrl.js:952
 msgid "Are you sure you want to delete referential?"
@@ -542,7 +542,7 @@ msgstr ""
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2813
 msgid "Are you sure you want to delete the {{count}} selected recommendations?"
 msgstr ""
-"Voulez-vous réellement supprimer les {{count}} recommandations sélectionnés ?"
+"Voulez-vous réellement supprimer les {{count}} recommendations sélectionnés ?"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1692 ../ng_anr/src/AnrKbMgmtCtrl.js:2405
 #: src/kb/info/BackofficeKbInfoCtrl.js:1351
@@ -602,7 +602,7 @@ msgstr "Voulez-vous réellement détacher l'actif ?"
 
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:103
 msgid "Are you sure you want to detach recommendation ?"
-msgstr "Voulez-vous réellement détacher la recommandation ?"
+msgstr "Voulez-vous réellement détacher la recommendation ?"
 
 #: src/BackofficeAccountCtrl.js:96
 msgid "Are you sure you want to disable two-factor authentication?"
@@ -725,7 +725,7 @@ msgstr "Le modèle du type d’actifs ne peut pas être régulateur"
 
 #: ../ng_anr/views/anr.risksplan.history.html:32
 #: ../ng_anr/views/create.amvs.html:60
-#: ../ng_anr/views/validate.recommandation.html:17
+#: ../ng_anr/views/validate.recommendation.html:17
 msgid "Asset:"
 msgstr "Actif :"
 
@@ -734,17 +734,17 @@ msgstr "Actif :"
 msgid "Assets library"
 msgstr "Bibliothèque d’actifs"
 
-#: ../ng_anr/views/create.recommandation-measure.html:39
+#: ../ng_anr/views/create.recommendation-measure.html:39
 msgid "Attach"
 msgstr "Attacher"
 
-#: ../ng_anr/views/create.recommandation-measure.html:5
+#: ../ng_anr/views/create.recommendation-measure.html:5
 msgid "Attach a control to the recommendation"
-msgstr "Attacher la mesure à la recommandation"
+msgstr "Attacher la mesure à la recommendation"
 
 #: ../ng_anr/views/_oprisk_sheet.html:132 ../ng_anr/views/_risk_sheet.html:130
 msgid "Attach this recommendation"
-msgstr "Attachez cette recommandation"
+msgstr "Attachez cette recommendation"
 
 #: ../ng_anr/views/_table_risks.html:52 ../ng_anr/views/create.amvs.html:149
 msgid "Audit order"
@@ -876,10 +876,10 @@ msgstr "Fichier CSV"
 #: ../ng_anr/views/create.objlibs.html:232
 #: ../ng_anr/views/create.objlibs.node.html:79
 #: ../ng_anr/views/create.processors.html:37
-#: ../ng_anr/views/create.recommandation-kbase.html:60
-#: ../ng_anr/views/create.recommandation-measure.html:36
-#: ../ng_anr/views/create.recommandation.html:84
-#: ../ng_anr/views/create.recommandationsSets.html:36
+#: ../ng_anr/views/create.recommendation-kbase.html:60
+#: ../ng_anr/views/create.recommendation-measure.html:36
+#: ../ng_anr/views/create.recommendation.html:84
+#: ../ng_anr/views/create.recommendationsSets.html:36
 #: ../ng_anr/views/create.records.html:44
 #: ../ng_anr/views/create.referentials.html:47
 #: ../ng_anr/views/create.risks.html:125 ../ng_anr/views/create.scale.html:38
@@ -896,7 +896,7 @@ msgstr "Fichier CSV"
 #: ../ng_anr/views/import.file.html:198 ../ng_anr/views/import.instance.html:61
 #: ../ng_anr/views/import.match.html:52 ../ng_anr/views/import.object.html:138
 #: ../ng_anr/views/import.object.mosp.html:66
-#: ../ng_anr/views/import.recommandationsSets.html:52
+#: ../ng_anr/views/import.recommendationsSets.html:52
 #: ../ng_anr/views/import.record.html:114
 #: ../ng_anr/views/import.referentials.html:52
 #: ../ng_anr/views/import.soa.html:62 ../ng_anr/views/import.threat.html:52
@@ -904,7 +904,7 @@ msgstr "Fichier CSV"
 #: ../ng_anr/views/interviews.html:71 ../ng_anr/views/publish.object.html:48
 #: ../ng_anr/views/snapshots.html:74
 #: ../ng_anr/views/updateMeasures.amvs.html:35
-#: ../ng_anr/views/validate.recommandation.html:34
+#: ../ng_anr/views/validate.recommendation.html:34
 #: src/BackofficeAccountCtrl.js:100 src/BackofficeAccountCtrl.js:122
 #: src/BackofficeClientMgmtCtrl.js:109 src/BackofficeClientMgmtCtrl.js:131
 #: src/admin/BackofficeAdminServerCtrl.js:99
@@ -1056,10 +1056,10 @@ msgstr "Fermer"
 #: ../ng_anr/views/create.objlibs.html:9
 #: ../ng_anr/views/create.objlibs.node.html:9
 #: ../ng_anr/views/create.processors.html:8
-#: ../ng_anr/views/create.recommandation-kbase.html:9
-#: ../ng_anr/views/create.recommandation-measure.html:8
-#: ../ng_anr/views/create.recommandation.html:9
-#: ../ng_anr/views/create.recommandationsSets.html:9
+#: ../ng_anr/views/create.recommendation-kbase.html:9
+#: ../ng_anr/views/create.recommendation-measure.html:8
+#: ../ng_anr/views/create.recommendation.html:9
+#: ../ng_anr/views/create.recommendationsSets.html:9
 #: ../ng_anr/views/create.records.html:8
 #: ../ng_anr/views/create.referentials.html:9
 #: ../ng_anr/views/create.risks.html:9 ../ng_anr/views/create.scale.html:8
@@ -1075,7 +1075,7 @@ msgstr "Fermer"
 #: ../ng_anr/views/import.file.html:8 ../ng_anr/views/import.instance.html:8
 #: ../ng_anr/views/import.match.html:8 ../ng_anr/views/import.object.html:8
 #: ../ng_anr/views/import.object.mosp.html:8
-#: ../ng_anr/views/import.recommandationsSets.html:8
+#: ../ng_anr/views/import.recommendationsSets.html:8
 #: ../ng_anr/views/import.record.html:8
 #: ../ng_anr/views/import.referentials.html:8 ../ng_anr/views/import.soa.html:8
 #: ../ng_anr/views/import.threat.html:8
@@ -1085,7 +1085,7 @@ msgstr "Fermer"
 #: ../ng_anr/views/risks.evalcontext.html:8 ../ng_anr/views/snapshots.html:7
 #: ../ng_anr/views/trends.evalcontext.html:8
 #: ../ng_anr/views/updateMeasures.amvs.html:8
-#: ../ng_anr/views/validate.recommandation.html:7
+#: ../ng_anr/views/validate.recommendation.html:7
 #: views/dialogs/activate.2FA.html:8 views/dialogs/create.clients.html:9
 #: views/dialogs/create.deliverymodel.html:9 views/dialogs/create.guides.html:9
 #: views/dialogs/create.guides.items.html:9 views/dialogs/create.models.html:9
@@ -1104,8 +1104,8 @@ msgstr "Fermer la fenêtre"
 #: ../ng_anr/views/_anr.kbmgmt.html:672 ../ng_anr/views/anr.soa.html:45
 #: ../ng_anr/views/create.assets.html:74
 #: ../ng_anr/views/create.measures.html:50
-#: ../ng_anr/views/create.recommandation-kbase.html:37
-#: ../ng_anr/views/create.recommandation.html:60
+#: ../ng_anr/views/create.recommendation-kbase.html:37
+#: ../ng_anr/views/create.recommendation.html:60
 #: ../ng_anr/views/create.risks.html:50
 #: ../ng_anr/views/create.specriskop.html:53
 #: ../ng_anr/views/create.tags.html:44 ../ng_anr/views/create.threats.html:120
@@ -1216,7 +1216,7 @@ msgid "Contractual obligations"
 msgstr "Obligations contractuelles"
 
 #: ../ng_anr/src/AnrSoaCtrl.js:255 ../ng_anr/views/anr.soa.html:46
-#: ../ng_anr/views/create.recommandation-measure.html:23
+#: ../ng_anr/views/create.recommendation-measure.html:23
 msgid "Control"
 msgstr "Mesure"
 
@@ -1248,7 +1248,7 @@ msgstr "Créer & importer"
 
 #: ../ng_anr/views/_risk_rec_create_form.html:4
 msgid "Create a recommendation"
-msgstr "Créer une recommandation"
+msgstr "Créer une recommendation"
 
 #: ../ng_anr/views/create.specriskop.html:20
 msgid "Create a risk"
@@ -1428,7 +1428,7 @@ msgstr "Définition des critères d’évaluation des risques"
 #: ../ng_anr/src/AnrRopaCtrl.js:639 ../ng_anr/src/AnrRopaCtrl.js:708
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:132
 #: ../ng_anr/views/create.objlibs.categories.html:69
-#: ../ng_anr/views/create.recommandation.html:87
+#: ../ng_anr/views/create.recommendation.html:87
 #: ../ng_anr/views/delete.scale.html:38 ../ng_anr/views/snapshots.html:60
 #: ../ng_anr/views/trends.evalcontext.html:23
 #: src/BackofficeClientMgmtCtrl.js:108 src/BackofficeClientMgmtCtrl.js:130
@@ -1488,7 +1488,7 @@ msgstr "Supprimer le destinataire"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:619
 msgid "Delete recommendation set"
-msgstr "Supprimer un ensemble de recommandations"
+msgstr "Supprimer un ensemble de recommendations"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:253 views/info_risk.kb_mgmt.html:246
 msgid "Delete referential"
@@ -1618,8 +1618,8 @@ msgstr "Décroissant"
 #: ../ng_anr/views/anr.ropa.html:301 ../ng_anr/views/anr.ropa.html:391
 #: ../ng_anr/views/anr.ropa.html:44 ../ng_anr/views/anr.ropa.html:452
 #: ../ng_anr/views/create.assets.html:57
-#: ../ng_anr/views/create.recommandation-kbase.html:52
-#: ../ng_anr/views/create.recommandation.html:76
+#: ../ng_anr/views/create.recommendation-kbase.html:52
+#: ../ng_anr/views/create.recommendation.html:76
 #: ../ng_anr/views/create.risks.html:44
 #: ../ng_anr/views/create.specriskop.html:65
 #: ../ng_anr/views/create.threats.html:57 ../ng_anr/views/create.vulns.html:57
@@ -1653,7 +1653,7 @@ msgstr "Ordinateur de bureau"
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:108
 #: ../ng_anr/views/_object.composition.html:77
 #: ../ng_anr/views/_risk_rec_form.html:21 ../ng_anr/views/anr.instance.html:47
-#: ../ng_anr/views/create.recommandation.html:89
+#: ../ng_anr/views/create.recommendation.html:89
 #: ../ng_anr/views/detach.objlibs.html:31
 #: ../ng_anr/views/detach.objlibs.html:52
 msgid "Detach"
@@ -1725,7 +1725,7 @@ msgstr "Afficher les risques actuels par"
 
 #: ../ng_anr/views/anr.dashboard.html:440
 msgid "Display recommendations by"
-msgstr "Afficher les recommandations par"
+msgstr "Afficher les recommendations par"
 
 #: ../ng_anr/views/anr.dashboard.html:235
 msgid "Display residual operational risks by"
@@ -1819,10 +1819,10 @@ msgstr "EX"
 msgid "Edit"
 msgstr "Modifier"
 
-#: ../ng_anr/views/create.recommandation-kbase.html:6
-#: ../ng_anr/views/create.recommandation.html:6
+#: ../ng_anr/views/create.recommendation-kbase.html:6
+#: ../ng_anr/views/create.recommendation.html:6
 msgid "Edit a recommendation"
-msgstr "Modifier la recommandation"
+msgstr "Modifier la recommendation"
 
 #: ../ng_anr/views/create.objlibs.html:6 ../ng_anr/views/object.html:28
 msgid "Edit asset"
@@ -1886,13 +1886,13 @@ msgid "Edit question"
 msgstr "Modifier la question"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:613
-#: ../ng_anr/views/create.recommandationsSets.html:6
+#: ../ng_anr/views/create.recommendationsSets.html:6
 msgid "Edit recommendation set"
-msgstr "Editer un ensemble de recommandations"
+msgstr "Editer un ensemble de recommendations"
 
 #: ../ng_anr/views/_risk_rec_form.html:3
 msgid "Edit recommendations"
-msgstr "Editer les recommandations"
+msgstr "Editer les recommendations"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:241
 #: ../ng_anr/views/create.referentials.html:6 views/info_risk.kb_mgmt.html:234
@@ -2478,7 +2478,7 @@ msgstr "Implémentation du plan de traitement des risques"
 #: ../ng_anr/views/import.amv.html:55 ../ng_anr/views/import.asset.html:55
 #: ../ng_anr/views/import.match.html:55
 #: ../ng_anr/views/import.object.mosp.html:69
-#: ../ng_anr/views/import.recommandationsSets.html:55
+#: ../ng_anr/views/import.recommendationsSets.html:55
 #: ../ng_anr/views/import.referentials.html:55
 #: ../ng_anr/views/import.soa.html:65 ../ng_anr/views/import.threat.html:55
 #: ../ng_anr/views/import.vulnerability.html:55
@@ -2497,9 +2497,9 @@ msgstr "Options d'import"
 msgid "Import a file"
 msgstr "Importer le fichier"
 
-#: ../ng_anr/views/import.recommandationsSets.html:5
+#: ../ng_anr/views/import.recommendationsSets.html:5
 msgid "Import a recommendation set from MOSP"
-msgstr "Importer un ensemble de recommandations depuis MOSP"
+msgstr "Importer un ensemble de recommendations depuis MOSP"
 
 #: ../ng_anr/views/import.referentials.html:5
 msgid "Import a referential from MOSP"
@@ -2556,7 +2556,7 @@ msgstr "Importer le fichier"
 
 #: ../ng_anr/views/create.amvs.html:22 ../ng_anr/views/create.assets.html:22
 #: ../ng_anr/views/create.match.html:20 ../ng_anr/views/create.objlibs.html:22
-#: ../ng_anr/views/create.recommandationsSets.html:18
+#: ../ng_anr/views/create.recommendationsSets.html:18
 #: ../ng_anr/views/create.referentials.html:17
 #: ../ng_anr/views/create.threats.html:22 ../ng_anr/views/create.vulns.html:22
 msgid "Import from MOSP"
@@ -2568,7 +2568,7 @@ msgstr "Importer depuis MOSP"
 #: ../ng_anr/views/create.measures.html:17
 #: ../ng_anr/views/create.measures.html:20
 #: ../ng_anr/views/create.objlibs.html:28
-#: ../ng_anr/views/create.recommandation-kbase.html:17
+#: ../ng_anr/views/create.recommendation-kbase.html:17
 #: ../ng_anr/views/create.records.html:17 ../ng_anr/views/create.risks.html:17
 #: ../ng_anr/views/create.risks.html:20 ../ng_anr/views/create.tags.html:17
 #: ../ng_anr/views/create.tags.html:20 ../ng_anr/views/create.threats.html:18
@@ -2591,8 +2591,8 @@ msgid "Import successful"
 msgstr "Import réussi"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:674 ../ng_anr/views/anr.dashboard.html:444
-#: ../ng_anr/views/create.recommandation-kbase.html:43
-#: ../ng_anr/views/create.recommandation.html:67
+#: ../ng_anr/views/create.recommendation-kbase.html:43
+#: ../ng_anr/views/create.recommendation.html:67
 msgid "Importance"
 msgstr "Importance"
 
@@ -2752,7 +2752,7 @@ msgstr "EL"
 #: ../ng_anr/views/create.objlibs.categories.html:27
 #: ../ng_anr/views/create.objlibs.html:54
 #: ../ng_anr/views/create.processors.html:24
-#: ../ng_anr/views/create.recommandationsSets.html:24
+#: ../ng_anr/views/create.recommendationsSets.html:24
 #: ../ng_anr/views/create.records.html:32
 #: ../ng_anr/views/create.referentials.html:35
 #: ../ng_anr/views/create.risks.html:35 ../ng_anr/views/create.scale.html:26
@@ -3147,7 +3147,7 @@ msgstr "Aucune catégorie de données personnelles"
 msgid "No component matching your search was found"
 msgstr "Aucun composant correspondant à votre recherche n'a été trouvé"
 
-#: ../ng_anr/views/create.recommandation-measure.html:29
+#: ../ng_anr/views/create.recommendation-measure.html:29
 msgid "No control matching your search was found"
 msgstr "Aucune mesure correspondant à votre recherche n'a été trouvée"
 
@@ -3193,18 +3193,18 @@ msgstr "Aucun destinataire"
 #: ../ng_anr/views/_risk_rec_create_form.html:25
 #: ../ng_anr/views/_risk_sheet.html:125
 msgid "No recommendation matching your search was found"
-msgstr "Aucune recommandation correspondante à votre recherche n’a été trouvée"
+msgstr "Aucune recommendation correspondante à votre recherche n’a été trouvée"
 
-#: ../ng_anr/views/import.recommandationsSets.html:43
+#: ../ng_anr/views/import.recommendationsSets.html:43
 msgid "No recommendation set matching your search was found"
 msgstr ""
-"Aucun ensemble de recommandations correspondant à votre recherche n’a été "
+"Aucun ensemble de recommendations correspondant à votre recherche n’a été "
 "trouvé"
 
-#: ../ng_anr/views/create.recommandation.html:44
+#: ../ng_anr/views/create.recommendation.html:44
 msgid "No recommendation set matching your search was found. Click on"
 msgstr ""
-"Aucun ensemble de recommandations correspondant à votre recherche n'a été "
+"Aucun ensemble de recommendations correspondant à votre recherche n'a été "
 "trouvé. Cliquer sur"
 
 #: ../ng_anr/views/import.referentials.html:43
@@ -3346,7 +3346,7 @@ msgid "Optional (•)"
 msgstr "Facultatif (•)"
 
 #: ../ng_anr/views/snapshots.html:17
-#: ../ng_anr/views/validate.recommandation.html:26
+#: ../ng_anr/views/validate.recommendation.html:26
 msgid "Optional comment"
 msgstr "Commentaire optionnel"
 
@@ -3361,7 +3361,7 @@ msgstr "Organisation"
 #: ../ng_anr/views/import.amv.html:17 ../ng_anr/views/import.asset.html:17
 #: ../ng_anr/views/import.match.html:17
 #: ../ng_anr/views/import.object.mosp.html:17
-#: ../ng_anr/views/import.recommandationsSets.html:17
+#: ../ng_anr/views/import.recommendationsSets.html:17
 #: ../ng_anr/views/import.referentials.html:17
 #: ../ng_anr/views/import.threat.html:17
 #: ../ng_anr/views/import.vulnerability.html:17
@@ -3507,8 +3507,8 @@ msgstr "Primaire"
 msgid "Primary assets"
 msgstr "Actifs primaires"
 
-#: ../ng_anr/views/create.recommandation-kbase.html:48
-#: ../ng_anr/views/create.recommandation.html:72
+#: ../ng_anr/views/create.recommendation-kbase.html:48
+#: ../ng_anr/views/create.recommendation.html:72
 msgid "Priority recommendation"
 msgstr "Recommandation prioritaire"
 
@@ -3619,12 +3619,12 @@ msgstr "Destinataires"
 msgid "Recommendation"
 msgstr "Recommandation"
 
-#: ../ng_anr/views/import.recommandationsSets.html:37
+#: ../ng_anr/views/import.recommendationsSets.html:37
 msgid "Recommendation set"
-msgstr "Ensemble de recommandations"
+msgstr "Ensemble de recommendations"
 
-#: ../ng_anr/views/create.recommandation-kbase.html:47
-#: ../ng_anr/views/create.recommandation.html:71
+#: ../ng_anr/views/create.recommendation-kbase.html:47
+#: ../ng_anr/views/create.recommendation.html:71
 msgid ""
 "Recommendation which requires a dedicated action to solve a vulnerability or "
 "a missing best practice"
@@ -3640,7 +3640,7 @@ msgstr "Recommandations"
 
 #: ../ng_anr/views/_anr.kbmgmt.html:603
 msgid "Recommendations Sets"
-msgstr "Ensemble de recommandations"
+msgstr "Ensemble de recommendations"
 
 #: ../ng_anr/views/anr.layout.html:43 ../ng_anr/views/anr.layout.html:69
 #: ../ng_anr/views/anr.ropa.html:3 ../ng_anr/views/export.objlibs.html:65
@@ -3779,7 +3779,7 @@ msgstr "Risque après"
 
 #: ../ng_anr/views/_gettext_caveats.html:76
 msgid "Risk already link to this recommendation"
-msgstr "Ce risque est déjà lié à cette recommandation"
+msgstr "Ce risque est déjà lié à cette recommendation"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:1749 ../ng_anr/views/_anr.riskanalysis.html:6
 #: ../ng_anr/views/anr.layout.html:28 ../ng_anr/views/anr.layout.html:54
@@ -3823,7 +3823,7 @@ msgid "Risk description"
 msgstr "Description du risque"
 
 #: ../ng_anr/views/anr.risksplan.history.html:34
-#: ../ng_anr/views/validate.recommandation.html:18
+#: ../ng_anr/views/validate.recommendation.html:18
 msgid "Risk description:"
 msgstr "Description du risque :"
 
@@ -3927,13 +3927,13 @@ msgstr "Rechercher un sous-traitant pour en créer un à partir d'une existante"
 #: ../ng_anr/views/_risk_rec_create_form.html:19
 #: ../ng_anr/views/_risk_sheet.html:118
 msgid "Search a recommendation"
-msgstr "Rechercher une recommandation"
+msgstr "Rechercher une recommendation"
 
-#: ../ng_anr/views/create.recommandation-kbase.html:22
-#: ../ng_anr/views/create.recommandation.html:16
+#: ../ng_anr/views/create.recommendation-kbase.html:22
+#: ../ng_anr/views/create.recommendation.html:16
 msgid "Search a recommendation to create one from an existing"
 msgstr ""
-"Rechercher une recommandation pour en créer une à partir d'une existante"
+"Rechercher une recommendation pour en créer une à partir d'une existante"
 
 #: ../ng_anr/views/_anr.riskanalysis.html:19
 #: ../ng_anr/views/_anr.riskanalysis.html:53
@@ -3989,10 +3989,10 @@ msgstr "Référentiels de sécurité"
 msgid "See asset in the library"
 msgstr "Voir l’actif dans la bibliothèque"
 
-#: ../ng_anr/views/create.recommandation-kbase.html:29
-#: ../ng_anr/views/create.recommandation.html:35
+#: ../ng_anr/views/create.recommendation-kbase.html:29
+#: ../ng_anr/views/create.recommendation.html:35
 msgid "Select a recommendation set"
-msgstr "Sélectionnez un ensemble de recommandations"
+msgstr "Sélectionnez un ensemble de recommendations"
 
 #: ../ng_anr/views/import.soa.html:30
 #: ../ng_anr/views/updateMeasures.amvs.html:16
@@ -4490,7 +4490,7 @@ msgstr "L'élément a bien été modifié."
 #: ../ng_anr/views/create.objlibs.categories.html:31
 #: ../ng_anr/views/create.objlibs.html:58
 #: ../ng_anr/views/create.processors.html:28
-#: ../ng_anr/views/create.recommandationsSets.html:28
+#: ../ng_anr/views/create.recommendationsSets.html:28
 #: ../ng_anr/views/create.records.html:36
 #: ../ng_anr/views/create.referentials.html:39
 #: ../ng_anr/views/create.risks.html:39 ../ng_anr/views/create.scale.html:30
@@ -4586,61 +4586,61 @@ msgstr "La question a bien été modifiée."
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:38
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:94
 msgid "The recommendation has been attached to this risk."
-msgstr "La recommandation a été attachée à ce risque."
+msgstr "La recommendation a été attachée à ce risque."
 
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:34
 msgid "The recommendation has been created successfully"
-msgstr "La recommandation a bien été créée"
+msgstr "La recommendation a bien été créée"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2729
 msgid "The recommendation has been created successfully."
-msgstr "La recommandation a bien été créée."
+msgstr "La recommendation a bien été créée."
 
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:138
 msgid "The recommendation has been deleted successfully"
-msgstr "La recommandation a bien été supprimée avec succès"
+msgstr "La recommendation a bien été supprimée avec succès"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2797
 msgid "The recommendation has been deleted."
-msgstr "La recommandation a été supprimée."
+msgstr "La recommendation a été supprimée."
 
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:115
 msgid "The recommendation has been detached."
-msgstr "La recommandation a bien été détachée."
+msgstr "La recommendation a bien été détachée."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:915
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:68
 msgid "The recommendation has been edited successfully"
-msgstr "La recommandation a bien été modifié avec succès"
+msgstr "La recommendation a bien été modifié avec succès"
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2768
 msgid "The recommendation has been edited successfully."
-msgstr "La recommandation a été modifié avec succès."
+msgstr "La recommendation a été modifié avec succès."
 
 #: ../ng_anr/src/AnrRisksPlanSheetCtrl.js:69
 msgid "The recommendation has been successfully validated."
-msgstr "La recommandation a bien été validée."
+msgstr "La recommendation a bien été validée."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2599
 #: ../ng_anr/src/RiskRecommendationPartialCtrl.js:210
 msgid "The recommendation set has been created successfully."
-msgstr "L'ensemble de recommandations a bien été créé."
+msgstr "L'ensemble de recommendations a bien été créé."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2664
 msgid "The recommendation set has been deleted."
-msgstr "L'ensemble recommandations a bien été supprimé."
+msgstr "L'ensemble recommendations a bien été supprimé."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2634
 msgid "The recommendation set has been edited successfully."
-msgstr "L'ensemble de recommandations a été modifié avec succès."
+msgstr "L'ensemble de recommendations a été modifié avec succès."
 
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:2556
 msgid "The recommendation set has been imported successfully."
-msgstr "L'ensemble de recommandations a été importé avec succès."
+msgstr "L'ensemble de recommendations a été importé avec succès."
 
-#: ../ng_anr/views/create.recommandation.html:40
+#: ../ng_anr/views/create.recommendation.html:40
 msgid "The recommendation set may not be empty"
-msgstr "L'ensemble de recommandations ne peut pas être vide"
+msgstr "L'ensemble de recommendations ne peut pas être vide"
 
 #: ../ng_anr/src/AnrRopaCtrl.js:885 ../ng_anr/src/AnrRopaCtrl.js:917
 msgid "The record has been exported successfully."
@@ -5076,7 +5076,7 @@ msgid "Threat probability"
 msgstr "Probabilité menace"
 
 #: ../ng_anr/views/anr.risksplan.history.html:37
-#: ../ng_anr/views/validate.recommandation.html:19
+#: ../ng_anr/views/validate.recommendation.html:19
 msgid "Threat:"
 msgstr "Menace :"
 
@@ -5241,8 +5241,8 @@ msgstr "Utiliser un risque existant"
 msgid "Use recovery code?"
 msgstr "Utiliser le code de récupération ?"
 
-#: ../ng_anr/views/create.recommandation-kbase.html:46
-#: ../ng_anr/views/create.recommandation.html:70
+#: ../ng_anr/views/create.recommendation-kbase.html:46
+#: ../ng_anr/views/create.recommendation.html:70
 msgid "Useful information for safety, advice"
 msgstr "Indication utile pour la sécurité, conseil"
 
@@ -5258,7 +5258,7 @@ msgstr "Administrateur d'utilisateurs"
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: ../ng_anr/views/validate.recommandation.html:37
+#: ../ng_anr/views/validate.recommendation.html:37
 msgid "Validate"
 msgstr "Valider"
 
@@ -5361,7 +5361,7 @@ msgid "Vulnerability reduction"
 msgstr "Réduction de la vulnérabilité"
 
 #: ../ng_anr/views/anr.risksplan.history.html:38
-#: ../ng_anr/views/validate.recommandation.html:20
+#: ../ng_anr/views/validate.recommendation.html:20
 msgid "Vulnerability:"
 msgstr "Vulnérabilité :"
 
@@ -5397,12 +5397,12 @@ msgstr "Schéma erroné"
 msgid "Yes"
 msgstr "Oui"
 
-#: ../ng_anr/views/validate.recommandation.html:15
+#: ../ng_anr/views/validate.recommendation.html:15
 msgid ""
 "You are about to validate the implementation of recommendation <b>{{rec."
 "code}} - {{rec.description}}</b> for the following risk:"
 msgstr ""
-"Vous allez valider l’implémentation de la recommandation <b>{{rec.code}} - "
+"Vous allez valider l’implémentation de la recommendation <b>{{rec.code}} - "
 "{{rec.description}}</b> pour le risque suivant :"
 
 #: ../ng_anr/views/_anr.infosnapshot.html:4
@@ -5786,7 +5786,7 @@ msgid "this matching is already in use"
 msgstr "cette correspondante est déjà utilisé"
 
 #: ../ng_anr/views/anr.ropa.html:336 ../ng_anr/views/create.measures.html:83
-#: ../ng_anr/views/create.recommandation.html:46
+#: ../ng_anr/views/create.recommendation.html:46
 #: ../ng_anr/views/create.threats.html:86
 msgid "to create it."
 msgstr "pour le créer."
