@@ -219,17 +219,7 @@ angular
                         let i;
                         var ErrorService = $injector.get('ErrorService');
 
-                        if (response.status === 401) {
-                            const state = $injector.get('$state');
-                            state.transitionTo('login');
-                        } else if (response.status === 403) {
-                            const resourceUrl = response.config.url;
-                            if (resourceUrl) {
-                                ErrorService.notifyError('This resource is forbidden: ' + resourceUrl);
-                            } else {
-                                ErrorService.notifyError('Unauthorized operation occurred.');
-                            }
-                        } else if (response.status === 400) {
+                        if (response.status === 400) {
                             for (i = 0; i < response.data.errors.length; ++i) {
                                 const messages = response.data.errors[i];
                                 let validationErrors = '';
@@ -250,6 +240,16 @@ angular
                                     }
                                 }
                                 ErrorService.notifyError(validationErrors);
+                            }
+                        } else if (response.status === 401) {
+                            const state = $injector.get('$state');
+                            state.transitionTo('login');
+                        } else if (response.status === 403) {
+                            const resourceUrl = response.config.url;
+                            if (resourceUrl) {
+                                ErrorService.notifyError('This resource is forbidden: ' + resourceUrl);
+                            } else {
+                                ErrorService.notifyError('Unauthorized operation occurred.');
                             }
                         } else if (response.status === 412) {
                             // Human-readable error, with translation support
