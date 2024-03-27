@@ -2144,10 +2144,10 @@
         $scope.measuresRefSelected.forEach(function (measure) {
           $scope.matchMeasures[ref.uuid][measure.uuid] = [];
           if (Array.isArray(measure.linkedMeasures) && Array.isArray(ref.measures)) {
-            measure.linkedMeasures.forEach(function (measureLinked) {
-              var measureFound = ref.measures.filter(ml => ml.uuid == measureLinked.uuid);
+            measure.linkedMeasures.forEach(function (linkedMeasure) {
+              var measureFound = ref.measures.filter(ml => ml.uuid == linkedMeasure.uuid);
               if (measureFound.length > 0) {
-                $scope.matchMeasures[ref.uuid][measure.uuid].push(measureLinked);
+                $scope.matchMeasures[ref.uuid][measure.uuid].push(linkedMeasure);
               }
             })
           }
@@ -2188,7 +2188,7 @@
       return promise.promise;
     };
 
-    $scope.addMeasureLinked = function (masterMeasureUuid, linkedMeasureUuid) {
+    $scope.addLinkedMeasure = function (masterMeasureUuid, linkedMeasureUuid) {
       let measureLink = {
         masterMeasure: masterMeasureUuid,
         linkedMeasure: linkedMeasureUuid,
@@ -2196,7 +2196,7 @@
       MeasureMeasureService.createMeasureMeasure(measureLink);
     };
 
-    $scope.deleteMeasureLinked = function (masterMeasureUuid, linkedMeasureUuid) {
+    $scope.deleteLinkedMeasure = function (masterMeasureUuid, linkedMeasureUuid) {
       let measureLink = {
         masterMeasure: masterMeasureUuid,
         linkedMeasure: linkedMeasureUuid,
