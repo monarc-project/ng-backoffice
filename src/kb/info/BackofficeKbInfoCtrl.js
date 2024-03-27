@@ -2190,16 +2190,16 @@
 
     $scope.addLinkedMeasure = function (masterMeasureUuid, linkedMeasureUuid) {
       let measureLink = {
-        masterMeasure: masterMeasureUuid,
-        linkedMeasure: linkedMeasureUuid,
+        masterMeasureUuid: masterMeasureUuid,
+        linkedMeasureUuid: linkedMeasureUuid,
       };
       MeasureMeasureService.createMeasureMeasure(measureLink);
     };
 
     $scope.deleteLinkedMeasure = function (masterMeasureUuid, linkedMeasureUuid) {
       let measureLink = {
-        masterMeasure: masterMeasureUuid,
-        linkedMeasure: linkedMeasureUuid,
+        masterMeasureUuid: masterMeasureUuid,
+        linkedMeasureUuid: linkedMeasureUuid,
       };
       MeasureMeasureService.deleteMeasureMeasure(measureLink);
     };
