@@ -926,7 +926,8 @@
         var matchReferentials = data;
         MeasureService.getMeasures({
           referential: $scope.referential_uuid,
-          order: 'code'
+          order: 'code',
+          includeLinks: true
         }).then(function (data) {
           var measuresRefSelected = data;
           $mdDialog.show({
@@ -2328,8 +2329,16 @@
             $scope.createNewCategory(ev);
           }
 
-          SOACategoryService.createCategory(category,
-            function (status) {
+          let referentialUuid = typeof category.referential === 'object'
+            ? category.referential.referential
+            : category.referential;
+          SOACategoryService.createCategory({
+            label1: category.label1,
+            label2: category.label2,
+            label3: category.label3,
+            label4: category.label4,
+            referential: referentialUuid
+          }, function (status) {
               category.id = status.id;
               $scope.selectedCategoryItemChange(category);
               toastr.success(gettextCatalog.getString('The category has been created successfully.', {
