@@ -1011,7 +1011,7 @@
         .then(function (measure) {
           var cont = measure.cont;
           measure.cont = undefined;
-          measure.referential = $scope.referential.uuid;
+          measure.referentialUuid = $scope.referential.uuid;
           measure.categoryId = measure.category.id
           if (cont) {
             $scope.createNewMeasure(ev);
@@ -1053,6 +1053,7 @@
         })
           .then(function (measure) {
             measure.categoryId = measure.category.id;
+            measure.referentialUuid = measure.referential.uuid;
             MeasureService.updateMeasure(measure,
               function () {
                 $scope.updateMeasures();
