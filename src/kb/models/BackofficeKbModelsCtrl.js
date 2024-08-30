@@ -51,9 +51,6 @@
                     ModelService.createModel(model,
                         function (response) {
                             $scope.updateModels();
-                            ModelService.getModel(response.id).then(function(data) {
-                                MetadataInstanceService.createMetadataField({anrId: data.anr.id, metadataField:model.metadataField},function(){},function(){})
-                            })
                             toastr.success(gettextCatalog.getString('The model has been created successfully.',
                                 {modelLabel: $scope._langField(model,'label')}), gettextCatalog.getString('Creation successful'));
                         },
