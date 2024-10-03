@@ -24,11 +24,11 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Server</label>
                     <md-icon>storage</md-icon>
-                    <md-select ng-disabled="client.id" ng-model="client.server_id" name="server_id" required>
+                    <md-select ng-disabled="client.id" ng-model="client.serverId" name="serverId" required>
                         <md-option ng-repeat="server in servers" ng-value="server.id">{{ server.label }} [ {{server.fqdn}} ]</md-option>
                     </md-select>
 
-                    <div ng-messages="clientForm.server_id.$error">
+                    <div ng-messages="clientForm.serverId.$error">
                         <div ng-message="required">{{ 'You must select a server' | translate }}</div>
                     </div>
                 </md-input-container>
@@ -46,11 +46,11 @@
                 <md-input-container class="md-block" flex ng-if="models.length > 0">
                     <label translate>Specific models</label>
                     <md-icon>widgets</md-icon>
-                    <md-select ng-model="client.model_id" name="model_id" multiple>
+                    <md-select ng-model="client.modelId" name="modelId" multiple>
                         <md-option ng-repeat="model in models" ng-value="model.id">{{ _langField(model,'label') }}</md-option>
                     </md-select>
 
-                    <div ng-messages="clientForm.model_id.$error">
+                    <div ng-messages="clientForm.modelId.$error">
                         <div ng-message="required">{{ 'You must select a model' | translate }}</div>
                     </div>
                 </md-input-container>
@@ -58,8 +58,8 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user first name</label>
                     <md-icon>person</md-icon>
-                    <input ng-model="client.first_user_firstname" name="first_user_firstname" required>
-                    <div ng-messages="clientForm.first_user_firstname.$error">
+                    <input ng-model="client.firstUserFirstname" name="firstUserFirstname" required>
+                    <div ng-messages="clientForm.firstUserFirstname.$error">
                         <div ng-message="required">{{ 'The first user first name may not be empty' | translate }}</div>
                     </div>
                 </md-input-container>
@@ -67,8 +67,8 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user last name</label>
                     <md-icon>person</md-icon>
-                    <input ng-model="client.first_user_lastname" name="first_user_lastname" required>
-                    <div ng-messages="clientForm.first_user_lastname.$error">
+                    <input ng-model="client.firstUserLastname" name="firstUserLastname" required>
+                    <div ng-messages="clientForm.firstUserLastname.$error">
                         <div ng-message="required">{{ 'The first user last name may not be empty' | translate }}</div>
                     </div>
                 </md-input-container>
@@ -76,8 +76,8 @@
                 <md-input-container class="md-block" flex>
                     <label translate>First user email</label>
                     <md-icon>email</md-icon>
-                    <input ng-model="client.first_user_email" name="first_user_email" type="email" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
-                    <div ng-messages="clientForm.first_user_email.$error">
+                    <input ng-model="client.firstUserEmail" name="firstUserEmail" type="email" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
+                    <div ng-messages="clientForm.firstUserEmail.$error">
                         <div ng-message="required">{{ 'The first user email may not be empty' | translate }}</div>
                     </div>
                 </md-input-container>

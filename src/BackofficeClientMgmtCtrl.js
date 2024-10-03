@@ -169,8 +169,8 @@
             $scope.client = {
                 name: '',
                 proxyAlias: '',
-                contact_email: '',
-                model_id: [],
+                contactEmail: '',
+                modelId: [],
                 twoFactorAuthEnforced: true,
                 resetTwoFactorAuth: false,
                 isBackgroundImportActive: false,

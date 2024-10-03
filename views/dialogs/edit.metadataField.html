@@ -1,10 +1,10 @@
 <md-dialog md-theme="light" class="dialog-width">
-    <form name="metadataForm">
+    <form name="metadataFieldForm">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2 translate>Edit asset context field</h2>
                 <span flex></span>
-                <md-button class="md-icon-button" ng-disabled="metadataForm.$error.required" ng-click="cancel()">
+                <md-button class="md-icon-button" ng-disabled="metadataFieldForm.$error.required" ng-click="cancel()">
                     <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
                 </md-button>
             </div>
@@ -24,8 +24,8 @@
                 <md-input-container class="md-block" flex>
                     <label translate>Label</label>
                     <md-icon>label</md-icon>
-                    <input ng-model="metadata[$root.getLanguageCode(language)]" name="label" required>
-                    <div ng-messages="metadataForm.label.$error">
+                    <input ng-model="metadataField[$root.getLanguageCode(language)]" name="label" required>
+                    <div ng-messages="metadataFieldForm.label.$error">
                         <div ng-message="required">{{ 'The label may not be empty' | translate }}</div>
                     </div>
                 </md-input-container>

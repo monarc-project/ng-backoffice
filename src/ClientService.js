@@ -52,7 +52,7 @@
     function AdminServerGetService($resource) {
         var self = this;
 
-        self.ServerResource = $resource('api/admin/serversget/:serverId', { serverId: '@id' },
+        self.ServerResource = $resource('api/admin/servers/:serverId', { serverId: '@id' },
             {
                 'query': {
                     isArray: false

@@ -37,7 +37,7 @@
                 <thead md-head md-order="clients.query.order" md-on-reorder="updateClients">
                 <tr md-row>
                     <th md-column md-order-by="name"><span translate>Company</span></th>
-                    <th md-column md-order-by="first_user_email"><span translate>E-mail</span></th>
+                    <th md-column md-order-by="firstUserEmail"><span translate>E-mail</span></th>
                     <th md-column md-order-by="proxyAlias"><span translate>Proxy alias</span></th>
                     <th md-column><span translate>2FA enforced</span></th>
                     <th md-column><span translate>Background import active</span></th>
@@ -49,7 +49,7 @@
                 <tbody md-body>
                 <tr md-row md-select="client" md-select-id="id" ng-repeat="client in clients.items.clients">
                     <td md-cell>{{ client.name }}</td>
-                    <td md-cell>{{ client.first_user_email }}</td>
+                    <td md-cell>{{ client.firstUserEmail }}</td>
                     <td md-cell>{{ client.proxyAlias }}</td>
                     <td md-cell>{{ client.twoFactorAuthEnforced }}</td>
                     <td md-cell>{{ client.isBackgroundImportActive }}</td>
