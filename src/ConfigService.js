@@ -10,6 +10,7 @@
             languages: null,
             defaultLanguageIndex: null,
             mospApiUrl: null,
+            appVersion: null,
         };
 
         var loadConfig = function (success) {
@@ -24,8 +25,12 @@
                       name: ISO6391.getName(code),
                       index: lang,
                     }
-                  self.config.languages[lang] = AddLang;
+                    self.config.languages[lang] = AddLang;
                   }
+                }
+
+                if (data.data.appVersion) {
+                  self.config.appVersion = data.data.appVersion;
                 }
                 if (data.data.defaultLanguageIndex) {
                     self.config.defaultLanguageIndex = data.data.defaultLanguageIndex;
@@ -74,12 +79,21 @@
            }
        };
 
+        var getVersion = function () {
+          if (self.config.appVersion) {
+            return self.config.appVersion;
+          } else {
+            return '';
+          }
+        };
+
         return {
             loadConfig: loadConfig,
             isLoaded: isLoaded,
             getLanguages: getLanguages,
             getDefaultLanguageIndex: getDefaultLanguageIndex,
-            getMospApiUrl: getMospApiUrl
+            getMospApiUrl: getMospApiUrl,
+            getVersion: getVersion,
         };
     }
 
