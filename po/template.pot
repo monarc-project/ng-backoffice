@@ -6053,7 +6053,7 @@ msgstr ""
 
 #: views/account.html:59
 #: views/passwordforgotten.html:17
-msgid "Your password is too short (min 9 characters)."
+msgid "Your password is too short (min 12 characters)."
 msgstr ""
 
 #: views/account.html:60

@@ -5564,8 +5564,8 @@ msgid "Your password has been updated successfully"
 msgstr "Parola dvs. a fost actualizată cu succes"
 
 #: views/account.html:59 views/passwordforgotten.html:17
-msgid "Your password is too short (min 9 characters)."
-msgstr "Parola dvs. este prea scurtă (min 9 caractere)."
+msgid "Your password is too short (min 12 characters)."
+msgstr "Parola dvs. este prea scurtă (min 12 caractere)."
 
 #: views/account.html:60 views/passwordforgotten.html:18
 msgid ""

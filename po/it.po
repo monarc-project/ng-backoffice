@@ -5571,8 +5571,8 @@ msgid "Your password has been updated successfully"
 msgstr "La tua password è stata aggiornata con successo"
 
 #: views/account.html:59 views/passwordforgotten.html:17
-msgid "Your password is too short (min 9 characters)."
-msgstr "La tua password è troppo corta (minimo 9 caratteri)."
+msgid "Your password is too short (min 12 characters)."
+msgstr "La tua password è troppo corta (minimo 12 caratteri)."
 
 #: views/account.html:60 views/passwordforgotten.html:18
 msgid ""

@@ -5523,8 +5523,8 @@ msgid "Your password has been updated successfully"
 msgstr "あなたのパスワードは正常に更新されました"
 
 #: views/account.html:59 views/passwordforgotten.html:17
-msgid "Your password is too short (min 9 characters)."
-msgstr "パスワードが短すぎます（9文字以上）。"
+msgid "Your password is too short (min 12 characters)."
+msgstr "パスワードが短すぎます（12文字以上）。"
 
 #: views/account.html:60 views/passwordforgotten.html:18
 msgid ""

@@ -5566,8 +5566,8 @@ msgid "Your password has been updated successfully"
 msgstr "Uw wachtwoord werd met succes bijgewerkt"
 
 #: views/account.html:59 views/passwordforgotten.html:17
-msgid "Your password is too short (min 9 characters)."
-msgstr "Uw wachtwoord is te kort (minstens 9 tekens)."
+msgid "Your password is too short (min 12 characters)."
+msgstr "Uw wachtwoord is te kort (minstens 12 tekens)."
 
 #: views/account.html:60 views/passwordforgotten.html:18
 msgid ""
