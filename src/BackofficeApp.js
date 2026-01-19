@@ -292,6 +292,7 @@ angular
                 var uiLang = UserService.getUiLanguage();
                 $rootScope.mospApiUrl = ConfigService.getMospApiUrl();
                 $rootScope.appVersion = ConfigService.getVersion();
+                $rootScope.currentYear = new Date().getFullYear();
 
                 if (uiLang === undefined || uiLang === null) {
                     gettextCatalog.setCurrentLanguage('en');
