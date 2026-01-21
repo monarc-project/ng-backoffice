@@ -203,6 +203,10 @@
                 return self.isLoggingOut;
             };
 
+            var resetTwoFa = function (userId) {
+                return $http.delete('api/admin/users/' + userId + '/2fa');
+            };
+
             var getUiLanguage = function () {
                 return self.uiLanguage;
             };
@@ -223,7 +227,8 @@
                 getUiLanguage: getUiLanguage,
                 setUiLanguage: setUiLanguage,
                 isAuthenticated: isAuthenticated,
-                isAllowed: isAllowed
+                isAllowed: isAllowed,
+                resetTwoFa: resetTwoFa
             };
         }
 
