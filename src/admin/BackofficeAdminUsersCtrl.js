@@ -121,6 +121,26 @@
                 );
             });
         };
+
+        $scope.resetTwoFa = function (ev, user) {
+            var confirm = $mdDialog.confirm()
+                .title(gettextCatalog.getString('Reset 2FA for this user?'))
+                .textContent(gettextCatalog.getString('This will disable two-factor authentication and clear recovery codes.'))
+                .targetEvent(ev)
+                .ok(gettextCatalog.getString('Reset 2FA'))
+                .cancel(gettextCatalog.getString('Cancel'));
+            $mdDialog.show(confirm).then(function() {
+                UserService.resetTwoFa(user.id).then(
+                    function () {
+                        user.isTwoFactorAuthEnabled = false;
+                        toastr.success(gettextCatalog.getString('Two-factor authentication has been reset.'));
+                    },
+                    function () {
+                        toastr.error(gettextCatalog.getString('Error when disabling two-factor authentication.'));
+                    }
+                );
+            });
+        };
     }
 
 
