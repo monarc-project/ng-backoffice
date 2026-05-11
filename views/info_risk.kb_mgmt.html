@@ -274,7 +274,7 @@
                         <td md-cell>{{ (riskSource.isDefault ? 'Default' : 'Custom') | translate }}</td>
                         <td md-cell>
                             <md-button class="md-icon-button md-primary" ng-click="openRiskSourceDialog($event, riskSource)"><md-icon>edit</md-icon></md-button>
-                            <md-button class="md-icon-button md-warn" ng-click="removeRiskSource($event, riskSource)" ng-if="!riskSource.isDefault"><md-icon>delete</md-icon></md-button>
+                            <md-button class="md-icon-button md-warn" ng-click="removeRiskSource($event, riskSource)"><md-icon>delete</md-icon></md-button>
                         </td>
                     </tr>
                     </tbody>
