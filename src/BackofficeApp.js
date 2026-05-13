@@ -128,6 +128,14 @@ angular
                 ncyBreadcrumb: {
                     label: '{{"Models"|translate}}'
                 }
+            }).state('main.kb_mgmt.reassessment_triggers', {
+                url: '/reassessment-triggers',
+                views: {
+                    'main@main': {templateUrl: 'views/reassessment_triggers.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: '{{"Reassessment trigger criteria"|translate}}'
+                }
             }).state('main.kb_mgmt.models.details', {
                 url: '/:modelId',
                 views: {

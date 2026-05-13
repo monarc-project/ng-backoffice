@@ -834,6 +834,10 @@
       TableHelperService.removeFilter($scope.riskSourcesKb);
     };
 
+    $scope.riskSourceTypeLabel = function (riskSource) {
+      return gettextCatalog.getString(riskSource.isDefault ? 'Default' : 'Custom');
+    };
+
     $scope.openRiskSourceDialog = function (ev, riskSource) {
       var showDialog = function (riskSourceData) {
         $mdDialog.show({

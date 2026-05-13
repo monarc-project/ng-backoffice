@@ -17,6 +17,10 @@ msgstr ""
 msgid "2FA QRCode"
 msgstr "2FA QRCode"
 
+#: views/index.client_mgmt.html:42
+msgid "2FA enforced"
+msgstr ""
+
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
 #: ../ng_anr/views/anr.dashboard.risks.html:28
@@ -95,7 +99,7 @@ msgstr "Acțiune"
 #: ../ng_anr/views/detach.objlibs.html:44 ../ng_anr/views/import.object.html:68
 #: ../ng_anr/views/import.soa.html:45 ../ng_anr/views/interviews.html:48
 #: ../ng_anr/views/snapshots.html:33 views/analysis_guides.kb_mgmt.html:20
-#: views/deliveries_models.kb_mgmt.html:22 views/index.client_mgmt.html:43
+#: views/deliveries_models.kb_mgmt.html:22 views/index.client_mgmt.html:45
 #: views/info_risk.kb_mgmt.html:127 views/info_risk.kb_mgmt.html:200
 #: views/info_risk.kb_mgmt.html:294 views/info_risk.kb_mgmt.html:380
 #: views/info_risk.kb_mgmt.html:465 views/info_risk.kb_mgmt.html:53
@@ -109,6 +113,10 @@ msgstr "Acțiuni"
 #: views/index.backoffice.html:112 views/logs.admin.html:4
 msgid "Actions history"
 msgstr "Istoricul acțiunilor"
+
+#: views/dialogs/create.clients.html:90
+msgid "Activate background import"
+msgstr ""
 
 #: views/dialogs/activate.2FA.html:5
 msgid "Activate two-factor authentication"
@@ -503,7 +511,7 @@ msgstr "Sunteți sigur că doriți să ștergeți câmpul contextual?"
 msgid "Are you sure you want to delete the processing?"
 msgstr "Sunteți sigur ca doriți să ștergeți procesarea?"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3782
+#: ../ng_anr/src/AnrLayoutCtrl.js:3779
 msgid "Are you sure you want to delete the {{count}} scales selected ?"
 msgstr "Sigur doriți să ștergeți {{count}} scalele selectate?"
 
@@ -657,7 +665,7 @@ msgstr "Activul nu se află în această analiză de risc"
 msgid "Asset not exist"
 msgstr "Activul nu există"
 
-#: ../ng_anr/views/import.instance.html:35
+#: ../ng_anr/views/import.instance.html:43
 #: ../ng_anr/views/import.object.html:43
 msgid "Asset password (if any)"
 msgstr "Parola activului (dacă există)"
@@ -757,6 +765,10 @@ msgstr "Disponibilitate"
 msgid "Average of levels"
 msgstr "Media nivelurilor"
 
+#: ../ng_anr/views/__external_translate.html:36
+msgid "Average of the max. risk value"
+msgstr ""
+
 #: ../ng_anr/views/anr.soa.html:87
 msgid "BP"
 msgstr "BP"
@@ -772,6 +784,10 @@ msgstr "BR"
 #: views/items.analysis_guides.kb_mgmt.html:2
 msgid "Back to the list"
 msgstr "Înapoi la listă"
+
+#: views/index.client_mgmt.html:43
+msgid "Background import active"
+msgstr ""
 
 #: ../ng_anr/views/_gettext_caveats.html:28
 msgid "Bad mode for this asset or models attached to asset type incoherent"
@@ -833,7 +849,7 @@ msgstr "Fișier CSV"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:372 ../ng_anr/src/AnrKbMgmtCtrl.js:3864
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:626 ../ng_anr/src/AnrKbMgmtCtrl.js:652
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:69 ../ng_anr/src/AnrKbMgmtCtrl.js:881
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:907 ../ng_anr/src/AnrLayoutCtrl.js:3790
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:907 ../ng_anr/src/AnrLayoutCtrl.js:3787
 #: ../ng_anr/src/AnrObjectCtrl.js:164 ../ng_anr/src/AnrObjectCtrl.js:204
 #: ../ng_anr/src/AnrObjectCtrl.js:574 ../ng_anr/src/AnrObjectCtrl.js:628
 #: ../ng_anr/src/AnrObjectCtrl.js:93 ../ng_anr/src/AnrObjectInstanceCtrl.js:310
@@ -875,7 +891,7 @@ msgstr "Fișier CSV"
 #: ../ng_anr/views/edit.evalcontext.html:38
 #: ../ng_anr/views/export.objlibs.html:74 ../ng_anr/views/export.record.html:39
 #: ../ng_anr/views/import.amv.html:52 ../ng_anr/views/import.asset.html:52
-#: ../ng_anr/views/import.file.html:198 ../ng_anr/views/import.instance.html:53
+#: ../ng_anr/views/import.file.html:198 ../ng_anr/views/import.instance.html:61
 #: ../ng_anr/views/import.match.html:52 ../ng_anr/views/import.object.html:138
 #: ../ng_anr/views/import.object.mosp.html:66
 #: ../ng_anr/views/import.recommendationsSets.html:52
@@ -918,7 +934,7 @@ msgstr "Fișier CSV"
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:158
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:372
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:392 views/dialogs/activate.2FA.html:37
-#: views/dialogs/create.clients.html:89
+#: views/dialogs/create.clients.html:97
 #: views/dialogs/create.deliverymodel.html:64
 #: views/dialogs/create.guides.html:59
 #: views/dialogs/create.guides.items.html:71
@@ -1253,6 +1269,10 @@ msgstr "Creați un activ"
 msgid "Create an interview"
 msgstr "Creați un interviu"
 
+#: ../ng_anr/views/import.instance.html:29
+msgid "Create an snapshot before importing"
+msgstr ""
+
 #: ../ng_anr/views/create.amvs.html:173 ../ng_anr/views/create.assets.html:117
 #: ../ng_anr/views/create.categories.html:46
 #: ../ng_anr/views/create.measures.html:113
@@ -1363,7 +1383,7 @@ msgid "Database admin"
 msgstr "Administrator baze de date"
 
 #: ../ng_anr/views/interviews.html:45 ../ng_anr/views/snapshots.html:30
-#: views/index.client_mgmt.html:42 views/logs.admin.html:34
+#: views/index.client_mgmt.html:44 views/logs.admin.html:34
 msgid "Date"
 msgstr "Data"
 
@@ -1396,7 +1416,7 @@ msgstr "Definirea criteriilor de evaluare a riscurilor"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:371 ../ng_anr/src/AnrKbMgmtCtrl.js:3863
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:625 ../ng_anr/src/AnrKbMgmtCtrl.js:651
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:880 ../ng_anr/src/AnrKbMgmtCtrl.js:906
-#: ../ng_anr/src/AnrLayoutCtrl.js:3789 ../ng_anr/src/AnrObjectCtrl.js:163
+#: ../ng_anr/src/AnrLayoutCtrl.js:3786 ../ng_anr/src/AnrObjectCtrl.js:163
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:309
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:331
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:444 ../ng_anr/src/AnrRopaCtrl.js:233
@@ -1470,7 +1490,7 @@ msgstr "Ștergeți setul de recomandări"
 msgid "Delete referential"
 msgstr "Ștergeți referențialul"
 
-#: ../ng_anr/views/anr.home.html:40
+#: ../ng_anr/views/anr.home.html:43
 msgid "Delete risk analysis"
 msgstr "Ștergeți analiza de risc"
 
@@ -1970,6 +1990,14 @@ msgstr "Stocare criptată, controale de acces"
 msgid "Encryption"
 msgstr "Criptare"
 
+#: views/dialogs/create.clients.html:86
+msgid "Enforce 2FA"
+msgstr ""
+
+#: views/dialogs/create.clients.html:90
+msgid "Reset 2FA"
+msgstr ""
+
 #: ../ng_anr/views/__external_translate.html:17
 msgid "English"
 msgstr "Engleză"
@@ -2141,7 +2169,7 @@ msgstr "Analiza riscului de export"
 msgid "Export successful"
 msgstr "Export cu succes"
 
-#: ../ng_anr/views/anr.home.html:35
+#: ../ng_anr/views/anr.home.html:38
 msgid "Export the whole risk analysis"
 msgstr "Exportați întreaga analiză de risc"
 
@@ -2516,7 +2544,7 @@ msgstr "Analiza importului"
 msgid "Import asset"
 msgstr "Importă un activ"
 
-#: ../ng_anr/views/import.file.html:39 ../ng_anr/views/import.instance.html:42
+#: ../ng_anr/views/import.file.html:39 ../ng_anr/views/import.instance.html:50
 #: ../ng_anr/views/import.record.html:35
 msgid "Import file"
 msgstr "Fișier de import"
@@ -2571,7 +2599,7 @@ msgstr "Se cere importanță"
 msgid "Important (••)"
 msgstr "Important (••)"
 
-#: ../ng_anr/views/import.instance.html:45
+#: ../ng_anr/views/import.instance.html:53
 #: ../ng_anr/views/import.object.html:50 ../ng_anr/views/import.record.html:38
 msgid "Importing file..."
 msgstr "Se importă fișierul..."
@@ -2597,7 +2625,7 @@ msgstr "Risc informațional"
 #: ../ng_anr/views/_anr.evalscales.html:3 ../ng_anr/views/_anr.kbmgmt.html:331
 #: ../ng_anr/views/_anr.kbmgmt.html:334 ../ng_anr/views/anr.dashboard.html:20
 #: ../ng_anr/views/anr.dashboard.html:392
-#: ../ng_anr/views/anr.dashboard.risks.html:13 ../ng_anr/views/anr.home.html:49
+#: ../ng_anr/views/anr.dashboard.risks.html:13 ../ng_anr/views/anr.home.html:52
 #: ../ng_anr/views/anr.instance.html:103 ../ng_anr/views/anr.soa.sheet.html:10
 #: views/index.backoffice.html:25 views/info_risk.kb_mgmt.html:321
 msgid "Information risks"
@@ -3219,6 +3247,10 @@ msgstr "Nu este setat"
 msgid "Not treated"
 msgstr "Netratat"
 
+#: ../ng_anr/views/__external_translate.html:35
+msgid "Number of risks"
+msgstr ""
+
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
 msgstr "Numărul de amenințări care trebuie afișate"
@@ -3291,7 +3323,7 @@ msgstr "Eticheta de risc operațional"
 #: ../ng_anr/views/_anr.kbmgmt.html:500 ../ng_anr/views/_anr.kbmgmt.html:503
 #: ../ng_anr/views/anr.dashboard.html:160
 #: ../ng_anr/views/anr.dashboard.html:393
-#: ../ng_anr/views/anr.dashboard.risks.html:76 ../ng_anr/views/anr.home.html:52
+#: ../ng_anr/views/anr.dashboard.risks.html:76 ../ng_anr/views/anr.home.html:55
 #: ../ng_anr/views/anr.instance.html:106 ../ng_anr/views/anr.soa.sheet.html:82
 #: views/index.backoffice.html:32 views/op_risk.kb_mgmt.html:68
 #: views/op_risk.kb_mgmt.html:71
@@ -4040,7 +4072,7 @@ msgstr "Instantaneu restaurat"
 msgid "Snapshots"
 msgstr "Salvare instantanee"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2899 ../ng_anr/src/AnrLayoutCtrl.js:3823
+#: ../ng_anr/src/AnrLayoutCtrl.js:2899 ../ng_anr/src/AnrLayoutCtrl.js:3820
 #: ../ng_anr/src/AnrLayoutCtrl.js:4012 ../ng_anr/src/AnrRopaCtrl.js:1706
 msgid "Some files could not be imported"
 msgstr "Unele fișiere nu au putut fi importate"
@@ -4252,8 +4284,8 @@ msgstr "Activul a fost editat cu succes."
 msgid "The asset has been exported successfully."
 msgstr "Activul a fost exportat cu succes."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2895 ../ng_anr/src/AnrLayoutCtrl.js:3825
-#: ../ng_anr/src/AnrLayoutCtrl.js:3884
+#: ../ng_anr/src/AnrLayoutCtrl.js:2895 ../ng_anr/src/AnrLayoutCtrl.js:3822
+#: ../ng_anr/src/AnrLayoutCtrl.js:3881
 msgid "The asset has been imported successfully"
 msgstr "Activul a fost importat cu succes"
 
@@ -4409,6 +4441,10 @@ msgstr "Ghidul a fost șters."
 msgid "The guide has been edited successfully."
 msgstr "Ghidul a fost editat cu succes."
 
+#: ../ng_anr/src/AnrLayoutCtrl.js:4016
+msgid "The import process is added to the queue and will be executed soon."
+msgstr ""
+
 #: ../ng_anr/views/import.soa.html:23
 msgid "The information of each control will be appended."
 msgstr "Informațiile fiecărui control vor fi atașate."
@@ -4417,7 +4453,7 @@ msgstr "Informațiile fiecărui control vor fi atașate."
 msgid "The input does not appear to be an integer"
 msgstr "Datele introduse nu par a fi un număr întreg"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:4014
+#: ../ng_anr/src/AnrLayoutCtrl.js:4021
 msgid "The instance has been imported successfully"
 msgstr "Instanța a fost importată cu succes"
 
@@ -4846,6 +4882,10 @@ msgstr ""
 "Nu există riscuri pentru această instanță sau filtrele dvs. nu au intors "
 "niciun rezultat."
 
+#: ../ng_anr/views/anr.home.html:34
+msgid "There is an import error (Restore a snapshot or remove analysis)"
+msgstr ""
+
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:104
 msgid "There is no document template of this category for this language."
 msgstr ""
@@ -4923,7 +4963,7 @@ msgstr "Acest nume este deja folosit"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:368 ../ng_anr/src/AnrKbMgmtCtrl.js:3860
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:622 ../ng_anr/src/AnrKbMgmtCtrl.js:648
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:877 ../ng_anr/src/AnrKbMgmtCtrl.js:903
-#: ../ng_anr/src/AnrLayoutCtrl.js:3785
+#: ../ng_anr/src/AnrLayoutCtrl.js:3782
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:440 ../ng_anr/src/AnrRopaCtrl.js:230
 #: ../ng_anr/src/AnrRopaCtrl.js:560 ../ng_anr/src/AnrRopaCtrl.js:637
 #: ../ng_anr/src/AnrRopaCtrl.js:706
@@ -5804,3 +5844,68 @@ msgstr "{{count}} amenințări au fost șterse."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:915 src/kb/info/BackofficeKbInfoCtrl.js:761
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnerabilități au fost șterse."
+
+msgid "Reassessment trigger criteria"
+msgstr "Criterii de declanșare a reevaluării"
+
+msgid "Trigger type"
+msgstr "Tip de declanșator"
+
+msgid "Add criterion"
+msgstr "Adaugă criteriu"
+
+msgid "No reassessment trigger criteria have been defined for this analysis."
+msgstr ""
+"Nu au fost definite criterii de declanșare a reevaluării pentru această "
+"analiză."
+
+msgid "Delete reassessment trigger criterion?"
+msgstr "Ștergeți criteriul de declanșare a reevaluării?"
+
+msgid "This criterion will be removed from the analysis."
+msgstr "Acest criteriu va fi eliminat din analiză."
+
+msgid "The reassessment trigger criterion has been created."
+msgstr "Criteriul de declanșare a reevaluării a fost creat."
+
+msgid "The reassessment trigger criterion has been updated."
+msgstr "Criteriul de declanșare a reevaluării a fost actualizat."
+
+msgid "Edit risk source"
+msgstr "Editează sursa de risc"
+
+msgid "Add a risk source"
+msgstr "Adaugă o sursă de risc"
+
+msgid "The risk source has been created successfully."
+msgstr "Sursa de risc a fost creată cu succes."
+
+msgid "The risk source has been edited successfully."
+msgstr "Sursa de risc a fost editată cu succes."
+
+msgid "Are you sure you want to delete risk source?"
+msgstr "Sigur doriți să ștergeți sursa de risc?"
+
+msgid "The risk source has been deleted."
+msgstr "Sursa de risc a fost ștearsă."
+
+msgid "Are you sure you want to delete reassessment trigger?"
+msgstr "Sigur doriți să ștergeți declanșatorul de reevaluare?"
+
+msgid "The reassessment trigger has been deleted."
+msgstr "Declanșatorul de reevaluare a fost șters."
+
+msgid "Risk Sources"
+msgstr "Surse de risc"
+
+msgid "Add a reassessment trigger"
+msgstr "Adăugați un criteriu de declanșare a reevaluării"
+
+msgid "Edit reassessment trigger"
+msgstr "Editați criteriul de declanșare a reevaluării"
+
+msgid "Default"
+msgstr "Implicită"
+
+msgid "Custom"
+msgstr "Personalizată"

@@ -1272,10 +1272,8 @@ msgid "Create an interview"
 msgstr "Créer une interview"
 
 #: ../ng_anr/views/import.instance.html:29
-#, fuzzy
-#| msgid "Create a snapshot"
 msgid "Create an snapshot before importing"
-msgstr "Créer un snapshot"
+msgstr ""
 
 #: ../ng_anr/views/create.amvs.html:173 ../ng_anr/views/create.assets.html:117
 #: ../ng_anr/views/create.categories.html:46
@@ -3256,10 +3254,8 @@ msgid "Not treated"
 msgstr "Non traité"
 
 #: ../ng_anr/views/__external_translate.html:35
-#, fuzzy
-#| msgid "Type of risks"
 msgid "Number of risks"
-msgstr "Type de risque"
+msgstr ""
 
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
@@ -5865,3 +5861,68 @@ msgstr "{{count}} menaces ont été supprimées."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:915 src/kb/info/BackofficeKbInfoCtrl.js:761
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} vulnérabilités ont été supprimées."
+
+msgid "Reassessment trigger criteria"
+msgstr "Critères de déclenchement de la réévaluation"
+
+msgid "Trigger type"
+msgstr "Type de déclencheur"
+
+msgid "Add criterion"
+msgstr "Ajouter un critère"
+
+msgid "No reassessment trigger criteria have been defined for this analysis."
+msgstr ""
+"Aucun critère de déclenchement de la réévaluation n’a été défini pour cette "
+"analyse."
+
+msgid "Delete reassessment trigger criterion?"
+msgstr "Supprimer le critère de déclenchement de la réévaluation ?"
+
+msgid "This criterion will be removed from the analysis."
+msgstr "Ce critère sera supprimé de l’analyse."
+
+msgid "The reassessment trigger criterion has been created."
+msgstr "Le critère de déclenchement de la réévaluation a été créé."
+
+msgid "The reassessment trigger criterion has been updated."
+msgstr "Le critère de déclenchement de la réévaluation a été mis à jour."
+
+msgid "Edit risk source"
+msgstr "Modifier la source de risque"
+
+msgid "Add a reassessment trigger"
+msgstr "Ajouter un critère de déclenchement de la réévaluation"
+
+msgid "Edit reassessment trigger"
+msgstr "Modifier le critère de déclenchement de la réévaluation"
+
+msgid "Default"
+msgstr "Par défaut"
+
+msgid "Custom"
+msgstr "Personnalisée"
+
+msgid "Add a risk source"
+msgstr "Ajouter une source de risque"
+
+msgid "The risk source has been created successfully."
+msgstr "La source de risque a été créée avec succès."
+
+msgid "The risk source has been edited successfully."
+msgstr "La source de risque a été modifiée avec succès."
+
+msgid "Are you sure you want to delete risk source?"
+msgstr "Êtes-vous sûr de vouloir supprimer la source de risque ?"
+
+msgid "The risk source has been deleted."
+msgstr "La source de risque a été supprimée."
+
+msgid "Are you sure you want to delete reassessment trigger?"
+msgstr "Êtes-vous sûr de vouloir supprimer le déclencheur de réévaluation ?"
+
+msgid "The reassessment trigger has been deleted."
+msgstr "Le déclencheur de réévaluation a été supprimé."
+
+msgid "Risk Sources"
+msgstr "Sources de risque"

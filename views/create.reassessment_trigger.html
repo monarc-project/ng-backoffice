@@ -1,0 +1,39 @@
+<md-dialog md-theme="light" class="dialog-width">
+    <form name="reassessmentTriggerForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{ dialogTitle }}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="{{ 'Close dialog' | translate }}">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-subheader>{{ 'Trigger type' | translate }}</md-subheader>
+                <md-input-container class="md-block" flex ng-repeat="(index, language) in languages">
+                    <label>{{ ('Trigger type' | translate) + ' (' + language.code.toUpperCase() + ')' }}</label>
+                    <md-icon>language</md-icon>
+                    <input ng-model="reassessmentTrigger.triggerTypes[language.code]" name="trigger_type_{{ language.code }}">
+                </md-input-container>
+
+                <md-subheader>{{ 'Description' | translate }}</md-subheader>
+                <md-input-container class="md-block" flex ng-repeat="(index, language) in languages">
+                    <label>{{ ('Description' | translate) + ' (' + language.code.toUpperCase() + ')' }}</label>
+                    <md-icon>description</md-icon>
+                    <textarea ng-model="reassessmentTrigger.descriptions[language.code]" rows="4" name="description_{{ language.code }}"></textarea>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                {{ 'Cancel' | translate }}
+            </md-button>
+            <md-button ng-click="save()" ng-disabled="!getPrimaryTriggerType() || !getPrimaryDescription()" class="md-accent md-hue-3">
+                {{ confirmLabel }}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
