@@ -161,7 +161,8 @@
     $scope.languages = $rootScope.languages;
     $scope.reassessmentTrigger = reassessmentTrigger || {
       triggerTypes: {},
-      descriptions: {}
+      descriptions: {},
+      monitoringApproaches: {}
     };
 
     angular.forEach($scope.languages, function (language) {
@@ -173,6 +174,11 @@
       if ($scope.reassessmentTrigger.descriptions[language.code] === undefined) {
         $scope.reassessmentTrigger.descriptions[language.code] = reassessmentTrigger
           ? reassessmentTrigger.description
+          : '';
+      }
+      if ($scope.reassessmentTrigger.monitoringApproaches[language.code] === undefined) {
+        $scope.reassessmentTrigger.monitoringApproaches[language.code] = reassessmentTrigger
+          ? (reassessmentTrigger.monitoringApproach || '')
           : '';
       }
     });
@@ -218,6 +224,7 @@
     $scope.save = function () {
       var triggerTypes = {};
       var descriptions = {};
+      var monitoringApproaches = {};
 
       angular.forEach($scope.languages, function (language) {
         var triggerType = ($scope.reassessmentTrigger.triggerTypes[language.code] || '').trim();
@@ -229,13 +236,20 @@
         if (description) {
           descriptions[language.code] = description;
         }
+
+        var monitoringApproach = ($scope.reassessmentTrigger.monitoringApproaches[language.code] || '').trim();
+        if (monitoringApproach) {
+          monitoringApproaches[language.code] = monitoringApproach;
+        }
       });
 
       $mdDialog.hide({
         triggerType: $scope.getPrimaryTriggerType(),
         triggerTypes: triggerTypes,
         description: $scope.getPrimaryDescription(),
-        descriptions: descriptions
+        descriptions: descriptions,
+        monitoringApproach: ($scope.reassessmentTrigger.monitoringApproaches[currentLanguageCode] || '').trim(),
+        monitoringApproaches: monitoringApproaches
       });
     };
   }

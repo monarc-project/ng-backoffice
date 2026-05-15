@@ -5926,3 +5926,36 @@ msgstr "Le déclencheur de réévaluation a été supprimé."
 
 msgid "Risk Sources"
 msgstr "Sources de risque"
+
+msgid "Monitoring and review"
+msgstr "Suivi et révision"
+
+msgid "Last review date"
+msgstr "Date de la dernière révision"
+
+msgid "Review frequency"
+msgstr "Fréquence de révision"
+
+msgid "Monthly"
+msgstr "Mensuelle"
+
+msgid "Quarterly"
+msgstr "Trimestrielle"
+
+msgid "Semi-annually"
+msgstr "Semestrielle"
+
+msgid "Annually"
+msgstr "Annuelle"
+
+msgid "On trigger"
+msgstr "Sur déclencheur"
+
+msgid "Custom review frequency"
+msgstr "Fréquence de révision personnalisée"
+
+msgid "Monitoring approach"
+msgstr "Approche de surveillance"
+
+msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
+msgstr "Décrivez comment ce critère est surveillé ou détecté, par ex. via des alertes SOC, des analyses de vulnérabilités, des constats d’audit, des mises à jour réglementaires ou des notifications de fournisseurs."

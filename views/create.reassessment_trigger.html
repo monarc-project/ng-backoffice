@@ -24,6 +24,16 @@
                     <md-icon>description</md-icon>
                     <textarea ng-model="reassessmentTrigger.descriptions[language.code]" rows="4" name="description_{{ language.code }}"></textarea>
                 </md-input-container>
+
+                <md-subheader>{{ 'Monitoring approach' | translate }}</md-subheader>
+                <div class="md-caption" translate>
+                    Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications.
+                </div>
+                <md-input-container class="md-block" flex ng-repeat="(index, language) in languages">
+                    <label>{{ ('Monitoring approach' | translate) + ' (' + language.code.toUpperCase() + ')' }}</label>
+                    <md-icon>visibility</md-icon>
+                    <textarea ng-model="reassessmentTrigger.monitoringApproaches[language.code]" rows="4" name="monitoring_approach_{{ language.code }}"></textarea>
+                </md-input-container>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">

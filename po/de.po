@@ -5927,3 +5927,36 @@ msgstr "Standard"
 
 msgid "Custom"
 msgstr "Benutzerdefiniert"
+
+msgid "Monitoring and review"
+msgstr "Überwachung und Überprüfung"
+
+msgid "Last review date"
+msgstr "Datum der letzten Überprüfung"
+
+msgid "Review frequency"
+msgstr "Überprüfungsintervall"
+
+msgid "Monthly"
+msgstr "Monatlich"
+
+msgid "Quarterly"
+msgstr "Vierteljährlich"
+
+msgid "Semi-annually"
+msgstr "Halbjährlich"
+
+msgid "Annually"
+msgstr "Jährlich"
+
+msgid "On trigger"
+msgstr "Bei Auslösung"
+
+msgid "Custom review frequency"
+msgstr "Benutzerdefiniertes Überprüfungsintervall"
+
+msgid "Monitoring approach"
+msgstr "Überwachungsansatz"
+
+msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
+msgstr "Beschreiben Sie, wie dieses Kriterium überwacht oder erkannt wird, z. B. durch SOC-Warnmeldungen, Schwachstellenscans, Auditfeststellungen, regulatorische Aktualisierungen oder Lieferantenbenachrichtigungen."
