@@ -22,7 +22,7 @@
                 <md-input-container class="md-block" flex ng-repeat="(index, language) in languages">
                     <label>{{ ('Description' | translate) + ' (' + language.code.toUpperCase() + ')' }}</label>
                     <md-icon>description</md-icon>
-                    <textarea ng-model="reassessmentTrigger.descriptions[language.code]" rows="4" name="description_{{ language.code }}"></textarea>
+                    <textarea ng-model="reassessmentTrigger.descriptions[language.code]" rows="2" name="description_{{ language.code }}"></textarea>
                 </md-input-container>
 
                 <md-subheader>{{ 'Monitoring approach' | translate }}</md-subheader>
@@ -32,7 +32,7 @@
                 <md-input-container class="md-block" flex ng-repeat="(index, language) in languages">
                     <label>{{ ('Monitoring approach' | translate) + ' (' + language.code.toUpperCase() + ')' }}</label>
                     <md-icon>visibility</md-icon>
-                    <textarea ng-model="reassessmentTrigger.monitoringApproaches[language.code]" rows="4" name="monitoring_approach_{{ language.code }}"></textarea>
+                    <textarea ng-model="reassessmentTrigger.monitoringApproaches[language.code]" rows="2" name="monitoring_approach_{{ language.code }}"></textarea>
                 </md-input-container>
             </div>
         </md-dialog-content>
@@ -41,7 +41,10 @@
             <md-button ng-click="cancel()">
                 {{ 'Cancel' | translate }}
             </md-button>
-            <md-button ng-click="save()" ng-disabled="!getPrimaryTriggerType() || !getPrimaryDescription()" class="md-accent md-hue-3">
+            <md-button
+                ng-click="save()"
+                ng-disabled="!getPrimaryValue(reassessmentTrigger.triggerTypes) || !getPrimaryValue(reassessmentTrigger.descriptions)"
+                class="md-accent md-hue-3">
                 {{ confirmLabel }}
             </md-button>
         </md-dialog-actions>

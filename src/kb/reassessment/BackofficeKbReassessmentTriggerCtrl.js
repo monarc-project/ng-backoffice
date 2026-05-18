@@ -167,19 +167,13 @@
 
     angular.forEach($scope.languages, function (language) {
       if ($scope.reassessmentTrigger.triggerTypes[language.code] === undefined) {
-        $scope.reassessmentTrigger.triggerTypes[language.code] = reassessmentTrigger
-          ? reassessmentTrigger.triggerType
-          : '';
+        $scope.reassessmentTrigger.triggerTypes[language.code] = '';
       }
       if ($scope.reassessmentTrigger.descriptions[language.code] === undefined) {
-        $scope.reassessmentTrigger.descriptions[language.code] = reassessmentTrigger
-          ? reassessmentTrigger.description
-          : '';
+        $scope.reassessmentTrigger.descriptions[language.code] = '';
       }
       if ($scope.reassessmentTrigger.monitoringApproaches[language.code] === undefined) {
-        $scope.reassessmentTrigger.monitoringApproaches[language.code] = reassessmentTrigger
-          ? (reassessmentTrigger.monitoringApproach || '')
-          : '';
+        $scope.reassessmentTrigger.monitoringApproaches[language.code] = '';
       }
     });
 
@@ -187,34 +181,17 @@
       $mdDialog.cancel();
     };
 
-    $scope.getPrimaryTriggerType = function () {
-      var primaryTriggerType = ($scope.reassessmentTrigger.triggerTypes[currentLanguageCode] || '').trim();
-      if (primaryTriggerType) {
-        return primaryTriggerType;
+    $scope.getPrimaryValue = function (translations) {
+      var primaryValue = ((translations && translations[currentLanguageCode]) || '').trim();
+      if (primaryValue) {
+        return primaryValue;
       }
 
-      var triggerTypes = Object.values($scope.reassessmentTrigger.triggerTypes);
-      for (var index = 0; index < triggerTypes.length; index++) {
-        var triggerType = (triggerTypes[index] || '').trim();
-        if (triggerType) {
-          return triggerType;
-        }
-      }
-
-      return '';
-    };
-
-    $scope.getPrimaryDescription = function () {
-      var primaryDescription = ($scope.reassessmentTrigger.descriptions[currentLanguageCode] || '').trim();
-      if (primaryDescription) {
-        return primaryDescription;
-      }
-
-      var descriptions = Object.values($scope.reassessmentTrigger.descriptions);
-      for (var index = 0; index < descriptions.length; index++) {
-        var description = (descriptions[index] || '').trim();
-        if (description) {
-          return description;
+      var values = Object.values(translations || {});
+      for (var index = 0; index < values.length; index++) {
+        var value = (values[index] || '').trim();
+        if (value) {
+          return value;
         }
       }
 
@@ -244,11 +221,11 @@
       });
 
       $mdDialog.hide({
-        triggerType: $scope.getPrimaryTriggerType(),
+        triggerType: $scope.getPrimaryValue($scope.reassessmentTrigger.triggerTypes),
         triggerTypes: triggerTypes,
-        description: $scope.getPrimaryDescription(),
+        description: $scope.getPrimaryValue($scope.reassessmentTrigger.descriptions),
         descriptions: descriptions,
-        monitoringApproach: ($scope.reassessmentTrigger.monitoringApproaches[currentLanguageCode] || '').trim(),
+        monitoringApproach: $scope.getPrimaryValue($scope.reassessmentTrigger.monitoringApproaches),
         monitoringApproaches: monitoringApproaches
       });
     };
