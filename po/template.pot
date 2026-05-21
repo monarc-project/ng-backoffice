@@ -55,6 +55,10 @@ msgstr ""
 msgid "Activate two-factor authentication"
 msgstr ""
 
+#: ../ng_anr/views/anr.instance.html:16
+msgid "Asset actions"
+msgstr ""
+
 #: views/info_risk.kb_mgmt.html:259
 #: views/reassessment_triggers.kb_mgmt.html:36
 msgid "Active"
@@ -1161,6 +1165,9 @@ msgstr ""
 msgid "Risk Sources"
 msgstr ""
 
+msgid "Risk Support"
+msgstr ""
+
 #: src/kb/info/BackofficeKbInfoCtrl.js:1555
 msgid "Risk analysis"
 msgstr ""
@@ -1688,6 +1695,10 @@ msgstr ""
 
 #: views/dialogs/activate.2FA.html:24
 msgid "Token from your two-factor application."
+msgstr ""
+
+#: ../ng_anr/views/anr.layout.html:23
+msgid "Tools"
 msgstr ""
 
 #: views/create.reassessment_trigger.html:14

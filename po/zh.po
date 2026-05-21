@@ -18,7 +18,7 @@ msgstr "2FA QRCode"
 
 #: views/index.client_mgmt.html:42
 msgid "2FA enforced"
-msgstr ""
+msgstr "已强制启用双重身份验证"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -112,7 +112,7 @@ msgstr "行动历史"
 
 #: views/dialogs/create.clients.html:90
 msgid "Activate background import"
-msgstr ""
+msgstr "启用后台导入"
 
 #: views/dialogs/activate.2FA.html:5
 msgid "Activate two-factor authentication"
@@ -755,7 +755,7 @@ msgstr "各级平均数"
 
 #: ../ng_anr/views/__external_translate.html:36
 msgid "Average of the max. risk value"
-msgstr ""
+msgstr "最大风险值的平均值"
 
 #: ../ng_anr/views/anr.soa.html:87
 msgid "BP"
@@ -775,7 +775,7 @@ msgstr "返回列表"
 
 #: views/index.client_mgmt.html:43
 msgid "Background import active"
-msgstr ""
+msgstr "后台导入已启用"
 
 #: ../ng_anr/views/_gettext_caveats.html:28
 msgid "Bad mode for this asset or models attached to asset type incoherent"
@@ -1257,7 +1257,7 @@ msgstr "创建一个面试"
 
 #: ../ng_anr/views/import.instance.html:29
 msgid "Create an snapshot before importing"
-msgstr ""
+msgstr "导入前创建快照"
 
 #: ../ng_anr/views/create.amvs.html:173 ../ng_anr/views/create.assets.html:117
 #: ../ng_anr/views/create.categories.html:46
@@ -1974,11 +1974,11 @@ msgstr "加密"
 
 #: views/dialogs/create.clients.html:86
 msgid "Enforce 2FA"
-msgstr ""
+msgstr "强制启用双重身份验证"
 
 #: views/dialogs/create.clients.html:90
 msgid "Reset 2FA"
-msgstr ""
+msgstr "重置双重身份验证"
 
 #: ../ng_anr/views/__external_translate.html:17
 msgid "English"
@@ -3215,7 +3215,7 @@ msgstr "未处理"
 
 #: ../ng_anr/views/__external_translate.html:35
 msgid "Number of risks"
-msgstr ""
+msgstr "风险数量"
 
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
@@ -4391,7 +4391,7 @@ msgstr "指南已编辑成功。"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:4016
 msgid "The import process is added to the queue and will be executed soon."
-msgstr ""
+msgstr "导入过程已加入队列，很快将执行。"
 
 #: ../ng_anr/views/import.soa.html:23
 msgid "The information of each control will be appended."
@@ -4809,7 +4809,7 @@ msgstr "本例没有风险，或者您的过滤器没有返回结果。"
 
 #: ../ng_anr/views/anr.home.html:34
 msgid "There is an import error (Restore a snapshot or remove analysis)"
-msgstr ""
+msgstr "导入出错（恢复快照或删除分析）"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:104
 msgid "There is no document template of this category for this language."
@@ -5789,6 +5789,9 @@ msgstr "重新评估触发条件已删除。"
 
 msgid "Risk Sources"
 msgstr "风险来源"
+
+msgid "Risk Support"
+msgstr "风险支持"
 
 msgid "Add a reassessment trigger"
 msgstr "添加重新评估触发条件"

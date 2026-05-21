@@ -780,10 +780,10 @@
     var riskSourcesFilterWatch;
     var riskSourcesLanguageWatch;
 
-    $scope.selectRiskSourcesTab = function () {
-      $state.transitionTo('main.kb_mgmt.info_risk', {
-        'tab': 'risk-sources'
-      });
+    $scope.selectRiskSourcesTab = function (skipTransition) {
+      if (!skipTransition) {
+        $state.transitionTo('main.kb_mgmt.risk_sources');
+      }
       var initRiskSourcesFilter = true;
       riskSourcesFilterWatch = $scope.$watch('riskSourcesKb.activeFilter', function () {
         if (initRiskSourcesFilter) {
@@ -833,6 +833,10 @@
     $scope.removeRiskSourcesFilter = function () {
       TableHelperService.removeFilter($scope.riskSourcesKb);
     };
+
+    $scope.$on('$destroy', function () {
+      $scope.deselectRiskSourcesTab();
+    });
 
     $scope.riskSourceTypeLabel = function (riskSource) {
       return gettextCatalog.getString(riskSource.isDefault ? 'Default' : 'Custom');

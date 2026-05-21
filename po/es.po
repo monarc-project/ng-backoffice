@@ -19,7 +19,7 @@ msgstr "2FA QRCode"
 
 #: views/index.client_mgmt.html:42
 msgid "2FA enforced"
-msgstr ""
+msgstr "2FA forzada"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -116,7 +116,7 @@ msgstr "Historial de acciones"
 
 #: views/dialogs/create.clients.html:90
 msgid "Activate background import"
-msgstr ""
+msgstr "Activar importación en segundo plano"
 
 #: views/dialogs/activate.2FA.html:5
 msgid "Activate two-factor authentication"
@@ -779,7 +779,7 @@ msgstr "Promedio de niveles"
 
 #: ../ng_anr/views/__external_translate.html:36
 msgid "Average of the max. risk value"
-msgstr ""
+msgstr "Promedio del valor máximo de riesgo"
 
 #: ../ng_anr/views/anr.soa.html:87
 msgid "BP"
@@ -799,7 +799,7 @@ msgstr "Volver a la lista"
 
 #: views/index.client_mgmt.html:43
 msgid "Background import active"
-msgstr ""
+msgstr "Importación en segundo plano activa"
 
 #: ../ng_anr/views/_gettext_caveats.html:28
 msgid "Bad mode for this asset or models attached to asset type incoherent"
@@ -1282,7 +1282,7 @@ msgstr "Crear una entrevista"
 
 #: ../ng_anr/views/import.instance.html:29
 msgid "Create an snapshot before importing"
-msgstr ""
+msgstr "Crear una instantánea antes de importar"
 
 #: ../ng_anr/views/create.amvs.html:173 ../ng_anr/views/create.assets.html:117
 #: ../ng_anr/views/create.categories.html:46
@@ -2003,11 +2003,11 @@ msgstr "Codificación"
 
 #: views/dialogs/create.clients.html:86
 msgid "Enforce 2FA"
-msgstr ""
+msgstr "Forzar 2FA"
 
 #: views/dialogs/create.clients.html:90
 msgid "Reset 2FA"
-msgstr ""
+msgstr "Restablecer 2FA"
 
 #: ../ng_anr/views/__external_translate.html:17
 msgid "English"
@@ -3262,7 +3262,7 @@ msgstr "No se ha tratado"
 
 #: ../ng_anr/views/__external_translate.html:35
 msgid "Number of risks"
-msgstr ""
+msgstr "Número de riesgos"
 
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
@@ -4457,7 +4457,7 @@ msgstr "La guía ha sido editada con éxito."
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:4016
 msgid "The import process is added to the queue and will be executed soon."
-msgstr ""
+msgstr "El proceso de importación se ha añadido a la cola y se ejecutará en breve."
 
 #: ../ng_anr/views/import.soa.html:23
 msgid "The information of each control will be appended."
@@ -4900,7 +4900,7 @@ msgstr ""
 
 #: ../ng_anr/views/anr.home.html:34
 msgid "There is an import error (Restore a snapshot or remove analysis)"
-msgstr ""
+msgstr "Hay un error de importación (restaure una instantánea o elimine el análisis)"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:104
 msgid "There is no document template of this category for this language."
@@ -5914,6 +5914,9 @@ msgstr "El activador de reevaluación ha sido eliminado."
 
 msgid "Risk Sources"
 msgstr "Fuentes de riesgo"
+
+msgid "Risk Support"
+msgstr "Soporte de riesgos"
 
 msgid "Add a reassessment trigger"
 msgstr "Añadir un criterio de desencadenante de reevaluación"

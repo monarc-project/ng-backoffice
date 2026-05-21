@@ -18,7 +18,7 @@ msgstr "2FA QRCode"
 
 #: views/index.client_mgmt.html:42
 msgid "2FA enforced"
-msgstr ""
+msgstr "2FA を強制"
 
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
@@ -112,7 +112,7 @@ msgstr "アクション履歴"
 
 #: views/dialogs/create.clients.html:90
 msgid "Activate background import"
-msgstr ""
+msgstr "バックグラウンドインポートを有効化"
 
 #: views/dialogs/activate.2FA.html:5
 msgid "Activate two-factor authentication"
@@ -757,7 +757,7 @@ msgstr "レベルの平均"
 
 #: ../ng_anr/views/__external_translate.html:36
 msgid "Average of the max. risk value"
-msgstr ""
+msgstr "最大リスク値の平均"
 
 #: ../ng_anr/views/anr.soa.html:87
 msgid "BP"
@@ -777,7 +777,7 @@ msgstr "リストに戻る"
 
 #: views/index.client_mgmt.html:43
 msgid "Background import active"
-msgstr ""
+msgstr "バックグラウンドインポート有効"
 
 #: ../ng_anr/views/_gettext_caveats.html:28
 msgid "Bad mode for this asset or models attached to asset type incoherent"
@@ -1261,7 +1261,7 @@ msgstr "インタビューを作成する"
 
 #: ../ng_anr/views/import.instance.html:29
 msgid "Create an snapshot before importing"
-msgstr ""
+msgstr "インポート前にスナップショットを作成"
 
 #: ../ng_anr/views/create.amvs.html:173 ../ng_anr/views/create.assets.html:117
 #: ../ng_anr/views/create.categories.html:46
@@ -1980,11 +1980,11 @@ msgstr "暗号化"
 
 #: views/dialogs/create.clients.html:86
 msgid "Enforce 2FA"
-msgstr ""
+msgstr "2FA を必須にする"
 
 #: views/dialogs/create.clients.html:90
 msgid "Reset 2FA"
-msgstr ""
+msgstr "2FA をリセット"
 
 #: ../ng_anr/views/__external_translate.html:17
 msgid "English"
@@ -3228,7 +3228,7 @@ msgstr "処理されていない"
 
 #: ../ng_anr/views/__external_translate.html:35
 msgid "Number of risks"
-msgstr ""
+msgstr "リスク数"
 
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
@@ -4421,7 +4421,7 @@ msgstr "ガイドは正常に編集されました。"
 
 #: ../ng_anr/src/AnrLayoutCtrl.js:4016
 msgid "The import process is added to the queue and will be executed soon."
-msgstr ""
+msgstr "インポート処理はキューに追加され、まもなく実行されます。"
 
 #: ../ng_anr/views/import.soa.html:23
 msgid "The information of each control will be appended."
@@ -4857,7 +4857,7 @@ msgstr ""
 
 #: ../ng_anr/views/anr.home.html:34
 msgid "There is an import error (Restore a snapshot or remove analysis)"
-msgstr ""
+msgstr "インポートエラーがあります（スナップショットを復元するか、分析を削除してください）"
 
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:104
 msgid "There is no document template of this category for this language."
@@ -5853,6 +5853,9 @@ msgstr "再評価トリガーが削除されました。"
 
 msgid "Risk Sources"
 msgstr "リスクソース"
+
+msgid "Risk Support"
+msgstr "リスク支援"
 
 msgid "Add a reassessment trigger"
 msgstr "再評価トリガー条件を追加"

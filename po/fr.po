@@ -1273,7 +1273,7 @@ msgstr "Créer une interview"
 
 #: ../ng_anr/views/import.instance.html:29
 msgid "Create an snapshot before importing"
-msgstr ""
+msgstr "Créer un instantané avant l'import"
 
 #: ../ng_anr/views/create.amvs.html:173 ../ng_anr/views/create.assets.html:117
 #: ../ng_anr/views/create.categories.html:46
@@ -3255,7 +3255,7 @@ msgstr "Non traité"
 
 #: ../ng_anr/views/__external_translate.html:35
 msgid "Number of risks"
-msgstr ""
+msgstr "Nombre de risques"
 
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
@@ -5926,6 +5926,9 @@ msgstr "Le déclencheur de réévaluation a été supprimé."
 
 msgid "Risk Sources"
 msgstr "Sources de risque"
+
+msgid "Risk Support"
+msgstr "Support des risques"
 
 msgid "Monitoring and review"
 msgstr "Suivi et révision"

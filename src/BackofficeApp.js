@@ -128,6 +128,14 @@ angular
                 ncyBreadcrumb: {
                     label: '{{"Models"|translate}}'
                 }
+            }).state('main.kb_mgmt.risk_sources', {
+                url: '/risk-sources',
+                views: {
+                    'main@main': {templateUrl: 'views/risk_sources.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: '{{"Risk Sources"|translate}}'
+                }
             }).state('main.kb_mgmt.reassessment_triggers', {
                 url: '/reassessment-triggers',
                 views: {
