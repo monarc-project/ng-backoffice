@@ -2442,8 +2442,8 @@ msgid "Impacts"
 msgstr "Impacten"
 
 #: ../ng_anr/views/_anr.evalscales.html:29
-msgid "Impacts and consequences scale:"
-msgstr "Impacten en gevolgen schaal:"
+msgid "Impact evaluation (severity of consequences):"
+msgstr "Impactbeoordeling (ernst van de gevolgen):"
 
 #: ../ng_anr/views/_anr.evalscales.html:315
 msgid "Impacts scale:"

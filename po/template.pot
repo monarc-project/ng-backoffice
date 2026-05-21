@@ -59,6 +59,12 @@ msgstr ""
 msgid "Asset actions"
 msgstr ""
 
+#: ../ng_anr/views/create.instance.html:5
+#: ../ng_anr/views/_anr.evalscales.html:29
+#: ../ng_anr/views/_anr.evalscales.html:315
+msgid "Impact evaluation (severity of consequences):"
+msgstr ""
+
 #: views/info_risk.kb_mgmt.html:259
 #: views/reassessment_triggers.kb_mgmt.html:36
 msgid "Active"
