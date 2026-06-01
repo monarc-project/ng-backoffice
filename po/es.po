@@ -5962,3 +5962,15 @@ msgstr "Enfoque de monitorización"
 
 msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
 msgstr "Describa cómo se supervisa o detecta este criterio, p. ej., alertas del SOC, análisis de vulnerabilidades, hallazgos de auditoría, actualizaciones normativas o notificaciones de proveedores."
+
+msgid "Risk identification"
+msgstr "Identificación del riesgo"
+
+msgid "Governance & review"
+msgstr "Gobernanza y revisión"
+
+msgid "Labels"
+msgstr "Etiquetas"
+
+msgid "Residual acceptance"
+msgstr "Aceptación residual"

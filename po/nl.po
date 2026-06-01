@@ -5946,3 +5946,15 @@ msgstr "Monitoringsaanpak"
 
 msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
 msgstr "Beschrijf hoe dit criterium wordt gemonitord of gedetecteerd, bijvoorbeeld via SOC-meldingen, kwetsbaarheidsscans, auditbevindingen, wijzigingen in regelgeving of leveranciersmeldingen."
+
+msgid "Risk identification"
+msgstr "Risico-identificatie"
+
+msgid "Governance & review"
+msgstr "Governance en beoordeling"
+
+msgid "Labels"
+msgstr "Labels"
+
+msgid "Residual acceptance"
+msgstr "Restrisicoacceptatie"

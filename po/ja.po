@@ -5901,3 +5901,15 @@ msgstr "監視方法"
 
 msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
 msgstr "この基準がどのように監視または検知されるかを記述してください。例: SOCアラート、脆弱性スキャン、監査指摘、規制更新、サプライヤー通知。"
+
+msgid "Risk identification"
+msgstr "リスク識別"
+
+msgid "Governance & review"
+msgstr "ガバナンスとレビュー"
+
+msgid "Labels"
+msgstr "ラベル"
+
+msgid "Residual acceptance"
+msgstr "残留受容"

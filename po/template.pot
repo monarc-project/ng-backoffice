@@ -1998,3 +1998,15 @@ msgstr ""
 
 msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
 msgstr ""
+
+msgid "Risk identification"
+msgstr ""
+
+msgid "Governance & review"
+msgstr ""
+
+msgid "Labels"
+msgstr ""
+
+msgid "Residual acceptance"
+msgstr ""

@@ -5963,3 +5963,15 @@ msgstr "Überwachungsansatz"
 
 msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
 msgstr "Beschreiben Sie, wie dieses Kriterium überwacht oder erkannt wird, z. B. durch SOC-Warnmeldungen, Schwachstellenscans, Auditfeststellungen, regulatorische Aktualisierungen oder Lieferantenbenachrichtigungen."
+
+msgid "Risk identification"
+msgstr "Risikoidentifikation"
+
+msgid "Governance & review"
+msgstr "Governance & Überprüfung"
+
+msgid "Labels"
+msgstr "Bezeichnungen"
+
+msgid "Residual acceptance"
+msgstr "Restrisikoakzeptanz"

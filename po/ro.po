@@ -5945,3 +5945,15 @@ msgstr "Abordare de monitorizare"
 
 msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
 msgstr "Descrieți cum este monitorizat sau detectat acest criteriu, de ex. alerte SOC, scanări de vulnerabilități, constatări de audit, actualizări de reglementare sau notificări ale furnizorilor."
+
+msgid "Risk identification"
+msgstr "Identificarea riscului"
+
+msgid "Governance & review"
+msgstr "Guvernanță și revizuire"
+
+msgid "Labels"
+msgstr "Etichete"
+
+msgid "Residual acceptance"
+msgstr "Acceptare reziduală"

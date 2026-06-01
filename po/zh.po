@@ -5837,3 +5837,15 @@ msgstr "监控方式"
 
 msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
 msgstr "请描述如何监控或检测该触发条件，例如 SOC 告警、漏洞扫描、审计发现、法规更新或供应商通知。"
+
+msgid "Risk identification"
+msgstr "风险识别"
+
+msgid "Governance & review"
+msgstr "治理与审查"
+
+msgid "Labels"
+msgstr "标签"
+
+msgid "Residual acceptance"
+msgstr "剩余风险接受"
