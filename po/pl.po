@@ -17,6 +17,10 @@ msgstr ""
 msgid "2FA QRCode"
 msgstr "2FA QRCode"
 
+#: views/index.client_mgmt.html:42
+msgid "2FA enforced"
+msgstr "Wymuszone 2FA"
+
 #: ../ng_anr/src/AnrSoaSheetCtrl.js:57 ../ng_anr/views/_risk_sheet.html:9
 #: ../ng_anr/views/_table_risks.html:106 ../ng_anr/views/_table_risks.html:98
 #: ../ng_anr/views/anr.dashboard.risks.html:28
@@ -94,7 +98,7 @@ msgstr "Działanie"
 #: ../ng_anr/views/detach.objlibs.html:44 ../ng_anr/views/import.object.html:68
 #: ../ng_anr/views/import.soa.html:45 ../ng_anr/views/interviews.html:48
 #: ../ng_anr/views/snapshots.html:33 views/analysis_guides.kb_mgmt.html:20
-#: views/deliveries_models.kb_mgmt.html:22 views/index.client_mgmt.html:43
+#: views/deliveries_models.kb_mgmt.html:22 views/index.client_mgmt.html:45
 #: views/info_risk.kb_mgmt.html:127 views/info_risk.kb_mgmt.html:200
 #: views/info_risk.kb_mgmt.html:294 views/info_risk.kb_mgmt.html:380
 #: views/info_risk.kb_mgmt.html:465 views/info_risk.kb_mgmt.html:53
@@ -108,6 +112,10 @@ msgstr "Działania"
 #: views/index.backoffice.html:112 views/logs.admin.html:4
 msgid "Actions history"
 msgstr "Historia działań"
+
+#: views/dialogs/create.clients.html:90
+msgid "Activate background import"
+msgstr "Włącz import w tle"
 
 #: views/dialogs/activate.2FA.html:5
 msgid "Activate two-factor authentication"
@@ -500,7 +508,7 @@ msgstr "Czy na pewno chcesz usunąć pole kontekstowe?"
 msgid "Are you sure you want to delete the processing?"
 msgstr "Czy na pewno chcesz usunąć przetwarzanie?"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:3782
+#: ../ng_anr/src/AnrLayoutCtrl.js:3779
 msgid "Are you sure you want to delete the {{count}} scales selected ?"
 msgstr "Czy na pewno chcesz usunąć zaznaczone wagi {{count}} ?"
 
@@ -651,7 +659,7 @@ msgstr "Aktywa nie są uwzględnione w niniejszej analizie ryzyka"
 msgid "Asset not exist"
 msgstr "Aktywa nie istnieją"
 
-#: ../ng_anr/views/import.instance.html:35
+#: ../ng_anr/views/import.instance.html:43
 #: ../ng_anr/views/import.object.html:43
 msgid "Asset password (if any)"
 msgstr "Hasło do aktywów (jeśli istnieje)"
@@ -751,6 +759,10 @@ msgstr "Dostępność"
 msgid "Average of levels"
 msgstr "Średnia poziomów"
 
+#: ../ng_anr/views/__external_translate.html:36
+msgid "Average of the max. risk value"
+msgstr "Średnia maksymalnej wartości ryzyka"
+
 #: ../ng_anr/views/anr.soa.html:87
 msgid "BP"
 msgstr "BP"
@@ -766,6 +778,10 @@ msgstr "BR"
 #: views/items.analysis_guides.kb_mgmt.html:2
 msgid "Back to the list"
 msgstr "Powrót do listy"
+
+#: views/index.client_mgmt.html:43
+msgid "Background import active"
+msgstr "Import w tle aktywny"
 
 #: ../ng_anr/views/_gettext_caveats.html:28
 msgid "Bad mode for this asset or models attached to asset type incoherent"
@@ -827,7 +843,7 @@ msgstr "Plik CSV"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:372 ../ng_anr/src/AnrKbMgmtCtrl.js:3864
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:626 ../ng_anr/src/AnrKbMgmtCtrl.js:652
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:69 ../ng_anr/src/AnrKbMgmtCtrl.js:881
-#: ../ng_anr/src/AnrKbMgmtCtrl.js:907 ../ng_anr/src/AnrLayoutCtrl.js:3790
+#: ../ng_anr/src/AnrKbMgmtCtrl.js:907 ../ng_anr/src/AnrLayoutCtrl.js:3787
 #: ../ng_anr/src/AnrObjectCtrl.js:164 ../ng_anr/src/AnrObjectCtrl.js:204
 #: ../ng_anr/src/AnrObjectCtrl.js:574 ../ng_anr/src/AnrObjectCtrl.js:628
 #: ../ng_anr/src/AnrObjectCtrl.js:93 ../ng_anr/src/AnrObjectInstanceCtrl.js:310
@@ -869,7 +885,7 @@ msgstr "Plik CSV"
 #: ../ng_anr/views/edit.evalcontext.html:38
 #: ../ng_anr/views/export.objlibs.html:74 ../ng_anr/views/export.record.html:39
 #: ../ng_anr/views/import.amv.html:52 ../ng_anr/views/import.asset.html:52
-#: ../ng_anr/views/import.file.html:198 ../ng_anr/views/import.instance.html:53
+#: ../ng_anr/views/import.file.html:198 ../ng_anr/views/import.instance.html:61
 #: ../ng_anr/views/import.match.html:52 ../ng_anr/views/import.object.html:138
 #: ../ng_anr/views/import.object.mosp.html:66
 #: ../ng_anr/views/import.recommendationsSets.html:52
@@ -912,7 +928,7 @@ msgstr "Plik CSV"
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:158
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:372
 #: src/kb/rolf/BackofficeKbOpRiskCtrl.js:392 views/dialogs/activate.2FA.html:37
-#: views/dialogs/create.clients.html:89
+#: views/dialogs/create.clients.html:97
 #: views/dialogs/create.deliverymodel.html:64
 #: views/dialogs/create.guides.html:59
 #: views/dialogs/create.guides.items.html:71
@@ -1247,6 +1263,10 @@ msgstr "Utwórz składnik aktywów"
 msgid "Create an interview"
 msgstr "Utwórz wywiad"
 
+#: ../ng_anr/views/import.instance.html:29
+msgid "Create an snapshot before importing"
+msgstr "Utwórz migawkę przed importem"
+
 #: ../ng_anr/views/create.amvs.html:173 ../ng_anr/views/create.assets.html:117
 #: ../ng_anr/views/create.categories.html:46
 #: ../ng_anr/views/create.measures.html:113
@@ -1357,7 +1377,7 @@ msgid "Database admin"
 msgstr "Administrator bazy danych"
 
 #: ../ng_anr/views/interviews.html:45 ../ng_anr/views/snapshots.html:30
-#: views/index.client_mgmt.html:42 views/logs.admin.html:34
+#: views/index.client_mgmt.html:44 views/logs.admin.html:34
 msgid "Date"
 msgstr "Data"
 
@@ -1390,7 +1410,7 @@ msgstr "Definicja kryteriów oceny ryzyka"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:371 ../ng_anr/src/AnrKbMgmtCtrl.js:3863
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:625 ../ng_anr/src/AnrKbMgmtCtrl.js:651
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:880 ../ng_anr/src/AnrKbMgmtCtrl.js:906
-#: ../ng_anr/src/AnrLayoutCtrl.js:3789 ../ng_anr/src/AnrObjectCtrl.js:163
+#: ../ng_anr/src/AnrLayoutCtrl.js:3786 ../ng_anr/src/AnrObjectCtrl.js:163
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:309
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:331
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:444 ../ng_anr/src/AnrRopaCtrl.js:233
@@ -1464,7 +1484,7 @@ msgstr "Usuń zestaw zaleceń"
 msgid "Delete referential"
 msgstr "Usunąć dane referencyjne"
 
-#: ../ng_anr/views/anr.home.html:40
+#: ../ng_anr/views/anr.home.html:43
 msgid "Delete risk analysis"
 msgstr "Usunąć analizę ryzyka"
 
@@ -1964,6 +1984,14 @@ msgstr "Szyfrowane przechowywanie, kontrola dostępu"
 msgid "Encryption"
 msgstr "Szyfrowanie"
 
+#: views/dialogs/create.clients.html:86
+msgid "Enforce 2FA"
+msgstr "Wymuś 2FA"
+
+#: views/dialogs/create.clients.html:90
+msgid "Reset 2FA"
+msgstr "Resetuj 2FA"
+
 #: ../ng_anr/views/__external_translate.html:17
 msgid "English"
 msgstr "English"
@@ -2135,7 +2163,7 @@ msgstr "Analiza ryzyka wywozowego"
 msgid "Export successful"
 msgstr "Wywóz zakończony sukcesem"
 
-#: ../ng_anr/views/anr.home.html:35
+#: ../ng_anr/views/anr.home.html:38
 msgid "Export the whole risk analysis"
 msgstr "Wyeksportuj całą analizę ryzyka"
 
@@ -2408,8 +2436,8 @@ msgid "Impacts"
 msgstr "Oddziaływania"
 
 #: ../ng_anr/views/_anr.evalscales.html:29
-msgid "Impacts and consequences scale:"
-msgstr "Skala wpływów i konsekwencji:"
+msgid "Impact evaluation (severity of consequences):"
+msgstr "Ocena wpływu (dotkliwość konsekwencji):"
 
 #: ../ng_anr/views/_anr.evalscales.html:315
 msgid "Impacts scale:"
@@ -2511,7 +2539,7 @@ msgstr "Analiza przywozu"
 msgid "Import asset"
 msgstr "Importuj aktywa"
 
-#: ../ng_anr/views/import.file.html:39 ../ng_anr/views/import.instance.html:42
+#: ../ng_anr/views/import.file.html:39 ../ng_anr/views/import.instance.html:50
 #: ../ng_anr/views/import.record.html:35
 msgid "Import file"
 msgstr "Importuj plik"
@@ -2566,7 +2594,7 @@ msgstr "Znaczenie jest wymagane"
 msgid "Important (••)"
 msgstr "Ważne (••)"
 
-#: ../ng_anr/views/import.instance.html:45
+#: ../ng_anr/views/import.instance.html:53
 #: ../ng_anr/views/import.object.html:50 ../ng_anr/views/import.record.html:38
 msgid "Importing file..."
 msgstr "Importowanie pliku..."
@@ -2592,7 +2620,7 @@ msgstr "Ryzyko informacyjne"
 #: ../ng_anr/views/_anr.evalscales.html:3 ../ng_anr/views/_anr.kbmgmt.html:331
 #: ../ng_anr/views/_anr.kbmgmt.html:334 ../ng_anr/views/anr.dashboard.html:20
 #: ../ng_anr/views/anr.dashboard.html:392
-#: ../ng_anr/views/anr.dashboard.risks.html:13 ../ng_anr/views/anr.home.html:49
+#: ../ng_anr/views/anr.dashboard.risks.html:13 ../ng_anr/views/anr.home.html:52
 #: ../ng_anr/views/anr.instance.html:103 ../ng_anr/views/anr.soa.sheet.html:10
 #: views/index.backoffice.html:25 views/info_risk.kb_mgmt.html:321
 msgid "Information risks"
@@ -3212,6 +3240,10 @@ msgstr "Nie ustalono"
 msgid "Not treated"
 msgstr "Nie leczony"
 
+#: ../ng_anr/views/__external_translate.html:35
+msgid "Number of risks"
+msgstr "Liczba ryzyk"
+
 #: ../ng_anr/views/anr.dashboard.html:323
 msgid "Number of threats to display"
 msgstr "Liczba zagrożeń do wyświetlenia"
@@ -3283,7 +3315,7 @@ msgstr "Ryzyko operacyjne Znacznik"
 #: ../ng_anr/views/_anr.kbmgmt.html:500 ../ng_anr/views/_anr.kbmgmt.html:503
 #: ../ng_anr/views/anr.dashboard.html:160
 #: ../ng_anr/views/anr.dashboard.html:393
-#: ../ng_anr/views/anr.dashboard.risks.html:76 ../ng_anr/views/anr.home.html:52
+#: ../ng_anr/views/anr.dashboard.risks.html:76 ../ng_anr/views/anr.home.html:55
 #: ../ng_anr/views/anr.instance.html:106 ../ng_anr/views/anr.soa.sheet.html:82
 #: views/index.backoffice.html:32 views/op_risk.kb_mgmt.html:68
 #: views/op_risk.kb_mgmt.html:71
@@ -4031,7 +4063,7 @@ msgstr "Migawka przywrócona"
 msgid "Snapshots"
 msgstr "Migawki"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2899 ../ng_anr/src/AnrLayoutCtrl.js:3823
+#: ../ng_anr/src/AnrLayoutCtrl.js:2899 ../ng_anr/src/AnrLayoutCtrl.js:3820
 #: ../ng_anr/src/AnrLayoutCtrl.js:4012 ../ng_anr/src/AnrRopaCtrl.js:1706
 msgid "Some files could not be imported"
 msgstr "Niektóre pliki nie mogły zostać zaimportowane"
@@ -4243,8 +4275,8 @@ msgstr "Zasób został edytowany pomyślnie."
 msgid "The asset has been exported successfully."
 msgstr "Składnik aktywów został wyeksportowany pomyślnie."
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:2895 ../ng_anr/src/AnrLayoutCtrl.js:3825
-#: ../ng_anr/src/AnrLayoutCtrl.js:3884
+#: ../ng_anr/src/AnrLayoutCtrl.js:2895 ../ng_anr/src/AnrLayoutCtrl.js:3822
+#: ../ng_anr/src/AnrLayoutCtrl.js:3881
 msgid "The asset has been imported successfully"
 msgstr "Składnik aktywów został zaimportowany pomyślnie"
 
@@ -4400,6 +4432,10 @@ msgstr "Przewodnik został usunięty."
 msgid "The guide has been edited successfully."
 msgstr "Przewodnik został pomyślnie edytowany."
 
+#: ../ng_anr/src/AnrLayoutCtrl.js:4016
+msgid "The import process is added to the queue and will be executed soon."
+msgstr "Proces importu został dodany do kolejki i zostanie wkrótce wykonany."
+
 #: ../ng_anr/views/import.soa.html:23
 msgid "The information of each control will be appended."
 msgstr "Informacje o każdej kontroli zostaną dołączone."
@@ -4408,7 +4444,7 @@ msgstr "Informacje o każdej kontroli zostaną dołączone."
 msgid "The input does not appear to be an integer"
 msgstr "Dane wejściowe nie wydają się być liczbą całkowitą"
 
-#: ../ng_anr/src/AnrLayoutCtrl.js:4014
+#: ../ng_anr/src/AnrLayoutCtrl.js:4021
 msgid "The instance has been imported successfully"
 msgstr "Instancja została zaimportowana pomyślnie"
 
@@ -4837,6 +4873,10 @@ msgstr ""
 "Nie ma żadnych zagrożeń dla tego przypadku, lub filtry nie zwróciły żadnych "
 "wyników."
 
+#: ../ng_anr/views/anr.home.html:34
+msgid "There is an import error (Restore a snapshot or remove analysis)"
+msgstr "Wystąpił błąd importu (przywróć migawkę lub usuń analizę)"
+
 #: src/kb/BackofficeDeliveriesModelsCtrl.js:104
 msgid "There is no document template of this category for this language."
 msgstr "Nie ma szablonu dokumentu tej kategorii dla tego języka."
@@ -4915,7 +4955,7 @@ msgstr "Ta nazwa jest już używana"
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:368 ../ng_anr/src/AnrKbMgmtCtrl.js:3860
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:622 ../ng_anr/src/AnrKbMgmtCtrl.js:648
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:877 ../ng_anr/src/AnrKbMgmtCtrl.js:903
-#: ../ng_anr/src/AnrLayoutCtrl.js:3785
+#: ../ng_anr/src/AnrLayoutCtrl.js:3782
 #: ../ng_anr/src/AnrObjectInstanceCtrl.js:440 ../ng_anr/src/AnrRopaCtrl.js:230
 #: ../ng_anr/src/AnrRopaCtrl.js:560 ../ng_anr/src/AnrRopaCtrl.js:637
 #: ../ng_anr/src/AnrRopaCtrl.js:706
@@ -5794,3 +5834,115 @@ msgstr "{{count}} zagrożenia zostały usunięte."
 #: ../ng_anr/src/AnrKbMgmtCtrl.js:915 src/kb/info/BackofficeKbInfoCtrl.js:761
 msgid "{{count}} vulnerabilities have been deleted."
 msgstr "{{count}} podatności zostały usunięte."
+
+msgid "Reassessment trigger criteria"
+msgstr "Kryteria wyzwalające ponowną ocenę"
+
+msgid "Trigger type"
+msgstr "Typ wyzwalacza"
+
+msgid "Add criterion"
+msgstr "Dodaj kryterium"
+
+msgid "No reassessment trigger criteria have been defined for this analysis."
+msgstr ""
+"Dla tej analizy nie zdefiniowano kryteriów wyzwalających ponowną ocenę."
+
+msgid "Delete reassessment trigger criterion?"
+msgstr "Usunąć kryterium wyzwalające ponowną ocenę?"
+
+msgid "This criterion will be removed from the analysis."
+msgstr "To kryterium zostanie usunięte z analizy."
+
+msgid "The reassessment trigger criterion has been created."
+msgstr "Kryterium wyzwalające ponowną ocenę zostało utworzone."
+
+msgid "The reassessment trigger criterion has been updated."
+msgstr "Kryterium wyzwalające ponowną ocenę zostało zaktualizowane."
+
+msgid "Edit risk source"
+msgstr "Edytuj źródło ryzyka"
+
+msgid "Add a risk source"
+msgstr "Dodaj źródło ryzyka"
+
+msgid "The risk source has been created successfully."
+msgstr "Źródło ryzyka zostało pomyślnie utworzone."
+
+msgid "The risk source has been edited successfully."
+msgstr "Źródło ryzyka zostało pomyślnie zaktualizowane."
+
+msgid "Are you sure you want to delete risk source?"
+msgstr "Czy na pewno chcesz usunąć źródło ryzyka?"
+
+msgid "The risk source has been deleted."
+msgstr "Źródło ryzyka zostało usunięte."
+
+msgid "Are you sure you want to delete reassessment trigger?"
+msgstr "Czy na pewno chcesz usunąć wyzwalacz ponownej oceny?"
+
+msgid "The reassessment trigger has been deleted."
+msgstr "Wyzwalacz ponownej oceny został usunięty."
+
+msgid "Risk Sources"
+msgstr "Źródła ryzyka"
+
+msgid "Risk Support"
+msgstr "Wsparcie ryzyka"
+
+msgid "Add a reassessment trigger"
+msgstr "Dodaj kryterium wyzwalacza ponownej oceny"
+
+msgid "Edit reassessment trigger"
+msgstr "Edytuj kryterium wyzwalacza ponownej oceny"
+
+msgid "Default"
+msgstr "Domyślne"
+
+msgid "Custom"
+msgstr "Niestandardowe"
+
+msgid "Monitoring and review"
+msgstr "Monitorowanie i przegląd"
+
+msgid "Last review date"
+msgstr "Data ostatniego przeglądu"
+
+msgid "Review frequency"
+msgstr "Częstotliwość przeglądu"
+
+msgid "Monthly"
+msgstr "Miesięcznie"
+
+msgid "Quarterly"
+msgstr "Kwartalnie"
+
+msgid "Semi-annually"
+msgstr "Półrocznie"
+
+msgid "Annually"
+msgstr "Rocznie"
+
+msgid "On trigger"
+msgstr "Po wyzwoleniu"
+
+msgid "Custom review frequency"
+msgstr "Niestandardowa częstotliwość przeglądu"
+
+msgid "Monitoring approach"
+msgstr "Sposób monitorowania"
+
+msgid "Describe how this trigger is monitored or detected, e.g. SOC alerts, vulnerability scans, audit findings, regulatory updates, supplier notifications."
+msgstr "Opisz, w jaki sposób to kryterium jest monitorowane lub wykrywane, np. za pomocą alertów SOC, skanów podatności, ustaleń audytowych, zmian regulacyjnych lub powiadomień od dostawców."
+
+msgid "Risk identification"
+msgstr "Identyfikacja ryzyka"
+
+msgid "Governance & review"
+msgstr "Nadzór i przegląd"
+
+msgid "Labels"
+msgstr "Etykiety"
+
+msgid "Residual acceptance"
+msgstr "Akceptacja rezydualna"

@@ -35,7 +35,9 @@
 
         $scope.changeLanguage = function (lang_id) {
           UserService.setUiLanguage(lang_id);
-          UserProfileService.updateProfile({language:lang_id},function(){});
+          UserProfileService.updateProfile({language:lang_id}, function () {
+            $rootScope.$broadcast('languageChanged');
+          });
           gettextCatalog.setCurrentLanguage($rootScope.languages[lang_id].code);
           $rootScope.uiLanguage = $rootScope.languages[lang_id].flag;
           $scope.updatePaginationLabels();

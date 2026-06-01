@@ -77,6 +77,7 @@
     .controller('BackofficeKbInfoCtrl', [
       '$scope', '$stateParams', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
       'AssetService', 'ThreatService', 'VulnService', 'AmvService', 'MeasureService', 'TagService', 'RiskService', 'ObjlibService', '$state',
+      'RiskSourceService',
       '$timeout', '$http', 'DownloadService', '$rootScope', 'SOACategoryService', 'ReferentialService', 'MeasureMeasureService',
       'UserService', BackofficeKbInfoCtrl
     ]);
@@ -86,7 +87,7 @@
    */
   function BackofficeKbInfoCtrl($scope, $stateParams, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
                                 AssetService, ThreatService, VulnService, AmvService, MeasureService, TagService, RiskService, ObjlibService,
-                                $state, $timeout, $http, DownloadService, $rootScope, SOACategoryService, ReferentialService,
+                                $state, RiskSourceService, $timeout, $http, DownloadService, $rootScope, SOACategoryService, ReferentialService,
                                 MeasureMeasureService, UserService) {
 
     $scope.tab = $stateParams.tab;
@@ -117,17 +118,20 @@
         case 'vulns':
           $scope.currentTabIndex = 2;
           break;
-        case 'measures':
+        case 'risk-sources':
           $scope.currentTabIndex = 3;
           break;
-        case 'categories':
+        case 'measures':
           $scope.currentTabIndex = 4;
           break;
-        case 'amvs':
+        case 'categories':
           $scope.currentTabIndex = 5;
           break;
-        case 'objlibs':
+        case 'amvs':
           $scope.currentTabIndex = 6;
+          break;
+        case 'objlibs':
+          $scope.currentTabIndex = 7;
           break;
       }
     }
@@ -765,6 +769,153 @@
 
         $scope.vulns.selected = [];
 
+      });
+    };
+
+    /*
+     * RISK SOURCES TAB
+     */
+    $scope.riskSourcesKb = TableHelperService.build('label', 20, 1, '');
+    $scope.riskSourcesKb.activeFilter = 1;
+    var riskSourcesFilterWatch;
+    var riskSourcesLanguageWatch;
+
+    $scope.selectRiskSourcesTab = function (skipTransition) {
+      if (!skipTransition) {
+        $state.transitionTo('main.kb_mgmt.risk_sources');
+      }
+      var initRiskSourcesFilter = true;
+      riskSourcesFilterWatch = $scope.$watch('riskSourcesKb.activeFilter', function () {
+        if (initRiskSourcesFilter) {
+          initRiskSourcesFilter = false;
+        } else {
+          $scope.updateRiskSources();
+        }
+      });
+      riskSourcesLanguageWatch = $rootScope.$on('languageChanged', function () {
+        $scope.updateRiskSources();
+      });
+      TableHelperService.watchSearch(
+        $scope,
+        'riskSourcesKb.query.filter',
+        $scope.riskSourcesKb.query,
+        $scope.updateRiskSources,
+        $scope.riskSourcesKb
+      );
+      $scope.updateRiskSources();
+    };
+
+    $scope.deselectRiskSourcesTab = function () {
+      if (riskSourcesFilterWatch) {
+        riskSourcesFilterWatch();
+      }
+      if (riskSourcesLanguageWatch) {
+        riskSourcesLanguageWatch();
+      }
+      TableHelperService.unwatchSearch($scope.riskSourcesKb);
+    };
+
+    $scope.updateRiskSources = function () {
+      var query = angular.copy($scope.riskSourcesKb.query);
+      query.status = $scope.riskSourcesKb.activeFilter;
+
+      if ($scope.riskSourcesKb.previousQueryOrder != $scope.riskSourcesKb.query.order) {
+        $scope.riskSourcesKb.query.page = query.page = 1;
+        $scope.riskSourcesKb.previousQueryOrder = $scope.riskSourcesKb.query.order;
+      }
+
+      $scope.riskSourcesKb.promise = RiskSourceService.getRiskSources(query);
+      $scope.riskSourcesKb.promise.then(function (data) {
+        $scope.riskSourcesKb.items = data;
+      });
+    };
+
+    $scope.removeRiskSourcesFilter = function () {
+      TableHelperService.removeFilter($scope.riskSourcesKb);
+    };
+
+    $scope.$on('$destroy', function () {
+      $scope.deselectRiskSourcesTab();
+    });
+
+    $scope.riskSourceTypeLabel = function (riskSource) {
+      return gettextCatalog.getString(riskSource.isDefault ? 'Default' : 'Custom');
+    };
+
+    $scope.openRiskSourceDialog = function (ev, riskSource) {
+      var showDialog = function (riskSourceData) {
+        $mdDialog.show({
+          controller: ['$scope', '$mdDialog', 'gettextCatalog', '$rootScope', 'riskSource', RiskSourceDialogCtrl],
+          templateUrl: 'views/create.risk_source.html',
+          clickOutsideToClose: true,
+          multiple: true,
+          targetEvent: ev,
+          locals: {
+            riskSource: riskSourceData ? angular.copy(riskSourceData) : null
+          }
+        }).then(function (payload) {
+          if (riskSource) {
+            payload.id = riskSource.id;
+            RiskSourceService.updateRiskSource(payload, function () {
+              $scope.updateRiskSources();
+              toastr.success(
+                gettextCatalog.getString('The risk source has been edited successfully.'),
+                gettextCatalog.getString('Edition successful')
+              );
+            });
+          } else {
+            RiskSourceService.createRiskSource(payload, function () {
+              $scope.updateRiskSources();
+              toastr.success(
+                gettextCatalog.getString('The risk source has been created successfully.'),
+                gettextCatalog.getString('Creation successful')
+              );
+            });
+          }
+        }, function (reject) {
+          $scope.handleRejectionDialog(reject);
+        });
+      };
+
+      if (riskSource) {
+        RiskSourceService.getRiskSource(riskSource.id).then(showDialog);
+      } else {
+        showDialog(null);
+      }
+    };
+
+    $scope.toggleRiskSourceStatus = function (riskSource) {
+      RiskSourceService.updateRiskSource({
+        id: riskSource.id,
+        isActive: !riskSource.isActive
+      }, function () {
+        $scope.updateRiskSources();
+      });
+    };
+
+    $scope.removeRiskSource = function (ev, riskSource) {
+      var confirm = $mdDialog.confirm()
+        .title(gettextCatalog.getString('Are you sure you want to delete risk source?', {
+          label: riskSource.label
+        }))
+        .textContent(gettextCatalog.getString('This operation is irreversible.'))
+        .targetEvent(ev)
+        .theme('light')
+        .ok(gettextCatalog.getString('Delete'))
+        .cancel(gettextCatalog.getString('Cancel'));
+
+      $mdDialog.show(confirm).then(function () {
+        RiskSourceService.deleteRiskSource(riskSource.id, function () {
+          $scope.updateRiskSources();
+          toastr.success(
+            gettextCatalog.getString('The risk source has been deleted.'),
+            gettextCatalog.getString('Deletion successful')
+          );
+        }, function (error) {
+          toastr.error(error.data.message, gettextCatalog.getString('Deletion failed'));
+        });
+      }, function (reject) {
+        $scope.handleRejectionDialog(reject);
       });
     };
 
@@ -2693,6 +2844,59 @@
 
     $scope.export = function () {
       $mdDialog.hide($scope.exportData);
+    };
+  }
+
+  function RiskSourceDialogCtrl($scope, $mdDialog, gettextCatalog, $rootScope, riskSource) {
+    var currentLanguageCode = gettextCatalog.getCurrentLanguage();
+
+    $scope.dialogTitle = gettextCatalog.getString(riskSource ? 'Edit risk source' : 'Add a risk source');
+    $scope.confirmLabel = gettextCatalog.getString(riskSource ? 'Save' : 'Create');
+    $scope.languages = $rootScope.languages;
+    $scope.riskSource = riskSource || {
+      labels: {}
+    };
+
+    angular.forEach($scope.languages, function (language) {
+      if ($scope.riskSource.labels[language.code] === undefined) {
+        $scope.riskSource.labels[language.code] = riskSource ? riskSource.label : '';
+      }
+    });
+
+    $scope.cancel = function () {
+      $mdDialog.cancel();
+    };
+
+    $scope.getPrimaryLabel = function () {
+      var primaryLabel = ($scope.riskSource.labels[currentLanguageCode] || '').trim();
+      if (primaryLabel) {
+        return primaryLabel;
+      }
+
+      var labels = Object.values($scope.riskSource.labels);
+      for (var index = 0; index < labels.length; index++) {
+        var label = (labels[index] || '').trim();
+        if (label) {
+          return label;
+        }
+      }
+
+      return '';
+    };
+
+    $scope.save = function () {
+      var labels = {};
+      angular.forEach($scope.languages, function (language) {
+        var label = ($scope.riskSource.labels[language.code] || '').trim();
+        if (label) {
+          labels[language.code] = label;
+        }
+      });
+
+      $mdDialog.hide({
+        label: $scope.getPrimaryLabel(),
+        labels: labels
+      });
     };
   }
 })();
