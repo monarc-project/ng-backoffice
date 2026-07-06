@@ -3,11 +3,11 @@
         angular
             .module('BackofficeApp')
             .factory('UserService', [
-                '$rootScope', '$http', '$q', 'localStorageService', 'gettextCatalog',
+                '$rootScope', '$http', '$q', 'localStorageService', 'ConfigService', 'gettextCatalog',
                 UserService
             ]);
 
-        function UserService($rootScope, $http, $q, localStorageService, gettextCatalog) {
+        function UserService($rootScope, $http, $q, localStorageService, ConfigService, gettextCatalog) {
             var self = this;
 
             self.token = null;
@@ -115,8 +115,9 @@
                                 gettextCatalog.setCurrentLanguage('en');
                                 $rootScope.uiLanguage = 'gb';
                             } else {
-                                gettextCatalog.setCurrentLanguage($rootScope.languages[self.uiLanguage].flag);
-                                $rootScope.uiLanguage = $rootScope.languages[self.uiLanguage].flag;
+                                var uiLanguage = ConfigService.getLanguage(self.uiLanguage);
+                                gettextCatalog.setCurrentLanguage(uiLanguage.code);
+                                $rootScope.uiLanguage = uiLanguage.flag;
                             }
 
                             updateRoles(promise);

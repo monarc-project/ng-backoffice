@@ -70,6 +70,20 @@
             }
         };
 
+        var getLanguage = function (index) {
+            var languages = getLanguages();
+            if (index !== undefined && index !== null && languages[index]) {
+                return languages[index];
+            }
+
+            var defaultLanguageIndex = getDefaultLanguageIndex();
+            if (languages[defaultLanguageIndex]) {
+                return languages[defaultLanguageIndex];
+            }
+
+            return {code:'en', name: 'English', flag: 'gb', index: 1};
+        };
+
         var getMospApiUrl = function () {
            if (self.config.mospApiUrl) {
                return self.config.mospApiUrl;
@@ -91,6 +105,7 @@
             loadConfig: loadConfig,
             isLoaded: isLoaded,
             getLanguages: getLanguages,
+            getLanguage: getLanguage,
             getDefaultLanguageIndex: getDefaultLanguageIndex,
             getMospApiUrl: getMospApiUrl,
             getVersion: getVersion,

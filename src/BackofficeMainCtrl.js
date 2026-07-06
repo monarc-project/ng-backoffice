@@ -38,8 +38,9 @@
           UserProfileService.updateProfile({language:lang_id}, function () {
             $rootScope.$broadcast('languageChanged');
           });
-          gettextCatalog.setCurrentLanguage($rootScope.languages[lang_id].code);
-          $rootScope.uiLanguage = $rootScope.languages[lang_id].flag;
+          var uiLanguage = $rootScope.languages[lang_id] || $rootScope.languages[1] || {code: 'en', flag: 'gb'};
+          gettextCatalog.setCurrentLanguage(uiLanguage.code);
+          $rootScope.uiLanguage = uiLanguage.flag;
           $scope.updatePaginationLabels();
         }
 

@@ -314,8 +314,9 @@ angular
                     gettextCatalog.setCurrentLanguage('en');
                     $rootScope.uiLanguage = 'gb';
                 } else {
-                    gettextCatalog.setCurrentLanguage($rootScope.languages[uiLang].code);
-                    $rootScope.uiLanguage = $rootScope.languages[uiLang].flag;
+                    var uiLanguage = ConfigService.getLanguage(uiLang);
+                    gettextCatalog.setCurrentLanguage(uiLanguage.code);
+                    $rootScope.uiLanguage = uiLanguage.flag;
                 }
 
                 $rootScope.updatePaginationLabels();
