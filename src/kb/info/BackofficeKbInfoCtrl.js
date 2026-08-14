@@ -118,20 +118,14 @@
         case 'vulns':
           $scope.currentTabIndex = 2;
           break;
-        case 'risk-sources':
+        case 'measures':
           $scope.currentTabIndex = 3;
           break;
-        case 'measures':
+        case 'amvs':
           $scope.currentTabIndex = 4;
           break;
-        case 'categories':
-          $scope.currentTabIndex = 5;
-          break;
-        case 'amvs':
-          $scope.currentTabIndex = 6;
-          break;
         case 'objlibs':
-          $scope.currentTabIndex = 7;
+          $scope.currentTabIndex = 5;
           break;
       }
     }
@@ -789,6 +783,7 @@
         if (initRiskSourcesFilter) {
           initRiskSourcesFilter = false;
         } else {
+          $scope.riskSourcesKb.query.page = 1;
           $scope.updateRiskSources();
         }
       });
