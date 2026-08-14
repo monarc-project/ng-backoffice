@@ -40,6 +40,20 @@
             </p>
         </md-list-item>
 
+        <md-list-item ui-sref="main.kb_mgmt.risk_sources" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
+            <p class="sidenav-sub-item">
+                <md-icon>flare</md-icon>
+                {{ 'Risk Sources' | translate }}
+            </p>
+        </md-list-item>
+
+        <md-list-item ui-sref="main.kb_mgmt.reassessment_triggers" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
+            <p class="sidenav-sub-item">
+                <md-icon>playlist_add_check</md-icon>
+                {{ 'Reassessment trigger criteria' | translate }}
+            </p>
+        </md-list-item>
+
         <md-list-item ui-sref="main.kb_mgmt.deliveries_models" ui-sref-active="active" ng-show="isAllowed('dbadmin')">
             <p class="sidenav-sub-item">
                 <md-icon>insert_drive_file</md-icon>
@@ -132,10 +146,10 @@
             </md-button>
 
             <md-menu-content width="1" ng-model="uiLanguage" flex aria-label="{{ 'Language' | translate }}">
-              <md-menu-item ng-repeat="(index, lang) in languages">
+              <md-menu-item ng-repeat="(index, lang) in uiLanguages">
                   <md-button ng-click="changeLanguage(index)">
-                      <span class="fi fi-{{ languages[index].flag }}"></span>
-                      {{ languages[index].name | translate }}
+                      <span class="fi fi-{{ uiLanguages[index].flag }}"></span>
+                      {{ uiLanguages[index].name | translate }}
                   </md-button>
               </md-menu-item>
             </md-menu-content>

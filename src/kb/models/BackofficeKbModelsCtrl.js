@@ -4,7 +4,7 @@
         .module('BackofficeApp')
         .controller('BackofficeKbModelsCtrl', [
             '$scope', '$rootScope', 'toastr', '$mdMedia', '$mdDialog', 'gettextCatalog', 'TableHelperService',
-            'ModelService', 'MetadataInstanceService', '$timeout',
+            'ModelService', 'MetadataInstanceService', '$timeout', 'UserService',
             BackofficeKbModelsCtrl
         ]);
 
@@ -12,10 +12,11 @@
      * BO > KB > MODELS
      */
     function BackofficeKbModelsCtrl($scope, $rootScope, toastr, $mdMedia, $mdDialog, gettextCatalog, TableHelperService,
-                                    ModelService, MetadataInstanceService, $timeout) {
+                                    ModelService, MetadataInstanceService, $timeout, UserService) {
         TableHelperService.resetBookmarks();
 
-        $scope.models = TableHelperService.build($scope._langField('label'), 10, 1, '');
+        $scope.models = TableHelperService.build('label' + UserService.getDataLanguage(), 10, 1, '');
+        $scope.models.query.status = '1';
 
         $scope.updateModels = function () {
             $scope.models.promise = ModelService.getModels($scope.models.query);
@@ -32,7 +33,14 @@
 
         TableHelperService.watchSearch($scope, 'models.query.filter', $scope.models.query, $scope.updateModels);
 
-        TableHelperService.watchSearch($scope, 'models.query.status', $scope.models.query, $scope.updateModels);
+        $scope.$watch('models.query.status', function (newValue, oldValue) {
+            if (newValue === oldValue) {
+                return;
+            }
+
+            $scope.models.query.page = 1;
+            $scope.updateModels();
+        });
 
         $scope.createNewModel = function (ev, model) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));

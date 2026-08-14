@@ -4,7 +4,6 @@
         .module('BackofficeApp')
         .controller('BackofficeMainCtrl', [
             '$scope', '$rootScope', '$state', '$mdSidenav', '$mdMedia', 'gettextCatalog', 'UserService',
-            'UserProfileService',
             BackofficeMainCtrl
         ])
         .directive('focusMe', function($timeout) {
@@ -23,8 +22,7 @@
     /**
      * Main Controller for the Backoffice module
      */
-    function BackofficeMainCtrl($scope, $rootScope, $state, $mdSidenav, $mdMedia, gettextCatalog, UserService,
-                                UserProfileService) {
+    function BackofficeMainCtrl($scope, $rootScope, $state, $mdSidenav, $mdMedia, gettextCatalog, UserService) {
         if (!UserService.isAuthenticated() && !UserService.reauthenticate()) {
             setTimeout(function() {
                 $state.transitionTo('login');
@@ -35,9 +33,10 @@
 
         $scope.changeLanguage = function (lang_id) {
           UserService.setUiLanguage(lang_id);
-          UserProfileService.updateProfile({language:lang_id},function(){});
-          gettextCatalog.setCurrentLanguage($rootScope.languages[lang_id].code);
-          $rootScope.uiLanguage = $rootScope.languages[lang_id].flag;
+          $rootScope.$broadcast('languageChanged');
+          var uiLanguage = $rootScope.uiLanguages[lang_id] || {code: 'en', flag: 'gb'};
+          gettextCatalog.setCurrentLanguage(uiLanguage.code);
+          $rootScope.uiLanguage = uiLanguage.flag;
           $scope.updatePaginationLabels();
         }
 

@@ -128,6 +128,22 @@ angular
                 ncyBreadcrumb: {
                     label: '{{"Models"|translate}}'
                 }
+            }).state('main.kb_mgmt.risk_sources', {
+                url: '/risk-sources',
+                views: {
+                    'main@main': {templateUrl: 'views/risk_sources.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: '{{"Risk Sources"|translate}}'
+                }
+            }).state('main.kb_mgmt.reassessment_triggers', {
+                url: '/reassessment-triggers',
+                views: {
+                    'main@main': {templateUrl: 'views/reassessment_triggers.kb_mgmt.html'}
+                },
+                ncyBreadcrumb: {
+                    label: '{{"Reassessment trigger criteria"|translate}}'
+                }
             }).state('main.kb_mgmt.models.details', {
                 url: '/:modelId',
                 views: {
@@ -289,6 +305,7 @@ angular
 
             ConfigService.loadConfig(function () {
                 $rootScope.languages = ConfigService.getLanguages();
+                $rootScope.uiLanguages = ConfigService.getUiLanguages();
                 var uiLang = UserService.getUiLanguage();
                 $rootScope.mospApiUrl = ConfigService.getMospApiUrl();
                 $rootScope.appVersion = ConfigService.getVersion();
@@ -298,8 +315,9 @@ angular
                     gettextCatalog.setCurrentLanguage('en');
                     $rootScope.uiLanguage = 'gb';
                 } else {
-                    gettextCatalog.setCurrentLanguage($rootScope.languages[uiLang].code);
-                    $rootScope.uiLanguage = $rootScope.languages[uiLang].flag;
+                    var uiLanguage = ConfigService.getUiLanguage(uiLang);
+                    gettextCatalog.setCurrentLanguage(uiLanguage.code);
+                    $rootScope.uiLanguage = uiLanguage.flag;
                 }
 
                 $rootScope.updatePaginationLabels();
@@ -309,14 +327,14 @@ angular
                 if (!obj) {
                     return '';
                 } else {
-                    var uiLang = UserService.getUiLanguage();
+                    var dataLanguage = UserService.getDataLanguage();
                     if (!field) {
-                        return obj + (uiLang ? uiLang : ConfigService.getDefaultLanguageIndex());
+                        return obj + (dataLanguage ? dataLanguage : ConfigService.getDefaultLanguageIndex());
                     } else {
-                        if (!obj[field + uiLang] || obj[field + uiLang] === '') {
+                        if (!obj[field + dataLanguage] || obj[field + dataLanguage] === '') {
                             return obj[field + ConfigService.getDefaultLanguageIndex()];
                         } else {
-                            return obj[field + uiLang];
+                            return obj[field + dataLanguage];
                         }
                     }
                 }
