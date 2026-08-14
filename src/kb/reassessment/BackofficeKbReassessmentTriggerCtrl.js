@@ -17,7 +17,7 @@
     ReassessmentTriggerService,
     UserService
   ) {
-    $scope.userLanguage = UserService.getUiLanguage();
+    $scope.userLanguage = UserService.getDataLanguage();
     $scope.reassessmentTriggersKb = TableHelperService.build('triggerType', 20, 1, '');
     $scope.reassessmentTriggersKb.activeFilter = 1;
 
@@ -148,7 +148,6 @@
       });
     };
 
-    $scope.updateReassessmentTriggers();
   }
 
   function ReassessmentTriggerDialogCtrl($scope, $mdDialog, gettextCatalog, $rootScope, reassessmentTrigger) {

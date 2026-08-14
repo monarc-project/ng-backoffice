@@ -143,7 +143,7 @@
       $scope.selectTab(tabName);
     });
 
-    $scope.userLanguage = UserService.getUiLanguage();
+    $scope.userLanguage = UserService.getDataLanguage();
 
     /*
      * ASSETS TYPE TAB
@@ -802,7 +802,6 @@
         $scope.updateRiskSources,
         $scope.riskSourcesKb
       );
-      $scope.updateRiskSources();
     };
 
     $scope.deselectRiskSourcesTab = function () {

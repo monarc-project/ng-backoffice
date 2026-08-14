@@ -33,7 +33,7 @@
             $scope.selectTab(tabName);
         });
 
-        $scope.userLanguage = UserService.getUiLanguage();
+        $scope.userLanguage = UserService.getDataLanguage();
 
 
         /**

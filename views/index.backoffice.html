@@ -146,10 +146,10 @@
             </md-button>
 
             <md-menu-content width="1" ng-model="uiLanguage" flex aria-label="{{ 'Language' | translate }}">
-              <md-menu-item ng-repeat="(index, lang) in languages">
+              <md-menu-item ng-repeat="(index, lang) in uiLanguages">
                   <md-button ng-click="changeLanguage(index)">
-                      <span class="fi fi-{{ languages[index].flag }}"></span>
-                      {{ languages[index].name | translate }}
+                      <span class="fi fi-{{ uiLanguages[index].flag }}"></span>
+                      {{ uiLanguages[index].name | translate }}
                   </md-button>
               </md-menu-item>
             </md-menu-content>

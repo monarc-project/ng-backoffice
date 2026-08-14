@@ -305,6 +305,7 @@ angular
 
             ConfigService.loadConfig(function () {
                 $rootScope.languages = ConfigService.getLanguages();
+                $rootScope.uiLanguages = ConfigService.getUiLanguages();
                 var uiLang = UserService.getUiLanguage();
                 $rootScope.mospApiUrl = ConfigService.getMospApiUrl();
                 $rootScope.appVersion = ConfigService.getVersion();
@@ -314,7 +315,7 @@ angular
                     gettextCatalog.setCurrentLanguage('en');
                     $rootScope.uiLanguage = 'gb';
                 } else {
-                    var uiLanguage = ConfigService.getLanguage(uiLang);
+                    var uiLanguage = ConfigService.getUiLanguage(uiLang);
                     gettextCatalog.setCurrentLanguage(uiLanguage.code);
                     $rootScope.uiLanguage = uiLanguage.flag;
                 }
@@ -326,14 +327,14 @@ angular
                 if (!obj) {
                     return '';
                 } else {
-                    var uiLang = UserService.getUiLanguage();
+                    var dataLanguage = UserService.getDataLanguage();
                     if (!field) {
-                        return obj + (uiLang ? uiLang : ConfigService.getDefaultLanguageIndex());
+                        return obj + (dataLanguage ? dataLanguage : ConfigService.getDefaultLanguageIndex());
                     } else {
-                        if (!obj[field + uiLang] || obj[field + uiLang] === '') {
+                        if (!obj[field + dataLanguage] || obj[field + dataLanguage] === '') {
                             return obj[field + ConfigService.getDefaultLanguageIndex()];
                         } else {
-                            return obj[field + uiLang];
+                            return obj[field + dataLanguage];
                         }
                     }
                 }

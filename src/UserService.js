@@ -18,6 +18,7 @@
             self.uiLanguage = null;
             self.isLoggingOut = false;
             self.permissionGroups = [];
+            self.dataLanguage = null;
 
             var reauthenticate = function () {
                 if (localStorageService.get('auth_token') != null) {
@@ -26,6 +27,7 @@
                     self.uid = localStorageService.get('uid');
                     self.permissionGroups = JSON.parse(localStorageService.get('permission_groups'));
                     self.uiLanguage = localStorageService.get('uiLanguage');
+                    self.dataLanguage = localStorageService.get('dataLanguage');
 
                     updateRoles();
 
@@ -104,18 +106,23 @@
                             self.authenticated = true;
                             self.token = data.data.token;
                             self.uid = data.data.uid;
-                            self.uiLanguage = data.data.language;
+                            self.dataLanguage = ConfigService.getDataLanguageIndex(data.data.language);
+                            self.uiLanguage = localStorageService.get('uiLanguage');
+                            if (self.uiLanguage === null) {
+                                self.uiLanguage = ConfigService.getLanguage(data.data.language).code;
+                            }
 
                             localStorageService.set('auth_token', self.token);
                             localStorageService.set('uid', self.uid);
                             localStorageService.set('permission_groups', JSON.stringify([]));
-                            localStorageService.set('uiLanguage', data.data.language);
+                            localStorageService.set('uiLanguage', self.uiLanguage);
+                            localStorageService.set('dataLanguage', self.dataLanguage);
 
                             if (data.data.language === undefined || data.data.language === null) {
                                 gettextCatalog.setCurrentLanguage('en');
                                 $rootScope.uiLanguage = 'gb';
                             } else {
-                                var uiLanguage = ConfigService.getLanguage(self.uiLanguage);
+                                var uiLanguage = ConfigService.getUiLanguage(self.uiLanguage);
                                 gettextCatalog.setCurrentLanguage(uiLanguage.code);
                                 $rootScope.uiLanguage = uiLanguage.flag;
                             }
@@ -209,12 +216,16 @@
             };
 
             var getUiLanguage = function () {
-                return self.uiLanguage;
+                return ConfigService.getUiLanguage(self.uiLanguage).code;
+            };
+
+            var getDataLanguage = function () {
+                return ConfigService.getDataLanguageIndex(self.dataLanguage);
             };
 
             var setUiLanguage = function (lang) {
-                localStorageService.set('uiLanguage', lang);
-                self.uiLanguage = lang;
+                self.uiLanguage = ConfigService.getUiLanguage(lang).code;
+                localStorageService.set('uiLanguage', self.uiLanguage);
             }
 
             ////////////////////////////////////
@@ -226,6 +237,7 @@
                 getToken: getToken,
                 getUserId: getUserId,
                 getUiLanguage: getUiLanguage,
+                getDataLanguage: getDataLanguage,
                 setUiLanguage: setUiLanguage,
                 isAuthenticated: isAuthenticated,
                 isAllowed: isAllowed,

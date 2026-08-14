@@ -6,8 +6,14 @@
 
     function ConfigService($http) {
         var self = this;
+        var flagCodes = {
+            en: 'gb',
+            ja: 'jp',
+            zh: 'cn'
+        };
         self.config = {
             languages: null,
+            uiLanguageCodes: [],
             defaultLanguageIndex: null,
             mospApiUrl: null,
             appVersion: null,
@@ -21,7 +27,7 @@
                     let code = ISO6391.getCode(data.data.languages[lang]);
                     let AddLang = {
                       code: code,
-                      flag: code == 'en' ? 'gb' : code,
+                      flag: flagCodes[code] || code,
                       name: ISO6391.getName(code),
                       index: lang,
                     }
@@ -35,6 +41,7 @@
                 if (data.data.defaultLanguageIndex) {
                     self.config.defaultLanguageIndex = data.data.defaultLanguageIndex;
                 }
+                self.config.uiLanguageCodes = data.data.uiLanguageCodes || [];
 
                 if (data.data.mospApiUrl !== undefined) {
                     self.config.mospApiUrl = data.data.mospApiUrl;
@@ -84,6 +91,49 @@
             return {code:'en', name: 'English', flag: 'gb', index: 1};
         };
 
+        var getDataLanguageIndex = function (index) {
+            var languages = getLanguages();
+            if (languages[index]) {
+                return Number(index);
+            }
+
+            var defaultLanguageIndex = getDefaultLanguageIndex();
+            if (languages[defaultLanguageIndex]) {
+                return defaultLanguageIndex;
+            }
+
+            var languageIndexes = Object.keys(languages);
+            return languageIndexes.length ? Number(languageIndexes[0]) : defaultLanguageIndex;
+        };
+
+        var getUiLanguages = function () {
+            var uiLanguages = {};
+
+            angular.forEach(self.config.uiLanguageCodes, function (code) {
+                uiLanguages[code] = {
+                    code: code,
+                    flag: flagCodes[code] || code,
+                    name: ISO6391.getName(code)
+                };
+            });
+
+            return uiLanguages;
+        };
+
+        var getUiLanguage = function (code) {
+            var uiLanguages = getUiLanguages();
+            if (uiLanguages[code]) {
+                return uiLanguages[code];
+            }
+
+            var languages = getLanguages();
+            if (languages[code]) {
+                return languages[code];
+            }
+
+            return uiLanguages[languages[getDefaultLanguageIndex()].code] || {code: 'en', flag: 'gb'};
+        };
+
         var getMospApiUrl = function () {
            if (self.config.mospApiUrl) {
                return self.config.mospApiUrl;
@@ -106,6 +156,9 @@
             isLoaded: isLoaded,
             getLanguages: getLanguages,
             getLanguage: getLanguage,
+            getDataLanguageIndex: getDataLanguageIndex,
+            getUiLanguages: getUiLanguages,
+            getUiLanguage: getUiLanguage,
             getDefaultLanguageIndex: getDefaultLanguageIndex,
             getMospApiUrl: getMospApiUrl,
             getVersion: getVersion,
