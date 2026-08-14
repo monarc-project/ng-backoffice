@@ -123,9 +123,7 @@
 
     $scope.removeReassessmentTrigger = function (ev, reassessmentTrigger) {
       var confirm = $mdDialog.confirm()
-        .title(gettextCatalog.getString('Are you sure you want to delete reassessment trigger?', {
-          label: reassessmentTrigger.triggerType
-        }))
+        .title(gettextCatalog.getString('Are you sure you want to delete reassessment trigger?'))
         .textContent(gettextCatalog.getString('This operation is irreversible.'))
         .targetEvent(ev)
         .theme('light')
