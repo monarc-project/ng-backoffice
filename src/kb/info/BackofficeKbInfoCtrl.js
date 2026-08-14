@@ -894,9 +894,7 @@
 
     $scope.removeRiskSource = function (ev, riskSource) {
       var confirm = $mdDialog.confirm()
-        .title(gettextCatalog.getString('Are you sure you want to delete risk source?', {
-          label: riskSource.label
-        }))
+        .title(gettextCatalog.getString('Are you sure you want to delete risk source?'))
         .textContent(gettextCatalog.getString('This operation is irreversible.'))
         .targetEvent(ev)
         .theme('light')
