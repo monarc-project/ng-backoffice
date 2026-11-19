@@ -33,11 +33,11 @@
 
         $scope.changeLanguage = function (lang_id) {
           UserService.setUiLanguage(lang_id);
-          $rootScope.$broadcast('languageChanged');
           var uiLanguage = $rootScope.uiLanguages[lang_id] || {code: 'en', flag: 'gb'};
           gettextCatalog.setCurrentLanguage(uiLanguage.code);
           $rootScope.uiLanguage = uiLanguage.flag;
           $scope.updatePaginationLabels();
+          $rootScope.$broadcast('languageChanged');
         }
 
         $rootScope.isAllowed = UserService.isAllowed;

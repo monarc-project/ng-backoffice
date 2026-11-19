@@ -220,7 +220,7 @@
             };
 
             var getDataLanguage = function () {
-                return ConfigService.getDataLanguageIndex(self.dataLanguage);
+                return ConfigService.getDataLanguageIndex(getUiLanguage());
             };
 
             var setUiLanguage = function (lang) {
