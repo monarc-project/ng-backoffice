@@ -91,10 +91,15 @@
             return {code:'en', name: 'English', flag: 'gb', index: 1};
         };
 
-        var getDataLanguageIndex = function (index) {
+        var getDataLanguageIndex = function (language) {
             var languages = getLanguages();
-            if (languages[index]) {
-                return Number(index);
+            if (languages[language]) {
+                return Number(language);
+            }
+            for (var index in languages) {
+                if (languages[index].code === language) {
+                    return Number(index);
+                }
             }
 
             var defaultLanguageIndex = getDefaultLanguageIndex();
